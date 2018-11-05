@@ -1,0 +1,2078 @@
+/*
+ * KEYs FOR SEARCH
+ 
+ __WithDraw__ : WithdrawViewController
+ 
+ __RegToken__ : RegisterTokenViewController
+ 
+ __REG__      : RegisterViewController
+ 
+ __CPW__      : ChangePasswordViewController
+ 
+ __HOME__     : HomeViewController + ActionsSheet
+ 
+ __Trans__    : TransferViewController : CK - Vi - Vi
+ 
+ __BTF__     :  BankTransferViewController
+ 
+ __CA__ :    ChangeAuthViewController
+ 
+ __LG__ : LoginView
+ 
+ __QR__ : QR COde
+ 
+ __XX__ : Error code server
+ 
+ 
+ __Commerce__ Commerce
+ 
+ 
+ __Search__ Search
+ */
+// Common
+"giay_phep" = "Giấy phép Ví điện tử số 41?GP-NHNN";
+"tai_khoan_lien_ket" = "Liên kết ví với tk,thẻ";
+"tai_khoan" = "Account:";
+"ten_hien_thi" = "Display name";
+"DTDD" = "Mobile";
+"CMND/HC" = "ID/Passport";
+"confirm_huy_soft_token" = "Are you sure you want to delete current soft token?";
+"DANG_KY_TOKEN" = "REGISTER TOKEN";
+"DOI_MAT_KHAU" = "CHANGE PASSWORD";
+"CHUYEN_DOI" = "CHANGE";
+"HUY" = "UNREGISTER";
+"dang_nhap" = "Đăng nhập";
+"dang_ky_tai_khoan" = "Register account ?";
+"so_dien_thoai_dd" = "Mobile phone";
+"cmnd_ho_chieu" = "ID/Passport";
+"doanh_nghiep" = "Corporation";
+"ma_doanh_nghiep" = "Corporation ID";
+"ten_dang_nhap" = "Account";
+"chuyen_tien" = "Transfer";
+"vi_ca_nhan" = "Personal";
+"vi_doanh_nghiep" = "Corporation";
+"anh_san_pham" = "Product\'s images";
+"coming_soon" = "Coming soon";
+"hoan_thanh" = "Done";
+"nhap_ten_don_hang" = "ENTER ORDER'S NAME";
+"sp_phai_cung_store" = "All products must come from same provider";
+"deleting..." = "Deleting...";
+"cac_don_hang" = "Orders";
+"tao_don_hang_moi" = "Create new order";
+"thanh_toan" = "Buy now";
+"tong_tien" = "Total:";
+"xoa" = "Delete";
+"gio_hang" = "Shoping cart";
+"them_vao_don_hang" = "Add to order";
+"vui_long_nhap_mk_tm" = "Please enter password";
+"vui_long_nhap_tk_tm" = "Please enter account";
+"tk_tm_invalid" = "Invalid account";
+"dien_thoai_email" = "Phone number/Email";
+"mat_khau" = "Password";
+"thanh_vien" = "Customer";
+"gian_hang" = "Store";
+"dang_nhap" = "Login";
+"dang_xuat" = "Logout";
+"dang_ky" = "Register";
+"lich_su" = "Product history";
+"gia_lien_he" = "Price: contact";
+"lien_he" = "contact";
+"gia_vnd" = "%@ VND";
+"commerce_load_thong_tin_again" = "Cannot download product information. Do you want to retry";
+"add_to_card_success" = "The product has been added to your shopping cart";
+"add_to_card_fail" = "An error has occurred while adding product to your shopping cart";
+"commerce_shop_about_address" = "Address: %@";
+"commerce_shop_about_phone" = "Phone:";
+"commerce_shop_about_email" = "Email:";
+"commerce_shop_about_yahoo" = "Yahoo: %@";
+"commerce_shop_about_site" = "Website:";
+"commerce_error_loading_store_info" = "Cannot retrieve store information. Tap to try agian";
+"commerce_khoang_gia_khong_hop_le" = "Please edit price range and try again";
+"commerce_goto_shop_title" = "Goto shop";
+"cannot_retrieve_data" = "Cannot retrieve data";
+"chon_nhieu_dm_qua_muc_roi_em_oi" = "You can only select only one general cateogry or no more than 10 sub-category";
+"commerce_san_pham_nav_title" = "Product detail";
+"commerce_price" = "Price";
+"commerce_ngay_update" = "Update time: %@";
+"commerce_khoang_cach" = "Distance: %@ km";
+"commerce_ban_do" = "Goto map";
+"commerce_cho_vao_gio_hang" = "Add to card";
+"commerce_thong_tin_chung" = "More information";
+"commerce_location_is_not_available" = "Your location is not available";
+"commerce_home_dk_gian_hang" = "Register shop";
+"commerce_home_edit_gian_hang" = "Edit shop";
+"commerce_home_gia_cao_thap" = "Price: High to low";
+"commerce_home_gia_thap_cao" = "Price: Low to high";
+"commerce_home_tim_san_pham" = "Product";
+"commerce_home_tim_store" = "Store";
+"so_san_pham_tim_dc" = "%d product(s) was found";
+"so_san_pham_tim_dc_0" = "No product was found";
+"so_gian_hang_tim_dc" = "%d store(s) was found";
+"so_gian_hang_tim_dc_0" = "No store was found";
+"security_changing_title" = "Change wallet/soft token password";
+"security_changing_wallet_pwd" = "Change wallet password";
+"security_changing_token_pwd" = "Change soft token password";
+"bo cong an" = "Police department";
+"cong an tinh" = "PD %@";
+"hard token" = "Hard token";
+"soft token" = "Soft token";
+"using_hard_token" = "Using hard token";
+"using_soft_token" = "Using soft token";
+"using_sec_qa" = "Using secret question";
+"send" = "Send";
+"ty_gia" = "Exchange rate";
+"lai_xuat" = "Profit";
+"nhap_6_so_token" = "six token numbers";
+"w2w_nav_title" = "Wallet to Wallet";
+"w2cmnd_nav_title" = "Wallet to ID";
+"w2bank_nav_title" = "Wallet to Bank";
+"w2viid_nav_title" = "Wallet to ViID";
+/**
+ *
+ *  SAO KE
+ *
+ **/
+"chi tiet giao dich" = "TRANSACTION DETAIL";
+"sk thoi gian" = "Time:";
+"sk amount" = "Amount:";
+"sk noi dung" = "Nội dung:";
+"sk dong" = "Close";
+
+/**
+ *
+ *  ViToken
+ *
+ **/
+"mobile numbers" = "Mobile numbers";
+"vi gan voi token" = "Mobile wallet: %@";
+"chua dang ky softoken" = "You have not registered soft token";
+"hien 6 so vitoken" = "SHOW SOFT\nTOKEN";
+"register soft token title" = "Register token";
+"register soft token success" = "Register token success";
+"vui long nhap" = "Registration is successful, the 6 characters Soft token password will be sent via SMS to phone number %@.\n(You must change password within %d seconds to active Soft token)";
+"vitoken remaing time" = "<html><head><style>html,body{padding:0;margin: 0} .c1{height:28pt;text-align: right;line-height:28pt;font-family:Helvetica;color: #0d6593;font-weight:bold;font-size:12pt;} .c2{color:black;}</style></head><body><div class=\"c1\">Remaining time <span class=\"c2\">%d</span> second(s)</div></body></html>";
+"old pin vitoken" = "Old soft token's password";
+"new pin vitoken" = "New soft token's password";
+"init pin vitoken" = "Initial soft token's password";
+"confirm new pin vitoken" = "Confirm new soft token\'s password";
+"vi - confirm" = "Confirm";
+"vi - change" = "Change";
+"vitoken - change pwd nav title" = "Change vitoken password";
+// Message
+"vitoken - pin is empty" = "PIN must not empty";
+"vitoken - invalid pin" = "PIN is invalid";
+"vitoken - pin mistmatch" = "PIN mismatch";
+/**
+ *
+ * Common
+ *
+ **/
+"common - currency unit" = "VND";
+/*
+ *__WithDraw__
+ *
+ */
+//Message
+"cannot determine token type" = "Cannot determine current token type. Please try again later!";
+"wd - amount is required" = "Amount is empty";
+"wd - amount is invalid" = "Invalid amount";
+"wd - token is required" = "Please enter token numbers";
+"wd - token is invalid" = "'Invalid token numbers";
+//UI
+"cashout more info" = "Enter amount and token password to receive cashout code. Show your ID and cashout code at POS to receive your money";
+"wd - balance" = "Balance:";
+"wd - title" = "Cash Out";
+"wd - button" = "Confirm";
+"wd - completed" = "Withdraw completed";
+
+/*
+ *      __RegToken__
+ */
+"vitoken - enter pin" = "Please enter token\'s password";
+"vitoken - enter 6 number" = "Please enter 6-digits Token";
+
+"dk vitoken" = "REGISTER";
+"dk_delete_vitoken" = "DELETE TOKEN";
+"dieu khoan vitoken" = "<html><head><style>*,html,body{padding: 0; margin: 0;font-family:Arial;font-size: 14px}\na{color:#1f7caf;}</style></head><body align=\"justify\">I agree to the Terms Of Service and the Privacy of Policy<a style=\"text-decoration:none;\" href=\"http://vimass.vn\"></a></body></html>";
+"thay doi mk token" = "CHANGE\nPASSWORD";
+"using hard" = "You are now using hard token with serial number %@, change to soft token";
+"using soft" = "You are now using soft token, change to hard token";
+"khong chuyen dc vi chi co 1 loai" = "You have only one token type";
+"ban chua dang ky loai token nao" = "You have not registered using any token. Please register on before using this function";
+"dang su dung loai token chuyen" = "You are now using the selected token type. Please select other token type";
+"havent register softoken" = "You have not registered soft token";
+"token install other device" = "You have install soft token on other device. Please use the device to process this transaction";
+"havent register hardtoken" = "You have not registered token device";
+"Enter wallet password" = "Enter wallet password";
+"enter token" = "6-digits Token";
+"unregister token confirm" = "Do you want to unregister your token?";
+"token serial" = "Token's serial number";
+"enter token serial" = "Enter token serial number";
+"regtoken" = "Register token device";
+"token serial is required" = "Please re-enter the token serial and try again";
+"register token completed" = "You have successful register the token";
+"unregister completed" = "Unregister completed";
+"vui long thu lai sau it phut"  = "Please try again later after 2 minutes";
+"enter 6 token number" = "Enter six Token number";
+"delete_existing_token" = "This phone already registered soft token. Do you want to delete and register new one?";
+
+//Message
+"regtoken serial is requried" = "Token code is required";
+"regtoken serial is invalid" = "Token code is invalid. Token Code consists of 13 numbers printed on the back of the device token";
+"regtoken is requried" = "Six numbers of token can not be empty";
+"regtoken is invalid" = "Six numbers of  token is invalid";
+"BT001" = "Assigned to token (%1$s) for Wallet (%2$s) successfully.";
+"invalid hard token" = "6 numbers of token is invalid";
+"invalid otp" = "OTP is invalid. OTP consists of 7 numbers";
+/**
+ *
+ *  Register __REG__
+ *
+ **/
+// Security question list
+"chon cau hoi bao mat" = "Select other security question";
+"security question 1" = "Where did you meet your wife/husband?";
+"security question 2" = "What is the name of the street on which you grew?";
+"security question 3" = "What is the brand of your first motorbike";
+"security question 4" = "What is the brand of your first car?";
+"security question 5" = "Where did you spend your honeymoon?";
+"security question 6" = "What was your first pet?";
+"security question 7" = "Who is your favourite movie character?";
+"security question 8" = "What was your first boss's surname?";
+"security question 9" = "What is your youngest child's nickname?";
+"security question 10" = "What is your oldest child's nickname?";
+"security question 11" = "What book that you like reading most?";
+"security question 12" = "What is the name of your childhood bestfriend?";
+"security question 13" = "In which hospital were you born?";
+"security question 14" = "What is your favourite sport?";
+"security question 15" = "In which hospital your oldest son was born?";
+//
+//Message
+"reg - do you agree" = "You must agree with our agreement before continue";
+"reg - images empty" = "Please select required images above";
+"reg - pwd is required" = "Please enter wallet\'s password";
+"reg - pwd is invalid" = "Invalid wallet\'s password";
+"reg - pwd confirm is required" = "Please enter wallet\'s password confirmation";
+"reg - pwd mismatch" = "Confirm password does not match password";
+"required otp" = "Enter numbers that has been sent to your sms inbox";
+"reg - completed" = "Registration has been completed successfully";
+"reg - phone is required" = "Mobile is required";
+"reg - phone is invalid" = "Mobile is invalid";
+"reg - id is required" = "Identification number is required";
+"reg - id is invalid" = "Identification number is invalid";
+"reg - POI is required" = "Issue place is required";
+"reg - POI is invalid" = "Issue place is invalid";
+"reg - DOI is required" = "Issue date is required";
+"reg - DOI is invalid" = "Issue date is invalid";
+"reg - name is required" = "Name is required";
+"reg - name is invalid" = "Name is invalid";
+"reg - DOB is required" = "Birthday is required";
+"reg - DOB is invalid" = "Birthday is invalid";
+"reg - POB is required" = "Place of birth is required";
+"reg - POB is invalid" = "Place of birth is invalid";
+"reg - address is required" = "Address is required";
+"reg - address is invalid" = "Address is invalid";
+"reg - email is required" = "Email is required";
+"reg - email is invalid" = "Email is invalid";
+"reg - question is required" = "Question is required";
+"reg - question is invalid" = "Question is invalid";
+"reg - answer is required" = "Answer is required";
+"reg - answer is invalid" = "Answer is invalid";
+"reg - answer is not the same question" = "Answer is not the same Question";
+"reg - signature sample 1" = "Sample signature 1";
+"reg - signature sample 2" = "Sample signature 2";
+//UI
+// BEGIN Corp
+"reg - vn corp name" = "Corporation name";
+"reg - en corp name" = "Corporation name in foreign language";
+"reg - abbr corp name" = "Abbreviative corporation name";
+"reg - corp code no" = "Corporation code";
+"reg - date of reg" = "Date of modification";
+"reg - head quarter addr" = "Head quarter";
+"reg - corp lat" = "Longtitude";
+"reg - corp lng" = "Latitude";
+"reg - corp website" = "Website";
+"reg - corp phone no" = "Phone";
+"reg - corp fax no" = "Fax";
+"reg - corp position" = "Position";
+"reg - wallet no" = "Wallet no";
+"reg - wallet no1" = "Wallet no 1";
+"reg - wallet no2" = "Wallet no 2";
+"reg - wallet no3" = "Wallet no 3";
+"reg - wallet no4" = "Wallet no 4";
+"reg - corp ng dai dien" = "LEGAL REPRESENTATIVE";
+"reg - corp nguoi phe duyet" = "APPROVAL PEOPLE";
+"reg - corp nguoi de xuat" = "REQUEST PEOPLE";
+"reg - corp anh chup kem theo" = "ATTACHED PHOTOS";
+"reg - corp anh chup dk kinh doanh" = "Photo of registration certificate";
+"reg - corp anh giay uy quyen" = "Attorney rights";
+// END CORP
+"reg - vi mobile" = "Mobile wallet";
+"reg - vi cmnd" = "ID wallet";
+"reg - vi ho chieu" = "Passport wallet";
+"reg - vi doanh nghiep" = "Bussiness wallet";
+"reg - vi dvcc co dia chi" = "Supplier with address wallet";
+"reg - vi dvcc co bien so" = "Supplier with number place wallet";
+"reg - vi dvcc co website" = "Supplier with website wallet";
+"reg - chon loai vi" = "Select wallet type";
+"reg - mk" = "Wallet\'s password";
+"reg - mk confirm" = "Confirm wallet\'s password";
+"reg - chon loai vi dk" = "SELECT REGISTRATION TYPE ";
+"reg - chon ca nhan" = "Personel";
+"reg - chon dtdd" = "Mobile";
+"reg - chon cmnd" = "Identification";
+"reg - chon ho chieu" = "Passport";
+"reg - doanh nghiep" = "Corporation";
+"reg - dv cung cap" = "Supplier";
+"reg - title" = "REGISTER WALLET";
+"title - sua thong tin vi" = "CHANGE PROFILE";
+"all field cannot empty" = "All fields are required. Please enter all informaton and try again";
+"reg - wallet type" = "Wallet type";
+"reg - id" = "Personal ID";
+"reg - passport no" = "Passport number";
+"reg - passport" = "Passport";
+"reg - id no" = "ID numbers";
+"reg - female" = "Female";
+"reg - male" = "Male";
+"reg - phone" = "Mobile";
+"reg - phone no" = "Mobile numbers";
+"reg - ID" = "Personal ID/Passport";
+"reg - issue place" = "Place of issue";
+"reg - issue date" = "Date of issue";
+"reg - full name" = "Full name";
+"reg - sex" = "Sex";
+"reg - dob" = "Date of birth";
+"reg - pob" = "Place of birth";
+"reg - addr" = "Address";
+"reg - email" = "Email";
+"reg - question" = "Secret question";
+"reg - answer" = "Answer for the secret question";
+"reg - register" = "COMPLETE";
+"invalid email address" = "Please enter valid email address and try again";
+"reg -notification of registration" = "Receive notification of registration via:";
+"reg - next" = "Next";
+"reg - prev" = "Previous";
+"reg - via sms" = "SMS";
+"reg - via email" = "E-mail";
+"reg - agreement" = "<html><head><style>*,html,body{padding: 0; margin: 0;font-family:Arial;font-size: 12px}\na{color:#1f7caf;}</style></head><body>I have read and agree with all <a href=\"http://vimass.vn\">agreements</a> of ViMASS corporation</body></html>";
+"reg - photo" = "PHOTO";
+"reg - sig" = "PORTRAIT";
+"reg - photo of passport" = "PASSPORT";
+"reg - from gallery" = "Gallery";
+"reg - from camera" = "Camera";
+"reg - photo of front id" = "Front side ID";
+"reg - photo of back id" = "Back side ID";
+"reg - acc bank" = "Account Bank";
+"reg - acc name" = "Account Name";
+"reg - button title" = "Create Account";
+/**
+ *
+ * Change Password __CPW__
+ *
+ **/
+"cpwd - password mismatch" = "Password mismatch";
+"change password" = "Change Password";
+"cpwd - old pwd" = "Old password";
+"cpwd - new pwd" = "New password";
+"cpwd - re pwd" = "Verify new password";
+"cpwd - token" = "Token's displayed number";
+"cpwd - enter token" = "Enter token";
+"cpwd - enter old pwd"="Enter old password";
+"cpwd - 8 char"="8 characters";
+"cpwd - change"="Change";
+"cpwd - account no" = "Account No. %@";
+"password changed sucessfully" = "Password changed sucessfully";
+"profile changed sucessfully" =  "Your profile changed sucessfully.";
+//validate message
+"cpwd - old password is require" = "Mật khẩu cũ không được để trống";
+"cpwd - old password is invalid" = "Mật khẩu mới không được để trống";
+"cpwd - new password is required" = "Xác nhận mật khẩu mới không hợp lệ";
+"cpwd - new password is invalid" = "Mật khẩu mới không hợp lệ";
+"cpwd - confirm password is required" = "Xác nhận mật khẩu mới không hợp lệ";
+"cpwd - confirm password is invalid" = "Xác nhận mật khẩu mới không hợp lệ";
+"cpwd - token is required" = "6 số Token không được để trống";
+"cpwd - token is invalid" = "6 số Token không hợp lệ";
+
+"cp - wallet type" = "Wallet type :";
+"cp - wNumber" = "Wallet Number :";
+"cp - wallet state" = "State :";
+
+/**
+ *
+ * chua dong bo en - vi
+ *
+ **/
+"sender wallet" = "Sending wallet";
+"invalid email schema" = "Invalid e-mail schema";
+"generate qrcode" = "Generate QR Code";
+
+"pick from photo" = "Photos";
+/**
+ *
+ * Home __HOME__
+ *
+ **/
+"feedback_via_email" = "Send email";
+"feedback_via_phone" = "Call phone";
+"feedback_via_sms" = "Feedback via SMS";
+"gop_cmn_y" = "# Ghop y:\n";
+"nav - home" = "ViMASS";
+"right_home_guide_title" = "User guide";
+"right_home_sharing_app_title" = "Share ViMASS app";
+"right_home_enter_phone" = "Enter phone numbers";
+"right_home_enter_email" = "Enter email address";
+"right_home_select_os" = "Select mobile operating system";
+"right_home_get_link_via" = "Receive link download ViMASS app via";
+"plz_select_phone_os" = "Please select phone operating system to receive download link";
+"right_home_phone_empty" = "Please enter mobile phone number to receive free download link";
+"right_home_phone_invalid" = "Invalid phone number";
+"right_home_email_empty" = "Please enter email address that will receive download link";
+"right_home_email_invalid" = "Invalid email address";
+"right_home_email_title" = "Link download ViMASS app";
+"right_home_email_body" = "I'm using amazing ViMASS app with shock features. You should give it a try. Follow the link below to install the app.\n%@";
+"device not support sms" = "Device does not support sending SMS message";
+// Outer list
+"home_icon_title_vitoken" = "Token";
+"home_icon_title_tim_viec" = "Job Seek";
+"home_icon_title_dia_diem" = "Location";
+"home_icon_title_tin_tuc" = "News";
+"home_icon_title_bds" = "Real Estate";
+"home_icon_title_viec_lam" = "Vacancies";
+"home_icon_title_dinh_vi" = "Location Service";
+"home_icon_title_lich_phim" = "Cinemas";
+"home_icon_title_lich_bay" = "Fight Schedule";
+"home_icon_title_ma_vach" = "QR Code\nBarcode";
+"home_icon_title_stock" = "Stock";
+"home_icon_title_promotion" = "Promotion";
+"home_icon_title_ad" = "Ad";
+
+"home - tai chinh"  = "Mobile wallet";
+"home - giao dich" = "Transaction";
+"home - tool_viid_inquiry" = "Tra cứu\nThẻ đa năng";
+"home - register_edit_place" = "Đăng ký/sửa\nĐịa điểm";
+"home - register_edit_shop" = "Đăng ký/sửa\nGian hàng";
+"home - qr_and_barcode" = "QR Code\nBarcode";
+"home - edit ads" = "Register/edit\nadvertisement\nspecial offer";
+"home - thuong mai" = "Commerce";
+"home - qc va km"     = "Ads and promotion";
+"home - dia diem"   = "Location\nLocation Service";
+"home - ViID"       = "ViID";
+"home - tools"      = "Supporting\nServices";
+
+
+"home - the thanh toan" = "Bank cards";
+"home - nfc"        ="Location Service";
+"home - barcode"    = "Barcode";
+"home - qr"         = "QR";
+"home - ads"        = "Ads";
+"home - qr"         = "QR";
+"home - profile"   = "Profile";
+// qr code
+"home - qrcode read" = "Read QR Code";
+"home - qrcode write" = "Write QR Code";
+"home - qrcode write transfer" = "For transfering";
+"home - qrcode write sms" = "SMS";
+"home - qrcode write web" = "Web";
+"home - qrcode write email" = "Email";
+"home - qrcode write contact" = "Contact";
+"home - qrcode storage" = "Storage";
+"home - qrcode share" = "Share";
+// Bao mat
+"change pin success" = "Change soft token password success";
+"change token type confirm" = "Are you sure?";
+"token type soft" = "Soft Token";
+"token type hard" = "Hard Token";
+"unbind success" = "Delete token success";
+"mat khau vitoken" = "token\'s password";
+"mat khau vitoken short" = "token\'s password";
+"home - change token type" = "Chuyển đổi loại token";
+"home - register" = "Register";
+"home - security" = "Token";
+"home - change pwd title" = "Change password";
+"home - change pwd" = "Wallet\'s password";
+"home - change pwd vitoken" = "Change password token";
+"home - appear 6-digits token" = "Show token numbers";
+"home - register soft token" = "Register token";
+"home - unbind soft token" = "Unbind token";
+"home - register hard token" = "Register token device";
+"home - unbind hard token" = "Unbind token device";
+"home - soft token on other dev" = "token registered on other device";
+"home - inquiry" = "Inquiry";
+"home - deposit" = "Deposit";
+"home - inquiry card" = "Inquiry Card";
+"home - inquiry wallet" = "Inquiry Wallet";
+
+"Function" = "Function";
+//
+"home - transfer" = "TRANSFER";
+"transfer - w2w" = "Wallet - Wallet";
+"transfer - w2bank" = "Wallet - Bank";
+"transfer - w2ID" = "Wallet - ID";
+"transfer - w2Card" = "Wallet to Card";
+"transfer - card2W" = "Card to Wallet";
+"transfer - w2ViID" = "Wallet - ViID";
+"transfer - ViID2W" = "ViID to Wallet";
+"transfer - w2cardbank" = "Wallet - Card";
+"transfer - ViID2cardbank" = "Card - ViID";
+"the_dn_2_vi" = "Multifunction to Wallet";
+"phi_chuyen_tien" = "Transfer fee";
+"thanh_toan_dich_vu" = "Billing";
+"ttdv_dien" = "Electric";
+"ttdv_ve_phim" = "Cinema ticket";
+"ttdv_nc" = "Water";
+"ttdv_ve_may_bay" = "Air plane ticket";
+"ttdv_topup" = "Prepaid phone";
+"ttdv_ve_tau_hoa" = "Train ticket";
+"ttdv_di_dong_tra_sau" = "Phone";
+"ttdv_ve_tau_thuy" = "Ship ticket";
+"ttdv_dt_co_dinh" = "Fixed phone";
+"ttdv_xo_so" = "Loto";
+"ttdv_internet" = "Internet";
+"ttdv_phi_thanh_toan" = "Service fee";
+"ttdv_tvcab" = "Cab TV";
+"ttdv_game_online" = "Game online";
+"ttdv_hoc_phi" = "Education fee";
+"ttdv_bao_hiem" = "Insurance";
+"thanh_toan_khac" = "Other payment";
+"thanh_toan_don_hang" = "Good payment";
+"thanh_toan_mua_sam" = "shopping";
+"thanh_toan_tam_giu" = "Payment custody";
+"phi_thanh_toan" = "Payment fee";
+"bao_mat" = "Security";
+"doi_mk_vi" = "Change wallet password";
+"tai_khoan_va_the_lien_ket" = "Link account and card";
+"tai_khoan_lien_ket" = "Linked account";
+"the_lien_ket" = "Linked card";
+"them_the_lien_ket" = "Add linked account";
+"sua_the_lien_ket" = "Edit linked account";
+"the_da_nang" = "Multifunction card";
+"thay_doi_thong_tin" = "Edit profile";
+"tai_chinh_tin_nhan" = "SMS FINANCE";
+"the_lien_ket_2_vi" = "Lined card to Wallet";
+//
+"home - payment" = "PAYMENT";
+"home - withdraw" = "Cash out";
+"home - place" = "Links";
+
+"history" = "History";
+
+"Under development" = "Under development";
+
+// Tools
+
+
+/**
+ *
+ * Transfer __Trans__
+ *
+ **/
+"chua dang ky vitoken tren thiet bi" = "Quý khách chưa đăng ký sử dụng Token trên thiết bị này.";
+"select wallet type" = "Wallet type";
+"wallet type mobile" = "Mobile";
+"wallet type id" = "Identification";
+"wallet type passport" = "Passport";
+"wallet type merchant" = "Merchant";
+"invalid desc" = "Invalid description";
+"six token numbers" = "6 số Token";
+"invalid token numbers" = "6 số token không hợp lệ";
+"enter token numbers" = "Vui lòng nhập 6 số token";
+"enter soft pin" = "Vui lòng nhập mật khẩu token";
+"invalid soft pin"="Mật khẩu token không hợp lệ";
+"vitoken pwd" = "Token\'s password";
+"mat_khau_pm_token" = "Soft token\'s password";
+"nhap_6_so_token" = "Token numbers";
+"noi_dung" = "Nội dung";
+"loai vi" = "Loại Ví";
+"thuc hien" = "DONE";
+"receiving wallet" = "Wallet number";
+"transfer amount" = "Amount";
+"by word" = "By word";
+"transfer anonymous" = "Anonymous transfer";
+"Money transfer" = "Transfer Money";
+"transfer amount is required" = "Please enter amount of money to transfer and try again";
+"receving wallet is required" = "Please select or enter manually the receving wallet and try again";
+"transfer amount is too small" = "Amount must greater than 10,000";
+"transfer amount is too large" = "Amount must smaller than 10,000,000";
+"transfer confirm" = "Transfer";
+"transf - list" = "Receiving notification phones";
+"transfer completed" = "Transfer completed successfully";
+"bank transfer completed" = "Your money transfer has been sent to %1$s system and pending (maximum duration 48 hours)";
+
+"reach max number of notification phone" = "You can have at max ten number of phones receiving SMS notification about the transaction";
+
+"tf w - receive is required" = "Receiver is required";
+"tf w - phone is invalid" = "Phone number is invalid";
+"tf w - ID_PASSPORT is invalid" = "ID/Passport is invalid";
+"tf w - can not transfer money to yourself" = "Can not transfer money to yourself";
+"tf w - money is required" = "Amount is required";
+"tf w - money is invalid" = "Amount is invalid";
+"tf - Amount must larger than 10000" = "Amount must more than 10,000";
+"tf - Amount must < 10.000.000 VNĐ" = "Amount must less than 10,000,000 VNĐ";
+
+/**
+ *
+ * Bank/ID transfer __BTF__
+ *
+ **/
+"btf - amount" = "Amount";
+"btf - province" = "County/City";
+"btf - bank" = "Bank";
+"btf - branch" = "Branch";
+"btf - receiver" = "Receiver name";
+"btf - acc" = "Account number";
+"btf - ID" = "Personal ID/Passport";
+"btf - issue date" = "Date of issue";
+"btf - issue place" = "Place of issue";
+"btf - select issue place" = "Select Place of issue";
+"btf - descripton" = "Description";
+"btf - transfer btn" = "Transfer";
+"btf - noti list" = "Notification phone numbers";
+
+"btf - amount is required" = "Money is required";
+"btf - amount is invalid" = "Money is invalid";
+"btf - province is required" = "Province is required";
+"btf - bank is required" = "Bank is required";
+"btf - branch is required" = "Branch is required";
+"btf - bene name is required" = "Receiver is required";
+"btf - bene name is invalid" = "Receiver is invalid";
+"btf - account is required" = "Bank account is required";
+"btf - account is invalid" = "Bank account is invalid";
+"btf - next" = "Next";
+"select a province" = "Select a Province";
+"select a bank" = "Select a Bank";
+"select a branch" = "Select a Branch";
+"enter vitoken pin" = "Enter token Pin";
+//place holder
+"Case sensitive / often, no sign" = "Case sensitive / often, no sign";
+"ex : CA HN" = "Ex: CA HN";
+"Do not include special characters, accented Vietnamese" = "Do not include special characters, accented Vietnamese";
+"Do not include special characters, accented Vietnamese(100 characters)" = "Do not include special characters, accented Vietnamese (maximum 100 characters)";
+"ex: infor@vimass.vn" = "Ex: infor@vimass.vn";
+
+"btf - enter account" = "Enter the receiving account";
+
+"reg token - token code" = "Token\'s serial no";
+"reg token - token" = "token\'s password";
+"cpwd - re-type new password" = "Re-type new password";
+/**
+ *
+ * QR Code generate __QR__
+ *
+ **/
+"plz_enter_keyword" = "Please enter your search pharse";
+"share_qrcode_link" = "Chia sẻ liên kết URL";
+"share_qrcode_text" = "Chia sẻ text";
+"share_qrcode_phone" = "Chia sẻ số điện thoại";
+"share_qrcode_email" = "Gửi email";
+"share_qrcode_place" = "Chia sẻ địa điểm";
+"share_qrcode_event" = "Chia sẻ lịch sự kiện";
+"textfield_error_msg_empty_url" = "Please enter website address";
+"textfield_error_msg_invalid_url" = "Invalid website address";
+"qrcode_create_link_label" = "Enter website address to create QR";
+"qrcode_create_text_label" = "Nhập đoạn văn bản để tạo mã QR";
+"qrcode_create_text_empty" = "Please enter a text";
+"qrcode_receiver_email" = "Email người nhận";
+"qrcode_receiver_email_empty" = "Vui lòng nhập địa chỉ email người nhận";
+"qrcode_receiver_email_invalid" = "Địa chỉ email không hợp lệ";
+"qrcode_email_title" = "Tiêu đề email";
+"qrcode_email_body" = "Nội dung:";
+"qrcode_email_body_empty" = "Vui lòng nhập nội dung thư";
+"qrcode_phone_label" = "Nhập số điện thoại cần tạo mã QR";
+"qrcode_phone_empty" = "Vui lòng nhập số điện thoại";
+"qrcode_phone_invalid" = "Số điện thoại không hợp lệ";
+"qrbarcode_open_uri" = "Do you want to go to the following website?\n%@";
+"qrbarcode_open_phone" = "Do you want to call following number?\n%@";
+"qrbarcode_text_alert_title"= "Text";
+"plz_enable_access_event_in_privacy_setting" = "Cannot create new event. Please allow us to access your event in Privacy settings";
+// Create event
+"qrcode_vevent_placeholder_summary" = "Tên sự kiện";
+"qrcode_vevent_placeholder_location" = "Địa điểm";
+"qrcode_vevent_placeholder_url" = "Thông tin URL";
+"qrcode_vevent_placeholder_start" = "Thời gian bắt đầu";
+"qrcode_vevent_placeholder_end" = "Thời gian kết thúc";
+"qrcode_vevent_summary_empty" = "Vui lòng nhập tên sự kiện";
+"qrcode_vevent_location_empty" = "Vui lòng nhập địa điểm";
+"qrcode_vevent_url_invalid" = "Thông tin URL không đúng định dạng";
+"qrcode_vevent_start_empty" = "Vui lòng nhập thời gian bắt đầu";
+"qrcode_vevent_start_invalid" = "Thời gian bắt đầu không hợp lệ";
+"qrcode_vevent_end_empty" = "Vui lòng nhập thời gian kết thúc";
+"qrcode_vevent_end_invalid" = "Thời gian kết thúc không hợp lệ";
+// create qrcode location
+"qrcode_share_loc_latitude" = "Vĩ độ";
+"qrcode_share_loc_longitude" = "Kinh độ";
+"qrcode_share_loc_chem_gio" = "Với mã QR địa điểm, bạn có thể chia sẻ vị trí của cửa hàng, quán cafe... với bạn bè, khách hàng một cách vô cùng tiện lợi.";
+"qrcode_share_loc_error_lat_empty" = "Vui lòng nhập vĩ độ";
+"qrcode_share_loc_error_lng_empty" = "Vui lòng nhập kinh độ";
+// Others
+"qrcode_create_btn_title" = "Create";
+"qr_ma_vach" = "Code:";
+"qr_pro_name" = "Product name:";
+"qr_manu" = "Manufacturer:";
+"qr_addr" = "Address:";
+"qr_contact" = "Contact:";
+"qrbarcode_n_ngay_truoc" = "%@ days ago";
+"qrbarcode_today" = "Today";
+"qrbarcode_search" = "Search";
+"qrbarcode_search_hint" = "Enter QR code or barcode";
+"qrbarcode_nav_title" = "QR and Barcode";
+"transfer qrcode info" = "Receiving wallet: %@\nAmount: %@\nDescription:\n%@";
+"transfer qrcode email" = "<B>Receiving wallet: </B>%@<BR/><B>Amount of money: </B>%@ VND<BR/><B>Description: </B>%@";
+"sms qrcode info" = "Send SMS to phone number: %@\nSMS message:\n%@";
+"sms qrcode email" = "<B>Send SMS to phone number: %@</B><BR/><B>SMS message:</B><BR/><PRE>%@</PRE>";
+"qrcode website url info" = "Website address: %@";
+"qrcode website url email" = "<B>Website address:</B><a href=\"%@\">%@</a>";
+"qrcode email info" = "To: %@\nSubject: %@\nMessage:\n%@";
+"qrcode email email" = "<B>To:</B> %@<BR/><B>Subject:</B> %@<BR/><B>Message:</B><BR/><PRE>%@</PRE>";
+
+"website address" = "Website address";
+"please enter message content" = "Please enter message content";
+"please enter phone number" = "Please enter phone number";
+"please enter valid url" = "Please enter valid URL";
+
+"Create QR Code" = "Create QR Code";
+"Create QRCode Email" = "Create QRCode Email";
+"qrcode gen sms title" = "Create QR Code SMS";
+// SMS
+"qr - receiver" = "Receiver";
+"qr - message" = "Message";
+// URL
+"website address" = "Web URL";
+// Email
+"qr - to" = "To";
+"qr - subject" = "Subject";
+"qr - email message" = "Content";
+
+/**
+ *      ChangeAuthViewController
+ *      __CA__
+ *
+ **/
+"enter hard token" = "Enter hard token";
+"enter otp" = "Enter OTP";
+"are you sure changing authorization" = "Your authorization method is going to be changed. Are you sure?";
+"change authorization success" = "You have change the authorization method successfully";
+"invalid input" = "Invalid input. Please try again";
+
+"auth_otp_method" = "Software Token";
+"auth_otp_desc" = "Use one time password (OTP) to authorize money transfer transaction. You will use SMS message to confirm the transactions.";
+
+"auth_hardtoken_method" = "Hard Token";
+"auth_hardtoken_desc" = "Use Hard token to authorize money transfer transaction. You will need a token key device to confirm the transactions.";
+
+"auth_mix_method" = "OTP And HardToken";
+"auth_mix_desc" = "Mix OTP and Hard Token";
+
+/**
+ *
+ *      Login :  __LG__
+ *
+ **/
+"lg - check login" = "SIGN IN";
+"lg - corp_empty" = "Please enter corporation registration code";
+"lg - corp_invalid" = "Invalid corporation registration code. The code contains only 10-13 numbers";
+"lg - provider_empty" = "Please enter provider registration code";
+"lg - provider_invalid" = "Invalid provider registration code. The code contains only 10 numbers";
+"lg - register" = "SIGN UP";
+"lg - wno"      = "Wallet number";
+"lg - wallet no"= "Wallet number";
+"lbl - wallet no"= "Wallet number:";
+
+"lg - phone no" = "Mobile number";
+"lg - CMND/HC"      = "Passport number";
+"lg - enterprise code" = "Enterprise registration code";
+"lg - provider code" = "Supplier registration code";
+"lg - w phone" = "Mobile wallet";
+"lg - w id" = "Passport wallet";
+"lg - w id/passport" = "ID/Passport wallet";
+"lg - w enterprise" = "Corporation wallet";
+"lg - w provider" = "Supplier wallet";
+"lg - thay doi vi" = "UPDATE\nWALLET";
+"lg - luu mat khau" = "Save password ?";
+"lg - tin nhan" = "SMS";
+"lg - password" = "Password with 8 characters";
+"lg - pwd"      = "Mật khẩu";
+"lg - login"    = "Login";
+"lg - DT"       = "Mobile";
+"lg - CMND/HC"  = "Personal ID/Passport";
+"lg - HC"       = "Passport";
+"lg - cancel" = "Cancel";
+"lg - THUE_BAO_CHUA_DANG_KY_VI" = "Subscriber isn't registered!";
+"lg - SO_VI_KHONG_DUOC_DE_TRONG" ="Wallet user mustbe not empty";
+"lg - SO_VI_O_HOP_LE" ="Wallet user wrong!";
+"lg - CMND/HC_O_HOP_LE" ="Identity Card/Passport wrong!";
+"lg - CMND/HC_O_DUOC_DE_TRONG" ="Identity Card/Passport mustbe not empty!";
+"lg - MAT_KHAU_O_HOP_LE" = "Password is invalid";
+"lg - TRUONG_MAT_KHAU_KHONG_DUOC_DE_TRONG" = "Password is required";
+"lg - SAI_MAT_KHAU" = "Password invalid!";
+
+"lg - BAN_CHUA_CO_VI, BAM" ="Click ";
+"lg - VAO_DAY"  = "here";
+"lg - DE_DANG_KY"   = "to register your Wallet.";
+"lg - login" = "Login";
+
+"Username and password must not be null" = "Username and password must not be null";
+"Logout" = "Logout";
+"Sign In" =  "Sign In";
+"Sign Up" = "Sign Up";
+"SMSModeWarning" = "Warning: There is no internet connection. You can still able to use this app to transfer money using SMS but with limited functionality. If you want to use full feature, please connect to an internet network and try again!";
+
+
+
+
+"AccountInformationTitle" = "Account";
+"NotificationTitle" = "Notification";
+"NotViVietQRCode" = "Invalid information has been received from QRCode image";
+/**
+ *
+ *      CONFIRM VIEW CONTROLLSER
+ *
+ **/
+"require otp" = "Enter OTP";
+"please enter otp" = "This transaction requires OTP. Please enter OTP and try again";
+/**
+ *
+ *      ActionsScreen
+ *
+ **/
+"Chuyen tien" = "Transfer";
+"QR Code" = "QR";
+"Ban do" = "Map";
+"Thanh toan" = "Payment";
+"Tao QRCode" = "Create QR";
+"withdraw money" = "Withdraw";
+/**
+ *
+ *      Change authorization method
+ *
+ **/
+"Phuong phap xac thuc title" = "Authorization Method";
+"thay doi phuong phap xac thuc" = "Change authorization method";
+"lua chon phuong phap xac thuc" = "Please select new authorization method from following methods";
+
+"enter soft token" = "Please enter your soft token";
+"check sms for the otp" = "You will shortly receive a SMS that contains one time password. Please check the message and press OK to continue";
+"khong xac thuc" = "No authorization";
+"xac thuc soft token" = "Using soft token";
+"xac thuc hard token" = "Using hard token";
+"xac thuc otp" = "Using OTP";
+"khong xac thuc detail" = "No authorization method is used. Amount of money transfered is limited in each transaction.";
+"xac thuc soft token detail" = "Use software token to authorize money transfer transaction. This method of authorization is more secured than using no authorization.";
+"xac thuc hard token detail" = "Use physical token (hard token) to authorize money transfer transaction. You will need a token key device to confirm the transactions.";
+"xac thuc otp detail" = "Use one time password (OTP) to authorize money transfer transaction. You will use SMS message to confirm the transactions.";
+/*
+ * change pin screen
+ */
+"a123"="Content";
+"Pin changed sucessfully" = "Pin changed sucessfully";
+"a12"="Old Pin";
+"a22"="New Pin";
+"a32" = "Re-type New Pin";
+"a42" = "Enter old pin";
+"4 characters"="4 characters";
+
+
+"Send failed" = "Send failed";
+"Send Successfully" = "Send Successfully";
+"Send" = "Send";
+"a1" = "Enter old pin";
+"a2" = "4 characters";
+
+"ContactDB" = "Contact";
+"Create QR" = "Create QR";
+"Show QR Code" = "Show QR";
+"OTP does not match" = "OTP does not match";
+"Verify OTP" = "Verify OTP";
+"Enter verification code here" = "Please enter 1111";//"Enter verification code here";
+"Please enter the verification code sent via SMS" = "Please enter the verification code";
+"Verify" = "Verify";
+
+"Mobile appId must be 6-8 characters in length" = "Mobile appId must be 6-8 characters in length";
+"Ví Việt acc  must be 15 characters in length" = "ViMASS account  must be 15 characters in length";
+"Favourite" = "Favorite";
+"All" = "All";
+"Ví Việt" = "ViMASS";
+
+"You must check this information before confirm transaction" = "Please check information before transfer";
+"Target Account" = "Receiving Account";
+"Amount number" = "In words";
+"Amount character" = "Transfer Amount";
+"Sending Account" = "Sending Account";
+"Description transaction" = "Description";
+"Confirm transaction" = "Confirm";
+"plase enter token" = "Token is required to to complete the transaction. Please enter your token before continue";
+
+"FeedBack" = "FeedBack";
+"FAQs" = "FAQs";
+"Transaction" = "Transaction";
+"Information" = "Information";
+"Account" = "Account";
+
+"Do you want to add " = "Do you want to add " ;
+" to your favorite list?" = " to your favorite list?";
+"Do you want to remove " = "Do you want to remove ";
+" from your favorite list?" = " from your favorite list?";
+"Resources not found" = "Resources not found";
+"Failed to connect to network" = "Failed to connect to network";
+"Operation success" = "Operation success";
+"Access denied" = "Access denied";
+"Resource not found" = "Resource not found";
+"System Error" = "System Error";
+
+"Maintain system, coming back later" = "Maintain system, coming back later" ;
+"Invalid password" = "Invalid password";
+"Logined success" = "Logined success";
+"Incorrect user name/password" = "Incorrect user name/password";
+"Temporary blocking" = "Temporary blocking";
+"Unrecognized user" = "Unrecognized user";
+"DUPLICATE_LOGIN_ACCOUNT" = "Your account name is taken";
+"Get balance successfully" = "Get balance successfully";
+"GET_BALANCE_FAILED" = "Get balance failed";
+"Wrong OTP Token" = "Wrong OTP Token";
+
+"Get transactions info successfully" = "Get transactions info successfully";
+"INVALID_NUMBER_RESULT_CODE" = "INVALID_NUMBER_RESULT_CODE";
+"No transaction at time requested" = "No transaction at time requested";
+"Invalid requested time" = "Invalid requested time";
+"Transferring succeed" = "Transferring succeed";
+"The target account is locked" = "The target account is locked" ;
+"The target account must be different than the sender account" = "The target account must be different than the sender account";
+"TRAN_DEBIT_CREDIT_IS_NOT_CORRECT" = "Debit or credit is not correct";
+"Insufficient balance" = "Insufficient balance";
+
+"Transaction failed" = "Transaction failed";
+"The target account is invalid" = "The target account is invalid";
+"Transfer function is suspended" = "Transfer function is suspended";
+"Changed password successfully" = "Changed password successfully";
+"Changed password failed" = "Changed password failed";
+"NEW_OLD_PASSWORD_THESAME" = "Old password and new password must not be the same";
+"NEW_PASSWORD_NOT_ENOUGH_LENG" = "Password is too short";
+"Invalid input" = "Invalid input";
+"Invalid new password" = "Invalid new password";
+"SHOWOTPCONFRIM" = "SHOWOTPCONFRIM";
+
+"LOCKDEVICE" = "Your accont has been locked";
+"SignupScreen" = "SignupScreen";
+"Generate QR code successfully" = "Generate QR successfully";
+"Generate QR code failed" = "Generate QR code failed" ;
+"Get QR code successfully" = "Get QR code successfully" ;
+"Get QR code failed" = "Get QR code failed";
+"Register successfully" = "Register successfully";
+"Register failed" = "Register failed" ;
+"Account existed" = "Account existed";
+"Viviet account existed" = "Viviet account existed";
+"Invalid ViViet account" = "Invalid ViViet account";
+"CHECK_CONTACTS_SUCCESS" = "CHECK_CONTACTS_SUCCESS";
+"CHECK_CONTACTS_FAILED" = "CHECK_CONTACTS_FAILED";
+
+
+"Notification" = "Notification";
+"Cancel" = "Huỷ bỏ";
+"OK" = "OK";
+"Enter Password" = "Enter ViMASS Password";
+/*
+ * CreateQRCode
+ */
+
+"MONEY TRANSFER" = "MONEY TRANSFER";
+"SCAN QR CODE" = "SCAN QR CODE";
+"In words" = "In words";
+"Transfer" = "Transfer";
+"Comment" = "Comment";
+
+"Transfer Amount" = "Transfer Amount";
+"Enter information" = "Enter information";
+"SaveToPhotos" = "Save to photo gallery";
+"SendEmail" = "Send an E-mail";
+"Save" = "Save";
+"CanotSaveToGallery" = "Cannot save the QRCode image to the gallery";
+"SaveToGalleryOK" = "The QRCode has been saved to the gallery";
+"CannotSendMail" = "Cannot send E-mail using this device";
+"MessageSentOK" = "The E-mail has been sent";
+"MessageSentFailed" = "The E-mail could not be sent";
+/*
+ * HistoryTransactionScreen
+ */
+"Transaction Detail" = "Transaction Detail";
+"Amount" = "Amount";
+"Description" = "Description";
+/*
+ * AccountInquiryScreen __inq__
+ */
+"InComming" = "Received from:";
+"OutGoing" = "Transferred to:";
+"Money revert from outGoing" = "Money revert from:";
+"Adv.inquiry" = "Adv.inquiry";
+"Filter Menu" = "Filter Menu";
+"Inq - XEM_TAT_CA" = "All";
+"Inq - GD_DEN"= "Inside transactions";
+"Inq - GD_DI" = "Outside transactions";
+"Inq - blance" = "Số dư ";
+
+
+"nap tien tai quay" = "Deposit";
+"change authentication method" = "Change authentication method";
+"unbind token" = "Unbind token";
+/*
+ * Account Screen
+ */
+"ACCOUNT INFO" = "ACCOUNT INFO";
+"ACCOUNT INQUIRY" = "Inquiry";
+"Hide balance" = "Hide balance";
+"Account No." = "Account No.";
+"Mobile AppID." = "Mobile AppID.";
+
+"available balance" = "Available balance";
+"Transfer" = "Transfer";
+"My Account" = "My Account";
+"Show balance" = "Show balance";
+"Pull to refresh..." = "Pull to refresh...";
+"Last Updated: " = "Last Updated: ";
+"Release to refresh..." = "Release to refresh...";
+"Never" = "Never";
+"Loading..." = "Loading...";
+"VND" = "VND";
+"unavailable" = "unavailable";
+"account name" = "Account name";
+/*
+ * SignUp
+ */
+
+"(*) must not be null" =  "(*) must not be null";
+"Email format error" = "Email format error";
+"Password not match" = "Password not match";
+
+"Email" = "Email";
+"Repass" = "Repass";
+"Username" = "Username";
+"ViViet Acc" = "ViViet Acc";
+"Back" = "Back";
+"Re-type Password(*)"  = "Re-type Pin(*)";
+"Password(*)" = "Pin(*)";
+"Password" = "Password";
+"Password(4 character)" = "Password(4 character)";
+"Account Detail" = "Account Detail";
+"PIN(*)" = "PIN(*)";
+"LOCALIZED_SIGNUP_TITLE" = "Sign Up";
+/*
+ * SETTINGs __SETTING__
+ */
+"Language" = "Language";
+"Settings" = "Account management";
+"Introduction" = "Introduction";
+"Parameter" = "Parameter";
+"Version" = "Version";
+
+"Vietnamese" = "Vietnamese";
+"English" = "English";
+
+"setting - distance searching" = "Distance searching";
+"setting - time out" = "System time out";
+"minute" = "minute";
+"introduction_title" = "ViMASS app %@";
+/*
+ * BaseScreen
+ */
+"Please wait...!" = "Please wait.....";
+"Logout Successfully" = "Logout Successfully";
+"Lastest logined" = "Lastest logined";
+/*
+ * LoginScreen
+ */
+/*
+ * HelpScreen
+ */
+
+"Help" = "Help";
+"Done" = "Xong";
+
+/* ***********************************************   CHUNG *******************************/
+/*
+ * filter menu screen
+ */
+
+"Amount" = "Amount";
+"Time Range" = "Time Range";
+"Contact" = "Contact";
+"Filter" = "Filter";
+"Filter Time" = "Filter Time";
+
+"Filter Amount" = "Filter Amount";
+"Filter Contact" = "Filter Contact";
+"Reset" = "Reset";
+"Search" = "Search";
+"Apply" = "Apply";
+"Time" = "Time";
+
+/*
+ * filter amount screen
+ */
+"Amount fail" = "Amount fail !";
+"Error" = "Error";
+"From" = "From";
+"To" = "To";
+
+
+//
+//
+/*
+ * filter time screen
+ */
+"Wrarning" = "Warning";
+"Date Fail" = "Date Fail";
+
+/*
+ * filter contact screen
+ */
+"Name/Account No." = "Account No.";
+/*
+ *    Option Screen
+ */
+"Change Pin-Code" = "Change Pin-Code";
+"change authorization method" = "Change authorization method";
+
+"Security options"="Security options";
+"About"="About";
+"opt_publish_loc" = "Send user location";
+"opt_allow_view_loc" = "Public user location";
+"opt_allow_view_other_loc" = "View other location";
+"opt_huong_dan_sd" = "User guide";
+
+/*
+ 
+ /*
+ * Settings screen
+ */
+"Text"="Text";
+"Sound"="Sound";
+
+"Server Error" = "Server Error";
+"exit - Are you sure?" = "Do you want to exit this application?";
+"exit" = "Exit";
+/*
+ *  __XX__
+ */
+"XX202719" = "Missing 6 token numbers";
+"XX002" = "Invalid response";
+"XX003" = "Network connection error";
+
+/*
+ *  Message Code from Server - for displaying only
+ */
+"XX999" = "Invalid server response";
+"XX998" = "Unfortunately we have encountered unknown error :(\nPlease report this error.";
+"CM001" = "Operation success";
+"CM002" = "Access denied";
+"CM003" = "Resource not found";
+"CM004" = "System Error";
+"CM005" = "Maintain system, coming back later.";
+"CM011" = "Non exist account";
+"CM015" = "Unkown error";
+"CM007" = "INCORRECT PASSWORD";
+"CM008" = "IMCORRECT USERNAME PASSWORD";
+"CM010" = "TEMPORARY LOCK";
+/*
+ *  _LG_
+ */
+"LG001" = "Logined success";
+"XX202106" = "Identity card/Passport %@ has existed .";
+
+"XX202301" = "Wrong password!";
+"XX202306" = "%1$s has not registered";
+"XX202306_mobile" = "Subscriber";
+"XX202306_id" = "ID number";
+"XX202308" = "Password is not valid, 2nd";
+"XX202309" = "Password is not valid, 3rd";
+"XX202310" = "Password is not valid, 4th. Wallet will be locked if you try to input password over 5th time";
+"XX202311" = "Password is not valid ,5th. Your wallet is blocked . Please call 18006061 to unlock or Wallet automatically unlocked after 180 minutes!";
+"XX202402" = "Wallet is locked";
+/*
+ * __CP__ server
+ */
+"CP202303" = "Change password failed. The new password not be the same with the old password.";
+"XX202300" = "Password is changed  sucessfully !";
+/*
+ * __CA__
+ */
+//"XX400102" = "Wallet is not registered to use the token.";
+
+
+/*
+ * _CK_
+ */
+"XX119906" = "Wallet isn't enough balance for transaction .";
+"XX149905" = "Transfer failed. Wallet received not exist";
+"XX203207" = "Transfer failed. Account %1$s awaiting activation!";
+"XX203401" = "Login success. This is the first time login. You need to change the password.";
+"GB001" = "Get balance succesfull";
+"GB002" = "Get balance failed";
+"GB003" = "Wrong OTP Token";
+"GT001" = "Get transactions info successfully";
+"GT002" = "Invalid number result code";
+"GT003" = "No transaction at time requested";
+"GT004" = "Invalid requested time";
+"TM001" = "Transferring succeed";
+"TM002" = "Transfer credit is being locked";
+"TM003" = "Transfer credit cannot be the transfer debit";
+"TM004" = "Transfer debit/credit is not correct";
+"TM005" = "Amount transferred is lower than the min allowed transaction";
+"TM006" = "Amount transferred is greater than max allowed transaction";
+"TM007" = "Amount transferred is greater than max allowed transaction per day";
+"TM008" = "The balance is not enough";
+"TM009" = "Transfer failed";
+"TM010" = "Invalid credit account";
+"TM011" = "Invalid permission.";
+"TM014" = "The subscriber has not registered to ViMASS services";
+"CP001" = "Changed password successfully";
+"CP002" = "Changed password failed";
+"CP003" = "New password and old password is the same";
+"CP004" = "New password is not long enough";
+"CP005" = "Invalid input";
+"CP006" = "Invalid new password";
+"HI001" = "Show OTP confirm";
+"HI002" = "Lock device";
+"HI003" = "Sign Up screen";
+"QRC001" = "Creating QR code succeed";
+"QRC002" = "Creating QR code failed";
+"QRG001" = "Getting QR code succeed";
+"QRG002" = "Getting QR code failed";
+"RE001" = "Register succeed";
+"RE002" = "Register failed";
+"RE003" = "User existed";
+"RE004" = "This ViMASS account is not exist";
+"RE007" = "This ViMASS account was being used";
+"OPERATION_ERROR" = "1";
+"OPERATION_SUCCESS" = "0";
+"XX0100" = "Wrong token first time. If you enter wrong token 5 times, your token will be locked";
+"XX0101" = "Wrong token second time. If you enter wrong token 5 times, your token will be locked";
+"XX0102" = "Wrong token third time. If you enter wrong token 5 times, your token will be locked";
+"XX0103" = "Wrong token fourth time. If you enter wrong token 5 times, your token will be locked";
+"XX0104" = "Wrong token fifth time. Your token has been locked";
+"XX0105" = "Token is locked";
+"XX0106" = "Account does not existed";
+"XX0107" = "Default account was not found";
+"XX0108" = "Service was not found";
+"XX0109" = "Unkown account status";
+"XX0110" = "Token is not enabled";
+"XX0111" = "Token lost";
+"XX0112" = "User does not existed";
+"XX0113" = "Token need sync";
+"XX0114" = "Public service was not found";
+"XX0115" = "Merchant account not found";
+"XX0116" = "ID number is already used";
+"XX0117" = "Token is not existed";
+"XX0118" = "Cannot change current confirmation method";
+"XX0119" = "User not own token";
+"XX0120" = "Cannot change confirmation method";
+"XX0121" = "Wrong number format";
+"XX0122" = "Transaction has not been completed";
+"XX0123" = "Token is missing";
+"XX0124" = "Wrong syntax";
+"XX0125" = "The phone number already registered";
+"XX0126" = "No wallet account";
+"XX0127" = "Token does not exist";
+"XX0128" = "Token has been reported as loss token";
+"XX0129" = "Cannot use the token";
+"XX0130" = "User is using other token";
+"XX0131" = "Token is registered to other account";
+"XX0132" = "User is not using token";
+"XX0133" = "Password is not valid 2 times";
+"XX0134" = "Password is not valid 3 times";
+"XX0135" = "Password is not valid 4 times";
+"XX203201" = "Transaction has not completed. Confirmation code is invalid or expired";
+"unkown_msg_code_description" = "Unknown error code %@";
+
+
+
+/*
+ * Error from Android
+ */
+
+//"XX202106" = "The Identity number is already in used";
+"XX110301" = "Sending Wallet is invalid";
+"XX110514" = "Can\'t get information";
+"XX119904" = "Wallet was locked";
+"XX119905" = "Wallet was locked";
+"XX130001" = "Wrong token password";
+"XX130002" = "Token is locked!";
+"XX130004" = "Token is stolen!";
+"XX130008" = "Token\'s serial number (%1$s) does not exist";
+"XX130009" = "Token is not able to used!";
+"XX130100" = "Wallet %1$s has bind to another token";
+"XX130101" = "Token (%1$s) has been assigned to other";
+"XX130003" = "Mã token (%1$s) đã ngừng hoạt động";
+"XX130104" = "Token is not exists!";
+"XX130105" = "Soft token has been assigned to the wallet, to unregister it please login to the wallet and use unregister soft token function.";
+"XX110201" = "No transaction";
+"RC149901" = "Identity number or Passport number is not valid";
+"XX149907" = "Wallet is invalid";
+"XX149909" = "Can\'t transfer to yourself";
+"XX149911" = "Transfer function is locked";
+"XX149915" = "Identification number is invalid. Identification include including 9 consecutive numbers";
+"XX149916" = "Date of issue for identification card is not valid";
+"XX160303" = "Transfer is failed!";
+"XX160401" = "Amount is over than max amount in one day %1$s";
+"XX160402" = "Amount is over than %1$s";
+"XX160403" = "Over the time of transfer in one day";
+"XX160404" = "Amount needs to be more than %1$s!";
+"XX119908" = "Thank you for trying our ViMASS's mobile wallet app. Please send feedback to vimass@vimass.vn";
+"XX202302" = "Wallet is locked. To unlock wallet: Call 18006061 or wait in 180 minutes.";
+"XX202303" = "New password must not be current password!";
+//"XX202306" = "ViMASS Wallet does not exist!";
+"XX202307" = "Password is only contain 8 character, number and alphabet.";
+
+
+
+"XX202601" = "Wallet is currently locked!";
+"XX202602" = "OTP Function locked, Over false transaction";
+"XX202701" = "OTP code wrong!";
+"XX202702" = "Transaction is not completed. OTP is not valid or expired";
+"XX202704" = "OTP code wrong, 2nd!";
+"XX202705" = "OTP code wrong, 5th!";
+"XX202710" = "Token code wrong, 3rd!";
+"XX202711" = "Token code wrong, 4th!";
+"XX202712" = "token code wrong, 5th! Wallet is locked!";
+"XX202713" = "Token is locked!";
+"XX202714" = "Token is invalid";
+"XX202715" = "Token has been stolen.";
+"XX202716" = "Token cannot be registered.";
+"XX202718" = "Require time for synchonization";
+"XX202720" = "OTP code wrong, 3rd!";
+"XX202721" = "OTP code wrong, 4th!";
+"XX202722" = "Token code wrong!";
+"XX202102" = "Wallet is temporarily locked";
+"XX202723" = "Token code wrong, 2nd!";
+"XX202902" = "Wallet not found";
+"XX203402" = "Wallet is locked!";
+"XX400100" = "Token doesn\'t exist";
+"XX400101" = "Cannot change to current authorization method";
+"XX400102" = "User doesn\'t own token";
+"XX400104" = "Cannot change confirm method";
+"XX202901" = "Wallet has not been registered";
+"XX202001" = "Wallet %1$s has already registered";
+"RC149999" = "Transaction is not completed. OTP is not valid or expired";
+"VU202726" = "token has not been actived.";
+"XX111113" = "Confirmation code is expired";
+"XX014" = "Transaction was not completed. Input contains Vietnamese";
+/*
+ * __Commerce__
+ */
+"san_pham" = "Products";
+"XX999000" = "Cannot understand server response";
+"khong co san pham barcode" = "No product found with barcode numbers %@";
+// UI man hinh thong tin shop
+"shop_gioi_thieu" = "About";
+"shop_ban_do" = "Map";
+"shop_san_pham" = "All products (%d)";
+/*
+ *  __Search__
+ */
+
+"search - keyword" = "Key word";
+"search filter  - price select" = "Price";
+"search filter  - area select" = "Area";
+
+"search filter  - salary select" = "Select salary";
+"search filter  - level select" = "Select level";
+"search filter  - location select" = "Select work location";
+
+"search - category" = "Cagegory";
+"search - distance" = "Phạm vi";
+"search - search" = "Tìm Kiếm";
+"search - atm" = "Tìm Kiếm ATM";
+"search - select category" = "Select categories";
+"search - all" = "All";
+"search - near me" = "Near me";
+"search - near point" = "Near";
+
+/*
+ * Register new Location
+ */
+"location form - categories" = "Categories";
+"location form - name" = "Location Name";
+"location form - address" = "Address";
+"location form - email" = "Email";
+"location form - phone" = "Phone";
+"location form - website" = "Website";
+
+
+"regloc - locationname" = "Type your location";
+"regloc - locationaddress" = "Type your location's address";
+"regloc - locationdescript" = "Type your location's description here.";
+"regloc - locationstatusalert" = "Location Service disabled";
+"regloc - locationstatusmessage" = "You currently have all location services for this device disabled.";
+"regloc - locationservicepurpose" = "Application need to access your location data.";
+"regloc - validatedataerrortitle" = "Please re-enter place information";
+"regloc - validategps" = "Missing GPS information!\n";
+"regloc - validatecategory" = "Didn't select place's category!\n";
+"regloc - validatename" = "Missing place's name!\n";
+"regloc - validateaddress" = "Missing place's address!\n";
+"regloc - inputvimassids" = "ViMASS commerce's ID";
+"regloc - inputimages" = "Photo's link";
+"regloc - inputvideos" = "Video's link";
+"regloc - inputemails" = "Email address";
+"regloc - inputphones" = "Phone number";
+"regloc - inputwebsites" = "Website's link";
+"regloc - register" = "Register";
+"regloc - inputimageurl" = "Photo's link";
+"regloc - regloc" = "Register Place";
+
+/*
+ * Register new Location Service
+ */
+"SYS001" = "Có lỗi trong quá trình kết nối đến server. Vui lòng thử lại sau!";
+"SYS002" = "SYS002";
+"SYS003" = "SYS003";
+"SYS004" = "SYS004";
+"SYS005" = "SYS005";
+"SYS006" = "Device is expried";
+"SYS007" = "SYS007";
+"SYS008" = "SYS008";
+"SYS009" = "You are not registered location services";
+
+"regLocSer - register and edit" = "Register/Update  location service";
+"regLocSer - register title" = "Register location service";
+"regLocSer - edit title" = "Update Location Service";
+
+"regLocSer - agreement" = "<html><head><style>*,html,body{padding: 0; margin: 0;font-family:Arial;font-size: 12px}\na{color:#1f7caf;}</style></head><body>I agree to <a href=\"http://vimass.vn\">the Terms</a> Of Service and the Privacy Of Policyc </body></html>";
+
+"regLocSer - edit" = "Update";
+"regLocSer - edit success" = "Update information success.";
+"regLocSer - edit fail" = "Update information fail.";
+
+"regLocSer - register" = "Register";
+"regLocSer - register success" = "Register location service success.";
+"regLocSer - register fail" = "Register location service fail.";
+
+"regLocSer - phone" = "Phone";
+"regLocSer - expired" = "Expired";
+"regLocSer - remaining" = "Remaining";
+
+"regLocSer - name" = "Transaction name";
+"regLocSer - phone" = "Transaction phone";
+"regLocSer - service type" = "Service type";
+"regLocSer - time to use" = "Time to use";
+"regLocSer - introduce" = "Introduce";
+
+"regLocSer - pictures" = "Pictures";
+"regLocSer - videos" = "Videos";
+
+
+/*
+ * __BDS_ Form
+ */
+
+"reg bds - info" = "Thông tin chung";
+"reg bds - images" = "Hình ảnh";
+"reg bds - video" = "Video";
+"reg bds - description" = "Mô tả";
+"reg bds - category" = "Loại tin";
+"reg bds - time" = "Thời hạn đăng tin";
+"reg bds - title" = "Tiêu đề";
+"reg bds - address" = "Địa chỉ";
+"reg bds - area" = "Diện tích";
+"reg bds - price" = "Giá";
+"reg bds - contact" = "Liên hệ";
+"reg bds - phone" = "Số điện thoại";
+"reg bds - email" = "Email";
+"reg bds - location" = "Toạ độ";
+"reg bds - register" = "Đăng tin";
+"reg bds - title register" = "Đăng tin Bất động sản";
+"reg bds - title edit" = "Quản lý Bất động sản";
+
+/*
+ *  __JOB__ FORM
+ */
+
+"job reg - list title" = "Quản lý Việc làm";
+"job reg - form title" = "Thông tin tuyển dụng";
+
+"job form - job title" = "THÔNG TIN CÔNG VIỆC";
+"job reg - info" = "Tin tuyển dụng";
+"job reg - title" = "Tiêu đề";
+"job reg - job" = "Ngành nghề";
+"job reg - level" = "Cấp bậc";
+"job reg - salary" = "Mức lương";
+"job reg - expire" = "Hạn nộp hồ sơ";
+"job reg - error quantity" = "Số lượng không được để trống!";
+"job reg - quantity" = "Số lượng";
+"job reg - work location" = "Nơi làm việc";
+"job reg - contact" = "Liên hệ";
+"job reg - description" = "Mô tả công việc";
+"job reg - required" = "Yêu cầu công việc";
+"job reg - ok" = "Đăng tin";
+
+"job form - company title" = "THÔNG TIN ĐƠN VỊ TUYỂN DỤNG";
+"job company - title" = "Thông tin đơn vị tuyển dụng";
+"job company - info" = "Thông tin chung";
+"job company - name" = "Tên đơn vị tuyển dụng";
+"job company - address" = "Địa chỉ";
+"job company - email" = "Email";
+"job company - phone" = "Điện thoại";
+"job company - website" = "Website";
+"job company - location" = "Toạ độ";
+"job company - intro" = "Giới thiệu";
+"job company - image" = "Hình ảnh";
+"job company - video" = "Video";
+"job company - youtube" = "Link Youtube";
+
+/*
+ * Can viec __LOOKING JOB__
+ */
+"looking job - list title" = "Quản lý Tìm việc làm";
+"looking job - title register" = "Đăng tin tìm việc làm";
+"looking job - title edit" = "Sử tin tìm việc làm";
+"looking job - expectation" = "Expectation";
+"looking job - info" = "Info";
+"looking job - employee type" = "Employee type";
+"looking job - level" = "Level";
+"looking job - location" = "Location";
+"looking job - date start" = "Date start";
+"looking job - name" = "Name";
+"looking job - birthday" = "Birthday";
+"looking job - gender" = "Gender";
+"looking job - male" = "Male";
+"looking job - female" = "Female";
+"looking job - phone" = "Phone";
+"looking job - email" = "Email";
+"looking job - address" = "Address";
+"looking job - education" = "Education";
+"looking job - foreignLanguage" = "Foreign Language";
+"looking job - computingSkill" = "Computing skill";
+"looking job - skill" = "Skill";
+"looking job - experience" = "Experience";
+"looking job - youtube" = "Link";
+"looking job - description" = "Description";
+"looking job - cv" = "CV ứng viên";
+"looking job - open file" = "Mở file";
+
+"looking job searching - job" = "JOB";
+"looking job searching - location" = "CITY";
+"looking job searching - level" = "LEVEL";
+"looking job searching - salary" = "SALARY";
+"looking job searching - education" = "EDUCATION";
+"looking job searching - experience" = "EXPERIENCE";
+
+"search setting - manager" = "Services manager";
+"search setting - register" = "Services register";
+
+"search reg setting - dia diem" = "Location";
+"search reg setting - dinh vi" = "Tracking";
+"search reg setting - viec lam" = "Vacancy";
+"search reg setting - can viec" = "Searching for jobs";
+"search reg setting - bds" = "Real estate";
+"search reg setting - rao vat" = "Rao vặt";
+
+/*
+ * RAO_VAT
+ **/
+"rao vat - list title" = "Quản lý tin rao vặt";
+"rao vat form - add" = "Thêm mới tin rao vặt";
+"rao vat form - edit" = "Cập nhật tin rao vặt";
+"rao vat form - info" = "Information";
+"rao vat form - category" = "Category";
+"rao vat form - title" = "Title";
+"rao vat form - name" = "Name";
+"rao vat form - address" = "Address";
+"rao vat form - area" = "Location";
+"rao vat form - time" = "Time";
+"rao vat form - phone" = "Phone";
+"rao vat form - email" = "Email";
+"rao vat form - description" = "Description";
+
+/*
+ *
+ *  SVPlace
+ *
+ */
+"place - phone" = "Call";
+"place - mail" = "Mail";
+"place - website" = "Website";
+"place - description" = "Mô tả";
+
+"html - origin source" = "Origin source";
+
+
+// Airport
+"place_airport_arrival" = "Arrival";
+"place_airport_departure" = "Departure";
+
+/*
+ * Nam's Service
+ */
+"BDS_JOB400" = "Data not found";
+/*
+ * DucNT
+ */
+//A
+"anh_dai_dien" = "Ảnh đại diện";
+"anh_mat_truoc_cmnd" = "Ảnh mặt trước CMND";
+"anh_mat_sau_cmnd" = "Ảnh mặt sau CMND";
+"anh_chu_ky" = "Ảnh chữ ký";
+
+
+//B
+"bao_mat" = "Bảo mật";
+"button_thuc_hien" = "Thực hiện";
+"button_dong_y" = "Đồng ý";
+"button_huy" = "Huỷ";
+
+//C
+"co_loi_trong_qua_trinh_doi_mat_khau" = "Có lỗi trong quá trình đổi mật khẩu! Xin vui lòng chuyển sang xác thực quên mật khẩu";
+"chuyen_tien" = "Chuyển tiền";
+"chuyen_tien_den_vi" = "đến ví Vimass";
+"chuyen_tien_den_tai_khoan" = "đến tài khoản";
+"chuyen_tien_den_the_ngan_hang" = "đến thẻ";
+"chuyen_tien" = "Chuyển tiền";
+"CMND" = "Số CMND";
+"chup_anh" = "Chụp ảnh";
+"chi_nhanh_pgd" = "Chi nhánh/PGD";
+"chi_nhanh_pgd_khong_duoc_de_trong" = "Chi nhánh/PGD không được để trống";
+"can_tao_token" = "Bạn cần tạo token";
+"con_lai" = "Còn lại";
+"co_loi_trong_qua_trinh_lay_du_lieu" = "Có lỗi trong quá trình lấy dữ liệu!";
+"co_loi_trong_qua_trinh_lay_thong_tin_dia_diem" = "Có lỗi trong quá trình lấy thông tin địa điểm. Mời bạn thử lại sau!";
+"co_loi_trong_qua_trinh_lay_du_lieu_su_kien" = "Có lỗi trong quá trình lấy dữ liệu sự kiện. Mời bạn thử lại sau!";
+
+"co_loi_trong_qua_trinh_giao_dich" = "Có lỗi trong quá trình giao dịch. Mời bạn thử lại sau!";
+
+"co_the_bo_qua_ten_giao_dich" = "Tên giao dich (có thể bỏ qua)";
+"co_the_bo_qua_ten_CMND" = "Tên CMND (có thể bỏ qua)";
+"co_the_bo_qua_ngay_sinh" = "Ngày sinh (có thể bỏ qua)";
+"co_the_bo_qua_CMND" = "Số CMND (có thể bỏ qua)";
+"co_the_bo_qua_ngay_cap" = "Ngày cấp (có thể bỏ qua)";
+"co_the_bo_qua_noi_cap" = "Nơi cấp (có thể bỏ qua)";
+"co_the_bo_qua_noi_thuong_tru" = "Nơi thường trú (có thể bỏ qua)";
+"co_the_bo_qua_ten_hien_thi" = "Tên hiển thị (có thể bỏ qua)";
+"co_the_bo_qua_thu_dien_tu" = "Email nhận mã xác thực (có thể bỏ qua)";
+"co_the_bo_qua" = "Có thể bỏ qua";
+"cap_nhat_tai_khoan_thuong_dung" = "Thay đổi tài khoản \n thường dùng";
+"cap_nhat_tai_khoan_rut_tien_thuong_dung" = "Thay đổi tài khoản rút tiền \n thường dùng";
+"cap_nhat_tai_khoan_vi_thuong_dung" = "Thay đổi tài khoản Ví \n thường dùng";
+"cap_nhat_tai_khoan_the_thuong_dung" = "Thay đổi tài khoản thẻ \n thường dùng";
+"cap_nhat_tai_khoan_the_rut_tien_thuong_dung" = "Thay đổi tài khoản thẻ rút tiền \n thường dùng";
+"co_the_bo_qua_vi_lien_ket_1" = "Thông báo sau nhận tiền 1 (có thể bỏ qua)";
+"co_the_bo_qua_vi_lien_ket_2" = "Thông báo sau nhận tiền 2 (có thể bỏ qua)";
+"co_the_bo_qua_vi_lien_ket_3" = "Thông báo sau nhận tiền 3 (có thể bỏ qua)";
+"co_the_bo_qua_vi_lien_ket_4" = "Thông báo sau nhận tiền 4 (có thể bỏ qua)";
+"co_the_bo_qua_vi_lien_ket_5" = "Thông báo sau nhận tiền 5 (có thể bỏ qua)";
+"edMatkhauPKI" = "Mật khẩu mPKI";
+"edOTPXacNhan" = "Mật khẩu OTP";
+"edMatKhauHanMuc" = "Mật khẩu hàn mức";
+"edHanMuc" = "Hạn mức PKI";
+"edDoiMatKhau1" = "Mật khẩu PKI";
+"edDoiMatKhau2" = "Mật khẩu PKI mới";
+"edDoiMatKhau3" = "Xác nhận mật khẩu PKI mới";
+//D
+"dong" = "Đóng";
+"doi_mat_khau_token" = "Đổi mật khẩu token";
+"den" = "Đến";
+"doi_mat_khau" = "Đổi mật khẩu";
+"dia_chi_nha" = "Địa chỉ nhà";
+"dien_thoai" = "Điện thoại";
+"dia_diem" = "Địa điểm";
+"danh_muc" = "Danh Mục";
+"dien_tich" = "Diện tích";
+"dong_y_dieu_khoan" = "Bạn phải đồng ý các điều khoản của ViMASS khi đăng ký";
+"dang_gui" = "Đang gửi";
+"dang_phat_trien" = "Đang phát triển";
+"dang_nhap_tk_vimass" = "Đăng nhập tài khoản ViMASS";
+"dang_nhap_bang_facebook" = "Đăng nhập bằng facebook";
+"dang_nhap_bang_google" = "Đăng nhập bằng google";
+"diem_giao_dich" = "Điểm giao dịch";
+"dong_y" = "Đồng ý";
+"duyet_giao_dich" = "Duyệt giao dịch";
+"den_the" = "Đến thẻ";
+"den_tai_khoan" = "Đến tài khoản";
+"den_vi" = "Đến Ví";
+"den_vi_dien_tu_khac" = "đến Momo";
+"dien_thoai_lien_he" = "Điện thoại liên hệ";
+"lam_tu_thien" = "từ thiện";
+//E
+"email_khong_duoc_de_trong" = "Thư điện tử không được để trống!";
+"email_khong_hop_le" = "Thư điện tử không hợp lệ";
+
+//F
+
+//G
+"gia" = "Price";
+"gui" = "Gửi";
+"giao_dich" = "Giao dịch";
+"gui_tiet_kiem" = "gửi tiết kiệm";
+
+//H
+"huy" = "Huỷ";
+"hien_thi_token" = "6 số Token";
+"han_muc_giao_dich" = "hạn mức";
+"het_han" = "Hết hạn";
+"hoac" = "Hoặc";
+"han_muc_giao_dich_1" = "Hạn mức giao dịch";
+
+"han_muc_giao_dich_so_tien" = "Số tiền giao dịch";
+
+"han_muc_giao_dich_mot_lan" = "Hạn mức giao dịch một lần";
+"han_muc_giao_dich_mot_ngay" = "Hạn mức giao dịch một ngày";
+"han_muc_giao_dich_mot_thang" = "Hạn mức giao dịch một tháng";
+
+
+"huong_dan_nap_tien_vao_vi" = "Hướng dẫn nạp tiền vào ví";
+
+"hen_gio_tang_qua" = "Hẹn giờ tặng quà";
+
+//I
+
+//J
+
+//K
+"khong_co_giao_dich_nao" = "Bạn không có giao dịch nào gần đây!";
+"khong_co_giao_dich_nao_tu_ngay_den_ngay" = "Bạn không có giao dịch nào từ ngày %@ đến ngày %@!";
+"khong_the_chat_voi_chinh_minh" = "Bạn không thể chat với chính mình!";
+"khuyen_mai" = "Khuyến mại";
+"khong_duoc_bo_trong" = "không được bỏ trống";
+
+
+//L
+"lay_anh" = "Lấy ảnh";
+"luu_tai_khoan_thuong_dung" = "Lưu tài khoản thường dùng";
+"loai_the_ngan_hang" = "Loại thẻ ngân hàng";
+"loai_the_ngan_hang_khong_duoc_de_trong" = "Loại thẻ ngân hàng không được để trống";
+"loi_gioi_thieu" = "Chia sẻ phần mềm ViMASS với bạn bè và người thân của bạn";
+"lich_su_giao_dich" = "Lịch sử giao dịch";
+"lay_ma_xac_thuc" = "LẤY MÃ";
+
+//M
+"mat_khau_moi" = "Mật khẩu mới";
+"mat_khau_moi_confirm" = "Nhập lại mật khẩu mới";
+"mat_khau_khong_trung_khop" = "Mật khẩu mới không trùng khớp.";
+"mat_khau_pm_token_confirm" = "Nhập lại mật khẩu phần mềm token";
+"mat_khau_token" = "Mật khẩu token";
+"mat_khau_token_cu" = "Mật khẩu token cũ";
+"mat_khau_token_moi" = "Mật khẩu token mới";
+"mat_khau_token_moi_confirm" = "Nhập lại mật khẩu token mới";
+"mat_khau_token_require" = "Mật khẩu Token phải có đủ 6 ký tự";
+"mat_khau_token_cu_phai_khac_mat_khau_moi" = "Mật khẩu mới phải khác mật khẩu cũ";
+"mat_khau_token_khong_dc_de_trong" = "Mật khẩu token không được để trống";
+"mat_khau_acc_require" = "Mật khẩu tài khoản phải từ 6 đến 20 ký tự và không có kí tự đặc biệt!";
+"mat_khau_khong_dc_de_trong" = "Mật khẩu không được để trống";
+"ma_khach_hang" = "Mã khách hàng";
+"ma_khach_hang_khong_duoc_de_trong" = "Mã khách hàng không được để trống";
+"mat_khau" = "mật khẩu";
+"ma_xac_thuc" = "Mã xác thực";
+"ma_xac_thuc_khong_duoc_de_trong" = "Mã xác thực không được để trống";
+"muon_tien" = "Mượn tiền";
+"ma_so_the" = "Mã số thẻ";
+"ma_doan_nghiep" = "Mã doanh nghiệp";
+"ma_doanh_nghiep_khong_duoc_de_trong" = "Mã doanh nghiệp không được để trống";
+
+
+
+
+//N
+"noi_dung_giao_dich" = "Nội dung (có thể bỏ qua)";
+"nhan_tien" = "Nhận tiền";
+"ngay_sinh" = "Ngày sinh (có thể bỏ qua)";
+"ngay_cap" = "Ngày cấp";
+"noi_cap" = "Nơi cấp";
+"ngan_hang" = "Ngân hàng";
+"ngay_dang_ky" = "Ngày đăng";
+"ngay_het_han" = "Ngày hết hạn";
+"ngay_bat_dau_phai_nho_hon_hoac_bang_ngay_ket_thuc" = "Ngày bắt đầu phải nhỏ hơn hoặc bằng ngày kết thúc";
+"ngay_het_han_khong_duoc_de_trong" = "Ngày hết hạn không được để trống";
+"nhap_tin_nhan" = "Nhập tin nhắn";
+"nhap_tu_khoa" = "Nhập từ khoá";
+"noi_thuong_tru" = "Nơi thường trú";
+"nhap_ten_hien_thi" = "Nhập tên hiển thị";
+"nap_tien" = "Nạp tiền";
+"nap_vi_tu_the_ngan_hang" = "Nạp Ví từ thẻ ngân hàng";
+
+//O
+"otp_khong_dc_de_trong" = "OTP không được để trống";
+
+//P
+"phe_duyet_giao_dich" = "phê duyệt giao dịch";
+"phi" = "Phí";
+
+//Q
+"quen_mat_khau_token" = "Quên mật khẩu token";
+"quen_mat_khau" = "Quên mật khẩu ?";
+"qua_tang" = "Quà tặng";
+"qua_tang_nhan" = "Nhận quà";
+"qua_tang_tang" = "Tặng quà";
+
+//R
+"rut_tien" = "Rút tiền";
+"rut_tien_ve_tai_khoan" = "về tài khoản";
+"rut_tien_ve_the" = "về thẻ";
+"nap_tien" = "Nạp tiền";
+//S
+"sao_ke" = "Sao kê";
+"so_giay" = "giây";
+"so_tien_giao_dich" = "Số tiền";
+"so_tai_khoan" = "Số tài khoản";
+"so_tien" = "Số tiền";
+"so_dien_thoai_khong_dc_de_trong" = "Số điện thoại không được để trống!";
+"so_dien_thoai_khong_hop_le" = "Số điện thoại là 10 hoặc 11 số";
+"so_tien_khong_duoc_de_trong" = "Số tiền không được để trống";
+"so_tai_khoan_khong_dc_de_trong" = "Số tài khoản không được để trống";
+"so_tai_khoan_khong_hop_le" = "Số tài khoản không hợp lệ";
+"so_the_ngan_hang" = "Số thẻ (16 hoặc 19 số)";
+"so_the_ngan_hang_16" = "Số thẻ (16 số)";
+"so_the_ngan_hang_khong_duoc_de_trong" = "Số thẻ ngân hàng không được để trống";
+"so_the_ngan_hang_khong_hop_le" = "Số thẻ ngân hàng không hợp lệ";
+"shop_mang_luoi" = "Mạng lưới";
+"so_tien_khong_hop_le" = "Số tiền không hợp lệ";
+"so_dien_thoai_tao_token_moi" = "Số điện thoại tạo token mới";
+"su_dung_van_tay_dang_nhap_tai_khoan_VIMASS" = "Sử dụng vân tay đăng nhập tài khoản ViMASS";
+"su_dung_van_tay_dang_nhap_tai_khoan_token_VIMASS" = "Sử dụng vân tay thay thế chức năng phone token ViMASS";
+"su_dung_ma_xac_thuc" = "Sử dụng mã xác thực";
+"su_dung_token" = "Sử dụng token";
+"so_dien_thoai_nhan_ma_xac_thuc" = "Số điện thoại nhận mã xác thực";
+"so_tien_dong" = "Số tiền (đ)";
+"so_du" = "Số dư:";
+"so_phi" = "Phí";
+"so_cmnd" = "Số CMND";
+"so_vi" = "Số ví";
+"so_seri_the" = "Số seri thẻ";
+
+//T
+"TKKM" = "KM";
+"thong_bao" = "Thông báo";
+"thong_bao_xac_nhan_otp" = "Nhập dãy OTP từ tin nhắn";
+"thong_bao_loi_khong_tim_thay_duong_dan" = "Không kết nối được với server! Vui lòng thử lại sau";
+
+"tai_khoan_duoc_nhan" = "Tài khoản người nhận";
+"tu" = "Từ";
+"thoi_diem_giao_dich" = "Thời điểm";
+"thanh_toan" = "Thanh toán";
+"chonvi_tk" = "Chọn ví,tk,thẻ ẩn sau ĐT";
+"chuky_so" = "Chữ ký số mPKI";
+"thanh_toan_thuong_dung" = "thường dùng";
+"thanh_toan_don_hang" = "đơn hàng";
+"thanh_toan_tam_giu" = "tạm giữ";
+"thanh_toan_dich_vu_dien" = "điện";
+"thanh_toan_dich_vu_nuoc" = "nước";
+"thanh_toan_dich_vu_dien_thoai" = "điện thoại";
+"thanh_toan_dich_vu_internet" = "internet";
+"thanh_toan_dich_vu_truyen_hinh" = "truyền hình";
+"thanh_toan_dich_vu_tro_choi" = "trò chơi";
+"thanh_toan_dich_vu_hoc_phi" = "học phí";
+"thanh_toan_dich_vu_bao_hiem" = "bảo hiểm";
+"thanh_toan_mua_ve_xem_phim" = "vé xem phim";
+"thanh_toan_mua_ve_may_bay" = "vé máy bay";
+"thanh_toan_mua_ve_tau_hoa" = "vé tàu hoả";
+"thanh_toan_mua_ve_tau_thuy" = "vé tàu thuỷ";
+"thanh_toan_chung_khoan" = "chứng khoán";
+"thanh_toan_nap_tien_dien_tu" = "nạp tiền 6%-10%";
+"thanh_toan_mua_ma_the" = "mua thẻ 6%-24%";
+"thay_doi" = "Thay đổi";
+"token" = "phone token";;
+"thong_tin_vi" = "thông tin Ví";
+"tai_khoan_vi_thuong_dung" = "Tài khoản thường dùng";
+"tai_khoan_rut_tien" = "tk rút tiền";
+"the_nhan_tien" = "thẻ nhận tiền";
+"the_da_nang" = "thẻ đa năng";
+"thuc_hien" = "THỰC HIỆN";
+"tim" = "Tìm";
+"tu" = "Từ";
+"ten_chu_tk" = "Tên chủ tài khoản";
+"thu_dien_tu" = "Thư điện tử";
+"tai_khoan_ngan_hang" = "Tài khoản ngân hàng";
+"ten_tai_khoan_khong_duoc_de_trong" = "Tên tài khoản không được để trống";
+"thu_dien_tu_khong_duoc_de_trong" = "Thư điện tử không được để trống";
+"so_cmnd_khong_duoc_de_trong" = "Số CMND không được để trống";
+"thiet_bi_khong_ho_tro_chuc_nang_nay" = "Thiết bị không hỗ trợ chức năng này!";
+
+"title_thay_doi_thong_tin_tai_khoan" = "Thay đổi thông tin Ví";
+"title_tai_khoan_thuong_dung" = "Tài khoản thường dùng";
+"title_tai_khoan_thuong_dung_vi" = "Tài khoản Ví \n thường dùng";
+"title_tai_khoan_thuong_dung_the" = "Tài khoản \n thường dùng";
+"title_tai_khoan_thuong_dung_ngan_hang" = "Tài khoản ngân hàng \n thường dùng";
+"title_dang_ky_tai_khoan" = "Đăng ký";
+"title_doi_mat_khau" = "Đổi mật khẩu";
+"title_quen_mat_khau" = "Quên mật khẩu";
+"title_quen_mat_khau_token" = "Quên mật khẩu Token";
+"title_doi_mat_khau_token" = "Đổi mật khẩu Token";
+"title_dang_ky_token" = "Đăng ký Token";
+"title_6_so_token" = "6 số Token";
+"title_chuyen_tien_den_vi" = "Chuyển tiền đến Ví";
+"title_chuyen_tien_den_tai_khoan" = "Chuyển tiền đến tài khoản";
+"title_chuyen_tien_den_the" = "Chuyển tiền đến thẻ";
+"chuyen_tien_den_atm" = "đến ATM";
+"chuyen_tien_cmnd" = "đến CMND";
+"thanh_toan_ve_xe_khach" = "vé xe khách";
+"title_thay_doi_thong_tin_chuyen_tien_den_vi" = "Thay đổi thông tin \n chuyển tiền đến Ví";
+"title_thay_doi_thong_tin_chuyen_tien_den_ngan_hang" = "Thay đổi thông tin \n chuyển tiền đến tài khoản";
+"title_thay_doi_thong_tin_chuyen_tien_den_the" = "Thay đổi thông tin \n chuyển tiền đến thẻ";
+"title_sao_ke" = "Sao kê";
+"title_dang_nhap" = "Đăng nhập / Tạo tài khoản";
+"title_vi_dien_tu" = "Ví điện tử";
+"title_dang_ky_tai_khoan_rut_tien" = "Đăng ký \n tài khoản rút tiền";
+"title_sua_tai_khoan_rut_tien" = "Thay đổi thông tin \n tài khoản rút tiền";
+"title_dang_ky_the_rut_tien" = "Đăng ký \n thẻ rút tiền";
+"title_sua_the_rut_tien" = "Thay đổi thông tin \n thẻ rút tiền";
+"title_rut_tien_ve_tai_khoan" = "Rút tiền về tài khoản";
+"title_rut_tien_ve_the" = "Rút tiền về thẻ";
+"title_xac_thuc_otp" = "Nhập 6 số xác thực từ tin nhắn";
+"title_ten_dai_dien_tai_khoan" = "Tên đại diện";
+
+"title_viettel" = "Viettel";
+"title_mobifone" = "Mobifone";
+"title_vinaphone" = "Vinaphone";
+"title_vietnamobile" = "Vietnamobile";
+"title_gmobile" = "Gmobile";
+
+"title_thanh_toan_viettel" = "Thanh toán Viettel";
+"title_thanh_toan_mobifone" = "Thanh toán Mobifone";
+"title_thanh_toan_vinaphone" = "Thanh toán Vinaphone";
+"title_thanh_toan_vietnamobile" = "Thanh toán Vietnamobile";
+"title_thanh_toan_gmobile" = "Thanh toán Gmobile";
+
+"thanh_toan_dien_thoai" = "điện thoại 5%-6,5%";
+"thanh_toan_viettel" = "Viettel -5%";
+"thanh_toan_mobifone" = "Mobifone -5%";
+"thanh_toan_vinaphone" = "Vinaphone -5%";
+"thanh_toan_vietnamobile" = "Vietnamobile -6.5%";
+"thanh_toan_gmobile" = "Gmobile -5%";
+
+"thanh_toan_viettel_thanh_toan_di_dong_hoac_dcom_tra_truoc" = "di động hoặc Dcom trả trước";
+"thanh_toan_viettel_thanh_toan_di_dong_hoac_dcom_tra_sau" = "di động hoặc Dcom trả sau";
+"thanh_toan_viettel_thanh_toan_dien_thoai_co_dinh" = "điện thoại cố định";
+"thanh_toan_viettel_thanh_toan_homephone" = "Homephone";
+"thanh_toan_viettel_thanh_toan_truyen_hinh_va_internet" = "truyền hình & internet";
+
+"thanh_toan_nap_di_dong_tra_truoc" = "nạp di động trả trước";
+"thanh_toan_di_dong_tra_sau" = "thanh toán di động trả sau";
+"thanh_toan_mua_the_cao" = "mua thẻ cào";
+
+"tinh_thanh_pho" = "Tỉnh/Thành Phố";
+"tai_khoan_thuong_dung_khong_co" = "Bạn chưa có tài khoản thường dùng nào!";
+"thong_bao_nhap_ten_alias_tai_khoan" = "Tên hiển thị";
+"ten_dai_dien_tai_khoan_require" = "Tên đại diện không được để trống";
+"ten_tai_khoan_khong_duoc_de_trong" = "Tên tài khoản không được để trống";
+"ten_chu_tai_khoan_khong_duoc_de_trong" = "Tên chủ tài khoản không được để trống";
+"tinh_thanh_khong_duoc_de_trong" = "Tỉnh/Thành phố không được để trống";
+"ten_ngan_hang_khong_duoc_de_trong" = "Tên Ngân hàng không được để trống";
+"thong_bao_chon_tinh_thanh" = "Bạn phải chọn tỉnh thành";
+"thong_bao_chon_ngan_hang" = "Bạn phải chọn tỉnh thành và ngân hàng";
+"thong_bao_xac_nhan_xoa_tai_khoan_thuong_dung" = "Bạn có chắc chắn muốn xoá tài khoản thường dùng này không?";
+"ten_the_ngan_hang" = "Tên thẻ ngân hàng";
+"ten_the_khong_duoc_de_trong" = "Tên thẻ ngân hàng không được để trống";
+"so_the_khong_duoc_de_trong" = "Số thẻ ngân hàng không được để trống";
+"ten_chu_the" = "Tên chủ thẻ";
+"ten_chu_the_khong_duoc_de_trong" = "Tên chủ thẻ không được để trống";
+"the_ngan_hang_thang_mo_the" = "Tháng";
+"the_ngan_hang_nam_mo_the" = "Năm";
+
+
+"tai_khoan_ngan_hang" = "TK ngân hàng";
+"tai_khoan_da_dang_ky" = "TK đã đăng ký";
+"the_ngan_hang" = "Thẻ ngân hàng";
+"the_da_dang_ky" = "Thẻ đã đăng ký";
+"ten_dai_dien" = "Tên đại diện";
+"ten_dai_dien_khong_dc_de_trong" = "Tên đại diện không được để trống";
+"thong_bao_xac_nhan_xoa" = "Bạn có muốn xoá tin %@ này không?";
+"thong_bao_xac_nhan_xoa_kem_mat_khau_token" = "Bạn cần nhập mật khẩu token để xoá tin %@ này!";
+"tin_bat_dong_san" = "Bất động sản";
+"tin_tim_viec" = "Tìm việc";
+"tin_viec_lam" = "Việc làm";
+"tin_rao_vat" = "Rao vặt";
+"tin_dia_diem" = "Địa điểm";
+"tin_thuong_mai" = "Thương mại";
+"tao_don_hang" = "Tạo đơn hàng";
+"tin_het_han" = "Tin này đã hết hạn đăng!";
+"ten_giao_dich" = "Tên giao dịch";
+"thong_bao_ten_giao_dich_chua_dung_chuan" = "Tên giao dịch phải lớn hơn 4 kí tự khác khoảng trắng!";
+"that_bai" = "Thất bại";
+"thong_bao_chua_co_giao_dich" = "Hiện tại bạn chưa có giao dịch nào!";
+"tin_nhan" = "Tin nhắn";
+"thong_bao_loi_trong_qua_trinh_dang_nhap_facebook" = "Có lỗi trong quá trình đăng nhập facebook";
+"tai_khoan" = "Tài khoản";
+"thong_bao_loi_chua_dang_ky_token" = "Bạn chưa đăng ký chức năng SoftToken. Để đăng ký chức năng token mời bạn vào phần \"Thay Đổi\" và chọn \"token\"";
+"thong_bao_xac_thuc_van_tay_khong_dung" = "Xác thực vân tay không đúng. Mời bạn nhập mật khẩu!";
+"thong_bao_chua_co_xac_thuc_van_tay" = "Thiết bị của bạn hiện chưa đăng ký xác thực vân tay để đăng nhập. Bạn cần phải đăng nhập bằng tài khoản ViMASS để xác thực vân tay!";
+"thong_bao_chua_co_xac_thuc_van_tay_token" = "Thiết bị của bạn hiện chưa đăng ký xác thực vân tay để sử dụng token. Bạn cần phải đăng ký token để xác thực sử dụng vân tay. Trường hợp bạn đã có token vui lòng sử dụng chức năng quên mật khẩu token để xác thực lại vân tay!";
+"thong_bao_ma_xac_thuc_duoc_gui_ve_so_dien_thoai" = "Mã xác thực sẽ được gửi về số điện thoại";
+"thong_bao_ma_xac_thuc_duoc_gui_ve_thu_dien_tu" = "Mã xác thực sẽ được gửi về thư điện tử";
+"thong_bao_so_du_tai_khoan_khong_du_de_thuc_hien_chuyen_tien" = "Số dư trong tài khoản của bạn không đủ để thực hiện chuyển tiền";
+"thong_bao_cap_nhat_so_du_that_bai" = "Cập nhật số dư tài khoản thất bại";
+"thong_bao_so_tien_mot_lan_rut" = "Số tiền một lần giao dịch phải lớn hơn 10.000đ";
+"thong_bao_so_tien_mot_lan_giao_dich_chuyen_ve_tan_nha" = "Số tiền một lần giao dịch phải lớn hơn 100.000đ";
+
+"thong_bao_phan_du_so_tien_mot_lan_giao_dich_chuyen_ve_tan_nha" = "Phần dư của (số tiền một lần giao dịch) / 5.000.000 đ phải lớn hơn 100.000đ";
+"thong_bao_limit_so_tien_mot_lan_giao_dich_chuyen_ve_tan_nha" = "Số tiền chuyển tối đa là 2.000.000.000 đ";
+"thong_bao_so_dien_thoai_chua_co_tk_vimass" = "ĐT %@ chưa đăng ký Ví. Vimass sẽ nhắn tin để ĐT này đăng ký và nhận %@ đồng. Nếu không nhận được trong 48 tiếng, số tiền sẽ được hoàn lại.";
+"thong_bao_email_chua_co_tk_vimass" = "Email %@ chưa đăng ký Ví. Vimass sẽ gửi email hướng dẫn đăng ký và nhận %@ đồng. Nếu không nhận được trong 48 tiếng, số tiền sẽ được hoàn lại.";
+"thong_bao_the_khong_thuoc_24_ngan_hang_lien_ket" = "Thẻ của bạn không do 24 ngân hàng liên kết phát hành!";
+"thong_bao_chua_chon_menh_gia_the" = "Vui lòng chọn mệnh giá thẻ cào!";
+"thong_bao_nhap_tieu_de" = "Vui lòng nhập tiêu đề!";
+"thong_bao_nhap_nguoi_nhan_qua" = "Vui lòng nhập người nhận!";
+"thong_bao_nhap_noi_dung_tang_qua" = "Vui lòng nhập nội dung tặng quà!";
+"thong_bao_nhap_ma_so_the" = "Vui lòng nhập mã số thẻ";
+"thong_bao_nhap_so_seri_the" = "Vui lòng nhập số seri thẻ";
+"thong_bao_khong_phai_ma_khach_hang_dien" = "Đây không phải là mã khách hàng điện lực!";
+"thong_bao_dang_tra_cuu_hoa_don_dien" = "Hệ thống đang tra cứu hoá đơn điện. Vui lòng đợi sau:";
+"thong_bao_dang_tra_cuu_thong_tin_thanh_toan_viettel" = "Hệ thống đang tra cứu thông tin thanh toán của quý khách. Vui lòng đợi sau:";
+"thong_bao_tra_cuu_qua_lau" = "Hệ thống cần nhiều thời gian để tra cứu hoá đơn của quý khách hơn dự kiến. Sau khi tra cứu xong hệ thống sẽ tự động chuyển hoá đơn vào mục thông báo cho quý khách. Xin lỗi vì sự bất tiện này!";
+"thong_bao_chuc_nang_thanh_toan_dang_duoc_hoan_tat" = "Hệ thống tra cứu và thanh toán hóa đơn %@ - %@ sẽ được hoàn tất trong thời gian tới!";
+"thong_bao_chon_ngan_hang_phat_hanh" = "Vui lòng chọn ngân hàng phát hành!";
+"thong_bao_the_visa_platinum" = "Hệ thống chưa hỗ trợ thẻ tín dụng Visa Platinum";
+"thong_bao_the_sacombank_visa" = "Hệ thống chưa hỗ trợ thẻ tín dụng Sacombank Visa";
+"thong_bao_the_sacombank_master_card" = "Hệ thống chưa hỗ trợ thẻ tín dụng Sacombank MasterCard";
+"thong_bao_the_sacombank_union_pay" = "Hệ thống chưa hỗ trợ thẻ tín dụng Sacombank UnionPay";
+"thong_bao_otp_xac_nhan_khong_duoc_de_trong" = "Otp xác nhận không được để trống!";
+"thong_bao_so_the_khong_thuoc_ngan_hang_phat_hanh_da_chon" = "Số thẻ không thuộc ngân hàng phát hành đã chọn";
+"thong_bao_chuyen_doi_giua_vi_ca_nhan_va_vi_doanh_nghiep" = "Việc chuyển đổi giữa Ví cá nhân và Ví doanh nghiệp yêu cầu phải đăng xuất tài khoản hiện tại. Bạn có muốn đăng xuất?";
+
+"the_qua_tang" = "Thẻ quà tặng";
+"ten_cmnd" = "Tên CMND (có thể bỏ qua)";
+"thoi_gian_con_lai" = "Còn lại 120 giây";
+"tang_qua" = "Tặng quà";
+"tang_qua_vi_tang" = "Ví tặng";
+"tang_qua_vi_nhan" = "Ví nhận";
+
+"tro_chuyen" = "Trò chuyện";
+"thanh_toan_theo_danh_sach" = "Thanh toán theo lô";
+
+"them_tai_khoan_thuong_dung" = "Tạo TK thường dùng";
+
+"tao_tai_khoan_thuong_dung_vi" = "Ví";
+"tao_tai_khoan_thuong_dung_the" = "Thẻ";
+"tao_tai_khoan_thuong_dung_the_rut_tien" = "Thẻ rút tiền";
+"tao_tai_khoan_thuong_dung_tai_khoan" = "Tài khoản";
+"tao_tai_khoan_thuong_dung_tai_khoan_rut_tien" = "Tài khoản rút tiền";
+"tao_tai_khoan_thuong_dung_tai_khoan_momo" = "Tài khoản Momo";
+"tao_tai_khoan_thuong_dung_tai_khoan_tan_nha" = "Tài khoản chuyển tiền tận nhà";
+"ten_hien_thi" = "Tên hiển thị";
+"ten_hien_thi_khong_duoc_de_trong" = "Tên hiển thị không được để trống";
+"ten_tk_rut_tien" = "Tên TK rút tiền";
+"ten_tk_rut_tien_khong_duoc_de_tong" = "Tên tài khoản rút tiền không được để trống!";
+"thu_dien_tu_nhan_ma_xac_thuc" = "Thư điện tử nhận mã xác thực";
+"ten_tk_muon_tien" = "Tên tài khoản mượn tiền";
+
+"tra_cuu" = "Tra cứu";
+
+"tang_ngay" = "Tặng ngay";
+"thoi_gian_tang" = "Thời gian tặng";
+"thanh_toan_tien_dien" = "Thanh toán tiền điện";
+
+"title_hien_thi_chon_ngan_hang" = "-- Ngân hàng phát hành thẻ --";
+
+//U
+
+//V
+"vi_ca_nhan" = "Ví cá nhân";
+"vi_doanh_nghiep" = "Ví doanh nghiệp";
+"vi_vimass" = "Ví";
+"vi_can_nap" = "Ví cần nạp";
+"voi" = "với";
+
+
+
+//W
+
+//X
+"xem_tat_ca" = "Xem tất cả";
+"xin_chao" = "Xin chào";
+
+//Y
+
+//Z

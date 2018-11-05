@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>22764D28-505B-4788-BAD5-DE9B7A88F10D</string>
+	<key>IDESourceControlProjectName</key>
+	<string>ViViMASS</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>85add87d-7d26-0245-95aa-691fa1412a01</key>
+		<string>https://10.254.1.150/svn/ducnt</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ViViMass/ViViMASS.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>85add87d-7d26-0245-95aa-691fa1412a01</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>85add87d-7d26-0245-95aa-691fa1412a01</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.subversion</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>85add87d-7d26-0245-95aa-691fa1412a01</string>
+			<key>IDESourceControlWCCName</key>
+			<string>iOS_Work</string>
+		</dict>
+	</array>
+</dict>
+</plist>

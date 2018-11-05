@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6244" systemVersion="13F34" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="LoaiNotification" representedClassName="LoaiNotification" syncable="YES">
+        <attribute name="nKieu" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="nThoiGianDocGanNhat" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="sTenLoai" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="notifications" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Notification" inverseName="loaiNotification" inverseEntity="Notification" syncable="YES"/>
+        <relationship name="taiKhoan" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TaiKhoan" inverseName="loaiNotifications" inverseEntity="TaiKhoan" syncable="YES"/>
+    </entity>
+    <entity name="Notification" representedClassName="Notification" syncable="YES">
+        <attribute name="alert" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="alertContent" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="alertID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="appID" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="funcID" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="isSended" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="readed" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="recipient" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="send" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="sender" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="time" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <relationship name="loaiNotification" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LoaiNotification" inverseName="notifications" inverseEntity="LoaiNotification" syncable="YES"/>
+    </entity>
+    <entity name="TaiKhoan" representedClassName="TaiKhoan" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="loaiNotifications" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="LoaiNotification" inverseName="taiKhoan" inverseEntity="LoaiNotification" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="LoaiNotification" positionX="-173" positionY="-81" width="128" height="118"/>
+        <element name="Notification" positionX="9" positionY="-126" width="128" height="225"/>
+        <element name="TaiKhoan" positionX="-344" positionY="-63" width="128" height="73"/>
+    </elements>
+</model>

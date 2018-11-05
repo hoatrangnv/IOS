@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GiaoDienDangNhapMoi">
+            <connections>
+                <outlet property="btnDangKy" destination="yHa-tU-v7X" id="8ce-f3-FEo"/>
+                <outlet property="btnDangNhap" destination="Bx1-LP-zU9" id="HBj-Ne-sLB"/>
+                <outlet property="btnLuuMatKhau" destination="fHT-3i-nAY" id="XPe-5u-cEf"/>
+                <outlet property="btnQuenMatKhau" destination="Kpw-1s-ik2" id="vnn-Hj-hwr"/>
+                <outlet property="edtMainInfo" destination="QsS-ov-JVm" id="TeC-mu-ojO"/>
+                <outlet property="edtPass" destination="iaE-tW-5rW" id="u1U-s9-Hhn"/>
+                <outlet property="mViewChuaNutLuaChonVi" destination="TeI-M8-5p6" id="Isq-1p-ieD"/>
+                <outlet property="mbtnDangNhapBangVanTay" destination="bo9-s1-PQN" id="GLl-pd-sZJ"/>
+                <outlet property="mbtnDangNhapGoogle" destination="mdc-no-Add" id="1sg-fk-wvd"/>
+                <outlet property="mbtnViCaNhan" destination="SPr-ti-blw" id="C1u-KC-yPT"/>
+                <outlet property="mbtnViDoanhNghiep" destination="B3b-Yp-rLc" id="gKy-rF-q05"/>
+                <outlet property="mtfMaDoanhNghiep" destination="a7Y-Lk-Pbu" id="iuI-Qq-wgx"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="viewChuaButton" destination="D0C-Bi-N5O" id="GBR-Ab-8sS"/>
+                <outlet property="viewDangNhap" destination="9FN-Mw-Xjx" id="GDk-eE-ZKb"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_nen.png" id="EcK-XJ-SlV">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                </imageView>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" id="c67-jL-VDg" customClass="TPKeyboardAvoidAcessory">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" id="9FN-Mw-Xjx">
+                            <rect key="frame" x="20" y="43" width="280" height="108"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Mã doanh nghiệp" minimumFontSize="17" background="login_txt_bg.png" id="a7Y-Lk-Pbu" customClass="ExTextField">
+                                    <rect key="frame" x="5" y="12" width="270" height="40"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                    <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="next"/>
+                                </textField>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Số ví" minimumFontSize="17" background="login_txt_bg.png" id="QsS-ov-JVm" customClass="ExTextField">
+                                    <rect key="frame" x="5" y="12" width="270" height="40"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                    <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="next"/>
+                                </textField>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Mật khẩu" minimumFontSize="17" background="login_txt_bg.png" id="iaE-tW-5rW" customClass="ExTextField">
+                                    <rect key="frame" x="5" y="60" width="270" height="40"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                    <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
+                                </textField>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
+                        <view contentMode="scaleToFill" id="TeI-M8-5p6">
+                            <rect key="frame" x="19" y="10" width="281" height="35"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="B3b-Yp-rLc">
+                                    <rect key="frame" x="132" y="0.0" width="153" height="35"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                    <state key="normal" title="Doanh nghiệp" backgroundImage="login_tabthuong.png">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="suKienChonViDoanhNghiep:" destination="-1" eventType="touchUpInside" id="XOD-jw-3YH"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="SPr-ti-blw">
+                                    <rect key="frame" x="0.0" y="0.0" width="149" height="35"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                    <state key="normal" title="Cá nhân" backgroundImage="login_tabactive.png">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="suKienChonViCaNhan:" destination="-1" eventType="touchUpInside" id="EE9-uC-Eq0"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </view>
+                        <view contentMode="scaleToFill" id="D0C-Bi-N5O">
+                            <rect key="frame" x="20" y="165" width="280" height="168"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Bx1-LP-zU9">
+                                    <rect key="frame" x="0.0" y="0.0" width="280" height="40"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <state key="normal" title="Đăng nhập" backgroundImage="6 dang nhap.png">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="suKienDangNhap:" destination="-1" eventType="touchUpInside" id="Inh-4C-x6b"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="fHT-3i-nAY">
+                                    <rect key="frame" x="0.0" y="50" width="154" height="32"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <inset key="titleEdgeInsets" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <state key="normal" title="Lưu mật khẩu" image="icon_unchecked.png">
+                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="suKienLuuMatKhau:" destination="-1" eventType="touchUpInside" id="KNY-S6-EnL"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Kpw-1s-ik2">
+                                    <rect key="frame" x="154" y="49" width="126" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <state key="normal" title="Quên mật khẩu">
+                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="suKienQuenMatKhau:" destination="-1" eventType="touchUpInside" id="Bun-fL-ium"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="yHa-tU-v7X">
+                                    <rect key="frame" x="0.0" y="90" width="146" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <state key="normal" title="Đăng ký mới">
+                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="suKienDangKy:" destination="-1" eventType="touchUpInside" id="egm-5a-kJ5"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="lhu-Ik-dXf">
+                                    <rect key="frame" x="146" y="90" width="126" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <state key="normal" title="Hướng dẫn">
+                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="suKienBamNutHuongDan:" destination="-1" eventType="touchUpInside" id="Ty0-EM-jDx"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </view>
+                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="mdc-no-Add">
+                            <rect key="frame" x="19" y="406" width="280" height="40"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="2" maxX="5" maxY="2"/>
+                            <state key="normal" title="Đăng nhập bằng Google" backgroundImage="bg_google.png">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="suKienDangNhapBangGoogle:" destination="-1" eventType="touchUpInside" id="emF-R2-KqI"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="wAW-2a-PVH">
+                            <rect key="frame" x="19" y="358" width="280" height="40"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="2" maxX="10" maxY="2"/>
+                            <state key="normal" title="Đăng nhập bằng Facebook" backgroundImage="bg_facebook.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="suKienDangNhapBangFacebook:" destination="-1" eventType="touchUpInside" id="hIj-Sm-57G"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bo9-s1-PQN">
+                            <rect key="frame" x="19" y="456" width="280" height="40"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <state key="normal" title="Đăng nhập bằng vân tay" backgroundImage="icon_vantaydai.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                    </subviews>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="567" y="470"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="6 dang nhap.png" width="597" height="80"/>
+        <image name="bg_facebook.png" width="597" height="80"/>
+        <image name="bg_google.png" width="597" height="80"/>
+        <image name="bg_nen.png" width="720" height="1280"/>
+        <image name="icon_unchecked.png" width="32" height="32"/>
+        <image name="icon_vantaydai.png" width="597" height="80"/>
+        <image name="login_tabactive.png" width="319" height="68"/>
+        <image name="login_tabthuong.png" width="319" height="68"/>
+        <image name="login_txt_bg.png" width="16" height="16"/>
+    </resources>
+</document>

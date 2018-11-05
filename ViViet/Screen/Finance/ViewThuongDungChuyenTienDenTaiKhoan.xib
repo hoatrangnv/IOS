@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ViewThuongDungChuyenTienDenTaiKhoan">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="275"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="@ten_dai_dien" minimumFontSize="17" id="ykB-6v-Ynu" customClass="ExTextField">
+                    <rect key="frame" x="12" y="0.0" width="280" height="35"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="@tinh/thanhPho" minimumFontSize="17" id="odM-N1-me6" customClass="ExTextField">
+                    <rect key="frame" x="12" y="43" width="280" height="35"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="@ngan_hang" minimumFontSize="17" id="9i1-zd-mxh" customClass="ExTextField">
+                    <rect key="frame" x="12" y="43" width="280" height="35"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="iN0-l3-epB" id="leV-cB-9zr"/>
+                    </connections>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="@ten_chu_tai_khoan" minimumFontSize="17" id="gm9-RK-j1L" customClass="ExTextField">
+                    <rect key="frame" x="12" y="86" width="280" height="35"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="@so_tai_khoan" minimumFontSize="17" id="e3l-2y-yxo" customClass="ExTextField">
+                    <rect key="frame" x="12" y="129" width="280" height="35"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                    <connections>
+                        <outlet property="delegate" destination="iN0-l3-epB" id="9Gk-qR-bVR"/>
+                    </connections>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="@so_tien_dong" minimumFontSize="17" id="zhv-Ov-CQ5" customClass="ExTextField">
+                    <rect key="frame" x="12" y="172" width="280" height="35"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
+                    <connections>
+                        <action selector="suKienThayDoiSoTien:" destination="iN0-l3-epB" eventType="editingChanged" id="3c2-1t-FbI"/>
+                    </connections>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="line" placeholder="@noi_dung_giao_dich" minimumFontSize="17" id="46U-Yx-ALU" customClass="ExTextField">
+                    <rect key="frame" x="12" y="215" width="280" height="60"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="jlS-pc-N9b" customClass="UmiTextView">
+                    <rect key="frame" x="12" y="215" width="280" height="60"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="next"/>
+                    <connections>
+                        <outlet property="textfield" destination="46U-Yx-ALU" id="Gvc-DZ-rxd"/>
+                    </connections>
+                </textView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="mtfNganHang" destination="9i1-zd-mxh" id="I4N-2w-HwJ"/>
+                <outlet property="mtfNoiDungGiaoDich" destination="46U-Yx-ALU" id="CaX-cb-obW"/>
+                <outlet property="mtfSoTaiKhoan" destination="e3l-2y-yxo" id="llN-Qg-wOW"/>
+                <outlet property="mtfSoTien" destination="zhv-Ov-CQ5" id="0VR-of-v4a"/>
+                <outlet property="mtfTenChuTaiKhoan" destination="gm9-RK-j1L" id="y0K-WU-TXs"/>
+                <outlet property="mtfTenDaiDien" destination="ykB-6v-Ynu" id="BwV-gm-1qP"/>
+                <outlet property="mtfTinhThanhPho" destination="odM-N1-me6" id="adc-tO-HYo"/>
+                <outlet property="mtvNoiDungGiaoDich" destination="jlS-pc-N9b" id="aRE-ug-NWo"/>
+            </connections>
+            <point key="canvasLocation" x="215" y="59.5"/>
+        </view>
+    </objects>
+</document>

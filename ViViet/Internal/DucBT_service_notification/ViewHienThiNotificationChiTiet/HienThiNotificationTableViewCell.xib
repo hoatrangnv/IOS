@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="139" id="KGk-i7-Jjw" customClass="HienThiNotificationTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="159"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="158.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J6n-0h-pTZ" userLabel="ViewXacNhan">
+                        <rect key="frame" x="0.0" y="123.5" width="320" height="35"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fpF-4l-B82">
+                                <rect key="frame" x="8" y="0.0" width="100" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Đồng ý" backgroundImage="bg-nuttrang.png">
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="suKienBamNutDongY:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="XCD-3Y-uyu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vPN-rv-VXx">
+                                <rect key="frame" x="212" y="0.0" width="100" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Từ chối" backgroundImage="bg-nuttrang.png">
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="suKienBamNutTuChoi:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="F8V-WK-Tt4"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="35" id="kJV-Ci-1cq"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T4M-Vt-XSG" userLabel="ViewHienThiThongTin">
+                        <rect key="frame" x="37" y="0.0" width="283" height="120.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ViMASS thông báo bây giờ là 19h. abc abc ViMASS thông báo bây giờ là 19h. abc abc avc asdsad asd" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xox-Tc-5ca">
+                                <rect key="frame" x="3" y="3" width="277" height="31.5"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                <color key="textColor" red="0.062745098039215685" green="0.47843137254901957" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HH:mm - dd/MM/yyyy" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ib-NE-f83">
+                                <rect key="frame" x="153" y="107" width="125" height="14"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="14" id="14I-Ge-XqQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.045056134462356567" green="0.3764621913433075" blue="0.71320122480392456" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Đã từ chối" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8BG-h2-FBD">
+                                <rect key="frame" x="3" y="107" width="59" height="14"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.045056134462356567" green="0.3764621913433075" blue="0.71320122480392456" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="ViMASS thông báo bây giờ là 19h. abc abc aasdfasdfasdfasdfasdfasdfad abc abc aasdfasdfasdfasdfasdfasdfad asdads asdsads asdsa" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HoL-xd-fuH">
+                                <rect key="frame" x="3" y="37.5" width="277" height="47"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.50196078431372548" green="0.47843137254901957" blue="0.47843137254901957" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="8BG-h2-FBD" firstAttribute="height" secondItem="3ib-NE-f83" secondAttribute="height" id="4t6-J7-B12"/>
+                            <constraint firstAttribute="bottom" secondItem="3ib-NE-f83" secondAttribute="bottom" id="8bo-tC-yq0"/>
+                            <constraint firstAttribute="trailing" secondItem="Xox-Tc-5ca" secondAttribute="trailing" constant="3" id="GOf-mz-fah"/>
+                            <constraint firstItem="HoL-xd-fuH" firstAttribute="top" secondItem="Xox-Tc-5ca" secondAttribute="bottom" constant="3" id="Mnk-dX-9Ry"/>
+                            <constraint firstAttribute="bottom" secondItem="8BG-h2-FBD" secondAttribute="bottom" id="Nsz-mC-TsF"/>
+                            <constraint firstItem="8BG-h2-FBD" firstAttribute="leading" secondItem="T4M-Vt-XSG" secondAttribute="leading" constant="3" id="Wjc-A1-bHE"/>
+                            <constraint firstItem="HoL-xd-fuH" firstAttribute="leading" secondItem="T4M-Vt-XSG" secondAttribute="leading" constant="3" id="b7v-Zc-8zO"/>
+                            <constraint firstAttribute="trailing" secondItem="3ib-NE-f83" secondAttribute="trailing" constant="5" id="hbG-Bd-WfE"/>
+                            <constraint firstItem="Xox-Tc-5ca" firstAttribute="leading" secondItem="T4M-Vt-XSG" secondAttribute="leading" constant="3" id="jeE-5k-jdt"/>
+                            <constraint firstAttribute="trailing" secondItem="HoL-xd-fuH" secondAttribute="trailing" constant="3" id="sAm-Z8-V7Q"/>
+                            <constraint firstItem="Xox-Tc-5ca" firstAttribute="top" secondItem="T4M-Vt-XSG" secondAttribute="top" constant="3" id="swA-lC-Oa1"/>
+                        </constraints>
+                    </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QAu-ki-LrG">
+                        <rect key="frame" x="5" y="5" width="32" height="32"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="32" id="B1V-JX-dAq"/>
+                            <constraint firstAttribute="width" secondItem="QAu-ki-LrG" secondAttribute="height" multiplier="1:1" id="sZn-sP-kxN"/>
+                        </constraints>
+                        <inset key="imageEdgeInsets" minX="3" minY="3" maxX="3" maxY="3"/>
+                        <state key="normal" image="icon-thongtinquangcao-do">
+                            <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </state>
+                        <connections>
+                            <action selector="suKienBamNutDaiDien:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="PUw-M3-5lH"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="J6n-0h-pTZ" secondAttribute="trailing" id="NAg-DH-c3o"/>
+                    <constraint firstItem="J6n-0h-pTZ" firstAttribute="top" secondItem="T4M-Vt-XSG" secondAttribute="bottom" constant="3" id="Qnk-RT-4Xx"/>
+                    <constraint firstAttribute="bottom" secondItem="J6n-0h-pTZ" secondAttribute="bottom" id="cJ6-WD-Scd"/>
+                    <constraint firstItem="T4M-Vt-XSG" firstAttribute="leading" secondItem="QAu-ki-LrG" secondAttribute="trailing" id="cqd-z7-Ccb"/>
+                    <constraint firstItem="QAu-ki-LrG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="dhk-gy-xzo"/>
+                    <constraint firstItem="QAu-ki-LrG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="esb-fS-kwO"/>
+                    <constraint firstItem="T4M-Vt-XSG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="nlz-7X-dkA"/>
+                    <constraint firstAttribute="trailing" secondItem="T4M-Vt-XSG" secondAttribute="trailing" id="xyB-Mb-XtV"/>
+                    <constraint firstItem="J6n-0h-pTZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="yua-WL-hHh"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="heightButtonDongY" destination="kJV-Ci-1cq" id="rc9-Dx-JGH"/>
+                <outlet property="mViewHienThiThongTin" destination="T4M-Vt-XSG" id="CcM-5L-fWw"/>
+                <outlet property="mViewXacNhan" destination="J6n-0h-pTZ" id="H7T-Hr-uhg"/>
+                <outlet property="mbtnDaiDien" destination="QAu-ki-LrG" id="QBN-vA-Z2T"/>
+                <outlet property="mlblChuThich" destination="HoL-xd-fuH" id="ASc-Yn-mVN"/>
+                <outlet property="mlblThoiGian" destination="3ib-NE-f83" id="cbv-Zl-NRQ"/>
+                <outlet property="mlblTieuDe" destination="Xox-Tc-5ca" id="Vj8-99-dch"/>
+                <outlet property="mlblTrangThai" destination="8BG-h2-FBD" id="Bx8-5f-7wH"/>
+            </connections>
+            <point key="canvasLocation" x="-230" y="68.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="bg-nuttrang.png" width="128" height="52"/>
+        <image name="icon-thongtinquangcao-do" width="22" height="22"/>
+    </resources>
+</document>

@@ -1,0 +1,32 @@
+//
+// Prefix header for all source files of the 'ViViet' target in the 'ViViet' project
+//
+
+#define IS_IPHONE_5 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
+#define IS_PORTRAIT ([[UIDevice currentDevice] orientation] != UIDeviceOrientationLandscapeLeft && [[UIDevice currentDevice] orientation] != UIDeviceOrientationLandscapeRight)
+#ifdef __OBJC__
+
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+    #import <Availability.h>
+    #import "ViMASSLogger.h"
+    #import "LocalizationSystem.h"
+    #import "NSString+Extended.h"
+    #import "Static.h"
+
+#endif
+
+#define MODE_DEVELOP
+#define MODE_LOG_FUNCTION //: log : method + line number
+
+#ifdef MODE_DEVELOP
+    #ifdef MODE_LOG_FUNTION
+        #define VIMASS_LOG(fmt, ...) NSLog((@"%s_[Line %d]: " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+    #else
+        #define VIMASS_LOG(fmt, ...) NSLog((@"" fmt), ##__VA_ARGS__);
+    #endif
+
+#else
+// FOR RELEASE
+    #define VIMASS_LOG(...)
+#endif
