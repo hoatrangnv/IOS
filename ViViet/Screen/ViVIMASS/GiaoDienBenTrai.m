@@ -13,7 +13,7 @@
 #import "UIImageView+WebCache.h"
 #import "DichVuNotification.h"
 
-#define kDO_CAO_CELL_GIAO_DIEN_BEN_TRAI 50.0
+#define kDO_CAO_CELL_GIAO_DIEN_BEN_TRAI 40.0f
 
 #define HOP_THOAI_CHUYEN_GIAO_DIEN_VI_CA_NHAN 200
 #define HOP_THOAI_CHUYEN_GIAO_DIEN_VI_DOANH_NGHIEP 201
@@ -50,7 +50,6 @@
 
 - (void)awakeFromNib
 {
-    [super awakeFromNib];
     NSLog(@"GiaoDienBenTrai : awakeFromNib : START");
     [self.mbtnViCaNhan setBackgroundColor:[UIColor colorWithHexString:@"#0c75c9"]];
     [self.mbtnViDoanhNghiep setBackgroundColor:[UIColor colorWithHexString:@"#308d1e"]];
@@ -61,8 +60,7 @@
     [self khoiTaoViewThongTinTaiKhoan];
     
     [self xuLyHienThiGiaoDien];
-//    [self.mtbHienThi setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
-    [self.mtbHienThi reloadData];
+    
     NSLog(@"GiaoDienBenTrai : awakeFromNib : END");
 }
 
@@ -95,7 +93,7 @@
         [mDanhSachItemTaiChinhCaNhan addObject:item];
         [item release];
     }
-//    [mDanhSachItemTaiChinhCaNhan addObject:itemVersion];
+    [mDanhSachItemTaiChinhCaNhan addObject:itemVersion];
 
     if(mDanhSachItemTaiChinhDoanhNghiep)
         [mDanhSachItemTaiChinhDoanhNghiep removeAllObjects];
@@ -298,7 +296,6 @@
         {
             sTieuDe = @"dang_nhap";
         }
-        cell.lblRight.hidden = NO;
     }
     else if ([sTieuDe isEqualToString:@"sao_ke"])
     {
@@ -314,8 +311,24 @@
         }
         [cell.mlblBadgeNumber setText:[NSString stringWithFormat:@"%d", nBagdeNumber]];
     }
+
 //    NSLog(@"GiaoDienBenTrai : cellForRowAtIndexPath :==> item.mAnhDaiDien : %@", item.mAnhDaiDien);
-    cell.mimgvDaiDien.image = [UIImage imageNamed:item.mAnhDaiDien];       [cell.mlblTieuDe setText:[sTieuDe localizableString]];
+    cell.mimgvDaiDien.image = [UIImage imageNamed:item.mAnhDaiDien];
+    if (indexPath.row == _mDanhSachItemTaiChinh.count - 1) {
+        [cell.mlblTieuDe setText:sTieuDe];
+        CGRect rectTemp = cell.mlblTieuDe.frame;
+        rectTemp.origin.x = 3;
+        cell.mlblTieuDe.frame = rectTemp;
+    }
+    else {
+        [cell.mlblTieuDe setText:[sTieuDe localizableString]];
+        if([sTieuDe isEqualToString:@"Giay_phep"])
+        {
+            [cell.mlblTieuDe setText:[NSString stringWithFormat:@"Giấy phép Ví điện tử số 41/GP-NHNN\nNgân hàng nhà nước VN cấp 12/3/2018"]];
+            [cell.mlblTieuDe sizeThatFits:CGSizeMake(cell.frame.size.width, cell.frame.size.height)];
+            [cell.mlblTieuDe setAdjustsFontSizeToFitWidth:YES];
+        }
+    }
     return cell;
 }
 

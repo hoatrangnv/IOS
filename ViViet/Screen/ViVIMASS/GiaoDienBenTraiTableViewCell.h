@@ -15,6 +15,5 @@
 @property (retain, nonatomic) IBOutlet UILabel *mlblTieuDe;
 @property (nonatomic, assign) NSInteger mKieuHienThi;
 @property (retain, nonatomic) IBOutlet UILabel *mlblBadgeNumber;
-@property (retain, nonatomic) IBOutlet UILabel *lblRight;
 
 @end

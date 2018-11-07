@@ -17,7 +17,7 @@
 #import "DoiTuongThanhToanCuocDienThoaiViettel.h"
 #import "ThanhToanDienThoaiKhacViewController.h"
 
-@interface HienThiChiTietNotificationViewController () <DucNT_ServicePostDelegate>
+@interface HienThiChiTietNotificationViewController () <DucNT_ServicePostDelegate,UIWebViewDelegate>
 {
     NSString *mDinhDanhKetNoi;
     BOOL bHuyDinhKy;
@@ -64,6 +64,12 @@ static NSString *jsonGMobile = @"{\"id\":12,\"type\":1,\"image\":\"0984009815142
     mDinhDanhKetNoi = DINH_DANH_LAY_CHI_TIET_MOT_TIN;
     [[DichVuNotification shareService] dichVuLayChiTietMotTin:_mDoiTuongNotification.alertId noiNhanKetQua:self];
     bHuyDinhKy = NO;
+    [self.mwvHienThi setDelegate:self];
+}
+-(void)webViewDidFinishLoad:(UIWebView *)webView{
+    NSString *fontSize=@"143";
+    NSString *jsString = [[NSString alloc]      initWithFormat:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '%d%%'",[fontSize intValue]];
+    [_mwvHienThi stringByEvaluatingJavaScriptFromString:jsString];
 }
 
 #pragma mark - khoiTao

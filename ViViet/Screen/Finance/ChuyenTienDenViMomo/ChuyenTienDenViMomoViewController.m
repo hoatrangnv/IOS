@@ -233,6 +233,10 @@
             return @"VTCpay";
         case 6: case NHA_CUNG_CAP_VIVIET:
             return @"Ví Việt";
+        case 7: case VNPT_PAY:
+            return @"VNPT Pay ";
+        case 8: case AIR_PAY:
+            return @"Air Pay";
         default:
             break;
     }
@@ -326,7 +330,7 @@
     danhBa.mKieuHienThiLienHe = KIEU_HIEN_THI_LIEN_HE_THUONG;
     [self.navigationController pushViewController:danhBa animated:YES];
     __block ChuyenTienDenViMomoViewController *weakSelf = self;
-    [danhBa selectContact:^(NSString *phone)
+    [danhBa selectContact:^(NSString *phone,Contact *contact)
      {
          if (phone != nil && phone.length > 0)
          {
@@ -429,6 +433,10 @@
             return VTC_PAY;
         case 6:
             return NHA_CUNG_CAP_VIVIET;
+        case 7:
+            return VNPT_PAY;
+        case 8:
+            return AIR_PAY;
         default:
             break;
     }
@@ -449,6 +457,10 @@
             return 5;
         case NHA_CUNG_CAP_VIVIET:
             return 6;
+        case VNPT_PAY:
+            return 7;
+        case AIR_PAY:
+            return 8;
         default:
             break;
     }

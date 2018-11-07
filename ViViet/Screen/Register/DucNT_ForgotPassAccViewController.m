@@ -38,10 +38,31 @@
 //    [self addButtonBack];
 //    lbTitle.text = [@"@title_quen_mat_khau" localizableString];
     [self addTitleView:[@"@title_quen_mat_khau" localizableString]];
+    UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button.frame = CGRectMake(0, 0, 35, 44);
+    button.backgroundColor = [UIColor clearColor];
+    [button addTarget:self action:@selector(didSelectBackButton) forControlEvents:UIControlEventTouchUpInside];
+    
+    //    [button setImage:[UIImage imageNamed:@"login-btn-back-white.png"] forState:UIControlStateNormal];
+    [button setImage:[UIImage imageNamed:@"icon_back.png"] forState:UIControlStateNormal];
+    button.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    UIBarButtonItem *leftItem = [[[UIBarButtonItem alloc] initWithCustomView:button] autorelease];
+    leftItem.width = 35;
+    
+    UIBarButtonItem *negativeSeperator = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+    
+    if (SYSTEM_VERSION_LESS_THAN(@"7"))
+        negativeSeperator.width = -5;
+    else
+        negativeSeperator.width = -16;
+    
+    self.navigationItem.leftBarButtonItems = @[negativeSeperator, leftItem];
     [self khoiTaoTextField];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(chuyenFormVeDangNhap:) name:@"XAC_THUC_OTP_THANH_CONG" object:nil];
 }
-
+- (void)didSelectBackButton{
+    [self suKienBack:nil];
+}
 -(void)viewWillLayoutSubviews
 {
     [viewRoot fix];

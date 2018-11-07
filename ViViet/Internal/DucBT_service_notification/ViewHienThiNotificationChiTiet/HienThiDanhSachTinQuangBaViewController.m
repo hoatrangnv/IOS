@@ -203,9 +203,10 @@ typedef enum : int {
 
 - (void)khoiTaoDanhSachTinQuangBa
 {
-    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"11")) {
-        [self hienThiLoadingChuyenTien];
-    }
+    //TODO: HIEUTRINH COMMENT
+//    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"11")) {
+//        [self hienThiLoadingChuyenTien];
+//    }
     NSString *sTaiKhoan = [DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_ID_TEMP];
     if(sTaiKhoan)
         sTaiKhoan = [DucNT_LuuRMS layThongTinDangNhap:KEY_LAST_ID_LOGIN];
@@ -718,6 +719,12 @@ typedef enum : int {
     [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:sThongBao];
 }
 
+//- (void)ketNoiBatThanh{
+//    
+//    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"11")) {
+//        [self anLoading];
+//    }
+//}
 #pragma mark - UIScrollViewDelegate
 
 //- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{

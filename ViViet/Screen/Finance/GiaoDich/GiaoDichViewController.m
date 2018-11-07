@@ -73,7 +73,7 @@
     label.textAlignment = NSTextAlignmentCenter;
     label.backgroundColor = [UIColor clearColor];
     label.numberOfLines = 2;
-    label.font = [UIFont boldSystemFontOfSize:17.0f];
+    label.font = [UIFont boldSystemFontOfSize:20.0];
     label.minimumScaleFactor = 0.8f;
     label.textColor = [UIColor whiteColor];
     label.text = sTitle;
@@ -733,7 +733,12 @@
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"11")){
         [self anLoading];
     }
-    [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:sThongBao];
+    if([sDinhDanhKetNoi isEqualToString:@"KET_NOI_LAY_QRCODE_VI"] || [sDinhDanhKetNoi isEqualToString:@"KET_NOI_LAY_QRCODE"] || [sDinhDanhKetNoi isEqualToString:@"KET_NOI_LAY_QRCODE_DON_VI"]){
+        [self hienThiHopThoaiMotNutBamKieu:226 cauThongBao:sThongBao];
+    }
+    else{
+        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:sThongBao];
+    }
 }
 
 #pragma mark - UIAlertViewDelegate

@@ -18,7 +18,7 @@
 #import "DucNT_RegisterViewViewController.h"
 @interface DucNT_LoginSceen : GiaoDichViewController <DucNT_ServicePostDelegate, UITextFieldDelegate>
 
-@property (retain, nonatomic) IBOutlet FixIOS7StatusBarRootView *rootView;
+@property (retain, nonatomic) IBOutlet UIImageView *imgVimass;
 @property (retain, nonatomic) IBOutlet UIView *viewDangNhap;
 @property (retain, nonatomic) IBOutlet ExTextField *edtMainInfo;
 @property (retain, nonatomic) IBOutlet ExTextField *edtPass;
@@ -27,6 +27,8 @@
 @property (retain, nonatomic) IBOutlet UIButton *btnDangKy;
 @property (retain, nonatomic) IBOutlet UIButton *btnBack;
 @property (retain, nonatomic) IBOutlet UILabel *lbTitle;
+@property (retain, nonatomic) IBOutlet UITextView *txtGiayPhep;
+
 @property (retain, nonatomic) IBOutlet UIButton *mbtnDangNhapFacebook;
 @property (retain, nonatomic) IBOutlet UIButton *mbtnDangNhapGoogle;
 @property (retain, nonatomic) IBOutlet ExTextField *mtfMaDoanhNghiep;

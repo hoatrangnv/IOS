@@ -54,6 +54,7 @@
 #define FUNC_GUI_TIEN_TIET_KIEM 420
 #define FUNC_RUT_TIEN_TIET_KIEM 421
 #define FUNC_THANH_TOAN_TIEN_VAY  440
+#define FUNC_CHUYEN_TIEN_AN_DANH  467
 
 #define FUNC_DUYET_GIAO_DICH_DOANH_NGHIEP 422
 #define FUNC_DOANH_NGHIEP_LAP_LENH_THEO_LO 430
@@ -243,6 +244,12 @@ typedef enum : NSUInteger {
 #define DINH_DANH_THANH_TOAN_TIEN_VAY @"DINH_DANH_THANH_TOAN_TIEN_VAY"
 //may bay
 #define DINH_DANH_TRA_CUU_TANG_GIA_VE_MAY_BAY @"DINH_DANH_TRA_CUU_TANG_GIA_VE_MAY_BAY"
+
+//chuyentiendien thoai
+#define DINH_DANH_CHUYEN_TIEN_DIEN_THOAI @"DINH_DANH_CHUYEN_TIEN_DIEN_THOAI"
+//Xac nhan chuyen tien dien thoai
+#define DINH_DANH_XAC_NHANH_CHUYEN_TIEN_DIEN_THOAI @"DINH_DANH_XAC_NHANH_CHUYEN_TIEN_DIEN_THOAI"
+
 // ten anh
 #define BANNER_CHUYEN_TIEN_DEN_VI @"1 chuyentiendenvi.png"
 #define BANNER_CHUYEN_TIEN_DEN_TAI_KHOAN_NGAN_HANG @"2 taikhoannganhang3"
@@ -388,6 +395,9 @@ typedef enum : NSInteger {
     VIMO = 35,
     BAO_KIM = 36,
     NHA_CUNG_CAP_VIVIET = 90,
+    ZALO_PAY = 91,
+    VNPT_PAY = 92,
+    AIR_PAY = 93,
 } MA_NHA_CUNG_CAP_DICH_VU;
 
 typedef enum : NSInteger {

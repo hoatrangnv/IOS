@@ -33,8 +33,8 @@
 @property (nonatomic, retain) NSDictionary *dicLaguage;
 @property (nonatomic, assign) ContactScreen *contactsVC;
 @property (strong, nonatomic) NSDictionary *refererAppLink;
-
-
+@property (strong, nonatomic) NSDictionary *dictDangNhap;
+@property (strong, nonatomic) DucNT_TaiKhoanViObject *mThongTinTaiKhoanVi;
 @property (retain, nonatomic) UIImageView *v_realtime;
 
 -(void) loadLanguage:(NSString *) _language;
@@ -42,8 +42,10 @@
 -(UINavigationController *) navigationController;
 
 - (void) reloadGiaoDienHome;
-
+-(void)showHowScreen:(DucNT_TaiKhoanViObject *)mThongTinTaiKhoanVi;
+-(void)showLogin;
 // HOANHNV FIX FOR UPDATE ACCOUNT
 @property (retain, nonatomic) DucNT_TaiKhoanViObject *objUpdateProfile;
+@property (nonatomic,assign) NSInteger selectedTab;
 
 @end

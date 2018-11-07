@@ -8,16 +8,20 @@
 
 #import "GiaoDichViewController.h"
 #import "TPKeyboardAvoidingScrollView.h"
+#import "KRLCollectionViewGridLayout.h"
 
 @interface GiaoDienChinhV2 : GiaoDichViewController<UICollectionViewDelegate, UICollectionViewDataSource>
+@property (retain, nonatomic) IBOutlet UICollectionViewLayout *collectionViewLayout;
+@property (retain, nonatomic) IBOutlet NSLayoutConstraint *slideShowHeigt;
+@property (retain, nonatomic) IBOutlet UIView *quangcaoView;
+@property (retain, nonatomic) IBOutlet UIView *vVicuatoi;
+@property (retain, nonatomic) IBOutlet UIView *vHuongDan;
+@property (retain, nonatomic) IBOutlet UIView *vSoTay;
+@property (retain, nonatomic) IBOutlet UIView *vUuDai;
 
 @property (retain, nonatomic) IBOutlet UICollectionView *collectionMain;
-@property (retain, nonatomic) IBOutlet TPKeyboardAvoidingScrollView *scrMain;
-@property (retain, nonatomic) IBOutlet UIView *viewMain1;
-@property (retain, nonatomic) IBOutlet UIView *viewMain2;
-@property (retain, nonatomic) IBOutlet UIView *viewMain;
 
-
+- (IBAction)doBack:(id)sender;
 - (void)xuLySuKienDangNhapThanhCong:(NSNotification *)notification;
 - (IBAction)suKienBamChuyenTienDenViNoiBo:(id)sender;
 - (IBAction)suKienBamNutChuyenTienDenTaiKhoan:(id)sender;

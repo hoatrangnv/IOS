@@ -67,20 +67,17 @@
 #import "QRDonViViewController.h"
 #import "FBEncryptorAES.h"
 #import "GiaoDienDenKhac.h"
+#import "QRSearchViewController.h"
 
 
-@interface GiaoDienChinhV2 ()<GiaoDienBenTraiDelegate, ViewNavigationGiaoDienChinhDelegate, DucNT_ServicePostDelegate, GiaoDienChinhHeaderV2Delegate, UIActionSheetDelegate, QRCodeReaderDelegate>{
-    IBOutlet SideViewContainer *mSliderContainer;
+@interface GiaoDienChinhV2 ()< ViewNavigationGiaoDienChinhDelegate, DucNT_ServicePostDelegate, GiaoDienChinhHeaderV2Delegate,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout, UIActionSheetDelegate>{
     ViewNavigationGiaoDienChinh *mViewNavigationGiaoDienChinh;
-    Drawer *mDrawer;
-    GiaoDienBenTrai *mGiaoDienBenTrai;
     NSString *mDinhDanhKetNoi;
     BOOL mTrangThaiDangOViewBenTrai;
     bool isChuyenGiaoDien;
     GiaoDienChinhHeaderV2 *headerView;
     KASlideShow *showQC;
     bool isLoadQC;
-    QRCodeReaderViewController *vcQRCode;
     NSString *keyPin;
 }
 
@@ -88,6 +85,8 @@
 @property (nonatomic, assign) NSInteger mSoDuVi;
 @property (nonatomic, assign) NSInteger mSoDuKhuyenMaiVi;
 @property (nonatomic, retain) NSArray *mDanhSachAnhQuangCao;
+@property (nonatomic, retain) NSArray *arrData;
+
 @property (nonatomic, assign) BOOL mKhongMoGiaoDienBenTrai;
 @end
 
@@ -105,86 +104,29 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[UIApplication sharedApplication] setStatusBarHidden:NO];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    
+    UIView *statusBar = [[[UIApplication sharedApplication] valueForKey:@"statusBarWindow"] valueForKey:@"statusBar"];
+    
+    if ([statusBar respondsToSelector:@selector(setBackgroundColor:)]) {
+        
+        statusBar.backgroundColor = [UIColor colorWithRed:30.0/255 green:48.0/233 blue:63/255.0 alpha:1];//set whatever color you like
+    }
+
     keyPin = @"11111111";
+    self.arrData = @[@{@"icon":@"6vephim",@"title":@"Vé phim"},@{@"icon":@"6vebay",@"title":@"Vé bay"},@{@"icon":@"6vetau",@"title":@"Vé tàu"},@{@"icon":@"6vexe",@"title":@"Vé xe"},@{@"icon":@"6dthoai",@"title":@"D. thoại"},@{@"icon":@"6tiendtu",@"title":@"Tiền đ.tử"},@{@"icon":@"6mathe",@"title":@"Mã thẻ"},@{@"icon":@"6travay",@"title":@"Trả vay"},@{@"icon":@"6dien",@"title":@"Điện"},@{@"icon":@"6nuoc",@"title":@"Nước"},@{@"icon":@"6internet",@"title":@"Internet"},@{@"icon":@"6trhinh",@"title":@"Tr.hình"},@{@"icon":@"6chkhoan",@"title":@"Ch.khoán"},@{@"icon":@"6hocphi",@"title":@"Học phí"},@{@"icon":@"6tangqua",@"title":@"Tặng quà"},@{@"icon":@"6baohiem",@"title":@"Bảo hiểm"},@{@"icon":@"6tuthien",@"title":@"Từ thiện"},@{@"icon":@"6lixi",@"title":@"Lì xì"},@{@"icon":@"6token.png",@"title":@"Token"},@{@"icon":@"6napvi",@"title":@"Nạp ví"}];
+    
     NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
     [user setInteger:0 forKey:@"KEY_INDEX_CLICK_QC"];
     [user synchronize];
     isLoadQC = NO;
     int nTongSoLuongTinChuaDoc = [[DichVuNotification shareService] laySoLuongTinChuaDocTrongChucNang:0];
     NSLog(@"%s - nTongSoLuongTinChuaDoc : %d", __FUNCTION__, nTongSoLuongTinChuaDoc);
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(xuLySuKienDangNhapThanhCong:) name:DANG_NHAP_THANH_CONG object:nil];
-
-//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-//    BOOL bShowQC = [defaults boolForKey:@"tamnv_show_quangcao"];
-//    if (!bShowQC) {
-//        [self khoiTaoQuangCao];
-//        [defaults setBool:YES forKey:@"tamnv_show_quangcao"];
-//    }
-
-    mDrawer = (Drawer*)self.view;
-    CGFloat width = [UIScreen mainScreen].bounds.size.width;
-    CGFloat height = [UIScreen mainScreen].bounds.size.height;
-    headerView = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([GiaoDienChinhHeaderV2 class]) owner:self options:nil] objectAtIndex:0];
-    headerView.mDelegate = self;
-    CGRect frameHeader = headerView.frame;
-    frameHeader.size.width = self.view.frame.size.width;
-    headerView.frame = frameHeader;
-    [self.viewMain addSubview:headerView];
-
-    
-    NSLog(@"%s - width : %f - %f", __FUNCTION__, width, height);
-    if (width <= 320.0) {
-        int nCongThem = 0;
-        if (height == 480) {
-            nCongThem = 30;
-        }
-        CGRect rectViewMain1 = self.viewMain1.frame;
-        rectViewMain1.origin.y = headerView.frame.size.height + 7;
-        self.viewMain1.frame = rectViewMain1;
-        [self.viewMain addSubview:self.viewMain1];
-        [self.viewMain bringSubviewToFront:self.viewMain1];
-        CGRect rectViewMain = self.viewMain.frame;
-        rectViewMain.size.height = rectViewMain1.origin.y + rectViewMain1.size.height + 50;
-        self.viewMain.frame = rectViewMain;
-        [self.scrMain setContentSize:CGSizeMake(50, rectViewMain.size.height)];
-    }
-    else{
-        CGRect rectViewMain1 = self.viewMain2.frame;
-        CGRect rectHeader = headerView.frame;
-        BOOL isChange = NO;
-        if (width >= 400) {
-            NSLog(@"%s - update size height header 1 : %f", __FUNCTION__, rectHeader.size.height);
-            rectHeader.size.height += 60;
-            NSLog(@"%s - update size height header 2 : %f", __FUNCTION__, rectHeader.size.height);
-            isChange = YES;
-        }
-        headerView.frame = rectHeader;
-        [headerView updateFontChu];
-        if (isChange) {
-            [headerView capNhatFrameSlide];
-        }
-        NSLog(@"%s - rectViewMain1.size.width : %f - %f", __FUNCTION__, rectViewMain1.size.width, rectViewMain1.size.height);
-        rectViewMain1.origin.y = headerView.frame.size.height + 7;
-        rectViewMain1.size.width = width;
-        self.viewMain2.frame = rectViewMain1;
-        [self.viewMain addSubview:self.viewMain2];
-//        self.viewMain2.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
-        [self.viewMain bringSubviewToFront:self.viewMain2];
-        CGRect rectViewMain = self.viewMain.frame;
-        rectViewMain.size.height = rectViewMain1.origin.y + rectViewMain1.size.height + 50;
-        self.viewMain.frame = rectViewMain;
-        [self.scrMain setContentSize:CGSizeMake(50, rectViewMain.size.height)];
-    }
-
-    [self khoiTaoGiaoDienBenTrai];
-    [self khoiTaoAnhQuangCao];
 
     for (UIGestureRecognizer *recognizer in self.view.gestureRecognizers) {
         [self.view removeGestureRecognizer:recognizer];
     }
-
-    UINib *cellNib = [UINib nibWithNibName:@"CollectionCellGiaoDienChinh" bundle:nil];
-    [self.collectionMain registerNib:cellNib forCellWithReuseIdentifier:@"CollectionCellGiaoDienChinh"];
 }
 
 - (void)ketNoiQuangCao {
@@ -215,173 +157,45 @@
     [user setBool:isWifi forKey:@"QUANG_CAO_WIFI"];
     [user synchronize];
 }
-
-- (void)khoiTaoQuangCao{
-    if (!showQC) {
-        showQC = [[KASlideShow alloc] initWithFrame:self.navigationController.view.frame];
-        [showQC setDelay:20.0];
-        [showQC setTransitionDuration:1];
-        [showQC setTransitionType:KASlideShowTransitionSlide];
-        [showQC setImagesContentMode:UIViewContentModeScaleAspectFill];
-        [showQC addImagesFromResources:@[@"huongdan1.png", @"huongdan2.png", @"huongdan3.png", @"huongdan4.png", @"huongdan5.png"]];
-        UIButton *btnClose = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.size.width - 37, 5, 32, 32)];
-        [btnClose setBackgroundImage:[UIImage imageNamed:@"icon_close.png"] forState:UIControlStateNormal];
-        [btnClose addTarget:self action:@selector(suKienDongQuangCao) forControlEvents:UIControlEventTouchUpInside];
-        [showQC addSubview:btnClose];
-        [btnClose release];
-        [showQC addGesture:KASlideShowGestureSwipe];
-    }
-    [self.navigationController.view addSubview:showQC];
-    [[UIApplication sharedApplication] setStatusBarHidden:YES];
-    [self.navigationController.view setNeedsLayout];
-    [NSTimer scheduledTimerWithTimeInterval:20 target:self selector:@selector(chaySlideShowQC:) userInfo:nil repeats:NO];
-    [NSTimer scheduledTimerWithTimeInterval:110 target:self selector:@selector(dongSlideShowQC:) userInfo:nil repeats:NO];
-}
-
-- (void)suKienDongQuangCao{
-    [showQC stop];
-    [showQC removeFromSuperview];
-    [[UIApplication sharedApplication] setStatusBarHidden:NO];
-    [self.navigationController.view setNeedsLayout];
-}
-
-- (void)chaySlideShowQC:(NSTimer*)time{
-    [showQC start];
-}
-
-- (void)dongSlideShowQC:(NSTimer*)time{
-    [self suKienDongQuangCao];
-}
-
-- (void)reloadGiaoDien:(NSNotification *)notification{
-    NSLog(@"%s =========================================>", __FUNCTION__);
-    [mViewNavigationGiaoDienChinh hienThiBagdeNumber];
-    if (self.mThongTinTaiKhoanVi) {
-        [mViewNavigationGiaoDienChinh hienThiSoTien:[NSString stringWithFormat:@"%@ đ", [Common hienThiTienTe:[self.mThongTinTaiKhoanVi.nAmount doubleValue]]]];
-    }
-    else {
-        [mViewNavigationGiaoDienChinh hienThiSoTien:@""];
-    }
-    [mGiaoDienBenTrai reloadDataBagde];
-    int nBagdeNumber = [[DichVuNotification shareService] laySoLuongTinChuaDocTrongChucNang:TIN_TAI_CHINH];
-    if(nBagdeNumber > 0)
-    {
-        [headerView.lblSaoKeChinh setHidden:NO];
-    }
-    else
-    {
-        [headerView.lblSaoKeChinh setHidden:YES];
-    }
-    [headerView.lblSaoKeChinh setText:[NSString stringWithFormat:@"%d", nBagdeNumber]];
-}
-
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    isChuyenGiaoDien = NO;
+    self.navigationController.navigationBar.hidden = true;
+    headerView = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([GiaoDienChinhHeaderV2 class]) owner:self options:nil] objectAtIndex:0];
+    headerView.mDelegate = self;
+    CGRect frameHeader = headerView.frame;
+    frameHeader.size.width = self.view.frame.size.width;
+    frameHeader.origin.x = 0;
+    frameHeader.origin.y = 0;
+    float scale = (750/340.0);
+    self.slideShowHeigt.constant = [UIScreen mainScreen].bounds.size.width/scale;
+    headerView.frame = [self.quangcaoView bounds];
+    [headerView capNhatFrameSlide];
+    [self.quangcaoView addSubview:headerView];
+    [self.quangcaoView layoutIfNeeded];
+    [self.quangcaoView layoutSubviews];
 
-    [self khoiTaoThongTinVi];
-    [self reloadGiaoDien:nil];
     [self capNhatGiaoDienBenTraiVaGiaoDienHeader];
+    self.collectionMain.delegate = self;
+    [self.collectionMain setDataSource:self];
+    UINib *cellNib = [UINib nibWithNibName:@"CollectionCellGiaoDienChinh" bundle:nil];
+    [self.collectionMain registerNib:cellNib forCellWithReuseIdentifier:@"CollectionCellGiaoDienChinh"];
 
-    if(mTrangThaiDangOViewBenTrai && !_mKhongMoGiaoDienBenTrai)
-    {
-        mTrangThaiDangOViewBenTrai = NO;
-        [mDrawer openLeft];
-    }
-    else if (_mKhongMoGiaoDienBenTrai)
-    {
-        _mKhongMoGiaoDienBenTrai = NO;
-    }
-}
+    [self.collectionMain reloadData];
+
+    UITapGestureRecognizer *tap4 = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapVicuatoi:)];
+    tap4.numberOfTapsRequired = 1;
+    [self.vVicuatoi addGestureRecognizer:tap4 ];}
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-//    [headerView tamDungQuangCao];
-    [self khoiTaoNaviGationBar];
-    [self xuLyGiaoDienKhiVaoApp];
-//    if (@available(iOS 11, *)) {
-//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//            self.navigationController.navigationBar.layoutMargins = UIEdgeInsetsZero;
-//            for (UIView *subview in self.navigationController.navigationBar.subviews) {
-//                if ([NSStringFromClass([subview class]) containsString:@"ContentView"]) {
-//                    subview.layoutMargins = UIEdgeInsetsZero;
-//                }
-//            }
-//        });
-//    }
-
+    if(!isLoadQC) {
+        [self ketNoiQuangCao];
+    }
 }
-
-- (void)xuLyGiaoDienKhiVaoApp {
-    if (self.mThongTinTaiKhoanVi) {
-        UIButton * btnTemp = [UIButton buttonWithType:UIButtonTypeCustom];
-        btnTemp.frame = CGRectMake(0, 0, 40, 40);
-        [[btnTemp layer] setBorderWidth:2.0f];
-        [[btnTemp layer] setBorderColor:[UIColor whiteColor].CGColor];
-        [btnTemp.layer setCornerRadius:3.0f];
-        if (btnTemp && self.mThongTinTaiKhoanVi) {
-            NSString *sDuongDanAnhDaiDien = self.mThongTinTaiKhoanVi.sLinkAnhDaiDien;
-            NSLog(@"%s +++++++++++++++ sDuongDanAnhDaiDien : %@", __FUNCTION__, sDuongDanAnhDaiDien);
-            if([sDuongDanAnhDaiDien isEqualToString:@""])
-            {
-                [btnTemp setBackgroundImage:[UIImage imageNamed:@"icon_danhba"] forState:UIControlStateNormal];
-            }
-            else
-            {
-                if([sDuongDanAnhDaiDien rangeOfString:@"http"].location != NSNotFound){
-                    [btnTemp sd_setBackgroundImageWithURL:[NSURL URLWithString:sDuongDanAnhDaiDien] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"icon_danhba"]];
-                }
-                else{
-                    [btnTemp sd_setBackgroundImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://203.162.235.66:8080/vmbank/services/media/getImage?id=%@", sDuongDanAnhDaiDien]] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"icon_danhba"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-                        NSLog(@"%s - error : %@", __FUNCTION__, error);
-                        NSLog(@"%s - imageURL : %@", __FUNCTION__, imageURL);
-
-                    }];
-                }
-            }
-        }
-        btnTemp.backgroundColor = [UIColor clearColor];
-        btnTemp.frame = CGRectMake(0, 0, 40, 40);
-        if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"11")) {
-            [btnTemp.widthAnchor constraintEqualToConstant:40].active = YES;
-            [btnTemp.heightAnchor constraintEqualToConstant:40].active = YES;
-        }
-
-        //        btnTemp.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
-        [btnTemp addTarget:self action:@selector(suKienBamNutMore:) forControlEvents:UIControlEventTouchUpInside];
-
-        UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithCustomView:btnTemp];
-        //        UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_danhba"] style:UIBarButtonItemStyleDone target:self action:@selector(suKienBamNutMore:)];
-        leftItem.width = 30;
-        UIBarButtonItem *negativeSeperator = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil] autorelease];
-
-        if (SYSTEM_VERSION_LESS_THAN(@"11"))
-            negativeSeperator.width = -10;
-        else
-            negativeSeperator.width = -15;
-        self.navigationItem.rightBarButtonItems = @[negativeSeperator, leftItem];
-
-        [self capNhatSoDuVi];
-    }
-    else {
-        if(!isLoadQC) {
-            [self ketNoiQuangCao];
-        }
-        [self addButton:@"icon_more" selector:@selector(suKienBamNutMore:) atSide:1];
-        NSString *sKeyDangNhap = [DucNT_LuuRMS layThongTinDangNhap:KEY_DANG_NHAP];
-        NSLog(@"%s - sKeyDangNhap : %@", __FUNCTION__, sKeyDangNhap);
-        if(sKeyDangNhap.length > 0)
-        {
-            NSDictionary *dict = [sKeyDangNhap objectFromJSONString];
-            NSArray *arrTemp = [dict allKeys];
-            if (arrTemp != nil && arrTemp.count > 0) {
-                NSString *sTaiKhoan = (NSString *)[arrTemp firstObject];
-                NSLog(@"%s - tai khoan : %@", __FUNCTION__, sTaiKhoan);
-                [self hienThongBaoDangNhapVanTay:sTaiKhoan];
-            }
-        }
-    }
+-(void)tapVicuatoi:(UITapGestureRecognizer*)gesture{
+    [self doBack:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ClickVicuatoi" object:nil];
 }
 
 - (void)hienThongBaoDangNhapVanTay:(NSString *)taiKhoan {
@@ -439,314 +253,12 @@
     return s1;
 }
 
-- (void)capNhatSoDuVi
-{
-    if([[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_STATE] boolValue])
-    {
-        NSLog(@"%s - ============> DINH_DANH_KET_NOI_LAY_SO_DU_TAI_KHOAN", __FUNCTION__);
-        self.mDinhDanhKetNoi = DINH_DANH_KET_NOI_LAY_SO_DU_TAI_KHOAN;
-        [GiaoDichMang ketNoiLaySoDuTaiKhoan:self];
-    }
-    else {
-        if(!isLoadQC) {
-            NSLog(@"%s - isLoadQC = NO", __FUNCTION__);
-            [self ketNoiQuangCao];
-//            isLoadQC = YES;
-//            mDinhDanhKetNoi = DINH_DANH_KET_NOI_LAY_QUANG_CAO;
-//            [GiaoDichMang layDanhSachQuangCao:self];
-        }
-    }
-}
-
-- (void)khoiTaoThongTinVi
-{
-    [mViewNavigationGiaoDienChinh hienThiBagdeNumber];
-    [mGiaoDienBenTrai.mtbHienThi reloadData];
-    headerView.mThongTinTaiKhoanVi = self.mThongTinTaiKhoanVi;
-    mGiaoDienBenTrai.mThongTinTaiKhoanVi = self.mThongTinTaiKhoanVi;
-}
-
-- (void)khoiTaoNaviGationBar
-{
-    //    [self addButtonBack];
-    if (mViewNavigationGiaoDienChinh == nil) {
-        mViewNavigationGiaoDienChinh = [[[NSBundle mainBundle] loadNibNamed:@"ViewNavigationGiaoDienChinh" owner:self options:nil] objectAtIndex:0];
-        mViewNavigationGiaoDienChinh.mDelegate = self;
-        self.navigationItem.titleView = mViewNavigationGiaoDienChinh;
-        [self addButton:@"icon_menu_1" selector:@selector(suKienBamNutMenuLeft:) atSide:0];
-    }
-}
-
-- (void)khoiTaoGiaoDienBenTrai
-{
-    if(mDrawer.left != nil)
-        return;
-    mGiaoDienBenTrai = [[[NSBundle mainBundle] loadNibNamed:@"GiaoDienBenTrai" owner:self options:nil] objectAtIndex:0];
-    mGiaoDienBenTrai.mDelegate = self;
-    mDrawer.left = mGiaoDienBenTrai;
-}
-
-- (void)khoiTaoAnhQuangCao
-{
-
-}
-
-- (IBAction)suKienBamNutMenuLeft:(UIButton *)sender
-{
-    [mDrawer openLeft];
-}
-
-- (IBAction)suKienBamNutMore:(UIButton *)sender
-{
-    Drawer *drawer = (Drawer *)self.view;
-    [drawer close:^()
-     {
-         if (self.mThongTinTaiKhoanVi) {
-             UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Đóng" destructiveButtonTitle:nil otherButtonTitles:@"Đăng xuất", @"Đổi thông tin", @"Giới thiệu bạn bè", @"Góp ý", @"Trò truyện", @"Phone token", nil];
-             [actionSheet showInView:self.view];
-             [actionSheet release];
-         }
-         else {
-             UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Đóng" destructiveButtonTitle:nil otherButtonTitles:@"Đăng nhập / Đăng ký", @"Giới thiệu bạn bè", @"Góp ý", @"Trò truyện", @"Phone token", nil];
-             [actionSheet showInView:self.view];
-             [actionSheet release];
-         }
-     }];
-
-}
-
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
-
-    if (self.mThongTinTaiKhoanVi) {
-        NSLog(@"%s - buttonIndex : %d", __FUNCTION__, (int)buttonIndex);
-        if (buttonIndex == 0) {
-            [self suKienDangXuat];
-        }
-        else if (buttonIndex == 1){
-            [self xuLySuKienChonThongTinVi];
-        }
-        else if (buttonIndex == 2) {
-            DucBT_ShareViewController *shareViewController = [[DucBT_ShareViewController alloc] initWithNibName:@"DucBT_ShareViewController" bundle:nil];
-            [self.navigationController pushViewController:shareViewController animated:YES];
-            [shareViewController release];
-        }
-        else if (buttonIndex == 3){
-            NSString *sTaiKhoan = [DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_ID_TEMP];
-            if(sTaiKhoan.length > 0)
-            {
-                GiaoDienGopY *gopY = [[GiaoDienGopY alloc] initWithNibName:NSStringFromClass([GiaoDienGopY class]) bundle:nil];
-                [self.navigationController pushViewController:gopY animated:YES];
-                [gopY release];
-            }
-            else{
-                DucNT_LoginSceen *login = [[DucNT_LoginSceen alloc] initWithNibName:@"DucNT_LoginSceen" bundle:nil];
-                [self presentViewController:login animated:YES completion:^{}];
-                [login release];
-            }
-        }
-        else if (buttonIndex == 4){
-            NSString *sTaiKhoan = [DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_ID_TEMP];
-            if(sTaiKhoan.length > 0)
-            {
-                DanhSachNguoiDangChatTaiChinhViewController *danhSachNguoiDangChatViewController = [[DanhSachNguoiDangChatTaiChinhViewController alloc] initWithNibName:@"DanhSachNguoiDangChatTaiChinhViewController" bundle:nil];
-                [self.navigationController pushViewController:danhSachNguoiDangChatViewController animated:YES];
-                [danhSachNguoiDangChatViewController release];
-            }
-            else
-            {
-                DucNT_LoginSceen *login = [[DucNT_LoginSceen alloc] initWithNibName:@"DucNT_LoginSceen" bundle:nil];
-                [self presentViewController:login animated:YES completion:^{}];
-                [login release];
-            }
-        }
-        else if (buttonIndex == 5) {
-            [self suKienChonPhoneToken];
-        }
-    }
-    else
-    {
-        if (buttonIndex == 0) {
-            [self chuyenGiaoDienDangNhap];
-        }
-        else if (buttonIndex == 1) {
-            DucBT_ShareViewController *shareViewController = [[DucBT_ShareViewController alloc] initWithNibName:@"DucBT_ShareViewController" bundle:nil];
-            [self.navigationController pushViewController:shareViewController animated:YES];
-            [shareViewController release];
-        }
-        else if (buttonIndex == 2){
-            NSString *sTaiKhoan = [DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_ID_TEMP];
-            if(sTaiKhoan.length > 0)
-            {
-                GiaoDienGopY *gopY = [[GiaoDienGopY alloc] initWithNibName:NSStringFromClass([GiaoDienGopY class]) bundle:nil];
-                [self.navigationController pushViewController:gopY animated:YES];
-                [gopY release];
-            }
-            else{
-                DucNT_LoginSceen *login = [[DucNT_LoginSceen alloc] initWithNibName:@"DucNT_LoginSceen" bundle:nil];
-                [self presentViewController:login animated:YES completion:^{}];
-                [login release];
-            }
-        }
-        else if (buttonIndex == 3){
-            NSString *sTaiKhoan = [DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_ID_TEMP];
-            if(sTaiKhoan.length > 0)
-            {
-                DanhSachNguoiDangChatTaiChinhViewController *danhSachNguoiDangChatViewController = [[DanhSachNguoiDangChatTaiChinhViewController alloc] initWithNibName:@"DanhSachNguoiDangChatTaiChinhViewController" bundle:nil];
-                [self.navigationController pushViewController:danhSachNguoiDangChatViewController animated:YES];
-                [danhSachNguoiDangChatViewController release];
-            }
-            else
-            {
-                DucNT_LoginSceen *login = [[DucNT_LoginSceen alloc] initWithNibName:@"DucNT_LoginSceen" bundle:nil];
-                [self presentViewController:login animated:YES completion:^{}];
-                [login release];
-            }
-        }
-        else if (buttonIndex == 4) {
-            [self suKienChonPhoneToken];
-        }
-    }
-
-}
-
-#pragma mark - menu trai
-
-- (void)xuLySuKienDangNhapThanhCong:(NSNotification *)notification
-{
-    //Khoi tao thong tin vi
-    [self khoiTaoThongTinVi];
-    [self capNhatGiaoDienBenTraiVaGiaoDienHeader];
-    //Cap nhat so du
-//        [self capNhatSoDuVi];
-
-    //Chuyen view
-    if([[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_STATE] boolValue])
-    {
-        //Dang nhap thanh cong
-        if(![self.mItemDangChon.mTieuDe isEqualToString:@"dang_xuat"])
-        {
-            [self xuLySuKienChonItemMenuDaDangNhap:self.mItemDangChon];
-        }
-    }
-}
-
-- (void)xuLySuKienChonItemMenuDaDangNhap:(ItemMenuTaiChinh*)item
-{
-    if(item)
-    {
-        if(![item.mTenHamXuLy isEqualToString:@""])
-        {
-            //Neu co ten ham xu ly thi nhay vao ham
-            NSString *sTenHamXuLy = item.mTenHamXuLy;
-            SEL s = NSSelectorFromString(sTenHamXuLy);
-            [self performSelector:s];
-        }
-        else if(![item.mTenViewController isEqualToString:@""])
-        {
-            //Khong co ten ham xu ly thi kiem tra xem co Ten view con troller khong
-            //Chuyen viewcontroller
-            mTrangThaiDangOViewBenTrai = YES;
-            NSString *sKieuChuyenView = item.mKieuChuyenView;
-            NSString *sTenViewController = item.mTenViewController;
-            NSLog(@"%s - sTenViewController : %@", __FUNCTION__, sTenViewController);
-
-            NSString *value = [[NSUserDefaults standardUserDefaults] objectForKey:@"tamnv_hienthi"];
-            NSLog(@"%s - %s : ==========> value : %@", __FILE__, __FUNCTION__, value);
-            if ([value isEqualToString:@"0"] && [sTenViewController isEqualToString:@"MuaTheTroChoiDienTuViewController"]) {
-                [UIAlertView alert:@"Đang phát triển" withTitle:[@"thong_bao" localizableString] block:nil];
-                return;
-            }
-            UIViewController *vc = [[NSClassFromString(sTenViewController) alloc] initWithNibName:sTenViewController bundle:nil];
-            if([sKieuChuyenView isEqualToString:@"push"])
-            {
-                [mDrawer close:^{}];
-                [self.navigationController pushViewController:vc animated:YES];
-            }
-            else
-            {
-                [self presentViewController:vc animated:YES completion:^{}];
-            }
-            [vc release];
-        }
-        else
-        {
-            //thong bao la dang phat trien
-            [UIAlertView alert:@"Đang phát triển" withTitle:[@"thong_bao" localizableString] block:nil];
-        }
-    }
-}
-
-- (void)suKienDangXuat
-{
-    if([[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_STATE] boolValue])
-    {
-        NSString *sTaiKhoanDangNhapCuoi = [DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_ID_TEMP];
-        [DucNT_LuuRMS luuThongTinDangNhap:KEY_LAST_ID_LOGIN value:sTaiKhoanDangNhapCuoi];
-
-        int nKieuDangNhap = [[DucNT_LuuRMS layThongTinDangNhap:KEY_HIEN_THI_VI] intValue];
-        if(nKieuDangNhap == KIEU_DOANH_NGHIEP)
-        {
-            sTaiKhoanDangNhapCuoi = self.mThongTinTaiKhoanVi.walletLogin;
-        }
-
-        if(sTaiKhoanDangNhapCuoi.length == 10 || sTaiKhoanDangNhapCuoi.length == 11)
-        {
-            [DucNT_LuuRMS luuThongTinDangNhap:KEY_LAST_PHONE_LOGIN_ID value:sTaiKhoanDangNhapCuoi];
-        }
-
-        if (FBSession.activeSession.state == FBSessionStateOpen
-            || FBSession.activeSession.state == FBSessionStateOpenTokenExtended) {
-
-            // Close the session and remove the access token from the cache
-            // The session state handler (in the app delegate) will be called automatically
-            [FBSession.activeSession closeAndClearTokenInformation];
-
-            // If the session state is not any of the two "open" states when the button is clicked
-        }
-
-        [[GPPSignIn sharedInstance] signOut];
-
-        [DucNT_LuuRMS xoaThongTinRMSLogout];
-
-        //Xoa bagde number o icon tren man hinh iPhone
-        [[DichVuNotification shareService] dichVuXacNhanDaDocTatCaCacTin];
-        int nTongSoLuongTinChuaDoc = [[DichVuNotification shareService] laySoLuongTinChuaDocTrongChucNang:0];
-        [[UIApplication sharedApplication] setApplicationIconBadgeNumber:nTongSoLuongTinChuaDoc];
-        [self reloadGiaoDien:nil];
-        [self addButton:@"icon_danhba" selector:@selector(suKienBamNutMore:) atSide:1];
-        //Khoi tao lai giao dien ben trai
-        [mGiaoDienBenTrai khoiTaoViewThongTinTaiKhoan];
-        self.mThongTinTaiKhoanVi = nil;
-        [self addButton:@"icon_more" selector:@selector(suKienBamNutMore:) atSide:1];
-        [mViewNavigationGiaoDienChinh hienThiSoTien:@""];
-        [DucNT_LuuRMS luuThongTinDangNhap:KEY_LOGIN_STATE value:@"NO"];
-    }
-    else
-    {
-        DucNT_LoginSceen *loginSceen = [[DucNT_LoginSceen alloc] initWithNibName:@"DucNT_LoginSceen" bundle:nil];
-        [self presentViewController:loginSceen animated:YES completion:^{}];
-        [loginSceen release];
-    }
-    
-}
 
 - (void)xuLySuKienChonItemMenuTaiChinh:(ItemMenuTaiChinh*)item
 {
     self.mItemDangChon = item;
-//    if(item.mCanDangNhap && ![[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_STATE] boolValue])
-//    {
-//        //Bat dang nhap
-//        DucNT_LoginSceen *loginSceen = [[DucNT_LoginSceen alloc] initWithNibName:@"DucNT_LoginSceen" bundle:nil];
-//        [self presentViewController:loginSceen animated:YES completion:^{}];
-////        [self.navigationController pushViewController:loginSceen animated:YES];
-//        [loginSceen release];
-//    }
-//    else
-//    {
-        //khong can dang nhap thi xu ly luon
-        __block GiaoDienChinhV2 *blockSELF = self;
-        [blockSELF xuLySuKienChonItemMenuDaDangNhap:item];
-//    }
+    __block GiaoDienChinhV2 *blockSELF = self;
+    [blockSELF xuLySuKienChonItemMenuDaDangNhap:item];
 }
 
 #pragma mark - DucNT_ServicePostDelegate
@@ -883,7 +395,7 @@
 - (void)xuLySauKhiDangKyThietBi:(int)nKieuDangNhap {
     [DucNT_LuuRMS luuThongTinTaiKhoanViSauDangNhap:self.mThongTinTaiKhoanVi];
     [DucNT_LuuRMS luuThongTinDangNhap:KEY_LOGIN_STATE value:@"YES"];
-    [self xuLyGiaoDienKhiVaoApp];
+  //  [self xuLyGiaoDienKhiVaoApp];
 //    [[NSNotificationCenter defaultCenter] postNotificationName:DANG_NHAP_THANH_CONG object:nil];
     [(AppDelegate*)[[UIApplication sharedApplication] delegate] reloadGiaoDienHome];
     if (@available(iOS 11.0, *)) {
@@ -919,20 +431,8 @@
     }
 }
 
-//-(void)ketNoiThanhCong:(NSString *)sKetQua
-//{
-////    NSLog(@"%s - sKetQua : %@", __FUNCTION__, sKetQua);
-//    NSDictionary *dicKetQua = [sKetQua objectFromJSONString];
-//    int nCode = [[dicKetQua objectForKey:@"msgCode"] intValue];
-//    //    NSString *message = [dicKetQua objectForKey:@"msgContent"];
-//
-//}
-
 - (void)capNhatGiaoDienBenTraiVaGiaoDienHeader
 {
-    [mGiaoDienBenTrai xuLyHienThiGiaoDien];
-    [mGiaoDienBenTrai capNhatSoDu:[self.mThongTinTaiKhoanVi.nAmount doubleValue] soDuKhuyenMai:[self.mThongTinTaiKhoanVi.nPromotionTotal doubleValue]];
-    [headerView capNhatSoDu:[self.mThongTinTaiKhoanVi.nAmount doubleValue] soDuKhuyenMai:[self.mThongTinTaiKhoanVi.nPromotionTotal doubleValue] theQuaTang:0];
     [headerView updateTrangThaiAnhSlide];
 }
 
@@ -948,7 +448,6 @@
 #pragma mark - header view
 
 - (void)xuLySuKienBamNutSaoKe {
-//    [self xuLySuKienXemSaoKe:nil];
     GiaoDienGioiThieuVi *vc = [[GiaoDienGioiThieuVi alloc] initWithNibName:@"GiaoDienGioiThieuVi" bundle:nil];
     [self.navigationController pushViewController:vc animated:YES];
     [vc release];
@@ -962,20 +461,9 @@
 
 - (void)xuLySuKienbamNutRutTien{
     NSLog(@"%s - xuLySuKienbamNutRutTien", __FUNCTION__);
-//    if([[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_STATE] boolValue])
-//    {
         ChuyenTienViewController *chuyenTienViewController = [[ChuyenTienViewController alloc] initWithNibName:@"ChuyenTienViewController" bundle:nil];
         [self.navigationController pushViewController:chuyenTienViewController animated:YES];
         [chuyenTienViewController release];
-//    }
-//    else
-//    {
-//        DucNT_LoginSceen *loginSceen = [[DucNT_LoginSceen alloc] initWithNibName:@"DucNT_LoginSceen" bundle:nil];
-//        loginSceen.sTenViewController = @"ChuyenTienViewController";
-//        loginSceen.sKieuChuyenGiaoDien = @"push";
-//        [self presentViewController:loginSceen animated:YES completion:^{}];
-//        [loginSceen release];
-//    }
 }
 
 - (void)xuLySuKienBamNutMuonTien{
@@ -1178,85 +666,6 @@
     }
 }
 
-- (void)suKienChonQRCode {
-    if ([QRCodeReader supportsMetadataObjectTypes:@[AVMetadataObjectTypeQRCode]]) {
-        QRCodeReader *reader = [QRCodeReader readerWithMetadataObjectTypes:@[AVMetadataObjectTypeQRCode]];
-        QRCodeReaderViewController *vcQRCodeTemp = [QRCodeReaderViewController readerWithCancelButtonTitle:@"Đóng" codeReader:reader startScanningAtLoad:YES showSwitchCameraButton:YES showTorchButton:YES];
-        vcQRCodeTemp.modalPresentationStyle = UIModalPresentationFormSheet;
-        vcQRCodeTemp.delegate = self;
-        [self presentViewController:vcQRCodeTemp animated:YES completion:NULL];
-    }
-    else {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Thông báo" message:@"Thiết bị không hỗ trợ chức năng này." delegate:nil cancelButtonTitle:@"Đóng" otherButtonTitles:nil];
-        [alert show];
-    }
-}
-
-#pragma mark - QRCodeReader Delegate Methods
-
-- (void)reader:(QRCodeReaderViewController *)reader didScanResult:(NSString *)result
-{
-    [reader stopScanning];
-    NSLog(@"%s - -->result : %@", __FUNCTION__, result);
-    [reader dismissViewControllerAnimated:YES completion:^{
-        if (result.length > 0) {
-            if (![result hasPrefix:@"http"] || [result hasSuffix:@"/transfers"]) {
-
-                GiaoDienThanhToanQRCodeDonVi *vc = [[GiaoDienThanhToanQRCodeDonVi alloc] initWithNibName:@"GiaoDienThanhToanQRCodeDonVi" bundle:nil];
-                if ([result containsString:@"/transfers"]) {
-                    NSString *qrcode = [result stringByReplacingOccurrencesOfString:@"/transfers" withString:@""];
-                    vc.sIdQRCode = qrcode;
-                }
-                else {
-                    vc.sIdQRCode = result;
-                }
-                vc.typeQRCode = 1;
-                [self.navigationController pushViewController:vc animated:YES];
-                [vc release];
-            }
-            else {
-                NSURL *url = [NSURL URLWithString:result];
-                NSString *queryQRCode = url.query;
-                NSLog(@"%s - -->queryQRCode : %@", __FUNCTION__, queryQRCode);
-                if (queryQRCode == nil && [[url lastPathComponent] isEqualToString:@"quickpay"]) {
-                    NSLog(@"%s - -->queryQRCode == null", __FUNCTION__);
-                    NSLog(@"%s - -->queryQRCode == null : %@", __FUNCTION__, [url lastPathComponent]);
-                    GiaoDienThanhToanQRCodeDonVi *vc = [[GiaoDienThanhToanQRCodeDonVi alloc] initWithNibName:@"GiaoDienThanhToanQRCodeDonVi" bundle:nil];
-                    if ([[url lastPathComponent] isEqualToString:@"quickpay"]) {
-                        NSString *sKQ = [result stringByReplacingOccurrencesOfString:@"/quickpay" withString:@""];
-                        NSURL *url1 = [NSURL URLWithString:sKQ];
-                        vc.sIdQRCode = [url1 lastPathComponent];
-                    } else {
-                        vc.sIdQRCode = [url lastPathComponent];
-                    }
-                    vc.typeQRCode = 0;
-                    [self.navigationController pushViewController:vc animated:YES];
-                    [vc release];
-                }
-                else {
-                    NSLog(@"%s - -->queryQRCode : %@", __FUNCTION__, queryQRCode);
-                    NSArray *arrQuery = [queryQRCode componentsSeparatedByString:@"="];
-                    if (arrQuery.count == 2) {
-                        NSString *idQRCode = [arrQuery lastObject];
-                        NSLog(@"%s - -->idQRCode : %@", __FUNCTION__, idQRCode);
-                        GiaoDienThanhToanQRCode *vc = [[GiaoDienThanhToanQRCode alloc] initWithNibName:@"GiaoDienThanhToanQRCode" bundle:nil];
-                        vc.sIdQRCode = idQRCode;
-                        [self.navigationController pushViewController:vc animated:YES];
-                        [vc release];
-                    }
-                }
-            }
-        }
-    }];
-}
-
-- (void)readerDidCancel:(QRCodeReaderViewController *)reader
-{
-    [reader dismissViewControllerAnimated:YES completion:^{
-
-    }];
-}
-
 #pragma mark - Xu ly su kien
 - (void)xuLySuKienDieuKhienGiongNoi {
 
@@ -1266,7 +675,6 @@
     if([[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_STATE] boolValue])
     {
         mTrangThaiDangOViewBenTrai = YES;
-        [mDrawer close:^{}];
         int nKieuDangNhap = [[DucNT_LuuRMS layThongTinDangNhap:KEY_HIEN_THI_VI] intValue];
         NSLog(@"%s - %s : nKieuDangNhap : %d", __FILE__, __FUNCTION__,nKieuDangNhap);
         if(nKieuDangNhap == KIEU_DOANH_NGHIEP)
@@ -1283,8 +691,6 @@
     }
     else
     {
-        //        mTrangThaiDangOViewBenTrai = YES;
-        //        [mDrawer close:^{}];
         DucNT_LoginSceen *loginSceen = [[DucNT_LoginSceen alloc] initWithNibName:@"DucNT_LoginSceen" bundle:nil];
         loginSceen.sTenViewController = @"DucNT_ChangPrivateInformationViewController";
         loginSceen.sKieuChuyenGiaoDien = @"push";
@@ -1293,113 +699,37 @@
     }
 }
 
-- (void)xuLySuKienDongViewBenTrai{
-    [mDrawer close:^{
-        //Xu ly su kien dong view ben trai
-    }];
-}
-
 - (IBAction)suKienBamChuyenTienDenViNoiBo:(id)sender {
-//    if([[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_STATE] boolValue])
-//    {
-        DucNT_ChuyenTienViDenViViewController *chuyenTienDenVi = [[DucNT_ChuyenTienViDenViViewController alloc] initWithNibName:@"DucNT_ChuyenTienViDenViViewController" bundle:nil];
-        [self.navigationController pushViewController:chuyenTienDenVi animated:YES];
-        [chuyenTienDenVi release];
-//    }
-//    else
-//    {
-//        [self chuyenGiaoDienDangNhap];
-//    }
+    DucNT_ChuyenTienViDenViViewController *chuyenTienDenVi = [[DucNT_ChuyenTienViDenViViewController alloc] initWithNibName:@"DucNT_ChuyenTienViDenViViewController" bundle:nil];
+    [self.navigationController pushViewController:chuyenTienDenVi animated:YES];
+    [chuyenTienDenVi release];
 }
 
-- (IBAction)suKienBamNutChuyenTienDenTaiKhoan:(id)sender {
-//    if([[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_STATE] boolValue])
-//    {
-        DucNT_ChuyenTienDenTaiKhoanViewController *chuyenTienDenTK = [[DucNT_ChuyenTienDenTaiKhoanViewController alloc] initWithNibName:@"DucNT_ChuyenTienDenTaiKhoanViewController" bundle:nil];
-        [self.navigationController pushViewController:chuyenTienDenTK animated:YES];
-        [chuyenTienDenTK release];
-//    }
-//    else
-//    {
-//        DucNT_LoginSceen *loginSceen = [[DucNT_LoginSceen alloc] initWithNibName:@"DucNT_LoginSceen" bundle:nil];
-//        loginSceen.sTenViewController = @"DucNT_ChuyenTienDenTaiKhoanViewController";
-//        loginSceen.sKieuChuyenGiaoDien = @"push";
-//        [self presentViewController:loginSceen animated:YES completion:^{}];
-//        [loginSceen release];
-//    }
+- (IBAction)suKienBamNutChuyenTienDenTaiKhoan:(id)sender {        DucNT_ChuyenTienDenTaiKhoanViewController *chuyenTienDenTK = [[DucNT_ChuyenTienDenTaiKhoanViewController alloc] initWithNibName:@"DucNT_ChuyenTienDenTaiKhoanViewController" bundle:nil];
+    [self.navigationController pushViewController:chuyenTienDenTK animated:YES];
+    [chuyenTienDenTK release];
 }
 
-- (IBAction)suKienBamNutChuyenTienDenThe:(id)sender {
-//    if([[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_STATE] boolValue])
-//    {
-        DucNT_ChuyenTienDenTheViewController *chuyenTienDenThe = [[DucNT_ChuyenTienDenTheViewController alloc] initWithNibName:@"DucNT_ChuyenTienDenTheViewController" bundle:nil];
-        [self.navigationController pushViewController:chuyenTienDenThe animated:YES];
-        [chuyenTienDenThe release];
-//    }
-//    else
-//    {
-//        DucNT_LoginSceen *loginSceen = [[DucNT_LoginSceen alloc] initWithNibName:@"DucNT_LoginSceen" bundle:nil];
-//        loginSceen.sTenViewController = @"DucNT_ChuyenTienDenTheViewController";
-//        loginSceen.sKieuChuyenGiaoDien = @"push";
-//        [self presentViewController:loginSceen animated:YES completion:^{}];
-//        [loginSceen release];
-//    }
+- (IBAction)suKienBamNutChuyenTienDenThe:(id)sender {        DucNT_ChuyenTienDenTheViewController *chuyenTienDenThe = [[DucNT_ChuyenTienDenTheViewController alloc] initWithNibName:@"DucNT_ChuyenTienDenTheViewController" bundle:nil];
+    [self.navigationController pushViewController:chuyenTienDenThe animated:YES];
+    [chuyenTienDenThe release];
 }
 
 - (IBAction)suKienBamNutChuyenTienTanNha:(id)sender{
-//    if([[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_STATE] boolValue])
-//    {
-        ChuyenTienTanNhaViewController *chuyenTienTanNhaViewController = [[ChuyenTienTanNhaViewController alloc] initWithNibName:@"ChuyenTienTanNhaViewController" bundle:nil];
-        [self.navigationController pushViewController:chuyenTienTanNhaViewController animated:YES];
-        [chuyenTienTanNhaViewController release];
-//    }
-//    else
-//    {
-//        DucNT_LoginSceen *loginSceen = [[DucNT_LoginSceen alloc] initWithNibName:@"DucNT_LoginSceen" bundle:nil];
-//        loginSceen.sTenViewController = @"ChuyenTienTanNhaViewController";
-//        loginSceen.sKieuChuyenGiaoDien = @"push";
-//        [self presentViewController:loginSceen animated:YES completion:^{}];
-//        [loginSceen release];
-//    }
+    ChuyenTienTanNhaViewController *chuyenTienTanNhaViewController = [[ChuyenTienTanNhaViewController alloc] initWithNibName:@"ChuyenTienTanNhaViewController" bundle:nil];
+    [self.navigationController pushViewController:chuyenTienTanNhaViewController animated:YES];
+    [chuyenTienTanNhaViewController release];
 }
 
 - (IBAction)suKienBamNutChuyenTienDenViKhac:(id)sender{
     GiaoDienDenKhac *vc = [[GiaoDienDenKhac alloc] initWithNibName:@"GiaoDienDenKhac" bundle:nil];
     [self.navigationController pushViewController:vc animated:YES];
     [vc release];
-//    if([[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_STATE] boolValue])
-//    {
-    
-//        ChuyenTienDenViMomoViewController *chuyenTienDenViMomoViewController = [[ChuyenTienDenViMomoViewController alloc] initWithNibName:@"ChuyenTienDenViMomoViewController" bundle:nil];
-//        [self.navigationController pushViewController:chuyenTienDenViMomoViewController animated:YES];
-//        [chuyenTienDenViMomoViewController release];
-    
-//    }
-//    else
-//    {
-//        DucNT_LoginSceen *loginSceen = [[DucNT_LoginSceen alloc] initWithNibName:@"DucNT_LoginSceen" bundle:nil];
-//        loginSceen.sTenViewController = @"ChuyenTienDenViMomoViewController";
-//        loginSceen.sKieuChuyenGiaoDien = @"push";
-//        [self presentViewController:loginSceen animated:YES completion:^{}];
-//        [loginSceen release];
-//    }
 }
 
-- (IBAction)suKienBamNutChuyenTienTietKiem:(id)sender{
-//    if([[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_STATE] boolValue])
-//    {
-        GuiTietKiemViewController *guiTietKiemViewController = [[GuiTietKiemViewController alloc] initWithNibName:@"GuiTietKiemViewController" bundle:nil];
-        [self.navigationController pushViewController:guiTietKiemViewController animated:YES];
-        [guiTietKiemViewController release];
-//    }
-//    else
-//    {
-//        DucNT_LoginSceen *loginSceen = [[DucNT_LoginSceen alloc] initWithNibName:@"DucNT_LoginSceen" bundle:nil];
-//        loginSceen.sTenViewController = @"GuiTietKiemViewController";
-//        loginSceen.sKieuChuyenGiaoDien = @"push";
-//        [self presentViewController:loginSceen animated:YES completion:^{}];
-//        [loginSceen release];
-//    }
+- (IBAction)suKienBamNutChuyenTienTietKiem:(id)sender{        GuiTietKiemViewController *guiTietKiemViewController = [[GuiTietKiemViewController alloc] initWithNibName:@"GuiTietKiemViewController" bundle:nil];
+    [self.navigationController pushViewController:guiTietKiemViewController animated:YES];
+    [guiTietKiemViewController release];
 }
 
 - (IBAction)suKienBamNutChuyenTienTuThien:(id)sender{
@@ -1408,129 +738,50 @@
 
 - (IBAction)suKienBamNutThanhToanDienThoai:(id)sender{
     NSLog(@"%s - thanh toan dien thoai nao", __FUNCTION__);
-//    if([[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_STATE] boolValue])
-//    {
-        ThanhToanDienThoaiKhacViewController *thanhToanDienThoaiKhac = [[ThanhToanDienThoaiKhacViewController alloc] initWithNibName:@"ThanhToanDienThoaiKhacViewController" bundle:nil];
+    ThanhToanDienThoaiKhacViewController *thanhToanDienThoaiKhac = [[ThanhToanDienThoaiKhacViewController alloc] initWithNibName:@"ThanhToanDienThoaiKhacViewController" bundle:nil];
         thanhToanDienThoaiKhac.mNhaMang = NHA_MANG_VIETTEL;
         [self.navigationController pushViewController:thanhToanDienThoaiKhac animated:YES];
         [thanhToanDienThoaiKhac release];
-//    }
-//    else
-//    {
-//        DucNT_LoginSceen *loginSceen = [[DucNT_LoginSceen alloc] initWithNibName:@"DucNT_LoginSceen" bundle:nil];
-//        loginSceen.sTenViewController = @"ThanhToanDienThoaiKhacViewController";
-//        loginSceen.sKieuChuyenGiaoDien = @"push";
-//        [self presentViewController:loginSceen animated:YES completion:^{}];
-//        [loginSceen release];
-//    }
 }
 
 - (IBAction)suKienBamNutVePhim:(id)sender{
     GiaoDienDatVeXemPhim *muaTheTroChoiDienTuViewController = [[GiaoDienDatVeXemPhim alloc] initWithNibName:@"GiaoDienDatVeXemPhim" bundle:nil];
     [self.navigationController pushViewController:muaTheTroChoiDienTuViewController animated:YES];
     [muaTheTroChoiDienTuViewController release];
-//    if([[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_STATE] boolValue])
-//    {
-//        GiaoDienDatVeXemPhim *muaTheTroChoiDienTuViewController = [[GiaoDienDatVeXemPhim alloc] initWithNibName:@"GiaoDienDatVeXemPhim" bundle:nil];
-//        [self.navigationController pushViewController:muaTheTroChoiDienTuViewController animated:YES];
-//        [muaTheTroChoiDienTuViewController release];
-//    }
-//    else
-//    {
-//        DucNT_LoginSceen *loginSceen = [[DucNT_LoginSceen alloc] initWithNibName:@"DucNT_LoginSceen" bundle:nil];
-//        loginSceen.sTenViewController = @"GiaoDienDatVeXemPhim";
-//        loginSceen.sKieuChuyenGiaoDien = @"push";
-//        [self presentViewController:loginSceen animated:YES completion:^{}];
-//        [loginSceen release];
-//    }
 }
 
 - (IBAction)suKienBamNutVeMayBay:(id)sender{
-//    if([[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_STATE] boolValue])
-//    {
-        GiaoDienDatVeMayBay *vc = [[GiaoDienDatVeMayBay alloc] initWithNibName:@"GiaoDienDatVeMayBay" bundle:nil];
-        [self.navigationController pushViewController:vc animated:YES];
-        [vc release];
-//    }
-//    else
-//    {
-//        DucNT_LoginSceen *loginSceen = [[DucNT_LoginSceen alloc] initWithNibName:@"DucNT_LoginSceen" bundle:nil];
-//        loginSceen.sTenViewController = @"GiaoDienDatVeMayBay";
-//        loginSceen.sKieuChuyenGiaoDien = @"push";
-//        [self presentViewController:loginSceen animated:YES completion:^{}];
-//        [loginSceen release];
-//    }
+    GiaoDienDatVeMayBay *vc = [[GiaoDienDatVeMayBay alloc] initWithNibName:@"GiaoDienDatVeMayBay" bundle:nil];
+    [self.navigationController pushViewController:vc animated:YES];
+    [vc release];
 }
 
 - (IBAction)suKienBamNutVeTau:(id)sender{
-//    [@"Under development" localizableString]
     [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Đang phát triển"];
 }
 
 - (IBAction)suKienBamNutDien:(id)sender{
-//    if([[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_STATE] boolValue])
-//    {
-        TraCuuTienDienViewController *traCuuTienDienViewController = [[TraCuuTienDienViewController alloc] initWithNibName:@"TraCuuTienDienViewController" bundle:nil];
-        [self.navigationController pushViewController:traCuuTienDienViewController animated:YES];
-        [traCuuTienDienViewController release];
-//    }
-//    else
-//    {
-//        DucNT_LoginSceen *loginSceen = [[DucNT_LoginSceen alloc] initWithNibName:@"DucNT_LoginSceen" bundle:nil];
-//        loginSceen.sTenViewController = @"TraCuuTienDienViewController";
-//        loginSceen.sKieuChuyenGiaoDien = @"push";
-//        [self presentViewController:loginSceen animated:YES completion:^{}];
-//        [loginSceen release];
-//    }
+    TraCuuTienDienViewController *traCuuTienDienViewController = [[TraCuuTienDienViewController alloc] initWithNibName:@"TraCuuTienDienViewController" bundle:nil];
+    [self.navigationController pushViewController:traCuuTienDienViewController animated:YES];
+    [traCuuTienDienViewController release];
 }
 
 - (IBAction)suKienBamNutNuoc:(id)sender{
-//    if([[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_STATE] boolValue]){
-        GiaoDienThanhToanNuoc *internet = [[GiaoDienThanhToanNuoc alloc] initWithNibName:@"GiaoDienThanhToanNuoc" bundle:nil];
-        [self.navigationController pushViewController:internet animated:YES];
-        [internet release];
-//    }
-//    else
-//    {
-//        DucNT_LoginSceen *loginSceen = [[DucNT_LoginSceen alloc] initWithNibName:@"DucNT_LoginSceen" bundle:nil];
-//        loginSceen.sTenViewController = @"GiaoDienThanhToanNuoc";
-//        loginSceen.sKieuChuyenGiaoDien = @"push";
-//        [self presentViewController:loginSceen animated:YES completion:^{}];
-//        [loginSceen release];
-//    }
+    GiaoDienThanhToanNuoc *internet = [[GiaoDienThanhToanNuoc alloc] initWithNibName:@"GiaoDienThanhToanNuoc" bundle:nil];
+    [self.navigationController pushViewController:internet animated:YES];
+    [internet release];
 }
 
 - (IBAction)suKienBamNutInternet:(id)sender{
-//    if([[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_STATE] boolValue]){
-        GiaoDienThanhToanInternet *internet = [[GiaoDienThanhToanInternet alloc] initWithNibName:@"GiaoDienThanhToanInternet" bundle:nil];
-        [self.navigationController pushViewController:internet animated:YES];
-        [internet release];
-//    }
-//    else
-//    {
-//        DucNT_LoginSceen *loginSceen = [[DucNT_LoginSceen alloc] initWithNibName:@"DucNT_LoginSceen" bundle:nil];
-//        loginSceen.sTenViewController = @"GiaoDienThanhToanInternet";
-//        loginSceen.sKieuChuyenGiaoDien = @"push";
-//        [self presentViewController:loginSceen animated:YES completion:^{}];
-//        [loginSceen release];
-//    }
+    GiaoDienThanhToanInternet *internet = [[GiaoDienThanhToanInternet alloc] initWithNibName:@"GiaoDienThanhToanInternet" bundle:nil];
+    [self.navigationController pushViewController:internet animated:YES];
+    [internet release];
 }
 
 - (IBAction)suKienBamNutTruyenHinh:(id)sender{
-//    [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:[@"Under development" localizableString]];
-//    if([[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_STATE] boolValue]){
-        GiaoDienTraCuuTruyenHinh *internet = [[GiaoDienTraCuuTruyenHinh alloc] initWithNibName:@"GiaoDienTraCuuTruyenHinh" bundle:nil];
-        [self.navigationController pushViewController:internet animated:YES];
-        [internet release];
-//    }
-//    else
-//    {
-//        DucNT_LoginSceen *loginSceen = [[DucNT_LoginSceen alloc] initWithNibName:@"DucNT_LoginSceen" bundle:nil];
-//        loginSceen.sTenViewController = @"GiaoDienTraCuuTruyenHinh";
-//        loginSceen.sKieuChuyenGiaoDien = @"push";
-//        [self presentViewController:loginSceen animated:YES completion:^{}];
-//        [loginSceen release];
-//    }
+    GiaoDienTraCuuTruyenHinh *internet = [[GiaoDienTraCuuTruyenHinh alloc] initWithNibName:@"GiaoDienTraCuuTruyenHinh" bundle:nil];
+    [self.navigationController pushViewController:internet animated:YES];
+    [internet release];
 }
 
 - (IBAction)suKienBamNutBaoHiem:(id)sender{
@@ -1540,73 +791,30 @@
 }
 
 - (IBAction)suKienBamNutChungKhoan:(id)sender{
-//    if([[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_STATE] boolValue])
-//    {
-        GiaoDienThanhToanChungKhoan *danhSachQuaTangViewController = [[GiaoDienThanhToanChungKhoan alloc] initWithNibName:@"GiaoDienThanhToanChungKhoan" bundle:nil];
-        [self.navigationController pushViewController:danhSachQuaTangViewController animated:YES];
-        [danhSachQuaTangViewController release];
-//    }
-//    else
-//    {
-//        DucNT_LoginSceen *loginSceen = [[DucNT_LoginSceen alloc] initWithNibName:@"DucNT_LoginSceen" bundle:nil];
-//        loginSceen.sTenViewController = @"GiaoDienThanhToanChungKhoan";
-//        loginSceen.sKieuChuyenGiaoDien = @"push";
-//        [self presentViewController:loginSceen animated:YES completion:^{}];
-//        [loginSceen release];
-//    }
+
+    GiaoDienThanhToanChungKhoan *danhSachQuaTangViewController = [[GiaoDienThanhToanChungKhoan alloc] initWithNibName:@"GiaoDienThanhToanChungKhoan" bundle:nil];
+    [self.navigationController pushViewController:danhSachQuaTangViewController animated:YES];
+    [danhSachQuaTangViewController release];
 }
 
 - (IBAction)suKienBamNutTraTienVay:(id)sender{
-//    if([[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_STATE] boolValue])
-//    {
-        GiaoDienTraCuuTienVay *danhSachQuaTangViewController = [[GiaoDienTraCuuTienVay alloc] initWithNibName:@"GiaoDienTraCuuTienVay" bundle:nil];
-        [self.navigationController pushViewController:danhSachQuaTangViewController animated:YES];
-        [danhSachQuaTangViewController release];
-//    }
-//    else
-//    {
-//        DucNT_LoginSceen *loginSceen = [[DucNT_LoginSceen alloc] initWithNibName:@"DucNT_LoginSceen" bundle:nil];
-//        loginSceen.sTenViewController = @"GiaoDienTraCuuTienVay";
-//        loginSceen.sKieuChuyenGiaoDien = @"push";
-//        [self presentViewController:loginSceen animated:YES completion:^{}];
-//        [loginSceen release];
-//    }
+    GiaoDienTraCuuTienVay *danhSachQuaTangViewController = [[GiaoDienTraCuuTienVay alloc] initWithNibName:@"GiaoDienTraCuuTienVay" bundle:nil];
+    [self.navigationController pushViewController:danhSachQuaTangViewController animated:YES];
+    [danhSachQuaTangViewController release];
 }
 
 - (IBAction)suKienBamNutHocPhi:(id)sender{
     NSLog(@"%s - click click!!!", __FUNCTION__);
-//    if([[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_STATE] boolValue])
-//    {
-        GiaoDienThanhToanHocPhi *danhSachQuaTangViewController = [[GiaoDienThanhToanHocPhi alloc] initWithNibName:@"GiaoDienThanhToanHocPhi" bundle:nil];
-        [self.navigationController pushViewController:danhSachQuaTangViewController animated:YES];
-        [danhSachQuaTangViewController release];
-//    }
-//    else
-//    {
-//        DucNT_LoginSceen *loginSceen = [[DucNT_LoginSceen alloc] initWithNibName:@"DucNT_LoginSceen" bundle:nil];
-//        loginSceen.sTenViewController = @"GiaoDienThanhToanHocPhi";
-//        loginSceen.sKieuChuyenGiaoDien = @"push";
-//        [self presentViewController:loginSceen animated:YES completion:^{}];
-//        [loginSceen release];
-//    }
+    GiaoDienThanhToanHocPhi *danhSachQuaTangViewController = [[GiaoDienThanhToanHocPhi alloc] initWithNibName:@"GiaoDienThanhToanHocPhi" bundle:nil];
+    [self.navigationController pushViewController:danhSachQuaTangViewController animated:YES];
+    [danhSachQuaTangViewController release];
 }
 
 - (IBAction)suKienBamNutTangQua:(id)sender{
     NSLog(@"%s - click click!!!", __FUNCTION__);
-//    if([[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_STATE] boolValue])
-//    {
-        DanhSachQuaTangViewController *danhSachQuaTangViewController = [[DanhSachQuaTangViewController alloc] initWithNibName:@"DanhSachQuaTangViewController" bundle:nil];
-        [self.navigationController pushViewController:danhSachQuaTangViewController animated:YES];
-        [danhSachQuaTangViewController release];
-//    }
-//    else
-//    {
-//        DucNT_LoginSceen *loginSceen = [[DucNT_LoginSceen alloc] initWithNibName:@"DucNT_LoginSceen" bundle:nil];
-//        loginSceen.sTenViewController = @"DanhSachQuaTangViewController";
-//        loginSceen.sKieuChuyenGiaoDien = @"push";
-//        [self presentViewController:loginSceen animated:YES completion:^{}];
-//        [loginSceen release];
-//    }
+    DanhSachQuaTangViewController *danhSachQuaTangViewController = [[DanhSachQuaTangViewController alloc] initWithNibName:@"DanhSachQuaTangViewController" bundle:nil];
+    [self.navigationController pushViewController:danhSachQuaTangViewController animated:YES];
+    [danhSachQuaTangViewController release];
 }
 
 - (void)suKienChonPhoneToken {
@@ -1661,35 +869,15 @@
 }
 
 - (IBAction)suKienBamNutChuyenTienATM:(id)sender {
-//    if([[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_STATE] boolValue]){
-        GiaoDienChuyenTienATM *internet = [[GiaoDienChuyenTienATM alloc] initWithNibName:@"GiaoDienChuyenTienATM" bundle:nil];
-        [self.navigationController pushViewController:internet animated:YES];
-        [internet release];
-//    }
-//    else
-//    {
-//        DucNT_LoginSceen *loginSceen = [[DucNT_LoginSceen alloc] initWithNibName:@"DucNT_LoginSceen" bundle:nil];
-//        loginSceen.sTenViewController = @"GiaoDienChuyenTienATM";
-//        loginSceen.sKieuChuyenGiaoDien = @"push";
-//        [self presentViewController:loginSceen animated:YES completion:^{}];
-//        [loginSceen release];
-//    }
+    GiaoDienChuyenTienATM *internet = [[GiaoDienChuyenTienATM alloc] initWithNibName:@"GiaoDienChuyenTienATM" bundle:nil];
+    [self.navigationController pushViewController:internet animated:YES];
+    [internet release];
 }
 
 - (IBAction)suKienBamChuyenTienDenCMND:(id)sender {
-//    if([[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_STATE] boolValue]){
-        GiaoDienChuyenTienDenCMND *internet = [[GiaoDienChuyenTienDenCMND alloc] initWithNibName:@"GiaoDienChuyenTienDenCMND" bundle:nil];
-        [self.navigationController pushViewController:internet animated:YES];
-        [internet release];
-//    }
-//    else
-//    {
-//        DucNT_LoginSceen *loginSceen = [[DucNT_LoginSceen alloc] initWithNibName:@"DucNT_LoginSceen" bundle:nil];
-//        loginSceen.sTenViewController = @"GiaoDienChuyenTienDenCMND";
-//        loginSceen.sKieuChuyenGiaoDien = @"push";
-//        [self presentViewController:loginSceen animated:YES completion:^{}];
-//        [loginSceen release];
-//    }
+    GiaoDienChuyenTienDenCMND *internet = [[GiaoDienChuyenTienDenCMND alloc] initWithNibName:@"GiaoDienChuyenTienDenCMND" bundle:nil];
+    [self.navigationController pushViewController:internet animated:YES];
+    [internet release];
 }
 
 - (IBAction)suKienBamNutXeKhach:(id)sender {
@@ -1718,126 +906,159 @@
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://www.sbv.gov.vn/webcenter/portal/vi/menu/trangchu/ttsk/ttsk_chitiet?centerWidth=80%25&dDocName=SBV331391&leftWidth=20%25&rightWidth=0%25&showFooter=false&showHeader=false&_adf.ctrl-state=1c7kax1f62_4&_afrLoop=1291034936391000"]];
 }
 
-- (void)capNhatTrangThaiGiongNoi {
-    if (isChuyenGiaoDien) {
-        return;
-    }
-    isChuyenGiaoDien = YES;
-
-}
-
-- (void)xuLySuKienBamNutPhoneToken
-{
-    mTrangThaiDangOViewBenTrai = YES;
-    [mDrawer close:^{}];
-    if([[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_STATE] boolValue])
-    {
-        int nTrangThaiCoToken = [[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_TRANG_THAI_CO_TOKEN ] intValue];
-        if( nTrangThaiCoToken != 0)
-        {
-            DucNT_HienThiTokenViewController *hienThiTokenViewController = [[DucNT_HienThiTokenViewController alloc] initWithNibName:@"DucNT_HienThiTokenViewController" bundle:nil];
-            [self.navigationController pushViewController:hienThiTokenViewController animated:YES];
-            [hienThiTokenViewController release];
-        }
-        else
-        {
-            DucNT_DangKyToken *vc = [[DucNT_DangKyToken alloc] init];
-            [self.navigationController pushViewController:vc animated:YES];
-            [vc release];
-        }
-    }
-    else
-    {
-        DucNT_LoginSceen *loginSceen = [[DucNT_LoginSceen alloc] initWithNibName:@"DucNT_LoginSceen" bundle:nil];
-        loginSceen.sTenViewController = @"DucNT_HienThiTokenViewController";
-        loginSceen.sKieuChuyenGiaoDien = @"push";
-        if([self.mThongTinTaiKhoanVi.nIsToken intValue] == 0)
-        {
-            loginSceen.sTenViewController = @"DucNT_DangKyToken";
-            loginSceen.sKieuChuyenGiaoDien = @"push";
-        }
-        [self presentViewController:loginSceen animated:YES completion:^{}];
-        [loginSceen release];
-    }
-}
-
-- (void)xuLySuKienChonThanhToanMobifone
-{
-    mTrangThaiDangOViewBenTrai = YES;
-    ThanhToanDienThoaiKhacViewController *thanhToanDienThoaiKhac = [[ThanhToanDienThoaiKhacViewController alloc] initWithNibName:@"ThanhToanDienThoaiKhacViewController" bundle:nil];
-    thanhToanDienThoaiKhac.mNhaMang = NHA_MANG_VIETTEL;
-    [mDrawer close:^{}];
-    [self.navigationController pushViewController:thanhToanDienThoaiKhac animated:YES];
-    [thanhToanDienThoaiKhac release];
-}
-
-- (void)xuLySuKienBamNutThongBao
-{
-    //thong bao la dang phat trien
-    HienThiDanhSachTinQuangBaViewController *hienThiTinQuangBaViewController = [[HienThiDanhSachTinQuangBaViewController alloc] initWithNibName:@"HienThiDanhSachTinQuangBaViewController" bundle:nil];
-
-    [self.navigationController pushViewController:hienThiTinQuangBaViewController animated:YES];
-    [hienThiTinQuangBaViewController release];
-}
-
-- (void)xuLySuKienBamNutTroChuyen{
-//    [self khoiTaoQuangCao];
-    [self suKienChonQRCode];
-}
-
-- (void)xuLySuKienXemSaoKe:(UIButton*)sender
-{
-    if([[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_STATE] boolValue])
-    {
-        DucNT_SaoKeViewController *saoKeViewController = [[DucNT_SaoKeViewController alloc] initWithNibName:@"DucNT_SaoKeViewController" bundle:nil];
-        saoKeViewController.nTrangThaiXem = (int)sender.tag;
-        [self.navigationController pushViewController:saoKeViewController animated:YES];
-        [saoKeViewController release];
-    }
-    else
-    {
-        DucNT_LoginSceen *loginSceen = [[DucNT_LoginSceen alloc] initWithNibName:@"DucNT_LoginSceen" bundle:nil];
-        loginSceen.sTenViewController = @"DucNT_SaoKeViewController";
-        loginSceen.sKieuChuyenGiaoDien = @"push";
-        [self presentViewController:loginSceen animated:YES completion:^{}];
-        [loginSceen release];
-    }
-}
-
-
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 12;
+    return [self.arrData count];
+}
+-(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+    float cellWidth = ([[UIScreen mainScreen] bounds].size.width/4.0) - 1;
+    float cellHeigh = (collectionView.frame.size.height/5.0);
+    return CGSizeMake(cellWidth , cellHeigh);
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellIdentifier = @"CollectionCellGiaoDienChinh";
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
+    NSDictionary *dict = [self.arrData objectAtIndex:indexPath.row];
     UIImageView *img = (UIImageView *)[cell viewWithTag:100];
-    [img setImage:[UIImage imageNamed:@"icon_v2_denvivimass.png"]];
+    [img setImage:[UIImage imageNamed:[dict objectForKey:@"icon"]]];
+//    UILabel *lbTitle = (UILabel *)[cell viewWithTag:101];
+//    lbTitle.text = [dict objectForKey:@"title"];
     return cell;
+}
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    self.navigationController.navigationBar.hidden = false;
+    switch (indexPath.row) {
+        case 0:
+        {
+            [self suKienBamNutVePhim:nil];
+        }
+            break;
+        case 1:
+        {
+            [self suKienBamNutVeMayBay:nil];
+        }
+            break;
+        case 2:
+        {
+            [self suKienBamNutVeTau:nil];
+        }
+            break;
+        case 3:
+        {
+            [self suKienBamNutXeKhach:nil];
+        }
+            break;
+        case 4:
+        {
+            [self suKienBamNutThanhToanDienThoai:nil];
+        }
+            break;
+        case 5:
+        {
+            [self suKienBamNutChuyenTienDenTaiKhoan:nil];
+        }
+            break;
+        case 6:
+        {
+            [self suKienBamNutChuyenTienDenThe:nil];
+        }
+            break;
+        case 7:
+        {
+            [self suKienBamNutTraTienVay:nil];
+        }
+            break;
+        case 8:
+        {
+            [self suKienBamNutDien:nil];
+
+        }
+            break;
+        case 9:
+        {
+            [self suKienBamNutNuoc:nil];
+        }
+            break;
+        case 10:
+        {
+             [self suKienBamNutInternet:nil];
+        }
+            break;
+        case 11:
+        {
+            [self suKienBamNutTruyenHinh:nil];
+        }
+            break;
+        case 12:
+        {
+            [self suKienBamNutChungKhoan:nil];
+        }
+            break;
+        case 13:
+        {
+            [self suKienBamNutHocPhi:nil];
+        }
+            break;
+        case 14:
+        {
+            [self suKienBamNutTangQua:nil];
+        }
+            break;
+        case 15:
+        {
+            [self suKienBamNutBaoHiem:nil];
+        }
+            break;
+        case 16:
+        {
+            [self suKienBamNutChuyenTienTuThien:nil];
+        }
+            break;
+        case 17:
+        {
+            [self suKienChonLixi:nil];
+        }
+            break;
+        case 18:
+        {
+            [self suKienBamNutPhoneToKen:nil];
+        }
+            break;
+        case 19:
+        {
+            [self suKienBamNutCachNapVi:nil];
+        }
+            break;
+        default:
+            break;
+    }
 }
 - (void) updateThongTinViThanhCong:(NSNotification*) notification{
    DucNT_TaiKhoanViObject *objUpdate = (DucNT_TaiKhoanViObject*)[notification object];
     self.mThongTinTaiKhoanVi = objUpdate;
     [DucNT_LuuRMS luuThongTinTaiKhoanViSauDangNhap:self.mThongTinTaiKhoanVi];
-    //[self capNhatGiaoDienBenTraiVaGiaoDienHeader];
 }
 - (void)dealloc {
-    [_scrMain release];
-    [_viewMain1 release];
-    [_viewMain2 release];
-    [_viewMain release];
-    [mGiaoDienBenTrai release];
     if (showQC) {
         [showQC release];
     }
 
     [_collectionMain release];
+    [_collectionViewLayout release];
+    [_slideShowHeigt release];
+    [headerView release];
+    [_vVicuatoi release];
+    [_vHuongDan release];
+    [_vSoTay release];
+    [_vUuDai release];
     [super dealloc];
 }
 
+- (IBAction)doBack:(id)sender {
+    [self.navigationController popViewControllerAnimated:true];
+}
 @end

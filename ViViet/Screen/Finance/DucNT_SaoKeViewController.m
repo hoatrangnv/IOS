@@ -200,6 +200,11 @@ static NSString *DINH_DANH_LAY_CHI_TIET_SAO_KE_QUA_TANG = @"DINH_DANH_LAY_CHI_TI
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    for(UIView *lb in self.view.subviews){
+        if ([lb isKindOfClass:[UILabel class]]) {
+            [(UILabel *)lb setAdjustsFontSizeToFitWidth:YES];
+        }
+    }
 }
 
 - (void)kiemTraKetNoiMang {

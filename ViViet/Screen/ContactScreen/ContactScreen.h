@@ -24,6 +24,6 @@
 @property (retain, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (retain, nonatomic) UISearchDisplayController *searchDC;
 
-- (void)selectContact: (void (^)(NSString *phone)) onSelect;
+- (void)selectContact: (void (^)(NSString *phone, Contact *contact)) onSelect_;
 
 @end

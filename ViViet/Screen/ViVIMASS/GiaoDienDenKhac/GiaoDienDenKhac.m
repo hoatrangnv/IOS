@@ -12,7 +12,6 @@
 #import "ChuyenTienDenViMomoViewController.h"
 
 @interface GiaoDienDenKhac () <UITableViewDelegate, UITableViewDataSource> {
-    NSArray *arrDanhSach;
 }
 
 @end
@@ -29,7 +28,9 @@
     
     [self.tableView registerNib:[UINib nibWithNibName:@"DenKhacTableViewCell" bundle:nil] forCellReuseIdentifier:@"DenKhacTableViewCell"];
     [self.tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
-    arrDanhSach = @[@{@"name":@"Chuyển tiền đến tận nhà", @"image":@"icon_chuyen_den_tannhan"}, @{@"name":@"Chuyển tiền đến CMND", @"image":@"icon_chuyen_den_cmnd"}, @{@"name":@"Chuyển tiền đến Momo", @"image":@"icon_chuyen_den_momo"}, @{@"name":@"Chuyển tiền đến Ví việt", @"image":@"icon_chuyen_den_viviet"}, @{@"name":@"Chuyển tiền đến Zalopay", @"image":@"icon_chuyen_den_zalo"}, @{@"name":@"Chuyển tiền đến Ngân lượng", @"image":@"icon_chuyen_den_nganluong"}, @{@"name":@"Chuyển tiền đến Payoo", @"image":@"icon_chuyen_den_payoo"}, @{@"name":@"Chuyển tiền đến Vimo", @"image":@"icon_chuyen_den_vimo"}, @{@"name":@"Chuyển tiền đến VTC Pay", @"image":@"icon_chuyen_den_vtcpay"}];
+    self.arrDanhSach = @[@{@"name":@"Chuyển tiền đến tận nhà", @"image":@"icon_chuyen_den_tannhan"}, @{@"name":@"Chuyển tiền đến CMND", @"image":@"icon_chuyen_den_cmnd"}, @{@"name":@"Chuyển tiền đến Momo", @"image":@"icon_chuyen_den_momo"}, @{@"name":@"Chuyển tiền đến Ví việt", @"image":@"icon_chuyen_den_viviet"}, @{@"name":@"Chuyển tiền đến Zalopay", @"image":@"icon_chuyen_den_zalo"}, @{@"name":@"Chuyển tiền đến Ngân lượng", @"image":@"icon_chuyen_den_nganluong"}, @{@"name":@"Chuyển tiền đến Payoo", @"image":@"icon_chuyen_den_payoo"}, @{@"name":@"Chuyển tiền đến Vimo", @"image":@"icon_chuyen_den_vimo"}, @{@"name":@"Chuyển tiền đến VTC Pay", @"image":@"icon_chuyen_den_vtcpay"},
+                    @{@"name":@"Chuyển tiền đến VNPT Pay", @"image":@"icon_sotay_vnpt"},
+                    @{@"name":@"Chuyển tiền đến AIR Pay", @"image":@"icon_sotay_airpay"}];
 }
 
 
@@ -39,7 +40,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return arrDanhSach.count;
+    return self.arrDanhSach.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -48,7 +49,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     DenKhacTableViewCell *cell = (DenKhacTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"DenKhacTableViewCell" forIndexPath:indexPath];
-    NSDictionary *dict = [arrDanhSach objectAtIndex:indexPath.row];
+    NSDictionary *dict = [self.arrDanhSach objectAtIndex:indexPath.row];
     NSString *name = (NSString *)[dict valueForKey:@"name"];
     NSString *image = (NSString *)[dict valueForKey:@"image"];
     [cell.imgvDaiDien setImage:[UIImage imageNamed:image]];
@@ -91,6 +92,12 @@
         }
         else if (indexPath.row == 3) {
             vc.nType = 6;
+        }
+        else if (indexPath.row == 9) {
+            vc.nType = 7;
+        }
+        else if (indexPath.row == 10) {
+            vc.nType = 8;
         }
         [self.navigationController pushViewController:vc animated:YES];
         [vc release];

@@ -631,7 +631,7 @@
 }
 - (void) _init
 {
-    self.edgeInsets = UIEdgeInsetsMake(0, 5, 3, 5);
+    self.edgeInsets = UIEdgeInsetsMake(0, 3, 3, 3);
     self.textAlignment = NSTextAlignmentLeft;
     
     focusable = YES;

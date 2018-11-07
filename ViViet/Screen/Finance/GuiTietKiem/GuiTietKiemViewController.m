@@ -254,11 +254,11 @@ typedef enum : NSUInteger {
     [_mtfTenChuTaiKhoan setTextError:[@"ten_chu_tai_khoan_khong_duoc_de_trong" localizableString] forType:ExTextFieldTypeEmpty];
     _mtfTenChuTaiKhoan.inputAccessoryView = nil;
     
-    CGRect rViewMain = self.mViewMain.frame;
+    CGRect rViewMain = self.mViewMain.bounds;
     CGRect rButtonVanTay = self.mbtnVanTay.frame;
     float fHeight = 0;
     float fWidth = _mScrvHienThi.frame.size.width;
-    rViewMain = CGRectMake(10, self.viewOptionTop.frame.origin.x + self.viewOptionTop.frame.size.height - 15, rViewMain.size.width, rViewMain.size.height);
+    rViewMain = CGRectMake(10, self.viewOptionTop.frame.origin.x + self.viewOptionTop.frame.size.height - 15, _mScrvHienThi.frame.size.width - 20, rViewMain.size.height);
     fHeight = rViewMain.origin.y + rViewMain.size.height;
     
     if([self kiemTraCoChucNangQuetVanTay])

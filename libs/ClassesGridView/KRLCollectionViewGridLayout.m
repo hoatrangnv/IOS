@@ -57,7 +57,6 @@
         return CGSizeMake(self.collectionViewContentLength, self.collectionView.bounds.size.height);
     }
 }
-
 - (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect
 {
     NSMutableArray *visibleAttributes = [NSMutableArray array];

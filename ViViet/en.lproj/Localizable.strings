@@ -30,7 +30,7 @@
  __Search__ Search
  */
 // Common
-"giay_phep" = "Giấy phép Ví điện tử số 41?GP-NHNN";
+"Giay_phep" = "Giấy phép Ví điện tử số 41/GP-NHNN\nNgân hàng nhà nước VN cấp 12/3/2018";
 "tai_khoan_lien_ket" = "Liên kết ví với tk,thẻ";
 "tai_khoan" = "Account:";
 "ten_hien_thi" = "Display name";
@@ -1793,7 +1793,7 @@
 
 //Q
 "quen_mat_khau_token" = "Quên mật khẩu token";
-"quen_mat_khau" = "Quên mật khẩu ?";
+"quen_mat_khau" = "Quên mật khẩu";
 "qua_tang" = "Quà tặng";
 "qua_tang_nhan" = "Nhận quà";
 "qua_tang_tang" = "Tặng quà";

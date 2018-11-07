@@ -328,10 +328,31 @@
 - (BOOL)kiemTraCoChucNangQuetVanTay
 {
     LAContext *laContext = [[[LAContext alloc] init] autorelease];
-    NSError *err = nil;
-    if([laContext canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&err])
+    NSError *error = nil;
+    if([laContext canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&error])
     {
-        return YES;
+        if (error != NULL) {
+            // handle error
+        } else {
+            
+            if (@available(iOS 11.0.1, *)) {
+                if (laContext.biometryType == LABiometryTypeFaceID) {
+                    //localizedReason = "Unlock using Face ID"
+                    NSLog(@"FaceId support");
+                    return YES;
+                } else if (laContext.biometryType == LABiometryTypeTouchID) {
+                    //localizedReason = "Unlock using Touch ID"
+                    NSLog(@"TouchId support");
+                    return YES;
+                } else {
+                    //localizedReason = "Unlock using Application Passcode"
+                    NSLog(@"No Biometric support");
+                    return NO;
+                }
+            } else {
+                // Fallback on earlier versions
+            }
+        }
     }
     return NO;
 }
@@ -340,52 +361,54 @@
 {
     if([DucNT_Token daTonTaiMatKhauVanTay])
     {
-        LAContext *context = [[[LAContext alloc] init] autorelease];
-        NSError *err = nil;
-        if([context canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&err])
+        __block ViewNhapTenDaiDienXacThucThemTaiKhoanThuongDung *blockSELF = self;
+        [RoundAlert show];
+
+        LAContext *laContext = [[[LAContext alloc] init] autorelease];
+        NSError *error = nil;
+        if([laContext canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&error])
         {
-            __block ViewNhapTenDaiDienXacThucThemTaiKhoanThuongDung *blockSELF = self;
-            [RoundAlert show];
-            [context evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics
-                    localizedReason:sTieuDe
-                              reply:^(BOOL success, NSError *error)
-             {
-                 dispatch_async(dispatch_get_main_queue(), ^{
-                     [RoundAlert hide];
-                     if (error) {
-                         switch (error.code) {
-                             case LAErrorUserCancel:
-                                 NSLog(@"info:%@: %@, LAErrorUserCancel", NSStringFromClass([self class]),NSStringFromSelector(_cmd));
-                                 break;
-                             case LAErrorAuthenticationFailed:
-                                 NSLog(@"info:%@: %@, LAErrorAuthenticationFailed", NSStringFromClass([self class]),NSStringFromSelector(_cmd));
-                                 [blockSELF hienThiThongBaoDienMatKhau];
-                                 break;
-                             case LAErrorPasscodeNotSet:
-                                 NSLog(@"info:%@: %@, LAErrorPasscodeNotSet", NSStringFromClass([self class]),NSStringFromSelector(_cmd));
-                                 break;
-                             case LAErrorTouchIDNotAvailable:
-                                 NSLog(@"info:%@: %@, LAErrorTouchIDNotAvailable", NSStringFromClass([self class]),NSStringFromSelector(_cmd));
-                                 break;
-                             case LAErrorTouchIDNotEnrolled:
-                                 NSLog(@"info:%@: %@, LAErrorTouchIDNotEnrolled", NSStringFromClass([self class]),NSStringFromSelector(_cmd));
-                                 break;
-                             case LAErrorUserFallback:
-                                 NSLog(@"info:%@: %@, LAErrorUserFallback", NSStringFromClass([self class]),NSStringFromSelector(_cmd));
-                                 
-                                 break;
-                             default:
-                                 break;
-                         }
-                         
-                         return;
-                     }
-                     if(success)
-                     {
-                         [self xuLySuKienXacThucVanTayThanhCong];
-                     }
-                 });
-             }];
+            if (error != NULL) {
+                // handle error
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [RoundAlert hide];
+                });
+            } else {
+                
+                if (@available(iOS 11.0.1, *)) {
+                    if (laContext.biometryType == LABiometryTypeFaceID) {
+                    }
+                    else if (laContext.biometryType == LABiometryTypeTouchID) {
+                    }
+                    else {
+                    }
+                } else {
+                    // Fallback on earlier versions
+                }
+                [laContext evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics localizedReason:sTieuDe reply:^(BOOL success, NSError * _Nullable error) {
+                    
+                    if (error != NULL) {
+                        // handle error
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            [RoundAlert hide];
+                            if(error.code == LAErrorAuthenticationFailed){
+                                [blockSELF hienThiThongBaoDienMatKhau];
+                            }
+                        });
+                    } else if (success) {
+                        // handle success response
+                         dispatch_async(dispatch_get_main_queue(), ^{
+                             [RoundAlert hide];
+                             [self xuLySuKienXacThucVanTayThanhCong];
+                         });
+                    } else {
+                        // handle false response
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            [RoundAlert hide];
+                        });
+                    }
+                }];
+            }
         }
     }
     else

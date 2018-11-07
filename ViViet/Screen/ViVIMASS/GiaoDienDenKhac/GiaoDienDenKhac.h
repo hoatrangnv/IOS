@@ -9,4 +9,6 @@
 @interface GiaoDienDenKhac : GiaoDichViewController
 
 @property (retain, nonatomic) IBOutlet UITableView *tableView;
+@property (retain, nonatomic) NSArray *arrDanhSach;
+
 @end

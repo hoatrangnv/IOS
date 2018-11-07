@@ -233,7 +233,7 @@ const int TIME_COUNT_DOWN_DIEN = 180;
     danhBa.mKieuHienThiLienHe = KIEU_HIEN_THI_LIEN_HE_THUONG;
     [self.navigationController pushViewController:danhBa animated:YES];
     __block TraCuuTienDienViewController *weakSelf = self;
-    [danhBa selectContact:^(NSString *phone)
+    [danhBa selectContact:^(NSString *phone,Contact *contact)
      {
          if (phone != nil && phone.length > 0)
          {

@@ -59,11 +59,11 @@
 +(void)create:(void (^)(BaseScreen *controller))oncreate
   privateInfo:(NSDictionary *)privateInfo
 {
-//    if ([[self class] respondsToSelector:@selector(create_with_params:oncreate:)])
-//    {
-//        [self create_with_params:privateInfo oncreate:oncreate];
-//        return;
-//    }
+    //    if ([[self class] respondsToSelector:@selector(create_with_params:oncreate:)])
+    //    {
+    //        [self create_with_params:privateInfo oncreate:oncreate];
+    //        return;
+    //    }
     
     // BE overrided by subclass
     
@@ -126,23 +126,23 @@
 
 -(NSUInteger)supportedInterfaceOrientations
 {
-//    UIInterfaceOrientation current_orientation = [[UIApplication sharedApplication] statusBarOrientation];
-//    if ([YoutubePlayer isFullScreen])
-//    {
-//        return UIInterfaceOrientationMaskAll;
-//    }
-//    
-//    if ([YoutubePlayer isPlayingVideo])
-//    {
-//        if (current_orientation == UIInterfaceOrientationPortrait)
-//        {
-//            return UIInterfaceOrientationMaskAll;
-//        }
-//    }
-//    if ([ImageViewerController isShowingImagesGallery])
-//    {
-//        return UIInterfaceOrientationMaskAll;
-//    }
+    //    UIInterfaceOrientation current_orientation = [[UIApplication sharedApplication] statusBarOrientation];
+    //    if ([YoutubePlayer isFullScreen])
+    //    {
+    //        return UIInterfaceOrientationMaskAll;
+    //    }
+    //
+    //    if ([YoutubePlayer isPlayingVideo])
+    //    {
+    //        if (current_orientation == UIInterfaceOrientationPortrait)
+    //        {
+    //            return UIInterfaceOrientationMaskAll;
+    //        }
+    //    }
+    //    if ([ImageViewerController isShowingImagesGallery])
+    //    {
+    //        return UIInterfaceOrientationMaskAll;
+    //    }
     return UIInterfaceOrientationMaskPortrait;
 }
 
@@ -190,7 +190,7 @@
                                                cancelButtonTitle:LocalizedString(@"OK")
                                                 otherButtonTitle:LocalizedString(@"Cancel")
                                                          andType:secured ? DDAlertPrompt_PASSWORD : DDAlertPrompt_USERNAME] autorelease];
-
+    
     [alert setTag:tag];
     [alert show];
 }
@@ -224,13 +224,13 @@
 
 -(void) addButtonBack
 {
-//    [self addBackButton:NO];
+    //    [self addBackButton:NO];
 }
 -(void)didSelectBackButton
 {
     if (self.enableBarButton == NO)
         return;
-
+    
     if ([UIApplication sharedApplication].statusBarHidden == YES)
     {
         [[UIApplication sharedApplication] setStatusBarHidden:NO];
@@ -282,7 +282,7 @@
         negativeSeperator.width = -16;
     
     if (side > 0)
-//        self.navigationItem.rightBarButtonItems = @[leftItem, leftItem1];
+        //        self.navigationItem.rightBarButtonItems = @[leftItem, leftItem1];
         self.navigationItem.rightBarButtonItems = @[negativeSeperator, leftItem];
     else
         self.navigationItem.leftBarButtonItems = @[negativeSeperator, leftItem];
@@ -291,33 +291,33 @@
 
 -(void) addButton:(NSString*)imageNamed selector:(SEL)selector atSide:(int)side
 {
-//    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:imageNamed] style:UIBarButtonItemStyleDone target:self action:selector];
-//    UIBarButtonItem *negativeSeperator = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil] autorelease];
-//    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"11")) {
-//        [btnTemp.widthAnchor constraintEqualToConstant:40].active = YES;
-//        [btnTemp.heightAnchor constraintEqualToConstant:40].active = YES;
-//    }
-//    if (SYSTEM_VERSION_LESS_THAN(@"11"))
-//        negativeSeperator.width = -10;
-//    else
-//        negativeSeperator.width = -15;
-//    if (side > 0)
-//        self.navigationItem.rightBarButtonItems = @[negativeSeperator, item];
-//    else
-//        self.navigationItem.leftBarButtonItems = @[item, negativeSeperator];
-
+    //    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:imageNamed] style:UIBarButtonItemStyleDone target:self action:selector];
+    //    UIBarButtonItem *negativeSeperator = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil] autorelease];
+    //    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"11")) {
+    //        [btnTemp.widthAnchor constraintEqualToConstant:40].active = YES;
+    //        [btnTemp.heightAnchor constraintEqualToConstant:40].active = YES;
+    //    }
+    //    if (SYSTEM_VERSION_LESS_THAN(@"11"))
+    //        negativeSeperator.width = -10;
+    //    else
+    //        negativeSeperator.width = -15;
+    //    if (side > 0)
+    //        self.navigationItem.rightBarButtonItems = @[negativeSeperator, item];
+    //    else
+    //        self.navigationItem.leftBarButtonItems = @[item, negativeSeperator];
+    
     UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
     button.frame = CGRectMake(0, 0, 30, 30);
     [button setImage:[UIImage imageNamed:imageNamed]forState:UIControlStateNormal];
-
+    
     button.backgroundColor = [UIColor clearColor];
-//    button.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
+    //    button.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
     [button addTarget:self action:selector forControlEvents:UIControlEventTouchUpInside];
-
+    
     UIBarButtonItem *leftItem = [[[UIBarButtonItem alloc] initWithCustomView:button] autorelease];
-
+    
     UIBarButtonItem *negativeSeperator = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil] autorelease];
-
+    
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"11")) {
         negativeSeperator.width = -15;
         [button.widthAnchor constraintEqualToConstant:30].active = YES;
@@ -325,7 +325,7 @@
     }
     else
         negativeSeperator.width = -10;
-
+    
     if (side > 0)
         self.navigationItem.rightBarButtonItems = @[negativeSeperator, leftItem];
     else
@@ -376,20 +376,20 @@
     
     return;
     
-//    UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
-//    button.frame = CGRectMake(0, 0, 44, 44);
-//    
-////    [button setBackgroundImage:[UIImage imageNamed:@"bar_button_left_bg"] forState:UIControlStateNormal];
-//    [button setImage:[Common stretchImage:@"bar_button_cate_left"] forState:UIControlStateNormal];
-////    [button setImage:[UIImage imageNamed:@"bar_button_cate_left"] forState:forState:UIControlStateNormal];
-//    
-//    button.backgroundColor = [UIColor clearColor];
-//    button.autoresizingMask = UIViewAutoresizingFlexibleHeight;
-//    [button addTarget:self action:@selector(didSelectCateLeft) forControlEvents:UIControlEventTouchUpInside];
-//    
-//    UIBarButtonItem *rightItem = [[[UIBarButtonItem alloc] initWithCustomView:button] autorelease];
-//    self.navigationItem.leftBarButtonItem = rightItem;
-
+    //    UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
+    //    button.frame = CGRectMake(0, 0, 44, 44);
+    //
+    ////    [button setBackgroundImage:[UIImage imageNamed:@"bar_button_left_bg"] forState:UIControlStateNormal];
+    //    [button setImage:[Common stretchImage:@"bar_button_cate_left"] forState:UIControlStateNormal];
+    ////    [button setImage:[UIImage imageNamed:@"bar_button_cate_left"] forState:forState:UIControlStateNormal];
+    //
+    //    button.backgroundColor = [UIColor clearColor];
+    //    button.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+    //    [button addTarget:self action:@selector(didSelectCateLeft) forControlEvents:UIControlEventTouchUpInside];
+    //
+    //    UIBarButtonItem *rightItem = [[[UIBarButtonItem alloc] initWithCustomView:button] autorelease];
+    //    self.navigationItem.leftBarButtonItem = rightItem;
+    
 }
 -(void)didSelectCateLeft
 {
@@ -496,20 +496,20 @@
 
 -(void)setTitle:(NSString *)title
 {
-//    if (title && title.length > 1 && [[title substringToIndex:1] compare:@"@"] == NSOrderedSame)
-//    {
-//        title = title.localizableString;
-//    }
-//    LoadingTitleView *v = (LoadingTitleView *)self.navigationItem.titleView;
-//    if (v == nil)
-//    {
-//        v = [LoadingTitleView create];
-//        id x = self;
-//        v.delegate = x;
-//        self.navigationItem.titleView = v;
-//    }
-//    v.title = title;
-//    [v stop_loading];
+    //    if (title && title.length > 1 && [[title substringToIndex:1] compare:@"@"] == NSOrderedSame)
+    //    {
+    //        title = title.localizableString;
+    //    }
+    //    LoadingTitleView *v = (LoadingTitleView *)self.navigationItem.titleView;
+    //    if (v == nil)
+    //    {
+    //        v = [LoadingTitleView create];
+    //        id x = self;
+    //        v.delegate = x;
+    //        self.navigationItem.titleView = v;
+    //    }
+    //    v.title = title;
+    //    [v stop_loading];
 }
 
 - (void)add_transparent_baritem:(BOOL)right
@@ -537,11 +537,11 @@
 - (void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-//    if (!self.mThongTinTaiKhoanVi) {
+    //    if (!self.mThongTinTaiKhoanVi) {
     if ([[DucNT_LuuRMS layThongTinTrongRMSTheoKey:KEY_LOGIN_STATE] boolValue] && !self.mThongTinTaiKhoanVi) {
         self.mThongTinTaiKhoanVi = [DucNT_LuuRMS layThongTinTaiKhoanVi];
     }
-//    }
+    //    }
     [self localizeViews];
     
 #ifndef UIRectEdgeNone
@@ -551,20 +551,20 @@
     if ([self respondsToSelector:@selector(edgesForExtendedLayout)])
         self.edgesForExtendedLayout = UIRectEdgeNone;
     
-//    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
-//
-//    [[UINavigationBar appearance] setBarTintColor:[UIColor redColor]];
+    //    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
+    //
+    //    [[UINavigationBar appearance] setBarTintColor:[UIColor redColor]];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     _enableBarButton = YES;
-//    [self initAutoLocalizeView];
-
-
+    //    [self initAutoLocalizeView];
+    
+    
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:self.navigationItem.backBarButtonItem.style target:nil action:nil];
-
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(didRotate:)
                                                  name:UIDeviceOrientationDidChangeNotification
@@ -610,61 +610,84 @@
 - (BOOL)kiemTraCoChucNangQuetVanTay
 {
     LAContext *laContext = [[[LAContext alloc] init] autorelease];
-    NSError *err = nil;
-    if([laContext canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&err])
+    NSError *error = nil;
+    if([laContext canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&error])
     {
-        return YES;
+        if (error != NULL) {
+            // handle error
+        } else {
+            
+            if (@available(iOS 11.0.1, *)) {
+                if (laContext.biometryType == LABiometryTypeFaceID) {
+                    //localizedReason = "Unlock using Face ID"
+                    return YES;
+                } else if (laContext.biometryType == LABiometryTypeTouchID) {
+                    //localizedReason = "Unlock using Touch ID"
+                    return YES;
+                } else {
+                    //localizedReason = "Unlock using Application Passcode"
+                    return NO;
+                }
+            } else {
+                // Fallback on earlier versions
+            }
+        }
     }
     return NO;
 }
 
 - (void)xuLySuKienHienThiChucNangDangNhapVanTayVoiTieuDe:(NSString*)sTieuDe
 {
-    LAContext *context = [[[LAContext alloc] init] autorelease];
-    NSError *err = nil;
-    if([context canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&err])
+    LAContext *laContext = [[[LAContext alloc] init] autorelease];
+    NSError *error = nil;
+    __block BaseScreen *weakSelf = self;
+    [RoundAlert show];
+    
+    if([laContext canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&error])
     {
-        __block BaseScreen *weakSelf = self;
-        [RoundAlert show];
-        [context evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics
-                localizedReason:sTieuDe
-                          reply:^(BOOL success, NSError *error)
-         {
-             dispatch_async(dispatch_get_main_queue(), ^{
-                 if (error) {
-                     switch (error.code) {
-                         case LAErrorUserCancel:
-                             NSLog(@"info:%@: %@, LAErrorUserCancel", NSStringFromClass([self class]),NSStringFromSelector(_cmd));
-                             break;
-                         case LAErrorAuthenticationFailed:
-                             NSLog(@"info:%@: %@, LAErrorAuthenticationFailed", NSStringFromClass([self class]),NSStringFromSelector(_cmd));
-                             [weakSelf hienThiThongBaoDienMatKhau];
-                             break;
-                         case LAErrorPasscodeNotSet:
-                             NSLog(@"info:%@: %@, LAErrorPasscodeNotSet", NSStringFromClass([self class]),NSStringFromSelector(_cmd));
-                             break;
-                         case LAErrorTouchIDNotAvailable:
-                             NSLog(@"info:%@: %@, LAErrorTouchIDNotAvailable", NSStringFromClass([self class]),NSStringFromSelector(_cmd));
-                             break;
-                         case LAErrorTouchIDNotEnrolled:
-                             NSLog(@"info:%@: %@, LAErrorTouchIDNotEnrolled", NSStringFromClass([self class]),NSStringFromSelector(_cmd));
-                             break;
-                         case LAErrorUserFallback:
-                             NSLog(@"info:%@: %@, LAErrorUserFallback", NSStringFromClass([self class]),NSStringFromSelector(_cmd));
-                             
-                             break;
-                         default:
-                             break;
-                     }
-                     [RoundAlert hide];
-                     return;
-                 }
-                 if(success)
-                 {
-                     [self xuLySuKienXacThucVanTayThanhCong];
-                 }
-             });
-         }];
+        if (error != NULL) {
+            // handle error
+        } else {
+            
+            if (@available(iOS 11.0.1, *)) {
+                if (laContext.biometryType == LABiometryTypeFaceID) {
+                    //localizedReason = "Unlock using Face ID"
+                    NSLog(@"FaceId support");
+                } else if (laContext.biometryType == LABiometryTypeTouchID) {
+                    //localizedReason = "Unlock using Touch ID"
+                    NSLog(@"TouchId support");
+                } else {
+                    //localizedReason = "Unlock using Application Passcode"
+                    NSLog(@"No Biometric support");
+                }
+            } else {
+                // Fallback on earlier versions
+            }
+            
+            
+            [laContext evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics localizedReason:sTieuDe reply:^(BOOL success, NSError * _Nullable error) {
+                
+                if (error != NULL) {
+                    // handle error
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [RoundAlert hide];
+                        if(error.code == LAErrorAuthenticationFailed) {
+                            [weakSelf hienThiThongBaoDienMatKhau];
+                        }
+                    });
+                } else if (success) {
+                    // handle success response
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self xuLySuKienXacThucVanTayThanhCong];
+                    });
+                } else {
+                    // handle false response
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [RoundAlert hide];
+                    });
+                }
+            }];
+        }
     }
 }
 
@@ -684,7 +707,7 @@
                               reply:^(BOOL success, NSError *error)
              {
                  dispatch_async(dispatch_get_main_queue(), ^{
-
+                     
                      if (error) {
                          switch (error.code) {
                              case LAErrorUserCancel:
@@ -697,12 +720,12 @@
                              case LAErrorPasscodeNotSet:
                                  NSLog(@"info:%@: %@, LAErrorPasscodeNotSet", NSStringFromClass([self class]),NSStringFromSelector(_cmd));
                                  break;
-//                             case LAErrorTouchIDNotAvailable:
-//                                 NSLog(@"info:%@: %@, LAErrorTouchIDNotAvailable", NSStringFromClass([self class]),NSStringFromSelector(_cmd));
-//                                 break;
-//                             case LAErrorTouchIDNotEnrolled:
-//                                 NSLog(@"info:%@: %@, LAErrorTouchIDNotEnrolled", NSStringFromClass([self class]),NSStringFromSelector(_cmd));
-//                                 break;
+                                 //                             case LAErrorTouchIDNotAvailable:
+                                 //                                 NSLog(@"info:%@: %@, LAErrorTouchIDNotAvailable", NSStringFromClass([self class]),NSStringFromSelector(_cmd));
+                                 //                                 break;
+                                 //                             case LAErrorTouchIDNotEnrolled:
+                                 //                                 NSLog(@"info:%@: %@, LAErrorTouchIDNotEnrolled", NSStringFromClass([self class]),NSStringFromSelector(_cmd));
+                                 //                                 break;
                              case LAErrorUserFallback:
                                  NSLog(@"info:%@: %@, LAErrorUserFallback", NSStringFromClass([self class]),NSStringFromSelector(_cmd));
                                  break;
@@ -780,40 +803,40 @@
 
 -(void)hideStatusBar
 {
-//    if ([UIApplication sharedApplication].statusBarHidden == NO)
-//    {
-//        if ([self respondsToSelector:@selector(setNeedsStatusBarAppearanceUpdate)]) {
-//            // iOS 7
-//            statusBar_hidden = YES;
-//            [self performSelector:@selector(setNeedsStatusBarAppearanceUpdate)];
-//        } else {
-//            // iOS 6
-//            [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
-//        }
-//        
-//        CGRect status_frame = app.navigationController.navigationBar.frame;
-//        status_frame.origin = CGPointZero;
-//        app.navigationController.navigationBar.frame = status_frame;
-//    }
+    //    if ([UIApplication sharedApplication].statusBarHidden == NO)
+    //    {
+    //        if ([self respondsToSelector:@selector(setNeedsStatusBarAppearanceUpdate)]) {
+    //            // iOS 7
+    //            statusBar_hidden = YES;
+    //            [self performSelector:@selector(setNeedsStatusBarAppearanceUpdate)];
+    //        } else {
+    //            // iOS 6
+    //            [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
+    //        }
+    //
+    //        CGRect status_frame = app.navigationController.navigationBar.frame;
+    //        status_frame.origin = CGPointZero;
+    //        app.navigationController.navigationBar.frame = status_frame;
+    //    }
 }
 
 -(void)showStatusBar
 {
-//    if ([UIApplication sharedApplication].statusBarHidden == YES)
-//    {
-//        if ([self respondsToSelector:@selector(setNeedsStatusBarAppearanceUpdate)]) {
-//            // iOS 7
-//            statusBar_hidden = NO;
-//            [self performSelector:@selector(setNeedsStatusBarAppearanceUpdate)];
-//        } else {
-//            // iOS 6
-//            [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
-//        }
-//        CGRect status_frame = app.navigationController.navigationBar.frame;
-//        status_frame.origin = CGPointMake(0, 20);
-//        //        status_frame.size.height -= 20;
-//        app.navigationController.navigationBar.frame = status_frame;
-//    }
+    //    if ([UIApplication sharedApplication].statusBarHidden == YES)
+    //    {
+    //        if ([self respondsToSelector:@selector(setNeedsStatusBarAppearanceUpdate)]) {
+    //            // iOS 7
+    //            statusBar_hidden = NO;
+    //            [self performSelector:@selector(setNeedsStatusBarAppearanceUpdate)];
+    //        } else {
+    //            // iOS 6
+    //            [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
+    //        }
+    //        CGRect status_frame = app.navigationController.navigationBar.frame;
+    //        status_frame.origin = CGPointMake(0, 20);
+    //        //        status_frame.size.height -= 20;
+    //        app.navigationController.navigationBar.frame = status_frame;
+    //    }
 }
 
 - (void)dealloc
@@ -829,12 +852,12 @@
     
     self.viewToText = nil;
     self.security_questions = nil;
-
+    
     if(loadingScreen)
         [loadingScreen release];
     NSLog(@"dealloc %@", NSStringFromClass(self.class));
     [super dealloc];
-//    NSLog(@"end dealloc %@", NSStringFromClass(self.class));
+    //    NSLog(@"end dealloc %@", NSStringFromClass(self.class));
 }
 
 @synthesize viewToText;

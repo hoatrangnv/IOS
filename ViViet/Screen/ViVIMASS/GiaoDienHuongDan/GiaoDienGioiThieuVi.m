@@ -7,7 +7,7 @@
 
 #import "GiaoDienGioiThieuVi.h"
 #import "CommonUtils.h"
-@interface GiaoDienGioiThieuVi () <UIGestureRecognizerDelegate>{
+@interface GiaoDienGioiThieuVi () <UIGestureRecognizerDelegate,UIWebViewDelegate>{
     BOOL isLongPress;
 }
 
@@ -30,7 +30,7 @@
     NSString *htmlFile = [[NSBundle mainBundle] pathForResource:@"hd_quang_cao_vi" ofType:@"html"];
     NSString* htmlString = [NSString stringWithContentsOfFile:htmlFile encoding:NSUTF8StringEncoding error:nil];
     [_webHuongDan loadHTMLString:htmlString baseURL: [[NSBundle mainBundle] bundleURL]];
-
+    [_webHuongDan setDelegate:self];
     UIColor *selectedColor = [UIColor whiteColor];
     UIColor *deselectedColor = [UIColor lightGrayColor];
     for (UIControl *subview in [segment subviews]) {
@@ -48,6 +48,11 @@
     longHander.delegate = self;
     longHander.minimumPressDuration = 1;
     [self.imgvQR addGestureRecognizer:longHander];
+}
+-(void)webViewDidFinishLoad:(UIWebView *)webView{
+    NSString *fontSize=@"143";
+    NSString *jsString = [[NSString alloc]      initWithFormat:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '%d%%'",[fontSize intValue]];
+    [_webHuongDan stringByEvaluatingJavaScriptFromString:jsString];
 }
 
 - (void)viewDidAppear:(BOOL)animated {

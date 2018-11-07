@@ -24,16 +24,16 @@
 
 @implementation ContactScreen
 {
-    void (^_onSelect)(NSString *phone);
+    void (^_onSelect)(NSString *phone, Contact *contact);
     
 //    NSMutableArray *_firstChars;        // First character in the contact. May depends on region.
     NSMutableDictionary *_contacts;     // Contact in each category.
 }
 
-- (void)selectContact: (void (^)(NSString *phone)) onSelect
+- (void)selectContact: (void (^)(NSString *phone, Contact *contact)) onSelect_
 {
     [_onSelect release];
-    _onSelect = [onSelect copy];
+    _onSelect = [onSelect_ copy];
 }
 
 #pragma mark - Contact helpers
@@ -124,6 +124,7 @@
         {
             self.mDanhSachLienHe = app.global.mDanhSachLienHeDaCoVi;
         }
+        [self.tableView reloadData];
         [self classifyFromContacts:self.mDanhSachLienHe withKeyword:nil];
     }
     [self khoiTaoBanDau];
@@ -230,7 +231,7 @@
 {
     if (_onSelect)
     {
-        _onSelect (@"");
+        _onSelect (@"",@"");
     }
 }
 
@@ -300,7 +301,8 @@
     
     if (_onSelect)
     {
-        _onSelect ([self formatPhoneNumer:ct.phone]);
+        _onSelect ([self formatPhoneNumer:ct.phone],ct);
+//        [self.navigationController dismissViewControllerAnimated:YES completion:nil];
     }
 }
 

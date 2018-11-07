@@ -241,6 +241,10 @@ NSString *const LINK_XAC_THUC_QUEN_MAT_KHAU_TOKEN;
     if (ducnt_connectDelegate && htmlSTR) {
         [ducnt_connectDelegate ketNoiThanhCong:htmlSTR];
     }
+//    else{
+//        NSLog(@"Hieu Fuck fuck fuck");
+//        [ducnt_connectDelegate ketNoiBatThanh];
+//    }
 
     [connection cancel];
 //    [connection release];

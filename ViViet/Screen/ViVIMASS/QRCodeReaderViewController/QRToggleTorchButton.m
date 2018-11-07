@@ -43,46 +43,46 @@
 {
   // Colors
 
-  UIColor *paintColor  = (self.state != UIControlStateHighlighted) ? _fillColor : _fillHighlightedColor;
-  UIColor *strokeColor = (self.state != UIControlStateHighlighted) ? _edgeColor : _edgeHighlightedColor;
-
-  // Torch box
-
-  CGFloat width   = rect.size.width;
-  CGFloat height  = rect.size.height;
-  CGFloat centerX = width / 2;
-  CGFloat centerY = height / 2;
-
-  CGFloat strokeLineWidth      = 2;
-  CGFloat circleRadius         = width / 10;
-  CGFloat lineLength           = width / 10;
-  CGFloat lineOffset           = width / 10;
-  CGFloat lineOriginFromCenter = circleRadius + lineOffset;
-
-  //Circle
-  UIBezierPath *circlePath = [UIBezierPath bezierPath];
-  [circlePath addArcWithCenter:CGPointMake(centerX, centerY) radius:circleRadius startAngle:0.0 endAngle:M_PI clockwise:YES];
-  [circlePath addArcWithCenter:CGPointMake(centerX, centerY) radius:circleRadius startAngle:M_PI endAngle:M_PI * 2 clockwise:YES];
-
-  // Draw beams
-  [paintColor setFill];
-  
-  for (int i = 0; i < 8; i++) {
-    CGFloat angle = ((2 * M_PI) / 8) * i;
-
-    CGPoint startPoint = CGPointMake(centerX + cos(angle) * lineOriginFromCenter, centerY + sin(angle) * lineOriginFromCenter);
-    CGPoint endPoint   = CGPointMake(centerX + cos(angle) * (lineOriginFromCenter + lineLength), centerY + sin(angle) * (lineOriginFromCenter + lineLength));
-
-    UIBezierPath *beamPath = [self linePathWithStartPoint:startPoint endPoint:endPoint thickness:strokeLineWidth];
-    [beamPath stroke];
-  }
+//  UIColor *paintColor  = (self.state != UIControlStateHighlighted) ? _fillColor : _fillHighlightedColor;
+//  UIColor *strokeColor = (self.state != UIControlStateHighlighted) ? _edgeColor : _edgeHighlightedColor;
+//
+//  // Torch box
+//
+//  CGFloat width   = rect.size.width;
+//  CGFloat height  = rect.size.height;
+//  CGFloat centerX = width / 2;
+//  CGFloat centerY = height / 2;
+//
+//  CGFloat strokeLineWidth      = 2;
+//  CGFloat circleRadius         = width / 10;
+//  CGFloat lineLength           = width / 10;
+//  CGFloat lineOffset           = width / 10;
+//  CGFloat lineOriginFromCenter = circleRadius + lineOffset;
+//
+//  //Circle
+//  UIBezierPath *circlePath = [UIBezierPath bezierPath];
+//  [circlePath addArcWithCenter:CGPointMake(centerX, centerY) radius:circleRadius startAngle:0.0 endAngle:M_PI clockwise:YES];
+//  [circlePath addArcWithCenter:CGPointMake(centerX, centerY) radius:circleRadius startAngle:M_PI endAngle:M_PI * 2 clockwise:YES];
+//
+//  // Draw beams
+//  [paintColor setFill];
+//
+//  for (int i = 0; i < 8; i++) {
+//    CGFloat angle = ((2 * M_PI) / 8) * i;
+//
+//    CGPoint startPoint = CGPointMake(centerX + cos(angle) * lineOriginFromCenter, centerY + sin(angle) * lineOriginFromCenter);
+//    CGPoint endPoint   = CGPointMake(centerX + cos(angle) * (lineOriginFromCenter + lineLength), centerY + sin(angle) * (lineOriginFromCenter + lineLength));
+//
+//    UIBezierPath *beamPath = [self linePathWithStartPoint:startPoint endPoint:endPoint thickness:strokeLineWidth];
+//    [beamPath stroke];
+//  }
 
   // Draw circle
-  [strokeColor setFill];
-
-  circlePath.lineWidth = strokeLineWidth;
-  [circlePath fill];
-  [circlePath stroke];
+//  [strokeColor setFill];
+//
+//  circlePath.lineWidth = strokeLineWidth;
+//  [circlePath fill];
+//  [circlePath stroke];
 }
 
 - (UIBezierPath *)linePathWithStartPoint:(CGPoint)startPoint endPoint:(CGPoint)endPoint thickness:(CGFloat)thickness {

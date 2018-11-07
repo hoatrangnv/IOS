@@ -518,4 +518,8 @@
 
 + (void)ketNoiLayDanhSachDiaDiem:(NSString*)keyword langId:(int)langId limit:(int)limit page:(int)page status:(int)status compress:(int)compress lat:(double)lat lng:(double)lng r:(double)r categoryId:(NSString*)categoryId noiNhanKetQua:(id<DucNT_ServicePostDelegate>)noiNhanKetQua;
 
+
++ (void)chuyentienDienThoai:(NSString *)dictJSON noiNhanKetQua:(id<DucNT_ServicePostDelegate>)noiNhanKetQua;
+
++ (void)confirmChuyenTienDienThoai:(NSString *)dictJSON noiNhanKetQua:(id<DucNT_ServicePostDelegate>)noiNhanKetQua;
 @end

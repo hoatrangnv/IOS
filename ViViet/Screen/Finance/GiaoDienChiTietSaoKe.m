@@ -8,7 +8,7 @@
 
 #import "GiaoDienChiTietSaoKe.h"
 
-@interface GiaoDienChiTietSaoKe () {
+@interface GiaoDienChiTietSaoKe ()<UIWebViewDelegate> {
 }
 
 @end
@@ -48,10 +48,15 @@
         NSString *sHTML = [self updateView:_saoKe];
         _sXauGuiMail = sHTML;
         [_webChiTiet loadHTMLString:sHTML baseURL:nil];
+        [_webChiTiet setDelegate:self];
         [_btnMail setTitle:[NSString stringWithFormat:@"Gửi về %@", [self.mThongTinTaiKhoanVi layThuDienTu]] forState:UIControlStateNormal];
     }
 }
-
+-(void)webViewDidFinishLoad:(UIWebView *)webView{
+    NSString *fontSize=@"143";
+    NSString *jsString = [[NSString alloc]      initWithFormat:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '%d%%'",[fontSize intValue]];
+    [_webChiTiet stringByEvaluatingJavaScriptFromString:jsString];
+}
 -(NSString *)updateView:(DucNT_SaoKeObject*)item
 {
     NSString *sDenTK = @"";

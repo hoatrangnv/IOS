@@ -40,9 +40,9 @@
 
 - (IBAction)suKienBamNutTroChuyen:(id)sender
 {
-    if([self.mDelegate respondsToSelector:@selector(xuLySuKienBamNutTroChuyen)])
+    if([self.mDelegate respondsToSelector:@selector(xuLySuKienBamNutQR)])
     {
-        [self.mDelegate xuLySuKienBamNutTroChuyen];
+        [self.mDelegate xuLySuKienBamNutQR];
     }
 }
 - (IBAction)suKienBamNutSaoKe:(id)sender {
@@ -83,6 +83,7 @@
     [_mlblBadgeNumberTroChuyen release];
     [_lblSoDu release];
     [_lblChinh release];
+    [_btnAvatar release];
     [super dealloc];
 }
 @end

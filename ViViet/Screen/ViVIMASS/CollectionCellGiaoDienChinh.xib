@@ -1,10 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -14,31 +15,21 @@
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="75" height="90"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ANB-lq-v46">
-                        <rect key="frame" x="5" y="0.0" width="65" height="65"/>
-                        <constraints>
-                            <constraint firstAttribute="width" secondItem="ANB-lq-v46" secondAttribute="height" multiplier="1:1" id="qWk-sI-dkG"/>
-                        </constraints>
+                    <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="6dien" translatesAutoresizingMaskIntoConstraints="NO" id="ANB-lq-v46">
+                        <rect key="frame" x="0.0" y="0.0" width="75" height="90"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uwG-vd-Q3U">
-                        <rect key="frame" x="0.0" y="68" width="75" height="22"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                 </subviews>
-                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
-            <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.11764705882352941" green="0.18823529411764706" blue="0.24705882352941178" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="uwG-vd-Q3U" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="37F-ob-22k"/>
-                <constraint firstAttribute="trailing" secondItem="uwG-vd-Q3U" secondAttribute="trailing" id="AZa-eW-7LW"/>
-                <constraint firstItem="uwG-vd-Q3U" firstAttribute="top" secondItem="ANB-lq-v46" secondAttribute="bottom" constant="3" id="Ju4-QR-Zpi"/>
-                <constraint firstAttribute="bottom" secondItem="uwG-vd-Q3U" secondAttribute="bottom" id="fgp-vP-ouc"/>
-                <constraint firstItem="ANB-lq-v46" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="nDe-WP-OTX"/>
-                <constraint firstItem="ANB-lq-v46" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" multiplier="0.87" id="tq5-2t-0xU"/>
-                <constraint firstItem="ANB-lq-v46" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="zhP-g8-w6v"/>
+                <constraint firstItem="ANB-lq-v46" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="FT3-xg-drG"/>
+                <constraint firstAttribute="trailing" secondItem="ANB-lq-v46" secondAttribute="trailing" id="QIU-UO-zEg"/>
+                <constraint firstItem="ANB-lq-v46" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="WVS-Lg-Vtb"/>
+                <constraint firstItem="ANB-lq-v46" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="YtA-Gn-azo"/>
+                <constraint firstAttribute="bottom" secondItem="ANB-lq-v46" secondAttribute="bottom" id="ecr-Vv-Ro1"/>
+                <constraint firstItem="ANB-lq-v46" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="rlC-XT-m4e"/>
             </constraints>
             <connections>
                 <outlet property="imgNen" destination="ANB-lq-v46" id="Ftr-6c-dKj"/>
@@ -46,4 +37,7 @@
             <point key="canvasLocation" x="398.5" y="469"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="6dien" width="400" height="400"/>
+    </resources>
 </document>

@@ -426,7 +426,7 @@
     float fMinTextView = 30.0f;
     float fMaxTextView = self.bounds.size.height - fCanhLeTren - fHeightPhanConLai - 80;
     NSString *sText = tvDescrip.text;
-    CGSize textViewSize = [sText sizeWithFont:[UIFont systemFontOfSize:16.0f]
+    CGSize textViewSize = [sText sizeWithFont:[UIFont systemFontOfSize:18.0]
                             constrainedToSize:CGSizeMake(_mViewThoiDiemVaSoDuVi.frame.size.width, FLT_MAX)
                                 lineBreakMode:NSLineBreakByTruncatingTail];
 //    NSLog(@"ChiTietSaoKe : tinhToanLaiDoRongDoCao : fMaxTextView : %f", fMaxTextView);

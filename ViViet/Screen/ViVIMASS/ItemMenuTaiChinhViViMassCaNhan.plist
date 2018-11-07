@@ -25,22 +25,6 @@
 					<key>KieuChuyenView</key>
 					<string>push</string>
 					<key>TieuDe</key>
-					<string>chuyen_tien_den_dt</string>
-					<key>TenViewController</key>
-					<string>DucNT_ChuyenTienViDenDienThoai</string>
-					<key>AnhDaiDien</key>
-					<string></string>
-					<key>TenHamXuLy</key>
-					<string></string>
-					<key>dsCon</key>
-					<array/>
-				</dict>
-				<dict>
-					<key>CanDangNhap</key>
-					<true/>
-					<key>KieuChuyenView</key>
-					<string>push</string>
-					<key>TieuDe</key>
 					<string>chuyen_tien_den_vi</string>
 					<key>TenViewController</key>
 					<string>DucNT_ChuyenTienViDenViViewController</string>
@@ -360,15 +344,15 @@
 		</dict>
 		<dict>
 			<key>CanDangNhap</key>
-			<false/>
+			<true/>
 			<key>KieuChuyenView</key>
 			<string>push</string>
 			<key>TieuDe</key>
-			<string>chuky_so</string>
+			<string>tai_khoan_lien_ket</string>
 			<key>TenViewController</key>
-			<string>PKIViewController</string>
+			<string>GiaoDienTaiKhoanLienKet</string>
 			<key>AnhDaiDien</key>
-			<string>icon-PKI-64x64</string>
+			<string>lienketnganhang64</string>
 			<key>TenHamXuLy</key>
 			<string></string>
 			<key>dsCon</key>
@@ -380,11 +364,11 @@
 			<key>KieuChuyenView</key>
 			<string>push</string>
 			<key>TieuDe</key>
-			<string>tai_khoan_lien_ket</string>
+			<string>nap_tien</string>
 			<key>TenViewController</key>
-			<string>GiaoDienTaiKhoanLienKet</string>
+			<string>NapViTuTheNganHangViewController</string>
 			<key>AnhDaiDien</key>
-			<string>Xich</string>
+			<string>naptien64x64</string>
 			<key>TenHamXuLy</key>
 			<string></string>
 			<key>dsCon</key>
@@ -392,15 +376,47 @@
 		</dict>
 		<dict>
 			<key>CanDangNhap</key>
-			<false/>
+			<true/>
 			<key>KieuChuyenView</key>
 			<string>push</string>
 			<key>TieuDe</key>
-			<string>chonvi_tk</string>
+			<string>rut_tien</string>
 			<key>TenViewController</key>
-			<string>ChonViTK</string>
+			<string>ChuyenTienViewController</string>
 			<key>AnhDaiDien</key>
-			<string>Combox</string>
+			<string>icon-ruttien-64x64</string>
+			<key>TenHamXuLy</key>
+			<string></string>
+			<key>dsCon</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>CanDangNhap</key>
+			<true/>
+			<key>KieuChuyenView</key>
+			<string>push</string>
+			<key>TieuDe</key>
+			<string>muon_tien</string>
+			<key>TenViewController</key>
+			<string>MuonTienViewController</string>
+			<key>AnhDaiDien</key>
+			<string>icon-muontien-64x64</string>
+			<key>TenHamXuLy</key>
+			<string></string>
+			<key>dsCon</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>CanDangNhap</key>
+			<true/>
+			<key>KieuChuyenView</key>
+			<string>push</string>
+			<key>TieuDe</key>
+			<string>tang_qua</string>
+			<key>TenViewController</key>
+			<string>DanhSachQuaTangViewController</string>
+			<key>AnhDaiDien</key>
+			<string>icon-tangqua-64x64</string>
 			<key>TenHamXuLy</key>
 			<string></string>
 			<key>dsCon</key>
@@ -432,7 +448,7 @@
 			<key>TenViewController</key>
 			<string></string>
 			<key>AnhDaiDien</key>
-			<string>Change</string>
+			<string>icon-baomat-64x64</string>
 			<key>TenHamXuLy</key>
 			<string></string>
 			<key>dsCon</key>
@@ -505,38 +521,6 @@
 		</dict>
 		<dict>
 			<key>CanDangNhap</key>
-			<true/>
-			<key>KieuChuyenView</key>
-			<string>push</string>
-			<key>TieuDe</key>
-			<string>muon_tien</string>
-			<key>TenViewController</key>
-			<string>MuonTienViewController</string>
-			<key>AnhDaiDien</key>
-			<string>icon-muontien-64x64</string>
-			<key>TenHamXuLy</key>
-			<string></string>
-			<key>dsCon</key>
-			<array/>
-		</dict>
-		<dict>
-			<key>CanDangNhap</key>
-			<true/>
-			<key>KieuChuyenView</key>
-			<string>push</string>
-			<key>TieuDe</key>
-			<string>tang_qua</string>
-			<key>TenViewController</key>
-			<string>DanhSachQuaTangViewController</string>
-			<key>AnhDaiDien</key>
-			<string>icon-tangqua-64x64</string>
-			<key>TenHamXuLy</key>
-			<string></string>
-			<key>dsCon</key>
-			<array/>
-		</dict>
-		<dict>
-			<key>CanDangNhap</key>
 			<false/>
 			<key>KieuChuyenView</key>
 			<string></string>
@@ -548,6 +532,22 @@
 			<string>icon-dangxuat-64x64</string>
 			<key>TenHamXuLy</key>
 			<string>suKienDangXuat</string>
+			<key>dsCon</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>CanDangNhap</key>
+			<false/>
+			<key>KieuChuyenView</key>
+			<string></string>
+			<key>TieuDe</key>
+			<string>Giay_phep</string>
+			<key>TenViewController</key>
+			<string></string>
+			<key>AnhDaiDien</key>
+			<string>icon-giayphep</string>
+			<key>TenHamXuLy</key>
+			<string></string>
 			<key>dsCon</key>
 			<array/>
 		</dict>

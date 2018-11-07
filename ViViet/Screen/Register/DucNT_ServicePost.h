@@ -33,6 +33,7 @@ extern NSString *const LINK_LAY_THONG_TIN_SAO_KE;
 -(void)ketNoiThanhCong:(NSString *)sKetQua;
 @optional
 -(void)ketNoiThanhCong:(NSString*)sDinhDanh ketQua:(NSString *)sKetQua;
+//-(void)ketNoiBatThanh;
 @end
 
 @interface DucNT_ServicePost : NSObject<NSURLConnectionDataDelegate>

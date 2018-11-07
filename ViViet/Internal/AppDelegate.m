@@ -45,6 +45,9 @@
 #import "HienThiChatViewController.h"
 #import "GiaoDienChinhV2.h"
 #import <AudioToolbox/AudioToolbox.h>
+#import "HomeCenterViewController.h"
+#import "DucNT_LoginSceen.h"
+#import "DucNT_LuuRMS.h"
 
 NSString *current_account = @"";
 NSString *active_token_serial = @"";
@@ -135,19 +138,41 @@ void uncaughtExceptionHandler(NSException *exception) {
     [thread_load_contact start];
 
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
+    BOOL isLogin = [[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_STATE] boolValue];
 
-    GiaoDienChinhV2 *giaoDienChinhViewController = [[GiaoDienChinhV2 alloc] initWithNibName:@"GiaoDienChinhV2" bundle:nil];
-    UINavigationController *navHome = [HiNavigationBar navigationControllerWithRootViewController: giaoDienChinhViewController];
-    self.window.rootViewController = navHome;
-    [giaoDienChinhViewController release];
-
+    NSString *sKeyDangNhap = [DucNT_LuuRMS layThongTinDangNhap:KEY_DANG_NHAP];
+    NSLog(@"%s - sKeyDangNhap : %@", __FUNCTION__, sKeyDangNhap);
+    if(sKeyDangNhap.length > 0)
+    {
+        self.dictDangNhap = [sKeyDangNhap objectFromJSONString];
+    }
+    if([self.dictDangNhap count] > 0 && isLogin == YES){
+        HomeCenterViewController *homeVC = [[HomeCenterViewController alloc]initWithNibName:@"HomeCenterViewController" bundle:nil];
+        UINavigationController *navHome = [HiNavigationBar navigationControllerWithRootViewController: homeVC];
+        self.window.rootViewController = navHome;
+        [homeVC release];
+    }
+    else{
+        [self showLogin];
+    }
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
     [self.window setOpaque:YES];
     [self.window makeKeyAndVisible];
     [self getTypeShowNotification];
     return YES;
 }
-
+-(void)showLogin{
+    DucNT_LoginSceen *loginVC = [[DucNT_LoginSceen alloc]initWithNibName:@"DucNT_LoginSceen" bundle:nil];
+    UINavigationController *navHome =  [HiNavigationBar navigationControllerWithRootViewController: loginVC];;
+    loginVC.view.frame = [UIScreen mainScreen].bounds;
+    self.window.rootViewController = navHome;
+    [loginVC release];
+}
+-(void)showHowScreen:(DucNT_TaiKhoanViObject *)mThongTinTaiKhoanVi{
+    HomeCenterViewController *homeVC = [[HomeCenterViewController alloc]initWithNibName:@"HomeCenterViewController" bundle:nil];
+    homeVC.mThongTinTaiKhoanVi = mThongTinTaiKhoanVi;
+    [self.navigationController pushViewController:homeVC animated:YES];
+}
 - (void)getTypeShowNotification {
     NSMutableURLRequest *urlRequest = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"https://vimass.vn/vmbank/services/quanTriPush/mappingTypeShowVaPhanLoai"]];
     

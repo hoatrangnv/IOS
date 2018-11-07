@@ -46,7 +46,7 @@
  * @since 1.0.0
  */
 - (void)reader:(QRCodeReaderViewController *)reader didScanResult:(NSString *)result;
-
+- (void)reader:(QRCodeReaderViewController *)reader didScanResultSearch:(NSString *)result;
 /**
  * @abstract Tells the delegate that the user wants to stop scanning QRCodes.
  * @param reader The reader view controller that the user wants to stop.

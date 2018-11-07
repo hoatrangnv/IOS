@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -25,6 +24,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fpF-4l-B82">
                                 <rect key="frame" x="8" y="0.0" width="100" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Đồng ý" backgroundImage="bg-nuttrang.png">
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -35,6 +35,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vPN-rv-VXx">
                                 <rect key="frame" x="212" y="0.0" width="100" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Từ chối" backgroundImage="bg-nuttrang.png">
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -49,42 +50,43 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T4M-Vt-XSG" userLabel="ViewHienThiThongTin">
-                        <rect key="frame" x="37" y="0.0" width="283" height="120.5"/>
+                        <rect key="frame" x="37" y="0.0" width="283" height="123.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ViMASS thông báo bây giờ là 19h. abc abc ViMASS thông báo bây giờ là 19h. abc abc avc asdsad asd" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xox-Tc-5ca">
-                                <rect key="frame" x="3" y="3" width="277" height="31.5"/>
+                                <rect key="frame" x="3" y="3" width="277" height="48"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <color key="textColor" red="0.062745098039215685" green="0.47843137254901957" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HH:mm - dd/MM/yyyy" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ib-NE-f83">
-                                <rect key="frame" x="153" y="107" width="125" height="14"/>
+                                <rect key="frame" x="117.5" y="109.5" width="160.5" height="14"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="14" id="14I-Ge-XqQ"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" red="0.045056134462356567" green="0.3764621913433075" blue="0.71320122480392456" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Đã từ chối" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8BG-h2-FBD">
-                                <rect key="frame" x="3" y="107" width="59" height="14"/>
+                                <rect key="frame" x="3" y="109.5" width="74.5" height="14"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" red="0.045056134462356567" green="0.3764621913433075" blue="0.71320122480392456" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="ViMASS thông báo bây giờ là 19h. abc abc aasdfasdfasdfasdfasdfasdfad abc abc aasdfasdfasdfasdfasdfasdfad asdads asdsads asdsa" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HoL-xd-fuH">
-                                <rect key="frame" x="3" y="37.5" width="277" height="47"/>
+                                <rect key="frame" x="3" y="54" width="277" height="54"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" red="0.50196078431372548" green="0.47843137254901957" blue="0.47843137254901957" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="3ib-NE-f83" firstAttribute="top" secondItem="HoL-xd-fuH" secondAttribute="bottom" constant="1.5" id="2c5-Gg-wCG"/>
                             <constraint firstItem="8BG-h2-FBD" firstAttribute="height" secondItem="3ib-NE-f83" secondAttribute="height" id="4t6-J7-B12"/>
                             <constraint firstAttribute="bottom" secondItem="3ib-NE-f83" secondAttribute="bottom" id="8bo-tC-yq0"/>
                             <constraint firstAttribute="trailing" secondItem="Xox-Tc-5ca" secondAttribute="trailing" constant="3" id="GOf-mz-fah"/>
@@ -114,13 +116,16 @@
                     </button>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="T4M-Vt-XSG" firstAttribute="leading" secondItem="QAu-ki-LrG" secondAttribute="trailing" id="4wl-5H-zVK"/>
+                    <constraint firstItem="T4M-Vt-XSG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Jys-OY-0ug"/>
                     <constraint firstAttribute="trailing" secondItem="J6n-0h-pTZ" secondAttribute="trailing" id="NAg-DH-c3o"/>
-                    <constraint firstItem="J6n-0h-pTZ" firstAttribute="top" secondItem="T4M-Vt-XSG" secondAttribute="bottom" constant="3" id="Qnk-RT-4Xx"/>
+                    <constraint firstAttribute="trailing" secondItem="T4M-Vt-XSG" secondAttribute="trailing" id="Ttc-He-Z9H"/>
                     <constraint firstAttribute="bottom" secondItem="J6n-0h-pTZ" secondAttribute="bottom" id="cJ6-WD-Scd"/>
                     <constraint firstItem="T4M-Vt-XSG" firstAttribute="leading" secondItem="QAu-ki-LrG" secondAttribute="trailing" id="cqd-z7-Ccb"/>
                     <constraint firstItem="QAu-ki-LrG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="dhk-gy-xzo"/>
                     <constraint firstItem="QAu-ki-LrG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="esb-fS-kwO"/>
                     <constraint firstItem="T4M-Vt-XSG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="nlz-7X-dkA"/>
+                    <constraint firstItem="J6n-0h-pTZ" firstAttribute="top" secondItem="T4M-Vt-XSG" secondAttribute="bottom" id="qfP-PX-ymd"/>
                     <constraint firstAttribute="trailing" secondItem="T4M-Vt-XSG" secondAttribute="trailing" id="xyB-Mb-XtV"/>
                     <constraint firstItem="J6n-0h-pTZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="yua-WL-hHh"/>
                 </constraints>

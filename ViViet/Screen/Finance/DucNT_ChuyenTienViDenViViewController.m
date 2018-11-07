@@ -188,7 +188,7 @@
     
     [self.mtfSoTien setTextError:[@"@so_tien_khong_duoc_de_trong" localizableString]
                          forType:ExTextFieldTypeEmpty];
-    [self.mtfSoTien setTextError:@"@so_tien_khong_hop_le" forType:ExTextFieldTypeMoney];
+//    [self.mtfSoTien setTextError:@"@so_tien_khong_hop_le" forType:ExTextFieldTypeMoney];
 
     self.mtvNoiDungGiaoDich.inputAccessoryView = nil;
     self.mtfNoiDung.inputAccessoryView = nil;
@@ -245,7 +245,7 @@
     double fSoTien = [[_mtfSoTien.text stringByReplacingOccurrencesOfString:@"." withString:@""] doubleValue];
     if(![Common kiemTraSoTienMotLanChuyenHopLe:fSoTien])
     {
-        [UIAlertView alert:@"chuyển đi tối thiểu là 10.000 đồng" withTitle:[@"thong_bao" localizableString] block:nil];
+        [UIAlertView alert:@"chuyển đi tối thiểu là 1000 đồng" withTitle:[@"thong_bao" localizableString] block:nil];
         return NO;
     }
     else if (fSoTien >= [self.mThongTinTaiKhoanVi.nAmount doubleValue]) {
@@ -375,7 +375,7 @@
     danhBa.mKieuHienThiLienHe = KIEU_HIEN_THI_LIEN_HE_THUONG;
     [self.navigationController pushViewController:danhBa animated:YES];
     __block DucNT_ChuyenTienViDenViViewController *weakSelf = self;
-    [danhBa selectContact:^(NSString *phone)
+    [danhBa selectContact:^(NSString *phone, Contact *contact)
      {
          NSLog(@"%s - phone : %@", __FUNCTION__, phone);
          if (phone != nil && phone.length > 0)

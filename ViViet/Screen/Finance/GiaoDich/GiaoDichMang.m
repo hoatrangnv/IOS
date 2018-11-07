@@ -178,6 +178,9 @@
 #define URL_CAI_DAT_HAN_MUC_PKI [NSString stringWithFormat:@"%@%@", ROOT_URL, @"auth1/caiDatHanMucPKI"]
 #define URL_DOI_MAT_KHAU_PKI [NSString stringWithFormat:@"%@%@", ROOT_URL, @"auth1/caiDatHanMucPKI"]
 
+#define URL_DOI_MAT_KHAU_PKI [NSString stringWithFormat:@"%@%@", ROOT_URL, @"auth1/caiDatHanMucPKI"]
+#define URL_DOI_MAT_KHAU_PKI [NSString stringWithFormat:@"%@%@", ROOT_URL, @"auth1/caiDatHanMucPKI"]
+
 + (void)traCuuKPlus:(NSString *)maThueBao noiNhanKetQua:(id<DucNT_ServicePostDelegate>)noiNhanKetQua {
     NSDictionary *dic = @{@"maThueBao" : maThueBao,
                           @"user" : [DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_ID_TEMP],
@@ -2226,6 +2229,36 @@
     [connect release];
     [dicPost release];
 }
++ (void)chuyentienDienThoai:(NSString *)dictJSON noiNhanKetQua:(id<DucNT_ServicePostDelegate>)noiNhanKetQua {
+    
+    NSString *url = @"https://vimass.vn/vmbank/services/danhBa/chuyenTien";
+    DucNT_ServicePost *connectPost = [[DucNT_ServicePost alloc] init];
+    [connectPost setDucnt_connectDelegate:noiNhanKetQua];
+    [connectPost connect:url withContent:dictJSON];
+    [connectPost release];
+
+}
+
+//+ (void)confirmChuyenTienDienThoai:(NSString*)session
+//                                id:(NSString*)iid
+//                            status:(BOOL*)status
+//                     noiNhanKetQua:(id<DucNT_ServicePostDelegate>)noiNhanKetQua{
++ (void)confirmChuyenTienDienThoai:(NSString *)dictJSON noiNhanKetQua:(id<DucNT_ServicePostDelegate>)noiNhanKetQua {
+
+//    NSDictionary *dictPost = @{
+//                               @"session":session,
+//                               @"id":iid,
+//                               @"user" : [DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_ID_TEMP],
+//                               @"status" : [NSNumber numberWithBool:status]
+//                               };
+//    NSLog(@"%s - dicPost : %@", __FUNCTION__, [dictPost JSONString]);
+    NSString *url = @"https://vimass.vn/vmbank/services/danhBa/confirmChuyenTien";
+    DucNT_ServicePost *connectPost = [[DucNT_ServicePost alloc] init];
+    [connectPost setDucnt_connectDelegate:noiNhanKetQua];
+    [connectPost connect:url withContent:dictJSON];
+    [connectPost release];
+}
+
 + (void)dangkyPKI:(NSString *)dictJSON noiNhanKetQua:(id<DucNT_ServicePostDelegate>)noiNhanKetQua {
     NSLog(@"%s - dictJSON : %@", __FUNCTION__, dictJSON);
     DucNT_ServicePost *connectPost = [[DucNT_ServicePost alloc] init];

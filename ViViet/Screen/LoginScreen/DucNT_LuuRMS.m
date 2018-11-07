@@ -76,6 +76,7 @@
 
 +(void)xoaThongTinRMSLogout
 {
+    [self xoaThongTinRMSTheoKey:KEY_DANG_NHAP];
     [self xoaThongTinRMSTheoKey:KEY_LOGIN_STATE];
     [self xoaThongTinRMSTheoKey:KEY_LOGIN_ID_TEMP];
     [self xoaThongTinRMSTheoKey:KEY_LOGIN_TRANG_THAI_CO_TOKEN];

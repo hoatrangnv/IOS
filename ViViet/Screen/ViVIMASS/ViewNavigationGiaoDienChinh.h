@@ -12,11 +12,12 @@
 @protocol ViewNavigationGiaoDienChinhDelegate <NSObject>
 @required
 - (void)xuLySuKienBamNutThongBao;
-- (void)xuLySuKienBamNutTroChuyen;
+- (void)xuLySuKienBamNutQR;
 - (void)xuLySuKienBamNutSaoKe;
 @end
 
 @interface ViewNavigationGiaoDienChinh : UIView
+@property (retain, nonatomic) IBOutlet UIButton *btnAvatar;
 
 @property (retain, nonatomic) IBOutlet UILabel *mlblThongBaoBadgeNumber;
 @property (retain, nonatomic) IBOutlet UILabel *mlblBadgeNumberTroChuyen;
