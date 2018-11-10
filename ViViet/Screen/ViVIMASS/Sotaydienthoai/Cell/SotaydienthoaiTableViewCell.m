@@ -25,12 +25,12 @@
 }
 - (IBAction)onDelete:(id)sender {
     if (_delegate) {
-        [_delegate actionDelete:_lblTitle.text];
+        [_delegate actionDelete:_lblTitle.text andIdGiaoDich:self.idGiaodich];
     }
 }
 - (IBAction)onEdit:(id)sender {
     if (_delegate) {
-        [_delegate actionEdit:_lblTitle.text];
+        [_delegate actionEdit:_lblTitle.text andIdGiaoDich:self.idGiaodich];
     }
 }
 - (void)setHiddenBottomLine:(BOOL)isHidden {

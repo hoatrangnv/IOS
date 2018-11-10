@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,8 +18,8 @@
                 <outlet property="btnsms" destination="ni3-JD-3ZL" id="u7X-dN-fva"/>
                 <outlet property="contraintEditName" destination="O1y-5B-gx2" id="vaF-uq-Bc9"/>
                 <outlet property="editNameView" destination="8GZ-Bz-YAU" id="pJ7-mn-RYs"/>
-                <outlet property="lbCountTime" destination="71y-L5-Ld5" id="LDf-C4-ttq"/>
-                <outlet property="lbTime" destination="rbI-UX-qxA" id="ecZ-QN-sIp"/>
+                <outlet property="lbCountTime" destination="rbI-UX-qxA" id="K4m-Wz-kLq"/>
+                <outlet property="lbTime" destination="71y-L5-Ld5" id="6KL-Ws-xJL"/>
                 <outlet property="lblTitle" destination="49F-Dd-loQ" id="XZb-Vd-1jb"/>
                 <outlet property="popupEdit" destination="31L-Qw-EIV" id="lep-Yo-8Nb"/>
                 <outlet property="txtEditName" destination="AgC-Yc-qGh" id="1ax-1W-4nQ"/>

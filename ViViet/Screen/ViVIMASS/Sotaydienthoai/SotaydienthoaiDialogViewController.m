@@ -26,7 +26,6 @@
 
 @property (assign, nonatomic) NSInteger mTongSoThoiGian;
 @property (assign, nonatomic) BOOL mChayLanDau;
-@property (strong, nonatomic) NSString *idGiaoDich;
 
 @end
 
@@ -36,6 +35,10 @@
     [super viewDidLoad];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardDidHideNotification object:nil];
+    //Xac thuc = dien thoai
+    self.mPhoneAuthenticate = [DucNT_LuuRMS layThongTinDangNhap:KEY_PHONE_AUTHENTICATE];
+    //Xac thuc = token
+    self.mIsToken = [[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_TRANG_THAI_CO_TOKEN] intValue];
 
     // Do any additional setup after loading the view from its nib.
 }
@@ -45,15 +48,7 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)doThucHien:(id)sender {
-    if (_editNameView.isHidden) {
-        if (_delegate) {
-            [_delegate actionDeleleSotay:_txtOtp.text];
-        }
-    } else {
-        if (_delegate) {
-            [_delegate actionEditSotay:_txtOtp.text];
-        }
-    }
+    [self doThucHien];
 }
 - (void)showPopupDelete {
     [self setupWithFinger];
@@ -100,9 +95,12 @@
     } else {
         _btnsms.hidden = NO;
         _btnToken.hidden = NO;
-        _btnVantay.hidden = NO;
-
+        _btnVantay.hidden = YES;
     }
+    _lbCountTime.hidden = true;
+    _lbTime.hidden = true;
+    _btnThucHien.hidden = true;
+    _txtOtp.hidden = true;
 
 }
 - (BOOL)kiemTraCoChucNangQuetVanTay
@@ -140,10 +138,7 @@
     [self.btnsms setSelected:NO];
     [self.btnToken setSelected:NO];
 
-    self.txtOtp.hidden = true;
-    self.lbTime.hidden = true;
-    self.lbCountTime.hidden = true;
-    self.btnThucHien.hidden = true;
+    [self doVanTay];
 
 }
 - (IBAction)onSMS:(id)sender {
@@ -152,10 +147,8 @@
     [self.btnsms setBackgroundImage:[UIImage imageNamed:@"smsv"] forState:UIControlStateSelected];
     [self.btnToken setSelected:NO];
     [self.btnVantay setSelected:NO];
-    self.txtOtp.hidden = true;
-    self.lbTime.hidden = true;
-    self.lbCountTime.hidden = true;
-    self.btnThucHien.hidden = true;
+   
+    [self doSMS];
 
 }
 - (IBAction)onToken:(id)sender {
@@ -164,13 +157,8 @@
     [self.btnToken setBackgroundImage:[UIImage imageNamed:@"tokenv"] forState:UIControlStateSelected];
     [self.btnsms setSelected:NO];
     [self.btnVantay setSelected:NO];
-    self.btnsms.hidden = false;
-    self.btnToken.hidden = false;
-    
-    self.txtOtp.hidden = false;
-    self.lbTime.hidden = false;
-    self.lbCountTime.hidden = false;
-    self.btnThucHien.hidden = false;
+
+    [self doToken];
 
 }
 - (void)keyboardDidShow:(NSNotification *)notification
@@ -312,7 +300,7 @@
     [sUrl appendFormat:@"typeAuthenticate=%d&", typeAuthenticate];
     [sUrl appendFormat:@"sendTo=%@", sSendTo];
     
-    self.mDinhDanhKetNoi = @"LAY_MA_XAC_THUC";
+    nTrangThaiXuLyKetNoi = 0;
     DucNT_ServicePost *connect = [[DucNT_ServicePost alloc] init];
     [connect setDucnt_connectDelegate:self];
     [connect connectGet:sUrl withContent:@""];
@@ -351,6 +339,14 @@
     if(_mTongSoThoiGian == 0)
     {
         [self ketThucDemThoiGian];
+    }
+}
+-(void)xuLySuKienXoaHoacSuaSoTay{
+    if(self.isDelete){
+        [self xoaSotay:self.idGiaoDich];
+    }
+    else{
+        [self suaSotay:self.idGiaoDich withName:self.txtEditName.text];
     }
 }
 -(void)xoaSotay:(NSString*)idSotay{
@@ -426,11 +422,38 @@
     NSDictionary *dicKQ = [sKetQua objectFromJSONString];
     int nCode = [[dicKQ objectForKey:@"msgCode"] intValue];
     NSString *sThongBao = [dicKQ objectForKey:@"msgContent"];
-    if(nTrangThaiXuLyKetNoi == 1)
-    {
-        
+    if(nTrangThaiXuLyKetNoi == 0){
+        if(nCode == 31)
+        {
+            //Chay giay thong bao
+            self.mTongSoThoiGian = THOI_GIAN_CHO_XAC_THUC_SMS;
+            self.lbCountTime.hidden = false;
+            self.lbTime.hidden = false;
+            self.txtOtp.hidden = false;
+            self.txtOtp.text = @"";
+            self.btnThucHien.hidden = false;
+            self.txtOtp.placeholder = @"Mã xác thực";
+            
+            [self batDauDemThoiGian];
+        }
+        else
+        {
+            [UIAlertView alert:sThongBao withTitle:[@"thong_bao" localizableString] block:nil];
+        }
     }
-    else if (nTrangThaiXuLyKetNoi == 2){
+    else if(nTrangThaiXuLyKetNoi == 2)
+    {
+        [self.delegate actionEditSotay:self.idGiaoDich andCode:nCode andMessage:sThongBao];
+        [self willMoveToParentViewController:nil];  // 1
+        [self.view removeFromSuperview];            // 2
+        [self removeFromParentViewController];      // 3
+    }
+    else if (nTrangThaiXuLyKetNoi == 1){
+        [self.delegate actionDeleleSotay:self.idGiaoDich andCode:nCode andMessage:sThongBao];
+        [self willMoveToParentViewController:nil];  // 1
+        [self.view removeFromSuperview];            // 2
+        [self removeFromParentViewController];      // 3
+
     }
 }
 @end

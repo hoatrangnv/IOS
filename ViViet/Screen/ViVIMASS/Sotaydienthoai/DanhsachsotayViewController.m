@@ -60,6 +60,7 @@
     } else {
         [cell setHiddenBottomLine:YES];
     }
+    cell.idGiaodich = [dictData objectForKey:@"id"];
     cell.lblTitle.text = [dictData objectForKey:@"tenLuu"];
     return cell;
 }
@@ -86,17 +87,19 @@
         [_delegate didSeletedContact:arrContact];
     }
 }
-- (void)actionEdit:(NSString*)nameEdit {
+- (void)actionEdit:(NSString*)nameEdit andIdGiaoDich:(NSString *)idGiaodich {
     SotaydienthoaiDialogViewController * dialog = [self createDialog];
     dialog.isDelete = NO;
+    dialog.idGiaoDich = idGiaodich;
     dialog.delegate = self;
     [dialog showPopupEdit];
     [dialog setTextNameInput:nameEdit];
 }
-- (void)actionDelete:(NSString*)nameDelete {
+- (void)actionDelete:(NSString*)nameDelete andIdGiaoDich:(NSString *)idGiaodich {
     SotaydienthoaiDialogViewController * dialog = [self createDialog];
     dialog.delegate = self;
     dialog.isDelete = YES;
+    dialog.idGiaoDich = idGiaodich;
     [dialog showPopupDelete];
     [dialog setNameDelete:nameDelete];
 }
@@ -133,74 +136,7 @@
     [connect connect:@"https://vimass.vn/vmbank/services/danhBa/traCuuSoTay" withContent:sPost];
     [connect release];
 }
--(void)xoaSotay:(NSString*)idSotay{
-    NSString *sToken = @"";
-    NSString *sOtpConfirm = @"";
-    
-    if(self.mTypeAuthenticate == TYPE_AUTHENTICATE_TOKEN)
-    {
-        NSString *sMatKhau = @"";
-        sMatKhau = [DucNT_Token layMatKhauVanTayToken];
-        
-        NSString *sSeed = [DucNT_Token laySeedTokenHienTai];
-        sToken = [DucNT_Token OTPFromPIN:sMatKhau seed:sSeed];
-    }
-    else if(self.mTypeAuthenticate == TYPE_AUTHENTICATE_SMS )
-    {
-        sOtpConfirm = @"";
-    }
-    NSString *user = [DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_ID_TEMP];
 
-    NSDictionary *dictPost = @{
-                               @"user" : user,
-                               @"token" : sToken,
-                               @"otpConfirm" : sOtpConfirm,
-                               @"typeAuthenticate" : [NSNumber numberWithInt:self.mTypeAuthenticate],
-                               @"appId" : [NSNumber numberWithInt:APP_ID],
-                               @"id":idSotay
-                               };
-    NSString *sPost = [dictPost JSONString];
-    NSLog(@"%s - sPost : %@", __FUNCTION__, sPost);
-    nTrangThaiXuLyKetNoi = 1;
-    DucNT_ServicePost *connect = [[DucNT_ServicePost alloc] init];
-    [connect setDucnt_connectDelegate:self];
-    [connect connect:@"https://vimass.vn/vmbank/services/danhBa/xoaSoTay" withContent:sPost];
-    [connect release];
-}
--(void)suaSotay:(NSString*)idSotay withName:(NSString*)tenLuu{
-    NSString *sToken = @"";
-    NSString *sOtpConfirm = @"";
-    if(self.mTypeAuthenticate == TYPE_AUTHENTICATE_TOKEN)
-    {
-        NSString *sMatKhau = @"";
-        sMatKhau = [DucNT_Token layMatKhauVanTayToken];
-        
-        NSString *sSeed = [DucNT_Token laySeedTokenHienTai];
-        sToken = [DucNT_Token OTPFromPIN:sMatKhau seed:sSeed];
-    }
-    else if(self.mTypeAuthenticate == TYPE_AUTHENTICATE_SMS )
-    {
-        sOtpConfirm = @"";
-    }
-    NSString *user = [DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_ID_TEMP];
-    
-    NSDictionary *dictPost = @{
-                               @"user" : user,
-                               @"token" : sToken,
-                               @"otpConfirm" : sOtpConfirm,
-                               @"typeAuthenticate" : [NSNumber numberWithInt:self.mTypeAuthenticate],
-                               @"appId" : [NSNumber numberWithInt:APP_ID],
-                               @"id":idSotay,
-                               @"tenLuu":tenLuu
-                               };
-    NSString *sPost = [dictPost JSONString];
-    NSLog(@"%s - sPost : %@", __FUNCTION__, sPost);
-    nTrangThaiXuLyKetNoi = 2;
-    DucNT_ServicePost *connect = [[DucNT_ServicePost alloc] init];
-    [connect setDucnt_connectDelegate:self];
-    [connect connect:@"https://vimass.vn/vmbank/services/danhBa/xoaSoTay" withContent:sPost];
-    [connect release];
-}
 - (void)ketNoiThanhCong:(NSString *)sKetQua{
     NSLog(@"%s - sKetQua : %@", __FUNCTION__, sKetQua);
     NSDictionary *dicKQ = [sKetQua objectFromJSONString];
@@ -212,16 +148,29 @@
         [self.arrData addObjectsFromArray:result];
         [self.danhsachsodienthoai reloadData];
     }
-    else if (nTrangThaiXuLyKetNoi == 1 || nTrangThaiXuLyKetNoi == 2){
-        [self getSotay];
-    }
 }
 
 #pragma mark - SotaydienthoaiDialogViewControllerDelegate
-- (void)actionDeleleSotay:(NSString*)parameter {
+- (void)actionDeleleSotay:(NSString*)parameter andCode:(int)nCode andMessage:(NSString*)sThongBao  {
+    if(nCode == 1){
+        [self getSotay];
+    }
+    else{
+        UIAlertView *alertView = [[[UIAlertView alloc] initWithTitle:[@"thong_bao" localizableString] message:sThongBao delegate:self cancelButtonTitle:[@"dong" localizableString] otherButtonTitles:nil, nil] autorelease];
+        alertView.tag = 100;
+        [alertView show];
+    }
     
 }
-- (void)actionEditSotay:(NSString*)parameter {
+- (void)actionEditSotay:(NSString*)parameter andCode:(int)nCode andMessage:(NSString*)sThongBao {
+    if(nCode == 1){
+        [self getSotay];
+    }
+    else{
+        UIAlertView *alertView = [[[UIAlertView alloc] initWithTitle:[@"thong_bao" localizableString] message:sThongBao delegate:self cancelButtonTitle:[@"dong" localizableString] otherButtonTitles:nil, nil] autorelease];
+        alertView.tag = 100;
+        [alertView show];
+    }
 }
 
 @end
