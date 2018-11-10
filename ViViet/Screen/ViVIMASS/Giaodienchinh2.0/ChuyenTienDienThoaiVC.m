@@ -17,9 +17,9 @@
 #import "FooterTable.h"
 #import "ObjectItemChuyenTienAnDanh.h"
 #import "CommonUtils.h"
-
+#import "DanhsachsotayViewController.h"
 #import "ContactScreenMultiSelect.h"
-@interface ChuyenTienDienThoaiVC ()<UITableViewDelegate,UITableViewDataSource,PhoneTableViewCellChangeMoneyDelegate,UITextViewDelegate,FooterTableDelegate,DucNT_ServicePostDelegate,UIAlertViewDelegate>{
+@interface ChuyenTienDienThoaiVC ()<UITableViewDelegate,UITableViewDataSource,PhoneTableViewCellChangeMoneyDelegate,UITextViewDelegate,FooterTableDelegate,DucNT_ServicePostDelegate,UIAlertViewDelegate,DanhsachsotayViewControllerDelegate>{
     FooterTable *footer;
     NSTimer *mTimer;
 
@@ -135,9 +135,14 @@
         cell.delegate = self;
         cell.btnRemove.tag = indexPath.row;
         [cell.btnRemove setTag:indexPath.row];
-        cell.lbName.text = [CommonUtils isEmptyOrNull:money.contact.fullName] == YES?money.contact.phone:money.contact.fullName;
+        if(money.fromSotay){
+            cell.lbName.text = [CommonUtils isEmptyOrNull:money.contact.firstName] == YES?@"":money.contact.firstName;
+        }
+        else{
+            cell.lbName.text = [CommonUtils isEmptyOrNull:money.contact.fullName] == YES?money.contact.phone:money.contact.fullName;
+        }
         cell.lbPhone.text = money.contact.phone;
-        cell.imgVi.image = [self getImageFromVi:money.loaiMapping];
+        cell.imgVi.image = [self getImageFromVi:money.loaiMapping andManganhang:money.manganhang];
         UIImage * imgAvatar = [PhoneContacts getAvatarByRecordID:money.contact.recordID];
         if (imgAvatar)
         {
@@ -145,11 +150,37 @@
         }
         else
         {
-            if ([CommonUtils isEmptyOrNull:money.contact.fullName]){
-                cell.imgAvatar.image = [UIImage imageNamed:@"danhba64x64"];
+            if(money.fromSotay){
+                NSString *name = money.contact.firstName;
+                name = [name stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+                name = [name stringByReplacingOccurrencesOfString:@"." withString:@" "];
+                if([[name componentsSeparatedByString:@" "] count] == 1){
+                    NSMutableString *mu = [NSMutableString stringWithString:name];
+                    [mu insertString:@" " atIndex:1];
+                    cell.imgAvatar.image = [UIImage imageForName:mu size:cell.imgAvatar.frame.size];
+                }
+                else{
+                    cell.imgAvatar.image = [UIImage imageForName:name size:cell.imgAvatar.frame.size];
+                }
             }
             else{
-                cell.imgAvatar.image = [UIImage imageForName:[NSString stringWithFormat:@"%@ %@",money.contact.firstName,money.contact.lastName] size:cell.imgAvatar.frame.size];
+                if ([CommonUtils isEmptyOrNull:money.contact.fullName]){
+                    cell.imgAvatar.image = [UIImage imageNamed:@"danhba64x64"];
+                }
+                else{
+                    NSString *name = [NSString stringWithFormat:@"%@ %@",money.contact.firstName,money.contact.lastName];
+                    name = [name stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+                    name = [name stringByReplacingOccurrencesOfString:@"." withString:@" "];
+                    if([[name componentsSeparatedByString:@" "] count] == 1){
+                        NSMutableString *mu = [NSMutableString stringWithString:name];
+                        [mu insertString:@" " atIndex:1];
+                        cell.imgAvatar.image = [UIImage imageForName:mu size:cell.imgAvatar.frame.size];
+                        
+                    }
+                    else{
+                        cell.imgAvatar.image = [UIImage imageForName:name size:cell.imgAvatar.frame.size];
+                    }
+                }
             }
         }
         [cell.btnRemove addTarget:self action: @selector(doRemove:) forControlEvents:UIControlEventTouchUpInside];
@@ -520,19 +551,73 @@
         }
     }
 }
+- (IBAction)hienthisotaydienthoai:(id)sender {
+    DanhsachsotayViewController * danhsach = [[[DanhsachsotayViewController alloc] initWithNibName:@"DanhsachsotayViewController" bundle:nil] autorelease];
+    danhsach.delegate = self;
+    [self.navigationController pushViewController:danhsach animated:YES];
+}
 
 - (void)dealloc {
     [super dealloc];
 }
--(UIImage*)getImageFromVi:(int)loaiMaping{
+-(UIImage*)getImageFromVi:(int)loaiMaping andManganhang:(NSString*)manganhang{
     switch (loaiMaping) {
         case 0:
             return [UIImage imageNamed:@"vimass"];
             break;
-            
+        case 1:
+            return [UIImage imageNamed:@"air"];
+            break;
+        case 2:
+            return [UIImage imageNamed:@"momo"];
+            break;
+        case 3:
+            return [UIImage imageNamed:@"nganluong"];
+            break;
+        case 4:
+            return [UIImage imageNamed:@"payoo"];
+            break;
+        case 5:
+            return [UIImage imageNamed:@"viettel"];
+            break;
+        case 6:
+            return [UIImage imageNamed:@"vimo"];
+            break;
+        case 7:
+            return [UIImage imageNamed:@"viviet"];
+            break;
+        case 8:
+            return [UIImage imageNamed:@"vnpt"];
+            break;
+        case 9:
+            return [UIImage imageNamed:@"vtc"];
+            break;
+        case 10:
+            return [UIImage imageNamed:@"zalo"];
+            break;
+        case 11:
+            return [UIImage imageNamed:[manganhang lowercaseString]];
+            break;
+        case 12:
+            return [UIImage imageNamed:[manganhang lowercaseString]];
+            break;
+        case 13:
+            return [UIImage imageNamed:[manganhang lowercaseString]];
+            break;
         default:
             return nil;
             break;
     }
+}
+- (void)didSeletedContact:(NSArray*)phoneContact {
+    [self.arrPhone removeLastObject];
+    [self.arrPhone addObjectsFromArray: phoneContact];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        MoneyContact *footer = [MoneyContact new];
+        footer.money = @"0";
+        [self.arrPhone addObjectsFromArray:[NSArray arrayWithObject:footer]];
+        [self.tblContatcs reloadData];
+        [self calculateMoney];
+    });
 }
 @end

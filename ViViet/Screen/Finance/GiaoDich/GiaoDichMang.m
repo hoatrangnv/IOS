@@ -2280,4 +2280,25 @@
     [connectPost connect:URL_CAI_DAT_HAN_MUC_PKI withContent:dictJSON];
     [connectPost release];
 }
+
++ (void)traCuuSoTay:(NSString *)dictJSON noiNhanKetQua:(id<DucNT_ServicePostDelegate>)noiNhanKetQua{
+    NSLog(@"%s - dictJSON : %@", __FUNCTION__, dictJSON);
+    DucNT_ServicePost *connectPost = [[DucNT_ServicePost alloc] init];
+    [connectPost setDucnt_connectDelegate:noiNhanKetQua];
+    [connectPost connect:@"https://vimass.vn/vmbank/services/danhBa/traCuuSoTay" withContent:dictJSON];
+    [connectPost release];
+}
++(void)xoaSoTay:(NSString *)dictJSON noiNhanKetQua:(id<DucNT_ServicePostDelegate>)noiNhanKetQua{
+    DucNT_ServicePost *connectPost = [[DucNT_ServicePost alloc] init];
+    [connectPost setDucnt_connectDelegate:noiNhanKetQua];
+    [connectPost connect:@"https://vimass.vn/vmbank/services/danhBa/xoaSoTay" withContent:dictJSON];
+    [connectPost release];
+
+}
++(void)suaThongTinSoTay:(NSString *)dictJSON noiNhanKetQua:(id<DucNT_ServicePostDelegate>)noiNhanKetQua{
+    DucNT_ServicePost *connectPost = [[DucNT_ServicePost alloc] init];
+    [connectPost setDucnt_connectDelegate:noiNhanKetQua];
+    [connectPost connect:@"https://vimass.vn/vmbank/services/danhBa/suaThongTinSoTay" withContent:dictJSON];
+    [connectPost release];
+}
 @end

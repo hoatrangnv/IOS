@@ -251,7 +251,9 @@
     
     [self classifyFromContacts:self.mDanhSachLienHe withKeyword:nil];
     self.isLoading = NO;
-    [tableView reloadData];
+    dispatch_async(dispatch_get_main_queue(), ^(void){
+        [tableView reloadData];
+    });
 }
 
 - (NSString *)formatPhoneNumer:(NSString *)phone

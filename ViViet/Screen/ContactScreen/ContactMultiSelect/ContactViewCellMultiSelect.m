@@ -18,7 +18,7 @@
     _lbPhone.text = ct.phone;
     _walletIcon.hidden = !ct.hasAccount;
     if (selected) {
-        avatar.image = [UIImage imageNamed:@"ic_select"];
+        avatar.image = [UIImage imageNamed:@"icon_check_cate_50"];
         self.backgroundColor = [UIColor colorWithRed:168.0/255.0 green:200.0/255.0 blue:193.0/255.0 alpha:1.0];
     } else {
         self.backgroundColor = [UIColor whiteColor];

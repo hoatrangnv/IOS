@@ -710,7 +710,8 @@
     [chuyenTienDenTK release];
 }
 
-- (IBAction)suKienBamNutChuyenTienDenThe:(id)sender {        DucNT_ChuyenTienDenTheViewController *chuyenTienDenThe = [[DucNT_ChuyenTienDenTheViewController alloc] initWithNibName:@"DucNT_ChuyenTienDenTheViewController" bundle:nil];
+- (IBAction)suKienBamNutChuyenTienDenThe:(id)sender {
+    DucNT_ChuyenTienDenTheViewController *chuyenTienDenThe = [[DucNT_ChuyenTienDenTheViewController alloc] initWithNibName:@"DucNT_ChuyenTienDenTheViewController" bundle:nil];
     [self.navigationController pushViewController:chuyenTienDenThe animated:YES];
     [chuyenTienDenThe release];
 }

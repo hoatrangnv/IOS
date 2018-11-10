@@ -46,7 +46,7 @@
 #import "DucBT_ShareViewController.h"
 #import "GiaoDienGopY.h"
 #import "UIButton+WebCache.h"
-
+#import "DucNT_ChuyenTienViDenViViewController.h"
 #import "CommonUtils.h"
 @interface HomeCenterViewController ()<UIActionSheetDelegate, QRCodeReaderDelegate,RowSelectDelegate,ViewNavigationGiaoDienChinhDelegate>{
     ViewNavigationGiaoDienChinh *mViewNavigationGiaoDienChinh;
@@ -808,33 +808,42 @@
     }
     else if(tab == 1){
         self.navigationController.navigationBar.hidden = false;
-        ChuyenTienDenViMomoViewController *vc = [[ChuyenTienDenViMomoViewController alloc] initWithNibName:@"ChuyenTienDenViMomoViewController" bundle:nil];
         if (row == 0) {
             // Ví vimass
-        }else if (row == 1) {
+            DucNT_ChuyenTienViDenViViewController *vc = [[DucNT_ChuyenTienViDenViViewController alloc]initWithNibName:@"DucNT_ChuyenTienViDenViViewController" bundle:nil];
+            [self.navigationController pushViewController:vc animated:YES];
+            [vc release];
+            return;
+        }
+        if (row == 10 || row == 5) {
+            // ZALO PAY
+            [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Chức năng đang được phát triển"];
+            return;
+        }
+        ChuyenTienDenViMomoViewController *vc = [[ChuyenTienDenViMomoViewController alloc] initWithNibName:@"ChuyenTienDenViMomoViewController" bundle:nil];
+        if (row == 1) {
+            //air pay
             vc.nType = 8;
         } else if (row == 2) {
+            //momo
             vc.nType = 1;
         }else if (row == 3) {
+            //ngan luong
             vc.nType = 2;
         }
         else if (row == 4) {
-            vc.nType = 3;
+            vc.nType = 3;//Paypoo
         }
-        else if (row == 5) {
-            // Viettel
-        }else if (row == 6) {
-            vc.nType = 4;
+       else if (row == 6) {
+            vc.nType = 4;//vimo
         }else if (row == 7) {
-            vc.nType = 6;
+            vc.nType = 6;//vi viet
         }else if (row == 8) {
-            vc.nType = 7;
+            vc.nType = 7;//vnpt pay
         }
         else if (row == 9) {
             // VTC PAY
-        }
-        else if (row == 10) {
-            // ZALO PAY
+            vc.nType = 5;
         }
         [self.navigationController pushViewController:vc animated:YES];
         [vc release];

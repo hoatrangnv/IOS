@@ -1439,6 +1439,14 @@
 		CD45A2612190AD9B005ACD86 /* ic_close.png in Resources */ = {isa = PBXBuildFile; fileRef = CD45A2562190AD9A005ACD86 /* ic_close.png */; };
 		CD45A2622190AD9B005ACD86 /* ic_search.png in Resources */ = {isa = PBXBuildFile; fileRef = CD45A2572190AD9A005ACD86 /* ic_search.png */; };
 		CD45A2632190AD9B005ACD86 /* ic_select.png in Resources */ = {isa = PBXBuildFile; fileRef = CD45A2582190AD9A005ACD86 /* ic_select.png */; };
+		CDE6817721932DF70030226D /* DanhsachsotayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE6817521932DF70030226D /* DanhsachsotayViewController.m */; };
+		CDE6817821932DF70030226D /* DanhsachsotayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDE6817621932DF70030226D /* DanhsachsotayViewController.xib */; };
+		CDE6817D21932E3E0030226D /* SotaydienthoaiTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE6817B21932E3E0030226D /* SotaydienthoaiTableViewCell.m */; };
+		CDE6817E21932E3E0030226D /* SotaydienthoaiTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDE6817C21932E3E0030226D /* SotaydienthoaiTableViewCell.xib */; };
+		CDE68182219333B20030226D /* SotaydienthoaiDialogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE68180219333B20030226D /* SotaydienthoaiDialogViewController.m */; };
+		CDE68183219333B20030226D /* SotaydienthoaiDialogViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDE68181219333B20030226D /* SotaydienthoaiDialogViewController.xib */; };
+		CDE68185219343C70030226D /* icon_check_cate_50.png in Resources */ = {isa = PBXBuildFile; fileRef = CDE68184219343C60030226D /* icon_check_cate_50.png */; };
+		CDE6818721934E6C0030226D /* ic_telephone.png in Resources */ = {isa = PBXBuildFile; fileRef = CDE6818621934E6C0030226D /* ic_telephone.png */; };
 		FF1908F717B09A3A0097CEDF /* UIView+Autosize.m in Sources */ = {isa = PBXBuildFile; fileRef = FF1908F617B09A3A0097CEDF /* UIView+Autosize.m */; };
 		FF19090A17B0B4510097CEDF /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF19090817B0B3EE0097CEDF /* AssetsLibrary.framework */; };
 		FF3B184717D03D7C0037A819 /* UIView+FindFirstResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = FF3B184617D03D7C0037A819 /* UIView+FindFirstResponder.m */; };
@@ -3354,6 +3362,17 @@
 		CD45A2562190AD9A005ACD86 /* ic_close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_close.png; sourceTree = "<group>"; };
 		CD45A2572190AD9A005ACD86 /* ic_search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_search.png; sourceTree = "<group>"; };
 		CD45A2582190AD9A005ACD86 /* ic_select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_select.png; sourceTree = "<group>"; };
+		CDE6817421932DF70030226D /* DanhsachsotayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DanhsachsotayViewController.h; sourceTree = "<group>"; };
+		CDE6817521932DF70030226D /* DanhsachsotayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DanhsachsotayViewController.m; sourceTree = "<group>"; };
+		CDE6817621932DF70030226D /* DanhsachsotayViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DanhsachsotayViewController.xib; sourceTree = "<group>"; };
+		CDE6817A21932E3E0030226D /* SotaydienthoaiTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SotaydienthoaiTableViewCell.h; sourceTree = "<group>"; };
+		CDE6817B21932E3E0030226D /* SotaydienthoaiTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SotaydienthoaiTableViewCell.m; sourceTree = "<group>"; };
+		CDE6817C21932E3E0030226D /* SotaydienthoaiTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SotaydienthoaiTableViewCell.xib; sourceTree = "<group>"; };
+		CDE6817F219333B20030226D /* SotaydienthoaiDialogViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SotaydienthoaiDialogViewController.h; sourceTree = "<group>"; };
+		CDE68180219333B20030226D /* SotaydienthoaiDialogViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SotaydienthoaiDialogViewController.m; sourceTree = "<group>"; };
+		CDE68181219333B20030226D /* SotaydienthoaiDialogViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SotaydienthoaiDialogViewController.xib; sourceTree = "<group>"; };
+		CDE68184219343C60030226D /* icon_check_cate_50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_check_cate_50.png; sourceTree = "<group>"; };
+		CDE6818621934E6C0030226D /* ic_telephone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_telephone.png; sourceTree = "<group>"; };
 		FF1908F517B09A3A0097CEDF /* UIView+Autosize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Autosize.h"; sourceTree = "<group>"; };
 		FF1908F617B09A3A0097CEDF /* UIView+Autosize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Autosize.m"; sourceTree = "<group>"; };
 		FF19090817B0B3EE0097CEDF /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
@@ -5419,6 +5438,7 @@
 		A38478E81ADE669C00DCF2B6 /* ViVIMASS */ = {
 			isa = PBXGroup;
 			children = (
+				CDE6817321932DB70030226D /* Sotaydienthoai */,
 				0B5E2E272149F422006E9EAB /* Giaodienchinh2.0 */,
 				0BCFA3F8211FD57C00E33086 /* PKI */,
 				C62760EB204000D10063A194 /* GiaoDienDenKhac */,
@@ -6594,11 +6614,37 @@
 				CD45A2532190AD9A005ACD86 /* CustomViewSearch.h */,
 				CD45A2542190AD9A005ACD86 /* CustomViewSearch.m */,
 				CD45A2552190AD9A005ACD86 /* CustomViewSearch.xib */,
+				CDE68184219343C60030226D /* icon_check_cate_50.png */,
 				CD45A2562190AD9A005ACD86 /* ic_close.png */,
 				CD45A2572190AD9A005ACD86 /* ic_search.png */,
 				CD45A2582190AD9A005ACD86 /* ic_select.png */,
 			);
 			path = ContactMultiSelect;
+			sourceTree = "<group>";
+		};
+		CDE6817321932DB70030226D /* Sotaydienthoai */ = {
+			isa = PBXGroup;
+			children = (
+				CDE6818621934E6C0030226D /* ic_telephone.png */,
+				CDE6817921932E180030226D /* Cell */,
+				CDE6817421932DF70030226D /* DanhsachsotayViewController.h */,
+				CDE6817521932DF70030226D /* DanhsachsotayViewController.m */,
+				CDE6817621932DF70030226D /* DanhsachsotayViewController.xib */,
+				CDE6817F219333B20030226D /* SotaydienthoaiDialogViewController.h */,
+				CDE68180219333B20030226D /* SotaydienthoaiDialogViewController.m */,
+				CDE68181219333B20030226D /* SotaydienthoaiDialogViewController.xib */,
+			);
+			path = Sotaydienthoai;
+			sourceTree = "<group>";
+		};
+		CDE6817921932E180030226D /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				CDE6817A21932E3E0030226D /* SotaydienthoaiTableViewCell.h */,
+				CDE6817B21932E3E0030226D /* SotaydienthoaiTableViewCell.m */,
+				CDE6817C21932E3E0030226D /* SotaydienthoaiTableViewCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -6734,6 +6780,7 @@
 				C664B0A01D125C60003B9976 /* phong5_CGVBinhDuongSquare.txt in Resources */,
 				0BDC6ABC2153ED4700702F22 /* QRSearchViewController.xib in Resources */,
 				C6316FE21DB4E9DD0042AEF4 /* TkVikhac1.png in Resources */,
+				CDE6818721934E6C0030226D /* ic_telephone.png in Resources */,
 				8503E79C16F16EDE006F939E /* shadown_right.png in Resources */,
 				A38479971ADE669D00DCF2B6 /* icon_thongbaotrang.png in Resources */,
 				8503E7B916F18BA0006F939E /* FunctionsSearch.json in Resources */,
@@ -7016,6 +7063,7 @@
 				C6C569DA1C9D0CE700EA8B12 /* huong_dan_thay_doi_han_muc.html in Resources */,
 				C664B05B1D125C60003B9976 /* phong2_VincomBaTrieu.txt in Resources */,
 				C664B08F1D125C60003B9976 /* phong4_IPHHaNoi.txt in Resources */,
+				CDE6817E21932E3E0030226D /* SotaydienthoaiTableViewCell.xib in Resources */,
 				C664B05E1D125C60003B9976 /* phong3_CGVAeonCanary.txt in Resources */,
 				C661B1EE1C911DC4003821BE /* hd_nap_vi_tu_the_quoc_te.html in Resources */,
 				C664B0981D125C60003B9976 /* phong4_ThuDuc.txt in Resources */,
@@ -7276,6 +7324,7 @@
 				A38479BE1ADE669D00DCF2B6 /* ViewNavigationGiaoDienChinh.xib in Resources */,
 				3ED0A652196A4C630036715E /* icon_image_from_gallery@2x.png in Resources */,
 				1897558419A5A79C0030E664 /* option_icon.png in Resources */,
+				CDE6817821932DF70030226D /* DanhsachsotayViewController.xib in Resources */,
 				3ED0A653196A4C630036715E /* icon_img_from_camera.png in Resources */,
 				C661B1E41C911DC4003821BE /* hd_dt_dtcd.html in Resources */,
 				C67D8B271D39DD3B0030D5C4 /* iconSoTay@2x.png in Resources */,
@@ -7442,6 +7491,7 @@
 				85A5B17E17D03D780087F945 /* security_questions.json in Resources */,
 				181054FE19E7928200E8D8CE /* icon_share.png in Resources */,
 				C664B0631D125C60003B9976 /* phong3_CGVKimCucPlaza.txt in Resources */,
+				CDE68183219333B20030226D /* SotaydienthoaiDialogViewController.xib in Resources */,
 				C6644ED01BE219FB005EFFF3 /* bg_home3.png in Resources */,
 				3E02E66419893AD800ADB80F /* DucNT_ChuyenTienDenTaiKhoanViewController.xib in Resources */,
 				C6644ED51BE219FB005EFFF3 /* bg_home8.png in Resources */,
@@ -7556,6 +7606,7 @@
 				C6DCBC431C928474002C7801 /* icon_setting_phone_token.png in Resources */,
 				0B5F6859216EE30300A0B15A /* ItemListCell.xib in Resources */,
 				C661B1F31C911DC4003821BE /* hd_tt_hoc_phi.html in Resources */,
+				CDE68185219343C70030226D /* icon_check_cate_50.png in Resources */,
 				03F5F2BA1B900DD0004BE48F /* GiaoDienDiemGiaoDich.xib in Resources */,
 				C664B03E1D125C60003B9976 /* phong2_CeladonTanPhu.txt in Resources */,
 				C664B0C31D125C60003B9976 /* phong6_HungVuongPlaza.txt in Resources */,
@@ -7951,6 +8002,7 @@
 				3EF27D301976207100F9DC46 /* DucNT_ForgotPassAccViewController.m in Sources */,
 				C6CF89E61CACE65100750A1C /* GiaoDienTraCuuTienVay.m in Sources */,
 				C6595E281C3BC221006E95D1 /* ItemSanBay.m in Sources */,
+				CDE68182219333B20030226D /* SotaydienthoaiDialogViewController.m in Sources */,
 				C66368E01D78398900DC3C54 /* GiaoDienHuongDanDangNhap.m in Sources */,
 				3EDD8D7F196B899F00E21326 /* DucNT_DangKyToken.m in Sources */,
 				182026461AD53DA700E4C960 /* TraCuuTienDienViewController.m in Sources */,
@@ -7971,6 +8023,7 @@
 				C643295D1FBEE12800DAF926 /* GiaoDienGioiThieuVi.m in Sources */,
 				C66626A01C40BDF100CEF9AD /* ItemTongChuyenBay.m in Sources */,
 				C66B52401DACD5F2005CFFC5 /* GiaoDienDanhSachTaiKhoanLienKet.m in Sources */,
+				CDE6817721932DF70030226D /* DanhsachsotayViewController.m in Sources */,
 				187D8BE91A85CCAB00CB43C5 /* HanMucGiaoDichViewController.m in Sources */,
 				850A276317AA47A10068FF4F /* quicklz.c in Sources */,
 				A3CAF0851AE506380029486B /* NganHangNapTien.m in Sources */,
@@ -8029,6 +8082,7 @@
 				182957361AC16B6C00177988 /* GiaoDichMang.m in Sources */,
 				0BE7F4A419CFDD1B00E15A46 /* HienThiDanhSachTinQuangBaViewController.m in Sources */,
 				0B4A393718507BBD00FE3D97 /* Cities.m in Sources */,
+				CDE6817D21932E3E0030226D /* SotaydienthoaiTableViewCell.m in Sources */,
 				3EBC99D4197686BD00B5DD6D /* DucNT_ViewDatePicker.m in Sources */,
 				A3E75AB51B26E77E00C55F69 /* DuyetGiaoDichTableViewCell.m in Sources */,
 				A3BB72BB1B0355A40005DE73 /* GuiTietKiemViewController.m in Sources */,

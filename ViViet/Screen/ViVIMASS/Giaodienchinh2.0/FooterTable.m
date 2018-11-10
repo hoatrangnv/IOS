@@ -8,7 +8,10 @@
 #import "FooterTable.h"
 #import <LocalAuthentication/LocalAuthentication.h>
 #import "DucNT_LuuRMS.h"
+@interface FooterTable()
+@property (retain, nonatomic) IBOutlet NSLayoutConstraint *contraintLeading;
 
+@end
 @implementation FooterTable
 
 - (BOOL)kiemTraCoChucNangQuetVanTay
@@ -84,9 +87,11 @@
     [_lbCountTime release];
     [_btnThucHien release];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [_contraintLeading release];
     [super dealloc];
 }
 -(void)setupView{
+    
     if ([self kiemTraCoChucNangQuetVanTay]){
         self.btnSMS.hidden = true;
         self.btnToken.hidden = true;
@@ -94,7 +99,7 @@
         self.lbCountTime.hidden = true;
         self.btnThucHien.hidden = true;
         self.txtOtp.hidden = true;
-        self.btnVanTay.center = CGPointMake(self.center.x, self.btnVanTay.center.y);
+        _contraintLeading.constant = [UIScreen mainScreen].bounds.size.width/2 - 44/2;
         [self layoutIfNeeded];
     }
     else{
@@ -106,6 +111,16 @@
         self.lbCountTime.hidden = true;
         self.btnThucHien.hidden = true;
     }
+    
+    self.btnSMS.hidden = true;
+    self.btnToken.hidden = true;
+    self.lbTime.hidden = true;
+    self.lbCountTime.hidden = true;
+    self.btnThucHien.hidden = true;
+    self.txtOtp.hidden = true;
+    _contraintLeading.constant = [UIScreen mainScreen].bounds.size.width/2 - 44/2;
+//    [self layoutIfNeeded];
+
 }
 - (IBAction)doToken:(id)sender {
     [self.btnToken setSelected:YES];

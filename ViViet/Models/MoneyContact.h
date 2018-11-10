@@ -13,7 +13,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) Contact *contact;
 @property (copy, nonatomic) NSString *money;
 @property (nonatomic, assign) int loaiMapping;
+@property (nonatomic, strong) NSString* manganhang;
 @property (nonatomic, assign) BOOL soTienThanhToanHopLe;
+@property (nonatomic, assign) BOOL fromSotay;
 
 @end
 

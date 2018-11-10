@@ -158,22 +158,6 @@
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ViViet/Internal/AppDelegate.m"
-            timestampString = "433500782.346825"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "485"
-            endingLineNumber = "485"
-            landmarkName = "-application:didReceiveRemoteNotification:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
          <BreakpointContent
             shouldBeEnabled = "Yes"
@@ -206,7 +190,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ViViet/Screen/Register/DucNT_ServicePost.m"
-            timestampString = "554917825.956418"
+            timestampString = "562889631.1567971"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "234"
@@ -317,38 +301,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ViViet/Screen/Finance/DucNT_ChangPrivateInformationViewController.m"
-            timestampString = "557121393.457667"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1195"
-            endingLineNumber = "1195"
-            landmarkName = "-capNhatThongTin"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ViViet/Screen/Finance/DucNT_ChangPrivateInformationViewController.m"
-            timestampString = "557121393.457741"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1281"
-            endingLineNumber = "1281"
-            landmarkName = "-capNhatThongTin"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "ViViet/Screen/LoginScreen/GiaoDienDangNhapMoi.m"
             timestampString = "555158664.289567"
             startingColumnNumber = "9223372036854775807"
@@ -366,7 +318,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ViViet/Screen/Finance/DucNT_ChangPrivateInformationViewController.m"
-            timestampString = "557121393.457827"
+            timestampString = "563420731.533658"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1471"
@@ -382,12 +334,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ViViet/Screen/ViVIMASS/GiaoDienChinhV2.m"
-            timestampString = "558808650.679261"
+            timestampString = "563516516.184857"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "843"
-            endingLineNumber = "843"
-            landmarkName = "-xuLyKetNoiThanhCong:thongBao:ketQua:"
+            startingLineNumber = "850"
+            endingLineNumber = "850"
+            landmarkName = "-suKienBamNutPhoneToKen:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -398,13 +350,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ViViet/Screen/ViVIMASS/GiaoDienChinhV2.m"
-            timestampString = "558808650.679332"
+            timestampString = "563516516.184997"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1825"
-            endingLineNumber = "1825"
-            landmarkName = "-updateThongTinViThanhCong:"
-            landmarkType = "7">
+            startingLineNumber = "1066"
+            endingLineNumber = "1066">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -414,28 +364,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ViViet/Screen/Finance/DucNT_ChangPrivateInformationViewController.m"
-            timestampString = "557121393.457936"
+            timestampString = "563420731.533779"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1047"
             endingLineNumber = "1047"
             landmarkName = "-validate"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ViViet/Screen/Finance/DucNT_ChangPrivateInformationViewController.m"
-            timestampString = "557121393.457994"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1278"
-            endingLineNumber = "1278"
-            landmarkName = "-capNhatThongTin"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -532,22 +466,6 @@
             startingLineNumber = "276"
             endingLineNumber = "276"
             landmarkName = "-xuLyKetNoiLayMaXacThucChuyenDenTaiKhoan:kieuXacThuc:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ViViet/Screen/Finance/ChuyenTienDenViMomo/ChuyenTienDenViMomoViewController.m"
-            timestampString = "556380485.656359"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
-            landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -770,7 +688,7 @@
                   moduleName = "ViVimass"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/chungnv/Desktop/ViViMASS/ViViet/Screen/Finance/QRSanPham/QRDonViViewController.m"
-                  timestampString = "558927917.668287"
+                  timestampString = "563516516.795992"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "177"
@@ -785,7 +703,7 @@
                   moduleName = "ViVimass"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/chungnv/Desktop/ViViMASS/ViViet/Screen/Finance/QRSanPham/QRDonViViewController.m"
-                  timestampString = "558927917.670894"
+                  timestampString = "563516516.8021801"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "177"
@@ -800,7 +718,7 @@
                   moduleName = "ViVimass"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/chungnv/Desktop/ViViMASS/ViViet/Screen/Finance/QRSanPham/QRDonViViewController.m"
-                  timestampString = "558927917.673452"
+                  timestampString = "563516516.810213"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "177"
@@ -833,7 +751,7 @@
                   moduleName = "ViVimass"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/chungnv/Desktop/ViViMASS/ViViet/Screen/Finance/QRSanPham/QRDonViViewController.m"
-                  timestampString = "558927917.681455"
+                  timestampString = "563516516.9055001"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "187"
@@ -848,7 +766,7 @@
                   moduleName = "ViVimass"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/chungnv/Desktop/ViViMASS/ViViet/Screen/Finance/QRSanPham/QRDonViViewController.m"
-                  timestampString = "558927917.684076"
+                  timestampString = "563516516.910938"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "187"
@@ -863,7 +781,7 @@
                   moduleName = "ViVimass"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/chungnv/Desktop/ViViMASS/ViViet/Screen/Finance/QRSanPham/QRDonViViewController.m"
-                  timestampString = "558927917.686643"
+                  timestampString = "563516516.915558"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "187"
@@ -896,7 +814,7 @@
                   moduleName = "ViVimass"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/chungnv/Desktop/ViViMASS/ViViet/Screen/Finance/QRSanPham/QRDonViViewController.m"
-                  timestampString = "558927917.6945879"
+                  timestampString = "563516516.93279"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "197"
@@ -911,7 +829,7 @@
                   moduleName = "ViVimass"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/chungnv/Desktop/ViViMASS/ViViet/Screen/Finance/QRSanPham/QRDonViViewController.m"
-                  timestampString = "558927917.697152"
+                  timestampString = "563516516.9364229"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "197"
@@ -926,7 +844,7 @@
                   moduleName = "ViVimass"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/chungnv/Desktop/ViViMASS/ViViet/Screen/Finance/QRSanPham/QRDonViViewController.m"
-                  timestampString = "558927917.699689"
+                  timestampString = "563516516.939963"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "197"
@@ -943,7 +861,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ViViet/Screen/Finance/GiaoDich/GiaoDichViewController.m"
-            timestampString = "557374221.648723"
+            timestampString = "562890245.715266"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "403"
@@ -1087,7 +1005,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ViViet/Screen/Finance/GiaoDich/GiaoDichViewController.m"
-            timestampString = "557374221.649567"
+            timestampString = "562890245.715771"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "409"
@@ -1119,7 +1037,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ViViet/Screen/Finance/GiaoDich/GiaoDichViewController.m"
-            timestampString = "557374221.649935"
+            timestampString = "562890245.715889"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "594"
@@ -1231,7 +1149,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ViViet/Screen/Finance/GiaoDich/GiaoDichViewController.m"
-            timestampString = "557374221.650385"
+            timestampString = "562890245.71624"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "369"
@@ -1262,13 +1180,125 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "UI Controls/ScrollingTab/ScrollingMenu.m"
-            timestampString = "558494564.685174"
+            filePath = "ViViet/Screen/LoginScreen/DucNT_LoginSceen.m"
+            timestampString = "562894684.148785"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
-            landmarkName = "-setSelectedIndex:animated:"
+            startingLineNumber = "893"
+            endingLineNumber = "893"
+            landmarkName = "compareViewsByOrigin"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ViViet/Screen/Finance/GiaoDich/GiaoDichViewController.m"
+            timestampString = "562890245.716447"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ViViet/Screen/LoginScreen/DucNT_LoginSceen.m"
+            timestampString = "562894684.149031"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "959"
+            endingLineNumber = "959"
+            landmarkName = "-viewDidUnload"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ViViet/Screen/ViVIMASS/Giaodienchinh2.0/ChuyenTienDienThoaiVC.m"
+            timestampString = "563516516.186667"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "510"
+            endingLineNumber = "510"
+            landmarkName = "-ketNoiThanhCong:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ViViet/Screen/ViVIMASS/Giaodienchinh2.0/ChuyenTienDienThoaiVC.m"
+            timestampString = "563516516.1868629"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "469"
+            endingLineNumber = "469"
+            landmarkName = "-xuLySuKienChuyenTienDienThoai"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ViViet/Screen/ViVIMASS/Giaodienchinh2.0/ChuyenTienDienThoaiVC.m"
+            timestampString = "563516516.187005"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "481"
+            endingLineNumber = "481"
+            landmarkName = "-ketNoiThanhCong:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ViViet/Screen/ViVIMASS/Giaodienchinh2.0/ChuyenTienDienThoaiVC.m"
+            timestampString = "563516516.187143"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "460"
+            endingLineNumber = "460"
+            landmarkName = "-xuLySuKienChuyenTienDienThoai"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ViViet/Screen/ViVIMASS/Sotaydienthoai/SotaydienthoaiDialogViewController.m"
+            timestampString = "563516516.1872931"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "151"
+            endingLineNumber = "151"
+            landmarkName = "-onSMS:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -522,4 +522,11 @@
 + (void)chuyentienDienThoai:(NSString *)dictJSON noiNhanKetQua:(id<DucNT_ServicePostDelegate>)noiNhanKetQua;
 
 + (void)confirmChuyenTienDienThoai:(NSString *)dictJSON noiNhanKetQua:(id<DucNT_ServicePostDelegate>)noiNhanKetQua;
+
++ (void)chuyentienDienThoai:(NSString *)dictJSON noiNhanKetQua:(id<DucNT_ServicePostDelegate>)noiNhanKetQua;
+
++ (void)traCuuSoTay:(NSString *)dictJSON noiNhanKetQua:(id<DucNT_ServicePostDelegate>)noiNhanKetQua;
++ (void)xoaSoTay:(NSString *)dictJSON noiNhanKetQua:(id<DucNT_ServicePostDelegate>)noiNhanKetQua;
++ (void)suaThongTinSoTay:(NSString *)dictJSON noiNhanKetQua:(id<DucNT_ServicePostDelegate>)noiNhanKetQua;
+
 @end
