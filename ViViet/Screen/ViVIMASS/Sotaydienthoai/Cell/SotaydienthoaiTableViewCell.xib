@@ -28,29 +28,24 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2hm-mz-FeV">
-                        <rect key="frame" x="68" y="19" width="180" height="29"/>
+                        <rect key="frame" x="68" y="19" width="183" height="29"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ckk-wf-qx5">
-                        <rect key="frame" x="280" y="8" width="24" height="24"/>
+                        <rect key="frame" x="283" y="3" width="32" height="29.5"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="24" id="3t7-lu-T0K"/>
-                            <constraint firstAttribute="height" constant="24" id="Vg5-th-d9k"/>
+                            <constraint firstAttribute="width" constant="32" id="fdy-45-SrR"/>
                         </constraints>
-                        <state key="normal" title="Button" image="deldv"/>
+                        <state key="normal" image="deldv"/>
                         <connections>
                             <action selector="onDelete:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="JNY-Vq-vuH"/>
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rt4-xR-UdQ">
-                        <rect key="frame" x="280" y="33" width="24" height="24"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="24" id="MvD-l1-t7V"/>
-                            <constraint firstAttribute="height" constant="24" id="zNI-4k-KUQ"/>
-                        </constraints>
-                        <state key="normal" title="Button" image="icon-edit48x48.png"/>
+                        <rect key="frame" x="283" y="33.5" width="32" height="29.5"/>
+                        <state key="normal" image="icon-edit24x24.png"/>
                         <connections>
                             <action selector="onEdit:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="eSZ-wG-dq6"/>
                         </connections>
@@ -67,12 +62,15 @@
                     <constraint firstItem="2hm-mz-FeV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="8" id="94z-dq-ttm"/>
                     <constraint firstItem="6ks-d3-zbJ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Bfh-oL-gw7"/>
                     <constraint firstAttribute="bottom" secondItem="p9H-vn-idQ" secondAttribute="bottom" constant="1.5" id="GaR-Cf-kFr"/>
-                    <constraint firstAttribute="trailing" secondItem="rt4-xR-UdQ" secondAttribute="trailing" constant="16" id="KwK-z7-X3v"/>
+                    <constraint firstAttribute="trailing" secondItem="rt4-xR-UdQ" secondAttribute="trailing" constant="5" id="KwK-z7-X3v"/>
                     <constraint firstAttribute="trailing" secondItem="p9H-vn-idQ" secondAttribute="trailing" id="L0E-NX-iuN"/>
                     <constraint firstItem="p9H-vn-idQ" firstAttribute="top" secondItem="2hm-mz-FeV" secondAttribute="bottom" constant="16" id="OFh-7b-7iz"/>
                     <constraint firstItem="p9H-vn-idQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="PWt-gx-wG9"/>
-                    <constraint firstAttribute="trailing" secondItem="Ckk-wf-qx5" secondAttribute="trailing" constant="16" id="XFv-OJ-Y40"/>
-                    <constraint firstItem="Ckk-wf-qx5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="h5U-0D-JPP"/>
+                    <constraint firstItem="rt4-xR-UdQ" firstAttribute="height" secondItem="Ckk-wf-qx5" secondAttribute="height" id="ULW-sW-SmT"/>
+                    <constraint firstAttribute="trailing" secondItem="Ckk-wf-qx5" secondAttribute="trailing" constant="5" id="XFv-OJ-Y40"/>
+                    <constraint firstItem="rt4-xR-UdQ" firstAttribute="bottom" secondItem="p9H-vn-idQ" secondAttribute="bottom" constant="-2" id="YMS-9h-O31"/>
+                    <constraint firstItem="rt4-xR-UdQ" firstAttribute="width" secondItem="Ckk-wf-qx5" secondAttribute="width" id="d4C-Q2-qL7"/>
+                    <constraint firstItem="Ckk-wf-qx5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="3" id="h5U-0D-JPP"/>
                     <constraint firstItem="2hm-mz-FeV" firstAttribute="leading" secondItem="6ks-d3-zbJ" secondAttribute="trailing" constant="8" id="hcG-bI-xPl"/>
                     <constraint firstItem="6ks-d3-zbJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="lUe-ID-dio"/>
                     <constraint firstItem="rt4-xR-UdQ" firstAttribute="top" secondItem="Ckk-wf-qx5" secondAttribute="bottom" constant="1" id="qOJ-Nc-XcJ"/>
@@ -91,6 +89,6 @@
     <resources>
         <image name="deldv" width="22" height="22"/>
         <image name="ic_telephone.png" width="300" height="300"/>
-        <image name="icon-edit48x48.png" width="48" height="48"/>
+        <image name="icon-edit24x24.png" width="24" height="24"/>
     </resources>
 </document>

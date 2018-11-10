@@ -106,8 +106,9 @@
 -(SotaydienthoaiDialogViewController*)createDialog {
     SotaydienthoaiDialogViewController * dialog = [[[SotaydienthoaiDialogViewController alloc] initWithNibName:@"SotaydienthoaiDialogViewController" bundle:nil] autorelease];
     [dialog removeFromParentViewController];
-    dialog.view.frame = self.view.bounds;
-    [self.view addSubview:dialog.view];
+    dialog.view.frame = [UIScreen mainScreen].bounds;
+    UIWindow * window = [UIApplication sharedApplication].keyWindow;
+    [window addSubview:dialog.view];
     [self addChildViewController:dialog];
     return dialog;
 }

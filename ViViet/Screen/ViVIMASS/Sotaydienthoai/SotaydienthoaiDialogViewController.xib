@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -42,19 +42,32 @@
                                     <rect key="frame" x="0.0" y="0.0" width="359" height="44"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sửa sổ tay điện thoại chuyển tiền đến" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="49F-Dd-loQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="359" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="312" height="44"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uu8-lw-PgN">
+                                            <rect key="frame" x="317" y="0.0" width="42" height="44"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="42" id="D75-qQ-vJK"/>
+                                            </constraints>
+                                            <state key="normal" image="deldv"/>
+                                            <connections>
+                                                <action selector="onDismiss:" destination="-1" eventType="touchUpInside" id="av1-gA-Qf3"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" red="0.14509803921568626" green="0.57647058823529407" blue="0.81176470588235294" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="49F-Dd-loQ" secondAttribute="bottom" id="DtY-bE-1pC"/>
-                                        <constraint firstAttribute="trailing" secondItem="49F-Dd-loQ" secondAttribute="trailing" id="Qo1-9w-F95"/>
+                                        <constraint firstAttribute="bottom" secondItem="uu8-lw-PgN" secondAttribute="bottom" id="NBB-UD-GNC"/>
                                         <constraint firstItem="49F-Dd-loQ" firstAttribute="top" secondItem="Sbu-Nr-vo7" secondAttribute="top" id="f53-QV-thJ"/>
+                                        <constraint firstItem="uu8-lw-PgN" firstAttribute="top" secondItem="Sbu-Nr-vo7" secondAttribute="top" id="fcf-8i-gaG"/>
                                         <constraint firstAttribute="height" constant="44" id="oZe-Im-g11"/>
                                         <constraint firstItem="49F-Dd-loQ" firstAttribute="leading" secondItem="Sbu-Nr-vo7" secondAttribute="leading" id="ooC-ev-er5"/>
+                                        <constraint firstItem="uu8-lw-PgN" firstAttribute="leading" secondItem="49F-Dd-loQ" secondAttribute="trailing" constant="5" id="vAc-Uh-Uqd"/>
+                                        <constraint firstAttribute="trailing" secondItem="uu8-lw-PgN" secondAttribute="trailing" id="zMd-r5-JnP"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8GZ-Bz-YAU">
@@ -227,14 +240,11 @@
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
             <point key="canvasLocation" x="33.5" y="53.5"/>
         </view>
-        <tapGestureRecognizer id="kpp-Ao-T3k">
-            <connections>
-                <action selector="onDismiss:" destination="-1" id="EfZ-6u-sBm"/>
-            </connections>
-        </tapGestureRecognizer>
+        <tapGestureRecognizer id="kpp-Ao-T3k"/>
     </objects>
     <resources>
         <image name="bg_button.png" width="215" height="56"/>
+        <image name="deldv" width="22" height="22"/>
         <image name="finger" width="225" height="225"/>
         <image name="fingerv" width="120" height="120"/>
         <image name="sms" width="225" height="225"/>

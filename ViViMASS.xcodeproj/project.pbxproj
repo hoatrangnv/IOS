@@ -1439,6 +1439,7 @@
 		CD45A2612190AD9B005ACD86 /* ic_close.png in Resources */ = {isa = PBXBuildFile; fileRef = CD45A2562190AD9A005ACD86 /* ic_close.png */; };
 		CD45A2622190AD9B005ACD86 /* ic_search.png in Resources */ = {isa = PBXBuildFile; fileRef = CD45A2572190AD9A005ACD86 /* ic_search.png */; };
 		CD45A2632190AD9B005ACD86 /* ic_select.png in Resources */ = {isa = PBXBuildFile; fileRef = CD45A2582190AD9A005ACD86 /* ic_select.png */; };
+		CD6C5491219737EE00C88DFB /* icon-edit24x24.png in Resources */ = {isa = PBXBuildFile; fileRef = CD6C5490219737EE00C88DFB /* icon-edit24x24.png */; };
 		CDE6817721932DF70030226D /* DanhsachsotayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE6817521932DF70030226D /* DanhsachsotayViewController.m */; };
 		CDE6817821932DF70030226D /* DanhsachsotayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDE6817621932DF70030226D /* DanhsachsotayViewController.xib */; };
 		CDE6817D21932E3E0030226D /* SotaydienthoaiTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE6817B21932E3E0030226D /* SotaydienthoaiTableViewCell.m */; };
@@ -3362,6 +3363,7 @@
 		CD45A2562190AD9A005ACD86 /* ic_close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_close.png; sourceTree = "<group>"; };
 		CD45A2572190AD9A005ACD86 /* ic_search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_search.png; sourceTree = "<group>"; };
 		CD45A2582190AD9A005ACD86 /* ic_select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_select.png; sourceTree = "<group>"; };
+		CD6C5490219737EE00C88DFB /* icon-edit24x24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-edit24x24.png"; sourceTree = "<group>"; };
 		CDE6817421932DF70030226D /* DanhsachsotayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DanhsachsotayViewController.h; sourceTree = "<group>"; };
 		CDE6817521932DF70030226D /* DanhsachsotayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DanhsachsotayViewController.m; sourceTree = "<group>"; };
 		CDE6817621932DF70030226D /* DanhsachsotayViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DanhsachsotayViewController.xib; sourceTree = "<group>"; };
@@ -6625,6 +6627,7 @@
 		CDE6817321932DB70030226D /* Sotaydienthoai */ = {
 			isa = PBXGroup;
 			children = (
+				CD6C5490219737EE00C88DFB /* icon-edit24x24.png */,
 				CDE6818621934E6C0030226D /* ic_telephone.png */,
 				CDE6817921932E180030226D /* Cell */,
 				CDE6817421932DF70030226D /* DanhsachsotayViewController.h */,
@@ -6781,6 +6784,7 @@
 				0BDC6ABC2153ED4700702F22 /* QRSearchViewController.xib in Resources */,
 				C6316FE21DB4E9DD0042AEF4 /* TkVikhac1.png in Resources */,
 				CDE6818721934E6C0030226D /* ic_telephone.png in Resources */,
+				CD6C5491219737EE00C88DFB /* icon-edit24x24.png in Resources */,
 				8503E79C16F16EDE006F939E /* shadown_right.png in Resources */,
 				A38479971ADE669D00DCF2B6 /* icon_thongbaotrang.png in Resources */,
 				8503E7B916F18BA0006F939E /* FunctionsSearch.json in Resources */,
