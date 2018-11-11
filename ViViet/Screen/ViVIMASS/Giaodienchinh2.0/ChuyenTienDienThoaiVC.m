@@ -359,6 +359,7 @@
     {
     }
 }
+
 - (void)xuLySuKienXacThucVanTayThanhCong{
     [self xuLySuKienChuyenTienDienThoai];
 }
@@ -425,18 +426,20 @@
     }
     NSMutableArray *arrData = [NSMutableArray array];
     for (MoneyContact *item in self.arrPhone) {
-        double money =[[[item.money componentsSeparatedByCharactersInSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]] componentsJoinedByString:@""] doubleValue];
-        ObjectItemChuyenTienAnDanh*obj = [ObjectItemChuyenTienAnDanh new];
-        obj.tenHienThi = item.contact.fullName;
-        if (money > 0) {
-            obj.fee = 1100.0;
+        if (item.contact != nil) {
+            double money =[[[item.money componentsSeparatedByCharactersInSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]] componentsJoinedByString:@""] doubleValue];
+            ObjectItemChuyenTienAnDanh*obj = [ObjectItemChuyenTienAnDanh new];
+            obj.tenHienThi = item.contact.fullName;
+            if (money > 0) {
+                obj.fee = 1100.0;
+            }
+            else {
+                obj.fee = 2200.0;
+            }
+            obj.soTien = money;
+            obj.sdt = item.contact.phone;
+            [arrData addObject: obj.toDict];
         }
-        else {
-            obj.fee = 2200.0;
-        }
-        obj.soTien = money;
-        obj.sdt = item.contact.phone;
-        [arrData addObject: obj.toDict];
     }
     NSString *sToken = @"";
     NSString *sOtpConfirm = @"";
