@@ -34,9 +34,9 @@
                                 <action selector="onAddNewPhone:" destination="-1" eventType="touchUpInside" id="lH2-oH-elr"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chuyển tiền đến điện thoại" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kTv-1t-Hs2">
-                            <rect key="frame" x="58" y="16" width="183" height="18"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chuyển tiền đến điện thoại" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="kTv-1t-Hs2">
+                            <rect key="frame" x="58" y="5" width="194" height="40"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -53,11 +53,13 @@
                     </subviews>
                     <color key="backgroundColor" red="0.2470588235" green="0.72941176470000002" blue="0.4823529412" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstItem="kTv-1t-Hs2" firstAttribute="centerY" secondItem="MwK-jE-5hX" secondAttribute="centerY" id="1Cf-eE-B7E"/>
                         <constraint firstAttribute="bottom" secondItem="F6i-9m-5Y0" secondAttribute="bottom" id="3bk-lg-uuy"/>
                         <constraint firstAttribute="height" constant="50" id="DzR-Bt-hFu"/>
+                        <constraint firstAttribute="bottom" secondItem="kTv-1t-Hs2" secondAttribute="bottom" constant="5" id="E8e-eD-bmx"/>
                         <constraint firstAttribute="trailing" secondItem="F6i-9m-5Y0" secondAttribute="trailing" constant="10" id="TYP-mm-rH8"/>
                         <constraint firstItem="F6i-9m-5Y0" firstAttribute="top" secondItem="MwK-jE-5hX" secondAttribute="top" id="TcH-j1-iAs"/>
+                        <constraint firstItem="F6i-9m-5Y0" firstAttribute="leading" secondItem="kTv-1t-Hs2" secondAttribute="trailing" constant="8" id="YQA-6V-Fo3"/>
+                        <constraint firstItem="kTv-1t-Hs2" firstAttribute="top" secondItem="MwK-jE-5hX" secondAttribute="top" constant="5" id="hTE-Db-2fj"/>
                         <constraint firstItem="4c1-2z-F5v" firstAttribute="top" secondItem="MwK-jE-5hX" secondAttribute="top" id="llo-fr-F9j"/>
                         <constraint firstAttribute="bottom" secondItem="4c1-2z-F5v" secondAttribute="bottom" id="nQr-ap-p83"/>
                         <constraint firstItem="4c1-2z-F5v" firstAttribute="leading" secondItem="MwK-jE-5hX" secondAttribute="leading" id="pLS-wv-1If"/>
