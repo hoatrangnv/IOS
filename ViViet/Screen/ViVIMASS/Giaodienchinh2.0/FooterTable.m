@@ -100,7 +100,7 @@
         self.btnThucHien.hidden = true;
         self.txtOtp.hidden = true;
         _contraintLeading.constant = [UIScreen mainScreen].bounds.size.width/2 - 44/2;
-        [self layoutIfNeeded];
+//        [self layoutIfNeeded];
     }
     else{
         self.btnSMS.hidden = false;
@@ -111,16 +111,6 @@
         self.lbCountTime.hidden = true;
         self.btnThucHien.hidden = true;
     }
-    
-    self.btnSMS.hidden = true;
-    self.btnToken.hidden = true;
-    self.lbTime.hidden = true;
-    self.lbCountTime.hidden = true;
-    self.btnThucHien.hidden = true;
-    self.txtOtp.hidden = true;
-    _contraintLeading.constant = [UIScreen mainScreen].bounds.size.width/2 - 44/2;
-//    [self layoutIfNeeded];
-
 }
 - (IBAction)doToken:(id)sender {
     [self.btnToken setSelected:YES];
