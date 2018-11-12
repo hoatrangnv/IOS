@@ -78,20 +78,15 @@
         CGRect rectQC = viewQC.frame;
         CGRect rectMain = self.mViewMain.frame;
         CGFloat fW = rectMain.size.width;
-        CGFloat fH = rectQC.size.height * ((rectMain.size.width) / rectQC.size.width);
-        rectQC.origin.y = rectToken.origin.y + rectToken.size.height + 15;
+        CGFloat fH = fW * 0.46;
+        rectQC.origin.y = rectToken.origin.y + rectToken.size.height + 15.0;
         viewQC.frame = CGRectMake(0, rectQC.origin.y, fW, fH);
         viewQC.mDelegate = self;
         [viewQC updateSizeQuangCao];
-        int nKhoangCong = 10;
-        NSLog(@"%s - [[UIScreen mainScreen] bounds].size.height : %f", __FUNCTION__, [[UIScreen mainScreen] bounds].size.height);
-        if ([[UIScreen mainScreen] bounds].size.height >= 736.0) {
-            nKhoangCong = 30;
-        }
-        rectMain.size.height = rectQC.origin.y + rectQC.size.height + nKhoangCong;
+        rectMain.size.height = rectQC.origin.y + rectQC.size.height;
         self.mViewMain.frame = rectMain;
         [self.mViewMain addSubview:viewQC];
-        self.scrMain.contentSize = CGSizeMake(rectMain.size.width, rectMain.size.height + nKhoangCong);
+        self.scrMain.contentSize = CGSizeMake(rectMain.size.width, rectMain.size.height + 20.0);
     }
 }
 

@@ -42,12 +42,12 @@
         CGRect rectMain = self.mViewMain.frame;
 
         CGFloat fW = rectMain.size.width;
-        CGFloat fH = rectQC.size.height * ((rectMain.size.width) / rectQC.size.width);
-        rectQC.origin.y = rectToken.origin.y + rectToken.size.height + 10;
+        CGFloat fH = fW * 0.46;
+        rectQC.origin.y = rectToken.origin.y + rectToken.size.height + 15;
         viewQC.frame = CGRectMake(0, rectQC.origin.y, fW, fH);
         viewQC.mDelegate = self;
         [viewQC updateSizeQuangCao];
-        rectMain.size.height = rectQC.origin.y + rectQC.size.height + 30;
+        rectMain.size.height = rectQC.origin.y + rectQC.size.height;
         self.mViewMain.frame = rectMain;
         [self.mViewMain addSubview:viewQC];
         self.scrMain.contentSize = CGSizeMake(rectMain.size.width, rectMain.size.height + 10);

@@ -307,7 +307,7 @@ typedef NS_ENUM(NSInteger, KASlideShowSlideMode) {
             NSUInteger nextIndex = (_currentIndex+1) % [self.images count];
             NSString *sURL1 = self.images[_currentIndex];
             NSString *sURL2 = self.images[nextIndex];
-
+            NSLog(@"%s - sURL1 : %@", __FUNCTION__, sURL1);
             [self luuIndexQuangCao];
 
             [_topImageView sd_setImageWithURL:[NSURL URLWithString:sURL1] placeholderImage:[UIImage imageNamed:@"bg_home1.png"]completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {

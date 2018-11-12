@@ -43,7 +43,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self showBackButton];
+//    [self showBackButton];
     [self addTitleView:[@"title_6_so_token" localizableString]];
 //    [self khoiTaoButtonSetting];
     [self addButtonHuongDan];
@@ -61,6 +61,7 @@
 }
 
 - (void)suKienChonBack:(UIBarButtonItem *)sender {
+    NSLog(@"%s - click click", __FUNCTION__);
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
                                 

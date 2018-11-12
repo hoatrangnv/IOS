@@ -859,7 +859,7 @@
         if([self.mThongTinTaiKhoanVi.nIsToken intValue] != 0)
         {
             DucNT_HienThiTokenViewController *hienThiTokenViewController = [[DucNT_HienThiTokenViewController alloc] initWithNibName:@"DucNT_HienThiTokenViewController" bundle:nil];
-//            UINavigationController *navHome = [[UINavigationController alloc] initWithRootViewController:hienThiTokenViewController];
+            [hienThiTokenViewController showBackButton];
             UINavigationController *navHome = [HiNavigationBar navigationControllerWithRootViewController: hienThiTokenViewController];
             [self presentViewController:navHome animated:YES completion:nil];
             [hienThiTokenViewController release];

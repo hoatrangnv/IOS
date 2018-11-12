@@ -30,4 +30,6 @@ enum
 @property(nonatomic, retain) UIButton *btnViewDoiMatKhau;
 @property(nonatomic, retain) UIView *viewSeperator;
 
+- (void)showBackButton;
+
 @end

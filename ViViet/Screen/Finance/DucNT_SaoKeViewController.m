@@ -84,7 +84,7 @@ static NSString *DINH_DANH_LAY_CHI_TIET_SAO_KE_QUA_TANG = @"DINH_DANH_LAY_CHI_TI
     [[DichVuNotification shareService] xacNhanDaDocTinTrongChucNang:TIN_TAI_CHINH];
     [self addTitleView:@"Sao kê"];
     [self addButtonBack];
-    [self addButton:@"ic_action_email" selector:@selector(suKienBamNutGuiMail) atSide:1];
+//    [self addButton:@"ic_action_email" selector:@selector(suKienBamNutGuiMail) atSide:1];
     [self datTrangThaiChoButtonKhiLuaChon];
     
 //    NSString *sTaiKhoan = [DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_ID_TEMP];
@@ -846,7 +846,7 @@ static NSString *DINH_DANH_LAY_CHI_TIET_SAO_KE_QUA_TANG = @"DINH_DANH_LAY_CHI_TI
     cell.lbNoiDung.textColor = [UIColor blackColor];
     
     cell.lbThoiGian.text = [item layNgayThangChuyenTien];
-    cell.lbThoiGian.textColor = [UIColor blueColor];
+//    cell.lbThoiGian.textColor = [UIColor blueColor];
     
     if([item.feeAmount doubleValue] > 0)
         cell.mlblSoPhi.text = [Common hienThiTienTe:[item.feeAmount doubleValue]];
@@ -854,7 +854,7 @@ static NSString *DINH_DANH_LAY_CHI_TIET_SAO_KE_QUA_TANG = @"DINH_DANH_LAY_CHI_TI
         cell.mlblSoPhi.text = @"";
     
     cell.mlblSoGio.text = [item layNgayGioChuyenTien];
-    cell.mlblSoGio.textColor = [UIColor blueColor];
+//    cell.mlblSoGio.textColor = [UIColor blueColor];
 
     CGRect rViewChua = cell.mViewChua.frame;
     CGRect rImgv = cell.imvAnhDaiDienHuongDiChuyen.frame;
@@ -912,7 +912,11 @@ static NSString *DINH_DANH_LAY_CHI_TIET_SAO_KE_QUA_TANG = @"DINH_DANH_LAY_CHI_TI
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 60;
+    return UITableViewAutomaticDimension;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 60.0;
 }
 
 -(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
