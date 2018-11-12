@@ -236,14 +236,16 @@
 - (void)calculateMoney{
     double total = 0.0;
     double phi = 0.0;
-
     for (int i=0;i<[self.arrPhone count]-1;i++) {
         MoneyContact *moneyCt =  [self.arrPhone objectAtIndex:i];
         total += [[[moneyCt.money componentsSeparatedByCharactersInSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]] componentsJoinedByString:@""] doubleValue];;
         if([[[moneyCt.money componentsSeparatedByCharactersInSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]] componentsJoinedByString:@""] doubleValue] == 0){
             phi += 0;
         }
-        else if ( [[[moneyCt.money componentsSeparatedByCharactersInSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]] componentsJoinedByString:@""] doubleValue] <= 20000000.0) {
+        else if([[[moneyCt.money componentsSeparatedByCharactersInSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]] componentsJoinedByString:@""] doubleValue] <= 1000000.0){
+            phi += 330.0;
+        }
+        else if ( [[[moneyCt.money componentsSeparatedByCharactersInSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]] componentsJoinedByString:@""] doubleValue] <= 20000000.0 && [[[moneyCt.money componentsSeparatedByCharactersInSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]] componentsJoinedByString:@""] doubleValue] > 1000000.0) {
             phi += 1100.0;
         }else{
             phi += 2200.0;
