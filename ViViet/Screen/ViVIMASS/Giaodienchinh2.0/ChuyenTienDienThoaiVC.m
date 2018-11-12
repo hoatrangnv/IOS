@@ -216,6 +216,7 @@
             [self.arrPhone removeLastObject];
             for (Contact *contact in contacts) {
                 MoneyContact *money = [MoneyContact new];
+                money.loaiMapping = 0;
                 money.contact = contact;
                 money.money = @"0";
                 [self.arrPhone addObject: money];
@@ -239,16 +240,59 @@
     for (int i=0;i<[self.arrPhone count]-1;i++) {
         MoneyContact *moneyCt =  [self.arrPhone objectAtIndex:i];
         total += [[[moneyCt.money componentsSeparatedByCharactersInSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]] componentsJoinedByString:@""] doubleValue];;
-        if([[[moneyCt.money componentsSeparatedByCharactersInSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]] componentsJoinedByString:@""] doubleValue] == 0){
+        double money = [[[moneyCt.money componentsSeparatedByCharactersInSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]] componentsJoinedByString:@""] doubleValue];
+        if( money == 0){
             phi += 0;
         }
-        else if([[[moneyCt.money componentsSeparatedByCharactersInSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]] componentsJoinedByString:@""] doubleValue] <= 1000000.0){
-            phi += 330.0;
-        }
-        else if ( [[[moneyCt.money componentsSeparatedByCharactersInSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]] componentsJoinedByString:@""] doubleValue] <= 20000000.0 && [[[moneyCt.money componentsSeparatedByCharactersInSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]] componentsJoinedByString:@""] doubleValue] > 1000000.0) {
-            phi += 1100.0;
-        }else{
-            phi += 2200.0;
+        else {
+            switch (moneyCt.loaiMapping) {
+                case 0:
+                {
+                    if (money > 0 && money < 1000000.0) {
+                        phi += 330.0;
+                    }
+                    else if(money <= 20000000.0){
+                        phi += 1100.0;
+                    }
+                    else if(money > 20000000.0){
+                        phi += 2200.0;
+                    }
+                    else{
+                        phi += 0;
+                    }
+                }
+                    break;
+//                case 11:
+//                case 12:
+//                case 13:
+//                {
+//                    if (money > 0) {
+//                        
+//                        if(floor(money) == money){
+//                            if((int)money%50000000 == 0)
+//                                phi += 3300 * (money/50000000);
+//                            else{
+//                                phi += 1 + (3300 *(money/50000000));
+//                            }
+//                        }
+//                        else{
+//                            phi += + (3300 *(money/50000000));
+//                        }
+//                    }
+//                    else{
+//                        phi += 0;
+//                    }
+//                }
+//                    break;
+                default:
+                    if (money > 0) {
+                        phi += 6600.0;
+                    }
+                    else{
+                        phi += 0;
+                    }
+                    break;
+            }
         }
     }
     self.dict = @{@"Total":[Common hienThiTienTe:total],@"Fee":[Common hienThiTienTe:phi]};
@@ -434,11 +478,53 @@
             double money =[[[item.money componentsSeparatedByCharactersInSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]] componentsJoinedByString:@""] doubleValue];
             ObjectItemChuyenTienAnDanh*obj = [ObjectItemChuyenTienAnDanh new];
             obj.tenHienThi = item.contact.fullName;
-            if (money > 0) {
-                obj.fee = 1100.0;
-            }
-            else {
-                obj.fee = 2200.0;
+            switch (item.loaiMapping) {
+                case 0:
+                {
+                    if (money > 0 && money < 1000000.0) {
+                        obj.fee = 330.0;
+                    }
+                    else if(money <= 20000000.0){
+                        obj.fee = 1100.0;
+                    }
+                    else if(money > 20000000.0){
+                        obj.fee = 2200.0;
+                    }
+                    else{
+                        obj.fee = 0;
+                    }
+                }
+                    break;
+//                case 11:
+//                case 12:
+//                case 13:
+//                {
+//                    if (money > 0) {
+//
+//                        if(floor(money) == money){
+//                            if((int)money%50000000 == 0)
+//                                obj.fee = 3300 * (money/50000000);
+//                            else{
+//                                obj.fee = 1 + (3300 *(money/50000000));
+//                            }
+//                        }
+//                        else{
+//                            obj.fee = 1 + (3300 *(money/50000000));
+//                        }
+//                    }
+//                    else{
+//                        obj.fee = 0;
+//                    }
+//                }
+//                    break;
+                default:
+                    if (money > 0) {
+                        obj.fee = 6600.0;
+                    }
+                    else{
+                        obj.fee = 0;
+                    }
+                    break;
             }
             obj.soTien = money;
             obj.sdt = item.contact.phone;
