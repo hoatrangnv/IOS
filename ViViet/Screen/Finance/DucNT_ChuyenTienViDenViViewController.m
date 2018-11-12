@@ -91,25 +91,28 @@
 
 - (void)khoiTaoQuangCao {
     NSLog(@"%s - [UIScreen mainScreen].bounds.size.width : %f", __FUNCTION__, [UIScreen mainScreen].bounds.size.width);
-    if (viewQC) {
-        return;
+    if (!viewQC) {
+        viewQC = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([ViewQuangCao class]) owner:self options:nil] objectAtIndex:0];
+        CGRect rectToken = self.viewQR.frame;
+        CGRect rectQC = viewQC.frame;
+        CGRect rectMain = self.mViewMain.frame;
+        CGFloat fW = rectMain.size.width;
+        CGFloat fH = fW * 0.45333 + 20.0;
+        rectQC.origin.y = rectToken.origin.y + rectToken.size.height + 50;
+        viewQC.frame = CGRectMake(0, rectQC.origin.y, fW, fH);
+        viewQC.mDelegate = self;
+        NSLog(@"%s - viewQC.frame.size.height : %f", __FUNCTION__, viewQC.frame.size.height);
+        [viewQC updateSizeQuangCao];
+        [self.viewVi addSubview:viewQC];
+        NSLog(@"%s - rectMain.size.height 2 : %f - %f", __FUNCTION__, rectMain.size.height, self.heightViewMain.constant);
+        NSLog(@"%s - rectMain.size.height 2 : %f", __FUNCTION__, rectMain.origin.y + rectMain.size.height + self.heightViewMain.constant);
+        self.heightContentView.constant += viewQC.frame.size.height / 2;
+        if ([UIScreen mainScreen].bounds.size.height < 812.0) {
+            self.heightContentView.constant += 50.0;
+        } else {
+            self.heightContentView.constant -= 70.0;
+        }
     }
-    viewQC = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([ViewQuangCao class]) owner:self options:nil] objectAtIndex:0];
-    CGRect rectToken = self.viewQR.frame;
-    CGRect rectQC = viewQC.frame;
-    CGRect rectMain = self.mViewMain.frame;
-    NSLog(@"%s - rectMain.size.height 1 : %f", __FUNCTION__, rectToken.size.height);
-    CGFloat fW = rectMain.size.width;
-    CGFloat fH = rectQC.size.height * ((rectMain.size.width) / rectQC.size.width);
-    rectQC.origin.y = rectToken.origin.y + 230.0;
-    viewQC.frame = CGRectMake(0, rectQC.origin.y, fW, fH);
-    viewQC.mDelegate = self;
-    [viewQC updateSizeQuangCao];
-    [self.viewVi addSubview:viewQC];
-    NSLog(@"%s - rectMain.size.height 2 : %f - %f", __FUNCTION__, rectMain.size.height, self.heightViewMain.constant);
-    NSLog(@"%s - rectMain.size.height 2 : %f", __FUNCTION__, rectMain.origin.y + rectMain.size.height + self.heightViewMain.constant);
-    self.heightContentView.constant += rectQC.size.height;
-//    [self.scrMain setContentSize:CGSizeMake(_scrMain.frame.size.width, rectMain.origin.y + rectMain.size.height + self.heightViewMain.constant + 1000)];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -124,9 +127,11 @@
 {
     [super viewDidAppear:animated];
     [self.mtvNoiDungGiaoDich resignFirstResponder];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self khoiTaoQuangCao];
-    });
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//
+//    });
+    
+    [self khoiTaoQuangCao];
     
     SDImageCache *imageCache = [SDImageCache sharedImageCache];
     [imageCache removeImageForKey:self.mThongTinTaiKhoanVi.linkQR fromDisk:YES withCompletion:^{
@@ -476,7 +481,7 @@
 #pragma mark - dealloc
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    [viewQC dungChayQuangCao];
+    [viewQC release];
     if(_mTaiKhoanThuongDung)
         [_mTaiKhoanThuongDung release];
     if(mViewNhapTenDaiDien)

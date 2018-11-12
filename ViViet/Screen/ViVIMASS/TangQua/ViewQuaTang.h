@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ItemQuaTang.h"
 
-@interface ViewQuaTang : UIView
+@interface ViewQuaTang : UITableViewCell
 @property (retain, nonatomic) IBOutlet UILabel *mlblTieuDe;
 @property (retain, nonatomic) IBOutlet UILabel *mlblSoTien;
 @property (retain, nonatomic) IBOutlet UILabel *mlblNoiDung;

@@ -34,26 +34,6 @@
     [self khoiTaoViewNhapTenDaiDienXacThucTaiKhoan];
     if(_mTaiKhoanThuongDung)
         [self khoiTaoTheoTaiKhoanThuongDung];
-
-//    UIButton *btnRight = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 21, 12)];
-//    [btnRight setBackgroundImage:[UIImage imageNamed:@"muiten35x21.png"] forState:UIControlStateNormal];
-//    _edChonVi.rightView = btnRight;
-//    _edChonVi.rightViewMode = UITextFieldViewModeAlways;
-//
-//    UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 44)];
-//    toolBar.barStyle = UIBarStyleBlackOpaque;
-//    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneChonVi:)];
-//    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelChonVi:)];
-//    UIBarButtonItem *flexSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
-//
-//    [toolBar setItems:[NSArray arrayWithObjects:cancelButton, flexSpace, doneButton, nil]];
-//    UIPickerView *pickerChonRap = [[UIPickerView alloc] init];
-//    pickerChonRap.dataSource = self;
-//    pickerChonRap.delegate = self;
-//    pickerChonRap.tag = 100;
-//    _edChonVi.inputAccessoryView = toolBar;
-//    _edChonVi.inputView = pickerChonRap;
-//    [pickerChonRap release];
     [self addButtonHuongDan];
 
 }
@@ -66,12 +46,13 @@
         CGRect rectQC = viewQC.frame;
         CGRect rectMain = self.mViewMain.frame;
         CGFloat fW = rectMain.size.width;
-        CGFloat fH = rectQC.size.height * ((rectMain.size.width) / rectQC.size.width);
-        rectQC.origin.y = rectToken.origin.y + rectToken.size.height + 15;
+
+        CGFloat fH = fW * 0.45;
+        rectQC.origin.y = rectToken.origin.y + rectToken.size.height + 15.0;
         viewQC.frame = CGRectMake(0, rectQC.origin.y, fW, fH);
         [viewQC updateSizeQuangCao];
         viewQC.mDelegate = self;
-        rectMain.size.height = rectQC.origin.y + rectQC.size.height + 50;
+        rectMain.size.height = rectQC.origin.y + rectQC.size.height;
         self.mViewMain.frame = rectMain;
         [self.mViewMain addSubview:viewQC];
         [self.scrMain setContentSize:CGSizeMake(_scrMain.frame.size.width, rectMain.origin.y + rectMain.size.height + self.viewOptionTop.frame.size.height + 20)];
@@ -142,7 +123,7 @@
     [self setAnimationChoSoTay:self.btnSoTay];
     nRowNhaMay = self.nType;
     [self xuLyChonVi];
-//    [self khoiTaoQuangCao];
+    [self khoiTaoQuangCao];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
@@ -237,6 +218,8 @@
             return @"VNPT Pay ";
         case 8: case AIR_PAY:
             return @"Air Pay";
+        case 9: case ZALO_PAY:
+            return @"Zalo Pay";
         default:
             break;
     }
@@ -284,12 +267,18 @@
         return NO;
     }
     else if (fSoTien > [self.mThongTinTaiKhoanVi.nHanMucDenViKhac doubleValue]) {
-        [UIAlertView alert:@"Số tiền chuyển đi phải nhỏ hơn hạn mức giao dịch" withTitle:[@"thong_bao" localizableString] block:nil];
+        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Số tiền chuyển đi phải nhỏ hơn hạn mức giao dịch"];
         return NO;
     }
     if ([self layMaNhaCungCap] == -1) {
         [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng chọn ví nhận tiền"];
         return NO;
+    } else if ([self layMaNhaCungCap] == ZALO_PAY) {
+        if (fSoTien >= 100000 && ((int)fSoTien) % 1000 == 0) {
+            flg = true;
+        } else {
+            [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Số tiền phải lơn hơn 100.000đ và chia hết cho 1000."];
+        }
     }
     return flg;
 }
@@ -437,6 +426,8 @@
             return VNPT_PAY;
         case 8:
             return AIR_PAY;
+        case 9:
+            return ZALO_PAY;
         default:
             break;
     }
@@ -461,6 +452,8 @@
             return 7;
         case AIR_PAY:
             return 8;
+        case 9:
+            return ZALO_PAY;
         default:
             break;
     }

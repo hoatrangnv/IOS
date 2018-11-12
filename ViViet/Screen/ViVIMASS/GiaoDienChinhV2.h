@@ -13,6 +13,7 @@
 @interface GiaoDienChinhV2 : GiaoDichViewController<UICollectionViewDelegate, UICollectionViewDataSource>
 @property (retain, nonatomic) IBOutlet UICollectionViewLayout *collectionViewLayout;
 @property (retain, nonatomic) IBOutlet NSLayoutConstraint *slideShowHeigt;
+@property (retain, nonatomic) IBOutlet NSLayoutConstraint *topSlideConstraint;
 @property (retain, nonatomic) IBOutlet UIView *quangcaoView;
 @property (retain, nonatomic) IBOutlet UIView *vVicuatoi;
 @property (retain, nonatomic) IBOutlet UIView *vHuongDan;

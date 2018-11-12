@@ -74,13 +74,13 @@
         CGRect rectQC = viewQC.frame;
         CGRect rectMain = self.mViewMain.frame;
         CGFloat fW = rectMain.size.width;
-        CGFloat fH = rectQC.size.height * ((rectMain.size.width) / rectQC.size.width);
+        CGFloat fH = fW * 0.45333;
         rectQC.origin.y = rectToken.origin.y + rectToken.size.height + 10;
         viewQC.frame = CGRectMake(0, rectQC.origin.y, fW, fH);
         NSLog(@"%s - fW : %f - fH : %f", __FUNCTION__, fW, fH);
         viewQC.mDelegate = self;
         [viewQC updateSizeQuangCao];
-        float fThem = 50;
+        float fThem = 70;
         if ([UIScreen mainScreen].bounds.size.width == 320) {
             fThem = 15;
         }
@@ -887,7 +887,7 @@
 #pragma mark - dealloc
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    [viewQC dungChayQuangCao];
+    [viewQC release];
     [_edtNganHang release];
     [_edtTenChuTaiKhoan release];
     [_edtSoTaiKhoan release];

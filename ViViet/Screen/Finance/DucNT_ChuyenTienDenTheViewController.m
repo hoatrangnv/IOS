@@ -56,19 +56,14 @@
         CGRect rectScreen = [UIScreen mainScreen].bounds;
         NSLog(@"%s - rectMain : %f", __FUNCTION__, rectScreen.size.width);
         CGFloat fW = rectMain.size.width;
-        CGFloat fH = rectQC.size.height * ((rectMain.size.width) / rectQC.size.width);
+        CGFloat fH = fW * 0.45333;
         rectQC.origin.y = rectToken.origin.y + rectToken.size.height + 5;
         viewQC.frame = CGRectMake(0, rectQC.origin.y, fW, fH);
     //    viewQC.frame = rectQC;
         viewQC.mDelegate = self;
         [viewQC updateSizeQuangCao];
-        float fThem = 50;
-        if ([UIScreen mainScreen].bounds.size.width == 320) {
-            fThem = 15;
-        }
-        rectMain.size.height = rectQC.origin.y + rectQC.size.height + fThem;
-        self.heightMain.constant = rectQC.origin.y + rectQC.size.height + fThem;
-        NSLog(@"%s - rectQC.origin.y + rectQC.size.height + fThem : %f", __FUNCTION__, rectQC.origin.y + rectQC.size.height + fThem);
+        rectMain.size.height = rectQC.origin.y + rectQC.size.height;
+        self.heightMain.constant = rectQC.origin.y + rectQC.size.height;
         NSLog(@"%s - self.heightMain.constant : %f", __FUNCTION__, self.heightMain.constant);
 //        self.mViewMain.frame = rectMain;
         [self.mViewMain addSubview:viewQC];

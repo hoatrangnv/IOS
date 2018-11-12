@@ -17,6 +17,7 @@
 #import "DucNT_TaiKhoanThuongDungObject.h"
 
 @interface GiaoDienDatVeXe : GiaoDichViewController
+@property (retain, nonatomic) IBOutlet TPKeyboardAvoidAcessory *scrMain;
 @property (retain, nonatomic) IBOutlet ExTextField *edChonNgay;
 @property (retain, nonatomic) IBOutlet ExTextField *edTinhDi;
 @property (retain, nonatomic) IBOutlet ExTextField *edHuyenDi;

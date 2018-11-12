@@ -68,7 +68,7 @@
 #import "FBEncryptorAES.h"
 #import "GiaoDienDenKhac.h"
 #import "QRSearchViewController.h"
-
+#import "HiNavigationBar.h"
 
 @interface GiaoDienChinhV2 ()< ViewNavigationGiaoDienChinhDelegate, DucNT_ServicePostDelegate, GiaoDienChinhHeaderV2Delegate,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout, UIActionSheetDelegate>{
     ViewNavigationGiaoDienChinh *mViewNavigationGiaoDienChinh;
@@ -115,7 +115,8 @@
     }
 
     keyPin = @"11111111";
-    self.arrData = @[@{@"icon":@"6vephim",@"title":@"Vé phim"},@{@"icon":@"6vebay",@"title":@"Vé bay"},@{@"icon":@"6vetau",@"title":@"Vé tàu"},@{@"icon":@"6vexe",@"title":@"Vé xe"},@{@"icon":@"6dthoai",@"title":@"D. thoại"},@{@"icon":@"6tiendtu",@"title":@"Tiền đ.tử"},@{@"icon":@"6mathe",@"title":@"Mã thẻ"},@{@"icon":@"6travay",@"title":@"Trả vay"},@{@"icon":@"6dien",@"title":@"Điện"},@{@"icon":@"6nuoc",@"title":@"Nước"},@{@"icon":@"6internet",@"title":@"Internet"},@{@"icon":@"6trhinh",@"title":@"Tr.hình"},@{@"icon":@"6chkhoan",@"title":@"Ch.khoán"},@{@"icon":@"6hocphi",@"title":@"Học phí"},@{@"icon":@"6tangqua",@"title":@"Tặng quà"},@{@"icon":@"6baohiem",@"title":@"Bảo hiểm"},@{@"icon":@"6tuthien",@"title":@"Từ thiện"},@{@"icon":@"6lixi",@"title":@"Lì xì"},@{@"icon":@"6token.png",@"title":@"Token"},@{@"icon":@"6napvi",@"title":@"Nạp ví"}];
+//    self.arrData = @[@{@"icon":@"6vephim",@"title":@"Vé phim"},@{@"icon":@"6vebay",@"title":@"Vé bay"},@{@"icon":@"6vetau",@"title":@"Vé tàu"},@{@"icon":@"6vexe",@"title":@"Vé xe"},@{@"icon":@"6dthoai",@"title":@"D. thoại"},@{@"icon":@"6tiendtu",@"title":@"Tiền đ.tử"},@{@"icon":@"6mathe",@"title":@"Mã thẻ"},@{@"icon":@"6travay",@"title":@"Trả vay"},@{@"icon":@"6dien",@"title":@"Điện"},@{@"icon":@"6nuoc",@"title":@"Nước"},@{@"icon":@"6internet",@"title":@"Internet"},@{@"icon":@"6trhinh",@"title":@"Tr.hình"},@{@"icon":@"6chkhoan",@"title":@"Ch.khoán"},@{@"icon":@"6hocphi",@"title":@"Học phí"},@{@"icon":@"6tangqua",@"title":@"Tặng quà"},@{@"icon":@"6baohiem",@"title":@"Bảo hiểm"},@{@"icon":@"6tuthien",@"title":@"Từ thiện"},@{@"icon":@"6lixi",@"title":@"Lì xì"},@{@"icon":@"6token.png",@"title":@"Token"},@{@"icon":@"6napvi",@"title":@"Nạp ví"}];
+    self.arrData = @[@{@"icon":@"6vephim",@"title":@"Vé phim"},@{@"icon":@"6vebay",@"title":@"Vé bay"},@{@"icon":@"6vetau",@"title":@"Vé tàu"},@{@"icon":@"6vexe",@"title":@"Vé xe"},@{@"icon":@"6dthoai",@"title":@"D. thoại"},@{@"icon":@"6travay",@"title":@"Trả vay"},@{@"icon":@"6dien",@"title":@"Điện"},@{@"icon":@"6nuoc",@"title":@"Nước"},@{@"icon":@"6internet",@"title":@"Internet"},@{@"icon":@"6trhinh",@"title":@"Tr.hình"},@{@"icon":@"6chkhoan",@"title":@"Ch.khoán"},@{@"icon":@"6hocphi",@"title":@"Học phí"},@{@"icon":@"6tangqua",@"title":@"Tặng quà"},@{@"icon":@"6baohiem",@"title":@"Bảo hiểm"},@{@"icon":@"6token.png",@"title":@"Token"},@{@"icon":@"6napvi",@"title":@"Nạp ví"}];
     
     NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
     [user setInteger:0 forKey:@"KEY_INDEX_CLICK_QC"];
@@ -161,20 +162,27 @@
 {
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = true;
-    headerView = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([GiaoDienChinhHeaderV2 class]) owner:self options:nil] objectAtIndex:0];
-    headerView.mDelegate = self;
-    CGRect frameHeader = headerView.frame;
-    frameHeader.size.width = self.view.frame.size.width;
-    frameHeader.origin.x = 0;
-    frameHeader.origin.y = 0;
-    float scale = (750/340.0);
-    self.slideShowHeigt.constant = [UIScreen mainScreen].bounds.size.width/scale;
-    headerView.frame = [self.quangcaoView bounds];
-    [headerView capNhatFrameSlide];
-    [self.quangcaoView addSubview:headerView];
-    [self.quangcaoView layoutIfNeeded];
-    [self.quangcaoView layoutSubviews];
-
+    if (!headerView) {
+        headerView = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([GiaoDienChinhHeaderV2 class]) owner:self options:nil] objectAtIndex:0];
+        headerView.mDelegate = self;
+        CGRect frameHeader = headerView.frame;
+        frameHeader.size.width = self.view.frame.size.width;
+        frameHeader.origin.x = 0;
+        frameHeader.origin.y = 0;
+        float scale = (750.0/340.0);
+        self.slideShowHeigt.constant = [UIScreen mainScreen].bounds.size.width/scale;
+        NSLog(@"%s - [UIScreen mainScreen].bounds.size.width : %f", __FUNCTION__, [UIScreen mainScreen].bounds.size.height);
+        NSLog(@"%s - self.slideShowHeigt.constant : %f", __FUNCTION__, self.slideShowHeigt.constant);
+        headerView.frame = [self.quangcaoView bounds];
+        [headerView capNhatFrameSlide];
+        [self.quangcaoView addSubview:headerView];
+        [self.quangcaoView layoutIfNeeded];
+        [self.quangcaoView layoutSubviews];
+        
+        if ([UIScreen mainScreen].bounds.size.height < 812.0) {
+            self.topSlideConstraint.constant = 20.0;
+        }
+    }
     [self capNhatGiaoDienBenTraiVaGiaoDienHeader];
     self.collectionMain.delegate = self;
     [self.collectionMain setDataSource:self];
@@ -710,8 +718,7 @@
     [chuyenTienDenTK release];
 }
 
-- (IBAction)suKienBamNutChuyenTienDenThe:(id)sender {
-    DucNT_ChuyenTienDenTheViewController *chuyenTienDenThe = [[DucNT_ChuyenTienDenTheViewController alloc] initWithNibName:@"DucNT_ChuyenTienDenTheViewController" bundle:nil];
+- (IBAction)suKienBamNutChuyenTienDenThe:(id)sender {        DucNT_ChuyenTienDenTheViewController *chuyenTienDenThe = [[DucNT_ChuyenTienDenTheViewController alloc] initWithNibName:@"DucNT_ChuyenTienDenTheViewController" bundle:nil];
     [self.navigationController pushViewController:chuyenTienDenThe animated:YES];
     [chuyenTienDenThe release];
 }
@@ -849,9 +856,24 @@
     NSLog(@"%s - click click!!!", __FUNCTION__);
     if([[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_STATE] boolValue])
     {
-        QRDonViViewController *hienThiTokenViewController = [[QRDonViViewController alloc] initWithNibName:@"QRDonViViewController" bundle:nil];
-        [self.navigationController pushViewController:hienThiTokenViewController animated:YES];
-        [hienThiTokenViewController release];
+        if([self.mThongTinTaiKhoanVi.nIsToken intValue] != 0)
+        {
+            DucNT_HienThiTokenViewController *hienThiTokenViewController = [[DucNT_HienThiTokenViewController alloc] initWithNibName:@"DucNT_HienThiTokenViewController" bundle:nil];
+//            UINavigationController *navHome = [[UINavigationController alloc] initWithRootViewController:hienThiTokenViewController];
+            UINavigationController *navHome = [HiNavigationBar navigationControllerWithRootViewController: hienThiTokenViewController];
+            [self presentViewController:navHome animated:YES completion:nil];
+            [hienThiTokenViewController release];
+        }
+        else
+        {
+            DucNT_DangKyToken *vc = [[DucNT_DangKyToken alloc] init];
+            UINavigationController *navHome = [HiNavigationBar navigationControllerWithRootViewController: vc];
+            [self presentViewController:navHome animated:YES completion:nil];
+            [vc release];
+        }
+//        QRDonViViewController *hienThiTokenViewController = [[QRDonViViewController alloc] initWithNibName:@"DucNT_HienThiTokenViewController" bundle:nil];
+//        [self.navigationController pushViewController:hienThiTokenViewController animated:YES];
+//        [hienThiTokenViewController release];
     }
     else
     {
@@ -960,78 +982,87 @@
             break;
         case 5:
         {
-            [self suKienBamNutChuyenTienDenTaiKhoan:nil];
+            [self suKienBamNutTraTienVay:nil];
+//            [self suKienBamNutChuyenTienDenTaiKhoan:nil];
         }
             break;
         case 6:
         {
-            [self suKienBamNutChuyenTienDenThe:nil];
+            [self suKienBamNutDien:nil];
+//            [self suKienBamNutChuyenTienDenThe:nil];
         }
             break;
         case 7:
         {
-            [self suKienBamNutTraTienVay:nil];
+            [self suKienBamNutNuoc:nil];
+//            [self suKienBamNutTraTienVay:nil];
         }
             break;
         case 8:
         {
-            [self suKienBamNutDien:nil];
+            [self suKienBamNutInternet:nil];
+//            [self suKienBamNutDien:nil];
 
         }
             break;
         case 9:
         {
-            [self suKienBamNutNuoc:nil];
+            [self suKienBamNutTruyenHinh:nil];
+//            [self suKienBamNutNuoc:nil];
         }
             break;
         case 10:
         {
-             [self suKienBamNutInternet:nil];
+            [self suKienBamNutChungKhoan:nil];
+//             [self suKienBamNutInternet:nil];
         }
             break;
         case 11:
         {
-            [self suKienBamNutTruyenHinh:nil];
+            [self suKienBamNutHocPhi:nil];
+//            [self suKienBamNutTruyenHinh:nil];
         }
             break;
         case 12:
         {
-            [self suKienBamNutChungKhoan:nil];
+            [self suKienBamNutTangQua:nil];
+//            [self suKienBamNutChungKhoan:nil];
         }
             break;
         case 13:
         {
-            [self suKienBamNutHocPhi:nil];
+            [self suKienBamNutBaoHiem:nil];
+//            [self suKienBamNutHocPhi:nil];
         }
             break;
         case 14:
         {
-            [self suKienBamNutTangQua:nil];
+            [self suKienBamNutPhoneToKen:nil];
         }
             break;
         case 15:
         {
-            [self suKienBamNutBaoHiem:nil];
+            [self suKienBamNutCachNapVi:nil];
         }
             break;
         case 16:
         {
-            [self suKienBamNutChuyenTienTuThien:nil];
+//            [self suKienBamNutChuyenTienTuThien:nil];
         }
             break;
         case 17:
         {
-            [self suKienChonLixi:nil];
+//            [self suKienChonLixi:nil];
         }
             break;
         case 18:
         {
-            [self suKienBamNutPhoneToKen:nil];
+            
         }
             break;
         case 19:
         {
-            [self suKienBamNutCachNapVi:nil];
+            
         }
             break;
         default:
@@ -1056,6 +1087,7 @@
     [_vHuongDan release];
     [_vSoTay release];
     [_vUuDai release];
+    [_topSlideConstraint release];
     [super dealloc];
 }
 

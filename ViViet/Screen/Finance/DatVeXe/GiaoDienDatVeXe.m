@@ -8,7 +8,7 @@
 #import "GiaoDienDatVeXe.h"
 #import "CKCalendarView.h"
 @interface GiaoDienDatVeXe ()<CKCalendarDelegate> {
-    
+    ViewQuangCao *viewQC;
 }
 
 @end
@@ -31,6 +31,41 @@
     [calendar release];
     [self.viewCalendar bringSubviewToFront:self.btnCloseCalendarView];
     [self.mViewMain bringSubviewToFront:self.viewCalendar];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self khoiTaoQuangCao];
+}
+
+- (void)khoiTaoQuangCao {
+    if (viewQC) {
+        return;
+    }
+    viewQC = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([ViewQuangCao class]) owner:self options:nil] objectAtIndex:0];
+    //    viewQC.backgroundColor = UIColor.redColor;
+    viewQC.mDelegate = self;
+    CGRect rectToken = self.mViewNhapToken.frame;
+    CGRect rectQC = viewQC.frame;
+    CGRect rectMain = self.mViewMain.frame;
+    rectQC.origin.x += 2;
+    CGFloat fW = rectMain.size.width;
+    CGFloat fH = fW * 0.4533;
+    rectQC.origin.y = rectToken.origin.y + rectToken.size.height + 5;
+    viewQC.frame = CGRectMake(0, rectQC.origin.y, fW, fH);
+    //    NSLog(@"%s - %d - viewQC.frame : %f - %f - %f - %f", __FUNCTION__, __LINE__, viewQC.frame.origin.x, viewQC.frame.origin.y, viewQC.frame.size.width, viewQC.frame.size.height);
+    viewQC.mDelegate = self;
+    [viewQC updateSizeQuangCao];
+    NSLog(@"%s - %d - [UIScreen mainScreen].bounds.size.width : %f", __FUNCTION__, __LINE__, [UIScreen mainScreen].bounds.size.height);
+    float fThem = 0;
+    if ([UIScreen mainScreen].bounds.size.height == 896.0) {
+        fThem = 20;
+    }
+    rectMain.size.height = rectQC.origin.y + rectQC.size.height + fThem;
+    self.mViewMain.frame = rectMain;
+    [self.mViewMain addSubview:viewQC];
+    [self.scrMain setContentSize:CGSizeMake(_scrMain.frame.size.width, viewQC.frame.origin.y + viewQC.frame.size.height + 10)];
+    
 }
 
 - (IBAction)suKienChonNgayDi:(id)sender {
@@ -80,6 +115,7 @@
     [_edHuyenDen release];
     [_viewCalendar release];
     [_btnCloseCalendarView release];
+    [_scrMain release];
     [super dealloc];
 }
 @end

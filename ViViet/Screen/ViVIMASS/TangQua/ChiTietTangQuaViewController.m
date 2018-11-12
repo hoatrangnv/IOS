@@ -114,22 +114,25 @@
 }
 
 - (void)khoiTaoQuangCao {
-    viewQC = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([ViewQuangCao class]) owner:self options:nil] objectAtIndex:0];
-    viewQC.mDelegate = self;
-    CGRect rectToken = self.mViewChuaViewQuaTang.frame;
-    CGRect rectQC = viewQC.frame;
-    CGRect rectMain = self.mViewMain.frame;
-
-    CGFloat fW = rectMain.size.width;
-    CGFloat fH = rectQC.size.height * ((rectMain.size.width) / rectQC.size.width);
-    rectQC.origin.y = rectToken.origin.y + rectToken.size.height + 10;
-    viewQC.frame = CGRectMake(0, rectQC.origin.y, fW, fH);
-    viewQC.mDelegate = self;
-    [viewQC updateSizeQuangCao];
-    rectMain.size.height = rectQC.origin.y + rectQC.size.height + 10;
-    self.mViewMain.frame = rectMain;
-    [self.mViewMain addSubview:viewQC];
-    [self.mscrvHienThi setContentSize:CGSizeMake(_mscrvHienThi.frame.size.width, rectMain.origin.y +rectMain.size.height + 20)];
+    if (viewQC == nil) {
+        viewQC = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([ViewQuangCao class]) owner:self options:nil] objectAtIndex:0];
+        viewQC.mDelegate = self;
+        CGRect rectToken = self.mViewChuaViewQuaTang.frame;
+        CGRect rectQC = viewQC.frame;
+        CGRect rectMain = self.mViewMain.frame;
+        
+        CGFloat fW = rectMain.size.width;
+        CGFloat fH = fW * 0.45333;
+        rectQC.origin.y = rectToken.origin.y + rectToken.size.height + 15.0;
+        viewQC.frame = CGRectMake(0, rectQC.origin.y, fW, fH);
+        viewQC.mDelegate = self;
+        [viewQC updateSizeQuangCao];
+        rectMain.size.height = rectQC.origin.y + rectQC.size.height + 10;
+        self.mViewMain.frame = rectMain;
+        [self.mViewMain addSubview:viewQC];
+        [self.mscrvHienThi setContentSize:CGSizeMake(_mscrvHienThi.frame.size.width, rectMain.origin.y +rectMain.size.height + 20)];
+    }
+    
 }
 
 #pragma mark - overriden GiaoDichViewController
@@ -356,7 +359,7 @@
 #pragma mark - dealloc
 
 - (void)dealloc {
-    [viewQC dungChayQuangCao];
+    [viewQC release];
     if(_mItemQuaTang)
         [_mItemQuaTang release];
     if(_mdtThoiGianTangQua)

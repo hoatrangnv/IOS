@@ -142,13 +142,13 @@
         CGRect rectMain = self.mViewMain.frame;
         CGRect rectTenDuong = self.mViewTenDuongSonha.frame;
         CGFloat fW = rectMain.size.width;
-        CGFloat fH = rectQC.size.height * ((rectMain.size.width) / rectQC.size.width);
+        CGFloat fH = fW * 0.46;
         rectQC.origin.y = rectToken.origin.y + rectToken.size.height + 15;
         viewQC.frame = CGRectMake(0, rectQC.origin.y, fW, fH);
         viewQC.mDelegate = self;
         [viewQC updateSizeQuangCao];
         rectTenDuong.size.height = rectQC.origin.y + rectQC.size.height + 10;
-        rectMain.size.height = rectTenDuong.origin.y + rectTenDuong.size.height + 70;
+        rectMain.size.height = rectTenDuong.origin.y + rectTenDuong.size.height;
         self.mViewTenDuongSonha.frame = rectTenDuong;
         self.mViewMain.frame = rectMain;
         [self.mViewTenDuongSonha addSubview:viewQC];
@@ -198,12 +198,13 @@
 - (void)khoiTaoGiaoDien
 {
     float fHeight = 0.0f;
+    [self.viewOptionTop setHidden:YES];
     CGRect rectTop = self.viewOptionTop.frame;
     CGRect rViewMain = self.mViewMain.frame;
     CGRect rBtnVanTay = self.mbtnVanTay.frame;
-    rViewMain.origin.y = rectTop.origin.y + rectTop.size.height - 7;
-    rViewMain.origin.x = 10.0f;
-    
+    rViewMain.origin.y = 5.0;
+    rViewMain.origin.x = 5.0;
+    rViewMain.size.width = [UIScreen mainScreen].bounds.size.width - 10.0;
     if([self kiemTraCoChucNangQuetVanTay])
     {
         rBtnVanTay.origin.y = rViewMain.origin.y + rViewMain.size.height + 20.0f;
@@ -218,7 +219,7 @@
     self.mbtnVanTay.frame = rBtnVanTay;
     
     [_mScrView addSubview:self.mViewMain];
-    [_mScrView bringSubviewToFront:self.viewOptionTop];
+//    [_mScrView bringSubviewToFront:self.viewOptionTop];
     [_mScrView setContentSize:CGSizeMake(_mScrView.frame.size.width, fHeight)];
 }
 
@@ -517,8 +518,7 @@
     if (_mDanhSachTinhThanh) {
         [_mDanhSachTinhThanh release];
     }
-    [viewQC dungChayQuangCao];
-    [_mScrView release];
+    [viewQC release];
     [_mtfSoTien release];
     [_mtfSoPhi release];
     [_mtfTinhThanhPho release];
@@ -531,6 +531,7 @@
     [_mtvNoiDung release];
     [_mViewTenDuongSonha release];
     [_mtvTenDuong release];
+//    [_mScrView release];
     [super dealloc];
 }
 

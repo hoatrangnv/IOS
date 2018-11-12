@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -50,7 +50,6 @@
                 <outlet property="soTienViettel" destination="U3m-3g-eLb" id="AsS-wu-549"/>
                 <outlet property="tvTimeTraCuuTraSau" destination="4kw-3I-8Fk" id="gSn-F1-2s2"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
-                <outlet property="viewOptionTop" destination="0ZP-G3-ucm" id="6eb-rm-dfp"/>
                 <outlet property="viewSoPhiVaKhuyenMai" destination="Wxf-bd-ynp" id="orP-2r-K3y"/>
                 <outlet property="viewTimeTraCuuTraSau" destination="buU-VE-Wwb" id="B7B-KG-5O4"/>
                 <outletCollection property="mbtnSoTien" destination="Ef4-kF-blo" id="e7V-3F-7kL"/>
@@ -76,52 +75,6 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
-                        <view contentMode="scaleToFill" id="0ZP-G3-ucm">
-                            <rect key="frame" x="10" y="0.0" width="300" height="45"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tab-cat1.png" id="AtR-4h-Ijf">
-                                    <rect key="frame" x="0.0" y="8" width="300" height="36"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                </imageView>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="dFV-QM-efc">
-                                    <rect key="frame" x="7" y="10" width="90" height="34"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
-                                    <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <state key="normal" title="Ví">
-                                        <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </state>
-                                    <state key="selected">
-                                        <color key="titleColor" red="0.23921568630000001" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </state>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="yRZ-GX-CrQ">
-                                    <rect key="frame" x="122" y="10" width="78" height="34"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
-                                    <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <state key="normal" title="Liên kết">
-                                        <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </state>
-                                    <state key="selected">
-                                        <color key="titleColor" red="0.23921568630000001" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </state>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="vNT-BS-dO5">
-                                    <rect key="frame" x="220" y="10" width="80" height="34"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
-                                    <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <state key="normal" title="Lấy mã TT">
-                                        <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </state>
-                                    <state key="selected">
-                                        <color key="titleColor" red="0.23921568630000001" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </state>
-                                </button>
-                            </subviews>
-                        </view>
                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ZCj-ki-r3G">
                             <rect key="frame" x="130" y="402" width="60" height="70"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -137,9 +90,9 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="198" y="363"/>
+            <point key="canvasLocation" x="316.80000000000001" y="326.53673163418296"/>
         </view>
-        <view contentMode="scaleToFill" misplaced="YES" id="4Ss-cd-Zju">
+        <view contentMode="scaleToFill" id="4Ss-cd-Zju">
             <rect key="frame" x="0.0" y="0.0" width="300" height="534"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
             <subviews>
@@ -238,7 +191,7 @@
                     </subviews>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>
-                <view contentMode="scaleToFill" misplaced="YES" id="kij-Ql-fma" userLabel="ViewNhapToKen">
+                <view contentMode="scaleToFill" id="kij-Ql-fma" userLabel="ViewNhapToKen">
                     <rect key="frame" x="0.0" y="350" width="300" height="35"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <subviews>
@@ -264,7 +217,7 @@
                     </subviews>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>
-                <view contentMode="scaleToFill" misplaced="YES" id="gN8-1y-2eC" userLabel="ViewThoiGianConLai">
+                <view contentMode="scaleToFill" id="gN8-1y-2eC" userLabel="ViewThoiGianConLai">
                     <rect key="frame" x="0.0" y="300" width="300" height="35"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <subviews>
@@ -290,7 +243,7 @@
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="7dc-je-WGI">
                             <rect key="frame" x="185" y="3" width="55" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES"/>
                             <state key="normal" title="EMAIL" backgroundImage="bg-nuttrang.png"/>
                             <connections>
                                 <action selector="suKienBamNutEmail:" destination="-1" eventType="touchUpInside" id="qZ3-hq-IfL"/>
@@ -298,7 +251,7 @@
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="v9j-A7-Eph">
                             <rect key="frame" x="242" y="3" width="56" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES"/>
                             <state key="normal" image="vantaymau-ngang.png" backgroundImage="bg-nuttrang.png"/>
                             <connections>
                                 <action selector="suKienBamNutMatKhauVanTay:" destination="-1" eventType="touchUpInside" id="4Z8-6a-5sG"/>
@@ -407,7 +360,7 @@
                     </subviews>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>
-                <view contentMode="scaleToFill" misplaced="YES" id="Wxf-bd-ynp">
+                <view contentMode="scaleToFill" id="Wxf-bd-ynp">
                     <rect key="frame" x="0.0" y="275" width="300" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
@@ -428,7 +381,7 @@
                     </subviews>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Dd0-Gc-GyY">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Dd0-Gc-GyY">
                     <rect key="frame" x="10" y="150" width="280" height="40"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.0039215686269999999" green="0.31372549020000001" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -440,7 +393,7 @@
                         <action selector="suKienBamNutTraCuuTraSau:" destination="-1" eventType="touchUpInside" id="R6e-bJ-wFu"/>
                     </connections>
                 </button>
-                <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Số tiền (đ)" textAlignment="natural" minimumFontSize="17" id="U3m-3g-eLb" customClass="ExTextField">
+                <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Số tiền (đ)" textAlignment="natural" minimumFontSize="17" id="U3m-3g-eLb" customClass="ExTextField">
                     <rect key="frame" x="10" y="195" width="282" height="35"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -458,7 +411,7 @@
                         <outlet property="delegate" destination="-1" id="qB3-mO-eSe"/>
                     </connections>
                 </tableView>
-                <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="1" sectionFooterHeight="1" id="auy-ak-NvI">
+                <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="1" sectionFooterHeight="1" id="auy-ak-NvI">
                     <rect key="frame" x="10" y="96" width="282" height="89"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -542,14 +495,14 @@
                     </subviews>
                     <color key="backgroundColor" red="0.0039215686269999999" green="0.31372549020000001" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="x9P-Xk-o8h" customClass="ExTextField">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="x9P-Xk-o8h" customClass="ExTextField">
                     <rect key="frame" x="10" y="153" width="282" height="30"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <webView contentMode="scaleToFill" misplaced="YES" id="KNW-1i-daG">
+                <webView contentMode="scaleToFill" id="KNW-1i-daG">
                     <rect key="frame" x="10" y="398" width="280" height="116"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -558,7 +511,7 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="584" y="390"/>
+            <point key="canvasLocation" x="934.39999999999998" y="350.82458770614693"/>
         </view>
         <view contentMode="scaleToFill" id="buU-VE-Wwb">
             <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
@@ -605,7 +558,7 @@
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="198" y="-187"/>
+            <point key="canvasLocation" x="316.80000000000001" y="-168.21589205397302"/>
         </view>
     </objects>
     <resources>
@@ -615,7 +568,6 @@
         <image name="icon_trans_money_add.png" width="64" height="64"/>
         <image name="icon_vantay_khongmau.png" width="90" height="120"/>
         <image name="muiten35x21.png" width="35" height="21"/>
-        <image name="tab-cat1.png" width="688" height="80"/>
         <image name="vantaymau-ngang.png" width="107" height="59"/>
     </resources>
 </document>

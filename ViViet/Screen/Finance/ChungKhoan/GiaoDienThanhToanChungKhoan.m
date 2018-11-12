@@ -39,7 +39,7 @@
 -(void)updateThongTinATM:(NSNotification *)notification {
     if([[notification name] isEqualToString:KEY_TAI_KHOAN_THUONG_DUNG])
     {
-        DucNT_TaiKhoanThuongDungObject *temp = [notification object];
+//        DucNT_TaiKhoanThuongDungObject *temp = [notification object];
     }
 }
 
@@ -54,12 +54,12 @@
     CGRect rectMain = self.mViewMain.frame;
     rectQC.origin.x += 2;
     CGFloat fW = rectMain.size.width;
-    CGFloat fH = rectQC.size.height * ((rectMain.size.width) / rectQC.size.width);
-    rectQC.origin.y = rectToken.origin.y + rectToken.size.height + 15;
+    CGFloat fH = fW * 0.45333;
+    rectQC.origin.y = rectToken.origin.y + rectToken.size.height + 15.0;
     viewQC.frame = CGRectMake(0, rectQC.origin.y, fW, fH);
     viewQC.mDelegate = self;
     [viewQC updateSizeQuangCao];
-    rectMain.size.height = rectQC.origin.y + rectQC.size.height + 50;
+    rectMain.size.height = rectQC.origin.y + rectQC.size.height;
     self.mViewMain.frame = rectMain;
     [self.mViewMain addSubview:viewQC];
     [self.scrMain setContentSize:CGSizeMake(_scrMain.frame.size.width, rectMain.origin.y + rectMain.size.height + self.viewOptionTop.frame.origin.y + self.viewOptionTop.frame.size.height + 50)];

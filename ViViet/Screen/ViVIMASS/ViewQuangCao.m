@@ -25,7 +25,7 @@
     viewQuangCao.delay = 10.0f;
     viewQuangCao.transitionDuration = 1.0f;
     [viewQuangCao setTransitionType:KASlideShowTransitionSlide];
-    [viewQuangCao setImagesContentMode:UIViewContentModeScaleAspectFill];
+//    [viewQuangCao setImagesContentMode:UIViewContentModeScaleAspectFill];
     [self addSubview:viewQuangCao];
     [viewQuangCao addGestureOnline:KASlideShowGestureAll];
     NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
@@ -86,12 +86,16 @@
 
 - (void)chaySlideQuangCao1{
     NSLog(@"%s - START", __FUNCTION__);
-    [viewQuangCao startOnline];
+    if (viewQuangCao) {
+        [viewQuangCao startOnline];
+    }
 }
 
 - (void)chaySlideQuangCao:(NSTimer *)timer{
     NSLog(@"%s - START", __FUNCTION__);
-    [viewQuangCao startOnline];
+    if (viewQuangCao) {
+        [viewQuangCao startOnline];
+    }
 }
 
 - (void)kaSlideShowTapOnImage:(NSUInteger)nIndex nViTriChon:(int)nIndexChon{
@@ -140,7 +144,10 @@
 }
 
 - (void)dealloc {
-
+    [self dungChayQuangCao];
+    if (arrQC) {
+        [arrQC release];
+    }
     [super dealloc];
 }
 @end

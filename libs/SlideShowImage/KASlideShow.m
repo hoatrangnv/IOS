@@ -323,11 +323,9 @@ typedef NS_ENUM(NSInteger, KASlideShowSlideMode) {
             case KASlideShowTransitionFade:
                 [self animateFadeOnline];
                 break;
-
             case KASlideShowTransitionSlide:
                 [self animateSlideOnline:KASlideShowSlideModeForward];
                 break;
-
         }
 
         // Call delegate
