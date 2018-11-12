@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface MoneyContact : NSObject
 @property (strong, nonatomic) Contact *contact;
 @property (copy, nonatomic) NSString *money;
+@property (assign, nonatomic) double fee;
 @property (nonatomic, assign) int loaiMapping;
 @property (nonatomic, strong) NSString* manganhang;
 @property (nonatomic, assign) BOOL soTienThanhToanHopLe;

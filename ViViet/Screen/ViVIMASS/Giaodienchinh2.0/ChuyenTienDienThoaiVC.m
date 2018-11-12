@@ -22,7 +22,6 @@
 @interface ChuyenTienDienThoaiVC ()<UITableViewDelegate,UITableViewDataSource,PhoneTableViewCellChangeMoneyDelegate,UITextViewDelegate,FooterTableDelegate,DucNT_ServicePostDelegate,UIAlertViewDelegate,DanhsachsotayViewControllerDelegate>{
     FooterTable *footer;
     NSTimer *mTimer;
-
 }
 @property (nonatomic,strong) NSMutableArray *arrPhone;
 @property (nonatomic,strong) NSDictionary*dict;
@@ -161,6 +160,9 @@
                 }
                 else{
                     cell.imgAvatar.image = [UIImage imageForName:name size:cell.imgAvatar.frame.size];
+                }
+                if(money.money > 0){
+                    cell.txtMoney.text = [Common hienThiTienTe:[money.money doubleValue]];
                 }
             }
             else{
@@ -612,11 +614,12 @@
             break;
     }
 }
-- (void)didSeletedContact:(NSArray*)phoneContact {
+- (void)didSeletedContact:(NSArray*)phoneContact andNoiDung:(NSString*)noidung {
     [self.arrPhone removeLastObject];
     [self.arrPhone addObjectsFromArray: phoneContact];
     dispatch_async(dispatch_get_main_queue(), ^{
         MoneyContact *footer = [MoneyContact new];
+        self.strNoidung = noidung;
         footer.money = @"0";
         [self.arrPhone addObjectsFromArray:[NSArray arrayWithObject:footer]];
         [self.tblContatcs reloadData];

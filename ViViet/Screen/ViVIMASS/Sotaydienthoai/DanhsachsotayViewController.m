@@ -75,7 +75,8 @@
     if (_delegate) {
         for (NSDictionary *dict in dsItem) {
             MoneyContact * contact = [MoneyContact new];
-            contact.money = @"0";
+            contact.money = [[dict objectForKey:@"soTien"] stringValue];
+            contact.fee = [[dict objectForKey:@"fee"] doubleValue];
             contact.contact = [Contact new];
             contact.loaiMapping =[[dict objectForKey:@"loaiMapping"] intValue];
             contact.manganhang = [[dict objectForKey:@"maNganHang"] stringValue];
@@ -84,7 +85,7 @@
             contact.fromSotay = YES;
             [arrContact addObject:contact];
         }
-        [_delegate didSeletedContact:arrContact];
+        [_delegate didSeletedContact:arrContact andNoiDung:[dictData objectForKey:@"noiDung"]];
     }
 }
 - (void)actionEdit:(NSString*)nameEdit andIdGiaoDich:(NSString *)idGiaodich {
