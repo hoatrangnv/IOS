@@ -71,8 +71,9 @@
     [temp setDelay:10.0];
     [temp setTransitionDuration:1];
     [temp setTransitionType:KASlideShowTransitionSlide];
-    [temp setImagesContentMode:UIViewContentModeScaleAspectFill];
+//    [temp setImagesContentMode:UIViewContentModeScaleToFill];
     [temp addGestureOnline:KASlideShowGestureAll];
+    [temp setImageMode:UIViewContentModeScaleAspectFill];
 
     [self.slideShow addSubview:temp];
 

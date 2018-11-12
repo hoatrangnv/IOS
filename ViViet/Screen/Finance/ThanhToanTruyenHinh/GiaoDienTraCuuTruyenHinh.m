@@ -50,12 +50,12 @@ static NSString *cssHoaDon = @"<div><b>Hoá đơn %d:</b><br />Số hoá đơn: 
     CGRect rectQC = viewQC.frame;
     CGRect rectMain = self.mViewMain.frame;
     CGFloat fW = rectMain.size.width;
-    CGFloat fH = rectQC.size.height * ((rectMain.size.width) / rectQC.size.width);
-    rectQC.origin.y = rectToken.origin.y + rectToken.size.height + 15;
+    CGFloat fH = fW * 0.45333;
+    rectQC.origin.y = rectToken.origin.y + rectToken.size.height + 15.0;
     viewQC.frame = CGRectMake(0, rectQC.origin.y, fW, fH);
     viewQC.mDelegate = self;
     [viewQC updateSizeQuangCao];
-    rectMain.size.height = rectQC.origin.y + rectQC.size.height + 60;
+    rectMain.size.height = rectQC.origin.y + rectQC.size.height;
     self.mViewMain.frame = rectMain;
     [self.mViewMain addSubview:viewQC];
 //    [self.scrMain setContentSize:CGSizeMake(_scrMain.frame.size.width, viewQC.frame.origin.y + viewQC.frame.size.height + 10)];
@@ -489,7 +489,7 @@ static NSString *cssHoaDon = @"<div><b>Hoá đơn %d:</b><br />Số hoá đơn: 
 
 - (void)dealloc {
     NSLog(@"%s - 1", __FUNCTION__);
-//    [viewQC release];
+    [viewQC release];
     NSLog(@"%s - 2", __FUNCTION__);
     [_edOptionTruyenHinh release];
     NSLog(@"%s - 3", __FUNCTION__);

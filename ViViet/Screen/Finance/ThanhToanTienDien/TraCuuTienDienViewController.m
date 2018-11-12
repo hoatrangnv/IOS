@@ -49,6 +49,10 @@ const int TIME_COUNT_DOWN_DIEN = 180;
     [self addButtonHuongDan];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+}
+
 - (void)suKienBamNutHuongDanGiaoDichViewController:(UIButton *)sender {
     GiaoDienThongTinPhim *vc = [[GiaoDienThongTinPhim alloc] initWithNibName:@"GiaoDienThongTinPhim" bundle:nil];
     vc.nOption = HUONG_DAN_THANH_TOAN_DIEN;
@@ -107,19 +111,24 @@ const int TIME_COUNT_DOWN_DIEN = 180;
     viewQC = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([ViewQuangCao class]) owner:self options:nil] objectAtIndex:0];
     viewQC.mDelegate = self;
     CGRect rectQC = viewQC.frame;
-    float fHeight = [UIScreen mainScreen].bounds.size.height;
-    rectQC.size.width = [UIScreen mainScreen].bounds.size.width;
-    rectQC.origin.y = fHeight - rectQC.size.height - 67;
-    rectQC.origin.x = self.mwvHienThiDanhSachMaDienLucChoPhep.frame.origin.x - 3;
+    CGRect rectMain = self.mbtnTraCuu.frame;
+
+    CGFloat fW = rectMain.size.width;
+    CGFloat fH = fW * 0.45333;
+    rectQC.size.width = fW;
+    rectQC.origin.y = self.mScrv.frame.origin.y + self.mScrv.frame.size.height + 10;
+    rectQC.origin.x = rectMain.origin.x;
+    rectQC.size.height = fH;
     viewQC.frame = rectQC;
+    [viewQC updateSizeQuangCao];
+    [self.view addSubview:viewQC];
     CGRect rectWebMa = self.mwvHienThiDanhSachMaDienLucChoPhep.frame;
-    NSLog(@"%s - height : %f - QC.height : %f", __FUNCTION__, rectWebMa.size.height, rectQC.size.height);
-    rectWebMa.size.height = rectWebMa.size.height - rectQC.size.height;
-    NSLog(@"%s - height : %f - QC.height : %f", __FUNCTION__, rectWebMa.size.height, rectQC.size.height);
+    NSLog(@"%s - height : %f - QC.height : %f", __FUNCTION__, rectQC.origin.y, rectQC.size.height);
+    rectWebMa.origin.y = rectQC.origin.y + rectQC.size.height + 10;
+    NSLog(@"%s - rectWebMa.origin.y : %f - QC.height : %f", __FUNCTION__, rectWebMa.origin.y, rectQC.size.height);
     self.mwvHienThiDanhSachMaDienLucChoPhep.frame = rectWebMa;
-    [self.mwvHienThiDanhSachMaDienLucChoPhep.superview setNeedsLayout];
-    [self.mwvHienThiDanhSachMaDienLucChoPhep.superview layoutIfNeeded];
-    
+//    [self.mwvHienThiDanhSachMaDienLucChoPhep.superview setNeedsLayout];
+//    [self.mwvHienThiDanhSachMaDienLucChoPhep.superview layoutIfNeeded];
 }
 
 - (void)updateThongTinTraCuuDien:(NSNotification *)notification
@@ -193,6 +202,8 @@ const int TIME_COUNT_DOWN_DIEN = 180;
     _mbtnTraCuu.frame = rBtnTraCuu;
     _mwvHienThiDanhSachMaDienLucChoPhep.frame = rWvHienThiDanhSachMaDienLuc;
     _mwvHienThiNoiDungHoaDon.frame = rWvHienThiNoiDungHoaDon;
+    
+    [self khoiTaoQuangCao];
 }
 
 #pragma mark - overriden Base
@@ -315,7 +326,6 @@ const int TIME_COUNT_DOWN_DIEN = 180;
         frame.size.height = 1;
         _mwvHienThiDanhSachMaDienLucChoPhep.frame = frame;
         CGSize fittingSize = [_mwvHienThiDanhSachMaDienLucChoPhep sizeThatFits:CGSizeZero];
-//        NSLog(@"%s - fittingSize : %@", __FUNCTION__, fittingSize);
         frame.size = fittingSize;
         _mwvHienThiDanhSachMaDienLucChoPhep.frame = frame;
     }
@@ -554,33 +564,59 @@ const int TIME_COUNT_DOWN_DIEN = 180;
 - (void)dealloc
 {
     [viewQC release];
-    if(_mDanhSachMaDienLucDangTraCuu)
+    NSLog(@"%s -> %d", __FUNCTION__, __LINE__);
+    if(_mDanhSachMaDienLucDangTraCuu) {
         [_mDanhSachMaDienLucDangTraCuu release];
+    }
+    NSLog(@"%s -> %d", __FUNCTION__, __LINE__);
     if (_mDictNoiDungTheoMaDienLuc) {
         [_mDictNoiDungTheoMaDienLuc release];
     }
-    if(_mIdShow)
+    NSLog(@"%s -> %d", __FUNCTION__, __LINE__);
+    if(_mIdShow) {
         [_mIdShow release];
-    if(_mDoiTuongNotification)
+    }
+    NSLog(@"%s -> %d", __FUNCTION__, __LINE__);
+    if(_mDoiTuongNotification) {
         [_mDoiTuongNotification release];
-    if(_mDanhSachMaDienLuc)
+    }
+    NSLog(@"%s -> %d", __FUNCTION__, __LINE__);
+    if(_mDanhSachMaDienLuc) {
         [_mDanhSachMaDienLuc release];
-    if(_mMoTaChiTietKhachHang)
+    }
+    NSLog(@"%s -> %d", __FUNCTION__, __LINE__);
+    if(_mMoTaChiTietKhachHang) {
         [_mMoTaChiTietKhachHang release];
+    }
+    NSLog(@"%s -> %d", __FUNCTION__, __LINE__);
     [_mtfMaKhachHang release];
+    NSLog(@"%s -> %d", __FUNCTION__, __LINE__);
     [_mbtnDanhBa release];
+    NSLog(@"%s -> %d", __FUNCTION__, __LINE__);
     [_mbtnTraCuu release];
-    [_mwvHienThiNoiDungHoaDon release];
-    [_mwvHienThiDanhSachMaDienLucChoPhep release];
-    [_mViewHienThiMaKhachHang release];
-    [_mViewHienThiDanhSachMaDienLuc release];
-    [_mScrv release];
-    [_mViewHienThiThongBaoHoaDonDien release];
-    [_mViewChuaThongBao release];
+    NSLog(@"%s -> %d", __FUNCTION__, __LINE__);
     [_mtvNoiDungThongBao release];
-    [_mViewTieuDeThongBao release];
+    NSLog(@"%s -> %d", __FUNCTION__, __LINE__);
     [_mlblThongBaoDoi release];
+    NSLog(@"%s -> %d", __FUNCTION__, __LINE__);
+    [_mwvHienThiNoiDungHoaDon release];
+    NSLog(@"%s -> %d", __FUNCTION__, __LINE__);
+    [_mwvHienThiDanhSachMaDienLucChoPhep release];
+    NSLog(@"%s -> %d", __FUNCTION__, __LINE__);
+    [_mViewHienThiMaKhachHang release];
+    NSLog(@"%s -> %d", __FUNCTION__, __LINE__);
+    [_mViewHienThiDanhSachMaDienLuc release];
+    NSLog(@"%s -> %d", __FUNCTION__, __LINE__);
+    [_mViewChuaThongBao release];
+    NSLog(@"%s -> %d", __FUNCTION__, __LINE__);
+    [_mViewHienThiThongBaoHoaDonDien release];
+    NSLog(@"%s -> %d", __FUNCTION__, __LINE__);
     [_mViewNenThongBao release];
+    NSLog(@"%s -> %d", __FUNCTION__, __LINE__);
+    [_mViewTieuDeThongBao release];
+    NSLog(@"%s -> %d", __FUNCTION__, __LINE__);
+    [_mScrv release];
+    NSLog(@"%s -> %d", __FUNCTION__, __LINE__);
     [super dealloc];
 }
 

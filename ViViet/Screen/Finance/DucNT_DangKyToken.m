@@ -41,11 +41,21 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self addButtonBack];
+    [self showBackButton];
     [self addTitleView:[@"title_dang_ky_token" localizableString]];
     [self khoiTaoTextFieldSoDienThoai];
     [self khoiTaoTextField];
     // Do any additional setup after loading the view from its nib.
+}
+
+- (void)showBackButton {
+    UIBarButtonItem *btnBack = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style:UIBarButtonItemStyleDone target:self action:@selector(suKienChonBack:)];
+    btnBack.imageInsets = UIEdgeInsetsMake(0, -10.0, 0, 0);
+    self.navigationItem.leftBarButtonItem = btnBack;
+}
+
+- (void)suKienChonBack:(UIBarButtonItem *) sender {
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - handler error

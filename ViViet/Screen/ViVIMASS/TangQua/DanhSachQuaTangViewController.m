@@ -83,6 +83,8 @@
 
     self.navigationItem.rightBarButtonItems = @[negativeSeperator, leftItem, leftItem2];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateThongTinQuaTang:) name:KEY_TAI_KHOAN_THUONG_DUNG object:nil];
+    
+    [self.mtbHienThi registerNib:[UINib nibWithNibName:@"ViewQuaTang" bundle:nil] forCellReuseIdentifier:@"ViewQuaTang"];
 }
 
 -(void)updateThongTinQuaTang:(NSNotification *)notification {
@@ -160,11 +162,11 @@
             for(NSDictionary *dictQuaTang in dsDictQuaTang)
             {
                 ItemQuaTang *itemQuaTang = [[ItemQuaTang alloc] initWithDictionary:dictQuaTang];
-                ViewQuaTang *viewQuaTang = [[[NSBundle mainBundle] loadNibNamed:@"ViewQuaTang" owner:self options:nil] objectAtIndex:0];
-                viewQuaTang.mItemQuaTang = itemQuaTang;
-                viewQuaTang.frame = CGRectMake(0.0f, 5.0f, viewQuaTang.frame.size.width, viewQuaTang.frame.size.height);
-                [dsViewQuaTang addObject:viewQuaTang];
-                [itemQuaTang release];
+//                ViewQuaTang *viewQuaTang = [[[NSBundle mainBundle] loadNibNamed:@"ViewQuaTang" owner:self options:nil] objectAtIndex:0];
+//                viewQuaTang.mItemQuaTang = itemQuaTang;
+//                viewQuaTang.frame = CGRectMake(0.0f, 5.0f, viewQuaTang.frame.size.width, viewQuaTang.frame.size.height);
+                [dsViewQuaTang addObject:itemQuaTang];
+//                [itemQuaTang release];
             }
             self.mDanhSachViewQuaTang = dsViewQuaTang;
             [dsViewQuaTang release];
@@ -196,19 +198,22 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *cellIdentifier = @"cellIdentifier";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    if(!cell)
-    {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-    }
-    else
-    {
-        [[cell viewWithTag:500] removeFromSuperview];
-    }
-    ViewQuaTang *viewQuaTang = [_mDanhSachViewQuaTang objectAtIndex:indexPath.row];
-    viewQuaTang.tag = 500;
-    [cell.contentView addSubview:viewQuaTang];
+    ViewQuaTang *cell = (ViewQuaTang *)[tableView dequeueReusableCellWithIdentifier:@"ViewQuaTang" forIndexPath:indexPath];
+//    static NSString *cellIdentifier = @"cellIdentifier";
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+//    if(!cell)
+//    {
+//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+//    }
+//    else
+//    {
+//        [[cell viewWithTag:500] removeFromSuperview];
+//    }
+//    ViewQuaTang *viewQuaTang = [_mDanhSachViewQuaTang objectAtIndex:indexPath.row];
+//    viewQuaTang.tag = 500;
+//    [cell.contentView addSubview:viewQuaTang];
+//    viewQuaTang.frame = CGRectMake(0, 0, cell.frame.size.width, cell.frame.size.height);
+    cell.mItemQuaTang = [_mDanhSachViewQuaTang objectAtIndex:indexPath.row];
     return cell;
 }
 
@@ -219,31 +224,19 @@
 {
     NSLog(@"%s - indexPath.row : %ld", __FUNCTION__, (long)indexPath.row);
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    ViewQuaTang *viewQuaTang = [_mDanhSachViewQuaTang objectAtIndex:indexPath.row];
-    NSLog(@"%s - viewQuaTang.mItemQuaTang.mAmount.content : %@", __FUNCTION__, viewQuaTang.mItemQuaTang.mAmount.content);
-//    if ([viewQuaTang.mItemQuaTang.mId intValue] == 7 || [viewQuaTang.mItemQuaTang.mId intValue] == 8 || [viewQuaTang.mItemQuaTang.mId intValue] == 9 || [viewQuaTang.mItemQuaTang.mId intValue] == 12)
-//    {
-//        ChiTietTangQuaTheDienThoaiViewController *chiTietTangQuaTheDienThoaiViewController = [[ChiTietTangQuaTheDienThoaiViewController alloc] initWithNibName:@"ChiTietTangQuaTheDienThoaiViewController" bundle:nil];
-//        chiTietTangQuaTheDienThoaiViewController.mItemQuaTang = viewQuaTang.mItemQuaTang;
-//        [self.navigationController pushViewController:chiTietTangQuaTheDienThoaiViewController animated:YES];
-//        [chiTietTangQuaTheDienThoaiViewController release];
-//    }
-//    else
-//    {
-        ChiTietTangQuaViewController *chiTietQuaTangViewController = [[ChiTietTangQuaViewController alloc] initWithNibName:@"ChiTietTangQuaViewController" bundle:nil];
-        chiTietQuaTangViewController.mItemQuaTang = viewQuaTang.mItemQuaTang;
+//    ViewQuaTang *viewQuaTang = [_mDanhSachViewQuaTang objectAtIndex:indexPath.row];
+//    NSLog(@"%s - viewQuaTang.mItemQuaTang.mAmount.content : %@", __FUNCTION__, viewQuaTang.mItemQuaTang.mAmount.content);
+    ChiTietTangQuaViewController *chiTietQuaTangViewController = [[ChiTietTangQuaViewController alloc] initWithNibName:@"ChiTietTangQuaViewController" bundle:nil];
+    chiTietQuaTangViewController.mItemQuaTang = [_mDanhSachViewQuaTang objectAtIndex:indexPath.row];
     chiTietQuaTangViewController.sToAccWallet = toAccWallet;
         [self.navigationController pushViewController:chiTietQuaTangViewController animated:YES];
         [chiTietQuaTangViewController release];
-//    }
 }
 
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    ViewQuaTang *viewQuaTang = [_mDanhSachViewQuaTang objectAtIndex:indexPath.row];
-//    NSLog(@"Debug:%@: %@, height : %f", NSStringFromClass([self class]),NSStringFromSelector(_cmd), viewQuaTang.frame.size.height);
-//    return viewQuaTang.frame.size.height;
-//}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return (tableView.frame.size.width / 320.0) * 90.0;
+}
 
 - (void)dealloc {
     if(_mDanhSachViewQuaTang)

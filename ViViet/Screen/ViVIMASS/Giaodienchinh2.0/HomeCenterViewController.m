@@ -775,7 +775,7 @@
                 break;
             case 6:
             {
-                GuiTietKiemViewController *vc = [[GuiTietKiemViewController alloc] initWithNibName:@"ChuyenTienTanNhaViewController" bundle:nil];
+                GuiTietKiemViewController *vc = [[GuiTietKiemViewController alloc] initWithNibName:@"GuiTietKiemViewController" bundle:nil];
                 [self.navigationController pushViewController:vc animated:YES];
                 [vc release];
                 
@@ -815,7 +815,7 @@
             [vc release];
             return;
         }
-        if (row == 10 || row == 5) {
+        if (row == 5) {
             // ZALO PAY
             [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Chức năng đang được phát triển"];
             return;
@@ -834,7 +834,7 @@
         else if (row == 4) {
             vc.nType = 3;//Paypoo
         }
-       else if (row == 6) {
+        else if (row == 6) {
             vc.nType = 4;//vimo
         }else if (row == 7) {
             vc.nType = 6;//vi viet
@@ -844,6 +844,9 @@
         else if (row == 9) {
             // VTC PAY
             vc.nType = 5;
+        }
+        else if (row == 10) {
+            vc.nType = 9;
         }
         [self.navigationController pushViewController:vc animated:YES];
         [vc release];

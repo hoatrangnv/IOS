@@ -54,12 +54,12 @@
         CGRect rectQC = viewQC.frame;
         CGRect rectMain = self.mViewMain.frame;
         CGFloat fW = rectMain.size.width;
-        CGFloat fH = rectQC.size.height * ((rectMain.size.width) / rectQC.size.width);
-        rectQC.origin.y = rectToken.origin.y + rectToken.size.height + 15;
+        CGFloat fH = fW * 0.45333;
+        rectQC.origin.y = rectToken.origin.y + rectToken.size.height + 15.0;
         viewQC.frame = CGRectMake(0, rectQC.origin.y, fW, fH);
         viewQC.mDelegate = self;
         [viewQC updateSizeQuangCao];
-        rectMain.size.height = rectQC.origin.y + rectQC.size.height + 50;
+        rectMain.size.height = rectQC.origin.y + rectQC.size.height;
         self.mViewMain.frame = rectMain;
         [self.mViewMain addSubview:viewQC];
     }

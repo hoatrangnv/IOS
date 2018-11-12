@@ -46,18 +46,6 @@
     _edSoTien.inputAccessoryView = nil;
 
     [self.scrMain addSubview:self.mViewMain];
-    CGRect rectMain = self.mViewMain.frame;
-    CGRect rectVanTay = self.mbtnVanTay.frame;
-    CGRect rectTop = self.viewOptionTop.frame;
-
-    rectMain.origin.x = 10;
-    rectMain.origin.y = rectTop.size.height + rectTop.origin.y - 5;
-
-    rectVanTay.origin.y = rectMain.origin.y + rectMain.size.height + 8;
-    self.mbtnVanTay.frame = rectVanTay;
-    self.mViewMain.frame = rectMain;
-    [self.scrMain setContentSize:CGSizeMake(self.scrMain.frame.size.width, rectVanTay.origin.y + rectVanTay.size.height + 10)];
-    [self.scrMain bringSubviewToFront:self.viewOptionTop];
 
     [self khoiTaoTextFeildTheoYChuTit:self.edKhuVuc nTag:100 dataPicker:self delegatePicker:self];
     [self khoiTaoTextFeildTheoYChuTit:self.edQuanHuyen nTag:101 dataPicker:self delegatePicker:self];
@@ -79,13 +67,13 @@
         CGRect rectMain = self.mViewMain.frame;
         CGRect rectGuiThongTin = self.viewThongTinNhan.frame;
         CGFloat fW = rectMain.size.width;
-        CGFloat fH = rectQC.size.height * ((rectMain.size.width) / rectQC.size.width);
+        CGFloat fH = fW * 0.46;
         rectQC.origin.y = rectToken.origin.y + rectToken.size.height + 15;
         viewQC.frame = CGRectMake(0, rectQC.origin.y, fW, fH);
         viewQC.mDelegate = self;
         [viewQC updateSizeQuangCao];
         rectGuiThongTin.size.height = rectQC.origin.y + rectQC.size.height;
-        rectMain.size.height = rectGuiThongTin.origin.y + rectGuiThongTin.size.height + 70;
+        rectMain.size.height = rectGuiThongTin.origin.y + rectGuiThongTin.size.height;
         self.viewThongTinNhan.frame = rectGuiThongTin;
         self.mViewMain.frame = rectMain;
         [self.viewThongTinNhan addSubview:viewQC];
@@ -107,6 +95,20 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    
+    CGRect rectMain = self.mViewMain.frame;
+    CGRect rectVanTay = self.mbtnVanTay.frame;
+    [self.viewOptionTop setHidden:YES];
+    
+    rectMain.origin.x = 5;
+    rectMain.origin.y = 5;
+    rectMain.size.width = [UIScreen mainScreen].bounds.size.width - 10.0;
+    rectVanTay.origin.y = rectMain.origin.y + rectMain.size.height + 8;
+    self.mbtnVanTay.frame = rectVanTay;
+    self.mViewMain.frame = rectMain;
+    [self.scrMain setContentSize:CGSizeMake(self.scrMain.frame.size.width, rectVanTay.origin.y + rectVanTay.size.height + 10)];
+    [self.scrMain bringSubviewToFront:self.viewOptionTop];
+    
     [self khoiTaoQuangCao];
 }
 

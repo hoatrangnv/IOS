@@ -67,8 +67,10 @@ NSString *sCauLuuY = @"<b>Lưu ý:</b> Số điện thoại nhận thanh toán c
     bLanDau = YES;
     mThoiGianDoi = 0;
 
+    NSLog(@"%s - START ****", __FUNCTION__);
+    
     CGRect rectMain = self.mViewMain.frame;
-    rectMain.origin.y = self.viewOptionTop.frame.origin.y + self.viewOptionTop.frame.size.height - 5;
+    rectMain.origin.y = 5;
     rectMain.origin.x = 10;
     self.mViewMain.frame = rectMain;
     [self.mscrv addSubview:self.mViewMain];
@@ -121,22 +123,22 @@ NSString *sCauLuuY = @"<b>Lưu ý:</b> Số điện thoại nhận thanh toán c
         return;
     }
     viewQC = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([ViewQuangCao class]) owner:self options:nil] objectAtIndex:0];
-    viewQC.backgroundColor = [UIColor clearColor];
+//    viewQC.backgroundColor = UIColor.redColor;
     viewQC.mDelegate = self;
     CGRect rectToken = self.mViewNhapToken.frame;
     CGRect rectQC = viewQC.frame;
     CGRect rectMain = self.mViewMain.frame;
 
     CGFloat fW = rectMain.size.width;
-    CGFloat fH = rectQC.size.height * ((rectMain.size.width) / rectQC.size.width);
-    rectQC.origin.y = rectToken.origin.y + rectToken.size.height + 10;
+    CGFloat fH = fW * 0.45333;
+    rectQC.origin.y = rectToken.origin.y + rectToken.size.height + 5;
     viewQC.frame = CGRectMake(0, rectQC.origin.y, fW, fH);
     viewQC.mDelegate = self;
     [viewQC updateSizeQuangCao];
-    rectMain.size.height = rectQC.origin.y + rectQC.size.height + 100;
+    rectMain.size.height = rectQC.origin.y + rectQC.size.height;
     self.mViewMain.frame = rectMain;
     [self.mViewMain addSubview:viewQC];
-    [self.mscrv setContentSize:CGSizeMake(_mscrv.frame.size.width, rectMain.origin.y + rectMain.size.height + 20)];
+    [self.mscrv setContentSize:CGSizeMake(_mscrv.frame.size.width, rectMain.origin.y + rectMain.size.height)];
     
 }
 
@@ -482,43 +484,13 @@ NSString *sCauLuuY = @"<b>Lưu ý:</b> Số điện thoại nhận thanh toán c
     viewQC.frame = rectQC;
     CGRect rectMain = self.mViewMain.frame;
     NSLog(@"%s - rectMain1 : %f", __FUNCTION__, rectMain.size.height);
-    rectMain.size.height = rectQC.origin.y + rectQC.size.height + 10;
-    if (rectMain.size.height < 530.0) {
-        rectMain.size.height = 530.0;
-    }
-    NSLog(@"%s - rectMain2 : %f", __FUNCTION__, rectMain.size.height);
-    self.mViewMain.frame = rectMain;
-    [self.mscrv setContentSize:CGSizeMake(_mscrv.frame.size.width, rectMain.origin.y + rectMain.size.height + 50)];
-//    if (rlblKhuyenMai.origin.y < 200) {
-//        CGRect rectMain = self.mViewMain.frame;
-//        CGRect rectWebView = self.mwvHienThiLuuY.frame;
-//        rectWebView.origin.y = rViewNhapToken.origin.y + rViewNhapToken.size.height + 10;
-//        self.mwvHienThiLuuY.frame = rectWebView;
-//        CGRect rectQC = viewQC.frame;
-//        rectQC.origin.y = rectWebView.origin.y + rectWebView.size.height + 10;
-//        rectMain.size.height = rectQC.origin.y + rectQC.size.height + 20;
-//        viewQC.frame = rectQC;
-//        self.mViewMain.frame = rectMain;
-//        [self.mscrv setContentSize:CGSizeMake(_mscrv.frame.size.width, viewQC.frame.origin.y + viewQC.frame.size.height + 40)];
-//        return;
+//    rectMain.size.height = rectQC.origin.y + rectQC.size.height + 10;
+//    if (rectMain.size.height < 530.0) {
+//        rectMain.size.height = 530.0;
 //    }
-//    rlblKhuyenMai.origin.y = fKhoangCachDich;
-//    self.viewSoPhiVaKhuyenMai.frame = rlblKhuyenMai;
-//    rViewThoiGianConLai.origin.y = fKhoangCachDich + rlblKhuyenMai.size.height + KHOANG_CACH_GIUA_2_CONTROL;
-//    rViewNhapToken.origin.y = rViewThoiGianConLai.origin.y + rViewThoiGianConLai.size.height + KHOANG_CACH_GIUA_2_CONTROL;
-//    self.mViewThoiGianConLai.frame = rViewThoiGianConLai;
-//    self.mViewNhapToken.frame = rViewNhapToken;
-//    CGRect rectWebView = self.mwvHienThiLuuY.frame;
-//    rectWebView.origin.y = rViewNhapToken.origin.y + rViewNhapToken.size.height + 10;
-//    self.mwvHienThiLuuY.frame = rectWebView;
-//
-//    CGRect rectMain = self.mViewMain.frame;
-//    CGRect rectQC = viewQC.frame;
-//    rectQC.origin.y = rectWebView.origin.y + rectWebView.size.height + 10;
-//    rectMain.size.height = rectQC.origin.y + rectQC.size.height + 20;
-//    viewQC.frame = rectQC;
-//    self.mViewMain.frame = rectMain;
-//    [self.mscrv setContentSize:CGSizeMake(_mscrv.frame.size.width, viewQC.frame.origin.y + viewQC.frame.size.height + 40)];
+//    NSLog(@"%s - rectMain2 : %f", __FUNCTION__, rectMain.size.height);
+    self.mViewMain.frame = rectMain;
+    [self.mscrv setContentSize:CGSizeMake(_mscrv.frame.size.width, rectMain.origin.y + rectMain.size.height + 10)];
 }
 
 - (void)khoiTaoGiaoDienViettelTraTruoc{
@@ -544,10 +516,7 @@ NSString *sCauLuuY = @"<b>Lưu ý:</b> Số điện thoại nhận thanh toán c
 
         CGRect rlblKhuyenMai = self.viewSoPhiVaKhuyenMai.frame;
         CGRect rectSoTien = self.soTienViettel.frame;
-//        if (!self.btnTraCuuTraSau.isHidden) {
-//            rectSoTien.origin.y -= self.btnTraCuuTraSau.frame.size.height + 5;
-//            self.btnTraCuuTraSau.hidden = YES;
-//        }
+
         rectSoTien.origin.y = self.mViewSoDienThoai_TraCuu.frame.origin.y + self.mViewSoDienThoai_TraCuu.frame.size.height + 8;
         self.soTienViettel.frame = rectSoTien;
         CGRect rViewThoiGianConLai = self.mViewThoiGianConLai.frame;
@@ -559,63 +528,21 @@ NSString *sCauLuuY = @"<b>Lưu ý:</b> Số điện thoại nhận thanh toán c
         self.mViewThoiGianConLai.frame = rViewThoiGianConLai;
         self.mViewNhapToken.frame = rViewNhapToken;
         CGRect rectQC = viewQC.frame;
-        NSLog(@"%s - rectQC1 : %f - %f", __FUNCTION__, rectQC.origin.y, rectQC.size.height);
+//        NSLog(@"%s - %d - rectQC1 : %f - %f", __FUNCTION__, __LINE__, rectQC.origin.y, rectQC.size.height);
         rectQC.origin.y = rViewNhapToken.origin.y + rViewNhapToken.size.height + 10;
-        NSLog(@"%s - rectQC2 : %f - %f", __FUNCTION__, rectQC.origin.y, rectQC.size.height);
+//        NSLog(@"%s - %d - rectQC2 : %f - %f", __FUNCTION__, __LINE__,rectQC.origin.y, rectQC.size.height);
         viewQC.frame = rectQC;
         CGRect rectMain = self.mViewMain.frame;
-        NSLog(@"%s - rectMain1 : %f", __FUNCTION__, rectMain.size.height);
+        NSLog(@"%s - %d - rectMain1 : %f", __FUNCTION__, __LINE__, rectMain.size.height);
         rectMain.size.height = rectQC.origin.y + rectQC.size.height + 10;
-        if (rectMain.size.height < 530.0) {
-            rectMain.size.height = 530.0;
+        NSLog(@"%s - %d - rectMain1 : %f", __FUNCTION__, __LINE__, rectMain.size.height);
+        if (rectMain.size.height > 500.0 && rectMain.size.height < 600.0) {
+            rectMain.size.height = 500.0;
         }
         NSLog(@"%s - rectMain2 : %f", __FUNCTION__, rectMain.size.height);
         self.mViewMain.frame = rectMain;
-        [self.mscrv setContentSize:CGSizeMake(_mscrv.frame.size.width, rectMain.origin.y + rectMain.size.height + 50)];
+        [self.mscrv setContentSize:CGSizeMake(_mscrv.frame.size.width, rectMain.origin.y + rectMain.size.height + 10)];
     });
-
-
-//    CGFloat fKhoangCachDich = rlblKhuyenMai.origin.y -  rectSoTien.size.height;
-//    NSLog(@"%s - fKhoangCachDich : %f", __FUNCTION__, fKhoangCachDich);
-//    if (bLanDau) {
-//        bLanDau = NO;
-//        rlblKhuyenMai.origin.y = fKhoangCachDich - 30;
-//        self.viewSoPhiVaKhuyenMai.frame = rlblKhuyenMai;
-//        rViewThoiGianConLai.origin.y = rlblKhuyenMai.origin.y + rlblKhuyenMai.size.height + KHOANG_CACH_GIUA_2_CONTROL;
-//        rViewNhapToken.origin.y = rViewThoiGianConLai.origin.y + rViewThoiGianConLai.size.height + KHOANG_CACH_GIUA_2_CONTROL;
-//        self.mViewThoiGianConLai.frame = rViewThoiGianConLai;
-//        self.mViewNhapToken.frame = rViewNhapToken;
-//        CGRect rectMain = self.mViewMain.frame;
-//        CGRect rectQC = viewQC.frame;
-//        rectQC.origin.y = rViewNhapToken.origin.y + rViewNhapToken.size.height + 10;
-//        rectMain.size.height = rectQC.origin.y + rectQC.size.height + 20;
-//        viewQC.frame = rectQC;
-//        self.mViewMain.frame = rectMain;
-//        [self.mscrv setContentSize:CGSizeMake(_mscrv.frame.size.width, viewQC.frame.origin.y + viewQC.frame.size.height + 40)];
-////        rectMain.size.height = rViewNhapToken.origin.y + rViewNhapToken.size.height + 20;
-////        self.mViewMain.frame = rectMain;
-//        return;
-//    }
-//    if (rlblKhuyenMai.origin.y < 200) {
-//        CGRect rectMain = self.mViewMain.frame;
-//        rectMain.size.height = rViewNhapToken.origin.y + rViewNhapToken.size.height + 20;
-//        self.mViewMain.frame = rectMain;
-//        return;
-//    }
-//    rlblKhuyenMai.origin.y = fKhoangCachDich;
-//    self.viewSoPhiVaKhuyenMai.frame = rlblKhuyenMai;
-//    rViewThoiGianConLai.origin.y = fKhoangCachDich + rlblKhuyenMai.size.height + KHOANG_CACH_GIUA_2_CONTROL;
-//    rViewNhapToken.origin.y = rViewThoiGianConLai.origin.y + rViewThoiGianConLai.size.height + KHOANG_CACH_GIUA_2_CONTROL;
-//    self.mViewThoiGianConLai.frame = rViewThoiGianConLai;
-//    self.mViewNhapToken.frame = rViewNhapToken;
-//    CGRect rectMain = self.mViewMain.frame;
-//    CGRect rectQC = viewQC.frame;
-//    rectQC.origin.y = rViewNhapToken.origin.y + rViewNhapToken.size.height + 10;
-//    rectMain.size.height = rectQC.origin.y + rectQC.size.height + 20;
-//    viewQC.frame = rectQC;
-////    rectMain.size.height = rViewNhapToken.origin.y + rViewNhapToken.size.height + 20;
-//    self.mViewMain.frame = rectMain;
-//    [self.mscrv setContentSize:CGSizeMake(_mscrv.frame.size.width, viewQC.frame.origin.y + viewQC.frame.size.height + 100)];
 }
 
 - (void)khoiTaoGiaoDienViettelTraSau{
@@ -647,7 +574,7 @@ NSString *sCauLuuY = @"<b>Lưu ý:</b> Số điện thoại nhận thanh toán c
     rViewMain.size.height = rectQC.origin.y + rectQC.size.height + 10;
     viewQC.frame = rectQC;
     self.mViewMain.frame = rViewMain;
-    [self.mscrv setContentSize:CGSizeMake(_mscrv.frame.size.width, rViewMain.origin.y + rViewMain.size.height + 50)];
+    [self.mscrv setContentSize:CGSizeMake(_mscrv.frame.size.width, rViewMain.origin.y + rViewMain.size.height + 10)];
 }
 
 - (void)khoiTaoGiaoDienCoDinh {
@@ -665,7 +592,7 @@ NSString *sCauLuuY = @"<b>Lưu ý:</b> Số điện thoại nhận thanh toán c
     rViewMain.size.height = rectQC.origin.y + rectQC.size.height + 20;
     viewQC.frame = rectQC;
     self.mViewMain.frame = rViewMain;
-    [self.mscrv setContentSize:CGSizeMake(_mscrv.frame.size.width, viewQC.frame.origin.y + viewQC.frame.size.height + 40)];
+    [self.mscrv setContentSize:CGSizeMake(_mscrv.frame.size.width, viewQC.frame.origin.y + viewQC.frame.size.height + 10)];
 //    rViewMain.size.height = self.btnTraCuuViettel.frame.origin.y + self.btnTraCuuViettel.frame.size.height + 75;
 //    self.mViewMain.frame = rViewMain;
 }
@@ -690,7 +617,6 @@ NSString *sCauLuuY = @"<b>Lưu ý:</b> Số điện thoại nhận thanh toán c
         CGRect rViewMain = self.mViewMain.frame;
         CGRect rViewSoDienThoai_TraCuu = self.mViewSoDienThoai_TraCuu.frame;
         CGRect rViewSoTien = self.mViewSoTien.frame;
-        CGRect rViewSoLuong_Phi = self.mViewSoLuong_Phi.frame;
         CGRect rlblKhuyenMai = self.viewSoPhiVaKhuyenMai.frame;
         CGRect rViewThoiGianConLai = self.mViewThoiGianConLai.frame;
         CGRect rViewNhapToken = self.mViewNhapToken.frame;
@@ -701,10 +627,13 @@ NSString *sCauLuuY = @"<b>Lưu ý:</b> Số điện thoại nhận thanh toán c
         rViewThoiGianConLai.origin.y = rlblKhuyenMai.origin.y + rlblKhuyenMai.size.height + KHOANG_CACH_GIUA_2_CONTROL;
         rViewNhapToken.origin.y = rViewThoiGianConLai.origin.y + rViewThoiGianConLai.size.height + KHOANG_CACH_GIUA_2_CONTROL;
         rectQC.origin.y = rViewNhapToken.origin.y + rViewNhapToken.size.height + 10;
+        NSLog(@"%s - %d : rViewMain.size.height : %f - %f - %f - %f", __FUNCTION__, __LINE__, rectQC.origin.x, rectQC.origin.y, rectQC.size.width, rectQC.size.height);
         rViewMain.size.height = rectQC.origin.y + rectQC.size.height + 10;
-        NSLog(@"%s : rViewMain.size.height : %f", __FUNCTION__, rViewMain.size.height);
+        NSLog(@"%s - %d : rViewMain.size.height : %f", __FUNCTION__, __LINE__, rViewMain.size.height);
         if (rViewMain.size.height < 550.0) {
-            rViewMain.size.height = 560.0;
+            rViewMain.size.height = 550.0;
+        } else {
+            rViewMain.size.height = 550.0;
         }
         self.mViewSoTien.frame = rViewSoTien;
         self.viewSoPhiVaKhuyenMai.frame = rlblKhuyenMai;
@@ -714,54 +643,8 @@ NSString *sCauLuuY = @"<b>Lưu ý:</b> Số điện thoại nhận thanh toán c
         self.mViewMain.frame = rViewMain;
 
         [self.mtfSoDienThoai setTextError:[@"so_dien_thoai_khong_dc_de_trong" localizableString] forType:ExTextFieldTypeEmpty];
-        [self.mscrv setContentSize:CGSizeMake(_mscrv.frame.size.width, rectQC.origin.y + rectQC.size.height + 60)];
+        [self.mscrv setContentSize:CGSizeMake(_mscrv.frame.size.width, rectQC.origin.y + rectQC.size.height + 10)];
     });
-
-//    NSLog(@"%s : rlblKhuyenMai.origin.y : %f", __FUNCTION__, rlblKhuyenMai.origin.y);
-//    if (rlblKhuyenMai.origin.y < 250) {
-//        if (rlblKhuyenMai.origin.y < 200) {
-//            rlblKhuyenMai.origin.y = 232;
-//            rViewThoiGianConLai.origin.y = rlblKhuyenMai.origin.y + rlblKhuyenMai.size.height + KHOANG_CACH_GIUA_2_CONTROL;
-//            rViewNhapToken.origin.y = rViewThoiGianConLai.origin.y + rViewThoiGianConLai.size.height + KHOANG_CACH_GIUA_2_CONTROL;
-//            self.mViewThoiGianConLai.frame = rViewThoiGianConLai;
-//            self.mViewNhapToken.frame = rViewNhapToken;
-//            self.viewSoPhiVaKhuyenMai.frame = rlblKhuyenMai;
-//        }
-//
-//        [self.mscrv setContentSize:CGSizeMake(_mscrv.frame.size.width, viewQC.frame.origin.y + viewQC.frame.size.height + 40)];
-//        if (!self.mViewSoLuong_Phi.hidden) {
-//            self.mViewSoLuong_Phi.hidden = YES;
-//            rViewSoTien.origin.y = rViewSoDienThoai_TraCuu.origin.y + rViewSoDienThoai_TraCuu.size.height + KHOANG_CACH_GIUA_2_CONTROL;
-//            self.mViewSoTien.frame = rViewSoTien;
-//        }
-//        return;
-//    }
-//
-//    rViewSoTien.origin.y = rViewSoDienThoai_TraCuu.origin.y + rViewSoDienThoai_TraCuu.size.height + KHOANG_CACH_GIUA_2_CONTROL;
-//    NSLog(@"%s - rViewSoTien.origin.y : %f", __FUNCTION__, rViewSoTien.origin.y);
-//
-//    rViewSoLuong_Phi.origin.y = rViewSoTien.origin.y + rViewSoTien.size.height + KHOANG_CACH_GIUA_2_CONTROL;
-//    rlblKhuyenMai.origin.y = rlblKhuyenMai.origin.y - rViewSoLuong_Phi.size.height + KHOANG_CACH_GIUA_2_CONTROL;
-//    rViewThoiGianConLai.origin.y = rlblKhuyenMai.origin.y + rlblKhuyenMai.size.height + KHOANG_CACH_GIUA_2_CONTROL;
-//    rViewNhapToken.origin.y = rViewThoiGianConLai.origin.y + rViewThoiGianConLai.size.height + KHOANG_CACH_GIUA_2_CONTROL;
-//
-//    CGRect rectQC = viewQC.frame;
-//    rectQC.origin.y = rViewNhapToken.origin.y + rViewNhapToken.size.height + 10;
-//    rViewMain.size.height = rectQC.origin.y + rectQC.size.height + 20;
-//    rViewMain.size.width = self.mscrv.frame.size.width - 20.0f;
-//    viewQC.frame = rectQC;
-//    self.mViewMain.frame = rViewMain;
-//    self.mViewSoDienThoai_TraCuu.frame = rViewSoDienThoai_TraCuu;
-//    self.mViewSoTien.frame = rViewSoTien;
-//    self.mViewSoLuong_Phi.frame = rViewSoLuong_Phi;
-//    self.viewSoPhiVaKhuyenMai.frame = rlblKhuyenMai;
-//    self.mViewThoiGianConLai.frame = rViewThoiGianConLai;
-//    self.mViewNhapToken.frame = rViewNhapToken;
-//
-//    self.mViewSoLuong.hidden = YES;
-//
-//    [self.mtfSoDienThoai setTextError:[@"so_dien_thoai_khong_dc_de_trong" localizableString] forType:ExTextFieldTypeEmpty];
-//    [self.mscrv setContentSize:CGSizeMake(_mscrv.frame.size.width, viewQC.frame.origin.y + viewQC.frame.size.height + 40)];
 }
 
 - (void)khoiTaoGiaoDienTheoKieuThanhToanDiDongTraSau
@@ -1356,6 +1239,9 @@ NSString *sCauLuuY = @"<b>Lưu ý:</b> Số điện thoại nhận thanh toán c
 
 - (IBAction)suKienChonNhaMangViettel:(id)sender
 {
+    if (self.mNhaMang == NHA_MANG_VIETTEL) {
+        return;
+    }
     self.mDoiTuongNotification = nil;
     self.mDoiTuongThanhToanCuocDienThoaiViettel = nil;
     self.mtbHienThiLuaChon.hidden = YES;
@@ -1366,6 +1252,9 @@ NSString *sCauLuuY = @"<b>Lưu ý:</b> Số điện thoại nhận thanh toán c
 
 - (IBAction)suKienChonNhaMangVina:(id)sender
 {
+    if (self.mNhaMang == NHA_MANG_VINA) {
+        return;
+    }
     self.mDoiTuongNotification = nil;
     self.mDoiTuongThanhToanCuocDienThoaiViettel = nil;
     self.mtbHienThiLuaChon.hidden = YES;
@@ -1376,6 +1265,9 @@ NSString *sCauLuuY = @"<b>Lưu ý:</b> Số điện thoại nhận thanh toán c
 
 - (IBAction)suKienChonNhaMangMobi:(id)sender
 {
+    if (self.mNhaMang == NHA_MANG_MOBI) {
+        return;
+    }
     self.mDoiTuongNotification = nil;
     self.mDoiTuongThanhToanCuocDienThoaiViettel = nil;
     self.mtbHienThiLuaChon.hidden = YES;
@@ -1386,6 +1278,9 @@ NSString *sCauLuuY = @"<b>Lưu ý:</b> Số điện thoại nhận thanh toán c
 
 - (IBAction)suKienChonNhaMangKhac:(id)sender
 {
+    if (self.mNhaMang == NHA_MANG_VIETNAMMOBILE) {
+        return;
+    }
     self.mDoiTuongNotification = nil;
     self.mDoiTuongThanhToanCuocDienThoaiViettel = nil;
     CGRect rViewMain = self.mViewMain.frame;

@@ -29,7 +29,6 @@
     NSLog(@"%s - _mItemQuaTang.mAmount.content : %@", __FUNCTION__, _mItemQuaTang.mAmount.content);
     NSString *urlImage = [NSString stringWithFormat:@"https://vimass.vn/vmbank/services/media/getImage?id=%@", _mItemQuaTang.mImage];
     [self.mimgvHienThi setImageWithURL:[NSURL URLWithString:urlImage]];
-    
     //set view qua tang
     self.mlblTieuDe.text = _mItemQuaTang.mName.content;
     self.mlblTieuDe.textColor = [UIColor colorWithHexString:_mItemQuaTang.mName.color];

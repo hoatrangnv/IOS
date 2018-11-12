@@ -110,6 +110,7 @@
         
         UIViewController *viewControllerGoc = [self viewController];
         DucNT_ViewOTPConfirm *view = [[DucNT_ViewOTPConfirm alloc] initwithNib];
+        view.frame = CGRectMake(0, 0, viewControllerGoc.view.frame.size.width, viewControllerGoc.view.frame.size.height);
         NSString *sPhone = edtID.text;
         [view khoiTaoThamSoToken:KIEU_OTP_QUEN_MAT_KHAU_TOKEN withSeedStart:sResult withPhone:sPhone withPass:edtMatKhauMoi.text];
         [viewControllerGoc.view addSubview:view];

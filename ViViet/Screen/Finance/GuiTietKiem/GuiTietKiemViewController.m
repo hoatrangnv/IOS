@@ -108,12 +108,12 @@ typedef enum : NSUInteger {
         CGRect rectQC = viewQC.frame;
         CGRect rectMain = self.mViewMain.frame;
         CGFloat fW = rectMain.size.width;
-        CGFloat fH = rectQC.size.height * ((rectMain.size.width) / rectQC.size.width);
+        CGFloat fH = fW * 0.46;
         rectQC.origin.y = rectToken.origin.y + rectToken.size.height + 15;
         viewQC.frame = CGRectMake(0, rectQC.origin.y, fW, fH);
         viewQC.mDelegate = self;
         [viewQC updateSizeQuangCao];
-        rectMain.size.height = rectQC.origin.y + rectQC.size.height + 70;
+        rectMain.size.height = rectQC.origin.y + rectQC.size.height;
         self.mViewMain.frame = rectMain;
         [self.mViewMain addSubview:viewQC];
         [self.mScrvHienThi setContentSize:CGSizeMake(_mScrvHienThi.frame.size.width, viewQC.frame.origin.y + viewQC.frame.size.height + self.viewOptionTop.frame.size.height + 30)];
@@ -224,6 +224,8 @@ typedef enum : NSUInteger {
 
 - (void)khoiTaoGiaoDien
 {
+    [self.viewOptionTop setHidden:YES];
+    
     [_mtfSoTien setPlaceholder:[@"so_tien_dong" localizableString]];
     [_mtfSoTien setTextError:[@"so_tien_khong_duoc_de_trong" localizableString] forType:ExTextFieldTypeEmpty];
     [_mtfSoTien setType:ExTextFieldTypeMoney];
@@ -258,7 +260,7 @@ typedef enum : NSUInteger {
     CGRect rButtonVanTay = self.mbtnVanTay.frame;
     float fHeight = 0;
     float fWidth = _mScrvHienThi.frame.size.width;
-    rViewMain = CGRectMake(10, self.viewOptionTop.frame.origin.x + self.viewOptionTop.frame.size.height - 15, _mScrvHienThi.frame.size.width - 20, rViewMain.size.height);
+    rViewMain = CGRectMake(5, 5, _mScrvHienThi.frame.size.width - 10, rViewMain.size.height);
     fHeight = rViewMain.origin.y + rViewMain.size.height;
     
     if([self kiemTraCoChucNangQuetVanTay])

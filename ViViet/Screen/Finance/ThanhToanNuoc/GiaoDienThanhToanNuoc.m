@@ -101,21 +101,23 @@ static NSString *cssHoaDon = @"<div><b>Hoá đơn %d:</b><br />Số hoá đơn: 
 }
 
 - (void)khoiTaoQuangCao {
-    viewQC = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([ViewQuangCao class]) owner:self options:nil] objectAtIndex:0];
-    viewQC.mDelegate = self;
-    CGRect rectToken = self.btnTraCuu.frame;
-    CGRect rectQC = viewQC.frame;
-    CGRect rectMain = self.mViewMain.frame;
-
-    CGFloat fW = rectMain.size.width;
-    CGFloat fH = rectQC.size.height * ((rectMain.size.width) / rectQC.size.width);
-    rectQC.origin.y = rectToken.origin.y + rectToken.size.height + 15;
-    viewQC.frame = CGRectMake(0, rectQC.origin.y, fW, fH);
-    viewQC.mDelegate = self;
-    [viewQC updateSizeQuangCao];
-    rectMain.size.height = rectQC.origin.y + rectQC.size.height + 50;
-    self.mViewMain.frame = rectMain;
-    [self.mViewMain addSubview:viewQC];
+    if (viewQC == nil) {
+        viewQC = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([ViewQuangCao class]) owner:self options:nil] objectAtIndex:0];
+        viewQC.mDelegate = self;
+        CGRect rectToken = self.btnTraCuu.frame;
+        CGRect rectQC = viewQC.frame;
+        CGRect rectMain = self.mViewMain.frame;
+        
+        CGFloat fW = rectMain.size.width;
+        CGFloat fH = fW * 0.45333;
+        rectQC.origin.y = rectToken.origin.y + rectToken.size.height + 15;
+        viewQC.frame = CGRectMake(0, rectQC.origin.y, fW, fH);
+        viewQC.mDelegate = self;
+        [viewQC updateSizeQuangCao];
+        rectMain.size.height = rectQC.origin.y + rectQC.size.height;
+        self.mViewMain.frame = rectMain;
+        [self.mViewMain addSubview:viewQC];
+    }
 }
 
 - (void)suKienBamNutHuongDanGiaoDichViewController:(UIButton *)sender {
@@ -463,7 +465,7 @@ static NSString *cssHoaDon = @"<div><b>Hoá đơn %d:</b><br />Số hoá đơn: 
 }
 
 - (void)dealloc {
-    [viewQC dungChayQuangCao];
+    [viewQC release];
     [_edChonNhaMay release];
     [_edMaKH release];
     if (_mDoiTuongNotification) {

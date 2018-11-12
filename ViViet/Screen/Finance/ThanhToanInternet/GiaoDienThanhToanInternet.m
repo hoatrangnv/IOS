@@ -84,12 +84,12 @@ const int NHA_CUNG_CAP_INTERNET_CMC = 6;
         CGRect rectMain = self.viewMain.frame;
 
         CGFloat fW = rectMain.size.width;
-        CGFloat fH = rectQC.size.height * ((rectMain.size.width) / rectQC.size.width);
-        rectQC.origin.y = rectToken.origin.y + rectToken.size.height + 15;
+        CGFloat fH = fW * 0.45333;
+        rectQC.origin.y = rectToken.origin.y + rectToken.size.height + 15.0;
         viewQC.frame = CGRectMake(0, rectQC.origin.y, fW, fH);
         viewQC.mDelegate = self;
         [viewQC updateSizeQuangCao];
-        rectMain.size.height = rectQC.origin.y + rectQC.size.height + 50;
+        rectMain.size.height = rectQC.origin.y + rectQC.size.height;
         self.viewMain.frame = rectMain;
         [self.viewMain addSubview:viewQC];
     }
@@ -427,7 +427,7 @@ const int NHA_CUNG_CAP_INTERNET_CMC = 6;
 }
 
 - (void)dealloc {
-//    [viewQC release];
+    [viewQC release];
     [_viewMain release];
     [_btnVNPT release];
     [_btnFPT release];

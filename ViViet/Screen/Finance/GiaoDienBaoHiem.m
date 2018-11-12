@@ -49,6 +49,8 @@
     _tfLoaiBaoHiem.inputAccessoryView = toolBar;
     _tfLoaiBaoHiem.inputView = pickerChonRap;
     [pickerChonRap release];
+    
+    [self.tvNoiDung resignFirstResponder];
 }
 
 - (void)khoiTaoQuangCao {
@@ -62,12 +64,12 @@
     CGRect rectMain = self.mViewMain.frame;
     rectQC.origin.x += 2;
     CGFloat fW = rectMain.size.width;
-    CGFloat fH = rectQC.size.height * ((rectMain.size.width) / rectQC.size.width);
-    rectQC.origin.y = rectToken.origin.y + rectToken.size.height + 15;
+    CGFloat fH = fW * 0.45333;
+    rectQC.origin.y = rectToken.origin.y + rectToken.size.height;
     viewQC.frame = CGRectMake(0, rectQC.origin.y, fW, fH);
     viewQC.mDelegate = self;
     [viewQC updateSizeQuangCao];
-    rectMain.size.height = rectQC.origin.y + rectQC.size.height + 50;
+    rectMain.size.height = rectQC.origin.y + rectQC.size.height;
     self.mViewMain.frame = rectMain;
     [self.mViewMain addSubview:viewQC];
     [self.scrMain setContentSize:CGSizeMake(_scrMain.frame.size.width, rectMain.origin.y + rectMain.size.height + self.viewOptionTop.frame.origin.y + self.viewOptionTop.frame.size.height + 50)];
@@ -131,6 +133,7 @@
 }
 
 - (void)dealloc {
+    [viewQC release];
     [_tfLoaiBaoHiem release];
     [_tfMaKhachHang release];
     [_tfTenKhachHang release];

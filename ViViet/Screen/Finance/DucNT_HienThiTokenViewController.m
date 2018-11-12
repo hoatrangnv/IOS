@@ -43,7 +43,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self addButtonBack];
+//    [self showBackButton];
     [self addTitleView:[@"title_6_so_token" localizableString]];
 //    [self khoiTaoButtonSetting];
     [self addButtonHuongDan];
@@ -54,6 +54,17 @@
     viewSetting.hidden = YES;
 }
 
+- (void)showBackButton {
+    UIBarButtonItem *btnBack = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style:UIBarButtonItemStyleDone target:self action:@selector(suKienChonBack:)];
+    btnBack.imageInsets = UIEdgeInsetsMake(0, -10.0, 0, 0);
+    self.navigationItem.leftBarButtonItem = btnBack;
+}
+
+- (void)suKienChonBack:(UIBarButtonItem *)sender {
+    NSLog(@"%s - click click", __FUNCTION__);
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+}
+                                
 - (void)suKienClickSetting {
 //    [self.view bringSubviewToFront:viewSetting];
 //    if(!viewSetting.isHidden)
