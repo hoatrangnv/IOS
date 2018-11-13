@@ -435,6 +435,9 @@
 {
     [UIAlertView alert:[@"thong_bao_xac_thuc_van_tay_khong_dung" localizableString] withTitle:[@"thong_bao" localizableString] block:nil];
 }
+- (void)huyXacThucVanTay {
+    [footer doToken:self];
+}
 #pragma mark - xuLyTimer
 - (void)batDauDemThoiGian
 {

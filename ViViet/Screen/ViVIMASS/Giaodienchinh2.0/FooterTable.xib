@@ -83,20 +83,12 @@
                                         <constraint firstAttribute="trailing" secondItem="y3g-In-Bed" secondAttribute="trailing" constant="8" id="rq2-fO-sgs"/>
                                     </constraints>
                                 </view>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nh5-i4-Jtc">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ICk-hu-rHL">
                                     <rect key="frame" x="16" y="115" width="44" height="44"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="44" id="dPD-nD-wh2"/>
-                                        <constraint firstAttribute="height" constant="44" id="iPs-qI-cue"/>
+                                        <constraint firstAttribute="height" constant="44" id="Ib2-1D-kaf"/>
+                                        <constraint firstAttribute="width" constant="44" id="eXl-7c-ffw"/>
                                     </constraints>
-                                    <state key="normal" image="sms"/>
-                                    <state key="selected" image="smsv"/>
-                                    <connections>
-                                        <action selector="doSMS:" destination="iN0-l3-epB" eventType="touchUpInside" id="gnG-vt-2lo"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ICk-hu-rHL">
-                                    <rect key="frame" x="97" y="115" width="44" height="44"/>
                                     <state key="normal" title="Button" image="token"/>
                                     <state key="selected" image="tokenv"/>
                                     <connections>
@@ -104,7 +96,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9bq-CO-eyT">
-                                    <rect key="frame" x="180" y="115" width="44" height="44"/>
+                                    <rect key="frame" x="100" y="115" width="44" height="44"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="44" id="Zoe-AF-ZpZ"/>
                                     </constraints>
@@ -154,12 +146,10 @@
                             <constraints>
                                 <constraint firstItem="kGJ-t7-mmV" firstAttribute="centerY" secondItem="GCe-X3-Kfv" secondAttribute="centerY" id="23i-K4-cIa"/>
                                 <constraint firstItem="Zos-cR-uo8" firstAttribute="top" secondItem="7hj-mR-vXH" secondAttribute="top" constant="6" id="BES-kg-ezB"/>
-                                <constraint firstItem="ICk-hu-rHL" firstAttribute="leading" secondItem="Nh5-i4-Jtc" secondAttribute="trailing" constant="37" id="DV1-sM-hKK"/>
                                 <constraint firstAttribute="trailing" secondItem="GSt-eb-CYa" secondAttribute="trailing" constant="8" id="EMZ-EO-Y66"/>
                                 <constraint firstItem="GCe-X3-Kfv" firstAttribute="leading" secondItem="7hj-mR-vXH" secondAttribute="leading" constant="16" id="Fzd-Y5-SUa"/>
-                                <constraint firstItem="Nh5-i4-Jtc" firstAttribute="top" secondItem="oE0-Gb-hrN" secondAttribute="bottom" constant="4" id="JgO-A8-rvV"/>
                                 <constraint firstAttribute="trailing" secondItem="Zos-cR-uo8" secondAttribute="trailing" constant="8" id="Jsy-QN-a5o"/>
-                                <constraint firstItem="9bq-CO-eyT" firstAttribute="leading" secondItem="7hj-mR-vXH" secondAttribute="leading" constant="180" id="Kpz-ow-9ZU"/>
+                                <constraint firstItem="9bq-CO-eyT" firstAttribute="leading" secondItem="7hj-mR-vXH" secondAttribute="leading" constant="100" id="Kpz-ow-9ZU"/>
                                 <constraint firstItem="kGJ-t7-mmV" firstAttribute="leading" secondItem="GCe-X3-Kfv" secondAttribute="trailing" constant="15" id="LDm-Cc-KKG"/>
                                 <constraint firstItem="nGL-bV-QPm" firstAttribute="leading" secondItem="7hj-mR-vXH" secondAttribute="leading" constant="16" id="Lpm-Ft-u2j"/>
                                 <constraint firstItem="Zos-cR-uo8" firstAttribute="leading" secondItem="7hj-mR-vXH" secondAttribute="leading" constant="8" id="RIg-Lk-OcE"/>
@@ -167,15 +157,13 @@
                                 <constraint firstItem="GSt-eb-CYa" firstAttribute="top" secondItem="7hj-mR-vXH" secondAttribute="top" constant="6" id="S38-HO-0hU"/>
                                 <constraint firstItem="9bq-CO-eyT" firstAttribute="height" secondItem="ICk-hu-rHL" secondAttribute="height" id="SZw-Do-Y7v"/>
                                 <constraint firstItem="kGJ-t7-mmV" firstAttribute="height" secondItem="GCe-X3-Kfv" secondAttribute="height" id="VdX-ff-3DO"/>
-                                <constraint firstItem="GCe-X3-Kfv" firstAttribute="top" secondItem="Nh5-i4-Jtc" secondAttribute="bottom" constant="10" id="VjH-rH-jug"/>
                                 <constraint firstItem="oE0-Gb-hrN" firstAttribute="top" secondItem="Zos-cR-uo8" secondAttribute="bottom" constant="1" id="ZE4-L8-ree"/>
                                 <constraint firstItem="9bq-CO-eyT" firstAttribute="top" secondItem="oE0-Gb-hrN" secondAttribute="bottom" constant="4" id="ZZb-Ek-gCV"/>
-                                <constraint firstItem="ICk-hu-rHL" firstAttribute="height" secondItem="Nh5-i4-Jtc" secondAttribute="height" id="bX4-eV-2Ny"/>
-                                <constraint firstItem="ICk-hu-rHL" firstAttribute="width" secondItem="Nh5-i4-Jtc" secondAttribute="width" id="biN-it-thm"/>
-                                <constraint firstItem="Nh5-i4-Jtc" firstAttribute="leading" secondItem="7hj-mR-vXH" secondAttribute="leading" constant="16" id="fzZ-aA-DuJ"/>
                                 <constraint firstItem="GSt-eb-CYa" firstAttribute="leading" secondItem="7hj-mR-vXH" secondAttribute="leading" constant="8" id="g2k-x3-19q"/>
                                 <constraint firstAttribute="trailing" secondItem="WeB-ai-O6g" secondAttribute="trailing" constant="201" id="jxH-ie-eyr"/>
+                                <constraint firstItem="ICk-hu-rHL" firstAttribute="leading" secondItem="7hj-mR-vXH" secondAttribute="leading" constant="16" id="lcU-G1-8u2"/>
                                 <constraint firstItem="WeB-ai-O6g" firstAttribute="leading" secondItem="nGL-bV-QPm" secondAttribute="trailing" constant="8" id="nMD-Lk-NU6"/>
+                                <constraint firstItem="GCe-X3-Kfv" firstAttribute="top" secondItem="ICk-hu-rHL" secondAttribute="bottom" constant="10" id="ovx-T3-bvR"/>
                                 <constraint firstItem="oE0-Gb-hrN" firstAttribute="trailing" secondItem="7hj-mR-vXH" secondAttribute="trailing" id="pub-08-mYC"/>
                                 <constraint firstItem="WeB-ai-O6g" firstAttribute="centerY" secondItem="nGL-bV-QPm" secondAttribute="centerY" id="qgE-uh-ptA"/>
                                 <constraint firstItem="oE0-Gb-hrN" firstAttribute="leading" secondItem="7hj-mR-vXH" secondAttribute="leading" id="uyD-Nj-cll"/>
@@ -204,7 +192,6 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="Hs3-ij-JB6"/>
             <connections>
-                <outlet property="btnSMS" destination="Nh5-i4-Jtc" id="avK-lI-J6w"/>
                 <outlet property="btnThucHien" destination="kGJ-t7-mmV" id="pza-Na-eoo"/>
                 <outlet property="btnToken" destination="ICk-hu-rHL" id="uIW-GY-b6V"/>
                 <outlet property="btnVanTay" destination="9bq-CO-eyT" id="xa1-LO-tIB"/>
@@ -224,8 +211,6 @@
         <image name="bg_button.png" width="215" height="56"/>
         <image name="finger" width="225" height="225"/>
         <image name="fingerv" width="120" height="120"/>
-        <image name="sms" width="225" height="225"/>
-        <image name="smsv" width="120" height="120"/>
         <image name="token" width="225" height="225"/>
         <image name="tokenv" width="120" height="120"/>
     </resources>
