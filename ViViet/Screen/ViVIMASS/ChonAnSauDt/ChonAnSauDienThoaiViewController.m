@@ -8,6 +8,8 @@
 {
     NSMutableArray * danhsach;
     NSMutableArray * selected;
+    NSString * mkToken;
+    int typeReques;//0 - loaddata , 1 - register
 }
 @property (retain, nonatomic) IBOutlet UITableView *tbvDanhsach;
 
@@ -26,6 +28,7 @@
     [self setButtonRightNav];
     [self getDanhsach];
     _tbvDanhsach.tableFooterView = [UIView new];
+    self.navigationItem.title = @"Chọn ví,thẻ,tk ẩn sau điện thoại";
 }
 
 - (void)didReceiveMemoryWarning {
@@ -55,16 +58,25 @@
     {
         ChonAnSauDtTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
         cell.delegate = self;
-        NSDictionary * dic = [danhsach objectAtIndex:indexPath.row];
-        cell.lblTitle.text = [dic objectForKey:@"maNganHang"];
-        [cell.btnSelect setSelected:[selected containsObject:cell.lblTitle.text]];
-        cell.backgroundColor = [selected containsObject:cell.lblTitle.text] ? [UIColor colorWithRed:168.0/255.0 green:200.0/255.0 blue:193.0/255.0 alpha:1.0] : [UIColor whiteColor];
+        NSDictionary * dic = danhsach[indexPath.row];
+        [cell setDataForCell:dic];
+        [cell dataSelected:[selected containsObject:dic]];
         return cell;
 
     }
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self.view endEditing:YES];
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (danhsach.count > 0) {
+        if (indexPath.row == [tableView numberOfRowsInSection:0] - 1) {
+            return 112;
+        } else {
+            return 75;
+        }
+    }
+    return 0;
 }
 - (void)dealloc {
     [_tbvDanhsach release];
@@ -101,6 +113,8 @@
         [UIAlertView alert:@"Vui lòng nhập mật khẩu " withTitle:[@"thong_bao" localizableString] block:nil];
         return;
     }
+    mkToken = token;
+    [self xuLySuKienXacThucVanTayThanhCong];
 }
 - (void)huyXacThucVanTay {
     ActionTableViewCell * cell = [_tbvDanhsach cellForRowAtIndexPath:[NSIndexPath indexPathForRow:[_tbvDanhsach numberOfRowsInSection:0] - 1 inSection:0]];
@@ -108,7 +122,30 @@
 }
 
 - (void)xuLySuKienXacThucVanTayThanhCong {
+    typeReques = 1;
+    NSString *user = [DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_ID_TEMP];
+    NSString *sToken = @"";
+    NSString *sMatKhau = mkToken;
+    sMatKhau = [DucNT_Token layMatKhauVanTayToken];
     
+    NSString *sSeed = [DucNT_Token laySeedTokenHienTai];
+    sToken = [DucNT_Token OTPFromPIN:sMatKhau seed:sSeed];
+
+    NSDictionary *dictPost = @{
+                               @"user" : user,
+                               @"token" : sToken,
+                               @"otpConfirm" : @"",
+                               @"typeAuthenticate" : [NSNumber numberWithInt:self.mTypeAuthenticate],
+                               @"appId" : [NSNumber numberWithInt:APP_ID]
+                               };
+
+    NSString *sPost = [dictPost JSONString];
+    NSLog(@"%s - sPost : %@", __FUNCTION__, sPost);
+    DucNT_ServicePost *connect = [[DucNT_ServicePost alloc] init];
+    [connect setDucnt_connectDelegate:self];
+    [connect connect:@"https://vimass.vn/vmbank/services/danhBa/dangKyDuLieu" withContent:sPost];
+    [connect release];
+
 }
 
 #pragma mark - call api
@@ -141,23 +178,22 @@
         UIAlertView *alertView = [[[UIAlertView alloc] initWithTitle:[@"thong_bao" localizableString] message:sThongBao delegate:self cancelButtonTitle:[@"dong" localizableString] otherButtonTitles:nil, nil] autorelease];
         [alertView show];
     } else {
-        NSArray *result = [dicKQ objectForKey:@"result"];
-        for (NSDictionary * dic in result) {
-            NSString * mangangang = [dic objectForKey:@"maNganHang"];
-            if (mangangang.length > 0) {
-                [danhsach addObject:dic];
+        if (typeReques == 0) {
+            NSArray *result = [dicKQ objectForKey:@"result"];
+            [danhsach addObjectsFromArray:result];
+            for (NSDictionary * dic in result) {
+                if ([dic[@"isSelect"] boolValue] == YES) {
+                    [selected addObject:dic];
+                }
             }
+            [_tbvDanhsach reloadData];
         }
-        [_tbvDanhsach reloadData];
     }
 }
 #pragma mark - ChonAnSauDtTableViewCellDelegate
--(void)actionSelect:(ChonAnSauDtTableViewCell *)cell {
-    if ([selected containsObject:cell.lblTitle.text]) {
-        [selected removeObject:cell.lblTitle.text];
-    } else {
-        [selected addObject:cell.lblTitle.text];
-    }
+-(void)actionSelect:(NSDictionary*)dicData {
+    [selected removeAllObjects];
+    [selected addObject:dicData];
     [_tbvDanhsach reloadData];
 }
 @end

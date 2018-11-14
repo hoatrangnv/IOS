@@ -120,8 +120,12 @@
         [self displayContentController:self.dienthoaiVC];
     }
     else{
-        [self hideContentController:self.dienthoaiVC];
+        
         if(app.selectedTab == 0){
+            if (self.dienthoaiVC.view.superview) {
+                return;
+            }
+            [self hideContentController:self.dienthoaiVC];
             [self displayContentController:self.nganhangVC];
         }
         else if(app.selectedTab == 1){

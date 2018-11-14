@@ -37,6 +37,9 @@
     return NO;
 }
 -(void)setupView {
+    if (_btnToken.isSelected || _btnVantay.isSelected) {
+        return;
+    }
     if ([self kiemTraCoChucNangQuetVanTay]){
         self.btnToken.hidden = true;
         self.btnThuchien.hidden = true;
