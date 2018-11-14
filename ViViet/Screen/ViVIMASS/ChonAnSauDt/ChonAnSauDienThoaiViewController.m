@@ -130,13 +130,15 @@
     
     NSString *sSeed = [DucNT_Token laySeedTokenHienTai];
     sToken = [DucNT_Token OTPFromPIN:sMatKhau seed:sSeed];
-
+    NSDictionary * dic = [selected firstObject];
     NSDictionary *dictPost = @{
                                @"user" : user,
                                @"token" : sToken,
                                @"otpConfirm" : @"",
                                @"typeAuthenticate" : [NSNumber numberWithInt:self.mTypeAuthenticate],
-                               @"appId" : [NSNumber numberWithInt:APP_ID]
+                               @"appId" : [NSNumber numberWithInt:APP_ID],
+                               @"loaiMapping": [dic objectForKey:@"loaiMapping"],
+                               @"idMapping": [dic objectForKey:@"idMapping"]
                                };
 
     NSString *sPost = [dictPost JSONString];
