@@ -10,6 +10,9 @@
     NSMutableArray * selected;
     NSString * mkToken;
     int typeReques;//0 - loaddata , 1 - register
+    BOOL isShowKeyBoard;
+    CGSize keyboardSize;
+    CGRect rectTable;
 }
 @property (retain, nonatomic) IBOutlet UITableView *tbvDanhsach;
 
@@ -29,8 +32,10 @@
     [self getDanhsach];
     _tbvDanhsach.tableFooterView = [UIView new];
     self.navigationItem.title = @"Chọn ví,thẻ,tk ẩn sau điện thoại";
+    isShowKeyBoard = false;
 }
-
+-(void)viewWillAppear:(BOOL)animated{
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
@@ -83,8 +88,8 @@
     [super dealloc];
 }
 - (void)keyboardDidShow:(NSNotification *)notification{
-    CGSize keyboardSize = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
-    CGRect rectTable = _tbvDanhsach.frame;
+    keyboardSize = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
+    rectTable = _tbvDanhsach.frame;
     if ((_tbvDanhsach.contentSize.height - keyboardSize.height) > 0) {
         CGFloat margin = rectTable.size.height -  keyboardSize.height;
         rectTable.size.height = margin;
@@ -92,7 +97,7 @@
     }
 }
 -(void)keyboardDidHide:(NSNotification *)notification{
-
+    _tbvDanhsach.frame = self.view.bounds;
 }
 #pragma mark - ActionTableViewCellDelegate
 - (void)actionVantay {
