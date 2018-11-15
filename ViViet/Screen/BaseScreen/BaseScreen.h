@@ -92,6 +92,7 @@
 - (void)xuLySuKienHienThiChucNangVanTayVoiTieuDe:(NSString*)sTieuDe;
 - (void)xuLySuKienHienThiChucNangDangNhapVanTayVoiTieuDe:(NSString*)sTieuDe;
 - (void)xuLySuKienXacThucVanTayThanhCong;
+- (void)huyXacThucVanTay;
 
 //@property (nonatomic, readonly) LoadingTitleView *title_view;
 

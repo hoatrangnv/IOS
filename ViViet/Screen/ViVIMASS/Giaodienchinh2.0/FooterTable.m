@@ -57,7 +57,6 @@
     int type = (int)[notification object];
     if(type == 1){
         self.txtOtp.hidden = false;
-        self.btnSMS.hidden = false;
         self.btnToken.hidden = false;
         self.lbTime.hidden = false;
         self.lbCountTime.hidden = false;
@@ -66,7 +65,6 @@
     }
     else{
         self.txtOtp.hidden = false;
-        self.btnSMS.hidden = false;
         self.btnToken.hidden = false;
         self.lbTime.hidden = true;
         self.lbCountTime.hidden = true;
@@ -79,7 +77,6 @@
     [_txtNoiDung release];
     [_lbTongTien release];
     [_lbTongPhi release];
-    [_btnSMS release];
     [_btnToken release];
     [_btnVanTay release];
     [_txtOtp release];
@@ -93,7 +90,6 @@
 -(void)setupView{
     
     if ([self kiemTraCoChucNangQuetVanTay]){
-        self.btnSMS.hidden = true;
         self.btnToken.hidden = true;
         self.lbTime.hidden = true;
         self.lbCountTime.hidden = true;
@@ -103,7 +99,6 @@
 //        [self layoutIfNeeded];
     }
     else{
-        self.btnSMS.hidden = false;
         self.btnToken.hidden = false;
         self.btnVanTay.hidden = false;
         self.txtOtp.hidden = true;
@@ -115,9 +110,7 @@
 - (IBAction)doToken:(id)sender {
     [self.btnToken setSelected:YES];
     [self.btnToken setBackgroundImage:[UIImage imageNamed:@"tokenv"] forState:UIControlStateSelected];
-     [self.btnSMS setSelected:NO];
      [self.btnVanTay setSelected:NO];
-    self.btnSMS.hidden = false;
     self.btnToken.hidden = false;
     [self.delegate doToken];
 }
@@ -126,22 +119,9 @@
     [self.delegate doThucHien];
 }
 
-- (IBAction)doSMS:(id)sender {
-    [self.btnSMS setSelected:YES];
-    [self.btnSMS setBackgroundImage:[UIImage imageNamed:@"smsv"] forState:UIControlStateSelected];
-    [self.btnToken setSelected:NO];
-    [self.btnVanTay setSelected:NO];
-    self.txtOtp.hidden = true;
-    self.lbTime.hidden = true;
-    self.lbCountTime.hidden = true;
-    self.btnThucHien.hidden = true;
-
-    [self.delegate doSMS];
-}
 - (IBAction)doVantay:(id)sender {
     [self.btnVanTay setSelected:YES];
     [self.btnVanTay setBackgroundImage:[UIImage imageNamed:@"fingerv"] forState:UIControlStateSelected];
-    [self.btnSMS setSelected:NO];
     [self.btnToken setSelected:NO];
     self.txtOtp.hidden = true;
     self.lbTime.hidden = true;

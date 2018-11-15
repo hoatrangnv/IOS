@@ -673,6 +673,8 @@
                         [RoundAlert hide];
                         if(error.code == LAErrorAuthenticationFailed) {
                             [weakSelf hienThiThongBaoDienMatKhau];
+                        } else if (error.code == LAErrorUserCancel) {
+                            [weakSelf huyXacThucVanTay];
                         }
                     });
                 } else if (success) {
@@ -758,7 +760,9 @@
 {
     
 }
-
+- (void)huyXacThucVanTay {
+    
+}
 #pragma mark - su kien nhan notification
 -(void)didReceiveRemoteNotification:(NSDictionary *)Info
 {
