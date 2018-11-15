@@ -48,6 +48,7 @@
 #import "UIButton+WebCache.h"
 #import "DucNT_ChuyenTienViDenViViewController.h"
 #import "CommonUtils.h"
+#import "ChonAnSauDienThoaiViewController.h"
 @interface HomeCenterViewController ()<UIActionSheetDelegate, QRCodeReaderDelegate,RowSelectDelegate,ViewNavigationGiaoDienChinhDelegate>{
     ViewNavigationGiaoDienChinh *mViewNavigationGiaoDienChinh;
     NSString *keyPin;
@@ -120,8 +121,12 @@
         [self displayContentController:self.dienthoaiVC];
     }
     else{
-        [self hideContentController:self.dienthoaiVC];
+        
         if(app.selectedTab == 0){
+            if (self.dienthoaiVC.view.superview) {
+                return;
+            }
+            [self hideContentController:self.dienthoaiVC];
             [self displayContentController:self.nganhangVC];
         }
         else if(app.selectedTab == 1){
@@ -894,7 +899,11 @@
                 break;
             case 2:{
                 // chon vi tk an sau dt
+                ChonAnSauDienThoaiViewController * vc = [[ChonAnSauDienThoaiViewController alloc] initWithNibName:@"ChonAnSauDienThoaiViewController" bundle:nil];
+                [self.navigationController pushViewController:vc animated:YES];
+                [vc release];
             }
+                break;
             case 3:{
                 // chuyen tien dt
                 
