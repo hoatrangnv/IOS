@@ -938,7 +938,7 @@
 }
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     float cellWidth = ([[UIScreen mainScreen] bounds].size.width/4.0) - 1;
-    float cellHeigh = (collectionView.frame.size.height/5.0);
+    float cellHeigh = (collectionView.frame.size.height/4.0);
     return CGSizeMake(cellWidth , cellHeigh);
 }
 

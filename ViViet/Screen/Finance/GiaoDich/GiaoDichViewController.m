@@ -64,6 +64,7 @@
     }
     
     self.bHienViewXacThuc = NO;
+    [self.mbtnVanTay setImage:[UIImage imageNamed:@"finger-ngang"] forState:UIControlStateNormal];
 }
 
 - (void)addTitleView:(NSString *)sTitle {
@@ -203,6 +204,8 @@
 - (void)khoiTaoGiaoDienChuyenTien
 {
     NSLog(@"%s =========================> 1", __FUNCTION__);
+    
+    [self.mbtnVanTay setImage:[UIImage imageNamed:@"finger"] forState:UIControlStateNormal];
     
     [self.mbtnToken setTitle:@"TOKEN" forState:UIControlStateNormal];
     [self.mbtnToken setBackgroundImage:[UIImage imageNamed:@"bg-nuttrang"] forState:UIControlStateNormal];
