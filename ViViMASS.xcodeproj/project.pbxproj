@@ -1442,6 +1442,12 @@
 		CD45A2622190AD9B005ACD86 /* ic_search.png in Resources */ = {isa = PBXBuildFile; fileRef = CD45A2572190AD9A005ACD86 /* ic_search.png */; };
 		CD45A2632190AD9B005ACD86 /* ic_select.png in Resources */ = {isa = PBXBuildFile; fileRef = CD45A2582190AD9A005ACD86 /* ic_select.png */; };
 		CD6C5491219737EE00C88DFB /* icon-edit24x24.png in Resources */ = {isa = PBXBuildFile; fileRef = CD6C5490219737EE00C88DFB /* icon-edit24x24.png */; };
+		CDB789F1219B2BD30094D040 /* ChonAnSauDienThoaiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB789EF219B2BD30094D040 /* ChonAnSauDienThoaiViewController.m */; };
+		CDB789F2219B2BD30094D040 /* ChonAnSauDienThoaiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDB789F0219B2BD30094D040 /* ChonAnSauDienThoaiViewController.xib */; };
+		CDB789F6219B2CB10094D040 /* ChonAnSauDtTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB789F4219B2CB10094D040 /* ChonAnSauDtTableViewCell.m */; };
+		CDB789F7219B2CB10094D040 /* ChonAnSauDtTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDB789F5219B2CB10094D040 /* ChonAnSauDtTableViewCell.xib */; };
+		CDB789FB219B30740094D040 /* ActionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB789F9219B30740094D040 /* ActionTableViewCell.m */; };
+		CDB789FC219B30740094D040 /* ActionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDB789FA219B30740094D040 /* ActionTableViewCell.xib */; };
 		CDE6817721932DF70030226D /* DanhsachsotayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE6817521932DF70030226D /* DanhsachsotayViewController.m */; };
 		CDE6817821932DF70030226D /* DanhsachsotayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDE6817621932DF70030226D /* DanhsachsotayViewController.xib */; };
 		CDE6817D21932E3E0030226D /* SotaydienthoaiTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE6817B21932E3E0030226D /* SotaydienthoaiTableViewCell.m */; };
@@ -3368,6 +3374,15 @@
 		CD45A2572190AD9A005ACD86 /* ic_search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_search.png; sourceTree = "<group>"; };
 		CD45A2582190AD9A005ACD86 /* ic_select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_select.png; sourceTree = "<group>"; };
 		CD6C5490219737EE00C88DFB /* icon-edit24x24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-edit24x24.png"; sourceTree = "<group>"; };
+		CDB789EE219B2BD30094D040 /* ChonAnSauDienThoaiViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChonAnSauDienThoaiViewController.h; sourceTree = "<group>"; };
+		CDB789EF219B2BD30094D040 /* ChonAnSauDienThoaiViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChonAnSauDienThoaiViewController.m; sourceTree = "<group>"; };
+		CDB789F0219B2BD30094D040 /* ChonAnSauDienThoaiViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChonAnSauDienThoaiViewController.xib; sourceTree = "<group>"; };
+		CDB789F3219B2CB10094D040 /* ChonAnSauDtTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChonAnSauDtTableViewCell.h; sourceTree = "<group>"; };
+		CDB789F4219B2CB10094D040 /* ChonAnSauDtTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChonAnSauDtTableViewCell.m; sourceTree = "<group>"; };
+		CDB789F5219B2CB10094D040 /* ChonAnSauDtTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChonAnSauDtTableViewCell.xib; sourceTree = "<group>"; };
+		CDB789F8219B30740094D040 /* ActionTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ActionTableViewCell.h; sourceTree = "<group>"; };
+		CDB789F9219B30740094D040 /* ActionTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ActionTableViewCell.m; sourceTree = "<group>"; };
+		CDB789FA219B30740094D040 /* ActionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActionTableViewCell.xib; sourceTree = "<group>"; };
 		CDE6817421932DF70030226D /* DanhsachsotayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DanhsachsotayViewController.h; sourceTree = "<group>"; };
 		CDE6817521932DF70030226D /* DanhsachsotayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DanhsachsotayViewController.m; sourceTree = "<group>"; };
 		CDE6817621932DF70030226D /* DanhsachsotayViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DanhsachsotayViewController.xib; sourceTree = "<group>"; };
@@ -5446,6 +5461,7 @@
 		A38478E81ADE669C00DCF2B6 /* ViVIMASS */ = {
 			isa = PBXGroup;
 			children = (
+				CDB789ED219B2B970094D040 /* ChonAnSauDt */,
 				CDE6817321932DB70030226D /* Sotaydienthoai */,
 				0B5E2E272149F422006E9EAB /* Giaodienchinh2.0 */,
 				0BCFA3F8211FD57C00E33086 /* PKI */,
@@ -6629,6 +6645,22 @@
 			path = ContactMultiSelect;
 			sourceTree = "<group>";
 		};
+		CDB789ED219B2B970094D040 /* ChonAnSauDt */ = {
+			isa = PBXGroup;
+			children = (
+				CDB789EE219B2BD30094D040 /* ChonAnSauDienThoaiViewController.h */,
+				CDB789EF219B2BD30094D040 /* ChonAnSauDienThoaiViewController.m */,
+				CDB789F0219B2BD30094D040 /* ChonAnSauDienThoaiViewController.xib */,
+				CDB789F3219B2CB10094D040 /* ChonAnSauDtTableViewCell.h */,
+				CDB789F4219B2CB10094D040 /* ChonAnSauDtTableViewCell.m */,
+				CDB789F5219B2CB10094D040 /* ChonAnSauDtTableViewCell.xib */,
+				CDB789F8219B30740094D040 /* ActionTableViewCell.h */,
+				CDB789F9219B30740094D040 /* ActionTableViewCell.m */,
+				CDB789FA219B30740094D040 /* ActionTableViewCell.xib */,
+			);
+			path = ChonAnSauDt;
+			sourceTree = "<group>";
+		};
 		CDE6817321932DB70030226D /* Sotaydienthoai */ = {
 			isa = PBXGroup;
 			children = (
@@ -7383,6 +7415,7 @@
 				186D68301A6FB12C0026972E /* ViewThuongDungChuyenTienViDenVi.xib in Resources */,
 				C66C81DC1D3784AB0008A594 /* icon_v2_hocphi.png in Resources */,
 				C664B0291D125C60003B9976 /* phong1_CGVSenseCity.txt in Resources */,
+				CDB789F2219B2BD30094D040 /* ChonAnSauDienThoaiViewController.xib in Resources */,
 				A38479A61ADE669D00DCF2B6 /* huongdannaptien.txt in Resources */,
 				C664B03C1D125C60003B9976 /* phong1_VincomBaTrieu.txt in Resources */,
 				C664B0561D125C60003B9976 /* phong2_PaksonParagon.txt in Resources */,
@@ -7411,6 +7444,7 @@
 				C68828921C196E8B000C7934 /* phong1_nhatrang.txt in Resources */,
 				C6804E741CE0A5CA004CAEA1 /* Tim32_1.png in Resources */,
 				C664B0231D125C60003B9976 /* phong1_CGVBigCDongNai.txt in Resources */,
+				CDB789FC219B30740094D040 /* ActionTableViewCell.xib in Resources */,
 				3EB7066C199367BF00EE4338 /* logo_vimass.png in Resources */,
 				A384796E1ADE669D00DCF2B6 /* bg-canhan-#0c75c9.png in Resources */,
 				857C653217B0F25200DED602 /* dialog-choose-registration-wallet-type.png in Resources */,
@@ -7425,6 +7459,7 @@
 				C6804E781CE0A5CA004CAEA1 /* Tim32_3.png in Resources */,
 				C664B0271D125C60003B9976 /* phong1_CGVLamSonSquare.txt in Resources */,
 				857C654117B0FCB500DED602 /* dialog-choose-registration-wallet-type-checkmark@2x.png in Resources */,
+				CDB789F7219B2CB10094D040 /* ChonAnSauDtTableViewCell.xib in Resources */,
 				03587E831B9411C800C62734 /* flag_cateid_601_select.png in Resources */,
 				A32171BC1AE11CEA008570AB /* refresh64.png in Resources */,
 				C664B0971D125C60003B9976 /* phong4_ThaoDienPearl.txt in Resources */,
@@ -7775,6 +7810,7 @@
 				C66DD3A31C44BF41000E9BB5 /* CellChuyenDi.m in Sources */,
 				C66010F31CFFE0D100C7152B /* ViewThuongDungInternet.m in Sources */,
 				57CD92AD15EE853800B344EE /* UIView+Animation.m in Sources */,
+				CDB789FB219B30740094D040 /* ActionTableViewCell.m in Sources */,
 				188CCAC51A8B6A8C00163D9D /* HanMucGiaoDich.m in Sources */,
 				576FD01515EFACEF00FB17B5 /* CalendarView.m in Sources */,
 				1809953E1ACA9CA300476563 /* SaoKe_QuaTang.m in Sources */,
@@ -7805,6 +7841,7 @@
 				85D10781180CE0D90019BA83 /* ViMASSAgreementView.m in Sources */,
 				A38479A71ADE669D00DCF2B6 /* HuongDanNapTienViewController.m in Sources */,
 				0397450A1B9D3F5D000DDF41 /* ItemInfoDiaDiem.m in Sources */,
+				CDB789F1219B2BD30094D040 /* ChonAnSauDienThoaiViewController.m in Sources */,
 				18A96B051A820F3900F10739 /* MuonTienViewController.m in Sources */,
 				1893435119ECE1EE009E91F2 /* DoiTuongNotification.m in Sources */,
 				A349CF531B4F6E60000CBC30 /* DoiTuongChiTietGiaoDichGuiTietKiem.m in Sources */,
@@ -8042,6 +8079,7 @@
 				A357992D1B33D5B700B38098 /* CheckNetworkStatus.m in Sources */,
 				0B7BDD6618290693009E78EE /* NSData+Base64.m in Sources */,
 				85FDE3E9184DC2210073DD51 /* TTTAttributedLabel.m in Sources */,
+				CDB789F6219B2CB10094D040 /* ChonAnSauDtTableViewCell.m in Sources */,
 				3EDD8D87196BE2F700E21326 /* DucNT_Token.m in Sources */,
 				C610805D1C3E04620073B8B4 /* CellChuyenBay.m in Sources */,
 				3EED73201965649E001D7E62 /* DucNT_RegisterViewViewController.m in Sources */,

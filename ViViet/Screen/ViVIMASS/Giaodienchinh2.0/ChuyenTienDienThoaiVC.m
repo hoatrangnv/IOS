@@ -262,28 +262,28 @@
                     }
                 }
                     break;
-//                case 11:
-//                case 12:
-//                case 13:
-//                {
-//                    if (money > 0) {
-//                        
-//                        if(floor(money) == money){
-//                            if((int)money%50000000 == 0)
-//                                phi += 3300 * (money/50000000);
-//                            else{
-//                                phi += 1 + (3300 *(money/50000000));
-//                            }
-//                        }
-//                        else{
-//                            phi += + (3300 *(money/50000000));
-//                        }
-//                    }
-//                    else{
-//                        phi += 0;
-//                    }
-//                }
-//                    break;
+                case 11:
+                case 12:
+                case 13:
+                {
+                    if (money <= 50000000 && money >0) {
+                        phi += 3300;
+                    }
+                    else if (money > 50000000){
+                        int X = (money/50000000);
+                        int Y = money - X*50000000;
+                        if (Y == 0){
+                            phi += 3300*X ;
+                        }
+                        else{
+                            phi += 1 + 3300*X ;
+                        }
+                    }
+                    else{
+                        phi += 0;
+                    }
+                }
+                    break;
                 default:
                     if (money > 0) {
                         phi += 6600.0;

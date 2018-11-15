@@ -48,6 +48,7 @@
 #import "UIButton+WebCache.h"
 #import "DucNT_ChuyenTienViDenViViewController.h"
 #import "CommonUtils.h"
+#import "ChonAnSauDienThoaiViewController.h"
 @interface HomeCenterViewController ()<UIActionSheetDelegate, QRCodeReaderDelegate,RowSelectDelegate,ViewNavigationGiaoDienChinhDelegate>{
     ViewNavigationGiaoDienChinh *mViewNavigationGiaoDienChinh;
     NSString *keyPin;
@@ -93,6 +94,7 @@
     app.selectedTab = -1;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onBackVicuatoi) name:@"ClickVicuatoi" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onBackSoTay) name:@"ClickBackSoTay" object:nil];
 
 }
 -(void)viewWillAppear:(BOOL)animated{
@@ -119,8 +121,12 @@
         [self displayContentController:self.dienthoaiVC];
     }
     else{
-        [self hideContentController:self.dienthoaiVC];
+        
         if(app.selectedTab == 0){
+            if (self.dienthoaiVC.view.superview) {
+                return;
+            }
+            [self hideContentController:self.dienthoaiVC];
             [self displayContentController:self.nganhangVC];
         }
         else if(app.selectedTab == 1){
@@ -178,6 +184,13 @@
     self.vViDienTu.backgroundColor = [UIColor colorWithRed:59/255.0 green:164/255.0 blue:168/255.0 alpha:1.0];
     [self displayContentController:self.vicuatoiVC];
 
+}
+-(void)onBackSoTay{
+    app.selectedTab = -1;
+    if(app.selectedTab<0){
+        self.currentTab = -1;
+        [self displayContentController:self.dienthoaiVC];
+    }
 }
 -(void)onBackVicuatoi{
     [self tapVicuatoi:nil];
@@ -886,7 +899,11 @@
                 break;
             case 2:{
                 // chon vi tk an sau dt
+                ChonAnSauDienThoaiViewController * vc = [[ChonAnSauDienThoaiViewController alloc] initWithNibName:@"ChonAnSauDienThoaiViewController" bundle:nil];
+                [self.navigationController pushViewController:vc animated:YES];
+                [vc release];
             }
+                break;
             case 3:{
                 // chuyen tien dt
                 
