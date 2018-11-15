@@ -93,6 +93,7 @@
     app.selectedTab = -1;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onBackVicuatoi) name:@"ClickVicuatoi" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onBackSoTay) name:@"ClickBackSoTay" object:nil];
 
 }
 -(void)viewWillAppear:(BOOL)animated{
@@ -178,6 +179,13 @@
     self.vViDienTu.backgroundColor = [UIColor colorWithRed:59/255.0 green:164/255.0 blue:168/255.0 alpha:1.0];
     [self displayContentController:self.vicuatoiVC];
 
+}
+-(void)onBackSoTay{
+    app.selectedTab = -1;
+    if(app.selectedTab<0){
+        self.currentTab = -1;
+        [self displayContentController:self.dienthoaiVC];
+    }
 }
 -(void)onBackVicuatoi{
     [self tapVicuatoi:nil];

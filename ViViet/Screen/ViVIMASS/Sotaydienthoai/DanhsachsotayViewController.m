@@ -38,6 +38,16 @@
     [super viewWillAppear:animated];
     [self getSotay];
 }
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    NSArray *viewControllers = self.navigationController.viewControllers;
+    if (viewControllers.count > 1 && [viewControllers objectAtIndex:viewControllers.count-2] == self) {
+        NSLog(@"New view controller was pushed");
+    } else if ([viewControllers indexOfObject:self] == NSNotFound) {
+        NSLog(@"View controller was popped");
+        [[NSNotificationCenter defaultCenter]postNotificationName:@"ClickBackSoTay" object:nil];
+    }
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
