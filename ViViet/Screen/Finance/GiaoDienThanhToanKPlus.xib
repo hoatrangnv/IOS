@@ -1,24 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GiaoDienThanhToanKPlus">
             <connections>
-                <outlet property="btnTabTop1" destination="FNI-e2-VNM" id="3j9-MN-hoz"/>
-                <outlet property="btnTabTop2" destination="aFb-FN-KbJ" id="uFX-nk-ORZ"/>
-                <outlet property="btnTabTop3" destination="fGQ-Ty-wqa" id="xBO-1e-mLI"/>
                 <outlet property="btnVanTayMini" destination="IVQ-cc-3AN" id="fLr-0o-oU0"/>
                 <outlet property="edOption" destination="RBf-7F-HpQ" id="H82-C5-waA"/>
                 <outlet property="edSoTK" destination="YqL-Kh-rN5" id="CjW-e0-fAq"/>
-                <outlet property="imgTabTop" destination="PWe-yg-xaf" id="O6g-HL-V7g"/>
                 <outlet property="mbtnEmail" destination="y5q-JH-owK" id="Mdh-5A-1oQ"/>
                 <outlet property="mbtnSMS" destination="Deg-Ea-HQP" id="qxm-Cd-Wfa"/>
                 <outlet property="mbtnThucHien" destination="2rI-VL-x3n" id="rQL-7X-ufi"/>
@@ -36,7 +31,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ShV-Se-v8J">
-                    <rect key="frame" x="8" y="44" width="304" height="200"/>
+                    <rect key="frame" x="8" y="5" width="304" height="200"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w3k-a7-ucr" userLabel="ViewThoiGianConLai">
                             <rect key="frame" x="0.0" y="104" width="304" height="35"/>
@@ -75,7 +70,7 @@
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IVQ-cc-3AN">
                                     <rect key="frame" x="246" y="3" width="58" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES"/>
-                                    <state key="normal" image="vantaymau-ngang.png" backgroundImage="bg-nuttrang.png"/>
+                                    <state key="normal" image="finger-ngang" backgroundImage="bg-nuttrang.png"/>
                                     <connections>
                                         <action selector="suKienBamNutMatKhauVanTay:" destination="-1" eventType="touchUpInside" id="4Wp-mW-8Sw"/>
                                     </connections>
@@ -156,66 +151,15 @@
                         <constraint firstAttribute="trailing" secondItem="k1R-3Y-NwO" secondAttribute="trailing" id="yLC-sA-jHT"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8jG-Eh-3er">
-                    <rect key="frame" x="8" y="0.0" width="304" height="45"/>
-                    <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tab-cat1.png" translatesAutoresizingMaskIntoConstraints="NO" id="PWe-yg-xaf">
-                            <rect key="frame" x="0.0" y="8" width="304" height="36"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                        </imageView>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FNI-e2-VNM">
-                            <rect key="frame" x="7" y="10" width="91" height="34"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
-                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                            <state key="normal" title="Ví">
-                                <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </state>
-                            <state key="selected">
-                                <color key="titleColor" red="0.23921568630000001" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </state>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aFb-FN-KbJ">
-                            <rect key="frame" x="124" y="10" width="79" height="34"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
-                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                            <state key="normal" title="Liên kết">
-                                <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </state>
-                            <state key="selected">
-                                <color key="titleColor" red="0.23921568630000001" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </state>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fGQ-Ty-wqa">
-                            <rect key="frame" x="223" y="10" width="81" height="34"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
-                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                            <state key="normal" title="Lấy mã TT">
-                                <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </state>
-                            <state key="selected">
-                                <color key="titleColor" red="0.23921568630000001" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </state>
-                        </button>
-                    </subviews>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="45" id="GWP-Bi-KGT"/>
-                    </constraints>
-                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="ShV-Se-v8J" secondAttribute="trailing" constant="8" id="ArK-h2-2x3"/>
-                <constraint firstItem="8jG-Eh-3er" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="HtP-Qo-Ne1"/>
-                <constraint firstItem="ShV-Se-v8J" firstAttribute="top" secondItem="8jG-Eh-3er" secondAttribute="bottom" constant="-1" id="IUs-X9-3ol"/>
+                <constraint firstItem="ShV-Se-v8J" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="5" id="FHe-xL-Rfh"/>
                 <constraint firstAttribute="trailing" secondItem="B4e-Jc-A38" secondAttribute="trailing" id="MwI-sh-Ugt"/>
                 <constraint firstItem="B4e-Jc-A38" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Pnq-0r-vDQ"/>
                 <constraint firstItem="ShV-Se-v8J" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="a7q-ue-SWd"/>
                 <constraint firstAttribute="bottom" secondItem="B4e-Jc-A38" secondAttribute="bottom" id="e5b-wi-kv2"/>
-                <constraint firstAttribute="trailing" secondItem="8jG-Eh-3er" secondAttribute="trailing" constant="8" id="fjc-1p-OpA"/>
-                <constraint firstItem="8jG-Eh-3er" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="gFq-zK-G8M"/>
                 <constraint firstItem="B4e-Jc-A38" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="t1P-XO-ujO"/>
             </constraints>
             <point key="canvasLocation" x="-243" y="-20"/>
@@ -224,7 +168,6 @@
     <resources>
         <image name="bg-nuttrang.png" width="128" height="52"/>
         <image name="bg_nen.png" width="720" height="1280"/>
-        <image name="tab-cat1.png" width="688" height="80"/>
-        <image name="vantaymau-ngang.png" width="107" height="59"/>
+        <image name="finger-ngang" width="56" height="30"/>
     </resources>
 </document>

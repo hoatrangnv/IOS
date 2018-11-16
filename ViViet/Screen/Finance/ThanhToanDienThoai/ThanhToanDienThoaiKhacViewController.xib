@@ -252,7 +252,7 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="v9j-A7-Eph">
                             <rect key="frame" x="242" y="3" width="56" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES"/>
-                            <state key="normal" image="vantaymau-ngang.png" backgroundImage="bg-nuttrang.png"/>
+                            <state key="normal" image="finger-ngang" backgroundImage="bg-nuttrang.png"/>
                             <connections>
                                 <action selector="suKienBamNutMatKhauVanTay:" destination="-1" eventType="touchUpInside" id="4Z8-6a-5sG"/>
                             </connections>
@@ -564,10 +564,10 @@
     <resources>
         <image name="bg-nuttrang.png" width="128" height="52"/>
         <image name="bg_nen.png" width="720" height="1280"/>
+        <image name="finger-ngang" width="56" height="30"/>
         <image name="iconSoTay.png" width="32" height="28"/>
         <image name="icon_trans_money_add.png" width="64" height="64"/>
         <image name="icon_vantay_khongmau.png" width="90" height="120"/>
         <image name="muiten35x21.png" width="35" height="21"/>
-        <image name="vantaymau-ngang.png" width="107" height="59"/>
     </resources>
 </document>

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -128,7 +128,7 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="BhN-05-XeO">
                                             <rect key="frame" x="242" y="3" width="56" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES"/>
-                                            <state key="normal" image="vantaymau-ngang.png" backgroundImage="bg-nuttrang.png"/>
+                                            <state key="normal" image="finger-ngang" backgroundImage="bg-nuttrang.png"/>
                                             <connections>
                                                 <action selector="suKienBamNutMatKhauVanTay:" destination="-1" eventType="touchUpInside" id="Mcl-g4-EB3"/>
                                             </connections>
@@ -174,20 +174,15 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-143" y="-72"/>
+            <point key="canvasLocation" x="-228.80000000000001" y="-64.767616191904054"/>
         </view>
     </objects>
     <resources>
         <image name="bg-nuttrang.png" width="128" height="52"/>
         <image name="bg_nen.png" width="720" height="1280"/>
+        <image name="finger-ngang" width="56" height="30"/>
         <image name="iconSoTay.png" width="32" height="28"/>
         <image name="icon_trans_money_add.png" width="64" height="64"/>
         <image name="icon_vantay_khongmau.png" width="90" height="120"/>
-        <image name="vantaymau-ngang.png" width="107" height="59"/>
     </resources>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
-    </simulatedMetricsContainer>
 </document>

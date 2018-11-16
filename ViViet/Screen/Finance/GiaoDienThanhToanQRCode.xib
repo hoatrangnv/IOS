@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -44,23 +42,23 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="605"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_nen.png" translatesAutoresizingMaskIntoConstraints="NO" id="gEw-AI-KKE">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="605"/>
                 </imageView>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="gHp-B9-Eq3" customClass="TPKeyboardAvoidAcessory">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="605"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tDu-vE-QwG" userLabel="ContentView">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="672"/>
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="847"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wiO-7V-L13" userLabel="ViewMain">
-                                    <rect key="frame" x="8" y="43" width="304" height="571.5"/>
+                                    <rect key="frame" x="8" y="5" width="304" height="720"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JMU-Sx-YN7" userLabel="ViewKhongEdtDaiDien">
-                                            <rect key="frame" x="0.0" y="0.0" width="304" height="571.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="304" height="720"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IGK-R1-9W7">
                                                     <rect key="frame" x="96" y="8" width="141" height="60"/>
@@ -111,7 +109,7 @@
                                                     <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="next"/>
                                                 </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phí:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e13-dz-at0">
-                                                    <rect key="frame" x="162" y="395" width="41" height="20"/>
+                                                    <rect key="frame" x="162" y="394.5" width="41" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -153,7 +151,7 @@
                                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uye-d7-gha">
                                                             <rect key="frame" x="248" y="3" width="56" height="30"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES"/>
-                                                            <state key="normal" image="vantaymau-ngang.png" backgroundImage="bg-nuttrang.png"/>
+                                                            <state key="normal" image="finger-ngang" backgroundImage="bg-nuttrang.png"/>
                                                             <connections>
                                                                 <action selector="suKienBamNutMatKhauVanTay:" destination="-1" eventType="touchUpInside" id="UGc-F6-esb"/>
                                                             </connections>
@@ -334,63 +332,12 @@
                                         <constraint firstAttribute="trailing" secondItem="JMU-Sx-YN7" secondAttribute="trailing" id="zIN-Vr-ap0"/>
                                     </constraints>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="42E-EY-Tzo">
-                                    <rect key="frame" x="8" y="0.0" width="304" height="45"/>
-                                    <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tab-cat1.png" translatesAutoresizingMaskIntoConstraints="NO" id="Awh-oq-Egk">
-                                            <rect key="frame" x="0.0" y="8" width="304" height="36"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                        </imageView>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HRr-sA-jio">
-                                            <rect key="frame" x="7" y="10" width="92" height="34"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
-                                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <state key="normal" title="Ví">
-                                                <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </state>
-                                            <state key="selected">
-                                                <color key="titleColor" red="0.23921568630000001" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </state>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BZ2-CE-ET8">
-                                            <rect key="frame" x="124" y="10" width="78" height="34"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
-                                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <state key="normal" title="Liên kết">
-                                                <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </state>
-                                            <state key="selected">
-                                                <color key="titleColor" red="0.23921568630000001" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </state>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="83a-Y9-Cgi">
-                                            <rect key="frame" x="223" y="10" width="81" height="34"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
-                                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <state key="normal" title="Lấy mã TT">
-                                                <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </state>
-                                            <state key="selected">
-                                                <color key="titleColor" red="0.23921568630000001" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </state>
-                                        </button>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="45" id="b3O-Di-eOY"/>
-                                    </constraints>
-                                </view>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="wiO-7V-L13" firstAttribute="leading" secondItem="tDu-vE-QwG" secondAttribute="leading" constant="8" id="1li-AZ-1Jo"/>
-                                <constraint firstItem="wiO-7V-L13" firstAttribute="top" secondItem="42E-EY-Tzo" secondAttribute="bottom" constant="-2" id="5M2-1h-p7r"/>
-                                <constraint firstAttribute="trailing" secondItem="42E-EY-Tzo" secondAttribute="trailing" constant="8" id="8Nm-eK-8aO"/>
                                 <constraint firstItem="wiO-7V-L13" firstAttribute="height" secondItem="tDu-vE-QwG" secondAttribute="height" multiplier="0.85" id="MkP-vx-PoB"/>
-                                <constraint firstItem="42E-EY-Tzo" firstAttribute="leading" secondItem="tDu-vE-QwG" secondAttribute="leading" constant="8" id="TGK-Gd-22K"/>
-                                <constraint firstItem="42E-EY-Tzo" firstAttribute="top" secondItem="tDu-vE-QwG" secondAttribute="top" id="wKP-RS-SB6"/>
+                                <constraint firstItem="wiO-7V-L13" firstAttribute="top" secondItem="tDu-vE-QwG" secondAttribute="top" constant="5" id="UEu-us-nHX"/>
                                 <constraint firstAttribute="trailing" secondItem="wiO-7V-L13" secondAttribute="trailing" constant="8" id="xQS-PP-UJY"/>
                             </constraints>
                         </view>
@@ -403,10 +350,10 @@
                     </constraints>
                 </scrollView>
                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zTX-eZ-SCd">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="605"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GdT-6n-fRD">
-                            <rect key="frame" x="8" y="88" width="304" height="304"/>
+                            <rect key="frame" x="8" y="150.5" width="304" height="304"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="GdT-6n-fRD" secondAttribute="height" id="yhh-Lh-K8e"/>
                             </constraints>
@@ -452,7 +399,7 @@
                 <constraint firstAttribute="bottom" secondItem="zTX-eZ-SCd" secondAttribute="bottom" id="zUl-Eu-tbr"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-905" y="-231"/>
+            <point key="canvasLocation" x="-905.625" y="-165.31690140845072"/>
         </view>
         <view contentMode="scaleToFill" id="60N-Zw-jwN">
             <rect key="frame" x="0.0" y="0.0" width="302" height="314"/>
@@ -560,10 +507,9 @@
     <resources>
         <image name="bg-nuttrang.png" width="128" height="52"/>
         <image name="bg_nen.png" width="720" height="1280"/>
+        <image name="finger-ngang" width="56" height="30"/>
         <image name="iconSoTay.png" width="32" height="28"/>
         <image name="icon_close.png" width="256" height="256"/>
-        <image name="tab-cat1.png" width="688" height="80"/>
         <image name="unchecked.png" width="24" height="24"/>
-        <image name="vantaymau-ngang.png" width="107" height="59"/>
     </resources>
 </document>

@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -35,7 +33,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="11o-lj-2O0">
-                            <rect key="frame" x="112.5" y="9" width="96" height="22"/>
+                            <rect key="frame" x="112" y="9" width="96" height="22"/>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <state key="normal" title="Sửa ĐV" image="sua">
@@ -46,7 +44,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gux-bU-3Lo">
-                            <rect key="frame" x="8" y="9" width="99.5" height="22"/>
+                            <rect key="frame" x="8" y="9" width="99" height="22"/>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <state key="normal" title="Xoá ĐV" image="deldv">
@@ -57,7 +55,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="waD-Ck-nhx">
-                            <rect key="frame" x="216.5" y="6" width="96" height="28"/>
+                            <rect key="frame" x="216" y="6" width="96" height="28"/>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <state key="normal" title="Thêm SP" image="themdv">
@@ -109,7 +107,7 @@
                             <rect key="frame" x="8" y="165" width="304" height="150"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Xác thực xoá đơn vị" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eJh-0c-5zN">
-                                    <rect key="frame" x="72" y="8" width="160.5" height="21"/>
+                                    <rect key="frame" x="72" y="8" width="160" height="21"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -148,8 +146,8 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d5c-Zb-kR2">
-                                                    <rect key="frame" x="165" y="2" width="53" height="30"/>
-                                                    <state key="normal" image="vantaymau-ngang.png" backgroundImage="bg-nuttrang.png"/>
+                                                    <rect key="frame" x="165" y="2" width="52.5" height="30"/>
+                                                    <state key="normal" image="finger-ngang" backgroundImage="bg-nuttrang.png"/>
                                                     <connections>
                                                         <action selector="suKienBamNutMatKhauVanTay:" destination="-1" eventType="touchUpInside" id="egw-Y5-chs"/>
                                                     </connections>
@@ -193,12 +191,12 @@
                                     <rect key="frame" x="8" y="88" width="288" height="35"/>
                                     <subviews>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rcw-m7-fBa" customClass="ExTextField">
-                                            <rect key="frame" x="0.0" y="0.0" width="158" height="35"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="158.5" height="35"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
                                         </textField>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5dm-6U-xUl">
-                                            <rect key="frame" x="163" y="0.0" width="125" height="35"/>
+                                            <rect key="frame" x="163.5" y="0.0" width="124.5" height="35"/>
                                             <color key="backgroundColor" red="0.0039215686269999999" green="0.31372549020000001" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                             <state key="normal" title="@thuc_hien">
@@ -302,9 +300,9 @@
     <resources>
         <image name="bg-nuttrang.png" width="128" height="52"/>
         <image name="deldv" width="22" height="22"/>
+        <image name="finger-ngang" width="56" height="30"/>
         <image name="icon_close.png" width="256" height="256"/>
         <image name="sua" width="22" height="22"/>
         <image name="themdv" width="22" height="22"/>
-        <image name="vantaymau-ngang.png" width="107" height="59"/>
     </resources>
 </document>
