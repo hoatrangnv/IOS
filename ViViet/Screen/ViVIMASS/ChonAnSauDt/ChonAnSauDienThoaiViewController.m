@@ -57,6 +57,7 @@
     if (indexPath.row == [tableView numberOfRowsInSection:0] - 1) {
         ActionTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"cellaction" forIndexPath:indexPath];
         cell.delegate = self;
+        cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, CGRectGetWidth(tableView.bounds));
         [cell setupView];
         return cell;
     } else
@@ -78,7 +79,7 @@
         if (indexPath.row == [tableView numberOfRowsInSection:0] - 1) {
             return 112;
         } else {
-            return 75;
+            return 60;
         }
     }
     return 0;
@@ -167,7 +168,7 @@
     long long timeTo = [[NSNumber numberWithDouble:([[NSDate date] timeIntervalSince1970] *1000)] longLongValue];
     
     NSDictionary *param = @{ @"user" : [DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_ID_TEMP],
-                             @"session" : [DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_SECSSION],@"timeFrom":[NSNumber numberWithLong:timeFrom],@"timeTo":[NSNumber numberWithLong:timeTo],@"offset":@1,@"limit":@1000};
+                             @"session" : [DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_SECSSION],@"timeFrom":[NSNumber numberWithLong:timeFrom],@"timeTo":[NSNumber numberWithLong:timeTo],@"offset":@0,@"limit":@1000};
     
     NSString *sPost = [param JSONString];
     NSLog(@"%s - sPost : %@", __FUNCTION__, sPost);

@@ -20,7 +20,9 @@
 - (void)setDataForCell:(NSDictionary*)dic {
     _dicData = dic;
     _lblTitle.text = [self getMappingName:[dic[@"loaiMapping"]intValue] andManganhang:dic[@"maNganHang"]];
-    _lblLogo.image = [self getImageFromVi:[dic[@"loaiMapping"]intValue] andManganhang:dic[@"maNganHang"]];
+    int loaimaping = [[dic objectForKey:@"loaiMapping"]intValue];
+    NSString *manganhang = [[dic objectForKey:@"maNganHang"] stringValue];
+    _lblLogo.image = [self getImageFromVi:loaimaping andManganhang:manganhang];
 
 }
 - (void)dataSelected:(BOOL)selected {
@@ -68,10 +70,26 @@
         case 10:
             return [UIImage imageNamed:@"zalo"];
             break;
-        case 11:
-            return [UIImage imageNamed:[manganhang lowercaseString]];
+        case 11:{
+            NSString *imgName = [NSString stringWithFormat:@"%@-nh",manganhang];
+            UIImage *img = [UIImage imageNamed:[imgName lowercaseString]];
+            if(img == nil){
+                img =[UIImage imageNamed:[imgName uppercaseString]];
+            }
+            return img;
+        }
             break;
-        case 12:
+        case 12:{
+            NSString *imgName = [NSString stringWithFormat:@"%@-the",manganhang];
+            UIImage *img = [UIImage imageNamed:[imgName lowercaseString]];
+            if(img == nil){
+                img =[UIImage imageNamed:[imgName uppercaseString]];
+            }
+            return img;
+
+        }
+            break;
+        case 13:
             return [UIImage imageNamed:[manganhang lowercaseString]];
             break;
         default:
@@ -108,6 +126,8 @@
             return [NSString stringWithFormat:@"Tài khoản %@",manganhang];
         case 12:
             return [NSString stringWithFormat:@"Thẻ %@",manganhang];;
+        case 13:
+            return [NSString stringWithFormat:@"%@Card",[[manganhang lowercaseString]upperCaseFirstChar]];
         default:
             return nil;
     }
