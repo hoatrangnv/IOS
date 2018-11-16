@@ -12,6 +12,7 @@
 
 @interface HanMucGiaoDichViewController : GiaoDichViewController
 
+
 @property (retain, nonatomic) IBOutlet UIView *mViewMain2;
 @property (retain, nonatomic) IBOutlet TPKeyboardAvoidAcessory *mScrollview;
 //@property (retain, nonatomic) IBOutlet UIView *mViewMain;

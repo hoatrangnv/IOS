@@ -12,6 +12,7 @@
 #import "GioiHanGiaoDich.h"
 #import "GiaoDienThongTinPhim.h"
 
+
 @interface HanMucGiaoDichViewController () <DucNT_ServicePostDelegate>
 {
     NSTimer *mTimer;
