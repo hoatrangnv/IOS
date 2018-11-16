@@ -120,6 +120,21 @@ extern NSString *const KEY_EMAIL_NGUOI_DUYET;
 @property (retain, nonatomic) NSString *pki3;
 @property (nonatomic, retain) NSNumber *hanMucPki3;
 
+@property (nonatomic, retain) NSNumber *hanMucTimeSoftToken;
+@property (nonatomic, retain) NSNumber *hanMucDaySoftToken;
+@property (nonatomic, retain) NSNumber *hanMucTimeSoftTokenMax;
+@property (nonatomic, retain) NSNumber *hanMucDaySoftTokenMax;
+
+@property (nonatomic, retain) NSNumber *hanMucTimeVanTay;
+@property (nonatomic, retain) NSNumber *hanMucDayVanTay;
+@property (nonatomic, retain) NSNumber *hanMucTimeVanTayMax;
+@property (nonatomic, retain) NSNumber *hanMucDayVanTayMax;
+
+@property (nonatomic, retain) NSNumber *hanMucTimeMPKI;
+@property (nonatomic, retain) NSNumber *hanMucDayMPKI;
+@property (nonatomic, retain) NSNumber *hanMucTimeMPKIMax;
+@property (nonatomic, retain) NSNumber *hanMucDayMPKIMax;
+
 - (id)initWithDict:(NSDictionary*)dict;
 
 - (BOOL)layQuyenDuocDuyetGiaoDichTrongChucNang:(int)nFuncID;

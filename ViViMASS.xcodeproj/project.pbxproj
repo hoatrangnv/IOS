@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0313F8751BAFA5A7005E19A8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0313F8741BAFA5A7005E19A8 /* LaunchScreen.storyboard */; };
-		03407B9F1B98414A00651767 /* icon_check_cate_50.png in Resources */ = {isa = PBXBuildFile; fileRef = 03407B9E1B98414A00651767 /* icon_check_cate_50.png */; };
 		03407BA31B9842B200651767 /* icon_atm_50x50.png in Resources */ = {isa = PBXBuildFile; fileRef = 03407BA01B9842B200651767 /* icon_atm_50x50.png */; };
 		03407BA41B9842B200651767 /* icon_ngan_hang.png in Resources */ = {isa = PBXBuildFile; fileRef = 03407BA11B9842B200651767 /* icon_ngan_hang.png */; };
 		03407BA51B9842B200651767 /* icon_post.png in Resources */ = {isa = PBXBuildFile; fileRef = 03407BA21B9842B200651767 /* icon_post.png */; };
@@ -879,6 +878,8 @@
 		C6316FE81DB4E9DD0042AEF4 /* visa.png in Resources */ = {isa = PBXBuildFile; fileRef = C6316FBE1DB4E9DC0042AEF4 /* visa.png */; };
 		C6316FE91DB4E9DD0042AEF4 /* vpb.png in Resources */ = {isa = PBXBuildFile; fileRef = C6316FBF1DB4E9DC0042AEF4 /* vpb.png */; };
 		C6316FEA1DB4E9DD0042AEF4 /* vtcpay.png in Resources */ = {isa = PBXBuildFile; fileRef = C6316FC01DB4E9DC0042AEF4 /* vtcpay.png */; };
+		C636DE98219E7DA0000B85D0 /* HanMucMoiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C636DE96219E7DA0000B85D0 /* HanMucMoiViewController.m */; };
+		C636DE99219E7DA0000B85D0 /* HanMucMoiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C636DE97219E7DA0000B85D0 /* HanMucMoiViewController.xib */; };
 		C63CE4701BDF32DE00C548FE /* GiaoDienDatVeXemPhim.m in Sources */ = {isa = PBXBuildFile; fileRef = C63CE4681BDF32DE00C548FE /* GiaoDienDatVeXemPhim.m */; };
 		C63CE4711BDF32DE00C548FE /* GiaoDienDatVeXemPhim.xib in Resources */ = {isa = PBXBuildFile; fileRef = C63CE4691BDF32DE00C548FE /* GiaoDienDatVeXemPhim.xib */; };
 		C63CE4721BDF32DE00C548FE /* ItemGheXemFilm.m in Sources */ = {isa = PBXBuildFile; fileRef = C63CE46B1BDF32DE00C548FE /* ItemGheXemFilm.m */; };
@@ -1462,7 +1463,6 @@
 
 /* Begin PBXFileReference section */
 		0313F8741BAFA5A7005E19A8 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		03407B9E1B98414A00651767 /* icon_check_cate_50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_check_cate_50.png; sourceTree = "<group>"; };
 		03407BA01B9842B200651767 /* icon_atm_50x50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_atm_50x50.png; sourceTree = "<group>"; };
 		03407BA11B9842B200651767 /* icon_ngan_hang.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_ngan_hang.png; sourceTree = "<group>"; };
 		03407BA21B9842B200651767 /* icon_post.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_post.png; sourceTree = "<group>"; };
@@ -2724,6 +2724,9 @@
 		C6316FBE1DB4E9DC0042AEF4 /* visa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = visa.png; sourceTree = "<group>"; };
 		C6316FBF1DB4E9DC0042AEF4 /* vpb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vpb.png; sourceTree = "<group>"; };
 		C6316FC01DB4E9DC0042AEF4 /* vtcpay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vtcpay.png; sourceTree = "<group>"; };
+		C636DE95219E7DA0000B85D0 /* HanMucMoiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HanMucMoiViewController.h; sourceTree = "<group>"; };
+		C636DE96219E7DA0000B85D0 /* HanMucMoiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HanMucMoiViewController.m; sourceTree = "<group>"; };
+		C636DE97219E7DA0000B85D0 /* HanMucMoiViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HanMucMoiViewController.xib; sourceTree = "<group>"; };
 		C63CE4671BDF32DE00C548FE /* GiaoDienDatVeXemPhim.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GiaoDienDatVeXemPhim.h; path = DatVePhim/GiaoDienDatVeXemPhim.h; sourceTree = "<group>"; };
 		C63CE4681BDF32DE00C548FE /* GiaoDienDatVeXemPhim.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GiaoDienDatVeXemPhim.m; path = DatVePhim/GiaoDienDatVeXemPhim.m; sourceTree = "<group>"; };
 		C63CE4691BDF32DE00C548FE /* GiaoDienDatVeXemPhim.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GiaoDienDatVeXemPhim.xib; path = DatVePhim/GiaoDienDatVeXemPhim.xib; sourceTree = "<group>"; };
@@ -4235,6 +4238,9 @@
 		187D8BE51A85CC9900CB43C5 /* HanMucGiaoDich */ = {
 			isa = PBXGroup;
 			children = (
+				C636DE95219E7DA0000B85D0 /* HanMucMoiViewController.h */,
+				C636DE96219E7DA0000B85D0 /* HanMucMoiViewController.m */,
+				C636DE97219E7DA0000B85D0 /* HanMucMoiViewController.xib */,
 				187D8BE61A85CCAB00CB43C5 /* HanMucGiaoDichViewController.h */,
 				187D8BE71A85CCAB00CB43C5 /* HanMucGiaoDichViewController.m */,
 				187D8BE81A85CCAB00CB43C5 /* HanMucGiaoDichViewController.xib */,
@@ -4391,7 +4397,6 @@
 				03407BA01B9842B200651767 /* icon_atm_50x50.png */,
 				03407BA11B9842B200651767 /* icon_ngan_hang.png */,
 				03407BA21B9842B200651767 /* icon_post.png */,
-				03407B9E1B98414A00651767 /* icon_check_cate_50.png */,
 				034EAE101B8DCC5500016662 /* cancel_50.png */,
 				03FEA2161B69D8230087A60A /* icon-tannha64x64.png */,
 				A39CCDF21B5E4F74001BC3F5 /* icon_danhba_chat.png */,
@@ -7329,6 +7334,7 @@
 				0B068F7319D6A2570023FD99 /* DanhMucTinTongHop.txt in Resources */,
 				8531276718B4964600D25D09 /* login_checkbox_checked@2x.png in Resources */,
 				C6632DF51C4605B900B8E40A /* ThemTaiKhoanThuongDungDienThoai.xib in Resources */,
+				C636DE99219E7DA0000B85D0 /* HanMucMoiViewController.xib in Resources */,
 				C661B1F71C911DC4003821BE /* huongdan_chuyentien_atm_sacombank.html in Resources */,
 				C681361D1C8042C9005E9C6D /* GiaoDienTraCuuTruyenHinh.xib in Resources */,
 				C66154631CE1E9C800AD9264 /* tab-cat2.png in Resources */,
@@ -7344,7 +7350,6 @@
 				C664B0241D125C60003B9976 /* phong1_CGVBinhDuongSquare.txt in Resources */,
 				C67D8B2D1D39DD3B0030D5C4 /* iconSoTay3@2x.png in Resources */,
 				1806109519D909DC0066FFFE /* icon_chat_user.png in Resources */,
-				03407B9F1B98414A00651767 /* icon_check_cate_50.png in Resources */,
 				183B962719DE997900B4FECD /* icon_back_right.png in Resources */,
 				C610805E1C3E04620073B8B4 /* CellChuyenBay.xib in Resources */,
 				C661B1E81C911DC4003821BE /* hd_dt_viettel.html in Resources */,
@@ -7840,6 +7845,7 @@
 				1893435119ECE1EE009E91F2 /* DoiTuongNotification.m in Sources */,
 				A349CF531B4F6E60000CBC30 /* DoiTuongChiTietGiaoDichGuiTietKiem.m in Sources */,
 				850D7CAF1678592900A54A3F /* KazeCheckBox.m in Sources */,
+				C636DE98219E7DA0000B85D0 /* HanMucMoiViewController.m in Sources */,
 				C64520F81BE326E100E8091C /* ItemChinhFlowLayout.m in Sources */,
 				8595B07D18225A0500EB7F3C /* UniCoreData.m in Sources */,
 				C6584DFB1C8843850022D81C /* GiaoDienThanhToanTruyenHinh.m in Sources */,
@@ -8276,7 +8282,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = ViVimass;
 				PROVISIONING_PROFILE = "e24ddeff-81de-4c5f-958e-96be3bb5749e";
-				PROVISIONING_PROFILE_SPECIFIER = Dis_ViVimass;
+				PROVISIONING_PROFILE_SPECIFIER = TamNV_Dis;
 				SEPARATE_SYMBOL_EDIT = NO;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
@@ -8431,7 +8437,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = ViVimass;
 				PROVISIONING_PROFILE = "e24ddeff-81de-4c5f-958e-96be3bb5749e";
-				PROVISIONING_PROFILE_SPECIFIER = Dis_ViVimass;
+				PROVISIONING_PROFILE_SPECIFIER = TamNV_AdHoc;
 				SEPARATE_SYMBOL_EDIT = NO;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";

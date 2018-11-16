@@ -7,7 +7,7 @@
 
 #import "HanMucMoiViewController.h"
 
-@interface HanMucMoiViewController ()
+@interface HanMucMoiViewController ()<UITextFieldDelegate>
 
 @end
 
@@ -16,6 +16,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"Hạn mức";
+    self.tfTimeMPKI.delegate = self;
+    self.tfDayMPKI.delegate = self;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -33,6 +35,23 @@
         [self.viewMaXacThuc setHidden:YES];
         [self.scrMain setContentSize:CGSizeMake([UIScreen mainScreen].bounds.size.width, self.viewUI.frame.size.height)];
     }
+    
+    if (self.mThongTinTaiKhoanVi) {
+        self.tfTimeSoftToken.text = [Common hienThiTienTe:[self.mThongTinTaiKhoanVi.hanMucTimeSoftToken doubleValue]];
+        self.tfDaySoftToken.text = [Common hienThiTienTe:[self.mThongTinTaiKhoanVi.hanMucDaySoftToken doubleValue]];
+        
+        self.tfTimeVanTay.text = [Common hienThiTienTe:[self.mThongTinTaiKhoanVi.hanMucTimeVanTay doubleValue]];
+        self.tfDayVanTay.text = [Common hienThiTienTe:[self.mThongTinTaiKhoanVi.hanMucDayVanTay doubleValue]];
+        
+        self.tfTimeMPKI.text = @"";
+        self.tfDayMPKI.text = @"";
+    }
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    [self.viewSMS setHidden:![textField.text isEmpty]];
+    [self.viewToken setHidden:![textField.text isEmpty]];
+    return YES;
 }
 
 - (IBAction)suKienChonSMS:(id)sender {
@@ -83,6 +102,15 @@
     [_btnMKPI release];
     [_viewMaXacThuc release];
     [_tfMaXacThuc release];
+    [_tfTimeSoftToken release];
+    [_tfDaySoftToken release];
+    [_tfTimeVanTay release];
+    [_tfDayVanTay release];
+    [_tfTimeMPKI release];
+    [_tfDayMPKI release];
+    [_viewSMS release];
+    [_viewToken release];
+    [_viewMPKI release];
     [super dealloc];
 }
 @end

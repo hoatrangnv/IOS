@@ -419,6 +419,7 @@ typedef enum : NSUInteger {
 - (void)khoiTaoDanhSachNganHangGuiTietKiem
 {
     self.mDinhDanhKetNoi = DINH_DANH_LAY_DANH_SACH_NGAN_HANG_GUI_TIET_KIEM;
+    [self hienThiLoading];
     [GiaoDichMang ketNoiLayDanhSachNganHangGuiTietKiem:self];
 }
 

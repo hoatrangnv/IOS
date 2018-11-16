@@ -18,9 +18,18 @@
                 <outlet property="heightViewMaXacThuc" destination="aKH-KA-E4F" id="TAG-3q-ni4"/>
                 <outlet property="heightViewXacThuc" destination="pSV-Vs-jW3" id="tID-bI-d2W"/>
                 <outlet property="scrMain" destination="hc8-KR-qKh" id="qZH-w6-j17"/>
+                <outlet property="tfDayMPKI" destination="3ZM-96-ckg" id="Lai-d8-te7"/>
+                <outlet property="tfDaySoftToken" destination="LdZ-SA-bid" id="rzU-xs-MZx"/>
+                <outlet property="tfDayVanTay" destination="QTi-UI-ePA" id="t9H-XL-1DN"/>
                 <outlet property="tfMaXacThuc" destination="b39-pf-7BE" id="LD1-Mo-prH"/>
+                <outlet property="tfTimeMPKI" destination="Wel-n2-kbF" id="pPK-Rz-iym"/>
+                <outlet property="tfTimeSoftToken" destination="Pit-rr-0sq" id="D6T-Jr-Uev"/>
+                <outlet property="tfTimeVanTay" destination="2Bl-8j-Rkg" id="Pis-Se-uBB"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="viewMPKI" destination="4Qx-jQ-l6l" id="MBQ-Fg-XrL"/>
                 <outlet property="viewMaXacThuc" destination="BdO-du-kwd" id="Ekt-dE-w97"/>
+                <outlet property="viewSMS" destination="GBh-LY-EDq" id="T6k-rG-BtI"/>
+                <outlet property="viewToken" destination="hw0-Re-dDy" id="cx4-df-GeO"/>
                 <outlet property="viewUI" destination="vr9-tN-qO3" id="Xmy-yX-VQX"/>
             </connections>
         </placeholder>
@@ -107,7 +116,7 @@
                     <color key="textColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tối đa 100 triệu/giao dịch và 500 triệu/ngày" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zcM-TU-95a">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tối đa 500 triệu/giao dịch và 1,5 tỉ/ngày" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zcM-TU-95a">
                     <rect key="frame" x="5" y="169" width="355" height="18"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <color key="textColor" white="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -148,13 +157,13 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Khi sử dụng Vân tay, Nhận diện" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cWO-Si-2de">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Khi sử dụng mPKI: SIM-CA, SDSecure, MicroSD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cWO-Si-2de">
                     <rect key="frame" x="5" y="283" width="355" height="18"/>
                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                     <color key="textColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tối đa 100 triệu/giao dịch và 500 triệu/ngày" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mJJ-E6-NRg">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Không hạn chế số tiền giao dịch và trong ngày" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mJJ-E6-NRg">
                     <rect key="frame" x="5" y="306" width="355" height="18"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <color key="textColor" white="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -276,7 +285,7 @@
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Chữ ký mPKI" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="b39-pf-7BE" customClass="ExTextField">
                                     <rect key="frame" x="0.0" y="3" width="219" height="34"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                 </textField>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="98c-s5-PCQ">
                                     <rect key="frame" x="227" y="0.0" width="125" height="40"/>
