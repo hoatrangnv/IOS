@@ -26,6 +26,7 @@
     BOOL mDangNhapBangGoogle;
     BOOL mDangNhapBangTaiKhoanViMASS;
     LAContext *mLAContext;
+    BOOL isFaceId;
 }
 
 @property (nonatomic, copy) NSString *mID;
@@ -79,6 +80,7 @@ static int const KIEU_KET_NOI_GOOGLE = 2;
     [self khoiTaoGiaoDien];
     [self khoiTaoNutFacebook];
     [self khoiTaoNutDangNhapBangGoogle];
+    isFaceId = false;
     if([self kiemTraCoChucNangQuetVanTay])
     {
         self.mbtnDangNhapBangVanTay.hidden = NO;
@@ -88,6 +90,7 @@ static int const KIEU_KET_NOI_GOOGLE = 2;
     }
     self.imgVimass.layer.cornerRadius = 7;
     self.imgVimass.clipsToBounds = true;
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -115,10 +118,11 @@ static int const KIEU_KET_NOI_GOOGLE = 2;
         if (error != NULL) {
             // handle error
         } else {
-            
+            [self.mbtnDangNhapBangVanTay setImage:[UIImage imageNamed:@"vantay"] forState:UIControlStateNormal];
             if (@available(iOS 11.0.1, *)) {
                 if (laContext.biometryType == LABiometryTypeFaceID) {
                     //localizedReason = "Unlock using Face ID"
+                    [self.mbtnDangNhapBangVanTay setImage:[UIImage imageNamed:@"face"] forState:UIControlStateNormal];
                     return YES;
                 } else if (laContext.biometryType == LABiometryTypeTouchID) {
                     //localizedReason = "Unlock using Touch ID"

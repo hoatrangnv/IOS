@@ -1606,6 +1606,8 @@
 		CDB789F7219B2CB10094D040 /* ChonAnSauDtTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDB789F5219B2CB10094D040 /* ChonAnSauDtTableViewCell.xib */; };
 		CDB789FB219B30740094D040 /* ActionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB789F9219B30740094D040 /* ActionTableViewCell.m */; };
 		CDB789FC219B30740094D040 /* ActionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDB789FA219B30740094D040 /* ActionTableViewCell.xib */; };
+		CDC299BC21A0533300BBAB0C /* facev.png in Resources */ = {isa = PBXBuildFile; fileRef = CDC299BB21A0533200BBAB0C /* facev.png */; };
+		CDC299BE21A053AD00BBAB0C /* face.png in Resources */ = {isa = PBXBuildFile; fileRef = CDC299BD21A053AD00BBAB0C /* face.png */; };
 		CDE6817721932DF70030226D /* DanhsachsotayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE6817521932DF70030226D /* DanhsachsotayViewController.m */; };
 		CDE6817821932DF70030226D /* DanhsachsotayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDE6817621932DF70030226D /* DanhsachsotayViewController.xib */; };
 		CDE6817D21932E3E0030226D /* SotaydienthoaiTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE6817B21932E3E0030226D /* SotaydienthoaiTableViewCell.m */; };
@@ -3700,6 +3702,8 @@
 		CDB789F8219B30740094D040 /* ActionTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ActionTableViewCell.h; sourceTree = "<group>"; };
 		CDB789F9219B30740094D040 /* ActionTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ActionTableViewCell.m; sourceTree = "<group>"; };
 		CDB789FA219B30740094D040 /* ActionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActionTableViewCell.xib; sourceTree = "<group>"; };
+		CDC299BB21A0533200BBAB0C /* facev.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facev.png; sourceTree = "<group>"; };
+		CDC299BD21A053AD00BBAB0C /* face.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = face.png; sourceTree = "<group>"; };
 		CDE6817421932DF70030226D /* DanhsachsotayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DanhsachsotayViewController.h; sourceTree = "<group>"; };
 		CDE6817521932DF70030226D /* DanhsachsotayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DanhsachsotayViewController.m; sourceTree = "<group>"; };
 		CDE6817621932DF70030226D /* DanhsachsotayViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DanhsachsotayViewController.xib; sourceTree = "<group>"; };
@@ -5136,6 +5140,8 @@
 		572167CE15B40C49009780F4 /* LoginScreen */ = {
 			isa = PBXGroup;
 			children = (
+				CDC299BD21A053AD00BBAB0C /* face.png */,
+				CDC299BB21A0533200BBAB0C /* facev.png */,
 				C623FCA61D9A2A270027A40C /* DucNT_LoginSceen.h */,
 				C623FCA71D9A2A270027A40C /* DucNT_LoginSceen.m */,
 				C623FCA81D9A2A270027A40C /* DucNT_LoginSceen.xib */,
@@ -7355,6 +7361,7 @@
 				A38479841ADE669D00DCF2B6 /* icon-tangqua-64x64.png in Resources */,
 				A3CE622F1B3D0A730069615A /* momo64.png in Resources */,
 				180610AF19D917150066FFFE /* balloon_unread_left.png in Resources */,
+				CDC299BC21A0533300BBAB0C /* facev.png in Resources */,
 				3E23C5AF1999B24500FE3BC4 /* icon_tai_chinh_sao_ke.png in Resources */,
 				C664B09F1D125C60003B9976 /* phong5_CGVBigCDongNai.txt in Resources */,
 				C648CE2D1BF4505B00217D71 /* zipcode.txt in Resources */,
@@ -8072,6 +8079,7 @@
 				C664B0971D125C60003B9976 /* phong4_ThaoDienPearl.txt in Resources */,
 				186D68351A6FB1580026972E /* ViewThuongDungChuyenTienDenTaiKhoan.xib in Resources */,
 				1810550C19E7955000E8D8CE /* ic_share_message.png in Resources */,
+				CDC299BE21A053AD00BBAB0C /* face.png in Resources */,
 				C68828991C196E8B000C7934 /* phong2_timecity.txt in Resources */,
 				C6316FCC1DB4E9DD0042AEF4 /* hdb.png in Resources */,
 				A38479B41ADE669D00DCF2B6 /* ChiTietTangQuaViewController.xib in Resources */,
