@@ -168,9 +168,6 @@
     NSString *sSoTien = [_edSoTien.text stringByReplacingOccurrencesOfString:@"." withString:@""];
     double fSoTien = [sSoTien doubleValue];
     int giauViChuyen = 0;
-    if(self.swHienSoVi.on){
-        giauViChuyen = 1;
-    }
     if (self.typeQRCode == 0) {
         NSDictionary *dic = @{
                               @"token" : sToken,

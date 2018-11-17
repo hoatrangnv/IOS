@@ -273,9 +273,9 @@
     NSString *sSoTien = [_mtfSoTien.text stringByReplacingOccurrencesOfString:@"." withString:@""];
     double fSoTien = [sSoTien doubleValue];
     int nHienSoVi = 0;
-    if (self.switchHienSoVi.isOn) {
-        nHienSoVi = 1;
-    }
+//    if (self.switchHienSoVi.isOn) {
+//        nHienSoVi = 1;
+//    }
     [GiaoDichMang ketNoiChuyenTienDenViHienSoVi:self.mtfSoVi.text soTien:fSoTien noiDung:self.mtvNoiDungGiaoDich.text hienSoVi:nHienSoVi token:sToken otp:sOtp typeAuthenticate:self.mTypeAuthenticate noiNhanKetQua:self];
 //    [GiaoDichMang ketNoiChuyenTienDenVi:self.mtfSoVi.text
 //                                 soTien:fSoTien

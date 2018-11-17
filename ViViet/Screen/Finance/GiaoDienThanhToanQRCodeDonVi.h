@@ -19,7 +19,6 @@
 @property (retain, nonatomic) IBOutlet ExTextField *edSoTien;
 @property (retain, nonatomic) IBOutlet ExTextField *edNoiDung;
 @property (retain, nonatomic) IBOutlet UmiTextView *tvNoiDung;
-@property (retain, nonatomic) IBOutlet UISwitch *swHienSoVi;
 
 @property (retain, nonatomic) IBOutlet NSLayoutConstraint *constantHeightNoiDung;
 @property (retain, nonatomic) IBOutlet NSLayoutConstraint *constantHeightViewMain;
