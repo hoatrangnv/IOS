@@ -93,6 +93,11 @@ static int const KIEU_KET_NOI_GOOGLE = 2;
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    if ([DucNT_Token daTonTaiMatKhauVanTay]) {
+        self.mbtnDangNhapBangVanTay.hidden = NO;
+    } else {
+        self.mbtnDangNhapBangVanTay.hidden = YES;
+    }
     [self.txtGiayPhep setText:[NSString stringWithFormat:@"Giấy phép Ví điện tử số 41/GP-NHNN\nNgân hàng nhà nước VN cấp 12/3/2018"]];
 }
  

@@ -304,9 +304,9 @@ CLLocationManager *shared_location_manager = nil;
 {
     if([Common kiemTraLaSoDienThoai:sTaiKhoan])
     {
-        NSInteger nSoHienThi = 4;
+        NSInteger nSoHienThi = 5;
         
-        NSInteger nOffset = 0;
+        NSInteger nOffset = 3;
         NSInteger nLength = sTaiKhoan.length - nSoHienThi;
         
         NSRange range = NSMakeRange(nOffset, nLength);
