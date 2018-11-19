@@ -67,7 +67,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>4</string>
+	<string>5</string>
 	<key>FacebookAppID</key>
 	<string>1567434636808192</string>
 	<key>FacebookDisplayName</key>
@@ -87,6 +87,8 @@
 	<string>Using for scanner QRCode</string>
 	<key>NSContactsUsageDescription</key>
 	<string>Giúp chuyển tiền nhanh đến bạn bè trong danh bạ</string>
+	<key>NSFaceIDUsageDescription</key>
+	<string>Xác thực thanh toán bằng bảo mật nhận diện khuôn mặt</string>
 	<key>NSLocalizedDescription</key>
 	<string>this local</string>
 	<key>NSLocationAlwaysUsageDescription</key>

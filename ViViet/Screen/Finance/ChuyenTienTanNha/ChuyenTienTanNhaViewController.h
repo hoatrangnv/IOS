@@ -26,6 +26,7 @@
 @property (retain, nonatomic) IBOutlet UmiTextView *mtvNoiDung;
 @property (retain, nonatomic) IBOutlet UmiTextView *mtvTenDuong;
 @property (retain, nonatomic) DucNT_TaiKhoanThuongDungObject *mTaiKhoanThuongDung;
+@property (retain, nonatomic) IBOutlet NSLayoutConstraint *heightViewMain;
 
 - (IBAction)suKienBamNutThuongDung:(id)sender;
 @end

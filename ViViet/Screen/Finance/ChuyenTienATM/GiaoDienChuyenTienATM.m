@@ -63,13 +63,7 @@
         [self thayDoiAnhTimATM];
         [self thayDoiTrangThaiButton:_nIndexBank];
     }
-    if(![CommonUtils isEmptyOrNull:self.mThongTinTaiKhoanVi.pki3] && [self.mThongTinTaiKhoanVi.hanMucPki3 doubleValue] >0 ){
-        self.mbtnPKI.hidden = NO;
-    }
-    else{
-        self.mbtnPKI.hidden = YES;
-    }
-   
+    
     [self khoiTaoQuangCao];
 }
 
@@ -101,8 +95,9 @@
         viewQC.frame = CGRectMake(0, rectQC.origin.y, fW, fH);
         viewQC.mDelegate = self;
         [viewQC updateSizeQuangCao];
-        rectMain.size.height = rectQC.origin.y + rectQC.size.height;
-        self.mViewMain.frame = rectMain;
+        self.heightViewMain.constant += (fH + 15.0);
+//        rectMain.size.height = rectQC.origin.y + rectQC.size.height;
+//        self.mViewMain.frame = rectMain;
         [self.mViewMain addSubview:viewQC];
         [self.scrMain setContentSize:CGSizeMake(_scrMain.frame.size.width, rectMain.origin.y + rectMain.size.height + self.viewOptionTop.frame.size.height + 10)];
     }
@@ -416,6 +411,7 @@
     [_btnTechcombank release];
     [_btnVietinbank release];
     [_lblPhi release];
+    [_heightViewMain release];
     [super dealloc];
 }
 @end

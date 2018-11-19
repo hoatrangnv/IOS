@@ -50,8 +50,6 @@
     [self addButtonHuongDan];
     [self xuLyKetNoiLaySoDuTaiKhoan];
 
-    [_btnTab1 setSelected:YES];
-
     isLongPress = NO;
     self.imgvQRCode.userInteractionEnabled = YES;
     UILongPressGestureRecognizer *longHander = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleHoldGesture:)];
@@ -492,13 +490,6 @@
     [_mtfSoPhi release];
     [_mtvNoiDungGiaoDich release];
     [_mtfNoiDung release];
-    
-    [_imgTab release];
-    [_btnTab1 release];
-    [_btnTab2 release];
-    [_btnTab3 release];
-    [_scrMain release];
-
     [_imgvQRCode release];
     [_imgvAvatar release];
     [_lblTenChuVi release];
@@ -508,6 +499,7 @@
     [_heightViewMain release];
     [_viewQR release];
     [_heightContentView release];
+//    [_scrMain release];
     [super dealloc];
 }
 
@@ -529,38 +521,5 @@
 //        [self suKienLayDanhSachThuongDung:nil];
 //        self.bChuyenGiaoDien = YES;
 //    }
-}
-
-- (IBAction)suKienChonTab1:(id)sender {
-    [_imgTab setImage:[UIImage imageNamed:@"tab-cat1"]];
-    [_btnTab1 setSelected:YES];
-    [_btnTab2 setSelected:NO];
-    [_btnTab3 setSelected:NO];
-    [self.viewVi setHidden:NO];
-    [self.webTaiKhoan setHidden:YES];
-}
-
-- (IBAction)suKienChonTab2:(id)sender {
-//    [_imgTab setImage:[UIImage imageNamed:@"tab-cat2"]];
-//    [_btnTab2 setSelected:YES];
-//    [_btnTab1 setSelected:NO];
-//    [_btnTab3 setSelected:NO];
-    
-    NapViTuTheNganHangViewController *napViTuTheNganHangViewController = [[NapViTuTheNganHangViewController alloc] initWithNibName:@"NapViTuTheNganHangViewController" bundle:nil];
-    [self.navigationController pushViewController:napViTuTheNganHangViewController animated:YES];
-    [napViTuTheNganHangViewController release];
-}
-
-- (IBAction)suKienChonTab3:(id)sender {
-    [_imgTab setImage:[UIImage imageNamed:@"tab-cat3"]];
-    [_btnTab3 setSelected:YES];
-    [_btnTab2 setSelected:NO];
-    [_btnTab1 setSelected:NO];
-    [self.viewVi setHidden:YES];
-    [self.webTaiKhoan setHidden:NO];
-    NSData *data = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"huongdannaptien" ofType:@"txt"]];
-    
-    NSString *sXauHtml = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    [self.webTaiKhoan loadHTMLString:sXauHtml baseURL:nil];
 }
 @end

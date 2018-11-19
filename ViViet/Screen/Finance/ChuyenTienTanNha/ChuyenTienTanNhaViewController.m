@@ -150,7 +150,7 @@
         rectTenDuong.size.height = rectQC.origin.y + rectQC.size.height + 10;
         rectMain.size.height = rectTenDuong.origin.y + rectTenDuong.size.height;
         self.mViewTenDuongSonha.frame = rectTenDuong;
-        self.mViewMain.frame = rectMain;
+        self.heightViewMain.constant += (fH + 15.0);
         [self.mViewTenDuongSonha addSubview:viewQC];
         [self.mScrView setContentSize:CGSizeMake(_mScrView.frame.size.width, self.mViewMain.frame.origin.y + self.mViewMain.frame.size.height + self.viewOptionTop.frame.size.height + 10)];
     }
@@ -166,6 +166,7 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self khoiTaoQuangCao];
+    [_mtvTenDuong resignFirstResponder];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -532,6 +533,7 @@
     [_mViewTenDuongSonha release];
     [_mtvTenDuong release];
 //    [_mScrView release];
+    [_heightViewMain release];
     [super dealloc];
 }
 

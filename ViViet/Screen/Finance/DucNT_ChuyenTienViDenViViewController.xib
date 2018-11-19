@@ -1,34 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DucNT_ChuyenTienViDenViViewController">
             <connections>
                 <outlet property="btnSoTay" destination="LFD-SP-Ipa" id="eZZ-pu-HjZ"/>
-                <outlet property="btnTab1" destination="6kv-AV-sAB" id="3QQ-wy-yex"/>
-                <outlet property="btnTab2" destination="NUz-Gu-oat" id="Tcp-Ne-DKq"/>
-                <outlet property="btnTab3" destination="KlC-x3-hP9" id="Uhq-Rt-hr2"/>
                 <outlet property="btnVanTayMini" destination="U8W-R2-If2" id="sIi-JM-Csw"/>
                 <outlet property="heightContentView" destination="XMK-N0-bmH" id="00W-Xt-YRh"/>
                 <outlet property="heightViewMain" destination="C9T-4s-E9R" id="48h-uN-7OE"/>
-                <outlet property="imgTab" destination="WJB-AA-Owy" id="QUB-ef-7El"/>
                 <outlet property="imgvAvatar" destination="X5X-Op-0Eq" id="JcS-kR-dum"/>
                 <outlet property="imgvQRCode" destination="69Y-GF-Ck4" id="8Dq-fc-oeX"/>
                 <outlet property="mViewMain" destination="dRZ-AN-5Si" id="o0l-8p-e1y"/>
                 <outlet property="mViewNhapToken" destination="6e9-2u-4AR" id="Ebh-2Z-gB4"/>
-                <outlet property="mbtnEmail" destination="mli-Ax-Gdm" id="9xX-b1-FT1"/>
                 <outlet property="mbtnLuuTaiKhoanThuongDung" destination="J7Y-F3-pPS" id="uNo-BT-baf"/>
                 <outlet property="mbtnPKI" destination="hLl-8s-7Ot" id="IrH-dI-jjq"/>
-                <outlet property="mbtnSMS" destination="FDw-VU-GiU" id="Rdw-Pr-ZZm"/>
                 <outlet property="mbtnThucHien" destination="bLP-0y-JdW" id="ChT-Yl-s67"/>
                 <outlet property="mbtnToken" destination="k8s-32-8wO" id="hgF-Sz-WPl"/>
                 <outlet property="mlblSoDu" destination="ICk-30-fvI" id="gvZ-Qy-7gq"/>
@@ -66,7 +58,7 @@
                                     <rect key="frame" x="8" y="5" width="304" height="484"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eQf-nb-31m" userLabel="ViewKhongEdtDaiDien">
-                                            <rect key="frame" x="0.0" y="5" width="304" height="478.5"/>
+                                            <rect key="frame" x="0.0" y="5" width="304" height="479"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LFD-SP-Ipa">
                                                     <rect key="frame" x="261" y="0.0" width="35" height="35"/>
@@ -142,51 +134,53 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tMr-uX-sWA" userLabel="ViewThoiGianConLai">
-                                                    <rect key="frame" x="0.0" y="162" width="304" height="60"/>
+                                                    <rect key="frame" x="0.0" y="162" width="304" height="80"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Xác thực" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CvQ-GH-k4O">
-                                                            <rect key="frame" x="3" y="0.0" width="70" height="24"/>
-                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Xác thực" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CvQ-GH-k4O">
+                                                            <rect key="frame" x="8" y="5" width="65" height="18"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="18" id="c2E-Qu-gyY"/>
+                                                            </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hLl-8s-7Ot">
-                                                            <rect key="frame" x="13" y="24" width="56" height="30"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES"/>
-                                                            <state key="normal" title="PKI" backgroundImage="bg-nuttrang.png"/>
-                                                        </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k8s-32-8wO">
-                                                            <rect key="frame" x="72" y="24" width="56" height="30"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES"/>
-                                                            <state key="normal" title="Token" backgroundImage="bg-nuttrang.png"/>
-                                                        </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FDw-VU-GiU">
-                                                            <rect key="frame" x="131" y="24" width="55" height="30"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES"/>
-                                                            <state key="normal" title="SMS" backgroundImage="bg-nuttrang.png"/>
-                                                        </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mli-Ax-Gdm">
-                                                            <rect key="frame" x="188" y="24" width="57" height="30"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES"/>
-                                                            <state key="normal" title="Email" backgroundImage="bg-nuttrang.png"/>
-                                                        </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U8W-R2-If2">
-                                                            <rect key="frame" x="248" y="24" width="56" height="30"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES"/>
-                                                            <state key="normal" image="vantaymau-ngang.png" backgroundImage="bg-nuttrang.png"/>
-                                                            <connections>
-                                                                <action selector="suKienBamNutMatKhauVanTay:" destination="-1" eventType="touchUpInside" id="EV2-eI-jYo"/>
-                                                            </connections>
-                                                        </button>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="O43-Np-Oed">
+                                                            <rect key="frame" x="70" y="28" width="164.5" height="47"/>
+                                                            <subviews>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hLl-8s-7Ot">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="48" height="47"/>
+                                                                    <state key="normal" title="PKI" image="pki"/>
+                                                                </button>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k8s-32-8wO">
+                                                                    <rect key="frame" x="58" y="0.0" width="48" height="47"/>
+                                                                    <state key="normal" title="Token" image="tokenv"/>
+                                                                </button>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U8W-R2-If2">
+                                                                    <rect key="frame" x="116" y="0.0" width="48.5" height="47"/>
+                                                                    <state key="normal" image="vantay"/>
+                                                                    <connections>
+                                                                        <action selector="suKienBamNutMatKhauVanTay:" destination="-1" eventType="touchUpInside" id="EV2-eI-jYo"/>
+                                                                    </connections>
+                                                                </button>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="O43-Np-Oed" secondAttribute="height" multiplier="3.5" id="PsO-Ym-z4e"/>
+                                                            </constraints>
+                                                        </stackView>
                                                     </subviews>
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="60" id="Nkg-dQ-q5J"/>
+                                                        <constraint firstItem="O43-Np-Oed" firstAttribute="top" secondItem="CvQ-GH-k4O" secondAttribute="bottom" constant="5" id="5hR-ZI-GqF"/>
+                                                        <constraint firstAttribute="height" constant="80" id="Nkg-dQ-q5J"/>
+                                                        <constraint firstItem="O43-Np-Oed" firstAttribute="centerX" secondItem="tMr-uX-sWA" secondAttribute="centerX" id="Sd7-0B-YRu"/>
+                                                        <constraint firstItem="CvQ-GH-k4O" firstAttribute="top" secondItem="tMr-uX-sWA" secondAttribute="top" constant="5" id="YXf-9z-tjR"/>
+                                                        <constraint firstAttribute="bottom" secondItem="O43-Np-Oed" secondAttribute="bottom" constant="5" id="h18-lg-CKK"/>
+                                                        <constraint firstItem="CvQ-GH-k4O" firstAttribute="leading" secondItem="tMr-uX-sWA" secondAttribute="leading" constant="8" id="lOZ-qt-erH"/>
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6e9-2u-4AR" userLabel="ViewNhapToKen">
-                                                    <rect key="frame" x="0.0" y="230" width="304" height="35"/>
+                                                    <rect key="frame" x="0.0" y="250" width="304" height="35"/>
                                                     <subviews>
                                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lIa-u9-OlL" customClass="ExTextField">
                                                             <rect key="frame" x="5" y="0.0" width="167" height="35"/>
@@ -238,7 +232,7 @@
                                                     </constraints>
                                                 </switch>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xRc-Dx-b9P">
-                                                    <rect key="frame" x="0.0" y="273" width="304" height="161"/>
+                                                    <rect key="frame" x="0.0" y="293" width="304" height="161"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="69Y-GF-Ck4">
                                                             <rect key="frame" x="6" y="23.5" width="155" height="155"/>
@@ -253,7 +247,7 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QR của tôi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3r4-5J-NSL">
-                                                            <rect key="frame" x="113" y="0.0" width="79.5" height="20.5"/>
+                                                            <rect key="frame" x="112.5" y="0.0" width="79.5" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -314,16 +308,16 @@
                                             </constraints>
                                         </view>
                                         <webView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1pS-0p-rMF">
-                                            <rect key="frame" x="0.0" y="5" width="304" height="420.5"/>
+                                            <rect key="frame" x="0.0" y="5" width="304" height="471"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </webView>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="1pS-0p-rMF" secondAttribute="trailing" id="5aC-sY-Cyp"/>
-                                        <constraint firstItem="1pS-0p-rMF" firstAttribute="height" secondItem="dRZ-AN-5Si" secondAttribute="height" multiplier="0.87" id="FPv-ud-tIO"/>
                                         <constraint firstAttribute="trailing" secondItem="eQf-nb-31m" secondAttribute="trailing" id="Ihl-zc-Aum"/>
                                         <constraint firstItem="1pS-0p-rMF" firstAttribute="top" secondItem="dRZ-AN-5Si" secondAttribute="top" constant="5" id="Rl5-hP-cQo"/>
+                                        <constraint firstAttribute="bottom" secondItem="1pS-0p-rMF" secondAttribute="bottom" constant="8" id="UVk-AH-I67"/>
                                         <constraint firstAttribute="bottom" secondItem="eQf-nb-31m" secondAttribute="bottom" id="X0y-rW-Kbm"/>
                                         <constraint firstItem="eQf-nb-31m" firstAttribute="leading" secondItem="dRZ-AN-5Si" secondAttribute="leading" id="lrX-xe-OQN"/>
                                         <constraint firstItem="1pS-0p-rMF" firstAttribute="leading" secondItem="dRZ-AN-5Si" secondAttribute="leading" id="oj7-Bi-jdI"/>
@@ -363,7 +357,7 @@
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-139" y="189"/>
+            <point key="canvasLocation" x="-222.40000000000001" y="170.01499250374815"/>
         </view>
         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="J7Y-F3-pPS">
             <rect key="frame" x="0.0" y="0.0" width="36" height="36"/>
@@ -375,7 +369,7 @@
             <connections>
                 <action selector="suKienLuuTaiKhoanThuongDung:" destination="-1" eventType="touchUpInside" id="xDJ-9b-GgU"/>
             </connections>
-            <point key="canvasLocation" x="811" y="76"/>
+            <point key="canvasLocation" x="1297.5999999999999" y="68.365817091454275"/>
         </button>
         <view contentMode="scaleToFill" id="5gT-rt-bhE" userLabel="ViewSoDuVaKhuyenMai">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -400,72 +394,16 @@
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <point key="canvasLocation" x="1096" y="362"/>
-        </view>
-        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b0y-Dz-fgW">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="36"/>
-            <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tab-cat1.png" translatesAutoresizingMaskIntoConstraints="NO" id="WJB-AA-Owy">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="36"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                </imageView>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6kv-AV-sAB">
-                    <rect key="frame" x="7" y="0.0" width="96" height="34"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
-                    <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                    <state key="normal" title="Ví">
-                        <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </state>
-                    <state key="selected">
-                        <color key="titleColor" red="0.23921568630000001" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </state>
-                    <connections>
-                        <action selector="suKienChonTab1:" destination="-1" eventType="touchUpInside" id="ERT-Ye-jNy"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NUz-Gu-oat">
-                    <rect key="frame" x="130" y="0.0" width="82" height="34"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
-                    <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                    <state key="normal" title="Liên kết">
-                        <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </state>
-                    <state key="selected">
-                        <color key="titleColor" red="0.23921568630000001" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </state>
-                    <connections>
-                        <action selector="suKienChonTab2:" destination="-1" eventType="touchUpInside" id="FLi-Uy-KOo"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KlC-x3-hP9">
-                    <rect key="frame" x="234" y="0.0" width="86" height="34"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
-                    <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                    <state key="normal" title="Lấy mã TT">
-                        <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </state>
-                    <state key="selected">
-                        <color key="titleColor" red="0.23921568630000001" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </state>
-                    <connections>
-                        <action selector="suKienChonTab3:" destination="-1" eventType="touchUpInside" id="MM3-H0-oHY"/>
-                    </connections>
-                </button>
-            </subviews>
-            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-582" y="-3"/>
+            <point key="canvasLocation" x="1753.5999999999999" y="325.63718140929535"/>
         </view>
     </objects>
     <resources>
-        <image name="bg-nuttrang.png" width="128" height="52"/>
         <image name="bg_nen.png" width="720" height="1280"/>
         <image name="ic_save_acc.png" width="64" height="64"/>
         <image name="iconSoTay.png" width="32" height="28"/>
         <image name="icon_trans_money_add.png" width="64" height="64"/>
-        <image name="tab-cat1.png" width="688" height="80"/>
-        <image name="vantaymau-ngang.png" width="107" height="59"/>
+        <image name="pki" width="225" height="225"/>
+        <image name="tokenv" width="120" height="120"/>
+        <image name="vantay" width="225" height="225"/>
     </resources>
 </document>

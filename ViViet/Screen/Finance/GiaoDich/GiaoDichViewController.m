@@ -97,6 +97,13 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    
+    if(![CommonUtils isEmptyOrNull:self.mThongTinTaiKhoanVi.pki3] && [self.mThongTinTaiKhoanVi.hanMucPki3 doubleValue] >0 ){
+        self.mbtnPKI.hidden = NO;
+    }
+    else{
+        self.mbtnPKI.hidden = YES;
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -205,20 +212,24 @@
 {
     NSLog(@"%s =========================> 1", __FUNCTION__);
     
-    [self.mbtnVanTay setImage:[UIImage imageNamed:@"finger"] forState:UIControlStateNormal];
+//    [self.mbtnVanTay setImage:[UIImage imageNamed:@"finger"] forState:UIControlStateNormal];
+//
+//    [self.mbtnToken setTitle:@"TOKEN" forState:UIControlStateNormal];
+//    [self.mbtnToken setBackgroundImage:[UIImage imageNamed:@"bg-nuttrang"] forState:UIControlStateNormal];
+//
+//    [self.mbtnSMS setTitle:@"SMS" forState:UIControlStateNormal];
+//    [self.mbtnSMS setBackgroundImage:[UIImage imageNamed:@"bg-nuttrang"] forState:UIControlStateNormal];
+//
+//    [self.mbtnEmail setTitle:@"EMAIL" forState:UIControlStateNormal];
+//    [self.mbtnEmail setBackgroundImage:[UIImage imageNamed:@"bg-nuttrang"] forState:UIControlStateNormal];
+//
+//    [self.mbtnPKI setTitle:@"PKI" forState:UIControlStateNormal];
+//    [self.mbtnPKI setBackgroundImage:[UIImage imageNamed:@"bg-nuttrang"] forState:UIControlStateNormal];
+    [self.mbtnPKI.imageView setContentMode:UIViewContentModeScaleAspectFit];
+    [self.btnVanTayMini.imageView setContentMode:UIViewContentModeScaleAspectFit];
+    [self.mbtnVanTay.imageView setContentMode:UIViewContentModeScaleAspectFit];
+    [self.mbtnToken.imageView setContentMode:UIViewContentModeScaleAspectFit];
     
-    [self.mbtnToken setTitle:@"TOKEN" forState:UIControlStateNormal];
-    [self.mbtnToken setBackgroundImage:[UIImage imageNamed:@"bg-nuttrang"] forState:UIControlStateNormal];
-    
-    [self.mbtnSMS setTitle:@"SMS" forState:UIControlStateNormal];
-    [self.mbtnSMS setBackgroundImage:[UIImage imageNamed:@"bg-nuttrang"] forState:UIControlStateNormal];
-    
-    [self.mbtnEmail setTitle:@"EMAIL" forState:UIControlStateNormal];
-    [self.mbtnEmail setBackgroundImage:[UIImage imageNamed:@"bg-nuttrang"] forState:UIControlStateNormal];
-    
-    [self.mbtnPKI setTitle:@"PKI" forState:UIControlStateNormal];
-    [self.mbtnPKI setBackgroundImage:[UIImage imageNamed:@"bg-nuttrang"] forState:UIControlStateNormal];
-
     self.mbtnPKI.selected = NO;
     
     self.mbtnSMS.selected = NO;
@@ -537,12 +548,18 @@
 
 - (void)xuLyKhiCoChucNangQuetVanTay
 {
+    NSLog(@"%s - ============> co van tay", __FUNCTION__);
     [self.mbtnVanTay setHidden:YES];
     _btnVanTayMini.enabled = YES;
 }
 
+- (void)xuLyKhiCoChucNangFaceID {
+    [_btnVanTayMini setImage:[UIImage imageNamed:@"face-id"] forState:UIControlStateNormal];
+}
+
 - (void)xuLyKhiKhongCoChucNangQuetVanTay
 {
+    NSLog(@"%s - ============> khong van tay", __FUNCTION__);
     [self.mbtnVanTay setHidden:YES];
     _btnVanTayMini.enabled = NO;
 }

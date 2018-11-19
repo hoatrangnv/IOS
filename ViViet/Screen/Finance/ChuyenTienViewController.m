@@ -83,8 +83,9 @@
         viewQC.frame = CGRectMake(0, rectQC.origin.y, fW, fH);
         viewQC.mDelegate = self;
         [viewQC updateSizeQuangCao];
-        rectMain.size.height = rectQC.origin.y + rectQC.size.height;
-        self.mViewMain.frame = rectMain;
+        self.heightViewMain.constant += (fH + 15.0);
+//        rectMain.size.height = rectQC.origin.y + rectQC.size.height;
+//        self.mViewMain.frame = rectMain;
         [self.mViewMain addSubview:viewQC];
         self.scrMain.contentSize = CGSizeMake(rectMain.size.width, rectMain.size.height + 20.0);
     }
@@ -432,6 +433,7 @@
     [_mtfTenNguoiThuHuong release];
     [_mtfTenVietTatNganHang release];
     [_scrMain release];
+    [_heightViewMain release];
     [super dealloc];
 }
 @end

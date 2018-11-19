@@ -13,8 +13,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HanMucMoiViewController">
             <connections>
                 <outlet property="btnMKPI" destination="Tf1-Id-d8W" id="BPy-17-W0P"/>
-                <outlet property="btnSMS" destination="Otj-tf-gdU" id="swD-X4-dsU"/>
                 <outlet property="btnToken" destination="iOY-wu-laN" id="cLF-Vf-hQc"/>
+                <outlet property="btnVanTayMini" destination="Otj-tf-gdU" id="4sT-dV-mRk"/>
                 <outlet property="heightViewMaXacThuc" destination="aKH-KA-E4F" id="TAG-3q-ni4"/>
                 <outlet property="heightViewXacThuc" destination="pSV-Vs-jW3" id="tID-bI-d2W"/>
                 <outlet property="scrMain" destination="hc8-KR-qKh" id="qZH-w6-j17"/>
@@ -210,27 +210,26 @@
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="3S9-iR-SfU">
                             <rect key="frame" x="57.5" y="5" width="240" height="60"/>
                             <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GBh-LY-EDq">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Qx-jQ-l6l">
                                     <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Otj-tf-gdU">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tf1-Id-d8W">
                                             <rect key="frame" x="3" y="3" width="54" height="54"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" secondItem="Otj-tf-gdU" secondAttribute="height" id="1DX-Wd-5CK"/>
+                                                <constraint firstAttribute="width" secondItem="Tf1-Id-d8W" secondAttribute="height" id="Qr2-qm-6if"/>
                                             </constraints>
-                                            <state key="normal" image="sms"/>
+                                            <state key="normal" image="pki"/>
                                             <connections>
-                                                <action selector="suKienChonSMS:" destination="-1" eventType="touchUpInside" id="Hrt-Jf-MDW"/>
+                                                <action selector="suKienChonMKPI:" destination="-1" eventType="touchUpInside" id="3k1-SF-57A"/>
                                             </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" secondItem="GBh-LY-EDq" secondAttribute="height" id="2Bm-AF-OUU"/>
-                                        <constraint firstItem="Otj-tf-gdU" firstAttribute="centerX" secondItem="GBh-LY-EDq" secondAttribute="centerX" id="4sK-bX-F0n"/>
-                                        <constraint firstItem="Otj-tf-gdU" firstAttribute="width" secondItem="GBh-LY-EDq" secondAttribute="width" multiplier="0.9" id="VLi-6p-Slh"/>
-                                        <constraint firstAttribute="width" constant="60" id="WE6-gt-FJ6"/>
-                                        <constraint firstItem="Otj-tf-gdU" firstAttribute="centerY" secondItem="GBh-LY-EDq" secondAttribute="centerY" id="fle-bd-wmH"/>
+                                        <constraint firstAttribute="width" secondItem="4Qx-jQ-l6l" secondAttribute="height" id="Jxm-Ln-EHo"/>
+                                        <constraint firstItem="Tf1-Id-d8W" firstAttribute="centerX" secondItem="4Qx-jQ-l6l" secondAttribute="centerX" id="YAN-0a-26z"/>
+                                        <constraint firstItem="Tf1-Id-d8W" firstAttribute="centerY" secondItem="4Qx-jQ-l6l" secondAttribute="centerY" id="dwd-B3-VB2"/>
+                                        <constraint firstItem="Tf1-Id-d8W" firstAttribute="width" secondItem="4Qx-jQ-l6l" secondAttribute="width" multiplier="0.9" id="rye-EY-NTQ"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hw0-Re-dDy">
@@ -255,26 +254,24 @@
                                         <constraint firstAttribute="width" secondItem="hw0-Re-dDy" secondAttribute="height" id="rFq-Nm-xwm"/>
                                     </constraints>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Qx-jQ-l6l">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GBh-LY-EDq">
                                     <rect key="frame" x="180" y="0.0" width="60" height="60"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tf1-Id-d8W">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Otj-tf-gdU">
                                             <rect key="frame" x="3" y="3" width="54" height="54"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" secondItem="Tf1-Id-d8W" secondAttribute="height" id="Qr2-qm-6if"/>
+                                                <constraint firstAttribute="width" secondItem="Otj-tf-gdU" secondAttribute="height" id="1DX-Wd-5CK"/>
                                             </constraints>
-                                            <state key="normal" image="pki"/>
-                                            <connections>
-                                                <action selector="suKienChonMKPI:" destination="-1" eventType="touchUpInside" id="3k1-SF-57A"/>
-                                            </connections>
+                                            <state key="normal" image="sms"/>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" secondItem="4Qx-jQ-l6l" secondAttribute="height" id="Jxm-Ln-EHo"/>
-                                        <constraint firstItem="Tf1-Id-d8W" firstAttribute="centerX" secondItem="4Qx-jQ-l6l" secondAttribute="centerX" id="YAN-0a-26z"/>
-                                        <constraint firstItem="Tf1-Id-d8W" firstAttribute="centerY" secondItem="4Qx-jQ-l6l" secondAttribute="centerY" id="dwd-B3-VB2"/>
-                                        <constraint firstItem="Tf1-Id-d8W" firstAttribute="width" secondItem="4Qx-jQ-l6l" secondAttribute="width" multiplier="0.9" id="rye-EY-NTQ"/>
+                                        <constraint firstAttribute="width" secondItem="GBh-LY-EDq" secondAttribute="height" id="2Bm-AF-OUU"/>
+                                        <constraint firstItem="Otj-tf-gdU" firstAttribute="centerX" secondItem="GBh-LY-EDq" secondAttribute="centerX" id="4sK-bX-F0n"/>
+                                        <constraint firstItem="Otj-tf-gdU" firstAttribute="width" secondItem="GBh-LY-EDq" secondAttribute="width" multiplier="0.9" id="VLi-6p-Slh"/>
+                                        <constraint firstAttribute="width" constant="60" id="WE6-gt-FJ6"/>
+                                        <constraint firstItem="Otj-tf-gdU" firstAttribute="centerY" secondItem="GBh-LY-EDq" secondAttribute="centerY" id="fle-bd-wmH"/>
                                     </constraints>
                                 </view>
                             </subviews>

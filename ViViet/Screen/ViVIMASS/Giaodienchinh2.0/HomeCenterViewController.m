@@ -812,9 +812,23 @@
                 break;
             case 9:
             {
-                HanMucGiaoDichViewController *vc = [[HanMucGiaoDichViewController alloc] initWithNibName:@"HanMucGiaoDichViewController" bundle:nil];
-                [self.navigationController pushViewController:vc animated:YES];
-                [vc release];
+//                HanMucGiaoDichViewController *vc = [[HanMucGiaoDichViewController alloc] initWithNibName:@"HanMucGiaoDichViewController" bundle:nil];
+//                [self.navigationController pushViewController:vc animated:YES];
+//                [vc release];
+                if([[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_STATE] boolValue])
+                {
+                    HanMucMoiViewController *vc = [[HanMucMoiViewController alloc] initWithNibName:@"HanMucMoiViewController" bundle:nil];
+                    [self.navigationController pushViewController:vc animated:YES];
+                    [vc release];
+                }
+                else
+                {
+                    DucNT_LoginSceen *loginSceen = [[DucNT_LoginSceen alloc] initWithNibName:@"DucNT_LoginSceen" bundle:nil];
+                    loginSceen.sTenViewController = @"DucNT_HienThiTokenViewController";
+                    loginSceen.sKieuChuyenGiaoDien = @"push";
+                    [self.navigationController pushViewController:loginSceen animated:YES];
+                    [loginSceen release];
+                }
             }
                 break;
             default:

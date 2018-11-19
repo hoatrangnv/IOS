@@ -376,20 +376,6 @@
     
     return;
     
-    //    UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
-    //    button.frame = CGRectMake(0, 0, 44, 44);
-    //
-    ////    [button setBackgroundImage:[UIImage imageNamed:@"bar_button_left_bg"] forState:UIControlStateNormal];
-    //    [button setImage:[Common stretchImage:@"bar_button_cate_left"] forState:UIControlStateNormal];
-    ////    [button setImage:[UIImage imageNamed:@"bar_button_cate_left"] forState:forState:UIControlStateNormal];
-    //
-    //    button.backgroundColor = [UIColor clearColor];
-    //    button.autoresizingMask = UIViewAutoresizingFlexibleHeight;
-    //    [button addTarget:self action:@selector(didSelectCateLeft) forControlEvents:UIControlEventTouchUpInside];
-    //
-    //    UIBarButtonItem *rightItem = [[[UIBarButtonItem alloc] initWithCustomView:button] autorelease];
-    //    self.navigationItem.leftBarButtonItem = rightItem;
-    
 }
 -(void)didSelectCateLeft
 {
@@ -589,6 +575,9 @@
     if([self kiemTraCoChucNangQuetVanTay])
     {
         [self xuLyKhiCoChucNangQuetVanTay];
+        if (self.enableFaceID) {
+            [self xuLyKhiCoChucNangFaceID];
+        }
     }
     else
     {
@@ -620,12 +609,15 @@
             if (@available(iOS 11.0.1, *)) {
                 if (laContext.biometryType == LABiometryTypeFaceID) {
                     //localizedReason = "Unlock using Face ID"
+                    self.enableFaceID = YES;
                     return YES;
                 } else if (laContext.biometryType == LABiometryTypeTouchID) {
                     //localizedReason = "Unlock using Touch ID"
+                    self.enableFaceID = NO;
                     return YES;
                 } else {
                     //localizedReason = "Unlock using Application Passcode"
+                    self.enableFaceID = YES;
                     return NO;
                 }
             } else {
@@ -633,6 +625,7 @@
             }
         }
     }
+    self.enableFaceID = YES;
     return NO;
 }
 
@@ -698,56 +691,80 @@
     [self.view endEditing:YES];
     if([DucNT_Token daTonTaiMatKhauVanTay])
     {
+        NSLog(@"%s - START 1", __FUNCTION__);
         LAContext *context = [[[LAContext alloc] init] autorelease];
         NSError *err = nil;
-        if([context canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&err])
-        {
-            __block BaseScreen *weakSelf = self;
-            [RoundAlert show];
-            [context evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics
-                    localizedReason:sTieuDe
-                              reply:^(BOOL success, NSError *error)
-             {
-                 dispatch_async(dispatch_get_main_queue(), ^{
-                     
-                     if (error) {
-                         switch (error.code) {
-                             case LAErrorUserCancel:
-                                 NSLog(@"info:%@: %@, LAErrorUserCancel", NSStringFromClass([self class]),NSStringFromSelector(_cmd));
-                                 break;
-                             case LAErrorAuthenticationFailed:
-                                 NSLog(@"info:%@: %@, LAErrorAuthenticationFailed", NSStringFromClass([self class]),NSStringFromSelector(_cmd));
-                                 [weakSelf hienThiThongBaoDienMatKhau];
-                                 break;
-                             case LAErrorPasscodeNotSet:
-                                 NSLog(@"info:%@: %@, LAErrorPasscodeNotSet", NSStringFromClass([self class]),NSStringFromSelector(_cmd));
-                                 break;
-                                 //                             case LAErrorTouchIDNotAvailable:
-                                 //                                 NSLog(@"info:%@: %@, LAErrorTouchIDNotAvailable", NSStringFromClass([self class]),NSStringFromSelector(_cmd));
-                                 //                                 break;
-                                 //                             case LAErrorTouchIDNotEnrolled:
-                                 //                                 NSLog(@"info:%@: %@, LAErrorTouchIDNotEnrolled", NSStringFromClass([self class]),NSStringFromSelector(_cmd));
-                                 //                                 break;
-                             case LAErrorUserFallback:
-                                 NSLog(@"info:%@: %@, LAErrorUserFallback", NSStringFromClass([self class]),NSStringFromSelector(_cmd));
-                                 break;
-                             default:
-                                 break;
+        if (@available(iOS 11.0, *)) {
+            if ([context canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&err]) {
+                if (err != NULL) {
+                    NSLog(@"%s - error : %@", __FUNCTION__, err.description);
+                } else {
+                    if (context.biometryType == LABiometryTypeFaceID) {
+                        NSLog(@"%s - ho tro face id", __FUNCTION__);
+                    }
+                    else if (context.biometryType == LABiometryTypeTouchID) {
+                        NSLog(@"%s - ho tro touch id", __FUNCTION__);
+                    } else {
+                        NSLog(@"%s - khong ho tro gi ca", __FUNCTION__);
+                    }
+                    [context evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics localizedReason:sTieuDe reply:^(BOOL success, NSError * _Nullable error) {
+                        if (error != NULL) {
+                            NSLog(@"%s - error : %@", __FUNCTION__, error.description);
+                        } else if (success) {
+                            NSLog(@"%s - xac thuc thanh cong", __FUNCTION__);
+                        } else {
+                            // handle false response
+                        }
+                    }];
+                }
+                
+            }
+        } else {
+            if([context canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&err])
+            {
+                NSLog(@"%s - START 2", __FUNCTION__);
+                __block BaseScreen *weakSelf = self;
+    //            [RoundAlert show];
+                [context evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics
+                        localizedReason:sTieuDe
+                                  reply:^(BOOL success, NSError *error)
+                 {
+                     dispatch_async(dispatch_get_main_queue(), ^{
+
+                         if (error) {
+                             switch (error.code) {
+                                 case LAErrorUserCancel:
+                                     NSLog(@"info:%@: %@, LAErrorUserCancel", NSStringFromClass([self class]),NSStringFromSelector(_cmd));
+                                     break;
+                                 case LAErrorAuthenticationFailed:
+                                     NSLog(@"info:%@: %@, LAErrorAuthenticationFailed", NSStringFromClass([self class]),NSStringFromSelector(_cmd));
+                                     [weakSelf hienThiThongBaoDienMatKhau];
+                                     break;
+                                 case LAErrorPasscodeNotSet:
+                                     NSLog(@"info:%@: %@, LAErrorPasscodeNotSet", NSStringFromClass([self class]),NSStringFromSelector(_cmd));
+                                     break;
+                                 case LAErrorUserFallback:
+                                     NSLog(@"info:%@: %@, LAErrorUserFallback", NSStringFromClass([self class]),NSStringFromSelector(_cmd));
+                                     break;
+                                 default:
+                                     break;
+                             }
+    //                         [RoundAlert hide];
+                             return;
                          }
-                         [RoundAlert hide];
-                         return;
-                     }
-                     if(success)
-                     {
-                         [self xuLySuKienXacThucVanTayThanhCong];
-                     }
-                 });
-             }];
+                         if(success)
+                         {
+                             NSLog(@"%s - xac thuc van tay thanh cong", __FUNCTION__);
+                             [self xuLySuKienXacThucVanTayThanhCong];
+                         }
+                     });
+                 }];
+            }
         }
     }
     else
     {
-        [UIAlertView alert:[@"thong_bao_chua_co_xac_thuc_van_tay_token" localizableString] withTitle:[@"@thong_bao" localizableString] block:nil];
+        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:[@"thong_bao_chua_co_xac_thuc_van_tay_token" localizableString]];
     }
 }
 

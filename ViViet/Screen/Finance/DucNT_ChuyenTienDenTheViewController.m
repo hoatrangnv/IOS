@@ -56,7 +56,7 @@
         CGRect rectScreen = [UIScreen mainScreen].bounds;
         NSLog(@"%s - rectMain : %f", __FUNCTION__, rectScreen.size.width);
         CGFloat fW = rectMain.size.width;
-        CGFloat fH = fW * 0.45333;
+        CGFloat fH = fW * 0.46;
         rectQC.origin.y = rectToken.origin.y + rectToken.size.height + 5;
         viewQC.frame = CGRectMake(0, rectQC.origin.y, fW, fH);
     //    viewQC.frame = rectQC;
@@ -165,40 +165,40 @@
         [loginSceen release];
         return NO;
     }
-    NSArray *tfs = @[/*edtTenNganHang,*/ _mtfSoTheNganHang, _mtfSoTien];
+    NSArray *tfs = @[_mtfSoTheNganHang, _mtfSoTien];
     ExTextField *first = nil;
     BOOL flg = YES;
-//    for (ExTextField *tf in tfs)
-//    {
-//        flg = [tf validate] && flg;
-//        if (flg == NO && first == nil)
-//            first = tf;
-//    }
-//    if (first)
-//    {
-//        [first show_error];
-//        return NO;
-//    }
-//
-//    double fSoTien = [[_mtfSoTien.text stringByReplacingOccurrencesOfString:@"." withString:@""] doubleValue];
-//    NSLog(@"%s - nHanMucDenThe : %f", __FUNCTION__, [self.mThongTinTaiKhoanVi.nHanMucDenThe doubleValue]);
-//    if(fSoTien < 50000)
-//    {
-//        [UIAlertView alert:@"Số tiền chuyển đi tối thiểu là 50.000 đồng" withTitle:[@"thong_bao" localizableString] block:nil];
-//        return NO;
-//    }
-//    else if (fSoTien >= [self.mThongTinTaiKhoanVi.nAmount doubleValue]) {
-//        [UIAlertView alert:@"Số dư trong tài khoản không đủ" withTitle:[@"thong_bao" localizableString] block:nil];
-//        return NO;
-//    }
-//    else if (fSoTien > [self.mThongTinTaiKhoanVi.nHanMucDenThe doubleValue]) {
-//        [UIAlertView alert:@"Số tiền chuyển đi vượt quá hạn mức. Bạn có thể thay đổi hạn mức tại mục Thay đổi" withTitle:[@"thong_bao" localizableString] block:nil];
-//        return NO;
-//    }
-//    if ([_mtfSoTheNganHang.text hasPrefix:@"272727"] || [_mtfSoTheNganHang.text hasPrefix:@"272728"] || [_mtfSoTheNganHang.text hasPrefix:@"272729"] || [_mtfSoTheNganHang.text hasPrefix:@"970405"]) {
-//        [UIAlertView alert:@"Chức năng không thể thực hiện với số thẻ ngân hàng Agribank" withTitle:[@"thong_bao" localizableString] block:nil];
-//        return NO;
-//    }
+    for (ExTextField *tf in tfs)
+    {
+        flg = [tf validate] && flg;
+        if (flg == NO && first == nil)
+            first = tf;
+    }
+    if (first)
+    {
+        [first show_error];
+        return NO;
+    }
+
+    double fSoTien = [[_mtfSoTien.text stringByReplacingOccurrencesOfString:@"." withString:@""] doubleValue];
+    NSLog(@"%s - nHanMucDenThe : %f", __FUNCTION__, [self.mThongTinTaiKhoanVi.nHanMucDenThe doubleValue]);
+    if(fSoTien < 50000)
+    {
+        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Số tiền chuyển đi tối thiểu là 50.000 đồng"];
+        return NO;
+    }
+    else if (fSoTien >= [self.mThongTinTaiKhoanVi.nAmount doubleValue]) {
+        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Số dư trong tài khoản không đủ"];
+        return NO;
+    }
+    else if (fSoTien > [self.mThongTinTaiKhoanVi.nHanMucDenThe doubleValue]) {
+        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Số tiền chuyển đi vượt quá hạn mức. Bạn có thể thay đổi hạn mức tại mục Thay đổi"];
+        return NO;
+    }
+    if ([_mtfSoTheNganHang.text hasPrefix:@"272727"] || [_mtfSoTheNganHang.text hasPrefix:@"272728"] || [_mtfSoTheNganHang.text hasPrefix:@"272729"] || [_mtfSoTheNganHang.text hasPrefix:@"970405"]) {
+        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Chức năng không thể thực hiện với số thẻ ngân hàng Agribank"];
+        return NO;
+    }
     return flg;
 }
 

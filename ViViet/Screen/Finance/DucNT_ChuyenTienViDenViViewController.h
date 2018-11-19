@@ -26,10 +26,6 @@
 @property (retain, nonatomic) IBOutlet ExTextField *mtfSoPhi;
 @property (retain, nonatomic) IBOutlet UmiTextView *mtvNoiDungGiaoDich;
 @property (retain, nonatomic) IBOutlet ExTextField *mtfNoiDung;
-@property (retain, nonatomic) IBOutlet UIImageView *imgTab;
-@property (retain, nonatomic) IBOutlet UIButton *btnTab1;
-@property (retain, nonatomic) IBOutlet UIButton *btnTab2;
-@property (retain, nonatomic) IBOutlet UIButton *btnTab3;
 @property (retain, nonatomic) DucNT_TaiKhoanThuongDungObject *mTaiKhoanThuongDung;
 @property (retain, nonatomic) IBOutlet UIImageView *imgvQRCode;
 @property (retain, nonatomic) IBOutlet UIImageView *imgvAvatar;

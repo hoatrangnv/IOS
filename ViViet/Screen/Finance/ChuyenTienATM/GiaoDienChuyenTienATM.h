@@ -22,6 +22,7 @@
 @property (retain, nonatomic) IBOutlet UILabel *lblPhi;
 @property (retain, nonatomic) IBOutlet TPKeyboardAvoidAcessory *scrMain;
 @property (nonatomic, assign) int nIndexBank;
+@property (retain, nonatomic) IBOutlet NSLayoutConstraint *heightViewMain;
 
 - (IBAction)hienThiSoTien:(id)sender;
 - (IBAction)suKienChonDanhBa:(id)sender;

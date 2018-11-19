@@ -20,7 +20,7 @@
     NSLog(@"%s - ===================> START : %f - %f", __FUNCTION__, self.frame.size.width, self.frame.size.height);
 
     viewQuangCao = [[KASlideShow alloc] initWithFrame:self.frame];
-    [viewQuangCao setImageMode:UIViewContentModeScaleAspectFill];
+    [viewQuangCao setImageMode:UIViewContentModeScaleToFill];
     viewQuangCao.delegate = self;
     viewQuangCao.delay = 10.0f;
     viewQuangCao.transitionDuration = 1.0f;

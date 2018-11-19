@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES">
-    <device id="retina4_0" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -17,15 +17,13 @@
                 <outlet property="btnVanTayMini" destination="Reu-xj-lyc" id="hr0-dd-FrF"/>
                 <outlet property="edSoTien" destination="Pgs-DU-E9P" id="fbX-7Y-EcL"/>
                 <outlet property="edViNhan" destination="mdo-Wl-8VJ" id="tqK-rR-IXR"/>
+                <outlet property="heightViewMain" destination="nNc-Rc-nzw" id="ao9-FT-FM3"/>
                 <outlet property="lblPhi" destination="iXj-Al-6jO" id="xAc-IV-hVn"/>
                 <outlet property="mViewMain" destination="iOH-bX-ZXK" id="yOa-Aj-xFQ"/>
                 <outlet property="mViewNhapToken" destination="szw-K9-7tQ" id="r0l-uR-dLT"/>
-                <outlet property="mbtnEmail" destination="RVp-DN-wyV" id="vFZ-ns-NwO"/>
                 <outlet property="mbtnPKI" destination="Nd8-lq-A3j" id="9D7-aj-0aE"/>
-                <outlet property="mbtnSMS" destination="1Ed-Nt-jOY" id="PxS-xY-4r7"/>
                 <outlet property="mbtnThucHien" destination="drt-5t-D96" id="Ars-q8-K69"/>
                 <outlet property="mbtnToken" destination="kBn-aE-a9u" id="ERx-1L-BVw"/>
-                <outlet property="mbtnVanTay" destination="SW2-cU-c77" id="uLQ-h2-dwC"/>
                 <outlet property="mtfMatKhauToken" destination="gQy-xb-U30" id="Ejv-fv-C66"/>
                 <outlet property="scrMain" destination="TaN-rD-egw" id="blq-cx-eUQ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -33,40 +31,48 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="498"/>
+            <rect key="frame" x="0.0" y="0.0" width="289" height="498"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_nen.png" id="fSg-Uu-r6z">
-                    <rect key="frame" x="0.0" y="0.0" width="337" height="548"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_nen.png" translatesAutoresizingMaskIntoConstraints="NO" id="fSg-Uu-r6z">
+                    <rect key="frame" x="0.0" y="0.0" width="289" height="498"/>
                 </imageView>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" id="TaN-rD-egw" customClass="TPKeyboardAvoidAcessory">
-                    <rect key="frame" x="0.0" y="0.0" width="322" height="498"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="TaN-rD-egw" customClass="TPKeyboardAvoidAcessory">
+                    <rect key="frame" x="0.0" y="0.0" width="289" height="498"/>
                     <subviews>
-                        <view contentMode="scaleToFill" id="iOH-bX-ZXK">
-                            <rect key="frame" x="5" y="5" width="310" height="278"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wEk-Aa-nKq">
+                            <rect key="frame" x="0.0" y="0.0" width="289" height="498"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iOH-bX-ZXK">
+                            <rect key="frame" x="5" y="5" width="279" height="278"/>
                             <subviews>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Số tiền" textAlignment="natural" minimumFontSize="17" id="Pgs-DU-E9P" customClass="ExTextField">
-                                    <rect key="frame" x="4" y="96" width="192" height="35"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Số tiền" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pgs-DU-E9P" customClass="ExTextField">
+                                    <rect key="frame" x="5" y="97" width="174" height="35"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="35" id="4hX-1f-zq5"/>
+                                    </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     <connections>
                                         <action selector="hienThiSoTien:" destination="-1" eventType="editingChanged" id="fDB-nC-UM1"/>
                                     </connections>
                                 </textField>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phí: 10.000 đ" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iXj-Al-6jO">
-                                    <rect key="frame" x="212" y="110" width="93" height="21"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phí: 10.000 đ" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iXj-Al-6jO">
+                                    <rect key="frame" x="184" y="106" width="90" height="18"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="90" id="Cec-s5-WK8"/>
+                                    </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="YKC-ic-oBy">
-                                    <rect key="frame" x="273" y="54" width="36" height="36"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YKC-ic-oBy">
+                                    <rect key="frame" x="242" y="54" width="36" height="36"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="YKC-ic-oBy" secondAttribute="height" multiplier="1:1" id="Ywf-lb-Rkd"/>
+                                        <constraint firstAttribute="width" constant="36" id="dDJ-hY-BpM"/>
+                                    </constraints>
                                     <state key="normal" image="iconSoTay.png">
                                         <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </state>
@@ -74,9 +80,12 @@
                                         <action selector="suKienChonSoTay:" destination="-1" eventType="touchUpInside" id="4fD-Qg-8dU"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="h9F-1B-ADa">
-                                    <rect key="frame" x="230" y="54" width="35" height="36"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h9F-1B-ADa">
+                                    <rect key="frame" x="202" y="54" width="35" height="35"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="35" id="ChU-D4-8F9"/>
+                                        <constraint firstAttribute="width" secondItem="h9F-1B-ADa" secondAttribute="height" id="TAb-YW-oHZ"/>
+                                    </constraints>
                                     <state key="normal" backgroundImage="icon_trans_money_add.png">
                                         <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </state>
@@ -84,110 +93,119 @@
                                         <action selector="suKienChonDanhBa:" destination="-1" eventType="touchUpInside" id="85p-1p-sIH"/>
                                     </connections>
                                 </button>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="SĐT nhận tiền tại ATM" textAlignment="natural" minimumFontSize="17" id="mdo-Wl-8VJ" customClass="ExTextField">
-                                    <rect key="frame" x="4" y="53" width="218" height="35"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="SĐT nhận tiền tại ATM" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mdo-Wl-8VJ" customClass="ExTextField">
+                                    <rect key="frame" x="5" y="54" width="192" height="35"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="35" id="yFm-6X-3VU"/>
+                                    </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                     <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                 </textField>
-                                <view contentMode="scaleToFill" id="Wrh-JH-hyb">
-                                    <rect key="frame" x="2" y="3" width="305" height="43"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wrh-JH-hyb">
+                                    <rect key="frame" x="3" y="3" width="273" height="43"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4WJ-bb-Yfx">
-                                            <rect key="frame" x="1" y="1" width="153" height="41"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                            <state key="normal" title="Sacombank">
-                                                <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="suKienChonSacombank:" destination="-1" eventType="touchUpInside" id="did-Gq-tZX"/>
-                                            </connections>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="OIl-Ua-Uj0">
-                                            <rect key="frame" x="151" y="1" width="153" height="41"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                            <state key="normal" title="Techcombank">
-                                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="suKienChonTechcombank:" destination="-1" eventType="touchUpInside" id="HcQ-1G-SxM"/>
-                                            </connections>
-                                        </button>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="20Z-zw-L6l">
+                                            <rect key="frame" x="0.0" y="0.0" width="273" height="43"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4WJ-bb-Yfx">
+                                                    <rect key="frame" x="0.0" y="0.0" width="137" height="43"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                    <state key="normal" title="Sacombank">
+                                                        <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="suKienChonSacombank:" destination="-1" eventType="touchUpInside" id="did-Gq-tZX"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OIl-Ua-Uj0">
+                                                    <rect key="frame" x="137" y="0.0" width="136" height="43"/>
+                                                    <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                    <state key="normal" title="Techcombank">
+                                                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="suKienChonTechcombank:" destination="-1" eventType="touchUpInside" id="HcQ-1G-SxM"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </stackView>
                                     </subviews>
                                     <color key="backgroundColor" red="0.0039215686269999999" green="0.31372549020000001" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="20Z-zw-L6l" secondAttribute="bottom" id="A3c-GV-rH4"/>
+                                        <constraint firstItem="20Z-zw-L6l" firstAttribute="top" secondItem="Wrh-JH-hyb" secondAttribute="top" id="Ywr-DO-oTn"/>
+                                        <constraint firstItem="20Z-zw-L6l" firstAttribute="leading" secondItem="Wrh-JH-hyb" secondAttribute="leading" id="Zxz-0k-mqT"/>
+                                        <constraint firstAttribute="trailing" secondItem="20Z-zw-L6l" secondAttribute="trailing" id="hGg-Pd-CvO"/>
+                                        <constraint firstAttribute="height" constant="43" id="pbR-M6-Gtz"/>
+                                    </constraints>
                                 </view>
-                                <view contentMode="scaleToFill" id="lfA-JT-lhr" userLabel="ViewThoiGianConLai">
-                                    <rect key="frame" x="2" y="139" width="307" height="76"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lfA-JT-lhr" userLabel="ViewThoiGianConLai">
+                                    <rect key="frame" x="0.0" y="140" width="279" height="80"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Xác thực" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="36e-Ya-yeM">
-                                            <rect key="frame" x="5" y="0.0" width="67" height="35"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Xác thực" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="36e-Ya-yeM">
+                                            <rect key="frame" x="5" y="5" width="65" height="18"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="18" id="NKc-gv-kk7"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Nd8-lq-A3j">
-                                            <rect key="frame" x="8" y="38" width="55" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="PKI" backgroundImage="bg-nuttrang.png"/>
-                                            <connections>
-                                                <action selector="suKienBamNutPKI:" destination="-1" eventType="touchUpInside" id="HXc-3g-TWa"/>
-                                            </connections>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="kBn-aE-a9u">
-                                            <rect key="frame" x="66" y="38" width="55" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="TOKEN" backgroundImage="bg-nuttrang.png"/>
-                                            <connections>
-                                                <action selector="suKienBamNutToken:" destination="-1" eventType="touchUpInside" id="ybD-YM-bUr"/>
-                                            </connections>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1Ed-Nt-jOY">
-                                            <rect key="frame" x="124" y="38" width="54" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="SMS" backgroundImage="bg-nuttrang.png"/>
-                                            <connections>
-                                                <action selector="suKienBamNutSMS:" destination="-1" eventType="touchUpInside" id="Mg0-HD-e4H"/>
-                                            </connections>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="RVp-DN-wyV">
-                                            <rect key="frame" x="181" y="38" width="55" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="EMAIL" backgroundImage="bg-nuttrang.png"/>
-                                            <connections>
-                                                <action selector="suKienBamNutEmail:" destination="-1" eventType="touchUpInside" id="pER-ou-z46"/>
-                                            </connections>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Reu-xj-lyc">
-                                            <rect key="frame" x="238" y="38" width="56" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" image="vantaymau-ngang.png" backgroundImage="bg-nuttrang.png"/>
-                                            <connections>
-                                                <action selector="suKienBamNutMatKhauVanTay:" destination="-1" eventType="touchUpInside" id="V0F-31-jYa"/>
-                                            </connections>
-                                        </button>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="4ho-ai-3Bd">
+                                            <rect key="frame" x="57.5" y="28" width="164.5" height="47"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nd8-lq-A3j">
+                                                    <rect key="frame" x="0.0" y="0.0" width="48" height="47"/>
+                                                    <state key="normal" title="PKI" image="pki"/>
+                                                    <connections>
+                                                        <action selector="suKienBamNutPKI:" destination="-1" eventType="touchUpInside" id="HXc-3g-TWa"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kBn-aE-a9u">
+                                                    <rect key="frame" x="58" y="0.0" width="48" height="47"/>
+                                                    <state key="normal" title="TOKEN" image="tokenv"/>
+                                                    <connections>
+                                                        <action selector="suKienBamNutToken:" destination="-1" eventType="touchUpInside" id="ybD-YM-bUr"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Reu-xj-lyc">
+                                                    <rect key="frame" x="116" y="0.0" width="48.5" height="47"/>
+                                                    <state key="normal" image="vantay"/>
+                                                    <connections>
+                                                        <action selector="suKienBamNutMatKhauVanTay:" destination="-1" eventType="touchUpInside" id="V0F-31-jYa"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="4ho-ai-3Bd" secondAttribute="height" multiplier="3.5" id="NEP-7q-k8b"/>
+                                            </constraints>
+                                        </stackView>
                                     </subviews>
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="4ho-ai-3Bd" secondAttribute="bottom" constant="5" id="Wua-QZ-via"/>
+                                        <constraint firstItem="4ho-ai-3Bd" firstAttribute="centerX" secondItem="lfA-JT-lhr" secondAttribute="centerX" id="iAT-Nt-dhS"/>
+                                        <constraint firstAttribute="height" constant="80" id="jIZ-53-bY7"/>
+                                        <constraint firstItem="36e-Ya-yeM" firstAttribute="leading" secondItem="lfA-JT-lhr" secondAttribute="leading" constant="5" id="q8P-lD-dbr"/>
+                                        <constraint firstItem="36e-Ya-yeM" firstAttribute="top" secondItem="lfA-JT-lhr" secondAttribute="top" constant="5" id="tja-Vc-CoV"/>
+                                        <constraint firstItem="4ho-ai-3Bd" firstAttribute="top" secondItem="36e-Ya-yeM" secondAttribute="bottom" constant="5" id="yvY-Bv-GtC"/>
+                                    </constraints>
                                 </view>
-                                <view contentMode="scaleToFill" id="szw-K9-7tQ" userLabel="ViewNhapToKen">
-                                    <rect key="frame" x="2" y="230" width="304" height="35"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="szw-K9-7tQ" userLabel="ViewNhapToKen">
+                                    <rect key="frame" x="0.0" y="228" width="279" height="35"/>
                                     <subviews>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="17" id="gQy-xb-U30" customClass="ExTextField">
-                                            <rect key="frame" x="10" y="0.0" width="152" height="35"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gQy-xb-U30" customClass="ExTextField">
+                                            <rect key="frame" x="5" y="0.0" width="151" height="35"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
                                         </textField>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="drt-5t-D96">
-                                            <rect key="frame" x="172" y="2" width="124" height="35"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="drt-5t-D96">
+                                            <rect key="frame" x="161" y="0.0" width="110" height="35"/>
                                             <color key="backgroundColor" red="0.0039215686269999999" green="0.31372549020000001" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="110" id="8f0-aO-ftV"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                             <state key="normal" title="@thuc_hien">
                                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -199,34 +217,79 @@
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstItem="drt-5t-D96" firstAttribute="top" secondItem="szw-K9-7tQ" secondAttribute="top" id="80K-tg-WQZ"/>
+                                        <constraint firstAttribute="bottom" secondItem="drt-5t-D96" secondAttribute="bottom" id="LI7-9V-ZsZ"/>
+                                        <constraint firstAttribute="bottom" secondItem="gQy-xb-U30" secondAttribute="bottom" id="MMM-va-3sx"/>
+                                        <constraint firstAttribute="height" constant="35" id="NKw-1b-fev"/>
+                                        <constraint firstItem="drt-5t-D96" firstAttribute="leading" secondItem="gQy-xb-U30" secondAttribute="trailing" constant="5" id="O6F-62-xVX"/>
+                                        <constraint firstItem="gQy-xb-U30" firstAttribute="top" secondItem="szw-K9-7tQ" secondAttribute="top" id="pXf-LC-7e4"/>
+                                        <constraint firstAttribute="trailing" secondItem="drt-5t-D96" secondAttribute="trailing" constant="8" id="rO7-8O-i0a"/>
+                                        <constraint firstItem="gQy-xb-U30" firstAttribute="leading" secondItem="szw-K9-7tQ" secondAttribute="leading" constant="5" id="sH2-FQ-suV"/>
+                                    </constraints>
                                 </view>
                             </subviews>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstItem="lfA-JT-lhr" firstAttribute="leading" secondItem="iOH-bX-ZXK" secondAttribute="leading" id="0Kp-zo-Ue8"/>
+                                <constraint firstAttribute="trailing" secondItem="Wrh-JH-hyb" secondAttribute="trailing" constant="3" id="3wK-G9-Clu"/>
+                                <constraint firstItem="Pgs-DU-E9P" firstAttribute="top" secondItem="mdo-Wl-8VJ" secondAttribute="bottom" constant="8" id="4Lb-ub-RVZ"/>
+                                <constraint firstItem="lfA-JT-lhr" firstAttribute="top" secondItem="Pgs-DU-E9P" secondAttribute="bottom" constant="8" id="9TX-A4-r3V"/>
+                                <constraint firstItem="h9F-1B-ADa" firstAttribute="top" secondItem="Wrh-JH-hyb" secondAttribute="bottom" constant="8" id="9ok-XW-hGx"/>
+                                <constraint firstItem="iXj-Al-6jO" firstAttribute="leading" secondItem="Pgs-DU-E9P" secondAttribute="trailing" constant="5" id="9tR-pE-rrg"/>
+                                <constraint firstItem="szw-K9-7tQ" firstAttribute="leading" secondItem="iOH-bX-ZXK" secondAttribute="leading" id="EYC-RG-bX3"/>
+                                <constraint firstItem="iXj-Al-6jO" firstAttribute="centerY" secondItem="Pgs-DU-E9P" secondAttribute="centerY" id="Fyr-xM-CS4"/>
+                                <constraint firstItem="YKC-ic-oBy" firstAttribute="centerY" secondItem="h9F-1B-ADa" secondAttribute="centerY" id="M4H-eB-TFg"/>
+                                <constraint firstAttribute="trailing" secondItem="lfA-JT-lhr" secondAttribute="trailing" id="Muc-Ft-9EN"/>
+                                <constraint firstItem="mdo-Wl-8VJ" firstAttribute="leading" secondItem="iOH-bX-ZXK" secondAttribute="leading" constant="5" id="OKh-8J-01e"/>
+                                <constraint firstItem="szw-K9-7tQ" firstAttribute="top" secondItem="lfA-JT-lhr" secondAttribute="bottom" constant="8" id="P6n-VF-Nqa"/>
+                                <constraint firstItem="Wrh-JH-hyb" firstAttribute="leading" secondItem="iOH-bX-ZXK" secondAttribute="leading" constant="3" id="Qa1-fB-8uG"/>
+                                <constraint firstItem="YKC-ic-oBy" firstAttribute="leading" secondItem="h9F-1B-ADa" secondAttribute="trailing" constant="5" id="Qwa-wt-zHt"/>
+                                <constraint firstAttribute="trailing" secondItem="YKC-ic-oBy" secondAttribute="trailing" constant="1" id="ePn-vh-iMk"/>
+                                <constraint firstItem="mdo-Wl-8VJ" firstAttribute="top" secondItem="Wrh-JH-hyb" secondAttribute="bottom" constant="8" id="gTX-ev-E2q"/>
+                                <constraint firstItem="Pgs-DU-E9P" firstAttribute="leading" secondItem="iOH-bX-ZXK" secondAttribute="leading" constant="5" id="lZA-lw-6oJ"/>
+                                <constraint firstAttribute="height" constant="278" id="nNc-Rc-nzw"/>
+                                <constraint firstAttribute="trailing" secondItem="szw-K9-7tQ" secondAttribute="trailing" id="tZw-E3-Kcw"/>
+                                <constraint firstAttribute="trailing" secondItem="iXj-Al-6jO" secondAttribute="trailing" constant="5" id="vJy-Uh-YiT"/>
+                                <constraint firstItem="Wrh-JH-hyb" firstAttribute="top" secondItem="iOH-bX-ZXK" secondAttribute="top" constant="3" id="xJk-SI-Mqn"/>
+                                <constraint firstItem="h9F-1B-ADa" firstAttribute="leading" secondItem="mdo-Wl-8VJ" secondAttribute="trailing" constant="5" id="yer-Bb-Ek8"/>
+                            </constraints>
                         </view>
-                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="SW2-cU-c77">
-                            <rect key="frame" x="131" y="423" width="60" height="70"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <state key="normal" image="icon_vantay_khongmau.png">
-                                <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </state>
-                            <connections>
-                                <action selector="suKienBamNutMatKhauVanTay:" destination="-1" eventType="touchUpInside" id="8Zm-o8-1jT"/>
-                            </connections>
-                        </button>
                     </subviews>
+                    <constraints>
+                        <constraint firstItem="iOH-bX-ZXK" firstAttribute="top" secondItem="TaN-rD-egw" secondAttribute="top" constant="5" id="7Bm-u4-zHA"/>
+                        <constraint firstItem="wEk-Aa-nKq" firstAttribute="height" secondItem="TaN-rD-egw" secondAttribute="height" id="Ev0-na-TDs"/>
+                        <constraint firstItem="wEk-Aa-nKq" firstAttribute="leading" secondItem="TaN-rD-egw" secondAttribute="leading" id="Ktl-cd-Gdz"/>
+                        <constraint firstItem="wEk-Aa-nKq" firstAttribute="width" secondItem="TaN-rD-egw" secondAttribute="width" id="MA1-wp-Zb0"/>
+                        <constraint firstAttribute="trailing" secondItem="iOH-bX-ZXK" secondAttribute="trailing" constant="5" id="TS4-bO-dQa"/>
+                        <constraint firstItem="wEk-Aa-nKq" firstAttribute="top" secondItem="TaN-rD-egw" secondAttribute="top" id="csM-FD-o0J"/>
+                        <constraint firstItem="iOH-bX-ZXK" firstAttribute="leading" secondItem="TaN-rD-egw" secondAttribute="leading" constant="5" id="gGw-R9-bAt"/>
+                        <constraint firstAttribute="trailing" secondItem="wEk-Aa-nKq" secondAttribute="trailing" id="kFM-Lr-bqE"/>
+                        <constraint firstAttribute="bottom" secondItem="wEk-Aa-nKq" secondAttribute="bottom" id="kif-vb-xqo"/>
+                    </constraints>
                 </scrollView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="TaN-rD-egw" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="0vO-Q5-N3e"/>
+                <constraint firstItem="TaN-rD-egw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="RmZ-8r-r3Z"/>
+                <constraint firstItem="fSg-Uu-r6z" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="V6g-Ui-hYD"/>
+                <constraint firstAttribute="bottom" secondItem="TaN-rD-egw" secondAttribute="bottom" id="XAG-DS-4UE"/>
+                <constraint firstItem="fSg-Uu-r6z" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="dL2-ap-eTm"/>
+                <constraint firstAttribute="bottom" secondItem="fSg-Uu-r6z" secondAttribute="bottom" id="qKd-CW-nFg"/>
+                <constraint firstAttribute="trailing" secondItem="fSg-Uu-r6z" secondAttribute="trailing" id="qYP-2O-GUe"/>
+                <constraint firstAttribute="trailing" secondItem="TaN-rD-egw" secondAttribute="trailing" id="qdc-Ar-bU9"/>
+            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-102.40000000000001" y="253.67316341829087"/>
+            <point key="canvasLocation" x="-269.60000000000002" y="250.07496251874065"/>
         </view>
     </objects>
     <resources>
-        <image name="bg-nuttrang.png" width="128" height="52"/>
         <image name="bg_nen.png" width="720" height="1280"/>
         <image name="iconSoTay.png" width="32" height="28"/>
         <image name="icon_trans_money_add.png" width="64" height="64"/>
-        <image name="icon_vantay_khongmau.png" width="90" height="120"/>
-        <image name="vantaymau-ngang.png" width="107" height="59"/>
+        <image name="pki" width="225" height="225"/>
+        <image name="tokenv" width="120" height="120"/>
+        <image name="vantay" width="225" height="225"/>
     </resources>
 </document>

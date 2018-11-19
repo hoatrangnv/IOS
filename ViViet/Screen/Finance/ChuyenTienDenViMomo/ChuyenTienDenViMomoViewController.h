@@ -11,7 +11,7 @@
 #import "UmiTextView.h"
 #import "TPKeyboardAvoidAcessory.h"
 
-@interface ChuyenTienDenViMomoViewController : GiaoDichViewController
+@interface ChuyenTienDenViMomoViewController :GiaoDichViewController
 
 @property (nonatomic, assign) int nType;
 @property (retain, nonatomic) IBOutlet TPKeyboardAvoidAcessory *scrMain;
@@ -24,6 +24,9 @@
 @property (retain, nonatomic) IBOutlet UIView *viewXacThuc;
 @property (retain, nonatomic) IBOutlet UIView *viewThucHien;
 @property (retain, nonatomic) IBOutlet UIView *viewSoTien;
+@property (retain, nonatomic) IBOutlet NSLayoutConstraint *heightViewMain;
+@property (retain, nonatomic) IBOutlet NSLayoutConstraint *heightNoiDung;
+
 
 @property (retain, nonatomic) DucNT_TaiKhoanThuongDungObject *mTaiKhoanThuongDung;
 

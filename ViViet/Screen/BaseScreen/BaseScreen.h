@@ -87,6 +87,7 @@
 #pragma mark - VanTay
 - (BOOL)kiemTraCoChucNangQuetVanTay;
 - (void)xuLyKhiCoChucNangQuetVanTay;
+- (void)xuLyKhiCoChucNangFaceID;
 - (void)hienThiThongBaoDienMatKhau;
 - (void)xuLyKhiKhongCoChucNangQuetVanTay;
 - (void)xuLySuKienHienThiChucNangVanTayVoiTieuDe:(NSString*)sTieuDe;
@@ -121,6 +122,7 @@
 
 @property (nonatomic, assign) BOOL isLoading;
 @property (nonatomic, assign) BOOL enableBarButton;
+@property (nonatomic, assign) BOOL enableFaceID;
 @property (nonatomic, retain) NSMutableArray *viewToText;
 +(void) drawerTouchEnableOrDisable:(BOOL) enable;
 - (void) didRotate:(NSNotification *)notification;

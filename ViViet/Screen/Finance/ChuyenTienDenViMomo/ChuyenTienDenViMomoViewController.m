@@ -13,6 +13,7 @@
 #import "GiaoDienThongTinPhim.h"
 #import "ViewQuangCao.h"
 #import "DucNT_LoginSceen.h"
+#import "CommonUtils.h"
 
 #define DINH_DANH_KET_NOI_CHUYEN_TIEN_DEN_VI_MOMO @"DINH_DANH_KET_NOI_CHUYEN_TIEN_DEN_VI_MOMO"
 @interface ChuyenTienDenViMomoViewController () <UIPickerViewDataSource, UIPickerViewDelegate>
@@ -35,27 +36,26 @@
     if(_mTaiKhoanThuongDung)
         [self khoiTaoTheoTaiKhoanThuongDung];
     [self addButtonHuongDan];
-
 }
 
 - (void)khoiTaoQuangCao {
     if (!viewQC) {
+        CGRect rectMain = self.mViewMain.frame;
         viewQC = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([ViewQuangCao class]) owner:self options:nil] objectAtIndex:0];
         viewQC.mDelegate = self;
         CGRect rectToken = self.viewThucHien.frame;
         CGRect rectQC = viewQC.frame;
-        CGRect rectMain = self.mViewMain.frame;
+
         CGFloat fW = rectMain.size.width;
 
-        CGFloat fH = fW * 0.45;
+        CGFloat fH = fW * 0.46;
         rectQC.origin.y = rectToken.origin.y + rectToken.size.height + 15.0;
         viewQC.frame = CGRectMake(0, rectQC.origin.y, fW, fH);
         [viewQC updateSizeQuangCao];
         viewQC.mDelegate = self;
-        rectMain.size.height = rectQC.origin.y + rectQC.size.height;
-        self.mViewMain.frame = rectMain;
+        self.heightViewMain.constant += (fH + 15.0);
         [self.mViewMain addSubview:viewQC];
-        [self.scrMain setContentSize:CGSizeMake(_scrMain.frame.size.width, rectMain.origin.y + rectMain.size.height + self.viewOptionTop.frame.size.height + 20)];
+        [self.scrMain setContentSize:CGSizeMake(_scrMain.frame.size.width, rectMain.origin.y + rectMain.size.height + 20)];
     }
 }
 
@@ -96,20 +96,21 @@
         _mtvNoiDung.hidden = YES;
         _tfNoiDung.text = @"";
         _mtvNoiDung.text = @"";
-        
-        CGRect rectThucHien = _viewThucHien.frame;
-        CGRect rectXacThuc = _viewXacThuc.frame;
-        CGRect rectNoiDung = _viewSoTien.frame;
-        CGRect rectQC = viewQC.frame;
-        CGRect rectMain = self.mViewMain.frame;
-        rectXacThuc.origin.y = rectNoiDung.origin.y + rectNoiDung.size.height + 8;
-        rectThucHien.origin.y = rectXacThuc.origin.y + rectXacThuc.size.height + 8;
-        rectMain.size.height = rectThucHien.origin.y + rectThucHien.size.height + 10;
-        
-        _viewXacThuc.frame = rectXacThuc;
-        _viewThucHien.frame = rectThucHien;
-        viewQC.frame = rectQC;
-        self.mViewMain.frame = rectMain;
+        self.heightNoiDung.constant = 0.0;
+        self.heightViewMain.constant -= self.heightNoiDung.constant;
+//        CGRect rectThucHien = _viewThucHien.frame;
+//        CGRect rectXacThuc = _viewXacThuc.frame;
+//        CGRect rectNoiDung = _viewSoTien.frame;
+//        CGRect rectQC = viewQC.frame;
+//        CGRect rectMain = self.mViewMain.frame;
+//        rectXacThuc.origin.y = rectNoiDung.origin.y + rectNoiDung.size.height + 8;
+//        rectThucHien.origin.y = rectXacThuc.origin.y + rectXacThuc.size.height + 8;
+//        rectMain.size.height = rectThucHien.origin.y + rectThucHien.size.height + 10;
+//
+//        _viewXacThuc.frame = rectXacThuc;
+//        _viewThucHien.frame = rectThucHien;
+//        viewQC.frame = rectQC;
+//        self.mViewMain.frame = rectMain;
     }
 }
 
@@ -123,7 +124,18 @@
     [self setAnimationChoSoTay:self.btnSoTay];
     nRowNhaMay = self.nType;
     [self xuLyChonVi];
+    
     [self khoiTaoQuangCao];
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1.5 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+//
+//    });
+    
+    if(![CommonUtils isEmptyOrNull:self.mThongTinTaiKhoanVi.pki3] && [self.mThongTinTaiKhoanVi.hanMucPki3 doubleValue] >0 ){
+        self.mbtnPKI.hidden = NO;
+    }
+    else{
+        self.mbtnPKI.hidden = YES;
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
@@ -474,6 +486,8 @@
     [_viewThucHien release];
     [_viewSoTien release];
 //    [_scrMain release];
+    [_heightViewMain release];
+    [_heightNoiDung release];
     [super dealloc];
 }
 @end

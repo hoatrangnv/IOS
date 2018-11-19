@@ -21,6 +21,7 @@
 @property (retain, nonatomic) IBOutlet UmiTextView *mtvNoiDungGiaoDich;
 @property (retain, nonatomic) IBOutlet ExTextField *mtfTenNguoiThuHuong;
 @property (retain, nonatomic) IBOutlet ExTextField *mtfTenVietTatNganHang;
+@property (retain, nonatomic) IBOutlet NSLayoutConstraint *heightViewMain;
 
 @property (retain, nonatomic) DucNT_TaiKhoanThuongDungObject *mTaiKhoanThuongDung;
 
