@@ -554,7 +554,7 @@
 }
 
 - (void)xuLyKhiCoChucNangFaceID {
-    [_btnVanTayMini setImage:[UIImage imageNamed:@"face-id"] forState:UIControlStateNormal];
+    [_btnVanTayMini setImage:[UIImage imageNamed:@"face_new"] forState:UIControlStateNormal];
 }
 
 - (void)xuLyKhiKhongCoChucNangQuetVanTay
