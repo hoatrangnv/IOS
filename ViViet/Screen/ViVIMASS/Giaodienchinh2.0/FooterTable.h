@@ -26,6 +26,8 @@
 @property (retain, nonatomic) IBOutlet UITextField *txtOtp;
 @property (retain, nonatomic) IBOutlet UIButton *btnThucHien;
 @property (retain, nonatomic) IBOutlet UILabel *lbTime;
+@property (assign, nonatomic) BOOL hasFaceID;
+
 - (IBAction)onGiauVi:(id)sender;
 - (IBAction)doToken:(id)sender;
 - (IBAction)doThucHien:(id)sender;

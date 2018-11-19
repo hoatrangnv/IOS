@@ -11,6 +11,7 @@
 @property (nonatomic, strong) id<SotaydienthoaiDialogViewControllerDelegate> delegate;
 @property (assign, nonatomic) BOOL *isDelete;
 @property (strong, nonatomic) NSString *idGiaoDich;
+@property (assign, nonatomic) BOOL hasFaceID;
 
 - (void)showPopupDelete;
 - (void)showPopupEdit;
