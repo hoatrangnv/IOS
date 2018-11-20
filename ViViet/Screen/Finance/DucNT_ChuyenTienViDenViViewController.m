@@ -26,6 +26,7 @@
     BOOL isLongPress;
     IBOutlet NSLayoutConstraint *contraintWidth;
     IBOutlet UIButton *btnDN;
+    BOOL isDN;
 }
 
 @end
@@ -276,14 +277,11 @@
 //    if (self.switchHienSoVi.isOn) {
 //        nHienSoVi = 1;
 //    }
-    [GiaoDichMang ketNoiChuyenTienDenViHienSoVi:self.mtfSoVi.text soTien:fSoTien noiDung:self.mtvNoiDungGiaoDich.text hienSoVi:nHienSoVi token:sToken otp:sOtp typeAuthenticate:self.mTypeAuthenticate noiNhanKetQua:self];
-//    [GiaoDichMang ketNoiChuyenTienDenVi:self.mtfSoVi.text
-//                                 soTien:fSoTien
-//                                noiDung:self.mtvNoiDungGiaoDich.text
-//                                  token:sToken
-//                                    otp:sOtp
-//                       typeAuthenticate:self.mTypeAuthenticate
-//                          noiNhanKetQua:self];
+    NSString *maVi = self.mtfSoVi.text;
+    if(isDN){
+        maVi = [NSString stringWithFormat:@"dn_%@",self.mtfSoVi.text];
+    }
+    [GiaoDichMang ketNoiChuyenTienDenViHienSoVi:maVi soTien:fSoTien noiDung:self.mtvNoiDungGiaoDich.text hienSoVi:nHienSoVi token:sToken otp:sOtp typeAuthenticate:self.mTypeAuthenticate noiNhanKetQua:self];
 }
 
 - (void)xuLyKetNoiThanhCong:(NSString*)sDinhDanhKetNoi thongBao:(NSString*)sThongBao ketQua:(id)ketQua
@@ -427,6 +425,8 @@
     [btnDN setBackgroundColor:[UIColor colorWithRed:16.0/255.0 green:117.0/255.0 blue:165.0/255.0 alpha:1]];
     btnDN.layer.borderColor = [UIColor colorWithRed:16.0/255.0 green:117.0/255.0 blue:165.0/255.0 alpha:1].CGColor;
     _mtfSoVi.placeholder = @"Mã số doanh nghiệp";
+    isDN = true;
+    
 }
 - (void)resetDefaultDN {
     contraintWidth.constant = 0;
@@ -434,6 +434,7 @@
     [btnDN setBackgroundColor:[UIColor whiteColor]];
     btnDN.layer.borderColor = [UIColor grayColor].CGColor;
     _mtfSoVi.placeholder = @"Ví Vimass";
+    isDN = false;
 }
 #pragma mark - xu Ly
 - (void)xuLyCapNhatTaiKhoanThuongDung
