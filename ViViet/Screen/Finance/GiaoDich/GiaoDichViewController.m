@@ -97,7 +97,9 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    
+}
+
+- (void)checkButtonPKI {
     if(![CommonUtils isEmptyOrNull:self.mThongTinTaiKhoanVi.pki3] && [self.mThongTinTaiKhoanVi.hanMucPki3 doubleValue] >0 ){
         self.mbtnPKI.hidden = NO;
     }
@@ -281,6 +283,16 @@
     [self.mbtnSMSView addTarget:self action:@selector(suKienBamNutSMS:) forControlEvents:UIControlEventTouchUpInside];
     [self.mbtnTokenView addTarget:self action:@selector(suKienBamNutToken:) forControlEvents:UIControlEventTouchUpInside];
     [self.mbtnEmailView addTarget:self action:@selector(suKienBamNutEmail:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.mbtnPKI setHidden:YES];
+    [self.mbtnToken setHidden:YES];
+}
+
+- (void)updateXacThucKhac {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.mbtnToken setHidden:NO];
+        [self checkButtonPKI];
+    });
 }
 
 - (void)changeSwitch:(UISwitch*)sender
@@ -340,6 +352,7 @@
 
 - (void)xuLySuKienXacThucVanTayThanhCong
 {
+    NSLog(@"%s - .....START", __FUNCTION__);
     NSString *token = @"";
     NSString *otp = @"";
     self.mTypeAuthenticate = TYPE_AUTHENTICATE_TOKEN;
