@@ -116,25 +116,43 @@
             if (@available(iOS 11.0.1, *)) {
                 if (laContext.biometryType == LABiometryTypeFaceID) {
                     //localizedReason = "Unlock using Face ID"
+                    self.hasFaceID = YES;
+                    [self.btnVantay setBackgroundImage:[UIImage imageNamed:@"face_new"] forState:UIControlStateNormal];
+                    [self.btnVantay setBackgroundImage:[UIImage imageNamed:@"face_new_selected"] forState:UIControlStateSelected];
+
                     return YES;
                 } else if (laContext.biometryType == LABiometryTypeTouchID) {
                     //localizedReason = "Unlock using Touch ID"
+                    self.hasFaceID = NO;
+                    [self.btnVantay setBackgroundImage:[UIImage imageNamed:@"finger"] forState:UIControlStateNormal];
+                    [self.btnVantay setBackgroundImage:[UIImage imageNamed:@"fingerv"] forState:UIControlStateSelected];
                     return YES;
                 } else {
                     //localizedReason = "Unlock using Application Passcode"
+                    self.hasFaceID = NO;
                     return NO;
                 }
             } else {
                 // Fallback on earlier versions
+                self.hasFaceID = NO;
             }
         }
     }
+    self.hasFaceID = NO;
     return NO;
 }
 - (IBAction)onVantay:(id)sender {
     // todo
+    if(self.hasFaceID){
+        [self.btnVantay setBackgroundImage:[UIImage imageNamed:@"face_new"] forState:UIControlStateNormal];
+        [self.btnVantay setBackgroundImage:[UIImage imageNamed:@"face_new_selected"] forState:UIControlStateSelected];
+
+    }
+    else{
+        [self.btnVantay setBackgroundImage:[UIImage imageNamed:@"finger"] forState:UIControlStateNormal];
+        [self.btnVantay setBackgroundImage:[UIImage imageNamed:@"fingerv"] forState:UIControlStateSelected];
+    }
     [self.btnVantay setSelected:YES];
-    [self.btnVantay setBackgroundImage:[UIImage imageNamed:@"fingerv"] forState:UIControlStateSelected];
     [self.btnsms setSelected:NO];
     [self.btnToken setSelected:NO];
 

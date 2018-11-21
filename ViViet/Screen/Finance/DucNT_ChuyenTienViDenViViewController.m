@@ -24,6 +24,9 @@
     ViewNhapTenDaiDienXacThucThemTaiKhoanThuongDung *mViewNhapTenDaiDien;
     ViewQuangCao *viewQC;
     BOOL isLongPress;
+    IBOutlet NSLayoutConstraint *contraintWidth;
+    IBOutlet UIButton *btnDN;
+    BOOL isDN;
 }
 
 @end
@@ -274,14 +277,11 @@
 //    if (self.switchHienSoVi.isOn) {
 //        nHienSoVi = 1;
 //    }
-    [GiaoDichMang ketNoiChuyenTienDenViHienSoVi:self.mtfSoVi.text soTien:fSoTien noiDung:self.mtvNoiDungGiaoDich.text hienSoVi:nHienSoVi token:sToken otp:sOtp typeAuthenticate:self.mTypeAuthenticate noiNhanKetQua:self];
-//    [GiaoDichMang ketNoiChuyenTienDenVi:self.mtfSoVi.text
-//                                 soTien:fSoTien
-//                                noiDung:self.mtvNoiDungGiaoDich.text
-//                                  token:sToken
-//                                    otp:sOtp
-//                       typeAuthenticate:self.mTypeAuthenticate
-//                          noiNhanKetQua:self];
+    NSString *maVi = self.mtfSoVi.text;
+    if(isDN){
+        maVi = [NSString stringWithFormat:@"dn_%@",self.mtfSoVi.text];
+    }
+    [GiaoDichMang ketNoiChuyenTienDenViHienSoVi:maVi soTien:fSoTien noiDung:self.mtvNoiDungGiaoDich.text hienSoVi:nHienSoVi token:sToken otp:sOtp typeAuthenticate:self.mTypeAuthenticate noiNhanKetQua:self];
 }
 
 - (void)xuLyKetNoiThanhCong:(NSString*)sDinhDanhKetNoi thongBao:(NSString*)sThongBao ketQua:(id)ketQua
@@ -374,6 +374,7 @@
 
 - (IBAction)suKienLayDanhBa:(id)sender
 {
+    [self resetDefaultDN];
     ContactScreen *danhBa = [[[ContactScreen alloc] initWithNibName:@"ContactScreen" bundle:nil] autorelease];
     danhBa.mKieuHienThiLienHe = KIEU_HIEN_THI_LIEN_HE_THUONG;
     [self.navigationController pushViewController:danhBa animated:YES];
@@ -407,6 +408,7 @@
 }
 
 - (IBAction)suKienLayDanhSachThuongDung:(id)sender {
+    [self resetDefaultDN];
     if (![[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_STATE] boolValue]) {
         DucNT_LoginSceen *loginSceen = [[DucNT_LoginSceen alloc] initWithNibName:@"DucNT_LoginSceen" bundle:nil];
         [self presentViewController:loginSceen animated:YES completion:^{}];
@@ -417,7 +419,23 @@
     [self.navigationController presentViewController:vc animated:YES completion:^{}];
     [vc release];
 }
-
+- (IBAction)actionDN:(id)sender {
+    contraintWidth.constant = 30;
+    [btnDN setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [btnDN setBackgroundColor:[UIColor colorWithRed:16.0/255.0 green:117.0/255.0 blue:165.0/255.0 alpha:1]];
+    btnDN.layer.borderColor = [UIColor colorWithRed:16.0/255.0 green:117.0/255.0 blue:165.0/255.0 alpha:1].CGColor;
+    _mtfSoVi.placeholder = @"Mã số doanh nghiệp";
+    isDN = true;
+    
+}
+- (void)resetDefaultDN {
+    contraintWidth.constant = 0;
+    [btnDN setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [btnDN setBackgroundColor:[UIColor whiteColor]];
+    btnDN.layer.borderColor = [UIColor grayColor].CGColor;
+    _mtfSoVi.placeholder = @"Ví Vimass";
+    isDN = false;
+}
 #pragma mark - xu Ly
 - (void)xuLyCapNhatTaiKhoanThuongDung
 {
@@ -500,6 +518,8 @@
     [_viewQR release];
     [_heightContentView release];
 //    [_scrMain release];
+    [contraintWidth release];
+    [btnDN release];
     [super dealloc];
 }
 

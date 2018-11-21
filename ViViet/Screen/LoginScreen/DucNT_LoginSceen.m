@@ -96,11 +96,6 @@ static int const KIEU_KET_NOI_GOOGLE = 2;
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-//    if ([DucNT_Token daTonTaiMatKhauVanTay]) {
-//        self.mbtnDangNhapBangVanTay.hidden = NO;
-//    } else {
-//        self.mbtnDangNhapBangVanTay.hidden = YES;
-//    }
     [self.txtGiayPhep setText:[NSString stringWithFormat:@"Giấy phép Ví điện tử số 41/GP-NHNN\nNgân hàng nhà nước VN cấp 12/3/2018"]];
 }
  
@@ -122,17 +117,22 @@ static int const KIEU_KET_NOI_GOOGLE = 2;
             if (@available(iOS 11.0.1, *)) {
                 if (laContext.biometryType == LABiometryTypeFaceID) {
                     //localizedReason = "Unlock using Face ID"
-                    [self.mbtnDangNhapBangVanTay setImage:[UIImage imageNamed:@"face"] forState:UIControlStateNormal];
+                        [self.mbtnDangNhapBangVanTay setBackgroundImage:[UIImage imageNamed:@"face_new"] forState:UIControlStateNormal];
+                    self.mbtnDangNhapBangVanTay.hidden = false;
                     return YES;
                 } else if (laContext.biometryType == LABiometryTypeTouchID) {
                     //localizedReason = "Unlock using Touch ID"
+                    [self.mbtnDangNhapBangVanTay setBackgroundImage:[UIImage imageNamed:@"vantay"] forState:UIControlStateNormal];
+                    self.mbtnDangNhapBangVanTay.hidden = false;
                     return YES;
                 } else {
                     //localizedReason = "Unlock using Application Passcode"
+                    self.mbtnDangNhapBangVanTay.hidden = true;
                     return NO;
                 }
             } else {
                 // Fallback on earlier versions
+                self.mbtnDangNhapBangVanTay.hidden = true;
             }
         }
     }

@@ -27,9 +27,16 @@
             if (@available(iOS 11.0.1, *)) {
                 if (laContext.biometryType == LABiometryTypeFaceID) {
                     //localizedReason = "Unlock using Face ID"
+                    [self.btnVanTay setBackgroundImage:[UIImage imageNamed:@"face_new"] forState:UIControlStateNormal];
+                    [self.btnVanTay setBackgroundImage:[UIImage imageNamed:@"face_new_selected"] forState:UIControlStateSelected];
+                    self.hasFaceID = YES;
                     return YES;
                 } else if (laContext.biometryType == LABiometryTypeTouchID) {
                     //localizedReason = "Unlock using Touch ID"
+                    [self.btnVanTay setBackgroundImage:[UIImage imageNamed:@"finger"] forState:UIControlStateNormal];
+                    [self.btnVanTay setBackgroundImage:[UIImage imageNamed:@"fingerv"] forState:UIControlStateSelected];
+                    self.hasFaceID = NO;
+
                     return YES;
                 } else {
                     //localizedReason = "Unlock using Application Passcode"
@@ -40,6 +47,7 @@
             }
         }
     }
+    self.hasFaceID = NO;
     return NO;
 }
 
@@ -120,8 +128,16 @@
 }
 
 - (IBAction)doVantay:(id)sender {
+    if(self.hasFaceID){
+        [self.btnVanTay setBackgroundImage:[UIImage imageNamed:@"face_new"] forState:UIControlStateNormal];
+        [self.btnVanTay setBackgroundImage:[UIImage imageNamed:@"face_new_selected"] forState:UIControlStateSelected];
+    }
+    else{
+        [self.btnVanTay setBackgroundImage:[UIImage imageNamed:@"finger"] forState:UIControlStateNormal];
+        [self.btnVanTay setBackgroundImage:[UIImage imageNamed:@"fingerv"] forState:UIControlStateSelected];
+    }
     [self.btnVanTay setSelected:YES];
-    [self.btnVanTay setBackgroundImage:[UIImage imageNamed:@"fingerv"] forState:UIControlStateSelected];
+    
     [self.btnToken setSelected:NO];
     self.txtOtp.hidden = true;
     self.lbTime.hidden = true;
