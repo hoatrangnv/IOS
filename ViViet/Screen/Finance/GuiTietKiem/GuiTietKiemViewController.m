@@ -1104,7 +1104,7 @@ typedef enum : NSUInteger {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:NOTIFICATION_LAY_TAI_KHOAN_THUONG_DUNG object:nil];
     //    if(_mDanhSachLaiSuatCacNganHangTheoKiHan)
     //        [_mDanhSachLaiSuatCacNganHangTheoKiHan release];
-    [viewQC dungChayQuangCao];
+    [viewQC release];
     if(_mTaiKhoanThuongDung)
         [_mTaiKhoanThuongDung release];
     if(_mNganHangRutTienDuocChon)
@@ -1131,7 +1131,6 @@ typedef enum : NSUInteger {
         [_mDanhSachCachThucQuayVong release];
     [_mDanhSachCachNhanGocVaLai release];
     [_mDanhSachNganHangGuiTietKiem release];
-    [_mScrvHienThi release];
     [_mtfNganHangGui release];
     [_mtfSoTien release];
     [_mtfKyHanGui release];
@@ -1159,6 +1158,7 @@ typedef enum : NSUInteger {
     [_mtfTenChuTaiKhoan release];
     [_btnSoTayTkBank release];
     [_btnSoTayThe release];
+    [_mScrvHienThi release];
     [super dealloc];
 }
 @end

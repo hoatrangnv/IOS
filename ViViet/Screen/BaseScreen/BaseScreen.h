@@ -89,6 +89,7 @@
 - (void)xuLyKhiCoChucNangQuetVanTay;
 - (void)xuLyKhiCoChucNangFaceID;
 - (void)hienThiThongBaoDienMatKhau;
+- (void)updateXacThucKhac;
 - (void)xuLyKhiKhongCoChucNangQuetVanTay;
 - (void)xuLySuKienHienThiChucNangVanTayVoiTieuDe:(NSString*)sTieuDe;
 - (void)xuLySuKienHienThiChucNangDangNhapVanTayVoiTieuDe:(NSString*)sTieuDe;

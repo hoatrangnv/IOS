@@ -695,6 +695,7 @@
         LAContext *context = [[[LAContext alloc] init] autorelease];
         NSError *err = nil;
         if (@available(iOS 11.0, *)) {
+            [context setLocalizedCancelTitle:@"Sử dụng xác thực khác"];
             if ([context canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&err]) {
                 if (err != NULL) {
                     NSLog(@"%s - error : %@", __FUNCTION__, err.description);
@@ -710,9 +711,14 @@
                     [context evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics localizedReason:sTieuDe reply:^(BOOL success, NSError * _Nullable error) {
                         if (error != NULL) {
                             NSLog(@"%s - error : %@", __FUNCTION__, error.description);
+                            if (error.code == LAErrorUserCancel) {
+                                [self updateXacThucKhac];
+                            }
                         } else if (success) {
                             NSLog(@"%s - xac thuc thanh cong", __FUNCTION__);
+                            [self xuLySuKienXacThucVanTayThanhCong];
                         } else {
+                            NSLog(@"%s - handle false response", __FUNCTION__);
                             // handle false response
                         }
                     }];
@@ -735,6 +741,7 @@
                              switch (error.code) {
                                  case LAErrorUserCancel:
                                      NSLog(@"info:%@: %@, LAErrorUserCancel", NSStringFromClass([self class]),NSStringFromSelector(_cmd));
+                                     [weakSelf updateXacThucKhac];
                                      break;
                                  case LAErrorAuthenticationFailed:
                                      NSLog(@"info:%@: %@, LAErrorAuthenticationFailed", NSStringFromClass([self class]),NSStringFromSelector(_cmd));
