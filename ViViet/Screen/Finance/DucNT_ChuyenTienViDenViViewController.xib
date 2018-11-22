@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -19,6 +17,7 @@
                 <outlet property="contraintWidth" destination="pom-SA-kfB" id="VIP-8o-SfQ"/>
                 <outlet property="heightContentView" destination="XMK-N0-bmH" id="00W-Xt-YRh"/>
                 <outlet property="heightViewMain" destination="C9T-4s-E9R" id="48h-uN-7OE"/>
+                <outlet property="heightViewNhapXacThuc" destination="KU7-Jr-okO" id="xvJ-Wk-vB8"/>
                 <outlet property="imgvAvatar" destination="X5X-Op-0Eq" id="JcS-kR-dum"/>
                 <outlet property="imgvQRCode" destination="69Y-GF-Ck4" id="8Dq-fc-oeX"/>
                 <outlet property="mViewMain" destination="dRZ-AN-5Si" id="o0l-8p-e1y"/>
@@ -197,11 +196,11 @@
                                                                     <state key="normal" title="PKI" image="pki"/>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k8s-32-8wO">
-                                                                    <rect key="frame" x="58" y="0.0" width="48.5" height="47"/>
+                                                                    <rect key="frame" x="58" y="0.0" width="48" height="47"/>
                                                                     <state key="normal" title="Token" image="tokenv"/>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U8W-R2-If2">
-                                                                    <rect key="frame" x="116.5" y="0.0" width="48" height="47"/>
+                                                                    <rect key="frame" x="116" y="0.0" width="48.5" height="47"/>
                                                                     <state key="normal" image="vantay"/>
                                                                     <connections>
                                                                         <action selector="suKienBamNutMatKhauVanTay:" destination="-1" eventType="touchUpInside" id="EV2-eI-jYo"/>
@@ -347,8 +346,8 @@
                                                 <constraint firstItem="xRc-Dx-b9P" firstAttribute="top" secondItem="6e9-2u-4AR" secondAttribute="bottom" constant="8" id="z89-va-owN"/>
                                             </constraints>
                                         </view>
-                                        <webView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1pS-0p-rMF">
-                                            <rect key="frame" x="0.0" y="5" width="304" height="471"/>
+                                        <webView hidden="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1pS-0p-rMF">
+                                            <rect key="frame" x="0.0" y="5" width="304" height="187"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </webView>
                                     </subviews>
@@ -397,7 +396,7 @@
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-223" y="170"/>
+            <point key="canvasLocation" x="-356.80000000000001" y="152.92353823088456"/>
         </view>
         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="J7Y-F3-pPS">
             <rect key="frame" x="0.0" y="0.0" width="36" height="36"/>
@@ -409,7 +408,7 @@
             <connections>
                 <action selector="suKienLuuTaiKhoanThuongDung:" destination="-1" eventType="touchUpInside" id="xDJ-9b-GgU"/>
             </connections>
-            <point key="canvasLocation" x="1297.5999999999999" y="68.365817091454275"/>
+            <point key="canvasLocation" x="2076.1599999999999" y="61.498486139239233"/>
         </button>
         <view contentMode="scaleToFill" id="5gT-rt-bhE" userLabel="ViewSoDuVaKhuyenMai">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -434,7 +433,7 @@
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <point key="canvasLocation" x="1753.5999999999999" y="325.63718140929535"/>
+            <point key="canvasLocation" x="2805.7599999999998" y="292.92699976848161"/>
         </view>
         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PAz-BE-j8R">
             <rect key="frame" x="0.0" y="0.0" width="42" height="21"/>
@@ -442,7 +441,7 @@
             <fontDescription key="fontDescription" type="system" pointSize="17"/>
             <nil key="textColor"/>
             <nil key="highlightedColor"/>
-            <point key="canvasLocation" x="-680" y="141"/>
+            <point key="canvasLocation" x="-1088" y="126.83658170914543"/>
         </label>
         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Q2g-k7-CXB">
             <rect key="frame" x="0.0" y="0.0" width="42" height="21"/>
@@ -450,7 +449,7 @@
             <fontDescription key="fontDescription" type="system" pointSize="17"/>
             <nil key="textColor"/>
             <nil key="highlightedColor"/>
-            <point key="canvasLocation" x="-610" y="296"/>
+            <point key="canvasLocation" x="-976" y="266.26686656671666"/>
         </label>
     </objects>
     <resources>

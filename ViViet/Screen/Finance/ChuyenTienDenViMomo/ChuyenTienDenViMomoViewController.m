@@ -43,7 +43,7 @@
         CGRect rectMain = self.mViewMain.frame;
         viewQC = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([ViewQuangCao class]) owner:self options:nil] objectAtIndex:0];
         viewQC.mDelegate = self;
-        CGRect rectToken = self.viewThucHien.frame;
+        CGRect rectToken = self.mViewNhapToken.frame;
         CGRect rectQC = viewQC.frame;
 
         CGFloat fW = rectMain.size.width;
@@ -57,6 +57,18 @@
         [self.mViewMain addSubview:viewQC];
         [self.scrMain setContentSize:CGSizeMake(_scrMain.frame.size.width, rectMain.origin.y + rectMain.size.height + 20)];
     }
+}
+
+- (void)updateXacThucKhac {
+    [super updateXacThucKhac];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (viewQC != nil) {
+            CGRect rectToken = self.mViewNhapToken.frame;
+            CGRect rectQC = viewQC.frame;
+            rectQC.origin.y = rectToken.origin.y + self.heightViewNhapXacThuc.constant + 15.0;
+            viewQC.frame = rectQC;
+        }
+    });
 }
 
 - (void)suKienBamNutHuongDanGiaoDichViewController:(UIButton *)sender {
@@ -98,19 +110,6 @@
         _mtvNoiDung.text = @"";
         self.heightNoiDung.constant = 0.0;
         self.heightViewMain.constant -= self.heightNoiDung.constant;
-//        CGRect rectThucHien = _viewThucHien.frame;
-//        CGRect rectXacThuc = _viewXacThuc.frame;
-//        CGRect rectNoiDung = _viewSoTien.frame;
-//        CGRect rectQC = viewQC.frame;
-//        CGRect rectMain = self.mViewMain.frame;
-//        rectXacThuc.origin.y = rectNoiDung.origin.y + rectNoiDung.size.height + 8;
-//        rectThucHien.origin.y = rectXacThuc.origin.y + rectXacThuc.size.height + 8;
-//        rectMain.size.height = rectThucHien.origin.y + rectThucHien.size.height + 10;
-//
-//        _viewXacThuc.frame = rectXacThuc;
-//        _viewThucHien.frame = rectThucHien;
-//        viewQC.frame = rectQC;
-//        self.mViewMain.frame = rectMain;
     }
 }
 

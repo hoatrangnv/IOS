@@ -64,7 +64,8 @@
     }
     
     self.bHienViewXacThuc = NO;
-    [self.mbtnVanTay setImage:[UIImage imageNamed:@"finger-ngang"] forState:UIControlStateNormal];
+    [self.btnVanTayMini setImage:[UIImage imageNamed:@"fingerv"] forState:UIControlStateNormal];
+    [self.mbtnToken setImage:[UIImage imageNamed:@"token"] forState:UIControlStateNormal];
 }
 
 - (void)addTitleView:(NSString *)sTitle {
@@ -286,12 +287,18 @@
     
     [self.mbtnPKI setHidden:YES];
     [self.mbtnToken setHidden:YES];
+    self.heightViewNhapXacThuc.constant = 0;
+    [self.mViewNhapToken setHidden:YES];
 }
 
 - (void)updateXacThucKhac {
     dispatch_async(dispatch_get_main_queue(), ^{
+        self.heightViewNhapXacThuc.constant = 35;
+        [self.mViewNhapToken setHidden:NO];
         [self.mbtnToken setHidden:NO];
         [self checkButtonPKI];
+        [self.view layoutIfNeeded];
+        [self.view layoutSubviews];
     });
 }
 
@@ -382,7 +389,7 @@
             self.mtfMatKhauToken.secureTextEntry = YES;
             self.mTypeAuthenticate = TYPE_AUTHENTICATE_TOKEN;
             [self.mbtnToken setSelected:YES];
-            [self.mbtnToken setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+            [self.mbtnToken setImage:[UIImage imageNamed:@"tokenv"] forState:UIControlStateNormal];
             
             [self.mtfMatKhauTokenView setKeyboardType:UIKeyboardTypeDefault];
             self.mtfMatKhauTokenView.secureTextEntry = YES;
@@ -390,9 +397,18 @@
             [self.mbtnTokenView setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
             if(self.mbtnPKI.enabled)
             {
-                [self.mbtnPKI setBackgroundImage:[UIImage imageNamed:@"bg-nuttrang"] forState:UIControlStateNormal];
+                [self.mbtnPKI setImage:[UIImage imageNamed:@"pki"] forState:UIControlStateNormal];
                 [self.mbtnPKI setTitleColor:nil forState:UIControlStateNormal];
                 [self.mbtnPKI setSelected:NO];
+            }
+            if (self.btnVanTayMini.enabled) {
+                if (self.enableFaceID) {
+                    [self.btnVanTayMini setImage:[UIImage imageNamed:@"face-id"] forState:UIControlStateNormal];
+                } else {
+                    [self.btnVanTayMini setImage:[UIImage imageNamed:@"finger"] forState:UIControlStateNormal];
+                }
+                [self.btnVanTayMini setTitleColor:nil forState:UIControlStateNormal];
+                [self.btnVanTayMini setSelected:NO];
             }
             if(self.mbtnSMS.enabled)
             {
@@ -419,10 +435,8 @@
             }
             self.mtfMatKhauToken.placeholder = [@"mat_khau_token" localizableString];
             self.mtfMatKhauTokenView.placeholder = [@"mat_khau_token" localizableString];
-            [self.mtfMatKhauToken setTextError:[@"@mat_khau_token_khong_dc_de_trong" localizableString]
-                                       forType:ExTextFieldTypeEmpty];
-            [self.mtfMatKhauTokenView setTextError:[@"@mat_khau_token_khong_dc_de_trong" localizableString]
-                                       forType:ExTextFieldTypeEmpty];
+            [self.mtfMatKhauToken setTextError:[@"@mat_khau_token_khong_dc_de_trong" localizableString] forType:ExTextFieldTypeEmpty];
+            [self.mtfMatKhauTokenView setTextError:[@"@mat_khau_token_khong_dc_de_trong" localizableString] forType:ExTextFieldTypeEmpty];
         }
     }
     else
@@ -439,14 +453,23 @@
             self.mtfMatKhauToken.secureTextEntry = YES;
             self.mTypeAuthenticate = TYPE_AUTHENTICATE_PKI;
             [self.mbtnPKI setSelected:YES];
-            [self.mbtnPKI setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+            [self.mbtnPKI setImage:[UIImage imageNamed:@"pkiv"] forState:UIControlStateNormal];
             if(self.mbtnToken.enabled)
             {
-                [self.mbtnToken setBackgroundImage:[UIImage imageNamed:@"bg-nuttrang"] forState:UIControlStateNormal];
+                [self.mbtnToken setImage:[UIImage imageNamed:@"token"] forState:UIControlStateNormal];
                 [self.mbtnToken setTitleColor:nil forState:UIControlStateNormal];
                 [self.mbtnToken setSelected:NO];
             }
-             if(self.mbtnSMS.enabled)
+            if (self.btnVanTayMini.enabled) {
+                if (self.enableFaceID) {
+                    [self.btnVanTayMini setImage:[UIImage imageNamed:@"face-id"] forState:UIControlStateNormal];
+                } else {
+                    [self.btnVanTayMini setImage:[UIImage imageNamed:@"finger"] forState:UIControlStateNormal];
+                }
+                [self.btnVanTayMini setTitleColor:nil forState:UIControlStateNormal];
+                [self.btnVanTayMini setSelected:NO];
+            }
+            if(self.mbtnSMS.enabled)
             {
                 [self.mbtnSMS setBackgroundImage:[UIImage imageNamed:@"bg-nuttrang"] forState:UIControlStateNormal];
                 [self.mbtnSMS setTitleColor:nil forState:UIControlStateNormal];
@@ -520,6 +543,23 @@
 - (IBAction)suKienBamNutMatKhauVanTay:(id)sender
 {
     NSLog(@"%s - van tay!!!!", __FUNCTION__);
+    if (self.enableFaceID) {
+        [self.btnVanTayMini setImage:[UIImage imageNamed:@"face_new_choose"] forState:UIControlStateNormal];
+    } else {
+        [self.btnVanTayMini setImage:[UIImage imageNamed:@"fingerv"] forState:UIControlStateNormal];
+    }
+    if(self.mbtnToken.enabled)
+    {
+        [self.mbtnToken setImage:[UIImage imageNamed:@"token"] forState:UIControlStateNormal];
+        [self.mbtnToken setTitleColor:nil forState:UIControlStateNormal];
+        [self.mbtnToken setSelected:NO];
+    }
+    if(self.mbtnPKI.enabled)
+    {
+        [self.mbtnPKI setImage:[UIImage imageNamed:@"pki"] forState:UIControlStateNormal];
+        [self.mbtnPKI setTitleColor:nil forState:UIControlStateNormal];
+        [self.mbtnPKI setSelected:NO];
+    }
     if([self validateVanTay])
     {
         [self xuLySuKienHienThiChucNangVanTayVoiTieuDe:@"Đặt vân tay của bạn để thực hiện giao dịch"];
@@ -567,7 +607,7 @@
 }
 
 - (void)xuLyKhiCoChucNangFaceID {
-    [_btnVanTayMini setImage:[UIImage imageNamed:@"face_new"] forState:UIControlStateNormal];
+    [_btnVanTayMini setImage:[UIImage imageNamed:@"face_new_choose"] forState:UIControlStateNormal];
 }
 
 - (void)xuLyKhiKhongCoChucNangQuetVanTay

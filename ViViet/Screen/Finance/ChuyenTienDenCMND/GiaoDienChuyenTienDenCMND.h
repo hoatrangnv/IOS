@@ -28,6 +28,8 @@
 @property (retain, nonatomic) IBOutlet UmiTextView *tvNoiDung;
 @property (retain, nonatomic) IBOutlet UmiTextView *tvDiaChi;
 @property (retain, nonatomic) IBOutlet ExTextField *edSDTNguoiNhan;
+@property (retain, nonatomic) IBOutlet NSLayoutConstraint *heightEdQuanHuyen;
+@property (retain, nonatomic) IBOutlet NSLayoutConstraint *heightViewMain;
 
 - (IBAction)suKienTimChiNhanh:(id)sender;
 - (IBAction)suKienThayDoiSoTien:(id)sender;

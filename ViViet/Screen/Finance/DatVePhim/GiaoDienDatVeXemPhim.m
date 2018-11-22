@@ -3256,12 +3256,12 @@ static NSString *youTubeVideoHTML = @"<html><body style='margin:0px;padding:0px;
 }
 
 - (void)dealloc {
-    [viewQC dungChayQuangCao];
+    [viewQC release];
     [_webPhongChieu release];
     [_edChonRap release];
     [_edChonPhim release];
     [_viewInfo release];
-    [_scrMain release];
+//    [_scrMain release];
     if(arrRapPhim)
         [arrRapPhim release];
     if (arrDanhSachPhim)

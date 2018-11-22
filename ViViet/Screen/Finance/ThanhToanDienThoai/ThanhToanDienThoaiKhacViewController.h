@@ -25,6 +25,7 @@
 @property (retain, nonatomic) IBOutlet UIButton *mbtnChonSoLuong;
 @property (retain, nonatomic) IBOutlet UILabel *mlblPhi;
 @property (retain, nonatomic) IBOutlet UIView *mViewSoLuong;
+@property (retain, nonatomic) IBOutlet NSLayoutConstraint *heightViewSoLuongPhi;
 
 //View SoDienThoai_TraCuu
 @property (retain, nonatomic) IBOutlet UIView *mViewSoDienThoai_TraCuu;
@@ -44,10 +45,13 @@
 @property (retain, nonatomic) IBOutlet UIButton *btnKhac;
 @property (retain, nonatomic) IBOutlet UIView *viewSoPhiVaKhuyenMai;
 @property (retain, nonatomic) IBOutlet ExTextField *soTienViettel;
+@property (retain, nonatomic) IBOutlet NSLayoutConstraint *heightSoTienViettel;
 //@property (retain, nonatomic) IBOutlet UIButton *btnTraCuuViettel;
 @property (retain, nonatomic) IBOutlet ExTextField *edSoTienTraSauViettel;
+@property (retain, nonatomic) IBOutlet NSLayoutConstraint *heightSoTienTraSauViettel;
 @property (retain, nonatomic) DoiTuongThanhToanCuocDienThoaiViettel *mDoiTuongThanhToanCuocDienThoaiViettel;
 @property (retain, nonatomic) IBOutlet UIButton *btnTraCuuTraSau;
+@property (retain, nonatomic) IBOutlet NSLayoutConstraint *heightBtnTraCuuTraSau;
 @property (retain, nonatomic) IBOutlet UIView *viewTimeTraCuuTraSau;
 @property (retain, nonatomic) IBOutlet UITextView *tvTimeTraCuuTraSau;
 @property (retain, nonatomic) IBOutlet UIView *mViewNenThongBao;

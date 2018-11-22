@@ -16,7 +16,9 @@
                 <outlet property="edChonVi" destination="BWM-hF-5VA" id="SgW-cN-yCU"/>
                 <outlet property="heightNoiDung" destination="tow-Yr-NM4" id="Ilh-66-WwO"/>
                 <outlet property="heightViewMain" destination="6L9-MT-xIN" id="vpi-zS-6VO"/>
+                <outlet property="heightViewNhapXacThuc" destination="uwU-yd-Cbt" id="XQf-a0-hvX"/>
                 <outlet property="mViewMain" destination="fp5-yM-9cl" id="TnU-zO-eJE"/>
+                <outlet property="mViewNhapToken" destination="sfF-nc-E07" id="7r5-jx-d9D"/>
                 <outlet property="mbtnPKI" destination="y9N-KL-Qzf" id="ddg-3q-5hB"/>
                 <outlet property="mbtnThucHien" destination="XpR-Pz-wgN" id="Wg0-Z2-qa9"/>
                 <outlet property="mbtnToken" destination="HeB-jk-iUv" id="sYx-eu-Q1j"/>
@@ -32,7 +34,6 @@
                 <outlet property="tfNoiDung" destination="U7S-n2-OkB" id="pYD-vO-hFc"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="viewSoTien" destination="XLc-LW-7VS" id="5lQ-yy-1F2"/>
-                <outlet property="viewThucHien" destination="sfF-nc-E07" id="gjO-Ra-fd7"/>
                 <outlet property="viewXacThuc" destination="thp-1A-yG3" id="9Fe-UH-Wmd"/>
             </connections>
         </placeholder>

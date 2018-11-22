@@ -46,6 +46,9 @@
 @property (retain, nonatomic) IBOutlet UIButton *btnSoTayTkBank;
 @property (retain, nonatomic) IBOutlet UIButton *btnSoTayThe;
 
+@property (retain, nonatomic) IBOutlet UIView *viewAddThem;
+@property (retain, nonatomic) IBOutlet NSLayoutConstraint *heightViewAddThem;
+@property (retain, nonatomic) IBOutlet NSLayoutConstraint *heightViewMain;
 - (IBAction)suKienBamNutSoTayThuongDung:(id)sender;
 - (IBAction)suKienBamNutHuongDan:(id)sender;
 

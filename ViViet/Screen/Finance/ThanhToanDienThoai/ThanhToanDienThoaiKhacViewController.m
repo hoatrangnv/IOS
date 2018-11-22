@@ -105,7 +105,7 @@ NSString *sCauLuuY = @"<b>Lưu ý:</b> Số điện thoại nhận thanh toán c
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self setAnimationChoSoTay:self.btnSoTay];
-    [self khoiTaoQuangCao];
+//    [self khoiTaoQuangCao];
 }
 
 - (void)updateThongTinTraCuuDienThoai:(NSNotification *)notification
@@ -353,6 +353,7 @@ NSString *sCauLuuY = @"<b>Lưu ý:</b> Số điện thoại nhận thanh toán c
        || [sKieuLuaChon isEqualToString:[@"thanh_toan_nap_di_dong_tra_truoc_khac_vietna" localizableString]]
        || [sKieuLuaChon isEqualToString:[@"thanh_toan_nap_di_dong_tra_truoc_khac_gmobile" localizableString]])
     {
+        NSLog(@"%s - line : %d", __FUNCTION__, __LINE__);
         self.mFuncID = FUNC_BILLING_CELLPHONE;
         [self khoiTaoGiaoDienTheoKieuNapDiDongTraTruoc];
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -367,6 +368,7 @@ NSString *sCauLuuY = @"<b>Lưu ý:</b> Số điện thoại nhận thanh toán c
     else if([sKieuLuaChon isEqualToString:[@"thanh_toan_nap_di_dong_ngay_vang_vina" localizableString]]
             || [sKieuLuaChon isEqualToString:[@"thanh_toan_nap_di_dong_ngay_vang_mobi" localizableString]]
             || [sKieuLuaChon isEqualToString:[@"thanh_toan_viettel_thanh_toan_ngay_vang" localizableString]]){
+        NSLog(@"%s - line : %d", __FUNCTION__, __LINE__);
         [self.soTienViettel setPlaceholder:@"Số tiền nạp tối đa"];
         self.mFuncID = FUNC_DAT_LICH_NAP_TIEN_DIEN_THOAI;
         [self khoiTaoGiaoDienDatNgayVang];
@@ -378,6 +380,7 @@ NSString *sCauLuuY = @"<b>Lưu ý:</b> Số điện thoại nhận thanh toán c
              || [sKieuLuaChon isEqualToString:[@"thanh_toan_mua_the_cao_khac_gmobile" localizableString]]
              || [sKieuLuaChon isEqualToString:@"Thẻ cào Viettel"])
     {
+        NSLog(@"%s - line : %d", __FUNCTION__, __LINE__);
         self.mFuncID = FUNC_BUY_CARD;
         dispatch_async(dispatch_get_main_queue(), ^{
             [self khoiTaoGiaoDienTheoKieuNapTheCao];
@@ -386,22 +389,26 @@ NSString *sCauLuuY = @"<b>Lưu ý:</b> Số điện thoại nhận thanh toán c
     else if ([sKieuLuaChon isEqualToString:[@"thanh_toan_di_dong_tra_sau_mobi" localizableString]]
              || [sKieuLuaChon isEqualToString:[@"thanh_toan_di_dong_tra_sau_vina" localizableString]])
     {
+        NSLog(@"%s - line : %d", __FUNCTION__, __LINE__);
         self.mFuncID = FUNC_BILLING_CELLPHONE;
         [self khoiTaoGiaoDienTheoKieuThanhToanDiDongTraSau];
     }
     else if ([sKieuLuaChon isEqualToString:[@"thanh_toan_viettel_thanh_toan_di_dong_hoac_dcom_tra_truoc" localizableString]]){
+        NSLog(@"%s - line : %d", __FUNCTION__, __LINE__);
         self.mFuncID = FUNC_BILLING_CELLPHONE;
         dispatch_async(dispatch_get_main_queue(), ^{
             [self khoiTaoGiaoDienViettelTraTruoc];
         });
     }
     else if([sKieuLuaChon isEqualToString:[@"thanh_toan_viettel_thanh_toan_di_dong_hoac_dcom_tra_sau" localizableString]]){
+        NSLog(@"%s - line : %d", __FUNCTION__, __LINE__);
         self.mFuncID = FUNC_BILLING_CELLPHONE;
         dispatch_async(dispatch_get_main_queue(), ^{
             [self khoiTaoGiaoDienViettelTraSau];
         });
     }
     else if ([sKieuLuaChon isEqualToString:[@"thanh_toan_di_dong_khac_dt_co_dinh_hn" localizableString]] || [sKieuLuaChon isEqualToString:[@"thanh_toan_di_dong_khac_dt_co_dinh_hcm" localizableString]] || [sKieuLuaChon isEqualToString:[@"thanh_toan_di_dong_khac_dt_co_dinh_hp" localizableString]]) {
+        NSLog(@"%s - line : %d", __FUNCTION__, __LINE__);
         isCoDinh = YES;
         self.mFuncID = FUNC_BILLING_CELLPHONE;
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -497,10 +504,14 @@ NSString *sCauLuuY = @"<b>Lưu ý:</b> Số điện thoại nhận thanh toán c
     NSLog(@"%s - START!!!!!", __FUNCTION__);
     dispatch_async(dispatch_get_main_queue(), ^{
         self.btnTraCuuTraSau.hidden = YES;
+        self.heightBtnTraCuuTraSau.constant = 0.0;
         self.mViewSoLuong.hidden = YES;
-        self.soTienViettel.hidden = NO;
+        self.heightViewSoLuongPhi.constant = 0.0;
         self.edSoTienTraSauViettel.hidden = YES;
-
+        self.heightSoTienTraSauViettel.constant = 0.0;
+        self.soTienViettel.hidden = NO;
+        self.heightSoTienViettel.constant = 35.0;
+        
         self.mViewThoiGianConLai.hidden = NO;
         self.mViewNhapToken.hidden = NO;
         self.viewSoPhiVaKhuyenMai.hidden = NO;
@@ -528,9 +539,7 @@ NSString *sCauLuuY = @"<b>Lưu ý:</b> Số điện thoại nhận thanh toán c
         self.mViewThoiGianConLai.frame = rViewThoiGianConLai;
         self.mViewNhapToken.frame = rViewNhapToken;
         CGRect rectQC = viewQC.frame;
-//        NSLog(@"%s - %d - rectQC1 : %f - %f", __FUNCTION__, __LINE__, rectQC.origin.y, rectQC.size.height);
         rectQC.origin.y = rViewNhapToken.origin.y + rViewNhapToken.size.height + 10;
-//        NSLog(@"%s - %d - rectQC2 : %f - %f", __FUNCTION__, __LINE__,rectQC.origin.y, rectQC.size.height);
         viewQC.frame = rectQC;
         CGRect rectMain = self.mViewMain.frame;
         NSLog(@"%s - %d - rectMain1 : %f", __FUNCTION__, __LINE__, rectMain.size.height);
@@ -1819,6 +1828,10 @@ NSString *sCauLuuY = @"<b>Lưu ý:</b> Số điện thoại nhận thanh toán c
     [_mViewNenThongBao release];
     [_mViewTieuDeThongBao release];
     [_mViewChuaThongBao release];
+    [_heightViewSoLuongPhi release];
+    [_heightBtnTraCuuTraSau release];
+    [_heightSoTienTraSauViettel release];
+    [_heightSoTienViettel release];
     [super dealloc];
 }
 

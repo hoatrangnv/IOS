@@ -22,9 +22,11 @@
                 <outlet property="edtSoTien" destination="hcK-fn-ha6" id="6fZ-b3-1JV"/>
                 <outlet property="edtTenChuTaiKhoan" destination="LrW-wj-dda" id="77l-py-HEd"/>
                 <outlet property="heightViewMain" destination="4aM-eP-X7H" id="vdL-MR-8vz"/>
+                <outlet property="heightViewNhapXacThuc" destination="0XI-yk-jGx" id="3D7-sM-JAp"/>
                 <outlet property="imgTabTop" destination="2aD-mM-zdK" id="tWD-AL-LTI"/>
                 <outlet property="mScrv" destination="q1d-Sy-pla" id="Kgn-wv-S5z"/>
                 <outlet property="mViewMain" destination="lww-6v-KOH" id="MAA-WT-L6u"/>
+                <outlet property="mViewNhapToken" destination="2Cv-9x-eIU" id="DgS-II-UXR"/>
                 <outlet property="mbtnPKI" destination="nAb-Ki-COU" id="Bnr-mk-gvs"/>
                 <outlet property="mbtnThucHien" destination="ii5-yX-Ul8" id="vBV-lS-Y5p"/>
                 <outlet property="mbtnToken" destination="EUy-g4-3nU" id="8Kt-xp-rUR"/>
@@ -41,7 +43,6 @@
                 <outlet property="viewButtonOption" destination="mNy-2u-DRT" id="1dV-Lk-gph"/>
                 <outlet property="viewTaiKhoan" destination="w0h-82-gQX" id="ZSy-BL-6KK"/>
                 <outlet property="viewThongTin" destination="PUz-5T-WXi" id="wiK-JD-Cig"/>
-                <outlet property="viewToken" destination="2Cv-9x-eIU" id="cPv-JA-TpP"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

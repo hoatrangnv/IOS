@@ -48,6 +48,7 @@ typedef enum : NSUInteger {
     BOOL mFirst;
     int nKyHanRow;
     ViewQuangCao *viewQC;
+    CGFloat currentHeightMain;
 }
 
 @property (nonatomic, retain) TraCuuSoTietKiemView *mViewTraCuuSoTietKiem;
@@ -98,6 +99,52 @@ typedef enum : NSUInteger {
     }
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateThongTinGuiTietKiem:) name:KEY_TAI_KHOAN_THUONG_DUNG object:nil];
     [self khoiTaoGiaoDien];
+    currentHeightMain = 510;
+    self.heightViewMain.constant = currentHeightMain;
+    NSLog(@"%s - currentHeightMain : %f", __FUNCTION__, currentHeightMain);
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES];
+    self.mViewTraCuuSoTietKiem.secssion = self.mThongTinTaiKhoanVi.secssion;
+    [self khoiTaoGiaoDienKhuyenMaiVaSoDu];
+    if(mFirst)
+    {
+        mFirst = NO;
+        [self xuLyHienThiThongTinNguoiDungLanDauTien];
+    }
+    [self setAnimationChoSoTay:self.btnSoTayTkBank];
+    [self setAnimationChoSoTay:self.btnSoTayThe];
+    [self setAnimationChoSoTay:self.btnSoTay];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    if(![CommonUtils isEmptyOrNull:self.mThongTinTaiKhoanVi.pki3] && [self.mThongTinTaiKhoanVi.hanMucPki3 doubleValue] >0 ){
+        self.mbtnPKI.hidden = NO;
+    }
+    else{
+        self.mbtnPKI.hidden = YES;
+    }
+    [self khoiTaoQuangCao];
+    [self.mtfSoTien resignFirstResponder];
+    [_mtfNganHangGui resignFirstResponder];
+    [_mtfSoTien resignFirstResponder];
+    [_mtfKyHanGui resignFirstResponder];
+    [_mtfKyLinhLai resignFirstResponder];
+    [_mtfCachThucQuayVong resignFirstResponder];
+    [_mtfSoCMND resignFirstResponder];
+    [_mtfSoPhi resignFirstResponder];
+    [_mtfTenNguoiGui resignFirstResponder];
+    [_mtfDiaChi resignFirstResponder];
+    [_mtfNhanGocVaLaiVe resignFirstResponder];
+    [_mtfSoTaiKhoanRutTienVe resignFirstResponder];
+    [_mtfTenChuTaiKhoan resignFirstResponder];
+    [_mtfNganHangRutTienVe resignFirstResponder];
+    [_mtfSoThe resignFirstResponder];
+    [self.mtfMatKhauToken resignFirstResponder];
 }
 
 - (void)khoiTaoQuangCao {
@@ -113,10 +160,11 @@ typedef enum : NSUInteger {
         viewQC.frame = CGRectMake(0, rectQC.origin.y, fW, fH);
         viewQC.mDelegate = self;
         [viewQC updateSizeQuangCao];
-        rectMain.size.height = rectQC.origin.y + rectQC.size.height;
-        self.mViewMain.frame = rectMain;
+        currentHeightMain += (fH + 15.0);
+        NSLog(@"%s - currentHeightMain : %f", __FUNCTION__, currentHeightMain);
+        self.heightViewMain.constant = currentHeightMain;
         [self.mViewMain addSubview:viewQC];
-        [self.mScrvHienThi setContentSize:CGSizeMake(_mScrvHienThi.frame.size.width, viewQC.frame.origin.y + viewQC.frame.size.height + self.viewOptionTop.frame.size.height + 30)];
+        [self.mScrvHienThi setContentSize:CGSizeMake(_mScrvHienThi.frame.size.width, viewQC.frame.origin.y + viewQC.frame.size.height + 10)];
     }
 }
 
@@ -168,32 +216,6 @@ typedef enum : NSUInteger {
     }
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:YES];
-    self.mViewTraCuuSoTietKiem.secssion = self.mThongTinTaiKhoanVi.secssion;
-    [self khoiTaoGiaoDienKhuyenMaiVaSoDu];
-    if(mFirst)
-    {
-        mFirst = NO;
-        [self xuLyHienThiThongTinNguoiDungLanDauTien];
-    }
-    [self setAnimationChoSoTay:self.btnSoTayTkBank];
-    [self setAnimationChoSoTay:self.btnSoTayThe];
-    [self setAnimationChoSoTay:self.btnSoTay];
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    if(![CommonUtils isEmptyOrNull:self.mThongTinTaiKhoanVi.pki3] && [self.mThongTinTaiKhoanVi.hanMucPki3 doubleValue] >0 ){
-        self.mbtnPKI.hidden = NO;
-    }
-    else{
-        self.mbtnPKI.hidden = YES;
-    }
-    [self khoiTaoQuangCao];
-}
 
 - (void)viewWillDisappear:(BOOL)animated
 {
@@ -210,6 +232,15 @@ typedef enum : NSUInteger {
 }
 
 #pragma mark - khoiTao
+
+- (void)updateXacThucKhac {
+    [super updateXacThucKhac];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        CGRect rectQC = viewQC.frame;
+        rectQC.origin.y += self.heightViewNhapXacThuc.constant;
+        viewQC.frame = rectQC;
+    });
+}
 
 - (void)khoiTaoBanDau
 {
@@ -466,6 +497,7 @@ typedef enum : NSUInteger {
 
 - (void)xuLyThucHienKhiKiemTraThanhCongTraVeToken:(NSString*)sToken otp:(NSString*)sOtp
 {
+    NSLog(@"%s - thuc hien viec gui tiet kiem", __FUNCTION__);
     self.mDinhDanhKetNoi = DINH_DANH_GUI_TIET_KIEM;
     double fSoTien = [[[self.mtfSoTien.text componentsSeparatedByCharactersInSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]] componentsJoinedByString:@""] doubleValue];
     NSInteger nKieuNhanTien = [_mDanhSachCachNhanGocVaLai indexOfObject:_mtfNhanGocVaLaiVe.text];
@@ -484,30 +516,39 @@ typedef enum : NSUInteger {
         sMaNganHangNhanTien = self.mNganHangRutTienDuocChon.bank_sms;
     }
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"11")){
-        [self hienThiLoading];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self hienThiLoading];
+        });
+        
     }
-    [GiaoDichMang ketNoiGuiTienTietKiemTaiNganHang:_mNganHangDuocChon.maNganHang
-                                            soTien:fSoTien
-                                  cachThucQuayVong:[_mCachThucQuayVongDuocChon.maQuayVong intValue]
-                                             kyHan:_mKyHanDuocChon.maKyHan
-                                         kyLinhLai:[_mKyLaiDuocChon.maLai intValue]
-                                       tenNguoiGui:_mtfTenNguoiGui.text
-                                             soCmt:_mtfSoCMND.text
-                                            diaChi:_mtvDiaChi.text
-                                      kieuNhanTien:nKieuNhanTien
-                                maNganHangNhanTien:sMaNganHangNhanTien
-                                    tenChuTaiKhoan:sTenChuTaiKhoan
-                                        soTaiKhoan:sSoTaiKhoan
-                                             token:sToken
-                                               otp:sOtp
-                                  typeAuthenticate:self.mTypeAuthenticate
-                                     noiNhanKetQua:self];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [GiaoDichMang ketNoiGuiTienTietKiemTaiNganHang:_mNganHangDuocChon.maNganHang
+                                                soTien:fSoTien
+                                      cachThucQuayVong:[_mCachThucQuayVongDuocChon.maQuayVong intValue]
+                                                 kyHan:_mKyHanDuocChon.maKyHan
+                                             kyLinhLai:[_mKyLaiDuocChon.maLai intValue]
+                                           tenNguoiGui:_mtfTenNguoiGui.text
+                                                 soCmt:_mtfSoCMND.text
+                                                diaChi:_mtvDiaChi.text
+                                          kieuNhanTien:nKieuNhanTien
+                                    maNganHangNhanTien:sMaNganHangNhanTien
+                                        tenChuTaiKhoan:sTenChuTaiKhoan
+                                            soTaiKhoan:sSoTaiKhoan
+                                                 token:sToken
+                                                   otp:sOtp
+                                      typeAuthenticate:self.mTypeAuthenticate
+                                         noiNhanKetQua:self];
+    });
+    
 }
 
 - (void)xuLyKetNoiThanhCong:(NSString*)sDinhDanhKetNoi thongBao:(NSString*)sThongBao ketQua:(id)ketQua
 {
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"11")){
-        [self anLoading];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self anLoading];
+        });
+        
     }
     if([sDinhDanhKetNoi isEqualToString:DINH_DANH_GUI_TIET_KIEM])
     {
@@ -617,29 +658,29 @@ typedef enum : NSUInteger {
     [self xuLyHienThiSoPhi];
     [self xuLyHienThiSoTienLai];
     double fSoTien = [[[self.mtfSoTien.text componentsSeparatedByCharactersInSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]] componentsJoinedByString:@""] doubleValue];
-    if(![CommonUtils isEmptyOrNull:self.mThongTinTaiKhoanVi.pki3] && [self.mThongTinTaiKhoanVi.hanMucPki3 doubleValue] >0 ){
-        if(fSoTien > [self.mThongTinTaiKhoanVi.hanMucPki3 doubleValue]){
-            self.mbtnSMS.hidden = YES;
-            self.mbtnToken.hidden = YES;
-            self.mbtnEmail.hidden = YES;
-            self.mbtnPKI.hidden = NO;
-        }
-        else{
-            self.mbtnSMS.hidden = NO;
-            
-            self.mbtnToken.hidden = NO;
-            
-            self.mbtnEmail.hidden = NO;
-            
-            self.mbtnPKI.hidden = NO;
-        }
-    }
-    else{
-        self.mbtnPKI.hidden = YES;
-        self.mbtnToken.hidden = NO;
-        self.mbtnSMS.hidden = NO;
-        self.mbtnEmail.hidden = NO;
-    }
+//    if(![CommonUtils isEmptyOrNull:self.mThongTinTaiKhoanVi.pki3] && [self.mThongTinTaiKhoanVi.hanMucPki3 doubleValue] >0 ){
+//        if(fSoTien > [self.mThongTinTaiKhoanVi.hanMucPki3 doubleValue]){
+//            self.mbtnSMS.hidden = YES;
+//            self.mbtnToken.hidden = YES;
+//            self.mbtnEmail.hidden = YES;
+//            self.mbtnPKI.hidden = NO;
+//        }
+//        else{
+//            self.mbtnSMS.hidden = NO;
+//            
+//            self.mbtnToken.hidden = NO;
+//            
+//            self.mbtnEmail.hidden = NO;
+//            
+//            self.mbtnPKI.hidden = NO;
+//        }
+//    }
+//    else{
+//        self.mbtnPKI.hidden = YES;
+//        self.mbtnToken.hidden = NO;
+//        self.mbtnSMS.hidden = NO;
+//        self.mbtnEmail.hidden = NO;
+//    }
     if(fSoTien > 0)
         _mtfSoTien.text = [Common hienThiTienTe:fSoTien];
     else
@@ -706,11 +747,19 @@ typedef enum : NSUInteger {
             [_mViewChonNganHangNhanTienGocVaLaiTietKiem removeFromSuperview];
         if(_mViewRutGocVaLaiVeThe.superview)
             [_mViewRutGocVaLaiVeThe removeFromSuperview];
+        self.heightViewAddThem.constant = 0;
+        self.heightViewMain.constant = currentHeightMain;
         
-        rViewThoiGian.origin.y = rViewNhanGocVaLaiVe.origin.y + rViewNhanGocVaLaiVe.size.height + 8;
-        rViewNhapToken.origin.y = rViewThoiGian.origin.y + rViewThoiGian.size.height + 8;
-        rectQC.origin.y = rViewNhapToken.origin.y + rViewNhapToken.size.height + 15;
-        rViewMain.size.height = rectQC.origin.y +rectQC.size.height + 10;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            CGRect rectQC = viewQC.frame;
+            rectQC.origin.y += self.heightViewAddThem.constant;
+            viewQC.frame = rectQC;
+        });
+        [self.mScrvHienThi setContentSize:CGSizeMake(self.mScrvHienThi.frame.size.width, self.heightViewMain.constant + 10)];
+//        rViewThoiGian.origin.y = rViewNhanGocVaLaiVe.origin.y + rViewNhanGocVaLaiVe.size.height + 8;
+//        rViewNhapToken.origin.y = rViewThoiGian.origin.y + rViewThoiGian.size.height + 8;
+//        rectQC.origin.y = rViewNhapToken.origin.y + rViewNhapToken.size.height + 15;
+//        rViewMain.size.height = rectQC.origin.y +rectQC.size.height + 10;
 
     }
     else if(nCachChon == KIEU_NHAN_TIEN_QUA_TK)
@@ -719,18 +768,32 @@ typedef enum : NSUInteger {
             [_mViewChonNganHangNhanTienGocVaLaiTietKiem removeFromSuperview];
         if(_mViewRutGocVaLaiVeThe.superview)
             [_mViewRutGocVaLaiVeThe removeFromSuperview];
+        [_mViewChonNganHangNhanTienGocVaLaiTietKiem setTranslatesAutoresizingMaskIntoConstraints:NO];
+        [self.viewAddThem addSubview:_mViewChonNganHangNhanTienGocVaLaiTietKiem];
+        self.heightViewAddThem.constant = 230;
+        self.heightViewMain.constant = currentHeightMain + self.heightViewAddThem.constant;
+        [_mViewChonNganHangNhanTienGocVaLaiTietKiem.topAnchor constraintEqualToAnchor:self.viewAddThem.topAnchor constant:0].active = YES;
+        [_mViewChonNganHangNhanTienGocVaLaiTietKiem.bottomAnchor constraintEqualToAnchor:self.viewAddThem.bottomAnchor constant:0].active = YES;
+        [_mViewChonNganHangNhanTienGocVaLaiTietKiem.trailingAnchor constraintEqualToAnchor:self.viewAddThem.trailingAnchor constant:0].active = YES;
+        [_mViewChonNganHangNhanTienGocVaLaiTietKiem.leadingAnchor constraintEqualToAnchor:self.viewAddThem.leadingAnchor constant:0].active = YES;
         
-        CGRect rViewChonNganHangNhanTienGocVaLai = _mViewChonNganHangNhanTienGocVaLaiTietKiem.frame;
-        rViewChonNganHangNhanTienGocVaLai.origin.y = rViewNhanGocVaLaiVe.size.height + rViewNhanGocVaLaiVe.origin.y + 8;
-        rViewChonNganHangNhanTienGocVaLai.size.width = rViewThoiGian.size.width;
-        
-        rViewThoiGian.origin.y = rViewChonNganHangNhanTienGocVaLai.origin.y + rViewChonNganHangNhanTienGocVaLai.size.height + 8;
-        rViewNhapToken.origin.y = rViewThoiGian.origin.y + rViewThoiGian.size.height + 8;
-        rectQC.origin.y = rViewNhapToken.origin.y + rViewNhapToken.size.height + 15;
-        rViewMain.size.height = rectQC.origin.y +rectQC.size.height + 10;
-        
-        _mViewChonNganHangNhanTienGocVaLaiTietKiem.frame = rViewChonNganHangNhanTienGocVaLai;
-        [self.mViewMain addSubview:_mViewChonNganHangNhanTienGocVaLaiTietKiem];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            CGRect rectQC = viewQC.frame;
+            rectQC.origin.y += self.heightViewAddThem.constant;
+            viewQC.frame = rectQC;
+        });
+        [self.mScrvHienThi setContentSize:CGSizeMake(self.mScrvHienThi.frame.size.width, self.heightViewMain.constant + 10)];
+//        CGRect rViewChonNganHangNhanTienGocVaLai = _mViewChonNganHangNhanTienGocVaLaiTietKiem.frame;
+//        rViewChonNganHangNhanTienGocVaLai.origin.y = rViewNhanGocVaLaiVe.size.height + rViewNhanGocVaLaiVe.origin.y + 8;
+//        rViewChonNganHangNhanTienGocVaLai.size.width = rViewThoiGian.size.width;
+//
+//        rViewThoiGian.origin.y = rViewChonNganHangNhanTienGocVaLai.origin.y + rViewChonNganHangNhanTienGocVaLai.size.height + 8;
+//        rViewNhapToken.origin.y = rViewThoiGian.origin.y + rViewThoiGian.size.height + 8;
+//        rectQC.origin.y = rViewNhapToken.origin.y + rViewNhapToken.size.height + 15;
+//        rViewMain.size.height = rectQC.origin.y +rectQC.size.height + 10;
+//
+//        _mViewChonNganHangNhanTienGocVaLaiTietKiem.frame = rViewChonNganHangNhanTienGocVaLai;
+//        [self.mViewMain addSubview:_mViewChonNganHangNhanTienGocVaLaiTietKiem];
     }
     else if(nCachChon == KIEU_NHAN_TIEN_QUA_THE)
     {
@@ -738,17 +801,32 @@ typedef enum : NSUInteger {
             [_mViewChonNganHangNhanTienGocVaLaiTietKiem removeFromSuperview];
         if(_mViewRutGocVaLaiVeThe.superview)
             [_mViewRutGocVaLaiVeThe removeFromSuperview];
+
+        [_mViewRutGocVaLaiVeThe setTranslatesAutoresizingMaskIntoConstraints:NO];
+        [self.viewAddThem addSubview:_mViewRutGocVaLaiVeThe];
+        self.heightViewAddThem.constant = 100;
+        self.heightViewMain.constant = currentHeightMain + self.heightViewAddThem.constant;
+        [_mViewRutGocVaLaiVeThe.topAnchor constraintEqualToAnchor:self.viewAddThem.topAnchor constant:0].active = YES;
+        [_mViewRutGocVaLaiVeThe.bottomAnchor constraintEqualToAnchor:self.viewAddThem.bottomAnchor constant:0].active = YES;
+        [_mViewRutGocVaLaiVeThe.trailingAnchor constraintEqualToAnchor:self.viewAddThem.trailingAnchor constant:0].active = YES;
+        [_mViewRutGocVaLaiVeThe.leadingAnchor constraintEqualToAnchor:self.viewAddThem.leadingAnchor constant:0].active = YES;
         
-        CGRect rViewChonTheNhanTienGocVaLai = _mViewRutGocVaLaiVeThe.frame;
-        rViewChonTheNhanTienGocVaLai.origin.y = rViewNhanGocVaLaiVe.size.height + rViewNhanGocVaLaiVe.origin.y + 8;
-        rViewChonTheNhanTienGocVaLai.size.width = rViewThoiGian.size.width;
-        rViewThoiGian.origin.y = rViewChonTheNhanTienGocVaLai.origin.y + rViewChonTheNhanTienGocVaLai.size.height + 8;
-        rViewNhapToken.origin.y = rViewThoiGian.origin.y + rViewThoiGian.size.height + 8;
-        rectQC.origin.y = rViewNhapToken.origin.y + rViewNhapToken.size.height + 15;
-        rViewMain.size.height = rectQC.origin.y +rectQC.size.height + 10;
-        
-        _mViewRutGocVaLaiVeThe.frame = rViewChonTheNhanTienGocVaLai;
-        [self.mViewMain addSubview:_mViewRutGocVaLaiVeThe];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            CGRect rectQC = viewQC.frame;
+            rectQC.origin.y += self.heightViewAddThem.constant;
+            viewQC.frame = rectQC;
+        });
+        [self.mScrvHienThi setContentSize:CGSizeMake(self.mScrvHienThi.frame.size.width, self.heightViewMain.constant + 10)];
+//        CGRect rViewChonTheNhanTienGocVaLai = _mViewRutGocVaLaiVeThe.frame;
+//        rViewChonTheNhanTienGocVaLai.origin.y = rViewNhanGocVaLaiVe.size.height + rViewNhanGocVaLaiVe.origin.y + 8;
+//        rViewChonTheNhanTienGocVaLai.size.width = rViewThoiGian.size.width;
+//        rViewThoiGian.origin.y = rViewChonTheNhanTienGocVaLai.origin.y + rViewChonTheNhanTienGocVaLai.size.height + 8;
+//        rViewNhapToken.origin.y = rViewThoiGian.origin.y + rViewThoiGian.size.height + 8;
+//        rectQC.origin.y = rViewNhapToken.origin.y + rViewNhapToken.size.height + 15;
+//        rViewMain.size.height = rectQC.origin.y +rectQC.size.height + 10;
+//
+//        _mViewRutGocVaLaiVeThe.frame = rViewChonTheNhanTienGocVaLai;
+//        [self.mViewMain addSubview:_mViewRutGocVaLaiVeThe];
     }
     
     if([self kiemTraCoChucNangQuetVanTay])
@@ -1158,7 +1236,10 @@ typedef enum : NSUInteger {
     [_mtfTenChuTaiKhoan release];
     [_btnSoTayTkBank release];
     [_btnSoTayThe release];
-    [_mScrvHienThi release];
+    [_viewAddThem release];
+    [_heightViewAddThem release];
+    [_heightViewMain release];
+//    [_mScrvHienThi release];
     [super dealloc];
 }
 @end

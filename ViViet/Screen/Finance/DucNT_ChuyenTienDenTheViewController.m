@@ -71,6 +71,18 @@
     }
 }
 
+- (void)updateXacThucKhac {
+    [super updateXacThucKhac];
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//        if (viewQC != nil) {
+//            CGRect rectToken = self.viewCenter.frame;
+//            CGRect rectQC = viewQC.frame;
+//            rectQC.origin.y = rectQC.origin.y + self.heightViewNhapXacThuc.constant;
+//            viewQC.frame = rectQC;
+//        }
+//    });
+}
+
 - (void)suKienBamNutHuongDanGiaoDichViewController:(UIButton *)sender {
     GiaoDienThongTinPhim *vc = [[GiaoDienThongTinPhim alloc] initWithNibName:@"GiaoDienThongTinPhim" bundle:nil];
     vc.nOption = HUONG_DAN_CHUYEN_TIEN_THE;
@@ -159,6 +171,7 @@
 
 -(BOOL)validateVanTay
 {
+    return YES;
     if (![[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_STATE] boolValue]) {
         DucNT_LoginSceen *loginSceen = [[DucNT_LoginSceen alloc] initWithNibName:@"DucNT_LoginSceen" bundle:nil];
         [self presentViewController:loginSceen animated:YES completion:^{}];

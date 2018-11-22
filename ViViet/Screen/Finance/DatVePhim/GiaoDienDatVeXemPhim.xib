@@ -33,8 +33,7 @@
                 <outlet property="lblSoGhe" destination="kzI-ZA-CGb" id="U2L-Wp-xvh"/>
                 <outlet property="lblSoTien" destination="HFz-AJ-0wv" id="xaM-Co-0rM"/>
                 <outlet property="mViewMain" destination="YgY-Oy-xmF" id="NEx-b8-cTi"/>
-                <outlet property="mbtnEmail" destination="D8z-b3-rG7" id="r4q-QL-yhm"/>
-                <outlet property="mbtnSMS" destination="KOk-X0-cu3" id="t1u-a9-muy"/>
+                <outlet property="mbtnPKI" destination="KOk-X0-cu3" id="yWR-EO-KIK"/>
                 <outlet property="mbtnThucHien" destination="PcS-uk-E1n" id="j8U-Zd-TGt"/>
                 <outlet property="mbtnToken" destination="Mvk-2H-4DY" id="O2n-7K-izu"/>
                 <outlet property="mtfMatKhauToken" destination="qtX-pI-7mw" id="zHf-Hx-VBu"/>
@@ -185,7 +184,7 @@
             <point key="canvasLocation" x="617.60000000000002" y="293.25337331334333"/>
         </view>
         <view contentMode="scaleToFill" id="zuW-SM-kUV">
-            <rect key="frame" x="0.0" y="0.0" width="302" height="297"/>
+            <rect key="frame" x="0.0" y="0.0" width="302" height="354"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="THÔNG TIN ĐẶT VÉ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AQK-eo-ijS">
@@ -295,53 +294,45 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" id="anW-MG-gME" userLabel="ViewThoiGianConLai">
-                    <rect key="frame" x="1" y="219" width="300" height="35"/>
+                    <rect key="frame" x="1" y="219" width="300" height="84"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Xác thực" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0NR-CM-SV7">
-                            <rect key="frame" x="0.0" y="0.0" width="67" height="35"/>
+                            <rect key="frame" x="0.0" y="0.0" width="67" height="18"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Mvk-2H-4DY">
-                            <rect key="frame" x="67" y="3" width="55" height="30"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="vcP-RX-22r">
+                            <rect key="frame" x="195" y="23" width="52" height="52"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES"/>
+                            <state key="normal" image="finger"/>
+                            <connections>
+                                <action selector="suKienBamNutMatKhauVanTay:" destination="-1" eventType="touchUpInside" id="CAQ-sm-G6H"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Mvk-2H-4DY">
+                            <rect key="frame" x="124" y="23" width="52" height="52"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES"/>
-                            <state key="normal" title="TOKEN" backgroundImage="bg-nuttrang.png"/>
+                            <state key="normal" title="TOKEN" image="tokenv"/>
                             <connections>
                                 <action selector="suKienBamNutToken:" destination="-1" eventType="touchUpInside" id="SMh-R0-ML1"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="KOk-X0-cu3">
-                            <rect key="frame" x="126" y="3" width="55" height="30"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="KOk-X0-cu3">
+                            <rect key="frame" x="55" y="23" width="52" height="52"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES"/>
-                            <state key="normal" title="SMS" backgroundImage="bg-nuttrang.png"/>
+                            <state key="normal" title="SMS" image="pki"/>
                             <connections>
                                 <action selector="suKienBamNutSMS:" destination="-1" eventType="touchUpInside" id="CGM-I0-qAk"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="D8z-b3-rG7">
-                            <rect key="frame" x="185" y="3" width="55" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES"/>
-                            <state key="normal" title="EMAIL" backgroundImage="bg-nuttrang.png"/>
-                            <connections>
-                                <action selector="suKienBamNutEmail:" destination="-1" eventType="touchUpInside" id="bTn-Jz-e3z"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="vcP-RX-22r">
-                            <rect key="frame" x="243" y="3" width="56" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES"/>
-                            <state key="normal" image="vantaymau-ngang.png" backgroundImage="bg-nuttrang.png"/>
-                            <connections>
-                                <action selector="suKienBamNutMatKhauVanTay:" destination="-1" eventType="touchUpInside" id="CAQ-sm-G6H"/>
                             </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>
                 <view contentMode="scaleToFill" id="cht-P7-Snr" userLabel="ViewNhapToKen">
-                    <rect key="frame" x="1" y="262" width="300" height="35"/>
+                    <rect key="frame" x="1" y="319" width="300" height="35"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="@mat_khau_token" minimumFontSize="17" id="qtX-pI-7mw" customClass="ExTextField">
@@ -370,7 +361,7 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="1531.2" y="349.02548725637183"/>
+            <point key="canvasLocation" x="1537.5" y="435.21126760563379"/>
         </view>
         <view contentMode="scaleToFill" id="Kaa-FP-XeS">
             <rect key="frame" x="0.0" y="0.0" width="302" height="302"/>
@@ -433,10 +424,11 @@
         </view>
     </objects>
     <resources>
-        <image name="bg-nuttrang.png" width="128" height="52"/>
         <image name="bg_nen.png" width="720" height="1280"/>
+        <image name="finger" width="225" height="225"/>
         <image name="icon_inflim.png" width="32" height="32"/>
         <image name="icon_trailer.png" width="32" height="32"/>
-        <image name="vantaymau-ngang.png" width="107" height="59"/>
+        <image name="pki" width="225" height="225"/>
+        <image name="tokenv" width="120" height="120"/>
     </resources>
 </document>

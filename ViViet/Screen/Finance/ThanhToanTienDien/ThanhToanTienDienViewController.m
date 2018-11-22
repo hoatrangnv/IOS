@@ -32,6 +32,12 @@
     [self xuLyKetNoiLaySoDuTaiKhoan];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self.mtfNoiDung resignFirstResponder];
+    [self.mtvNoiDung resignFirstResponder];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

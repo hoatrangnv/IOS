@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ThanhToanTienDienViewController">
             <connections>
                 <outlet property="btnVanTayMini" destination="Mtq-2b-hmX" id="igm-9n-gzy"/>
+                <outlet property="heightViewNhapXacThuc" destination="0OE-U3-ZUX" id="KlB-dp-jWb"/>
                 <outlet property="mViewMain" destination="CVQ-QK-ZxK" id="Hfa-Vh-Nag"/>
                 <outlet property="mViewNhapToken" destination="3q8-FP-gtM" id="6n6-Ph-6Ng"/>
-                <outlet property="mbtnEmail" destination="xu2-QS-EDA" id="kwu-mI-2g9"/>
-                <outlet property="mbtnSMS" destination="tuB-CF-wjV" id="zpI-ou-As5"/>
+                <outlet property="mbtnPKI" destination="xu2-QS-EDA" id="B5O-76-KDw"/>
                 <outlet property="mbtnThucHien" destination="IY0-4N-GY2" id="25s-m1-ag7"/>
                 <outlet property="mbtnToken" destination="MYo-yt-Sca" id="Ysj-zd-2Jw"/>
-                <outlet property="mbtnVanTay" destination="QoJ-7Y-GNJ" id="2xR-OP-2zm"/>
                 <outlet property="mlblSoDu" destination="epe-5i-fST" id="hxV-iQ-cxn"/>
                 <outlet property="mlblSoDuKhuyenMai" destination="oVo-Hq-8v2" id="5Wj-4f-vI9"/>
                 <outlet property="mscrv" destination="59v-db-w2i" id="GUE-jN-8KT"/>
@@ -36,7 +36,6 @@
                 <outlet property="mtvDiaChi" destination="lWi-OL-3JA" id="SKS-8E-K7R"/>
                 <outlet property="mtvNoiDung" destination="8t4-pz-aVH" id="ZOq-FP-lcR"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
-                <outlet property="viewOptionTop" destination="C3d-Wo-Y4L" id="wFm-Zm-IJ6"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -44,264 +43,321 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_nen.png" id="z8k-SM-VeI">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_nen.png" translatesAutoresizingMaskIntoConstraints="NO" id="z8k-SM-VeI">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" id="59v-db-w2i" customClass="TPKeyboardAvoidAcessory">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="59v-db-w2i" customClass="TPKeyboardAvoidAcessory">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
-                        <view contentMode="scaleToFill" id="C3d-Wo-Y4L">
-                            <rect key="frame" x="10" y="0.0" width="300" height="45"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yTO-LW-LPP">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CVQ-QK-ZxK">
+                            <rect key="frame" x="5" y="5" width="310" height="550"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tab-cat1.png" id="GPe-FQ-1zQ">
-                                    <rect key="frame" x="0.0" y="8" width="300" height="36"/>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WOt-C2-S2X" userLabel="ViewSoDuVaKhuyenMai">
+                                    <rect key="frame" x="0.0" y="5" width="310" height="40"/>
+                                    <subviews>
+                                        <switch hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u52-Xk-AiH">
+                                            <rect key="frame" x="239" y="4" width="51" height="31"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </switch>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Số dư: 10.000.000 đ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="epe-5i-fST">
+                                            <rect key="frame" x="77.5" y="5" width="155.5" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.068081496419999998" green="0.01342051071" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Khuyến mại: 500.000 đ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oVo-Hq-8v2">
+                                            <rect key="frame" x="85" y="25.5" width="140.5" height="16"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="2pW-IC-Dai"/>
+                                        <constraint firstItem="epe-5i-fST" firstAttribute="top" secondItem="WOt-C2-S2X" secondAttribute="top" constant="5" id="B5m-yB-UlY"/>
+                                        <constraint firstItem="oVo-Hq-8v2" firstAttribute="top" secondItem="epe-5i-fST" secondAttribute="bottom" id="KtB-9e-RB9"/>
+                                        <constraint firstItem="oVo-Hq-8v2" firstAttribute="centerX" secondItem="WOt-C2-S2X" secondAttribute="centerX" id="Qor-9b-rsB"/>
+                                        <constraint firstItem="epe-5i-fST" firstAttribute="centerX" secondItem="WOt-C2-S2X" secondAttribute="centerX" id="sKu-GD-kEB"/>
+                                    </constraints>
+                                </view>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="@ten_khu_vuc" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wnI-Lp-lHK" customClass="ExTextField">
+                                    <rect key="frame" x="8" y="53" width="294" height="35"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="35" id="HRv-B9-Fuz"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                </textField>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mã hoá đơn" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KRc-qR-WJM" customClass="ExTextField">
+                                    <rect key="frame" x="8" y="96" width="294" height="35"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="35" id="rHr-G9-7yb"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                </textField>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Tên khách hàng" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3yj-CI-Low" customClass="ExTextField">
+                                    <rect key="frame" x="8" y="139" width="294" height="35"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="35" id="cI3-LW-Kz2"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                </textField>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Điện thoại liên hệ" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y5f-ey-qjh" customClass="ExTextField">
+                                    <rect key="frame" x="8" y="182" width="294" height="35"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="35" id="g1s-Zh-2It"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                </textField>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" placeholder="Địa chỉ" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i3N-vs-85c" customClass="ExTextField">
+                                    <rect key="frame" x="10" y="224" width="290" height="35"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                </imageView>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="FSw-U1-K6v">
-                                    <rect key="frame" x="7" y="10" width="89" height="34"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
-                                    <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <state key="normal" title="Ví">
-                                        <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </state>
-                                    <state key="selected">
-                                        <color key="titleColor" red="0.23921568630000001" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </state>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Ukh-ov-egu">
-                                    <rect key="frame" x="122" y="10" width="77" height="34"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
-                                    <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <state key="normal" title="Liên kết">
-                                        <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </state>
-                                    <state key="selected">
-                                        <color key="titleColor" red="0.23921568630000001" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </state>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="v91-Rt-mQb">
-                                    <rect key="frame" x="220" y="10" width="80" height="34"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
-                                    <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <state key="normal" title="Lấy mã TT">
-                                        <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </state>
-                                    <state key="selected">
-                                        <color key="titleColor" red="0.23921568630000001" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </state>
-                                </button>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                </textField>
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lWi-OL-3JA" customClass="UmiTextView">
+                                    <rect key="frame" x="8" y="225" width="294" height="35"/>
+                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="35" id="Yc4-oM-lD2"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    <connections>
+                                        <outlet property="textfield" destination="i3N-vs-85c" id="ik8-fs-Rrz"/>
+                                    </connections>
+                                </textView>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Kỳ thanh toán" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OlM-Zg-g4a" customClass="ExTextField">
+                                    <rect key="frame" x="8" y="268" width="294" height="35"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="35" id="nPe-eY-qcP"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                </textField>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h26-XR-ohJ">
+                                    <rect key="frame" x="0.0" y="311" width="310" height="35"/>
+                                    <subviews>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Số tiền (đ)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pXM-mu-Fi4" customClass="ExTextField">
+                                            <rect key="frame" x="8" y="0.0" width="165" height="35"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
+                                        </textField>
+                                        <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1.000.000 đ" placeholder="@so_tien" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AEY-iW-kgY" customClass="ExTextField">
+                                            <rect key="frame" x="212" y="0.0" width="90" height="35"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="90" id="Jqg-kO-Q1t"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="next"/>
+                                        </textField>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phí:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bdx-iC-fVv">
+                                            <rect key="frame" x="178" y="7.5" width="29" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="AEY-iW-kgY" secondAttribute="bottom" id="8Hm-gt-4rW"/>
+                                        <constraint firstAttribute="bottom" secondItem="pXM-mu-Fi4" secondAttribute="bottom" id="9Jh-rw-BCf"/>
+                                        <constraint firstItem="AEY-iW-kgY" firstAttribute="leading" secondItem="bdx-iC-fVv" secondAttribute="trailing" constant="5" id="9jw-2q-8Bx"/>
+                                        <constraint firstAttribute="height" constant="35" id="Rdu-yO-U3d"/>
+                                        <constraint firstItem="AEY-iW-kgY" firstAttribute="top" secondItem="h26-XR-ohJ" secondAttribute="top" id="T7G-fm-fuE"/>
+                                        <constraint firstAttribute="trailing" secondItem="AEY-iW-kgY" secondAttribute="trailing" constant="8" id="V3f-1M-lJZ"/>
+                                        <constraint firstItem="bdx-iC-fVv" firstAttribute="centerY" secondItem="AEY-iW-kgY" secondAttribute="centerY" id="Zab-Le-V1u"/>
+                                        <constraint firstItem="pXM-mu-Fi4" firstAttribute="leading" secondItem="h26-XR-ohJ" secondAttribute="leading" constant="8" id="aGF-Br-sSP"/>
+                                        <constraint firstItem="bdx-iC-fVv" firstAttribute="leading" secondItem="pXM-mu-Fi4" secondAttribute="trailing" constant="5" id="v9m-AJ-ACl"/>
+                                        <constraint firstItem="pXM-mu-Fi4" firstAttribute="top" secondItem="h26-XR-ohJ" secondAttribute="top" id="xCr-vd-o9W"/>
+                                    </constraints>
+                                </view>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="line" placeholder="Nội dung" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ugG-DQ-23O" customClass="ExTextField">
+                                    <rect key="frame" x="8" y="354" width="294" height="50"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="50" id="iFJ-wp-ifw"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                </textField>
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8t4-pz-aVH" customClass="UmiTextView">
+                                    <rect key="frame" x="8" y="354" width="294" height="50"/>
+                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    <connections>
+                                        <outlet property="textfield" destination="ugG-DQ-23O" id="dBy-WL-haI"/>
+                                    </connections>
+                                </textView>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="avU-Hy-ekE" userLabel="ViewThoiGianConLai">
+                                    <rect key="frame" x="0.0" y="412" width="310" height="80"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Xác thực" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qbm-S7-mYu">
+                                            <rect key="frame" x="5" y="0.0" width="65" height="18"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="18" id="bZK-A0-lyS"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ul9-xY-mPC">
+                                            <rect key="frame" x="64" y="23" width="182" height="52"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xu2-QS-EDA">
+                                                    <rect key="frame" x="0.0" y="0.0" width="54" height="52"/>
+                                                    <state key="normal" image="pki"/>
+                                                    <connections>
+                                                        <action selector="suKienBamNutPKI:" destination="-1" eventType="touchUpInside" id="p8f-cq-aAO"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MYo-yt-Sca">
+                                                    <rect key="frame" x="64" y="0.0" width="54" height="52"/>
+                                                    <state key="normal" image="token"/>
+                                                    <connections>
+                                                        <action selector="suKienBamNutToken:" destination="-1" eventType="touchUpInside" id="VHC-vh-GAk"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mtq-2b-hmX">
+                                                    <rect key="frame" x="128" y="0.0" width="54" height="52"/>
+                                                    <state key="normal" image="fingerv"/>
+                                                    <connections>
+                                                        <action selector="suKienBamNutMatKhauVanTay:" destination="-1" eventType="touchUpInside" id="OlF-YD-R2U"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="ul9-xY-mPC" secondAttribute="height" multiplier="3.5" id="ZAC-fD-xnp"/>
+                                            </constraints>
+                                        </stackView>
+                                    </subviews>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstItem="ul9-xY-mPC" firstAttribute="top" secondItem="qbm-S7-mYu" secondAttribute="bottom" constant="5" id="8Xg-Y8-CUS"/>
+                                        <constraint firstAttribute="height" constant="80" id="F1z-nC-mg1"/>
+                                        <constraint firstItem="qbm-S7-mYu" firstAttribute="top" secondItem="avU-Hy-ekE" secondAttribute="top" id="Kkv-0r-0YV"/>
+                                        <constraint firstItem="qbm-S7-mYu" firstAttribute="leading" secondItem="avU-Hy-ekE" secondAttribute="leading" constant="5" id="RTa-y9-XNq"/>
+                                        <constraint firstAttribute="bottom" secondItem="ul9-xY-mPC" secondAttribute="bottom" constant="5" id="Ygf-pA-cAq"/>
+                                        <constraint firstItem="ul9-xY-mPC" firstAttribute="centerX" secondItem="avU-Hy-ekE" secondAttribute="centerX" id="l81-GJ-laR"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3q8-FP-gtM" userLabel="ViewNhapToKen">
+                                    <rect key="frame" x="0.0" y="500" width="310" height="35"/>
+                                    <subviews>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="@mat_khau_token" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y0T-Zl-BUA" customClass="ExTextField">
+                                            <rect key="frame" x="8" y="0.0" width="166" height="35"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
+                                        </textField>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IY0-4N-GY2">
+                                            <rect key="frame" x="182" y="0.0" width="120" height="35"/>
+                                            <color key="backgroundColor" red="0.0039215686269999999" green="0.31372549020000001" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="120" id="3Wn-Eh-y5C"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                            <state key="normal" title="@thuc_hien">
+                                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </state>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="35" id="0OE-U3-ZUX"/>
+                                        <constraint firstItem="y0T-Zl-BUA" firstAttribute="top" secondItem="3q8-FP-gtM" secondAttribute="top" id="70q-oh-e9B"/>
+                                        <constraint firstAttribute="bottom" secondItem="IY0-4N-GY2" secondAttribute="bottom" id="HF7-6S-r3c"/>
+                                        <constraint firstItem="IY0-4N-GY2" firstAttribute="top" secondItem="3q8-FP-gtM" secondAttribute="top" id="IxU-SX-oLt"/>
+                                        <constraint firstItem="IY0-4N-GY2" firstAttribute="leading" secondItem="y0T-Zl-BUA" secondAttribute="trailing" constant="8" id="QcN-Ow-OmV"/>
+                                        <constraint firstAttribute="bottom" secondItem="y0T-Zl-BUA" secondAttribute="bottom" id="eAu-xN-zou"/>
+                                        <constraint firstItem="y0T-Zl-BUA" firstAttribute="leading" secondItem="3q8-FP-gtM" secondAttribute="leading" constant="8" id="nn0-NB-Xim"/>
+                                        <constraint firstAttribute="trailing" secondItem="IY0-4N-GY2" secondAttribute="trailing" constant="8" id="zeF-vQ-7HH"/>
+                                    </constraints>
+                                </view>
                             </subviews>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstItem="QaV-Cy-s20" firstAttribute="trailing" secondItem="ugG-DQ-23O" secondAttribute="trailing" constant="8" id="0O4-Ls-KUN"/>
+                                <constraint firstItem="y5f-ey-qjh" firstAttribute="leading" secondItem="QaV-Cy-s20" secondAttribute="leading" constant="8" id="2BU-Fm-5nr"/>
+                                <constraint firstItem="8t4-pz-aVH" firstAttribute="leading" secondItem="QaV-Cy-s20" secondAttribute="leading" constant="8" id="4i2-Wo-M9K"/>
+                                <constraint firstItem="QaV-Cy-s20" firstAttribute="trailing" secondItem="wnI-Lp-lHK" secondAttribute="trailing" constant="8" id="5ay-vS-uH9"/>
+                                <constraint firstItem="QaV-Cy-s20" firstAttribute="trailing" secondItem="KRc-qR-WJM" secondAttribute="trailing" constant="8" id="6od-9R-7du"/>
+                                <constraint firstItem="QaV-Cy-s20" firstAttribute="trailing" secondItem="OlM-Zg-g4a" secondAttribute="trailing" constant="8" id="9TO-ZM-rMK"/>
+                                <constraint firstItem="ugG-DQ-23O" firstAttribute="top" secondItem="h26-XR-ohJ" secondAttribute="bottom" constant="8" id="9iE-mf-VN7"/>
+                                <constraint firstItem="QaV-Cy-s20" firstAttribute="trailing" secondItem="3yj-CI-Low" secondAttribute="trailing" constant="8" id="BFI-U2-go9"/>
+                                <constraint firstItem="QaV-Cy-s20" firstAttribute="trailing" secondItem="lWi-OL-3JA" secondAttribute="trailing" constant="8" id="DFF-IR-Jzt"/>
+                                <constraint firstItem="QaV-Cy-s20" firstAttribute="trailing" secondItem="8t4-pz-aVH" secondAttribute="trailing" constant="8" id="EZo-Ni-WKq"/>
+                                <constraint firstItem="avU-Hy-ekE" firstAttribute="trailing" secondItem="QaV-Cy-s20" secondAttribute="trailing" id="HRU-Ci-KeR"/>
+                                <constraint firstAttribute="height" constant="550" id="Hp9-f6-LMA"/>
+                                <constraint firstItem="h26-XR-ohJ" firstAttribute="top" secondItem="OlM-Zg-g4a" secondAttribute="bottom" constant="8" id="ICS-Ad-zxY"/>
+                                <constraint firstItem="y5f-ey-qjh" firstAttribute="top" secondItem="3yj-CI-Low" secondAttribute="bottom" constant="8" id="Je7-30-bgO"/>
+                                <constraint firstItem="h26-XR-ohJ" firstAttribute="leading" secondItem="QaV-Cy-s20" secondAttribute="leading" id="LeM-EJ-Xsh"/>
+                                <constraint firstItem="KRc-qR-WJM" firstAttribute="top" secondItem="wnI-Lp-lHK" secondAttribute="bottom" constant="8" id="MdS-ob-Xtr"/>
+                                <constraint firstItem="avU-Hy-ekE" firstAttribute="leading" secondItem="QaV-Cy-s20" secondAttribute="leading" id="PKl-DR-4lN"/>
+                                <constraint firstItem="3q8-FP-gtM" firstAttribute="leading" secondItem="QaV-Cy-s20" secondAttribute="leading" id="Rm6-ar-DLp"/>
+                                <constraint firstItem="lWi-OL-3JA" firstAttribute="top" secondItem="y5f-ey-qjh" secondAttribute="bottom" constant="8" id="RpD-wf-dtg"/>
+                                <constraint firstItem="wnI-Lp-lHK" firstAttribute="top" secondItem="WOt-C2-S2X" secondAttribute="bottom" constant="8" id="Rsi-ig-Esn"/>
+                                <constraint firstItem="WOt-C2-S2X" firstAttribute="leading" secondItem="QaV-Cy-s20" secondAttribute="leading" id="WVL-BL-Ofa"/>
+                                <constraint firstItem="3q8-FP-gtM" firstAttribute="trailing" secondItem="QaV-Cy-s20" secondAttribute="trailing" id="X36-Tb-5N3"/>
+                                <constraint firstItem="3q8-FP-gtM" firstAttribute="top" secondItem="avU-Hy-ekE" secondAttribute="bottom" constant="8" id="Xfz-KK-SHS"/>
+                                <constraint firstItem="3yj-CI-Low" firstAttribute="leading" secondItem="QaV-Cy-s20" secondAttribute="leading" constant="8" id="ZmH-DM-pbZ"/>
+                                <constraint firstItem="OlM-Zg-g4a" firstAttribute="leading" secondItem="QaV-Cy-s20" secondAttribute="leading" constant="8" id="aBc-4U-uPB"/>
+                                <constraint firstItem="lWi-OL-3JA" firstAttribute="leading" secondItem="QaV-Cy-s20" secondAttribute="leading" constant="8" id="bHf-ab-73I"/>
+                                <constraint firstItem="h26-XR-ohJ" firstAttribute="trailing" secondItem="QaV-Cy-s20" secondAttribute="trailing" id="btC-oZ-qy4"/>
+                                <constraint firstItem="3yj-CI-Low" firstAttribute="top" secondItem="KRc-qR-WJM" secondAttribute="bottom" constant="8" id="eH3-Au-irH"/>
+                                <constraint firstItem="KRc-qR-WJM" firstAttribute="leading" secondItem="QaV-Cy-s20" secondAttribute="leading" constant="8" id="f5H-ch-SVY"/>
+                                <constraint firstItem="avU-Hy-ekE" firstAttribute="top" secondItem="ugG-DQ-23O" secondAttribute="bottom" constant="8" id="fUp-ir-VtU"/>
+                                <constraint firstItem="ugG-DQ-23O" firstAttribute="leading" secondItem="QaV-Cy-s20" secondAttribute="leading" constant="8" id="gFh-OW-Isp"/>
+                                <constraint firstItem="8t4-pz-aVH" firstAttribute="height" secondItem="ugG-DQ-23O" secondAttribute="height" id="iuk-0A-z61"/>
+                                <constraint firstItem="OlM-Zg-g4a" firstAttribute="top" secondItem="lWi-OL-3JA" secondAttribute="bottom" constant="8" id="jdE-ol-wPp"/>
+                                <constraint firstItem="WOt-C2-S2X" firstAttribute="top" secondItem="CVQ-QK-ZxK" secondAttribute="top" constant="5" id="mXh-b9-d6e"/>
+                                <constraint firstItem="WOt-C2-S2X" firstAttribute="trailing" secondItem="QaV-Cy-s20" secondAttribute="trailing" id="ope-7K-dxK"/>
+                                <constraint firstItem="wnI-Lp-lHK" firstAttribute="leading" secondItem="QaV-Cy-s20" secondAttribute="leading" constant="8" id="qtV-8Y-aRm"/>
+                                <constraint firstItem="8t4-pz-aVH" firstAttribute="top" secondItem="h26-XR-ohJ" secondAttribute="bottom" constant="8" id="xrJ-ln-iYH"/>
+                                <constraint firstItem="QaV-Cy-s20" firstAttribute="trailing" secondItem="y5f-ey-qjh" secondAttribute="trailing" constant="8" id="zLs-lh-akl"/>
+                            </constraints>
+                            <viewLayoutGuide key="safeArea" id="QaV-Cy-s20"/>
                         </view>
                     </subviews>
+                    <constraints>
+                        <constraint firstItem="yTO-LW-LPP" firstAttribute="width" secondItem="59v-db-w2i" secondAttribute="width" id="INu-B2-E1u"/>
+                        <constraint firstAttribute="trailing" secondItem="yTO-LW-LPP" secondAttribute="trailing" id="Mh5-rB-cSZ"/>
+                        <constraint firstItem="CVQ-QK-ZxK" firstAttribute="leading" secondItem="59v-db-w2i" secondAttribute="leading" constant="5" id="PNE-kx-xen"/>
+                        <constraint firstItem="CVQ-QK-ZxK" firstAttribute="top" secondItem="59v-db-w2i" secondAttribute="top" constant="5" id="XfG-xb-czD"/>
+                        <constraint firstAttribute="trailing" secondItem="CVQ-QK-ZxK" secondAttribute="trailing" constant="5" id="ZEd-Q7-1e0"/>
+                        <constraint firstItem="yTO-LW-LPP" firstAttribute="leading" secondItem="59v-db-w2i" secondAttribute="leading" id="dpz-pb-wlX"/>
+                        <constraint firstItem="yTO-LW-LPP" firstAttribute="height" secondItem="59v-db-w2i" secondAttribute="height" id="gr2-Sx-IA4"/>
+                        <constraint firstAttribute="bottom" secondItem="yTO-LW-LPP" secondAttribute="bottom" id="l9M-Qr-B9x"/>
+                        <constraint firstItem="yTO-LW-LPP" firstAttribute="top" secondItem="59v-db-w2i" secondAttribute="top" id="qGD-r7-SQQ"/>
+                    </constraints>
                 </scrollView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-            <point key="canvasLocation" x="444" y="435"/>
+            <constraints>
+                <constraint firstItem="z8k-SM-VeI" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="1Rw-an-1VC"/>
+                <constraint firstItem="59v-db-w2i" firstAttribute="leading" secondItem="R9a-I0-h1R" secondAttribute="leading" id="Dcf-YG-igd"/>
+                <constraint firstItem="59v-db-w2i" firstAttribute="trailing" secondItem="R9a-I0-h1R" secondAttribute="trailing" id="Wa4-mw-Pdz"/>
+                <constraint firstAttribute="bottom" secondItem="z8k-SM-VeI" secondAttribute="bottom" id="XpK-w4-rLV"/>
+                <constraint firstItem="z8k-SM-VeI" firstAttribute="leading" secondItem="R9a-I0-h1R" secondAttribute="leading" id="ePw-a6-G3K"/>
+                <constraint firstItem="59v-db-w2i" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="rCf-Se-rdz"/>
+                <constraint firstItem="59v-db-w2i" firstAttribute="bottom" secondItem="R9a-I0-h1R" secondAttribute="bottom" id="yAF-Pa-KY0"/>
+                <constraint firstItem="z8k-SM-VeI" firstAttribute="trailing" secondItem="R9a-I0-h1R" secondAttribute="trailing" id="yYW-p3-hXz"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="R9a-I0-h1R"/>
+            <point key="canvasLocation" x="710.39999999999998" y="391.304347826087"/>
         </view>
-        <view contentMode="scaleToFill" misplaced="YES" id="CVQ-QK-ZxK">
-            <rect key="frame" x="0.0" y="0.0" width="300" height="528"/>
-            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
-            <subviews>
-                <view contentMode="scaleToFill" id="WOt-C2-S2X" userLabel="ViewSoDuVaKhuyenMai">
-                    <rect key="frame" x="0.0" y="4" width="300" height="40"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                    <subviews>
-                        <switch hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="u52-Xk-AiH">
-                            <rect key="frame" x="239" y="4" width="51" height="31"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </switch>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Số dư: 10.000.000 đ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="epe-5i-fST">
-                            <rect key="frame" x="40" y="4" width="220" height="15"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" red="0.068081496419999998" green="0.01342051071" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Khuyến mại: 500.000 đ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oVo-Hq-8v2">
-                            <rect key="frame" x="40" y="20" width="220" height="15"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                            <color key="textColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                </view>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="@ten_khu_vuc" minimumFontSize="17" id="wnI-Lp-lHK" customClass="ExTextField">
-                    <rect key="frame" x="10" y="52" width="280" height="35"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
-                </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mã hoá đơn" minimumFontSize="17" id="KRc-qR-WJM" customClass="ExTextField">
-                    <rect key="frame" x="10" y="95" width="280" height="35"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
-                </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Tên khách hàng" minimumFontSize="17" id="3yj-CI-Low" customClass="ExTextField">
-                    <rect key="frame" x="10" y="138" width="280" height="35"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
-                </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Điện thoại liên hệ" minimumFontSize="17" id="y5f-ey-qjh" customClass="ExTextField">
-                    <rect key="frame" x="10" y="181" width="280" height="35"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
-                </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" placeholder="Địa chỉ" minimumFontSize="17" id="i3N-vs-85c" customClass="ExTextField">
-                    <rect key="frame" x="10" y="224" width="280" height="35"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
-                </textField>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" id="lWi-OL-3JA" customClass="UmiTextView">
-                    <rect key="frame" x="10" y="224" width="280" height="35"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                    <connections>
-                        <outlet property="textfield" destination="i3N-vs-85c" id="ik8-fs-Rrz"/>
-                    </connections>
-                </textView>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Kỳ thanh toán" minimumFontSize="17" id="OlM-Zg-g4a" customClass="ExTextField">
-                    <rect key="frame" x="10" y="267" width="280" height="35"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
-                </textField>
-                <view contentMode="scaleToFill" misplaced="YES" id="h26-XR-ohJ">
-                    <rect key="frame" x="0.0" y="310" width="300" height="35"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                    <subviews>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Số tiền (đ)" minimumFontSize="17" id="pXM-mu-Fi4" customClass="ExTextField">
-                            <rect key="frame" x="10" y="0.0" width="150" height="35"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                            <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
-                        </textField>
-                        <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1.000.000 đ" placeholder="@so_tien" textAlignment="center" minimumFontSize="17" id="AEY-iW-kgY" customClass="ExTextField">
-                            <rect key="frame" x="198" y="0.0" width="92" height="35"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="next"/>
-                        </textField>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phí:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bdx-iC-fVv">
-                            <rect key="frame" x="160" y="0.0" width="37" height="35"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                </view>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="line" placeholder="Nội dung" minimumFontSize="17" id="ugG-DQ-23O" customClass="ExTextField">
-                    <rect key="frame" x="10" y="353" width="280" height="50"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
-                </textField>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" id="8t4-pz-aVH" customClass="UmiTextView">
-                    <rect key="frame" x="10" y="353" width="280" height="50"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                    <connections>
-                        <outlet property="textfield" destination="ugG-DQ-23O" id="dBy-WL-haI"/>
-                    </connections>
-                </textView>
-                <view contentMode="scaleToFill" misplaced="YES" id="avU-Hy-ekE" userLabel="ViewThoiGianConLai">
-                    <rect key="frame" x="0.0" y="413" width="300" height="35"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Xác thực" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qbm-S7-mYu">
-                            <rect key="frame" x="5" y="0.0" width="67" height="35"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="MYo-yt-Sca">
-                            <rect key="frame" x="70" y="3" width="55" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES"/>
-                            <state key="normal" title="TOKEN" backgroundImage="bg-nuttrang.png"/>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="tuB-CF-wjV">
-                            <rect key="frame" x="127" y="3" width="55" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES"/>
-                            <state key="normal" title="SMS" backgroundImage="bg-nuttrang.png"/>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="xu2-QS-EDA">
-                            <rect key="frame" x="184" y="3" width="55" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES"/>
-                            <state key="normal" title="EMAIL" backgroundImage="bg-nuttrang.png"/>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Mtq-2b-hmX">
-                            <rect key="frame" x="242" y="3" width="56" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES"/>
-                            <state key="normal" image="vantaymau-ngang.png" backgroundImage="bg-nuttrang.png"/>
-                            <connections>
-                                <action selector="suKienBamNutMatKhauVanTay:" destination="-1" eventType="touchUpInside" id="OlF-YD-R2U"/>
-                            </connections>
-                        </button>
-                    </subviews>
-                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                </view>
-                <view contentMode="scaleToFill" misplaced="YES" id="3q8-FP-gtM" userLabel="ViewNhapToKen">
-                    <rect key="frame" x="0.0" y="456" width="300" height="35"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                    <subviews>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="@mat_khau_token" minimumFontSize="17" id="y0T-Zl-BUA" customClass="ExTextField">
-                            <rect key="frame" x="10" y="0.0" width="150" height="35"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                            <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
-                        </textField>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="IY0-4N-GY2">
-                            <rect key="frame" x="169" y="0.0" width="123" height="35"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES"/>
-                            <color key="backgroundColor" red="0.0039215686269999999" green="0.31372549020000001" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                            <state key="normal" title="@thuc_hien">
-                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </state>
-                        </button>
-                    </subviews>
-                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                </view>
-            </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="818" y="424"/>
-        </view>
-        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="QoJ-7Y-GNJ">
-            <rect key="frame" x="0.0" y="0.0" width="60" height="70"/>
-            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <state key="normal" backgroundImage="icon_vantay_khongmau.png">
-                <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-            </state>
-            <connections>
-                <action selector="suKienBamNutMatKhauVanTay:" destination="-1" eventType="touchUpInside" id="MG6-BL-2vY"/>
-            </connections>
-            <point key="canvasLocation" x="784" y="758"/>
-        </button>
     </objects>
     <resources>
-        <image name="bg-nuttrang.png" width="128" height="52"/>
         <image name="bg_nen.png" width="720" height="1280"/>
-        <image name="icon_vantay_khongmau.png" width="90" height="120"/>
-        <image name="tab-cat1.png" width="688" height="80"/>
-        <image name="vantaymau-ngang.png" width="107" height="59"/>
+        <image name="fingerv" width="120" height="120"/>
+        <image name="pki" width="225" height="225"/>
+        <image name="token" width="225" height="225"/>
     </resources>
 </document>

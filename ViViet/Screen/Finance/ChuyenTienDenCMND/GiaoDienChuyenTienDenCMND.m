@@ -62,22 +62,23 @@
     if (!viewQC) {
         viewQC = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([ViewQuangCao class]) owner:self options:nil] objectAtIndex:0];
         viewQC.mDelegate = self;
-        CGRect rectToken = self.mViewNhapToken.frame;
+//        CGRect rectToken = self.mViewNhapToken.frame;
         CGRect rectQC = viewQC.frame;
         CGRect rectMain = self.mViewMain.frame;
         CGRect rectGuiThongTin = self.viewThongTinNhan.frame;
         CGFloat fW = rectMain.size.width;
         CGFloat fH = fW * 0.46;
-        rectQC.origin.y = rectToken.origin.y + rectToken.size.height + 15;
+        rectQC.origin.y = rectGuiThongTin.origin.y + rectGuiThongTin.size.height + 5;
         viewQC.frame = CGRectMake(0, rectQC.origin.y, fW, fH);
         viewQC.mDelegate = self;
         [viewQC updateSizeQuangCao];
-        rectGuiThongTin.size.height = rectQC.origin.y + rectQC.size.height;
-        rectMain.size.height = rectGuiThongTin.origin.y + rectGuiThongTin.size.height;
-        self.viewThongTinNhan.frame = rectGuiThongTin;
-        self.mViewMain.frame = rectMain;
-        [self.viewThongTinNhan addSubview:viewQC];
-        [self.scrMain setContentSize:CGSizeMake(_scrMain.frame.size.width, self.mViewMain.frame.origin.y + self.mViewMain.frame.size.height + self.viewOptionTop.frame.size.height + 10)];
+//        rectGuiThongTin.size.height = rectQC.origin.y + rectQC.size.height;
+//        rectMain.size.height = rectGuiThongTin.origin.y + rectGuiThongTin.size.height;
+//        self.viewThongTinNhan.frame = rectGuiThongTin;
+        self.heightViewMain.constant += (fH + 5.0);
+//        self.mViewMain.frame = rectMain;
+        [self.mViewMain addSubview:viewQC];
+        [self.scrMain setContentSize:CGSizeMake(_scrMain.frame.size.width, self.mViewMain.frame.origin.y + self.heightViewMain.constant + 20)];
     }
 }
 
@@ -95,21 +96,22 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    
-    CGRect rectMain = self.mViewMain.frame;
-    CGRect rectVanTay = self.mbtnVanTay.frame;
-    [self.viewOptionTop setHidden:YES];
-    
-    rectMain.origin.x = 5;
-    rectMain.origin.y = 5;
-    rectMain.size.width = [UIScreen mainScreen].bounds.size.width - 10.0;
-    rectVanTay.origin.y = rectMain.origin.y + rectMain.size.height + 8;
-    self.mbtnVanTay.frame = rectVanTay;
-    self.mViewMain.frame = rectMain;
-    [self.scrMain setContentSize:CGSizeMake(self.scrMain.frame.size.width, rectVanTay.origin.y + rectVanTay.size.height + 10)];
-    [self.scrMain bringSubviewToFront:self.viewOptionTop];
-    
+    [self.rfNoiDung resignFirstResponder];
+    [self.tvNoiDung resignFirstResponder];
     [self khoiTaoQuangCao];
+//    CGRect rectMain = self.mViewMain.frame;
+//    CGRect rectVanTay = self.mbtnVanTay.frame;
+//    [self.viewOptionTop setHidden:YES];
+//    
+//    rectMain.origin.x = 5;
+//    rectMain.origin.y = 5;
+//    rectMain.size.width = [UIScreen mainScreen].bounds.size.width - 10.0;
+//    rectVanTay.origin.y = rectMain.origin.y + rectMain.size.height + 8;
+//    self.mbtnVanTay.frame = rectVanTay;
+//    self.mViewMain.frame = rectMain;
+//    [self.scrMain setContentSize:CGSizeMake(self.scrMain.frame.size.width, rectVanTay.origin.y + rectVanTay.size.height + 10)];
+//    [self.scrMain bringSubviewToFront:self.viewOptionTop];
+//
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -269,27 +271,41 @@
         self.edQuanHuyen.hidden = NO;
         ItemInfoDiaDiem* itemSub = [item.dsCon objectAtIndex:0];
         self.edQuanHuyen.text = itemSub.ten;
-        CGRect rect1 = self.viewThongTinNhan.frame;
-        CGRect rect2 = self.edQuanHuyen.frame;
-        CGRect rectMain = self.mViewMain.frame;
-        rect1.origin.y = rect2.origin.y + rect2.size.height;
-        rectMain.size.height = rect1.origin.y + rect1.size.height + 10;
-        self.viewThongTinNhan.frame = rect1;
-        self.mViewMain.frame = rectMain;
-        [self.scrMain setContentSize:CGSizeMake(_scrMain.frame.size.width, self.mViewMain.frame.origin.y + self.mViewMain.frame.size.height + 10)];
+        if (self.heightEdQuanHuyen.constant == 0) {
+            self.heightEdQuanHuyen.constant = 35.0;
+            self.heightViewMain.constant += self.heightEdQuanHuyen.constant;
+            CGRect rectQC = viewQC.frame;
+            rectQC.origin.y += self.heightEdQuanHuyen.constant;
+            viewQC.frame = rectQC;
+        }
+//        CGRect rect1 = self.viewThongTinNhan.frame;
+//        CGRect rect2 = self.edQuanHuyen.frame;
+//        CGRect rectMain = self.mViewMain.frame;
+//        rect1.origin.y = rect2.origin.y + rect2.size.height;
+//        rectMain.size.height = rect1.origin.y + rect1.size.height + 10;
+//        self.viewThongTinNhan.frame = rect1;
+//        self.mViewMain.frame = rectMain;
+//        [self.scrMain setContentSize:CGSizeMake(_scrMain.frame.size.width, self.mViewMain.frame.origin.y + self.mViewMain.frame.size.height + 10)];
     }
     else {
         indexQuanHuyen = -1;
         self.edQuanHuyen.text = @"";
         self.edQuanHuyen.hidden = YES;
-        CGRect rect1 = self.viewThongTinNhan.frame;
-        CGRect rect2 = self.edQuanHuyen.frame;
-        CGRect rectMain = self.mViewMain.frame;
-        rect1.origin.y = rect2.origin.y;
-        rectMain.size.height = rect1.origin.y + rect1.size.height + 10;
-        self.viewThongTinNhan.frame = rect1;
-        self.mViewMain.frame = rectMain;
-        [self.scrMain setContentSize:CGSizeMake(_scrMain.frame.size.width, self.mViewMain.frame.origin.y + self.mViewMain.frame.size.height + 10)];
+        if (self.heightEdQuanHuyen.constant > 0) {
+            self.heightViewMain.constant -= self.heightEdQuanHuyen.constant;
+            CGRect rectQC = viewQC.frame;
+            rectQC.origin.y -= self.heightEdQuanHuyen.constant;
+            viewQC.frame = rectQC;
+            self.heightEdQuanHuyen.constant = 0.0;
+        }
+//        CGRect rect1 = self.viewThongTinNhan.frame;
+//        CGRect rect2 = self.edQuanHuyen.frame;
+//        CGRect rectMain = self.mViewMain.frame;
+//        rect1.origin.y = rect2.origin.y;
+//        rectMain.size.height = rect1.origin.y + rect1.size.height + 10;
+//        self.viewThongTinNhan.frame = rect1;
+//        self.mViewMain.frame = rectMain;
+//        [self.scrMain setContentSize:CGSizeMake(_scrMain.frame.size.width, self.mViewMain.frame.origin.y + self.mViewMain.frame.size.height + 10)];
     }
 }
 
@@ -522,6 +538,7 @@
 }
 
 - (BOOL)validateVanTay {
+    return YES;
     if (![[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_STATE] boolValue]) {
         DucNT_LoginSceen *loginSceen = [[DucNT_LoginSceen alloc] initWithNibName:@"DucNT_LoginSceen" bundle:nil];
         [self presentViewController:loginSceen animated:YES completion:^{}];
@@ -658,6 +675,8 @@
     [_tvDiaChi release];
 //    [_scrMain release];
     [_edSDTNguoiNhan release];
+    [_heightEdQuanHuyen release];
+    [_heightViewMain release];
     [super dealloc];
 }
 @end

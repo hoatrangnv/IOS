@@ -50,7 +50,7 @@
 @property (retain, nonatomic) IBOutlet UIButton *btnTabTop2;
 @property (retain, nonatomic) IBOutlet UIButton *btnTabTop3;
 @property (retain, nonatomic) IBOutlet UIWebView *webGioiThieuTaiKhoan;
-
+@property (retain, nonatomic) IBOutlet NSLayoutConstraint *heightViewNhapXacThuc;
 - (void)hienThiLoading;
 - (void)hienThiLoadingChuyenTien;
 - (void)anLoading;

@@ -270,6 +270,9 @@ const int TIME_COUNT_DOWN_DIEN = 180;
 - (IBAction)suKienBamNutTraCuu:(id)sender
 {
     [self.view endEditing:YES];
+//    ThanhToanTienDienViewController *thanhToanTienDienViewController = [[ThanhToanTienDienViewController alloc] initWithNibName:@"ThanhToanTienDienViewController" bundle:nil];
+//    [self.navigationController pushViewController:thanhToanTienDienViewController animated:YES];
+//    [thanhToanTienDienViewController release];
     if(_mMoTaChiTietKhachHang)
     {
         //Thanh Toan
@@ -300,7 +303,7 @@ const int TIME_COUNT_DOWN_DIEN = 180;
                 {
                     [_mDanhSachMaDienLucDangTraCuu removeObjectAtIndex:nIndex];
                 }
-                
+
                 [_mDanhSachMaDienLucDangTraCuu addObject:sMaKhachHangDangTraCuu];
                 self.mDoiTuongNotification = nil;
                 [self xuLyTraCuuHoaDonDien];

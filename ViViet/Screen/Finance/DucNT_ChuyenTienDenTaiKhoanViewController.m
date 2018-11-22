@@ -70,7 +70,7 @@
     if (!viewQC) {
         NSLog(@"%s - [UIScreen mainScreen].bounds.size.height : %f", __FUNCTION__, [UIScreen mainScreen].bounds.size.height);
         viewQC = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([ViewQuangCao class]) owner:self options:nil] objectAtIndex:0];
-        CGRect rectToken = self.viewToken.frame;
+        CGRect rectToken = self.mViewNhapToken.frame;
         CGRect rectQC = viewQC.frame;
         CGRect rectMain = self.mViewMain.frame;
         CGFloat fW = rectMain.size.width;
@@ -95,6 +95,18 @@
         [self.scrMain setContentSize:CGSizeMake(_scrMain.frame.size.width, rectMain.origin.y + rectMain.size.height + self.viewOptionTop.frame.origin.y + self.viewOptionTop.frame.size.height + 10)];
     }
     
+}
+
+- (void)updateXacThucKhac {
+    [super updateXacThucKhac];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (viewQC != nil) {
+            CGRect rectToken = self.mViewNhapToken.frame;
+            CGRect rectQC = viewQC.frame;
+            rectQC.origin.y = rectToken.origin.y + self.heightViewNhapXacThuc.constant + 15.0;
+            viewQC.frame = rectQC;
+        }
+    });
 }
 
 - (void)suKienChonQuangCao:(NSString *)sNameImage {

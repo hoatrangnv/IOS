@@ -17,8 +17,10 @@
                 <outlet property="btnTabTop3" destination="iEP-NH-hfY" id="kN5-zJ-6AY"/>
                 <outlet property="btnVanTayMini" destination="k0i-ob-sVG" id="B5X-Tv-NaX"/>
                 <outlet property="heightMain" destination="2Bw-ZX-j8K" id="nsf-JB-Kkj"/>
+                <outlet property="heightViewNhapXacThuc" destination="nl7-dF-fMM" id="H2d-E4-7Ao"/>
                 <outlet property="imgTabTop" destination="2Np-d9-hIU" id="8dj-g3-T4C"/>
                 <outlet property="mViewMain" destination="Itm-lM-BQq" id="1VK-av-FqW"/>
+                <outlet property="mViewNhapToken" destination="dkY-pR-4Jb" id="UGm-Ov-rQy"/>
                 <outlet property="mbtnLuuTaiKhoanThuongDung" destination="vCt-Xc-b8B" id="qEm-6V-BQb"/>
                 <outlet property="mbtnPKI" destination="c2k-2z-6g9" id="sWH-5o-Sx5"/>
                 <outlet property="mbtnThucHien" destination="zT5-g8-HtX" id="xuC-XV-mhW"/>
