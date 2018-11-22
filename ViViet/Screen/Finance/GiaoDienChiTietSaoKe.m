@@ -7,9 +7,11 @@
 //
 
 #import "GiaoDienChiTietSaoKe.h"
+#import "TPKeyboardAvoidingScrollView.h"
 
 @interface GiaoDienChiTietSaoKe ()<UIWebViewDelegate> {
 }
+@property (retain, nonatomic) IBOutlet TPKeyboardAvoidingScrollView *mainScroll;
 
 @end
 
@@ -51,11 +53,28 @@
         [_webChiTiet setDelegate:self];
         [_btnMail setTitle:[NSString stringWithFormat:@"Gửi về %@", [self.mThongTinTaiKhoanVi layThuDienTu]] forState:UIControlStateNormal];
     }
+    _webChiTiet.scrollView.scrollEnabled = NO;
+    _webChiTiet.scrollView.bounces = NO;
+    _webChiTiet.backgroundColor = [UIColor redColor];
 }
 -(void)webViewDidFinishLoad:(UIWebView *)webView{
     NSString *fontSize=@"143";
     NSString *jsString = [[NSString alloc]      initWithFormat:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '%d%%'",[fontSize intValue]];
     [_webChiTiet stringByEvaluatingJavaScriptFromString:jsString];
+//    CGRect frame = webView.frame;
+//    frame.size.height = 1;
+//    webView.frame = frame;
+//    CGSize fittingSize = [webView sizeThatFits:CGSizeZero];
+//    frame.size = fittingSize;
+//    webView.frame = frame;
+    
+    CGRect v1 = self.viewBtnMail.frame;
+    v1.origin.y = CGRectGetMaxY(webView.frame);
+    self.viewBtnMail.frame = v1;
+    CGRect vMain = self.mViewMain.frame;
+    vMain.size.height = CGRectGetMaxY(self.viewBtnMail.frame) + 10;
+    self.mViewMain.frame = vMain;
+    self.mainScroll.contentSize = CGSizeMake(1,CGRectGetMaxY(self.mViewMain.frame) +20);
 }
 -(NSString *)updateView:(DucNT_SaoKeObject*)item
 {
@@ -231,7 +250,15 @@
 }
 
 - (IBAction)suKienBamKhieuNai:(id)sender {
-    [self taoViewKhieuNai];
+    self.viewBtnMail.hidden = true;
+    self.viewKhieuNai.hidden = false;
+    CGRect v1 = self.viewKhieuNai.frame;
+    v1.origin.y = CGRectGetMaxY(_webChiTiet.frame);
+    self.viewKhieuNai.frame = v1;
+    CGRect vMain = self.mViewMain.frame;
+    vMain.size.height = CGRectGetMaxY(self.viewKhieuNai.frame) + 10;
+    self.mViewMain.frame = vMain;
+    self.mainScroll.contentSize = CGSizeMake(1, CGRectGetMaxY(self.mViewMain.frame) + 20);
 }
 
 - (IBAction)suKienBamNutGuiMail:(id)sender {
@@ -306,6 +333,7 @@
     [_tvKhieuNai release];
     [_edEmail release];
     [_btnGuiKhieuNai release];
+    [_mainScroll release];
     [super dealloc];
 }
 @end

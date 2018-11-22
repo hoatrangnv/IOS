@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES">
     <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -15,6 +15,7 @@
                 <outlet property="btnMail" destination="Fob-nU-TJN" id="ojl-fb-rLO"/>
                 <outlet property="edEmail" destination="oaS-RC-eZk" id="qQO-A1-JcL"/>
                 <outlet property="mViewMain" destination="Bhq-Mv-pRK" id="psd-nB-gXR"/>
+                <outlet property="mainScroll" destination="1y5-sy-fBa" id="SP4-eg-rzk"/>
                 <outlet property="tvKhieuNai" destination="Dg1-a1-tgs" id="GeC-I8-nhe"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="viewBtnMail" destination="bz3-mG-S10" id="pvG-A6-Wwu"/>
@@ -31,22 +32,22 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" id="1y5-sy-fBa" customClass="TPKeyboardAvoidAcessory">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" id="1y5-sy-fBa" customClass="TPKeyboardAvoidingScrollView">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
-                        <view contentMode="scaleToFill" id="Bhq-Mv-pRK">
-                            <rect key="frame" x="8" y="8" width="304" height="390"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                        <view contentMode="scaleToFill" misplaced="YES" id="Bhq-Mv-pRK">
+                            <rect key="frame" x="8" y="8" width="304" height="488"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <webView contentMode="scaleToFill" id="iTp-xU-eIi">
-                                    <rect key="frame" x="0.0" y="0.0" width="304" height="277"/>
+                                    <rect key="frame" x="-1" y="-1" width="304" height="347"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <dataDetectorType key="dataDetectorTypes"/>
                                 </webView>
-                                <view contentMode="scaleToFill" id="rVJ-on-n9T">
-                                    <rect key="frame" x="0.0" y="250" width="304" height="139"/>
+                                <view contentMode="scaleToFill" misplaced="YES" id="rVJ-on-n9T">
+                                    <rect key="frame" x="0.0" y="350" width="304" height="139"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="GTc-NE-9yG">
@@ -88,8 +89,8 @@
                                     </subviews>
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </view>
-                                <view contentMode="scaleToFill" id="bz3-mG-S10">
-                                    <rect key="frame" x="0.0" y="280" width="304" height="92"/>
+                                <view contentMode="scaleToFill" misplaced="YES" id="bz3-mG-S10">
+                                    <rect key="frame" x="0.0" y="394" width="304" height="92"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Fob-nU-TJN">
@@ -127,7 +128,7 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-236.80000000000001" y="188.90554722638683"/>
+            <point key="canvasLocation" x="-237" y="188"/>
         </view>
     </objects>
     <resources>
