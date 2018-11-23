@@ -406,21 +406,21 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Cql-Gv-nmv">
-                                            <rect key="frame" x="64" y="23" width="182" height="52"/>
+                                            <rect key="frame" x="55.5" y="18" width="199.5" height="57"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AmA-yv-dhs">
-                                                    <rect key="frame" x="0.0" y="0.0" width="54" height="52"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="59.5" height="57"/>
                                                     <state key="normal" title="PKI" image="pki"/>
                                                     <connections>
                                                         <action selector="suKienBamNutPKI:" destination="-1" eventType="touchUpInside" id="RhK-nw-9hj"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2u7-iU-Nh8">
-                                                    <rect key="frame" x="64" y="0.0" width="54" height="52"/>
+                                                    <rect key="frame" x="69.5" y="0.0" width="60" height="57"/>
                                                     <state key="normal" title="TOKEN" image="tokenv"/>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x8X-wJ-gqM">
-                                                    <rect key="frame" x="128" y="0.0" width="54" height="52"/>
+                                                    <rect key="frame" x="139.5" y="0.0" width="60" height="57"/>
                                                     <state key="normal" image="vantay"/>
                                                     <connections>
                                                         <action selector="suKienBamNutMatKhauVanTay:" destination="-1" eventType="touchUpInside" id="aYf-0n-nl3"/>
@@ -434,7 +434,7 @@
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
-                                        <constraint firstItem="Cql-Gv-nmv" firstAttribute="top" secondItem="7Bc-xM-OvQ" secondAttribute="bottom" constant="5" id="M73-EB-hkD"/>
+                                        <constraint firstItem="Cql-Gv-nmv" firstAttribute="top" secondItem="7Bc-xM-OvQ" secondAttribute="bottom" id="M73-EB-hkD"/>
                                         <constraint firstItem="7Bc-xM-OvQ" firstAttribute="top" secondItem="sSB-eL-I1r" secondAttribute="top" id="aXg-8e-LSd"/>
                                         <constraint firstAttribute="height" constant="80" id="crz-eS-T3B"/>
                                         <constraint firstItem="7Bc-xM-OvQ" firstAttribute="leading" secondItem="sSB-eL-I1r" secondAttribute="leading" constant="8" id="hwT-KU-tlG"/>

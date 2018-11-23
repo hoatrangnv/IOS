@@ -57,17 +57,17 @@
         NSLog(@"%s - rectMain : %f", __FUNCTION__, rectScreen.size.width);
         CGFloat fW = rectMain.size.width;
         CGFloat fH = fW * 0.46;
-        rectQC.origin.y = rectToken.origin.y + rectToken.size.height + 5;
+        rectQC.origin.y = rectToken.origin.y + rectToken.size.height + 8;
         viewQC.frame = CGRectMake(0, rectQC.origin.y, fW, fH);
     //    viewQC.frame = rectQC;
         viewQC.mDelegate = self;
         [viewQC updateSizeQuangCao];
-        rectMain.size.height = rectQC.origin.y + rectQC.size.height;
+//        rectMain.size.height = rectQC.origin.y + rectQC.size.height;
         self.heightMain.constant = rectQC.origin.y + rectQC.size.height;
         NSLog(@"%s - self.heightMain.constant : %f", __FUNCTION__, self.heightMain.constant);
 //        self.mViewMain.frame = rectMain;
         [self.mViewMain addSubview:viewQC];
-        [self.mscrvHienThi setContentSize:CGSizeMake(_mscrvHienThi.frame.size.width, rectMain.origin.y + rectMain.size.height + 40)];
+        [self.mscrvHienThi setContentSize:CGSizeMake(_mscrvHienThi.frame.size.width, self.heightMain.constant)];
     }
 }
 
@@ -81,6 +81,29 @@
 //            viewQC.frame = rectQC;
 //        }
 //    });
+}
+
+- (void)showViewNhapToken:(int)type {
+    [super showViewNhapToken:type];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.heightMain.constant += 35.0;
+        if (viewQC != nil) {
+            CGRect rectQC = viewQC.frame;
+            rectQC.origin.y += 35.0;
+            viewQC.frame = rectQC;
+        }
+    });
+}
+
+- (void)hideViewNhapToken {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.heightMain.constant -= 35.0;
+        if (viewQC != nil) {
+            CGRect rectQC = viewQC.frame;
+            rectQC.origin.y -= 35.0;
+            viewQC.frame = rectQC;
+        }
+    });
 }
 
 - (void)suKienBamNutHuongDanGiaoDichViewController:(UIButton *)sender {
@@ -171,7 +194,6 @@
 
 -(BOOL)validateVanTay
 {
-    return YES;
     if (![[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_STATE] boolValue]) {
         DucNT_LoginSceen *loginSceen = [[DucNT_LoginSceen alloc] initWithNibName:@"DucNT_LoginSceen" bundle:nil];
         [self presentViewController:loginSceen animated:YES completion:^{}];
@@ -263,29 +285,29 @@
 {
     NSString *sSoTien = [self.mtfSoTien.text stringByReplacingOccurrencesOfString:@"." withString:@""];
     self.mtfSoTien.text = [Common hienThiTienTeFromString:sSoTien];
-    if(![CommonUtils isEmptyOrNull:self.mThongTinTaiKhoanVi.pki3] && [self.mThongTinTaiKhoanVi.hanMucPki3 doubleValue] >0 ){
-        if([sSoTien doubleValue] > [self.mThongTinTaiKhoanVi.hanMucPki3 doubleValue]){
-            self.mbtnSMS.hidden = YES;
-            self.mbtnToken.hidden = YES;
-            self.mbtnEmail.hidden = YES;
-            self.mbtnPKI.hidden = NO;
-        }
-        else{
-            self.mbtnSMS.hidden = NO;
-            
-            self.mbtnToken.hidden = NO;
-            
-            self.mbtnEmail.hidden = NO;
-            
-            self.mbtnPKI.hidden = NO;
-        }
-    }
-    else{
-        self.mbtnPKI.hidden = YES;
-        self.mbtnToken.hidden = NO;
-        self.mbtnSMS.hidden = NO;
-        self.mbtnEmail.hidden = NO;
-    }
+//    if(![CommonUtils isEmptyOrNull:self.mThongTinTaiKhoanVi.pki3] && [self.mThongTinTaiKhoanVi.hanMucPki3 doubleValue] >0 ){
+//        if([sSoTien doubleValue] > [self.mThongTinTaiKhoanVi.hanMucPki3 doubleValue]){
+//            self.mbtnSMS.hidden = YES;
+//            self.mbtnToken.hidden = YES;
+//            self.mbtnEmail.hidden = YES;
+//            self.mbtnPKI.hidden = NO;
+//        }
+//        else{
+//            self.mbtnSMS.hidden = NO;
+//            
+//            self.mbtnToken.hidden = NO;
+//            
+//            self.mbtnEmail.hidden = NO;
+//            
+//            self.mbtnPKI.hidden = NO;
+//        }
+//    }
+//    else{
+//        self.mbtnPKI.hidden = YES;
+//        self.mbtnToken.hidden = NO;
+//        self.mbtnSMS.hidden = NO;
+//        self.mbtnEmail.hidden = NO;
+//    }
     [self xuLyHienThiSoTienPhiCuaSoTien:sSoTien];
     
 }

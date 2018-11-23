@@ -598,15 +598,16 @@
 
 - (BOOL)kiemTraCoChucNangQuetVanTay
 {
+    NSLog(@"%s - START", __FUNCTION__);
     LAContext *laContext = [[[LAContext alloc] init] autorelease];
     NSError *error = nil;
     if([laContext canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&error])
     {
         if (error != NULL) {
-            // handle error
+            NSLog(@"%s - error : %@", __FUNCTION__, error.description);
         } else {
-            
-            if (@available(iOS 11.0.1, *)) {
+            NSLog(@"%s - error == nil", __FUNCTION__);
+            if (@available(iOS 11.0, *)) {
                 if (laContext.biometryType == LABiometryTypeFaceID) {
                     //localizedReason = "Unlock using Face ID"
                     self.enableFaceID = YES;
@@ -625,7 +626,7 @@
             }
         }
     }
-    self.enableFaceID = YES;
+    self.enableFaceID = NO;
     return NO;
 }
 

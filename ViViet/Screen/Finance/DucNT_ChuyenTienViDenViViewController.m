@@ -98,21 +98,21 @@
         CGRect rectQC = viewQC.frame;
         CGRect rectMain = self.mViewMain.frame;
         CGFloat fW = rectMain.size.width;
-        CGFloat fH = fW * 0.45333 + 20.0;
-        rectQC.origin.y = rectToken.origin.y + rectToken.size.height + 50;
+        CGFloat fH = fW * 0.46 ;
+        rectQC.origin.y = rectToken.origin.y + self.heightViewQR.constant + 10;
         viewQC.frame = CGRectMake(0, rectQC.origin.y, fW, fH);
         viewQC.mDelegate = self;
-        NSLog(@"%s - viewQC.frame.size.height : %f", __FUNCTION__, viewQC.frame.size.height);
+        NSLog(@"%s - rectToken.origin.y : %f - %f", __FUNCTION__, rectToken.origin.y, self.heightViewQR.constant);
         [viewQC updateSizeQuangCao];
         [self.viewVi addSubview:viewQC];
-        NSLog(@"%s - rectMain.size.height 2 : %f - %f", __FUNCTION__, rectMain.size.height, self.heightViewMain.constant);
-        NSLog(@"%s - rectMain.size.height 2 : %f", __FUNCTION__, rectMain.origin.y + rectMain.size.height + self.heightViewMain.constant);
-        self.heightContentView.constant += viewQC.frame.size.height / 2;
-        if ([UIScreen mainScreen].bounds.size.height < 812.0) {
-            self.heightContentView.constant += 50.0;
-        } else {
-            self.heightContentView.constant -= 70.0;
-        }
+        NSLog(@"%s - self.heightContentView.constant : %f", __FUNCTION__, self.heightContentView.constant);
+        self.heightViewMain.constant = rectQC.size.height + rectQC.origin.y;
+//        self.heightContentView.constant += viewQC.frame.size.height / 2;
+//        if ([UIScreen mainScreen].bounds.size.height < 812.0) {
+//            self.heightContentView.constant += 50.0;
+//        } else {
+//            self.heightContentView.constant -= 70.0;
+//        }
     }
 }
 
@@ -156,6 +156,29 @@
     [super viewWillDisappear:animated];
     [self.btnSoTay.imageView stopAnimating];
 
+}
+
+- (void)showViewNhapToken:(int)type {
+    [super showViewNhapToken:type];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.heightViewMain.constant += 35.0;
+        if (viewQC != nil) {
+            CGRect rectQC = viewQC.frame;
+            rectQC.origin.y += 35.0;
+            viewQC.frame = rectQC;
+        }
+    });
+}
+
+- (void)hideViewNhapToken {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.heightViewMain.constant -= 35.0;
+        if (viewQC != nil) {
+            CGRect rectQC = viewQC.frame;
+            rectQC.origin.y -= 35.0;
+            viewQC.frame = rectQC;
+        }
+    });
 }
 
 - (void)didMoveToParentViewController:(UIViewController *)parent {
@@ -227,7 +250,6 @@
 
 - (BOOL)validateVanTay
 {
-    return YES;
     if (![[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_STATE] boolValue]) {
         DucNT_LoginSceen *loginSceen = [[DucNT_LoginSceen alloc] initWithNibName:@"DucNT_LoginSceen" bundle:nil];
         [self presentViewController:loginSceen animated:YES completion:^{}];
@@ -347,29 +369,29 @@
 {
     NSString *sSoTien = [_mtfSoTien.text stringByReplacingOccurrencesOfString:@"." withString:@""];
     _mtfSoTien.text = [Common hienThiTienTeFromString:sSoTien];
-    if(![CommonUtils isEmptyOrNull:self.mThongTinTaiKhoanVi.pki3] && [self.mThongTinTaiKhoanVi.hanMucPki3 doubleValue] >0 ){
-        if([sSoTien doubleValue] > [self.mThongTinTaiKhoanVi.hanMucPki3 doubleValue]){
-            self.mbtnSMS.hidden = YES;
-            self.mbtnToken.hidden = YES;
-            self.mbtnEmail.hidden = YES;
-            self.mbtnPKI.hidden = NO;
-        }
-        else{
-            self.mbtnSMS.hidden = NO;
-            
-            self.mbtnToken.hidden = NO;
-            
-            self.mbtnEmail.hidden = NO;
-            
-            self.mbtnPKI.hidden = NO;            
-        }
-    }
-    else{
-        self.mbtnPKI.hidden = YES;
-        self.mbtnToken.hidden = NO;
-        self.mbtnSMS.hidden = NO;
-        self.mbtnEmail.hidden = NO;
-    }
+//    if(![CommonUtils isEmptyOrNull:self.mThongTinTaiKhoanVi.pki3] && [self.mThongTinTaiKhoanVi.hanMucPki3 doubleValue] >0 ){
+//        if([sSoTien doubleValue] > [self.mThongTinTaiKhoanVi.hanMucPki3 doubleValue]){
+//            self.mbtnSMS.hidden = YES;
+//            self.mbtnToken.hidden = YES;
+//            self.mbtnEmail.hidden = YES;
+//            self.mbtnPKI.hidden = NO;
+//        }
+//        else{
+//            self.mbtnSMS.hidden = NO;
+//
+//            self.mbtnToken.hidden = NO;
+//
+//            self.mbtnEmail.hidden = NO;
+//
+//            self.mbtnPKI.hidden = NO;
+//        }
+//    }
+//    else{
+//        self.mbtnPKI.hidden = YES;
+//        self.mbtnToken.hidden = NO;
+//        self.mbtnSMS.hidden = NO;
+//        self.mbtnEmail.hidden = NO;
+//    }
     [self xuLyHienThiSoTienPhiCuaSoTien:sSoTien];
 }
 
@@ -521,6 +543,7 @@
 //    [_scrMain release];
     [contraintWidth release];
     [btnDN release];
+    [_heightViewQR release];
     [super dealloc];
 }
 

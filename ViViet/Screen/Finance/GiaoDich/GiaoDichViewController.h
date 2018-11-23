@@ -85,4 +85,6 @@
 - (IBAction)suKienBamNutVi:(UIButton *)sender;
 - (IBAction)suKienBamNutLienKet:(UIButton *)sender;
 - (IBAction)suKienBamNutTaiKhoan:(UIButton *)sender;
+- (void)showViewNhapToken:(int)type;
+- (void)hideViewNhapToken;
 @end

@@ -92,18 +92,18 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="79u-rw-RPy">
-                                            <rect key="frame" x="61" y="23" width="182" height="52"/>
+                                            <rect key="frame" x="52.5" y="18" width="199.5" height="57"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y9N-KL-Qzf">
-                                                    <rect key="frame" x="0.0" y="0.0" width="54" height="52"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="59.5" height="57"/>
                                                     <state key="normal" image="pki"/>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HeB-jk-iUv">
-                                                    <rect key="frame" x="64" y="0.0" width="54" height="52"/>
+                                                    <rect key="frame" x="69.5" y="0.0" width="60" height="57"/>
                                                     <state key="normal" title="TOKEN" image="tokenv"/>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WQX-z9-ltw">
-                                                    <rect key="frame" x="128" y="0.0" width="54" height="52"/>
+                                                    <rect key="frame" x="139.5" y="0.0" width="60" height="57"/>
                                                     <state key="normal" image="vantay"/>
                                                     <connections>
                                                         <action selector="suKienBamNutMatKhauVanTay:" destination="-1" eventType="touchUpInside" id="goL-9I-vns"/>
@@ -121,7 +121,7 @@
                                         <constraint firstItem="s9d-cs-IuK" firstAttribute="leading" secondItem="thp-1A-yG3" secondAttribute="leading" constant="8" id="DzJ-l5-q1x"/>
                                         <constraint firstAttribute="bottom" secondItem="79u-rw-RPy" secondAttribute="bottom" constant="5" id="LMZ-R6-szk"/>
                                         <constraint firstItem="s9d-cs-IuK" firstAttribute="top" secondItem="thp-1A-yG3" secondAttribute="top" id="PEb-sN-pD4"/>
-                                        <constraint firstItem="79u-rw-RPy" firstAttribute="top" secondItem="s9d-cs-IuK" secondAttribute="bottom" constant="5" id="daA-Tv-2A4"/>
+                                        <constraint firstItem="79u-rw-RPy" firstAttribute="top" secondItem="s9d-cs-IuK" secondAttribute="bottom" id="daA-Tv-2A4"/>
                                         <constraint firstItem="79u-rw-RPy" firstAttribute="centerX" secondItem="thp-1A-yG3" secondAttribute="centerX" id="tKT-fB-B48"/>
                                     </constraints>
                                 </view>

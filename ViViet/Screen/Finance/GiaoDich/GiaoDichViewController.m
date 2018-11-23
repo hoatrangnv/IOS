@@ -63,8 +63,16 @@
         [arrNavi release];
     }
     
+    [self khoiTaoButtonXacThucBanDau];
+}
+
+- (void)khoiTaoButtonXacThucBanDau {
     self.bHienViewXacThuc = NO;
-    [self.btnVanTayMini setImage:[UIImage imageNamed:@"fingerv"] forState:UIControlStateNormal];
+    if (self.enableFaceID) {
+        [self.btnVanTayMini setImage:[UIImage imageNamed:@"face-id"] forState:UIControlStateNormal];
+    } else {
+        [self.btnVanTayMini setImage:[UIImage imageNamed:@"finger"] forState:UIControlStateNormal];
+    }
     [self.mbtnToken setImage:[UIImage imageNamed:@"token"] forState:UIControlStateNormal];
 }
 
@@ -293,10 +301,25 @@
 
 - (void)updateXacThucKhac {
     dispatch_async(dispatch_get_main_queue(), ^{
-        self.heightViewNhapXacThuc.constant = 35;
-        [self.mViewNhapToken setHidden:NO];
+//        self.heightViewNhapXacThuc.constant = 35;
+//        [self.mViewNhapToken setHidden:NO];
+        [self khoiTaoButtonXacThucBanDau];
         [self.mbtnToken setHidden:NO];
         [self checkButtonPKI];
+        [self.view layoutIfNeeded];
+        [self.view layoutSubviews];
+    });
+}
+
+- (void)showViewNhapToken:(int)type {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (type == 1) {
+            self.mtfMatKhauToken.placeholder = @"Mật khẩu token";
+        } else {
+            self.mtfMatKhauToken.placeholder = @"Chữ ký mPKI";
+        }
+        self.heightViewNhapXacThuc.constant = 35;
+        [self.mViewNhapToken setHidden:NO];
         [self.view layoutIfNeeded];
         [self.view layoutSubviews];
     });
@@ -383,6 +406,7 @@
 {
     if([self.mThongTinTaiKhoanVi.nIsToken intValue] > 0)
     {
+        [self showViewNhapToken:1];
         if(!self.mbtnToken.selected || !self.mbtnTokenView.selected)
         {
             [self.mtfMatKhauToken setKeyboardType:UIKeyboardTypeDefault];
@@ -447,6 +471,7 @@
 - (IBAction)suKienBamNutPKI:(UIButton *)sender
 {
     NSLog(@"%s - %s : click lick click", __FILE__, __FUNCTION__);
+    [self showViewNhapToken:2];
         if(!self.mbtnPKI.selected)
         {
             [self.mtfMatKhauToken setKeyboardType:UIKeyboardTypeDefault];
@@ -543,6 +568,11 @@
 - (IBAction)suKienBamNutMatKhauVanTay:(id)sender
 {
     NSLog(@"%s - van tay!!!!", __FUNCTION__);
+    if (self.heightViewNhapXacThuc.constant > 0) {
+        self.heightViewNhapXacThuc.constant = 0;
+        self.mViewNhapToken.hidden = YES;
+        [self hideViewNhapToken];
+    }
     if (self.enableFaceID) {
         [self.btnVanTayMini setImage:[UIImage imageNamed:@"face_new_choose"] forState:UIControlStateNormal];
     } else {
@@ -607,7 +637,10 @@
 }
 
 - (void)xuLyKhiCoChucNangFaceID {
-    [_btnVanTayMini setImage:[UIImage imageNamed:@"face_new_choose"] forState:UIControlStateNormal];
+    NSLog(@"%s - ============> co face id", __FUNCTION__);
+    [self.mbtnVanTay setHidden:YES];
+    _btnVanTayMini.enabled = YES;
+    [_btnVanTayMini setImage:[UIImage imageNamed:@"face-id"] forState:UIControlStateNormal];
 }
 
 - (void)xuLyKhiKhongCoChucNangQuetVanTay

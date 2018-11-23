@@ -141,24 +141,24 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="e2P-fu-TDj">
-                                                    <rect key="frame" x="62" y="28" width="164.5" height="47"/>
+                                                    <rect key="frame" x="53" y="23" width="182" height="52"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c2k-2z-6g9">
-                                                            <rect key="frame" x="0.0" y="0.0" width="48" height="47"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="54" height="52"/>
                                                             <state key="normal" title="PKI" image="pki"/>
                                                             <connections>
                                                                 <action selector="suKienBamNutPKI:" destination="-1" eventType="touchUpInside" id="ues-iD-9Au"/>
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z9I-OP-Ubf">
-                                                            <rect key="frame" x="58" y="0.0" width="48" height="47"/>
+                                                            <rect key="frame" x="64" y="0.0" width="54" height="52"/>
                                                             <state key="normal" title="TOKEN" image="tokenv"/>
                                                             <connections>
                                                                 <action selector="suKienBamNutToken:" destination="-1" eventType="touchUpInside" id="Qxc-lw-5kc"/>
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k0i-ob-sVG">
-                                                            <rect key="frame" x="116" y="0.0" width="48.5" height="47"/>
+                                                            <rect key="frame" x="128" y="0.0" width="54" height="52"/>
                                                             <state key="normal" image="vantay"/>
                                                             <connections>
                                                                 <action selector="suKienBamNutMatKhauVanTay:" destination="-1" eventType="touchUpInside" id="peX-Ft-Iww"/>
@@ -177,7 +177,7 @@
                                                 <constraint firstItem="lyh-dl-U01" firstAttribute="top" secondItem="9el-Cp-DyO" secondAttribute="top" constant="5" id="B5b-OQ-D87"/>
                                                 <constraint firstItem="e2P-fu-TDj" firstAttribute="centerX" secondItem="9el-Cp-DyO" secondAttribute="centerX" id="oRO-F2-zOL"/>
                                                 <constraint firstItem="lyh-dl-U01" firstAttribute="leading" secondItem="9el-Cp-DyO" secondAttribute="leading" constant="8" id="xak-Tb-bbm"/>
-                                                <constraint firstItem="e2P-fu-TDj" firstAttribute="top" secondItem="lyh-dl-U01" secondAttribute="bottom" constant="5" id="zMW-hd-dpp"/>
+                                                <constraint firstItem="e2P-fu-TDj" firstAttribute="top" secondItem="lyh-dl-U01" secondAttribute="bottom" id="zMW-hd-dpp"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dkY-pR-4Jb" userLabel="ViewNhapToKen">
@@ -224,6 +224,7 @@
                                         <constraint firstItem="dkY-pR-4Jb" firstAttribute="leading" secondItem="L2e-Fc-ufQ" secondAttribute="leading" id="861-Kg-Jre"/>
                                         <constraint firstItem="pwH-W2-oIx" firstAttribute="top" secondItem="L2e-Fc-ufQ" secondAttribute="top" constant="8" id="8n7-cO-930"/>
                                         <constraint firstItem="pwH-W2-oIx" firstAttribute="leading" secondItem="Di9-91-e58" secondAttribute="trailing" constant="8" id="Be8-vY-Pfx"/>
+                                        <constraint firstAttribute="bottom" secondItem="dkY-pR-4Jb" secondAttribute="bottom" constant="5" id="Cmh-7U-kFV"/>
                                         <constraint firstItem="Di9-91-e58" firstAttribute="top" secondItem="L2e-Fc-ufQ" secondAttribute="top" constant="8" id="ELD-dC-KL4"/>
                                         <constraint firstItem="dkY-pR-4Jb" firstAttribute="top" secondItem="9el-Cp-DyO" secondAttribute="bottom" constant="8" id="GVh-de-yVc"/>
                                         <constraint firstItem="qca-6N-FtW" firstAttribute="centerY" secondItem="JgU-0s-NrM" secondAttribute="centerY" id="HyV-Ot-YjR"/>
@@ -247,7 +248,6 @@
                                 <constraint firstAttribute="trailing" secondItem="L2e-Fc-ufQ" secondAttribute="trailing" id="HuK-MD-fde"/>
                                 <constraint firstItem="Fwa-Wz-HYp" firstAttribute="top" secondItem="Itm-lM-BQq" secondAttribute="top" constant="3" id="NU0-OC-yBn"/>
                                 <constraint firstAttribute="trailing" secondItem="Fwa-Wz-HYp" secondAttribute="trailing" id="cYB-Kg-dKs"/>
-                                <constraint firstAttribute="bottom" secondItem="L2e-Fc-ufQ" secondAttribute="bottom" id="mZy-Gr-0HN"/>
                                 <constraint firstItem="L2e-Fc-ufQ" firstAttribute="leading" secondItem="Itm-lM-BQq" secondAttribute="leading" id="rVt-Hc-bf2"/>
                                 <constraint firstItem="L2e-Fc-ufQ" firstAttribute="top" secondItem="Fwa-Wz-HYp" secondAttribute="bottom" id="zuA-WA-zrR"/>
                             </constraints>

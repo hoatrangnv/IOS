@@ -89,7 +89,7 @@
                                     </connections>
                                 </button>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Qb-dz-SCD">
-                                    <rect key="frame" x="0.0" y="92" width="310" height="680"/>
+                                    <rect key="frame" x="0.0" y="92" width="310" height="688"/>
                                     <subviews>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Tên CN/PGD" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qAl-6k-DVf" customClass="ExTextField">
                                             <rect key="frame" x="8" y="100" width="294" height="35"/>
@@ -214,34 +214,6 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RAm-3z-9xS" userLabel="ViewNhapToKen">
-                                            <rect key="frame" x="0.0" y="645" width="310" height="35"/>
-                                            <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lyQ-zh-heF" customClass="ExTextField">
-                                                    <rect key="frame" x="10" y="0.0" width="155" height="35"/>
-                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                    <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
-                                                </textField>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FyG-Lk-5ps">
-                                                    <rect key="frame" x="176" y="0.0" width="126" height="35"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" red="0.0039215686269999999" green="0.31372549020000001" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                                    <state key="normal" title="@thuc_hien">
-                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="suKienBamNutThucHien:" destination="-1" eventType="touchUpInside" id="kQN-bN-C2t"/>
-                                                    </connections>
-                                                </button>
-                                            </subviews>
-                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="35" id="oTU-W8-3gm"/>
-                                            </constraints>
-                                        </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cKf-Ug-N8h" userLabel="ViewThoiGianConLai">
                                             <rect key="frame" x="0.0" y="557" width="310" height="80"/>
                                             <subviews>
@@ -291,6 +263,34 @@
                                                 <constraint firstItem="Wkl-nM-Qms" firstAttribute="top" secondItem="cKf-Ug-N8h" secondAttribute="top" id="vgC-sj-OT9"/>
                                             </constraints>
                                         </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RAm-3z-9xS" userLabel="ViewNhapToKen">
+                                            <rect key="frame" x="0.0" y="645" width="310" height="35"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lyQ-zh-heF" customClass="ExTextField">
+                                                    <rect key="frame" x="10" y="0.0" width="155" height="35"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
+                                                </textField>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FyG-Lk-5ps">
+                                                    <rect key="frame" x="176" y="0.0" width="126" height="35"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="0.0039215686269999999" green="0.31372549020000001" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                                    <state key="normal" title="@thuc_hien">
+                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="suKienBamNutThucHien:" destination="-1" eventType="touchUpInside" id="kQN-bN-C2t"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="35" id="oTU-W8-3gm"/>
+                                            </constraints>
+                                        </view>
                                     </subviews>
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
@@ -316,9 +316,9 @@
                                         <constraint firstAttribute="trailing" secondItem="dsy-DG-6Nb" secondAttribute="trailing" constant="8" id="PBM-5C-qCz"/>
                                         <constraint firstItem="tjH-ch-5Uw" firstAttribute="height" secondItem="CQU-bA-iKZ" secondAttribute="height" id="PX9-aR-bzD"/>
                                         <constraint firstItem="hDj-cl-aby" firstAttribute="top" secondItem="wdw-4U-IcO" secondAttribute="bottom" constant="8" id="Pht-9T-6SX"/>
+                                        <constraint firstAttribute="bottom" secondItem="RAm-3z-9xS" secondAttribute="bottom" constant="8" id="S97-KL-W0X"/>
                                         <constraint firstItem="OWu-hx-RUh" firstAttribute="top" secondItem="423-Yb-EbM" secondAttribute="bottom" constant="8" id="Syh-aH-vaY"/>
                                         <constraint firstAttribute="trailing" secondItem="EwF-by-cgZ" secondAttribute="trailing" constant="8" id="T1d-eq-Sjm"/>
-                                        <constraint firstAttribute="height" constant="680" id="Tpq-hi-hZR"/>
                                         <constraint firstItem="EwF-by-cgZ" firstAttribute="top" secondItem="7a3-ZW-0GZ" secondAttribute="bottom" constant="8" id="UH8-i0-8GP"/>
                                         <constraint firstAttribute="trailing" secondItem="7a3-ZW-0GZ" secondAttribute="trailing" constant="8" id="Ur8-gh-Gxr"/>
                                         <constraint firstItem="202-8Y-Msa" firstAttribute="height" secondItem="hDj-cl-aby" secondAttribute="height" id="Vu4-UT-sE7"/>

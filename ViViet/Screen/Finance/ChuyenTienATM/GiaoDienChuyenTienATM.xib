@@ -18,6 +18,7 @@
                 <outlet property="edSoTien" destination="Pgs-DU-E9P" id="fbX-7Y-EcL"/>
                 <outlet property="edViNhan" destination="mdo-Wl-8VJ" id="tqK-rR-IXR"/>
                 <outlet property="heightViewMain" destination="nNc-Rc-nzw" id="ao9-FT-FM3"/>
+                <outlet property="heightViewNhapXacThuc" destination="NKw-1b-fev" id="mZV-Ls-h8y"/>
                 <outlet property="lblPhi" destination="iXj-Al-6jO" id="xAc-IV-hVn"/>
                 <outlet property="mViewMain" destination="iOH-bX-ZXK" id="yOa-Aj-xFQ"/>
                 <outlet property="mViewNhapToken" destination="szw-K9-7tQ" id="r0l-uR-dLT"/>
@@ -59,7 +60,7 @@
                                     </connections>
                                 </textField>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phí: 10.000 đ" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iXj-Al-6jO">
-                                    <rect key="frame" x="184" y="106" width="90" height="18"/>
+                                    <rect key="frame" x="184" y="105.5" width="90" height="18"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="90" id="Cec-s5-WK8"/>
                                     </constraints>
@@ -68,7 +69,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YKC-ic-oBy">
-                                    <rect key="frame" x="242" y="54" width="36" height="36"/>
+                                    <rect key="frame" x="242" y="53.5" width="36" height="36"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="YKC-ic-oBy" secondAttribute="height" multiplier="1:1" id="Ywf-lb-Rkd"/>
                                         <constraint firstAttribute="width" constant="36" id="dDJ-hY-BpM"/>
@@ -108,7 +109,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="273" height="43"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4WJ-bb-Yfx">
-                                                    <rect key="frame" x="0.0" y="0.0" width="137" height="43"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="136.5" height="43"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                     <state key="normal" title="Sacombank">
                                                         <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -118,7 +119,7 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OIl-Ua-Uj0">
-                                                    <rect key="frame" x="137" y="0.0" width="136" height="43"/>
+                                                    <rect key="frame" x="136.5" y="0.0" width="136.5" height="43"/>
                                                     <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                     <state key="normal" title="Techcombank">
@@ -153,24 +154,24 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="4ho-ai-3Bd">
-                                            <rect key="frame" x="57.5" y="28" width="164.5" height="47"/>
+                                            <rect key="frame" x="48.5" y="23" width="182" height="52"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nd8-lq-A3j">
-                                                    <rect key="frame" x="0.0" y="0.0" width="48" height="47"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="54" height="52"/>
                                                     <state key="normal" title="PKI" image="pki"/>
                                                     <connections>
                                                         <action selector="suKienBamNutPKI:" destination="-1" eventType="touchUpInside" id="HXc-3g-TWa"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kBn-aE-a9u">
-                                                    <rect key="frame" x="58" y="0.0" width="48" height="47"/>
+                                                    <rect key="frame" x="64" y="0.0" width="54" height="52"/>
                                                     <state key="normal" title="TOKEN" image="tokenv"/>
                                                     <connections>
                                                         <action selector="suKienBamNutToken:" destination="-1" eventType="touchUpInside" id="ybD-YM-bUr"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Reu-xj-lyc">
-                                                    <rect key="frame" x="116" y="0.0" width="48.5" height="47"/>
+                                                    <rect key="frame" x="128" y="0.0" width="54" height="52"/>
                                                     <state key="normal" image="vantay"/>
                                                     <connections>
                                                         <action selector="suKienBamNutMatKhauVanTay:" destination="-1" eventType="touchUpInside" id="V0F-31-jYa"/>
@@ -189,7 +190,7 @@
                                         <constraint firstAttribute="height" constant="80" id="jIZ-53-bY7"/>
                                         <constraint firstItem="36e-Ya-yeM" firstAttribute="leading" secondItem="lfA-JT-lhr" secondAttribute="leading" constant="5" id="q8P-lD-dbr"/>
                                         <constraint firstItem="36e-Ya-yeM" firstAttribute="top" secondItem="lfA-JT-lhr" secondAttribute="top" constant="5" id="tja-Vc-CoV"/>
-                                        <constraint firstItem="4ho-ai-3Bd" firstAttribute="top" secondItem="36e-Ya-yeM" secondAttribute="bottom" constant="5" id="yvY-Bv-GtC"/>
+                                        <constraint firstItem="4ho-ai-3Bd" firstAttribute="top" secondItem="36e-Ya-yeM" secondAttribute="bottom" id="yvY-Bv-GtC"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="szw-K9-7tQ" userLabel="ViewNhapToKen">
@@ -281,7 +282,7 @@
                 <constraint firstAttribute="trailing" secondItem="TaN-rD-egw" secondAttribute="trailing" id="qdc-Ar-bU9"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-269.60000000000002" y="250.07496251874065"/>
+            <point key="canvasLocation" x="-532" y="237"/>
         </view>
     </objects>
     <resources>

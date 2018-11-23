@@ -156,16 +156,44 @@ typedef enum : NSUInteger {
         CGRect rectMain = self.mViewMain.frame;
         CGFloat fW = rectMain.size.width;
         CGFloat fH = fW * 0.46;
-        rectQC.origin.y = rectToken.origin.y + rectToken.size.height + 15;
+        rectQC.origin.y = rectToken.origin.y + 8;
         viewQC.frame = CGRectMake(0, rectQC.origin.y, fW, fH);
         viewQC.mDelegate = self;
         [viewQC updateSizeQuangCao];
-        currentHeightMain += (fH + 15.0);
+//        currentHeightMain += (fH + 15.0);
+        self.heightViewMain.constant = rectQC.origin.y + rectQC.size.height;
+        currentHeightMain = self.heightViewMain.constant;
         NSLog(@"%s - currentHeightMain : %f", __FUNCTION__, currentHeightMain);
-        self.heightViewMain.constant = currentHeightMain;
         [self.mViewMain addSubview:viewQC];
-        [self.mScrvHienThi setContentSize:CGSizeMake(_mScrvHienThi.frame.size.width, viewQC.frame.origin.y + viewQC.frame.size.height + 10)];
+        [self.mScrvHienThi setContentSize:CGSizeMake(_mScrvHienThi.frame.size.width, self.heightViewMain.constant + 10)];
     }
+}
+
+- (void)showViewNhapToken:(int)type {
+    [super showViewNhapToken:type];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.heightViewMain.constant += 35.0;
+        currentHeightMain = self.heightViewMain.constant;
+        [self.mScrvHienThi setContentSize:CGSizeMake(_mScrvHienThi.frame.size.width, self.heightViewMain.constant + 10)];
+        if (viewQC != nil) {
+            CGRect rectQC = viewQC.frame;
+            rectQC.origin.y += 35.0;
+            viewQC.frame = rectQC;
+        }
+    });
+}
+
+- (void)hideViewNhapToken {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.heightViewMain.constant -= 35.0;
+        currentHeightMain = self.heightViewMain.constant;
+        [self.mScrvHienThi setContentSize:CGSizeMake(_mScrvHienThi.frame.size.width, self.heightViewMain.constant + 10)];
+        if (viewQC != nil) {
+            CGRect rectQC = viewQC.frame;
+            rectQC.origin.y -= 35.0;
+            viewQC.frame = rectQC;
+        }
+    });
 }
 
 -(void)updateThongTinGuiTietKiem:(NSNotification *)notification
@@ -458,6 +486,7 @@ typedef enum : NSUInteger {
 
 - (BOOL)validateVanTay
 {
+    return YES;
     if (![[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_STATE] boolValue]) {
         DucNT_LoginSceen *loginSceen = [[DucNT_LoginSceen alloc] initWithNibName:@"DucNT_LoginSceen" bundle:nil];
         [self presentViewController:loginSceen animated:YES completion:^{}];

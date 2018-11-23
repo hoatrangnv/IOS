@@ -36,6 +36,7 @@
 @property (retain, nonatomic) IBOutlet NSLayoutConstraint *heightViewMain;
 @property (retain, nonatomic) IBOutlet UIView *viewQR;
 @property (retain, nonatomic) IBOutlet NSLayoutConstraint *heightContentView;
+@property (retain, nonatomic) IBOutlet NSLayoutConstraint *heightViewQR;
 
 - (IBAction)suKienThayDoiViChuyenDen:(id)sender;
 - (IBAction)suKienChonTab1:(id)sender;

@@ -137,22 +137,23 @@
     if (!viewQC) {
         viewQC = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([ViewQuangCao class]) owner:self options:nil] objectAtIndex:0];
         viewQC.mDelegate = self;
-        CGRect rectToken = self.mViewNhapToken.frame;
+        CGRect rectToken = self.mViewTenDuongSonha.frame;
         CGRect rectQC = viewQC.frame;
         CGRect rectMain = self.mViewMain.frame;
-        CGRect rectTenDuong = self.mViewTenDuongSonha.frame;
+//        CGRect rectTenDuong = self.mViewTenDuongSonha.frame;
         CGFloat fW = rectMain.size.width;
         CGFloat fH = fW * 0.46;
-        rectQC.origin.y = rectToken.origin.y + rectToken.size.height + 15;
+        rectQC.origin.y = rectToken.origin.y + rectToken.size.height;
         viewQC.frame = CGRectMake(0, rectQC.origin.y, fW, fH);
         viewQC.mDelegate = self;
         [viewQC updateSizeQuangCao];
-        rectTenDuong.size.height = rectQC.origin.y + rectQC.size.height + 10;
-        rectMain.size.height = rectTenDuong.origin.y + rectTenDuong.size.height;
-        self.mViewTenDuongSonha.frame = rectTenDuong;
-        self.heightViewMain.constant += (fH + 15.0);
-        [self.mViewTenDuongSonha addSubview:viewQC];
-        [self.mScrView setContentSize:CGSizeMake(_mScrView.frame.size.width, self.mViewMain.frame.origin.y + self.mViewMain.frame.size.height + self.viewOptionTop.frame.size.height + 10)];
+        [self.mViewMain addSubview:viewQC];
+//        rectTenDuong.size.height = rectQC.origin.y + rectQC.size.height + 10;
+//        rectMain.size.height = rectTenDuong.origin.y + rectTenDuong.size.height;
+//        self.mViewTenDuongSonha.frame = rectTenDuong;
+        self.heightViewMain.constant = rectQC.origin.y + rectQC.size.height;
+        
+        [self.mScrView setContentSize:CGSizeMake(_mScrView.frame.size.width, self.heightViewMain.constant + 10)];
     }
 }
 
@@ -167,6 +168,7 @@
     [super viewDidAppear:animated];
     [self khoiTaoQuangCao];
     [_mtvTenDuong resignFirstResponder];
+//    self.btnVanTayMini.enabled = true;
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -180,6 +182,30 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)showViewNhapToken:(int)type {
+    [super showViewNhapToken:type];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.heightViewMain.constant += 35.0;
+        [self.mScrView setContentSize:CGSizeMake(_mScrView.frame.size.width, self.heightViewMain.constant + 10)];
+        if (viewQC != nil) {
+            CGRect rectQC = viewQC.frame;
+            rectQC.origin.y += 35.0;
+            viewQC.frame = rectQC;
+        }
+    });
+}
+
+- (void)hideViewNhapToken {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.heightViewMain.constant -= 35.0;
+        [self.mScrView setContentSize:CGSizeMake(_mScrView.frame.size.width, self.heightViewMain.constant + 10)];
+        if (viewQC != nil) {
+            CGRect rectQC = viewQC.frame;
+            rectQC.origin.y -= 35.0;
+            viewQC.frame = rectQC;
+        }
+    });
+}
 
 #pragma mark - KhoiTao
 

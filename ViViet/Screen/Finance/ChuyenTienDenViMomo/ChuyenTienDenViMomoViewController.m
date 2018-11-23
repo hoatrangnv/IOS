@@ -49,23 +49,46 @@
         CGFloat fW = rectMain.size.width;
 
         CGFloat fH = fW * 0.46;
-        rectQC.origin.y = rectToken.origin.y + rectToken.size.height + 15.0;
+        rectQC.origin.y = rectToken.origin.y + rectToken.size.height + 8;
         viewQC.frame = CGRectMake(0, rectQC.origin.y, fW, fH);
         [viewQC updateSizeQuangCao];
         viewQC.mDelegate = self;
-        self.heightViewMain.constant += (fH + 15.0);
+        self.heightViewMain.constant = rectQC.origin.y + rectQC.size.height;
         [self.mViewMain addSubview:viewQC];
-        [self.scrMain setContentSize:CGSizeMake(_scrMain.frame.size.width, rectMain.origin.y + rectMain.size.height + 20)];
+        [self.scrMain setContentSize:CGSizeMake(_scrMain.frame.size.width, self.heightViewMain.constant + 20)];
     }
 }
 
 - (void)updateXacThucKhac {
     [super updateXacThucKhac];
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//        if (viewQC != nil) {
+//            CGRect rectToken = self.mViewNhapToken.frame;
+//            CGRect rectQC = viewQC.frame;
+//            rectQC.origin.y = rectToken.origin.y + self.heightViewNhapXacThuc.constant + 15.0;
+//            viewQC.frame = rectQC;
+//        }
+//    });
+}
+
+- (void)showViewNhapToken:(int)type {
+    [super showViewNhapToken:type];
     dispatch_async(dispatch_get_main_queue(), ^{
+        self.heightViewMain.constant += 35.0;
         if (viewQC != nil) {
-            CGRect rectToken = self.mViewNhapToken.frame;
             CGRect rectQC = viewQC.frame;
-            rectQC.origin.y = rectToken.origin.y + self.heightViewNhapXacThuc.constant + 15.0;
+            rectQC.origin.y += 35.0;
+            viewQC.frame = rectQC;
+        }
+    });
+}
+
+- (void)hideViewNhapToken {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.heightViewMain.constant -= 35.0;
+        if (viewQC != nil) {
+            CGRect rectQC = viewQC.frame;
+            rectQC.origin.y -= 35.0;
             viewQC.frame = rectQC;
         }
     });
@@ -241,6 +264,7 @@
 
 - (BOOL)validateVanTay
 {
+    return YES;
     if (![[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_STATE] boolValue]) {
         DucNT_LoginSceen *loginSceen = [[DucNT_LoginSceen alloc] initWithNibName:@"DucNT_LoginSceen" bundle:nil];
         [self presentViewController:loginSceen animated:YES completion:^{}];
