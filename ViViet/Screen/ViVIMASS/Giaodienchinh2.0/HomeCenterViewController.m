@@ -50,7 +50,7 @@
 #import "CommonUtils.h"
 #import "ChonAnSauDienThoaiViewController.h"
 #import "HanMucMoiViewController.h"
-
+#import "Giaodienlienket1ViewController.h"
 @interface HomeCenterViewController ()<UIActionSheetDelegate, QRCodeReaderDelegate,RowSelectDelegate,ViewNavigationGiaoDienChinhDelegate>{
     ViewNavigationGiaoDienChinh *mViewNavigationGiaoDienChinh;
     NSString *keyPin;
@@ -908,7 +908,10 @@
                 break;
             case 1:{
                 // lien ket vi
-                GiaoDienTaiKhoanLienKet *vc = [[GiaoDienTaiKhoanLienKet alloc] initWithNibName:@"GiaoDienTaiKhoanLienKet" bundle:nil];
+//                GiaoDienTaiKhoanLienKet *vc = [[GiaoDienTaiKhoanLienKet alloc] initWithNibName:@"GiaoDienTaiKhoanLienKet" bundle:nil];
+//                [self.navigationController pushViewController:vc animated:YES];
+//                [vc release];
+                Giaodienlienket1ViewController * vc = [[Giaodienlienket1ViewController alloc] initWithNibName:@"Giaodienlienket1ViewController" bundle:nil];
                 [self.navigationController pushViewController:vc animated:YES];
                 [vc release];
             }
