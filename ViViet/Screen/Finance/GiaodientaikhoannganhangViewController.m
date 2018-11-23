@@ -1,9 +1,4 @@
-//
-//  GaodientaikhoannganhangViewController.m
-//  ViViMASS
-//
-//  Created by Dao Minh Nha on 11/23/18.
-//
+
 
 #import "GiaodientaikhoannganhangViewController.h"
 #import "GiaoDienDanhSachTaiKhoanLienKet.h"

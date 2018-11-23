@@ -1,9 +1,4 @@
-//
-//  Giaodienlienket1ViewController.m
-//  ViViMASS
-//
-//  Created by Dao Minh Nha on 11/23/18.
-//
+
 
 #import "Giaodienlienket1ViewController.h"
 #import "GiaodientaikhoannganhangViewController.h"
