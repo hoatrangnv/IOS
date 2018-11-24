@@ -23,7 +23,9 @@
                 <outlet property="edNamMoThe" destination="sK8-Ln-u2N" id="Zph-5c-j7L"/>
                 <outlet property="edNgayMoThe" destination="PBr-fQ-YO9" id="rTe-QT-ahp"/>
                 <outlet property="edSoThe" destination="lWW-kM-YM4" id="ERi-Wh-6dH"/>
+                <outlet property="imgQC" destination="qu8-hC-oxp" id="0c6-Pj-eao"/>
                 <outlet property="txtOtp" destination="Hyl-tS-hxM" id="N0d-hf-4MX"/>
+                <outlet property="vMain" destination="oTX-2b-oTI" id="N7s-d8-p9O"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -140,7 +142,10 @@
                                     </connections>
                                 </button>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qu8-hC-oxp">
-                                    <rect key="frame" x="0.0" y="359" width="375" height="308"/>
+                                    <rect key="frame" x="0.0" y="494" width="375" height="170"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="qu8-hC-oxp" secondAttribute="height" multiplier="75:34" id="EhB-vr-hqQ"/>
+                                    </constraints>
                                 </imageView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9cL-dP-UGh">
                                     <rect key="frame" x="258" y="296" width="82" height="36"/>
@@ -222,6 +227,7 @@
                                 <constraint firstItem="PUd-GX-2kf" firstAttribute="top" secondItem="oTX-2b-oTI" secondAttribute="top" constant="9" id="LTI-Rf-uyY"/>
                                 <constraint firstItem="SR9-L9-VlM" firstAttribute="leading" secondItem="1Qr-mm-fCc" secondAttribute="trailing" constant="8" id="Mbb-sX-0mp"/>
                                 <constraint firstItem="Hyl-tS-hxM" firstAttribute="top" secondItem="9oR-IF-Csl" secondAttribute="bottom" constant="18" id="NCb-Qz-8hk"/>
+                                <constraint firstItem="qu8-hC-oxp" firstAttribute="centerX" secondItem="oTX-2b-oTI" secondAttribute="centerX" id="NOZ-Zh-I3Y"/>
                                 <constraint firstItem="X0Y-a1-Xsp" firstAttribute="height" secondItem="9oR-IF-Csl" secondAttribute="height" id="O8C-er-QhI"/>
                                 <constraint firstItem="WHv-KC-FDt" firstAttribute="leading" secondItem="SR9-L9-VlM" secondAttribute="trailing" constant="8" id="OeF-rM-he6"/>
                                 <constraint firstItem="4fx-4K-qMD" firstAttribute="top" secondItem="Gls-fO-2Jp" secondAttribute="bottom" constant="8" id="Pvo-zw-IvY"/>
@@ -234,8 +240,7 @@
                                 <constraint firstItem="Hyl-tS-hxM" firstAttribute="leading" secondItem="oTX-2b-oTI" secondAttribute="leading" constant="17" id="X3g-R2-lpO"/>
                                 <constraint firstItem="X0Y-a1-Xsp" firstAttribute="top" secondItem="9oR-IF-Csl" secondAttribute="top" id="XeN-PZ-Syv"/>
                                 <constraint firstItem="9oR-IF-Csl" firstAttribute="top" secondItem="1Qr-mm-fCc" secondAttribute="bottom" constant="24" id="YKX-Kn-1uX"/>
-                                <constraint firstAttribute="bottom" secondItem="qu8-hC-oxp" secondAttribute="bottom" id="alJ-VH-ilY"/>
-                                <constraint firstItem="qu8-hC-oxp" firstAttribute="top" secondItem="9cL-dP-UGh" secondAttribute="bottom" constant="27" id="cB0-0g-bqc"/>
+                                <constraint firstAttribute="bottom" secondItem="qu8-hC-oxp" secondAttribute="bottom" constant="3" id="alJ-VH-ilY"/>
                                 <constraint firstItem="X0Y-a1-Xsp" firstAttribute="leading" secondItem="9oR-IF-Csl" secondAttribute="trailing" constant="18" id="ett-LQ-Z0r"/>
                                 <constraint firstAttribute="trailing" secondItem="4fx-4K-qMD" secondAttribute="trailing" constant="8" id="fx7-ZJ-CHl"/>
                                 <constraint firstItem="O5X-nt-msc" firstAttribute="top" secondItem="lWW-kM-YM4" secondAttribute="bottom" constant="8" id="hCY-me-WVS"/>

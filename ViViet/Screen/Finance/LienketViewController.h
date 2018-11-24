@@ -14,4 +14,6 @@
 - (IBAction)doThucHien:(id)sender;
 - (IBAction)doVantay:(id)sender;
 - (IBAction)onMacding:(id)sender;
+- (void)edittaikhoanlienket:(NSDictionary*)dic;
+-(void)taotaikhoanlienket:(NSDictionary*)dic;
 @end

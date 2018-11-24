@@ -125,7 +125,7 @@
 
 - (void)xuLySuKienXacThucVanTayThanhCong
 {
-    
+    [self thuchienxuly];
 }
 
 - (void)hienThiThongBaoDienMatKhau
@@ -141,16 +141,27 @@
     self.btnThucHien.hidden = NO;
 }
 - (IBAction)doThucHien:(id)sender{
-    
+    self.mTypeAuthenticate = TYPE_AUTHENTICATE_TOKEN;
+    [self thuchienxuly];
 }
 - (IBAction)doVantay:(id)sender{
+    self.mTypeAuthenticate = TYPE_AUTHENTICATE_TOKEN;
     [self.btnVanTay setBackgroundImage:[UIImage imageNamed:@"finger"] forState:UIControlStateNormal];
     [self.btnVanTay setBackgroundImage:[UIImage imageNamed:@"fingerv"] forState:UIControlStateSelected];
     [self.btnVanTay setSelected:YES];
     [self.btnToken setSelected:NO];
     self.txtOtp.hidden = YES;
     self.btnThucHien.hidden = YES;
-
+    
+    NSString *sKeyDangNhap = [DucNT_LuuRMS layThongTinDangNhap:KEY_DANG_NHAP];
+    if(sKeyDangNhap.length > 0)
+    {
+        [self xuLySuKienHienThiChucNangDangNhapVanTayVoiTieuDe:[@"su_dung_van_tay_dang_nhap_tai_khoan_VIMASS" localizableString]];
+    }
+    else
+    {
+        [UIAlertView alert:[@"thong_bao_chua_co_xac_thuc_van_tay" localizableString] withTitle:[@"thong_bao" localizableString] block:nil];
+    }
 }
 - (IBAction)onMacding:(id)sender {
     isMacdinh = !isMacdinh;
@@ -180,4 +191,90 @@
 -(void)taikhoanLienket:(ItemTaiKhoanLienKet*)tkLienket {
     
 }
+-(void)suataikhoanlienket:(ItemTaiKhoanLienKet*)tkLienket sbank:(NSString*)sBank macdinh:(BOOL)isMacdinh{
+    
+}
+-(void)taotaikhoanlienket:(NSString*)sBank macdinh:(BOOL)isMacdinh{
+    
+}
+
+
+#pragma mark - Call API
+- (void)edittaikhoanlienket:(NSDictionary*)dic {
+    NSString *sDic = [dic JSONString];
+    NSLog(@"%s - sDic : %@)", __FUNCTION__, sDic);
+    if (nIndexBank == -1) {
+        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng chọn ngân hàng liên kết"];
+        return;
+    }
+    if (![[dic objectForKey:@"soThe"] isEmpty]) {
+        if ([[dic objectForKey:@"cardMonth"] intValue] == 0 || [[dic objectForKey:@"cardYear"] intValue] == 0) {
+            [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng nhập Tháng/Năm mở thẻ"];
+            return;
+        }
+    }
+    if (![[dic objectForKey:@"soTaiKhoan"] isEmpty]) {
+        if ([[dic objectForKey:@"u"] isEmpty]) {
+            [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng nhập số tài khoản internet banking"];
+            return;
+        }
+        if ([[dic objectForKey:@"p"] isEmpty]) {
+            [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng nhập mật khẩu internet banking"];
+            return;
+        }
+    }
+
+    [GiaoDichMang editTaiKhoanLienKet:sDic noiNhanKetQua:self];
+}
+-(void)taotaikhoanlienket:(NSDictionary*)dic{
+    NSString *sDic = [dic JSONString];
+    NSLog(@"%s - sDic : %@)", __FUNCTION__, sDic);
+    if (nIndexBank == -1) {
+        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng chọn ngân hàng liên kết"];
+        return;
+    }
+    if (![[dic objectForKey:@"soThe"] isEmpty]) {
+        if ([[dic objectForKey:@"cardMonth"] intValue] == 0 || [[dic objectForKey:@"cardYear"] intValue] == 0) {
+            [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng nhập Tháng/Năm mở thẻ"];
+            return;
+        }
+    }
+    if (![[dic objectForKey:@"soTaiKhoan"] isEmpty]) {
+        if ([[dic objectForKey:@"u"] isEmpty]) {
+            [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng nhập số tài khoản internet banking"];
+            return;
+        }
+        if ([[dic objectForKey:@"p"] isEmpty]) {
+            [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng nhập mật khẩu internet banking"];
+            return;
+        }
+    }
+    [GiaoDichMang taoTaiKhoanLienKet:sDic noiNhanKetQua:self];
+}
+- (void)thuchienxuly{
+    NSString *sBank = [arrBank objectAtIndex:nIndexBank];
+    NSArray *arrTemp = [sBank componentsSeparatedByString:@" - "];
+    if (arrTemp.count == 2) {
+        sBank = arrTemp[0];
+    }
+
+    if (itemMacDinh) {
+        self.mDinhDanhKetNoi = @"SUA_TAI_KHOAN_LIEN_KET";
+        [self suataikhoanlienket:itemMacDinh sbank:sBank macdinh:isMacdinh];
+    } else {
+        self.mDinhDanhKetNoi = @"TAO_TAI_KHOAN_LIEN_KET";
+        [self taotaikhoanlienket:sBank macdinh:isMacdinh];
+    }
+}
+#pragma mark - Xu ly ket noi thanh cong
+- (void)xuLyKetNoiThanhCong:(NSString*)sDinhDanhKetNoi thongBao:(NSString*)sThongBao ketQua:(id)ketQua
+{
+     if ([self.mDinhDanhKetNoi isEqualToString:@"SUA_TAI_KHOAN_LIEN_KET"] || [self.mDinhDanhKetNoi isEqualToString:@"TAO_TAI_KHOAN_LIEN_KET"]){
+        if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"11")) {
+            [self anLoading];
+        }
+        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:sThongBao];
+    }
+}
+
 @end
