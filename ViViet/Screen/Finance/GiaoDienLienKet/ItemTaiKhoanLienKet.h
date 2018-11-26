@@ -20,6 +20,7 @@
 @property (retain, nonatomic) NSString* otpConfirm;
 @property (retain, nonatomic) NSString* u;
 @property (retain, nonatomic) NSString* p;
+@property (retain, nonatomic) NSString* cvv;
 
 @property (retain, nonatomic) NSString* soThe;
 @property (assign, nonatomic) int cardMonth;

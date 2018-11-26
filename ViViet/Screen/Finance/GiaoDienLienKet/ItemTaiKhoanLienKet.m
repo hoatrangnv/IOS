@@ -19,6 +19,7 @@
         self.maNganHang = [dict valueForKey:@"maNganHang"];
         self.tenChuTaiKhoan = [dict valueForKey:@"tenChuTaiKhoan"];
         self.soTaiKhoan = [dict valueForKey:@"soTaiKhoan"];
+        self.cvv = [dict valueForKey:@"cvv"] ? [dict valueForKey:@"cvv"] : @"";
         
         self.soThe = [dict valueForKey:@"soThe"];
         self.cardMonth = [[dict valueForKey:@"cardMonth"] intValue];

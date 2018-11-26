@@ -4,12 +4,15 @@
 #import "GiaoDienDanhSachTaiKhoanLienKet.h"
 #import "GiaodientaikhoantheViewController.h"
 #import "GiaodientaikhoannganhangViewController.h"
-@interface LienketViewController ()<UIPickerViewDelegate, UIPickerViewDataSource,GiaoDienDanhSachTaiKhoanLienKetDelegate>
+#import "DanhsachNganHangViewController.h"
+@interface LienketViewController ()<UIPickerViewDelegate, UIPickerViewDataSource,GiaoDienDanhSachTaiKhoanLienKetDelegate,DanhsachNganHangViewControllerDelegate,UITextFieldDelegate>
 {
     NSArray *arrBank;
-    int nIndexBank, nIndexBankTemp;
+    NSInteger nIndexBank, nIndexBankTemp;
     BOOL isMacdinh;
     ItemTaiKhoanLienKet *itemMacDinh;
+    IBOutlet NSLayoutConstraint *contraintLeading;
+    
 }
 @end
 
@@ -17,19 +20,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.mFuncID = 446;
     nIndexBank = -1;
     nIndexBankTemp = 0;
-    NSString *sDsBank = @"Chọn ngân hàng/TPB - Ngân hàng Tiên Phong/ACB - Á châu/BID - Đầu tư và phát triển Việt Nam/CTG - Công thương Việt Nam/LPB - Bưu điện Liên Việt/NAB - Nam á/TCB - Kỹ thương Việt Nam/VCB - Ngoại thương Việt Nam/ABB - An bình/BAB - Bắc á/BVB - Bảo Việt/EAB - Đông á/EIB - Xuất nhập khẩu Việt Nam/GPB - Dầu khí toàn cầu/HDB - Phát triển TPHCM/KLB - Kiên Long/MB - Quân đội/MSB - Hàng hải/NCB - Quốc dân/OCB - Phương đông/OJB - Đại dương/PGB - Xăng dầu Petrolimex/PVB - Đại chúng Việt Nam/SCB - Sài Gòn/SEAB - Đông nam á/SGB - Sài Gòn công thương/SHB - Sài Gòn Hà Nội/STB - Sài Gòn thương tín/VAB - Việt á/VB - Việt Nam thương tín/VCCB - Bản Việt/VIB - Quốc tế/VPB - Việt Nam thịnh vượng";
+    NSString *sDsBank = @"TPB - Ngân hàng Tiên Phong/ACB - Á châu/BID - Đầu tư và phát triển Việt Nam/CTG - Công thương Việt Nam/LPB - Bưu điện Liên Việt/NAB - Nam á/TCB - Kỹ thương Việt Nam/VCB - Ngoại thương Việt Nam/ABB - An bình/BAB - Bắc á/BVB - Bảo Việt/EAB - Đông á/EIB - Xuất nhập khẩu Việt Nam/GPB - Dầu khí toàn cầu/HDB - Phát triển TPHCM/KLB - Kiên Long/MB - Quân đội/MSB - Hàng hải/NCB - Quốc dân/OCB - Phương đông/OJB - Đại dương/PGB - Xăng dầu Petrolimex/PVB - Đại chúng Việt Nam/SCB - Sài Gòn/SEAB - Đông nam á/SGB - Sài Gòn công thương/SHB - Sài Gòn Hà Nội/STB - Sài Gòn thương tín/VAB - Việt á/VB - Việt Nam thương tín/VCCB - Bản Việt/VIB - Quốc tế/VPB - Việt Nam thịnh vượng/Visa/MasterCard/JCB";
     NSArray *arrTemp = [sDsBank componentsSeparatedByString:@"/"];
     arrBank = [[NSArray alloc] initWithArray:arrTemp];
     NSLog(@"%s - arrBank.count : %ld", __FUNCTION__, (long)arrBank.count);
-    _edBank.text = [arrBank objectAtIndex:0];
+    _edBank.text = @"Chọn ngân hàng";
+    _edBank.delegate = self;
     [self khoiTaoGiaoDienTextFeild:self.edBank nTag:100];
     self.btnThucHien.hidden = true;
     self.txtOtp.hidden = true;
     [self.btnSelect setBackgroundImage:[UIImage imageNamed:@"checkbox-unselected"] forState:UIControlStateNormal];
     [self.btnSelect setBackgroundImage:[UIImage imageNamed:@"checkbox-selected"] forState:UIControlStateSelected];
-
 }
 
 - (void)didReceiveMemoryWarning {
@@ -41,21 +45,6 @@
         [btnRight setBackgroundImage:[UIImage imageNamed:@"muiten35x21.png"] forState:UIControlStateNormal];
         edTemp.rightView = btnRight;
         edTemp.rightViewMode = UITextFieldViewModeAlways;
-        
-        UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 44)];
-        toolBar.barStyle = UIBarStyleBlackOpaque;
-        UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneChonBank:)];
-        UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelChonBank:)];
-        UIBarButtonItem *flexSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
-        [toolBar setItems:[NSArray arrayWithObjects:cancelButton, flexSpace, doneButton, nil]];
-        
-        UIPickerView *pickerChonRap = [[UIPickerView alloc] init];
-        pickerChonRap.dataSource = self;
-        pickerChonRap.delegate = self;
-        pickerChonRap.tag = nTag;
-        edTemp.inputAccessoryView = toolBar;
-        edTemp.inputView = pickerChonRap;
-        [pickerChonRap release];
     }
 }
 - (void)layDanhSachTheLienKet {
@@ -108,6 +97,7 @@
     _txtOtp.hidden = NO;
     _btnThucHien.hidden = NO;
     _btnToken.hidden = NO;
+    contraintLeading.constant = ([UIScreen mainScreen].bounds.size.width - _btnToken.frame.size.width)/2 - _btnToken.frame.size.width/2;
 }
 
 - (void)xuLyKhiCoChucNangQuetVanTay
@@ -116,6 +106,8 @@
     _txtOtp.hidden = YES;
     _btnThucHien.hidden = YES;
     _btnToken.hidden = YES;
+    _btnVanTay.center = self.view.center;
+    contraintLeading.constant = 106;
 }
 
 - (void)xuLySuKienDangNhapVanTay
@@ -187,6 +179,8 @@
         isMacdinh =  @(itemMacDinh.danhDauTheMacDinh).boolValue;
     }
     [self.btnSelect setSelected:isMacdinh];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"changetab" object:taiKhoan];
+
 }
 -(void)taikhoanLienket:(ItemTaiKhoanLienKet*)tkLienket {
     
@@ -269,12 +263,33 @@
 #pragma mark - Xu ly ket noi thanh cong
 - (void)xuLyKetNoiThanhCong:(NSString*)sDinhDanhKetNoi thongBao:(NSString*)sThongBao ketQua:(id)ketQua
 {
-     if ([self.mDinhDanhKetNoi isEqualToString:@"SUA_TAI_KHOAN_LIEN_KET"] || [self.mDinhDanhKetNoi isEqualToString:@"TAO_TAI_KHOAN_LIEN_KET"]){
+    if ([sDinhDanhKetNoi isEqualToString:@"LAY_DANH_SACH_LIEN_KET"]) {
+        
+    }
+    else if ([self.mDinhDanhKetNoi isEqualToString:@"SUA_TAI_KHOAN_LIEN_KET"] || [self.mDinhDanhKetNoi isEqualToString:@"TAO_TAI_KHOAN_LIEN_KET"]){
         if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"11")) {
             [self anLoading];
         }
         [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:sThongBao];
     }
 }
-
+#pragma mark - others
+-(void)setIndexSelected:(NSInteger)indexSelected {
+    nIndexBank = indexSelected;
+    self.edBank.text = [arrBank objectAtIndex:nIndexBank];
+    [self.edBank resignFirstResponder];
+    if ([self isKindOfClass:[GiaodientaikhoantheViewController class]]) {
+        [(GiaodientaikhoantheViewController*)self showCvvField:self.edBank.text];
+    }
+}
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    DanhsachNganHangViewController * ds = [[DanhsachNganHangViewController alloc] initWithNibName:@"DanhsachNganHangViewController" bundle:nil];
+    ds.delegate = self;
+    UINavigationController * nav = [[UINavigationController alloc] initWithRootViewController:ds];
+    [self presentViewController:nav animated:YES completion:nil];
+}
+#pragma mark -DanhsachNganHangViewControllerDelegate
+-(void)didSeletedBank:(NSInteger)indexSelected {
+    [self setIndexSelected:indexSelected];
+}
 @end

@@ -6,7 +6,7 @@
 @interface GiaodientaikhoannganhangViewController ()
 {
     ViewQuangCao * viewQC;
-    IBOutlet UIImageView *imgQC;
+    
     IBOutlet UIView *vMain;
 }
 @end
@@ -22,22 +22,10 @@
 }
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    [self khoiTaoQuangCao];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-- (void)khoiTaoQuangCao {
-    if (!viewQC) {
-        NSLog(@"%s - [UIScreen mainScreen].bounds.size.height : %f", __FUNCTION__, [UIScreen mainScreen].bounds.size.height);
-        viewQC = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([ViewQuangCao class]) owner:self options:nil] objectAtIndex:0];
-        CGRect rectQC = imgQC.frame;
-        viewQC.mDelegate = self;
-        viewQC.frame = rectQC;
-        [vMain addSubview:viewQC];
-        [viewQC updateSizeQuangCao];
-    }
 }
 - (void)suKienChonQuangCao:(NSString *)sNameImage {
     [self suKienQuangCaoGoc:sNameImage];
@@ -111,7 +99,6 @@
     [self taotaikhoanlienket:dic];
 }
 - (void)dealloc {
-    [imgQC release];
     [vMain release];
     [super dealloc];
 }

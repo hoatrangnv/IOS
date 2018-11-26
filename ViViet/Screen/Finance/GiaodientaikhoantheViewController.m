@@ -6,9 +6,9 @@
 @interface GiaodientaikhoantheViewController ()
 {
     ViewQuangCao * viewQC;
-    IBOutlet UIImageView *imgQC;
     IBOutlet UIView *vMain;
-
+    IBOutlet NSLayoutConstraint *contraintHeightCvv;
+    IBOutlet ExTextField *txtCvv;
 }
 @end
 
@@ -19,7 +19,12 @@
     [self.edSoThe addTarget:self action:@selector(soTheDidChange:) forControlEvents:UIControlEventEditingChanged];
     [self.edNgayMoThe addTarget:self action:@selector(thoiDiemMoTheDidChange:) forControlEvents:UIControlEventEditingChanged];
     [self.edNamMoThe addTarget:self action:@selector(thoiDiemMoTheDidChange:) forControlEvents:UIControlEventEditingChanged];
+    [self showCvvField:@""];
     // Do any additional setup after loading the view from its nib.
+}
+- (void)soTheDidChange:(UITextField *)tf {
+}
+- (void)thoiDiemMoTheDidChange:(UITextField *)tf {
 }
 
 - (void)didReceiveMemoryWarning {
@@ -28,18 +33,6 @@
 }
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    [self khoiTaoQuangCao];
-}
-- (void)khoiTaoQuangCao {
-    if (!viewQC) {
-        NSLog(@"%s - [UIScreen mainScreen].bounds.size.height : %f", __FUNCTION__, [UIScreen mainScreen].bounds.size.height);
-        viewQC = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([ViewQuangCao class]) owner:self options:nil] objectAtIndex:0];
-        CGRect rectQC = imgQC.frame;
-        viewQC.mDelegate = self;
-        viewQC.frame = rectQC;
-        [vMain addSubview:viewQC];
-        [viewQC updateSizeQuangCao];
-    }
 }
 - (void)suKienChonQuangCao:(NSString *)sNameImage {
     [self suKienQuangCaoGoc:sNameImage];
@@ -78,6 +71,17 @@
     else {
         _edNamMoThe.text = @"";
     }
+    txtCvv.text = tkLienket.cvv;
+    [self showCvvField:tkLienket.maNganHang];
+}
+-(void)showCvvField:(NSString*)nganhang {
+    if ([nganhang.lowercaseString isEqualToString:@"Visa".lowercaseString] || [nganhang.lowercaseString isEqualToString:@"MasterCard".lowercaseString] || [nganhang.lowercaseString isEqualToString:@"JCB".lowercaseString]) {
+        txtCvv.hidden = NO;
+        contraintHeightCvv.constant = 35;
+    }else {
+        contraintHeightCvv.constant = 0;
+        txtCvv.hidden = YES;
+    }
 }
 -(void)suataikhoanlienket:(ItemTaiKhoanLienKet*)tkLienket sbank:(NSString*)sBank macdinh:(BOOL)isMacdinh{
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
@@ -104,7 +108,11 @@
     NSString *sToken = [DucNT_Token OTPFromPIN:sMatKhau seed:sSeed];
 
     [dic setValue:sToken forKey:@"token"];
+    [dic setValue:@"" forKey:@"otpConfirm"];
     [dic setValue:[NSNumber numberWithInt:self.mTypeAuthenticate] forKey:@"typeAuthenticate"];
+    if (!txtCvv.text.isEmpty) {
+        [dic setValue:txtCvv.text forKey:@"otpConfirm"];
+    }
     [dic setValue:[NSNumber numberWithInt:APP_ID] forKey:@"appId"];
     [dic setValue:[NSNumber numberWithInt:VM_APP] forKey:@"VMApp"];
     [self edittaikhoanlienket:dic];
@@ -132,9 +140,17 @@
     NSString *sToken = [DucNT_Token OTPFromPIN:sMatKhau seed:sSeed];
 
     [dic setValue:sToken forKey:@"token"];
+    [dic setValue:@"" forKey:@"otpConfirm"];
     [dic setValue:[NSNumber numberWithInt:self.mTypeAuthenticate] forKey:@"typeAuthenticate"];
+    if (!txtCvv.text.isEmpty) {
+        [dic setValue:txtCvv.text forKey:@"otpConfirm"];
+    }
     [dic setValue:[NSNumber numberWithInt:APP_ID] forKey:@"appId"];
     [dic setValue:[NSNumber numberWithInt:VM_APP] forKey:@"VMApp"];
     [self taotaikhoanlienket:dic];
+}
+- (void)dealloc {
+    [contraintHeightCvv release];
+    [super dealloc];
 }
 @end

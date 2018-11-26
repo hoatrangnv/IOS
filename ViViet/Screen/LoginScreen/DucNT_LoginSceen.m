@@ -113,7 +113,7 @@ static int const KIEU_KET_NOI_GOOGLE = 2;
         if (error != NULL) {
             // handle error
         } else {
-            [self.mbtnDangNhapBangVanTay setImage:[UIImage imageNamed:@"vantay"] forState:UIControlStateNormal];
+            [self.mbtnDangNhapBangVanTay setBackgroundImage:[UIImage imageNamed:@"vantay"] forState:UIControlStateNormal];
             if (@available(iOS 11.0.1, *)) {
                 if (laContext.biometryType == LABiometryTypeFaceID) {
                     //localizedReason = "Unlock using Face ID"
