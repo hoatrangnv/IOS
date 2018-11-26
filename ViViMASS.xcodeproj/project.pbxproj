@@ -1588,6 +1588,13 @@
 		C6F83B201F4A8BEF00B3526E /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6F83B1F1F4A8BEF00B3526E /* FacebookSDK.framework */; };
 		C6F83B221F4A8E1100B3526E /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C6F83B211F4A8E1100B3526E /* libz.tbd */; };
 		CBC7BA9116476C3E0083E852 /* UIViewController+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = CBC7BA9016476C3E0083E852 /* UIViewController+Common.m */; };
+		CD30A16F21A84E48004030E3 /* Giaodienlienket1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD30A16D21A84E48004030E3 /* Giaodienlienket1ViewController.m */; };
+		CD30A17021A84E48004030E3 /* Giaodienlienket1ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD30A16E21A84E48004030E3 /* Giaodienlienket1ViewController.xib */; };
+		CD30A17421A84F21004030E3 /* GiaodientaikhoannganhangViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD30A17221A84F21004030E3 /* GiaodientaikhoannganhangViewController.m */; };
+		CD30A17521A84F21004030E3 /* GiaodientaikhoannganhangViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD30A17321A84F21004030E3 /* GiaodientaikhoannganhangViewController.xib */; };
+		CD30A17921A84F36004030E3 /* GiaodientaikhoantheViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD30A17721A84F36004030E3 /* GiaodientaikhoantheViewController.m */; };
+		CD30A17A21A84F36004030E3 /* GiaodientaikhoantheViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD30A17821A84F36004030E3 /* GiaodientaikhoantheViewController.xib */; };
+		CD30A17D21A85EF9004030E3 /* LienketViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD30A17C21A85EF9004030E3 /* LienketViewController.m */; };
 		CD45A2592190AD9B005ACD86 /* ContactScreenMultiSelect.m in Sources */ = {isa = PBXBuildFile; fileRef = CD45A24B2190AD9A005ACD86 /* ContactScreenMultiSelect.m */; };
 		CD45A25A2190AD9B005ACD86 /* ContactScreenMultiSelect.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD45A24C2190AD9A005ACD86 /* ContactScreenMultiSelect.xib */; };
 		CD45A25B2190AD9B005ACD86 /* ContactViewCellMultiSelect.m in Sources */ = {isa = PBXBuildFile; fileRef = CD45A24E2190AD9A005ACD86 /* ContactViewCellMultiSelect.m */; };
@@ -3677,6 +3684,17 @@
 		C6F83B211F4A8E1100B3526E /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		CBC7BA8F16476C3E0083E852 /* UIViewController+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Common.h"; sourceTree = "<group>"; };
 		CBC7BA9016476C3E0083E852 /* UIViewController+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Common.m"; sourceTree = "<group>"; };
+		CD30A16C21A84E48004030E3 /* Giaodienlienket1ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Giaodienlienket1ViewController.h; sourceTree = "<group>"; };
+		CD30A16D21A84E48004030E3 /* Giaodienlienket1ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Giaodienlienket1ViewController.m; sourceTree = "<group>"; };
+		CD30A16E21A84E48004030E3 /* Giaodienlienket1ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Giaodienlienket1ViewController.xib; sourceTree = "<group>"; };
+		CD30A17121A84F21004030E3 /* GiaodientaikhoannganhangViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GiaodientaikhoannganhangViewController.h; sourceTree = "<group>"; };
+		CD30A17221A84F21004030E3 /* GiaodientaikhoannganhangViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GiaodientaikhoannganhangViewController.m; sourceTree = "<group>"; };
+		CD30A17321A84F21004030E3 /* GiaodientaikhoannganhangViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GiaodientaikhoannganhangViewController.xib; sourceTree = "<group>"; };
+		CD30A17621A84F36004030E3 /* GiaodientaikhoantheViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GiaodientaikhoantheViewController.h; sourceTree = "<group>"; };
+		CD30A17721A84F36004030E3 /* GiaodientaikhoantheViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GiaodientaikhoantheViewController.m; sourceTree = "<group>"; };
+		CD30A17821A84F36004030E3 /* GiaodientaikhoantheViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GiaodientaikhoantheViewController.xib; sourceTree = "<group>"; };
+		CD30A17B21A85EF9004030E3 /* LienketViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LienketViewController.h; sourceTree = "<group>"; };
+		CD30A17C21A85EF9004030E3 /* LienketViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LienketViewController.m; sourceTree = "<group>"; };
 		CD45A24A2190AD9A005ACD86 /* ContactScreenMultiSelect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactScreenMultiSelect.h; sourceTree = "<group>"; };
 		CD45A24B2190AD9A005ACD86 /* ContactScreenMultiSelect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactScreenMultiSelect.m; sourceTree = "<group>"; };
 		CD45A24C2190AD9A005ACD86 /* ContactScreenMultiSelect.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactScreenMultiSelect.xib; sourceTree = "<group>"; };
@@ -6361,6 +6379,17 @@
 				C66B523D1DACD5F1005CFFC5 /* GiaoDienDanhSachTaiKhoanLienKet.h */,
 				C66B523E1DACD5F1005CFFC5 /* GiaoDienDanhSachTaiKhoanLienKet.m */,
 				C66B523F1DACD5F1005CFFC5 /* GiaoDienDanhSachTaiKhoanLienKet.xib */,
+				CD30A16C21A84E48004030E3 /* Giaodienlienket1ViewController.h */,
+				CD30A16D21A84E48004030E3 /* Giaodienlienket1ViewController.m */,
+				CD30A16E21A84E48004030E3 /* Giaodienlienket1ViewController.xib */,
+				CD30A17121A84F21004030E3 /* GiaodientaikhoannganhangViewController.h */,
+				CD30A17221A84F21004030E3 /* GiaodientaikhoannganhangViewController.m */,
+				CD30A17321A84F21004030E3 /* GiaodientaikhoannganhangViewController.xib */,
+				CD30A17621A84F36004030E3 /* GiaodientaikhoantheViewController.h */,
+				CD30A17721A84F36004030E3 /* GiaodientaikhoantheViewController.m */,
+				CD30A17821A84F36004030E3 /* GiaodientaikhoantheViewController.xib */,
+				CD30A17B21A85EF9004030E3 /* LienketViewController.h */,
+				CD30A17C21A85EF9004030E3 /* LienketViewController.m */,
 			);
 			name = GiaoDienLienKet;
 			sourceTree = "<group>";
@@ -7557,6 +7586,7 @@
 				0B4244D8173C963A003CB826 /* radio-unselected@2x.png in Resources */,
 				A32728D11B26E31D00DA1639 /* DanhSachDuyetGiaoDichViewController.xib in Resources */,
 				A38479921ADE669D00DCF2B6 /* icon_menu.png in Resources */,
+				CD30A17A21A84F36004030E3 /* GiaodientaikhoantheViewController.xib in Resources */,
 				C664B07A1D125C60003B9976 /* phong3_ThuDuc.txt in Resources */,
 				8577B13318AF1576007B72A5 /* bar_logout_icon.png in Resources */,
 				0BB65C47174620F400E2A32C /* gioi-thieu-icon.png in Resources */,
@@ -7611,6 +7641,7 @@
 				CD45A25E2190AD9B005ACD86 /* CustomNavigationTitleView.xib in Resources */,
 				C66C81A41D3654F80008A594 /* huongdan5.png in Resources */,
 				3EF0700A196D8B0F00E03DA4 /* DucNT_ViewHienThiToken.xib in Resources */,
+				CD30A17021A84E48004030E3 /* Giaodienlienket1ViewController.xib in Resources */,
 				C6405FB31E71123100BABF05 /* phong4_RapchieuphimQG.txt in Resources */,
 				C661B1E21C911DC4003821BE /* hd_chuyen_tien_tan_nha.html in Resources */,
 				0BCC8EEB17471C4400C47970 /* ngon-ngu-tick@2x.png in Resources */,
@@ -7873,6 +7904,7 @@
 				A3A463D01B42AFEB00C95810 /* ViewChiTietMotGiaoDichTheoLo.xib in Resources */,
 				85FF5FD718405CD40053B644 /* VSelectItemView.xib in Resources */,
 				C664B0E61D125C60003B9976 /* phong8_PandoraCity.txt in Resources */,
+				CD30A17521A84F21004030E3 /* GiaodientaikhoannganhangViewController.xib in Resources */,
 				A38479811ADE669D00DCF2B6 /* icon-saoke-64x64.png in Resources */,
 				0B4FBDF1219F184C00010A70 /* CBA-NH.png in Resources */,
 				3EED3CDC197FA82300A6A872 /* DucNT_ViewOTPConfirm.xib in Resources */,
@@ -8497,6 +8529,7 @@
 				1893435119ECE1EE009E91F2 /* DoiTuongNotification.m in Sources */,
 				A349CF531B4F6E60000CBC30 /* DoiTuongChiTietGiaoDichGuiTietKiem.m in Sources */,
 				850D7CAF1678592900A54A3F /* KazeCheckBox.m in Sources */,
+				CD30A17921A84F36004030E3 /* GiaodientaikhoantheViewController.m in Sources */,
 				C636DE98219E7DA0000B85D0 /* HanMucMoiViewController.m in Sources */,
 				C64520F81BE326E100E8091C /* ItemChinhFlowLayout.m in Sources */,
 				8595B07D18225A0500EB7F3C /* UniCoreData.m in Sources */,
@@ -8623,6 +8656,7 @@
 				0B5F6858216EE30300A0B15A /* ItemListCell.m in Sources */,
 				C65680971BF59EAD00D422EC /* DoiTuongChiTietGiaoDichInternet.m in Sources */,
 				A385E6341B3947720088C3CB /* ChuyenTienDenViMomoViewController.m in Sources */,
+				CD30A17D21A85EF9004030E3 /* LienketViewController.m in Sources */,
 				859788371882E53600E3BFE1 /* LoadingTitleView.m in Sources */,
 				0B19751B1738FD58008AFBFF /* HOTP.m in Sources */,
 				A39D394A1B297892006861BB /* DoiTuongChiTietGiaoDich.m in Sources */,
@@ -8702,6 +8736,7 @@
 				C6CF89E61CACE65100750A1C /* GiaoDienTraCuuTienVay.m in Sources */,
 				C6595E281C3BC221006E95D1 /* ItemSanBay.m in Sources */,
 				CDE68182219333B20030226D /* SotaydienthoaiDialogViewController.m in Sources */,
+				CD30A17421A84F21004030E3 /* GiaodientaikhoannganhangViewController.m in Sources */,
 				C66368E01D78398900DC3C54 /* GiaoDienHuongDanDangNhap.m in Sources */,
 				3EDD8D7F196B899F00E21326 /* DucNT_DangKyToken.m in Sources */,
 				182026461AD53DA700E4C960 /* TraCuuTienDienViewController.m in Sources */,
@@ -8738,6 +8773,7 @@
 				C66245951C22B72E00A7A0BE /* WebViewJavascriptBridge.m in Sources */,
 				1829573A1AC1740900177988 /* ThanhToanDienThoaiKhacViewController.m in Sources */,
 				C66245971C22B72E00A7A0BE /* WKWebViewJavascriptBridge.m in Sources */,
+				CD30A16F21A84E48004030E3 /* Giaodienlienket1ViewController.m in Sources */,
 				188CCAC81A8B6B4F00163D9D /* GioiHanGiaoDich.m in Sources */,
 				FF1908F717B09A3A0097CEDF /* UIView+Autosize.m in Sources */,
 				3E0FA9681981113C0041A596 /* DucNT_TaiKhoanThuongDungObject.m in Sources */,
