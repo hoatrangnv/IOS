@@ -123,13 +123,13 @@
 {
     [super viewDidAppear:animated];
     [self.view endEditing:YES];
-    [self khoiTaoQuangCao];
-    if(![CommonUtils isEmptyOrNull:self.mThongTinTaiKhoanVi.pki3] && [self.mThongTinTaiKhoanVi.hanMucPki3 doubleValue] >0 ){
-        self.mbtnPKI.hidden = NO;
-    }
-    else{
-        self.mbtnPKI.hidden = YES;
-    }
+//    [self khoiTaoQuangCao];
+//    if(![CommonUtils isEmptyOrNull:self.mThongTinTaiKhoanVi.pki3] && [self.mThongTinTaiKhoanVi.hanMucPki3 doubleValue] >0 ){
+//        self.mbtnPKI.hidden = NO;
+//    }
+//    else{
+//        self.mbtnPKI.hidden = YES;
+//    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated{

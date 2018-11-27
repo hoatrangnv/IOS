@@ -132,7 +132,7 @@
 //
 //    });
     
-    [self khoiTaoQuangCao];
+//    [self khoiTaoQuangCao];
     
     SDImageCache *imageCache = [SDImageCache sharedImageCache];
     [imageCache removeImageForKey:self.mThongTinTaiKhoanVi.linkQR fromDisk:YES withCompletion:^{

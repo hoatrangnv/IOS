@@ -17,7 +17,6 @@
                 <outlet property="btnVanTayMini" destination="Reu-xj-lyc" id="hr0-dd-FrF"/>
                 <outlet property="edSoTien" destination="Pgs-DU-E9P" id="fbX-7Y-EcL"/>
                 <outlet property="edViNhan" destination="mdo-Wl-8VJ" id="tqK-rR-IXR"/>
-                <outlet property="heightViewMain" destination="nNc-Rc-nzw" id="ao9-FT-FM3"/>
                 <outlet property="heightViewNhapXacThuc" destination="NKw-1b-fev" id="mZV-Ls-h8y"/>
                 <outlet property="lblPhi" destination="iXj-Al-6jO" id="xAc-IV-hVn"/>
                 <outlet property="mViewMain" destination="iOH-bX-ZXK" id="yOa-Aj-xFQ"/>
@@ -46,7 +45,7 @@
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iOH-bX-ZXK">
-                            <rect key="frame" x="5" y="5" width="279" height="278"/>
+                            <rect key="frame" x="5" y="5" width="279" height="275"/>
                             <subviews>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Số tiền" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pgs-DU-E9P" customClass="ExTextField">
                                     <rect key="frame" x="5" y="97" width="174" height="35"/>
@@ -249,7 +248,7 @@
                                 <constraint firstAttribute="trailing" secondItem="YKC-ic-oBy" secondAttribute="trailing" constant="1" id="ePn-vh-iMk"/>
                                 <constraint firstItem="mdo-Wl-8VJ" firstAttribute="top" secondItem="Wrh-JH-hyb" secondAttribute="bottom" constant="8" id="gTX-ev-E2q"/>
                                 <constraint firstItem="Pgs-DU-E9P" firstAttribute="leading" secondItem="iOH-bX-ZXK" secondAttribute="leading" constant="5" id="lZA-lw-6oJ"/>
-                                <constraint firstAttribute="height" constant="278" id="nNc-Rc-nzw"/>
+                                <constraint firstAttribute="bottom" secondItem="szw-K9-7tQ" secondAttribute="bottom" constant="12" id="shF-d5-EVk"/>
                                 <constraint firstAttribute="trailing" secondItem="szw-K9-7tQ" secondAttribute="trailing" id="tZw-E3-Kcw"/>
                                 <constraint firstAttribute="trailing" secondItem="iXj-Al-6jO" secondAttribute="trailing" constant="5" id="vJy-Uh-YiT"/>
                                 <constraint firstItem="Wrh-JH-hyb" firstAttribute="top" secondItem="iOH-bX-ZXK" secondAttribute="top" constant="3" id="xJk-SI-Mqn"/>

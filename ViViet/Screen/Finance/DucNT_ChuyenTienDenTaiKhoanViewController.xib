@@ -21,8 +21,10 @@
                 <outlet property="edtSoTaiKhoan" destination="KZZ-uT-JCy" id="hWz-nw-6JS"/>
                 <outlet property="edtSoTien" destination="hcK-fn-ha6" id="6fZ-b3-1JV"/>
                 <outlet property="edtTenChuTaiKhoan" destination="LrW-wj-dda" id="77l-py-HEd"/>
-                <outlet property="heightViewMain" destination="4aM-eP-X7H" id="vdL-MR-8vz"/>
+                <outlet property="heightChiNhanh" destination="7t7-lM-UQ6" id="Rfg-wF-koK"/>
+                <outlet property="heightChiNhanhKhac" destination="vde-nB-i8L" id="EPM-PS-irg"/>
                 <outlet property="heightViewNhapXacThuc" destination="0XI-yk-jGx" id="3D7-sM-JAp"/>
+                <outlet property="heightViewThongTin" destination="X0s-yl-0Pc" id="tTT-4e-V0D"/>
                 <outlet property="imgTabTop" destination="2aD-mM-zdK" id="tWD-AL-LTI"/>
                 <outlet property="mScrv" destination="q1d-Sy-pla" id="Kgn-wv-S5z"/>
                 <outlet property="mViewMain" destination="lww-6v-KOH" id="MAA-WT-L6u"/>
@@ -34,10 +36,14 @@
                 <outlet property="mlblSoDu" destination="12t-pV-mA5" id="FxK-co-Dof"/>
                 <outlet property="mlblSoDuKhuyenMai" destination="9ss-9R-Lh8" id="Ya4-IG-B9m"/>
                 <outlet property="mswtKhuyenMai" destination="tZa-r7-ODE" id="frc-6P-fNA"/>
+                <outlet property="mtfChiNhanh" destination="P7b-Lh-LNe" id="t7z-7F-uWW"/>
+                <outlet property="mtfChiNhanhKhac" destination="es9-Rq-Ixr" id="Lm4-iG-mCD"/>
                 <outlet property="mtfMatKhauToken" destination="p6b-3q-qOl" id="n9D-57-Cpm"/>
                 <outlet property="mtfNoiDug" destination="05N-1q-dtC" id="OgG-1S-TLM"/>
                 <outlet property="mtfPhiGiaoDich" destination="6Fe-r9-REl" id="21a-us-Q0H"/>
                 <outlet property="scrMain" destination="q1d-Sy-pla" id="rGe-jT-SUe"/>
+                <outlet property="topChiNhanhKhac" destination="tF1-lQ-C0Z" id="Cfp-U7-CqP"/>
+                <outlet property="topSpaceTenChuTaiKhoan" destination="M7c-vz-bJ2" id="5Sh-te-5sC"/>
                 <outlet property="tvNoiDung" destination="6P7-wC-sqF" id="oCc-5X-WP7"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="viewButtonOption" destination="mNy-2u-DRT" id="1dV-Lk-gph"/>
@@ -61,7 +67,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="320" height="540"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lww-6v-KOH">
-                                    <rect key="frame" x="8" y="5" width="304" height="440"/>
+                                    <rect key="frame" x="8" y="5" width="304" height="445"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cdX-sa-Zcj" userLabel="ViewSoDuVaKhuyenMai">
                                             <rect key="frame" x="0.0" y="0.0" width="304" height="40"/>
@@ -92,10 +98,18 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PUz-5T-WXi" userLabel="ViewThongTin">
                                             <rect key="frame" x="0.0" y="48" width="304" height="254"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Tên chủ tài khoản" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LrW-wj-dda" customClass="ExTextField">
-                                                    <rect key="frame" x="8" y="43" width="288" height="35"/>
+                                                <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Tên chủ tài khoản" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P7b-Lh-LNe" customClass="ExTextField">
+                                                    <rect key="frame" x="8" y="43" width="288" height="0.0"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="35" id="VdX-SE-W6c"/>
+                                                        <constraint firstAttribute="height" id="7t7-lM-UQ6"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                </textField>
+                                                <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Tên chi nhánh" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="es9-Rq-Ixr" customClass="ExTextField">
+                                                    <rect key="frame" x="8" y="43" width="288" height="0.0"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" id="vde-nB-i8L"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" returnKeyType="next"/>
@@ -172,13 +186,21 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                                 </textField>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Tên chủ tài khoản" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LrW-wj-dda" customClass="ExTextField">
+                                                    <rect key="frame" x="8" y="43" width="288" height="35"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="35" id="VdX-SE-W6c"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                </textField>
                                             </subviews>
                                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstItem="05N-1q-dtC" firstAttribute="height" secondItem="6P7-wC-sqF" secondAttribute="height" id="FfD-ks-iH3"/>
                                                 <constraint firstItem="sNW-Hb-Zhu" firstAttribute="centerY" secondItem="1N7-QL-R5V" secondAttribute="centerY" id="G0X-o5-Hin"/>
                                                 <constraint firstAttribute="trailing" secondItem="05N-1q-dtC" secondAttribute="trailing" constant="8" id="I7n-bD-QFX"/>
-                                                <constraint firstItem="LrW-wj-dda" firstAttribute="top" secondItem="1N7-QL-R5V" secondAttribute="bottom" constant="8" id="LtR-8p-c29"/>
+                                                <constraint firstItem="LrW-wj-dda" firstAttribute="top" secondItem="es9-Rq-Ixr" secondAttribute="bottom" id="M7c-vz-bJ2"/>
                                                 <constraint firstItem="LrW-wj-dda" firstAttribute="leading" secondItem="PUz-5T-WXi" secondAttribute="leading" constant="8" id="Ol3-L1-GYt"/>
                                                 <constraint firstItem="6Fe-r9-REl" firstAttribute="top" secondItem="KZZ-uT-JCy" secondAttribute="bottom" constant="8" id="Ptm-gS-WZv"/>
                                                 <constraint firstAttribute="trailing" secondItem="KZZ-uT-JCy" secondAttribute="trailing" constant="8" id="Py3-WH-Vxt"/>
@@ -187,7 +209,10 @@
                                                 <constraint firstAttribute="trailing" secondItem="6P7-wC-sqF" secondAttribute="trailing" constant="8" id="UWk-It-fqB"/>
                                                 <constraint firstItem="05N-1q-dtC" firstAttribute="leading" secondItem="PUz-5T-WXi" secondAttribute="leading" constant="8" id="WvW-iB-ef2"/>
                                                 <constraint firstAttribute="height" constant="254" id="X0s-yl-0Pc"/>
+                                                <constraint firstAttribute="trailing" secondItem="P7b-Lh-LNe" secondAttribute="trailing" constant="8" id="Zv5-4v-U0Y"/>
                                                 <constraint firstItem="Ku9-2b-3dy" firstAttribute="leading" secondItem="hcK-fn-ha6" secondAttribute="trailing" constant="5" id="aGl-Ca-XD6"/>
+                                                <constraint firstItem="P7b-Lh-LNe" firstAttribute="leading" secondItem="PUz-5T-WXi" secondAttribute="leading" constant="8" id="bQR-zR-pjW"/>
+                                                <constraint firstItem="es9-Rq-Ixr" firstAttribute="leading" secondItem="PUz-5T-WXi" secondAttribute="leading" constant="8" id="d0x-tE-Wb2"/>
                                                 <constraint firstItem="sNW-Hb-Zhu" firstAttribute="leading" secondItem="1N7-QL-R5V" secondAttribute="trailing" constant="5" id="em4-0x-vmD"/>
                                                 <constraint firstItem="1N7-QL-R5V" firstAttribute="top" secondItem="PUz-5T-WXi" secondAttribute="top" id="gfM-Gu-HEH"/>
                                                 <constraint firstItem="KZZ-uT-JCy" firstAttribute="top" secondItem="LrW-wj-dda" secondAttribute="bottom" constant="8" id="gnp-gr-TDh"/>
@@ -196,11 +221,14 @@
                                                 <constraint firstItem="6P7-wC-sqF" firstAttribute="top" secondItem="hcK-fn-ha6" secondAttribute="bottom" constant="8" id="ngH-jn-bUP"/>
                                                 <constraint firstItem="6P7-wC-sqF" firstAttribute="leading" secondItem="PUz-5T-WXi" secondAttribute="leading" constant="8" id="o9b-j0-jXY"/>
                                                 <constraint firstAttribute="trailing" secondItem="sNW-Hb-Zhu" secondAttribute="trailing" constant="8" id="oJg-9K-0ff"/>
+                                                <constraint firstAttribute="trailing" secondItem="es9-Rq-Ixr" secondAttribute="trailing" constant="8" id="ofK-6M-FrI"/>
                                                 <constraint firstItem="6Fe-r9-REl" firstAttribute="leading" secondItem="Ku9-2b-3dy" secondAttribute="trailing" constant="6" id="paE-oQ-yIu"/>
                                                 <constraint firstItem="hcK-fn-ha6" firstAttribute="leading" secondItem="PUz-5T-WXi" secondAttribute="leading" constant="8" id="qSb-Ei-6eg"/>
+                                                <constraint firstItem="es9-Rq-Ixr" firstAttribute="top" secondItem="P7b-Lh-LNe" secondAttribute="bottom" id="tF1-lQ-C0Z"/>
                                                 <constraint firstItem="1N7-QL-R5V" firstAttribute="leading" secondItem="PUz-5T-WXi" secondAttribute="leading" constant="8" id="uO7-5x-b4G"/>
                                                 <constraint firstItem="Ku9-2b-3dy" firstAttribute="centerY" secondItem="6Fe-r9-REl" secondAttribute="centerY" id="wW9-e3-jcv"/>
                                                 <constraint firstAttribute="trailing" secondItem="LrW-wj-dda" secondAttribute="trailing" constant="8" id="yZ3-0b-kf9"/>
+                                                <constraint firstItem="P7b-Lh-LNe" firstAttribute="top" secondItem="1N7-QL-R5V" secondAttribute="bottom" constant="8" id="ycd-Vg-bCZ"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mNy-2u-DRT" userLabel="ViewThoiGianConLai">
@@ -277,7 +305,6 @@
                                     </subviews>
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="440" id="4aM-eP-X7H"/>
                                         <constraint firstAttribute="trailing" secondItem="mNy-2u-DRT" secondAttribute="trailing" id="Cho-KF-RvZ"/>
                                         <constraint firstItem="PUz-5T-WXi" firstAttribute="leading" secondItem="lww-6v-KOH" secondAttribute="leading" id="MdM-e7-Klv"/>
                                         <constraint firstItem="mNy-2u-DRT" firstAttribute="leading" secondItem="lww-6v-KOH" secondAttribute="leading" id="PR2-1C-wD4"/>
@@ -289,6 +316,7 @@
                                         <constraint firstItem="2Cv-9x-eIU" firstAttribute="leading" secondItem="lww-6v-KOH" secondAttribute="leading" id="fgt-dO-fLQ"/>
                                         <constraint firstAttribute="trailing" secondItem="2Cv-9x-eIU" secondAttribute="trailing" id="hlu-RD-SBE"/>
                                         <constraint firstItem="mNy-2u-DRT" firstAttribute="top" secondItem="PUz-5T-WXi" secondAttribute="bottom" constant="8" id="lo4-W4-FX0"/>
+                                        <constraint firstAttribute="bottom" secondItem="2Cv-9x-eIU" secondAttribute="bottom" constant="12" id="pTh-c5-vac"/>
                                         <constraint firstAttribute="trailing" secondItem="PUz-5T-WXi" secondAttribute="trailing" id="prP-bM-qM0"/>
                                     </constraints>
                                 </view>

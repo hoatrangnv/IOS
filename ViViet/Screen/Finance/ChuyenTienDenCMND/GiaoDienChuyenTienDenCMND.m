@@ -56,6 +56,7 @@
     [self themButtonHuongDanSuDung:@selector(suKienBamNutHuongDanCMND:)];
 
     [self khoiTaoBanDau];
+    
 }
 
 - (void)khoiTaoQuangCao {
@@ -98,7 +99,9 @@
     [super viewDidAppear:animated];
     [self.rfNoiDung resignFirstResponder];
     [self.tvNoiDung resignFirstResponder];
-    [self khoiTaoQuangCao];
+    [self.scrMain setContentSize:CGSizeMake(_scrMain.frame.size.width, self.mViewMain.frame.origin.y + self.heightViewMain.constant + 20)];
+    
+//    [self khoiTaoQuangCao];
 //    CGRect rectMain = self.mViewMain.frame;
 //    CGRect rectVanTay = self.mbtnVanTay.frame;
 //    [self.viewOptionTop setHidden:YES];
@@ -563,6 +566,7 @@
 }
 
 - (BOOL)validateVanTay {
+    return YES;
     if (![[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_STATE] boolValue]) {
         DucNT_LoginSceen *loginSceen = [[DucNT_LoginSceen alloc] initWithNibName:@"DucNT_LoginSceen" bundle:nil];
         [self presentViewController:loginSceen animated:YES completion:^{}];

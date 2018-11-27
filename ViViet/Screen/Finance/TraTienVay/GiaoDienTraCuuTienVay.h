@@ -19,6 +19,11 @@
 @property (retain, nonatomic) IBOutlet ExTextField *edHoTen;
 @property (retain, nonatomic) IBOutlet ExTextField *edSoTien;
 @property (retain, nonatomic) IBOutlet TPKeyboardAvoidAcessory *scrMain;
+@property (retain, nonatomic) IBOutlet NSLayoutConstraint *heightViewMain;
+@property (retain, nonatomic) IBOutlet NSLayoutConstraint *heightCmndFE;
+@property (retain, nonatomic) IBOutlet NSLayoutConstraint *topBtnTraCuu;
+@property (retain, nonatomic) IBOutlet NSLayoutConstraint *topViewThanhToan;
+@property (retain, nonatomic) IBOutlet NSLayoutConstraint *heightViewThanhToan;
 
 @property (nonatomic, retain) NSString *sIdShow;
 

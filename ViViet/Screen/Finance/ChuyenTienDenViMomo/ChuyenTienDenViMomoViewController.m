@@ -107,6 +107,7 @@
 }
 
 - (void)xuLyChonVi {
+    NSLog(@"%s - nRowNhaMay : %d", __FUNCTION__, nRowNhaMay);
     _edChonVi.text = [self layTenNhaMayNuoc:nRowNhaMay];
     if (nRowNhaMay != 2 && nRowNhaMay != 4 && nRowNhaMay != 6) {
         _tfNoiDung.hidden = NO;
@@ -131,8 +132,8 @@
         _mtvNoiDung.hidden = YES;
         _tfNoiDung.text = @"";
         _mtvNoiDung.text = @"";
-        self.heightNoiDung.constant = 0.0;
         self.heightViewMain.constant -= self.heightNoiDung.constant;
+        self.heightNoiDung.constant = 0.0;
     }
 }
 
@@ -147,7 +148,7 @@
     nRowNhaMay = self.nType;
     [self xuLyChonVi];
     
-    [self khoiTaoQuangCao];
+//    [self khoiTaoQuangCao];
 //    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1.5 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
 //
 //    });

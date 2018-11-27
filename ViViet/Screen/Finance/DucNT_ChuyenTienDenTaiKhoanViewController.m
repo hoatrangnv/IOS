@@ -28,8 +28,7 @@
     DucNT_ViewPicker *mViewPickerNganHang;
     int mViTriNganHangDuocChon;
     IBOutlet TPKeyboardAvoidAcessory *mScrv;
-    ExTextField *mtfChiNhanh;
-    ExTextField *mtfChiNhanhKhac;
+//    ExTextField *mtfChiNhanhKhac;
     NSMutableArray *arrChiNhanhBank;
     ViewQuangCao *viewQC;
 }
@@ -156,13 +155,13 @@
     [super viewDidAppear:animated];
     [self.view endEditing:YES];
     [mScrv setContentOffset:CGPointMake(0, 0) animated:NO];
-    [self khoiTaoQuangCao];
-    if(![CommonUtils isEmptyOrNull:self.mThongTinTaiKhoanVi.pki3] && [self.mThongTinTaiKhoanVi.hanMucPki3 doubleValue] >0 ){
-        self.mbtnPKI.hidden = NO;
-    }
-    else{
-        self.mbtnPKI.hidden = YES;
-    }
+//    [self khoiTaoQuangCao];
+//    if(![CommonUtils isEmptyOrNull:self.mThongTinTaiKhoanVi.pki3] && [self.mThongTinTaiKhoanVi.hanMucPki3 doubleValue] >0 ){
+//        self.mbtnPKI.hidden = NO;
+//    }
+//    else{
+//        self.mbtnPKI.hidden = YES;
+//    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
@@ -344,18 +343,16 @@
     }
     DucNT_ViewPicker *brankPicker = [[DucNT_ViewPicker alloc] initWithNib];
     [brankPicker khoiTaoDuLieu:arrTemp];
-    mtfChiNhanh.inputView = brankPicker;
+    _mtfChiNhanh.inputView = brankPicker;
     [brankPicker capNhatKetQuaLuaChon:^(int nIndex) {
-        [mtfChiNhanh resignFirstResponder];
+        [_mtfChiNhanh resignFirstResponder];
         if (nIndex > -1) {
             NSString *sBranch = [arrTemp objectAtIndex:nIndex];
-            [mtfChiNhanh setText:sBranch];
+            [_mtfChiNhanh setText:sBranch];
             if (nIndex != [arrTemp count] - 1) {
                 [self hienThiGiaoDienTruChiNhanhKhac];
             }
             else{
-//                mtfChiNhanh.inputView = nil;
-//                [mtfChiNhanh becomeFirstResponder];
                 [self hienThiGiaoDienThemChiNhanhKhac];
             }
         }
@@ -365,254 +362,278 @@
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField{
-    if ([textField isEqual:mtfChiNhanh]) {
-        if (mtfChiNhanh.text.length == 0) {
+    if ([textField isEqual:_mtfChiNhanh]) {
+        if (_mtfChiNhanh.text.length == 0) {
             [self khoiTaoPickerChiNhanhNganHang];
         }
     }
 }
 
 - (void)hienThiGiaoDienThemChiNhanh{
-    if (!mtfChiNhanh) {
-        mtfChiNhanh = [[ExTextField alloc] initWithFrame:CGRectMake(10, 44, 282, 35)];
-        [self addRightButtonForPicker:mtfChiNhanh];
-//        [mtfChiNhanh setDelegate:self];
-    }
-    if (!mtfChiNhanhKhac) {
-        mtfChiNhanhKhac = [[ExTextField alloc] initWithFrame:CGRectMake(10, 87, 282, 35)];
-    }
+//    if (!mtfChiNhanh) {
+//        mtfChiNhanh = [[ExTextField alloc] initWithFrame:CGRectMake(10, 44, 282, 35)];
+//
+////        [mtfChiNhanh setDelegate:self];
+//    }
+    self.mtfChiNhanh.hidden = NO;
+    [self addRightButtonForPicker:_mtfChiNhanh];
     [self khoiTaoPickerChiNhanhNganHang];
-    [mtfChiNhanh setPlaceholder:@"Chọn chi nhánh"];
-    
-    [self.viewThongTin addSubview:mtfChiNhanh];
+    [_mtfChiNhanh setPlaceholder:@"Chọn chi nhánh"];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.heightChiNhanh.constant = 35.0;
+        self.heightViewThongTin.constant += self.heightChiNhanh.constant;
+        self.topSpaceTenChuTaiKhoan.constant = 8.0;
+    });
+//    [self.viewThongTin addSubview:mtfChiNhanh];
 
-    CGPoint point1 = self.edtTenChuTaiKhoan.frame.origin;
-    CGSize size1 = self.edtTenChuTaiKhoan.frame.size;
-    int nPixelThem = 8;
-    [self.edtTenChuTaiKhoan setFrame:CGRectMake(point1.x, point1.y + size1.height + nPixelThem, size1.width, size1.height)];
-    
-    CGPoint point2 = self.edtSoTaiKhoan.frame.origin;
-    CGSize size2 = self.edtSoTaiKhoan.frame.size;
-    [self.edtSoTaiKhoan setFrame:CGRectMake(point2.x, point2.y + size2.height + nPixelThem, size2.width, size2.height)];
-    
-    CGPoint point3 = self.edtSoTien.frame.origin;
-    CGSize size3 = self.edtSoTien.frame.size;
-    [self.edtSoTien setFrame:CGRectMake(point3.x, point3.y + size3.height + nPixelThem, size3.width, size3.height)];
-    
-    CGPoint point5 = self.mlblPhi.frame.origin;
-    CGSize size5 = self.mlblPhi.frame.size;
-    [self.mlblPhi setFrame:CGRectMake(point5.x, point5.y + size5.height + nPixelThem, size5.width, size5.height)];
-    
-    CGPoint point51 = self.mtfPhiGiaoDich.frame.origin;
-    CGSize size51 = self.mtfPhiGiaoDich.frame.size;
-    [self.mtfPhiGiaoDich setFrame:CGRectMake(point51.x, point51.y + size51.height + nPixelThem, size51.width, size51.height)];
-    
-    CGPoint point4 = self.tvNoiDung.frame.origin;
-    CGSize size4 = self.tvNoiDung.frame.size;
-    [self.tvNoiDung setFrame:CGRectMake(point4.x, point4.y + size1.height + nPixelThem, size4.width, size4.height)];
-    
-    [self.mtfNoiDug setFrame:CGRectMake(point4.x, self.tvNoiDung.frame.origin.y, size4.width, size4.height)];
-    
-    CGPoint point6 = self.viewButtonOption.frame.origin;
-    CGSize size6 = self.viewButtonOption.frame.size;
-    [self.viewButtonOption setFrame:CGRectMake(point6.x, point6.y + size6.height + nPixelThem, size6.width, size6.height)];
-    
-    CGPoint point7 = self.viewToken.frame.origin;
-    CGSize size7 = self.viewToken.frame.size;
-    [self.viewToken setFrame:CGRectMake(point7.x, point7.y + size7.height + nPixelThem, size7.width, size7.height)];
-
-    CGPoint point17 = viewQC.frame.origin;
-    CGSize size17 = viewQC.frame.size;
-    [viewQC setFrame:CGRectMake(point17.x, self.viewToken.frame.origin.y + self.viewToken.frame.size.height + 60, size17.width, size17.height)];
-
-    CGPoint point8 = self.viewThongTin.frame.origin;
-    CGSize size8 = self.viewThongTin.frame.size;
-    [self.viewThongTin setFrame:CGRectMake(point8.x, point8.y, size8.width, size8.height + size1.height + nPixelThem)];
-    
-    CGPoint point9 = self.mViewMain.frame.origin;
-    CGSize size9 = self.mViewMain.frame.size;
-    [self.mViewMain setFrame:CGRectMake(point9.x, point9.y, size9.width, size9.height + size1.height + nPixelThem)];
-    
-    CGPoint point10 = self.mbtnVanTay.frame.origin;
-    CGSize size10 = self.mbtnVanTay.frame.size;
-    [self.mbtnVanTay setFrame:CGRectMake(point10.x, point10.y + size1.height + nPixelThem, size10.width, size10.height)];
-
-    [self.scrMain setContentSize:CGSizeMake(_scrMain.frame.size.width, viewQC.frame.origin.y + viewQC.frame.size.height + self.viewOptionTop.frame.origin.y + self.viewOptionTop.frame.size.height + 10)];
+//    CGPoint point1 = self.edtTenChuTaiKhoan.frame.origin;
+//    CGSize size1 = self.edtTenChuTaiKhoan.frame.size;
+//    int nPixelThem = 8;
+//    [self.edtTenChuTaiKhoan setFrame:CGRectMake(point1.x, point1.y + size1.height + nPixelThem, size1.width, size1.height)];
+//
+//    CGPoint point2 = self.edtSoTaiKhoan.frame.origin;
+//    CGSize size2 = self.edtSoTaiKhoan.frame.size;
+//    [self.edtSoTaiKhoan setFrame:CGRectMake(point2.x, point2.y + size2.height + nPixelThem, size2.width, size2.height)];
+//
+//    CGPoint point3 = self.edtSoTien.frame.origin;
+//    CGSize size3 = self.edtSoTien.frame.size;
+//    [self.edtSoTien setFrame:CGRectMake(point3.x, point3.y + size3.height + nPixelThem, size3.width, size3.height)];
+//
+//    CGPoint point5 = self.mlblPhi.frame.origin;
+//    CGSize size5 = self.mlblPhi.frame.size;
+//    [self.mlblPhi setFrame:CGRectMake(point5.x, point5.y + size5.height + nPixelThem, size5.width, size5.height)];
+//
+//    CGPoint point51 = self.mtfPhiGiaoDich.frame.origin;
+//    CGSize size51 = self.mtfPhiGiaoDich.frame.size;
+//    [self.mtfPhiGiaoDich setFrame:CGRectMake(point51.x, point51.y + size51.height + nPixelThem, size51.width, size51.height)];
+//
+//    CGPoint point4 = self.tvNoiDung.frame.origin;
+//    CGSize size4 = self.tvNoiDung.frame.size;
+//    [self.tvNoiDung setFrame:CGRectMake(point4.x, point4.y + size1.height + nPixelThem, size4.width, size4.height)];
+//
+//    [self.mtfNoiDug setFrame:CGRectMake(point4.x, self.tvNoiDung.frame.origin.y, size4.width, size4.height)];
+//
+//    CGPoint point6 = self.viewButtonOption.frame.origin;
+//    CGSize size6 = self.viewButtonOption.frame.size;
+//    [self.viewButtonOption setFrame:CGRectMake(point6.x, point6.y + size6.height + nPixelThem, size6.width, size6.height)];
+//
+//    CGPoint point7 = self.viewToken.frame.origin;
+//    CGSize size7 = self.viewToken.frame.size;
+//    [self.viewToken setFrame:CGRectMake(point7.x, point7.y + size7.height + nPixelThem, size7.width, size7.height)];
+//
+//    CGPoint point17 = viewQC.frame.origin;
+//    CGSize size17 = viewQC.frame.size;
+//    [viewQC setFrame:CGRectMake(point17.x, self.viewToken.frame.origin.y + self.viewToken.frame.size.height + 60, size17.width, size17.height)];
+//
+//    CGPoint point8 = self.viewThongTin.frame.origin;
+//    CGSize size8 = self.viewThongTin.frame.size;
+//    [self.viewThongTin setFrame:CGRectMake(point8.x, point8.y, size8.width, size8.height + size1.height + nPixelThem)];
+//
+//    CGPoint point9 = self.mViewMain.frame.origin;
+//    CGSize size9 = self.mViewMain.frame.size;
+//    [self.mViewMain setFrame:CGRectMake(point9.x, point9.y, size9.width, size9.height + size1.height + nPixelThem)];
+//
+//    CGPoint point10 = self.mbtnVanTay.frame.origin;
+//    CGSize size10 = self.mbtnVanTay.frame.size;
+//    [self.mbtnVanTay setFrame:CGRectMake(point10.x, point10.y + size1.height + nPixelThem, size10.width, size10.height)];
+//
+//    [self.scrMain setContentSize:CGSizeMake(_scrMain.frame.size.width, viewQC.frame.origin.y + viewQC.frame.size.height + self.viewOptionTop.frame.origin.y + self.viewOptionTop.frame.size.height + 10)];
 }
 
 - (void)hienThiGiaoDienTruChiNhanh{
-    if (!mtfChiNhanh) {
-        return;
-    }
-    [mtfChiNhanh removeFromSuperview];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.heightViewThongTin.constant -= self.heightChiNhanh.constant;
+        self.heightChiNhanh.constant = 0;
+        self.mtfChiNhanh.hidden = YES;
+        self.topSpaceTenChuTaiKhoan.constant = 0;
+    });
     
-    CGPoint point1 = self.edtTenChuTaiKhoan.frame.origin;
-    CGSize size1 = self.edtTenChuTaiKhoan.frame.size;
-    int nPixelThem = 8;
-    [self.edtTenChuTaiKhoan setFrame:CGRectMake(point1.x, point1.y - size1.height - nPixelThem, size1.width, size1.height)];
-    
-    CGPoint point2 = self.edtSoTaiKhoan.frame.origin;
-    CGSize size2 = self.edtSoTaiKhoan.frame.size;
-    [self.edtSoTaiKhoan setFrame:CGRectMake(point2.x, point2.y - size2.height - nPixelThem, size2.width, size2.height)];
-    
-    CGPoint point3 = self.edtSoTien.frame.origin;
-    CGSize size3 = self.edtSoTien.frame.size;
-    [self.edtSoTien setFrame:CGRectMake(point3.x, point3.y - size3.height - nPixelThem, size3.width, size3.height)];
-    
-    CGPoint point5 = self.mlblPhi.frame.origin;
-    CGSize size5 = self.mlblPhi.frame.size;
-    [self.mlblPhi setFrame:CGRectMake(point5.x, point5.y - size5.height - nPixelThem, size5.width, size5.height)];
-    
-    CGPoint point51 = self.mtfPhiGiaoDich.frame.origin;
-    CGSize size51 = self.mtfPhiGiaoDich.frame.size;
-    [self.mtfPhiGiaoDich setFrame:CGRectMake(point51.x, point51.y - size51.height - nPixelThem, size51.width, size51.height)];
-    
-    CGPoint point4 = self.tvNoiDung.frame.origin;
-    CGSize size4 = self.tvNoiDung.frame.size;
-    [self.tvNoiDung setFrame:CGRectMake(point4.x, point4.y - size1.height - nPixelThem, size4.width, size4.height)];
-    
-    [self.mtfNoiDug setFrame:CGRectMake(point4.x, self.tvNoiDung.frame.origin.y, size4.width, size4.height)];
-    
-    CGPoint point6 = self.viewButtonOption.frame.origin;
-    CGSize size6 = self.viewButtonOption.frame.size;
-    [self.viewButtonOption setFrame:CGRectMake(point6.x, point6.y - size6.height - nPixelThem, size6.width, size6.height)];
-    
-    CGPoint point7 = self.viewToken.frame.origin;
-    CGSize size7 = self.viewToken.frame.size;
-    [self.viewToken setFrame:CGRectMake(point7.x, point7.y - size7.height - nPixelThem, size7.width, size7.height)];
-
-    CGPoint point17 = viewQC.frame.origin;
-    CGSize size17 = viewQC.frame.size;
-    [viewQC setFrame:CGRectMake(point17.x, self.viewToken.frame.origin.y + self.viewToken.frame.size.height + 60, size17.width, size17.height)];
-
-    CGPoint point8 = self.viewThongTin.frame.origin;
-    CGSize size8 = self.viewThongTin.frame.size;
-    [self.viewThongTin setFrame:CGRectMake(point8.x, point8.y, size8.width, size8.height - size1.height - nPixelThem)];
-    
-    CGPoint point9 = self.mViewMain.frame.origin;
-    CGSize size9 = self.mViewMain.frame.size;
-    [self.mViewMain setFrame:CGRectMake(point9.x, point9.y, size9.width, size9.height - size1.height - nPixelThem)];
-    
-    CGPoint point10 = self.mbtnVanTay.frame.origin;
-    CGSize size10 = self.mbtnVanTay.frame.size;
-    [self.mbtnVanTay setFrame:CGRectMake(point10.x, point10.y - size1.height - nPixelThem, size10.width, size10.height)];
-
-    [self.scrMain setContentSize:CGSizeMake(_scrMain.frame.size.width, viewQC.frame.origin.y + viewQC.frame.size.height + self.viewOptionTop.frame.origin.y + self.viewOptionTop.frame.size.height + 10)];
+//    if (!_mtfChiNhanh) {
+//        return;
+//    }
+//    [_mtfChiNhanh removeFromSuperview];
+//
+//    CGPoint point1 = self.edtTenChuTaiKhoan.frame.origin;
+//    CGSize size1 = self.edtTenChuTaiKhoan.frame.size;
+//    int nPixelThem = 8;
+//    [self.edtTenChuTaiKhoan setFrame:CGRectMake(point1.x, point1.y - size1.height - nPixelThem, size1.width, size1.height)];
+//
+//    CGPoint point2 = self.edtSoTaiKhoan.frame.origin;
+//    CGSize size2 = self.edtSoTaiKhoan.frame.size;
+//    [self.edtSoTaiKhoan setFrame:CGRectMake(point2.x, point2.y - size2.height - nPixelThem, size2.width, size2.height)];
+//
+//    CGPoint point3 = self.edtSoTien.frame.origin;
+//    CGSize size3 = self.edtSoTien.frame.size;
+//    [self.edtSoTien setFrame:CGRectMake(point3.x, point3.y - size3.height - nPixelThem, size3.width, size3.height)];
+//
+//    CGPoint point5 = self.mlblPhi.frame.origin;
+//    CGSize size5 = self.mlblPhi.frame.size;
+//    [self.mlblPhi setFrame:CGRectMake(point5.x, point5.y - size5.height - nPixelThem, size5.width, size5.height)];
+//
+//    CGPoint point51 = self.mtfPhiGiaoDich.frame.origin;
+//    CGSize size51 = self.mtfPhiGiaoDich.frame.size;
+//    [self.mtfPhiGiaoDich setFrame:CGRectMake(point51.x, point51.y - size51.height - nPixelThem, size51.width, size51.height)];
+//
+//    CGPoint point4 = self.tvNoiDung.frame.origin;
+//    CGSize size4 = self.tvNoiDung.frame.size;
+//    [self.tvNoiDung setFrame:CGRectMake(point4.x, point4.y - size1.height - nPixelThem, size4.width, size4.height)];
+//
+//    [self.mtfNoiDug setFrame:CGRectMake(point4.x, self.tvNoiDung.frame.origin.y, size4.width, size4.height)];
+//
+//    CGPoint point6 = self.viewButtonOption.frame.origin;
+//    CGSize size6 = self.viewButtonOption.frame.size;
+//    [self.viewButtonOption setFrame:CGRectMake(point6.x, point6.y - size6.height - nPixelThem, size6.width, size6.height)];
+//
+//    CGPoint point7 = self.viewToken.frame.origin;
+//    CGSize size7 = self.viewToken.frame.size;
+//    [self.viewToken setFrame:CGRectMake(point7.x, point7.y - size7.height - nPixelThem, size7.width, size7.height)];
+//
+//    CGPoint point17 = viewQC.frame.origin;
+//    CGSize size17 = viewQC.frame.size;
+//    [viewQC setFrame:CGRectMake(point17.x, self.viewToken.frame.origin.y + self.viewToken.frame.size.height + 60, size17.width, size17.height)];
+//
+//    CGPoint point8 = self.viewThongTin.frame.origin;
+//    CGSize size8 = self.viewThongTin.frame.size;
+//    [self.viewThongTin setFrame:CGRectMake(point8.x, point8.y, size8.width, size8.height - size1.height - nPixelThem)];
+//
+//    CGPoint point9 = self.mViewMain.frame.origin;
+//    CGSize size9 = self.mViewMain.frame.size;
+//    [self.mViewMain setFrame:CGRectMake(point9.x, point9.y, size9.width, size9.height - size1.height - nPixelThem)];
+//
+//    CGPoint point10 = self.mbtnVanTay.frame.origin;
+//    CGSize size10 = self.mbtnVanTay.frame.size;
+//    [self.mbtnVanTay setFrame:CGRectMake(point10.x, point10.y - size1.height - nPixelThem, size10.width, size10.height)];
+//
+//    [self.scrMain setContentSize:CGSizeMake(_scrMain.frame.size.width, viewQC.frame.origin.y + viewQC.frame.size.height + self.viewOptionTop.frame.origin.y + self.viewOptionTop.frame.size.height + 10)];
 }
 
 - (void)hienThiGiaoDienThemChiNhanhKhac {
-    if (!mtfChiNhanhKhac) {
-        mtfChiNhanhKhac = [[ExTextField alloc] initWithFrame:CGRectMake(10, 87, 282, 35)];
-    }
-    [mtfChiNhanhKhac setPlaceholder:@"Tên chi nhánh khác"];
-    if ([self.viewThongTin.subviews containsObject:mtfChiNhanhKhac]) {
-        return;
-    }
-    [self.viewThongTin addSubview:mtfChiNhanhKhac];
-
-    CGPoint point1 = self.edtTenChuTaiKhoan.frame.origin;
-    CGSize size1 = self.edtTenChuTaiKhoan.frame.size;
-    int nPixelThem = 8;
-    [self.edtTenChuTaiKhoan setFrame:CGRectMake(point1.x, point1.y + size1.height + nPixelThem, size1.width, size1.height)];
-
-    CGPoint point2 = self.edtSoTaiKhoan.frame.origin;
-    CGSize size2 = self.edtSoTaiKhoan.frame.size;
-    [self.edtSoTaiKhoan setFrame:CGRectMake(point2.x, point2.y + size2.height + nPixelThem, size2.width, size2.height)];
-
-    CGPoint point3 = self.edtSoTien.frame.origin;
-    CGSize size3 = self.edtSoTien.frame.size;
-    [self.edtSoTien setFrame:CGRectMake(point3.x, point3.y + size3.height + nPixelThem, size3.width, size3.height)];
-
-    CGPoint point5 = self.mlblPhi.frame.origin;
-    CGSize size5 = self.mlblPhi.frame.size;
-    [self.mlblPhi setFrame:CGRectMake(point5.x, point5.y + size5.height + nPixelThem, size5.width, size5.height)];
-
-    CGPoint point51 = self.mtfPhiGiaoDich.frame.origin;
-    CGSize size51 = self.mtfPhiGiaoDich.frame.size;
-    [self.mtfPhiGiaoDich setFrame:CGRectMake(point51.x, point51.y + size51.height + nPixelThem, size51.width, size51.height)];
-
-    CGPoint point4 = self.tvNoiDung.frame.origin;
-    CGSize size4 = self.tvNoiDung.frame.size;
-    [self.tvNoiDung setFrame:CGRectMake(point4.x, point4.y + size1.height + nPixelThem, size4.width, size4.height)];
-
-    [self.mtfNoiDug setFrame:CGRectMake(point4.x, self.tvNoiDung.frame.origin.y, size4.width, size4.height)];
-
-    CGPoint point6 = self.viewButtonOption.frame.origin;
-    CGSize size6 = self.viewButtonOption.frame.size;
-    [self.viewButtonOption setFrame:CGRectMake(point6.x, point6.y + size6.height + nPixelThem, size6.width, size6.height)];
-
-    CGPoint point7 = self.viewToken.frame.origin;
-    CGSize size7 = self.viewToken.frame.size;
-    [self.viewToken setFrame:CGRectMake(point7.x, point7.y + size7.height + nPixelThem, size7.width, size7.height)];
-
-    CGPoint point8 = self.viewThongTin.frame.origin;
-    CGSize size8 = self.viewThongTin.frame.size;
-    [self.viewThongTin setFrame:CGRectMake(point8.x, point8.y, size8.width, size8.height + size1.height + nPixelThem)];
-
-    CGPoint point9 = self.mViewMain.frame.origin;
-    CGSize size9 = self.mViewMain.frame.size;
-    [self.mViewMain setFrame:CGRectMake(point9.x, point9.y, size9.width, size9.height + size1.height + nPixelThem)];
-
-    CGPoint point10 = self.mbtnVanTay.frame.origin;
-    CGSize size10 = self.mbtnVanTay.frame.size;
-    [self.mbtnVanTay setFrame:CGRectMake(point10.x, point10.y + size1.height + nPixelThem, size10.width, size10.height)];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.mtfChiNhanhKhac.hidden = NO;
+        self.topChiNhanhKhac.constant = 8;
+        self.heightChiNhanhKhac.constant = 35;
+        self.heightViewThongTin.constant += self.heightChiNhanh.constant;
+        self.topSpaceTenChuTaiKhoan.constant = 8;
+    });
+//    if (!mtfChiNhanhKhac) {
+//        mtfChiNhanhKhac = [[ExTextField alloc] initWithFrame:CGRectMake(10, 87, 282, 35)];
+//    }
+//    [mtfChiNhanhKhac setPlaceholder:@"Tên chi nhánh khác"];
+//    if ([self.viewThongTin.subviews containsObject:mtfChiNhanhKhac]) {
+//        return;
+//    }
+//    [self.viewThongTin addSubview:mtfChiNhanhKhac];
+//
+//    CGPoint point1 = self.edtTenChuTaiKhoan.frame.origin;
+//    CGSize size1 = self.edtTenChuTaiKhoan.frame.size;
+//    int nPixelThem = 8;
+//    [self.edtTenChuTaiKhoan setFrame:CGRectMake(point1.x, point1.y + size1.height + nPixelThem, size1.width, size1.height)];
+//
+//    CGPoint point2 = self.edtSoTaiKhoan.frame.origin;
+//    CGSize size2 = self.edtSoTaiKhoan.frame.size;
+//    [self.edtSoTaiKhoan setFrame:CGRectMake(point2.x, point2.y + size2.height + nPixelThem, size2.width, size2.height)];
+//
+//    CGPoint point3 = self.edtSoTien.frame.origin;
+//    CGSize size3 = self.edtSoTien.frame.size;
+//    [self.edtSoTien setFrame:CGRectMake(point3.x, point3.y + size3.height + nPixelThem, size3.width, size3.height)];
+//
+//    CGPoint point5 = self.mlblPhi.frame.origin;
+//    CGSize size5 = self.mlblPhi.frame.size;
+//    [self.mlblPhi setFrame:CGRectMake(point5.x, point5.y + size5.height + nPixelThem, size5.width, size5.height)];
+//
+//    CGPoint point51 = self.mtfPhiGiaoDich.frame.origin;
+//    CGSize size51 = self.mtfPhiGiaoDich.frame.size;
+//    [self.mtfPhiGiaoDich setFrame:CGRectMake(point51.x, point51.y + size51.height + nPixelThem, size51.width, size51.height)];
+//
+//    CGPoint point4 = self.tvNoiDung.frame.origin;
+//    CGSize size4 = self.tvNoiDung.frame.size;
+//    [self.tvNoiDung setFrame:CGRectMake(point4.x, point4.y + size1.height + nPixelThem, size4.width, size4.height)];
+//
+//    [self.mtfNoiDug setFrame:CGRectMake(point4.x, self.tvNoiDung.frame.origin.y, size4.width, size4.height)];
+//
+//    CGPoint point6 = self.viewButtonOption.frame.origin;
+//    CGSize size6 = self.viewButtonOption.frame.size;
+//    [self.viewButtonOption setFrame:CGRectMake(point6.x, point6.y + size6.height + nPixelThem, size6.width, size6.height)];
+//
+//    CGPoint point7 = self.viewToken.frame.origin;
+//    CGSize size7 = self.viewToken.frame.size;
+//    [self.viewToken setFrame:CGRectMake(point7.x, point7.y + size7.height + nPixelThem, size7.width, size7.height)];
+//
+//    CGPoint point8 = self.viewThongTin.frame.origin;
+//    CGSize size8 = self.viewThongTin.frame.size;
+//    [self.viewThongTin setFrame:CGRectMake(point8.x, point8.y, size8.width, size8.height + size1.height + nPixelThem)];
+//
+//    CGPoint point9 = self.mViewMain.frame.origin;
+//    CGSize size9 = self.mViewMain.frame.size;
+//    [self.mViewMain setFrame:CGRectMake(point9.x, point9.y, size9.width, size9.height + size1.height + nPixelThem)];
+//
+//    CGPoint point10 = self.mbtnVanTay.frame.origin;
+//    CGSize size10 = self.mbtnVanTay.frame.size;
+//    [self.mbtnVanTay setFrame:CGRectMake(point10.x, point10.y + size1.height + nPixelThem, size10.width, size10.height)];
 }
 
 - (void)hienThiGiaoDienTruChiNhanhKhac{
-    if (!mtfChiNhanhKhac) {
-        return;
-    }
-    if (![self.viewThongTin.subviews containsObject:mtfChiNhanhKhac]) {
-        return;
-    }
-    [mtfChiNhanhKhac removeFromSuperview];
-
-    CGPoint point1 = self.edtTenChuTaiKhoan.frame.origin;
-    CGSize size1 = self.edtTenChuTaiKhoan.frame.size;
-    int nPixelThem = 8;
-    [self.edtTenChuTaiKhoan setFrame:CGRectMake(point1.x, point1.y - size1.height - nPixelThem, size1.width, size1.height)];
-
-    CGPoint point2 = self.edtSoTaiKhoan.frame.origin;
-    CGSize size2 = self.edtSoTaiKhoan.frame.size;
-    [self.edtSoTaiKhoan setFrame:CGRectMake(point2.x, point2.y - size2.height - nPixelThem, size2.width, size2.height)];
-
-    CGPoint point3 = self.edtSoTien.frame.origin;
-    CGSize size3 = self.edtSoTien.frame.size;
-    [self.edtSoTien setFrame:CGRectMake(point3.x, point3.y - size3.height - nPixelThem, size3.width, size3.height)];
-
-    CGPoint point5 = self.mlblPhi.frame.origin;
-    CGSize size5 = self.mlblPhi.frame.size;
-    [self.mlblPhi setFrame:CGRectMake(point5.x, point5.y - size5.height - nPixelThem, size5.width, size5.height)];
-
-    CGPoint point51 = self.mtfPhiGiaoDich.frame.origin;
-    CGSize size51 = self.mtfPhiGiaoDich.frame.size;
-    [self.mtfPhiGiaoDich setFrame:CGRectMake(point51.x, point51.y - size51.height - nPixelThem, size51.width, size51.height)];
-
-    CGPoint point4 = self.tvNoiDung.frame.origin;
-    CGSize size4 = self.tvNoiDung.frame.size;
-    [self.tvNoiDung setFrame:CGRectMake(point4.x, point4.y - size1.height - nPixelThem, size4.width, size4.height)];
-
-    [self.mtfNoiDug setFrame:CGRectMake(point4.x, self.tvNoiDung.frame.origin.y, size4.width, size4.height)];
-
-    CGPoint point6 = self.viewButtonOption.frame.origin;
-    CGSize size6 = self.viewButtonOption.frame.size;
-    [self.viewButtonOption setFrame:CGRectMake(point6.x, point6.y - size6.height - nPixelThem, size6.width, size6.height)];
-
-    CGPoint point7 = self.viewToken.frame.origin;
-    CGSize size7 = self.viewToken.frame.size;
-    [self.viewToken setFrame:CGRectMake(point7.x, point7.y - size7.height - nPixelThem, size7.width, size7.height)];
-
-    CGPoint point8 = self.viewThongTin.frame.origin;
-    CGSize size8 = self.viewThongTin.frame.size;
-    [self.viewThongTin setFrame:CGRectMake(point8.x, point8.y, size8.width, size8.height - size1.height - nPixelThem)];
-
-    CGPoint point9 = self.mViewMain.frame.origin;
-    CGSize size9 = self.mViewMain.frame.size;
-    [self.mViewMain setFrame:CGRectMake(point9.x, point9.y, size9.width, size9.height - size1.height - nPixelThem)];
-
-    CGPoint point10 = self.mbtnVanTay.frame.origin;
-    CGSize size10 = self.mbtnVanTay.frame.size;
-    [self.mbtnVanTay setFrame:CGRectMake(point10.x, point10.y - size1.height - nPixelThem, size10.width, size10.height)];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.mtfChiNhanhKhac.hidden = YES;
+        self.topChiNhanhKhac.constant = 0;
+        self.heightViewThongTin.constant -= self.heightChiNhanh.constant;
+        self.heightChiNhanhKhac.constant = 0;
+        self.topSpaceTenChuTaiKhoan.constant = 0;
+    });
+//    if (!mtfChiNhanhKhac) {
+//        return;
+//    }
+//    if (![self.viewThongTin.subviews containsObject:mtfChiNhanhKhac]) {
+//        return;
+//    }
+//    [mtfChiNhanhKhac removeFromSuperview];
+//
+//    CGPoint point1 = self.edtTenChuTaiKhoan.frame.origin;
+//    CGSize size1 = self.edtTenChuTaiKhoan.frame.size;
+//    int nPixelThem = 8;
+//    [self.edtTenChuTaiKhoan setFrame:CGRectMake(point1.x, point1.y - size1.height - nPixelThem, size1.width, size1.height)];
+//
+//    CGPoint point2 = self.edtSoTaiKhoan.frame.origin;
+//    CGSize size2 = self.edtSoTaiKhoan.frame.size;
+//    [self.edtSoTaiKhoan setFrame:CGRectMake(point2.x, point2.y - size2.height - nPixelThem, size2.width, size2.height)];
+//
+//    CGPoint point3 = self.edtSoTien.frame.origin;
+//    CGSize size3 = self.edtSoTien.frame.size;
+//    [self.edtSoTien setFrame:CGRectMake(point3.x, point3.y - size3.height - nPixelThem, size3.width, size3.height)];
+//
+//    CGPoint point5 = self.mlblPhi.frame.origin;
+//    CGSize size5 = self.mlblPhi.frame.size;
+//    [self.mlblPhi setFrame:CGRectMake(point5.x, point5.y - size5.height - nPixelThem, size5.width, size5.height)];
+//
+//    CGPoint point51 = self.mtfPhiGiaoDich.frame.origin;
+//    CGSize size51 = self.mtfPhiGiaoDich.frame.size;
+//    [self.mtfPhiGiaoDich setFrame:CGRectMake(point51.x, point51.y - size51.height - nPixelThem, size51.width, size51.height)];
+//
+//    CGPoint point4 = self.tvNoiDung.frame.origin;
+//    CGSize size4 = self.tvNoiDung.frame.size;
+//    [self.tvNoiDung setFrame:CGRectMake(point4.x, point4.y - size1.height - nPixelThem, size4.width, size4.height)];
+//
+//    [self.mtfNoiDug setFrame:CGRectMake(point4.x, self.tvNoiDung.frame.origin.y, size4.width, size4.height)];
+//
+//    CGPoint point6 = self.viewButtonOption.frame.origin;
+//    CGSize size6 = self.viewButtonOption.frame.size;
+//    [self.viewButtonOption setFrame:CGRectMake(point6.x, point6.y - size6.height - nPixelThem, size6.width, size6.height)];
+//
+//    CGPoint point7 = self.viewToken.frame.origin;
+//    CGSize size7 = self.viewToken.frame.size;
+//    [self.viewToken setFrame:CGRectMake(point7.x, point7.y - size7.height - nPixelThem, size7.width, size7.height)];
+//
+//    CGPoint point8 = self.viewThongTin.frame.origin;
+//    CGSize size8 = self.viewThongTin.frame.size;
+//    [self.viewThongTin setFrame:CGRectMake(point8.x, point8.y, size8.width, size8.height - size1.height - nPixelThem)];
+//
+//    CGPoint point9 = self.mViewMain.frame.origin;
+//    CGSize size9 = self.mViewMain.frame.size;
+//    [self.mViewMain setFrame:CGRectMake(point9.x, point9.y, size9.width, size9.height - size1.height - nPixelThem)];
+//
+//    CGPoint point10 = self.mbtnVanTay.frame.origin;
+//    CGSize size10 = self.mbtnVanTay.frame.size;
+//    [self.mbtnVanTay setFrame:CGRectMake(point10.x, point10.y - size1.height - nPixelThem, size10.width, size10.height)];
 }
 
 - (void)khoiTaoViewNhapTenDaiDienXacThucTaiKhoan
@@ -688,21 +709,21 @@
         Banks *bank = [_mDanhSachNganHang objectAtIndex:mViTriNganHangDuocChon];
         sBankCode = bank.bank_sms;
         if ([bank.bank_name hasPrefix:@"AGR"] && arrChiNhanhBank) {
-            if ([mtfChiNhanh.text isEqualToString:@"Chi nhánh khác"] && mtfChiNhanhKhac.text.isEmpty) {
-                [mtfChiNhanhKhac setTextError:@"Vui lòng nhập tên chi nhánh"];
-                [mtfChiNhanhKhac show_error];
+            if ([_mtfChiNhanh.text isEqualToString:@"Chi nhánh khác"] && _mtfChiNhanhKhac.text.isEmpty) {
+                [_mtfChiNhanhKhac setTextError:@"Vui lòng nhập tên chi nhánh"];
+                [_mtfChiNhanhKhac show_error];
                 return;
             }
             for (int i = 0; i < arrChiNhanhBank.count; i+=2) {
                 NSString *sTemp = [arrChiNhanhBank objectAtIndex:i];
-                if ([sTemp isEqualToString:[mtfChiNhanh.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]]) {
+                if ([sTemp isEqualToString:[_mtfChiNhanh.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]]) {
                     sBrachName = [arrChiNhanhBank objectAtIndex:i];
                     sBrachCode = [arrChiNhanhBank objectAtIndex:(i + 1)];
                     break;
                 }
             }
             if (sBrachName.isEmpty || [sBrachCode isEqualToString:@"11111111"]) {
-                sBrachName = [mtfChiNhanhKhac.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+                sBrachName = [_mtfChiNhanhKhac.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
                 sBrachCode = [arrChiNhanhBank objectAtIndex:arrChiNhanhBank.count - 1];
             }
         }
@@ -847,7 +868,7 @@
                             NSString *sChiNhanhTemp = [arrChiNhanhBank objectAtIndex:i];
                             NSLog(@"%s - _mTaiKhoanThuongDung.maChiNhanh : %@ - sChiNhanhTemp : %@", __FUNCTION__, _mTaiKhoanThuongDung.maChiNhanh, sChiNhanhTemp);
                             if (i > 0 && [sChiNhanhTemp isEqualToString:_mTaiKhoanThuongDung.maChiNhanh]) {
-                                mtfChiNhanh.text = [arrChiNhanhBank objectAtIndex:i - 1];
+                                _mtfChiNhanh.text = [arrChiNhanhBank objectAtIndex:i - 1];
                                 break;
                             }
                         }
@@ -885,16 +906,16 @@
             _mTaiKhoanThuongDung.nBankCode = bank.bank_code.intValue;
             _mTaiKhoanThuongDung.nBankId = bank.bank_id.intValue;
             if ([bank.bank_name hasPrefix:@"AGR"]) {
-                if (mtfChiNhanh.text.length == 0) {
-                    [mtfChiNhanh setTextError:@"Vui lòng chọn chi nhánh"];
-                    [mtfChiNhanh show_error];
+                if (_mtfChiNhanh.text.length == 0) {
+                    [_mtfChiNhanh setTextError:@"Vui lòng chọn chi nhánh"];
+                    [_mtfChiNhanh show_error];
                     return;
                 }
-                _mTaiKhoanThuongDung.sBranchName = [mtfChiNhanh.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+                _mTaiKhoanThuongDung.sBranchName = [_mtfChiNhanh.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
                 if (arrChiNhanhBank) {
                     for (int i = 0; i < arrChiNhanhBank.count; i+= 2) {
                         NSString *sTemp = [arrChiNhanhBank objectAtIndex:i];
-                        if([sTemp isEqualToString:[mtfChiNhanh.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]]){
+                        if([sTemp isEqualToString:[_mtfChiNhanh.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]]){
                             _mTaiKhoanThuongDung.sBranchCode = [arrChiNhanhBank objectAtIndex:(i + 1)];
                             break;
                         }
@@ -911,6 +932,9 @@
         
         [self.view addSubview:mViewNhapTenDaiDien];
         [self.view endEditing:YES];
+    }
+    else {
+        [self khoiTaoButtonXacThucBanDau];
     }
 }
 
@@ -938,11 +962,15 @@
     if (arrChiNhanhBank) {
         [arrChiNhanhBank release];
     }
-    [mtfChiNhanh release];
-    [mtfChiNhanhKhac release];
+    [_mtfChiNhanh release];
+    [_mtfChiNhanhKhac release];
     [_scrMain release];
     [_viewTaiKhoan release];
     [_heightViewMain release];
+    [_heightChiNhanh release];
+    [_topSpaceTenChuTaiKhoan release];
+    [_heightViewThongTin release];
+    [_topChiNhanhKhac release];
     [super dealloc];
 }
 
