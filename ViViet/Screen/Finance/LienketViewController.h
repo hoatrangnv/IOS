@@ -2,6 +2,7 @@
 #import <UIKit/UIKit.h>
 #import "GiaoDichViewController.h"
 #import "RadioButton.h"
+@class ItemTaiKhoanLienKet;
 @interface LienketViewController : GiaoDichViewController
 @property (retain, nonatomic) IBOutlet ExTextField *edBank;
 @property (retain, nonatomic) IBOutlet ExTextField *edChuTK;
@@ -16,4 +17,6 @@
 - (IBAction)onMacding:(id)sender;
 - (void)edittaikhoanlienket:(NSDictionary*)dic;
 -(void)taotaikhoanlienket:(NSDictionary*)dic;
+-(void)setIndexSelected:(NSInteger)indexSelected;
+- (void)suKienChinhSuaTaiKhoanLienKet:(ItemTaiKhoanLienKet *)taiKhoan;
 @end

@@ -17,12 +17,12 @@
                 <outlet property="btnThucHien" destination="mCz-pY-oKS" id="8Tb-Cb-d7M"/>
                 <outlet property="btnToken" destination="vpX-Z9-MUB" id="DHg-eQ-tRU"/>
                 <outlet property="btnVanTay" destination="w9S-KB-KCx" id="bbf-Ms-P5v"/>
+                <outlet property="contraintLeading" destination="5Jm-dz-XuG" id="tU8-gG-cVs"/>
                 <outlet property="edBank" destination="rKN-fq-nkm" id="RDa-vb-Wwu"/>
                 <outlet property="edChuTK" destination="rXs-BZ-Zlh" id="bql-Ec-Z5x"/>
                 <outlet property="edMatKhau" destination="Zs3-SR-TBJ" id="vBf-J4-xX3"/>
                 <outlet property="edSoTK" destination="GmT-R1-GPM" id="w32-bY-rfq"/>
                 <outlet property="edTenDangNhap" destination="iqp-rn-Zeh" id="bNi-0X-V5b"/>
-                <outlet property="imgQC" destination="fDw-Tn-XL3" id="vYd-Xv-Ej5"/>
                 <outlet property="txtOtp" destination="ixg-i0-Ee9" id="TnO-AC-x7t"/>
                 <outlet property="vMain" destination="pjO-qa-bYL" id="V8k-dH-Gsb"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -178,12 +178,6 @@
                                         <action selector="doVantay:" destination="-1" eventType="touchUpInside" id="HNW-Yi-LEi"/>
                                     </connections>
                                 </button>
-                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fDw-Tn-XL3">
-                                    <rect key="frame" x="0.0" y="494" width="375" height="170"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" secondItem="fDw-Tn-XL3" secondAttribute="height" multiplier="75:34" id="uZW-41-IIN"/>
-                                    </constraints>
-                                </imageView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mCz-pY-oKS">
                                     <rect key="frame" x="258" y="335" width="82" height="36"/>
                                     <constraints>
@@ -234,13 +228,10 @@
                                 <constraint firstItem="nVp-uP-jiK" firstAttribute="leading" secondItem="rKN-fq-nkm" secondAttribute="trailing" constant="8" id="nLV-L6-Xs8"/>
                                 <constraint firstAttribute="trailing" secondItem="GmT-R1-GPM" secondAttribute="trailing" constant="8" id="nca-16-Pgj"/>
                                 <constraint firstItem="o21-k1-0qQ" firstAttribute="leading" secondItem="pjO-qa-bYL" secondAttribute="leading" constant="8" id="qCv-81-ZrW"/>
-                                <constraint firstAttribute="trailing" secondItem="fDw-Tn-XL3" secondAttribute="trailing" id="qSB-uP-Ajw"/>
                                 <constraint firstItem="rXs-BZ-Zlh" firstAttribute="top" secondItem="rKN-fq-nkm" secondAttribute="bottom" constant="8" id="rsC-WA-ipy"/>
-                                <constraint firstItem="fDw-Tn-XL3" firstAttribute="leading" secondItem="pjO-qa-bYL" secondAttribute="leading" id="sW2-Bo-OPH"/>
                                 <constraint firstItem="Zs3-SR-TBJ" firstAttribute="width" secondItem="iqp-rn-Zeh" secondAttribute="width" id="svF-Mt-Pyu"/>
                                 <constraint firstItem="w9S-KB-KCx" firstAttribute="height" secondItem="vpX-Z9-MUB" secondAttribute="height" id="vAg-Ce-JNg"/>
                                 <constraint firstItem="ixg-i0-Ee9" firstAttribute="top" secondItem="vpX-Z9-MUB" secondAttribute="bottom" constant="18" id="vSu-R8-Q9W"/>
-                                <constraint firstAttribute="bottom" secondItem="fDw-Tn-XL3" secondAttribute="bottom" constant="3" id="vl7-4h-5v2"/>
                                 <constraint firstItem="OwQ-7p-V6y" firstAttribute="leading" secondItem="iqp-rn-Zeh" secondAttribute="trailing" constant="15" id="vrk-0C-NHk"/>
                                 <constraint firstItem="iqp-rn-Zeh" firstAttribute="top" secondItem="GmT-R1-GPM" secondAttribute="bottom" constant="8" id="weG-AF-Rfh"/>
                                 <constraint firstItem="x5i-CT-PCD" firstAttribute="top" secondItem="Zs3-SR-TBJ" secondAttribute="bottom" constant="8" id="x6A-sQ-mrg"/>

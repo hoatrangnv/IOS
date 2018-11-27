@@ -27,7 +27,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F6z-jf-PRM">
-                    <rect key="frame" x="16" y="36" width="343" height="615"/>
+                    <rect key="frame" x="16" y="36" width="343" height="387"/>
                     <subviews>
                         <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="u8z-n7-mQI">
                             <rect key="frame" x="8" y="8" width="327" height="31"/>
@@ -43,7 +43,7 @@
                             </connections>
                         </segmentedControl>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TyI-or-p3P">
-                            <rect key="frame" x="0.0" y="46" width="343" height="569"/>
+                            <rect key="frame" x="0.0" y="46" width="343" height="341"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
                     </subviews>
@@ -68,7 +68,7 @@
                 <constraint firstItem="F6z-jf-PRM" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="16" id="faO-UW-ItT"/>
                 <constraint firstItem="0Vi-uF-m7a" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="iWD-eM-DIp"/>
                 <constraint firstItem="0Vi-uF-m7a" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="pLJ-OD-ftW"/>
-                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="F6z-jf-PRM" secondAttribute="bottom" constant="16" id="zOP-AA-XaL"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="F6z-jf-PRM" secondAttribute="bottom" constant="244" id="zOP-AA-XaL"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
             <point key="canvasLocation" x="33.5" y="54.5"/>

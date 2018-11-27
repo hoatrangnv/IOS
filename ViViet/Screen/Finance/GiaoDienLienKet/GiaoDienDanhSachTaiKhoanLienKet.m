@@ -9,7 +9,7 @@
 #import "GiaoDienDanhSachTaiKhoanLienKet.h"
 #import "DucNT_TaiKhoanThuongDungCell.h"
 #import "ViewXacThuc.h"
-
+#import "DialogXoaTKLienketViewController.h"
 @interface GiaoDienDanhSachTaiKhoanLienKet () <TaiKhoanThuongDungCellDelegate, ViewXacThucDelegate>{
     NSMutableArray *arrTaiKhoan;
     int nIndexDelete;
@@ -116,8 +116,16 @@
 -(void)deleteCell:(id)sender {
     NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
     nIndexDelete = (int)indexPath.row;
-    [self khoiTaoViewXacThuc];
-    [self hienThiViewXacThuc];
+//    [self khoiTaoViewXacThuc];
+//    [self hienThiViewXacThuc];
+    DialogXoaTKLienketViewController * dialog = [[DialogXoaTKLienketViewController alloc] initWithNibName:@"DialogXoaTKLienketViewController" bundle:nil];
+    [dialog removeFromParentViewController];
+    dialog.view.frame = [UIScreen mainScreen].bounds;
+    UIWindow * window = [UIApplication sharedApplication].keyWindow;
+    [window addSubview:dialog.view];
+    [self addChildViewController:dialog];
+    DucNT_TaiKhoanThuongDungCell *cell = [_tableView cellForRowAtIndexPath:indexPath];
+    [dialog setitleLable:[NSString stringWithFormat:@"Xóa %@",cell.lbTenTaoKhoan.text]];
 }
 
 -(void)editCell:(id)sender {
