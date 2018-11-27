@@ -47,5 +47,6 @@
 // HOANHNV FIX FOR UPDATE ACCOUNT
 @property (retain, nonatomic) DucNT_TaiKhoanViObject *objUpdateProfile;
 @property (nonatomic,assign) NSInteger selectedTab;
+@property (nonatomic,assign) NSInteger selectedDienThoaiVC;
 
 @end

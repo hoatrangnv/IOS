@@ -50,7 +50,7 @@
 #import "CommonUtils.h"
 #import "ChonAnSauDienThoaiViewController.h"
 #import "HanMucMoiViewController.h"
-
+#import "Giaodienlienket1ViewController.h"
 @interface HomeCenterViewController ()<UIActionSheetDelegate, QRCodeReaderDelegate,RowSelectDelegate,ViewNavigationGiaoDienChinhDelegate>{
     ViewNavigationGiaoDienChinh *mViewNavigationGiaoDienChinh;
     NSString *keyPin;
@@ -93,8 +93,8 @@
     self.qrVC.delegate = self;
     self.vicuatoiVC = [[VicuatoiVC alloc]initWithNibName:@"VicuatoiVC" bundle:nil];
     self.vicuatoiVC.delegate = self;
-    app.selectedTab = -1;
-    
+    app.selectedTab = 0;
+    app.selectedDienThoaiVC = 1;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onBackVicuatoi) name:@"ClickVicuatoi" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onBackSoTay) name:@"ClickBackSoTay" object:nil];
 
@@ -118,18 +118,18 @@
     UITapGestureRecognizer *tap4 = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapVicuatoi:)];
     tap4.numberOfTapsRequired = 1;
     [self.vVicuatoi addGestureRecognizer:tap4 ];
+
     if(app.selectedTab<0){
         self.currentTab = -1;
         [self displayContentController:self.dienthoaiVC];
     }
     else{
-        
         if(app.selectedTab == 0){
             if (self.dienthoaiVC.view.superview) {
                 return;
             }
             [self hideContentController:self.dienthoaiVC];
-            [self displayContentController:self.nganhangVC];
+            [self tapNganHang:tap1];
         }
         else if(app.selectedTab == 1){
             [self displayContentController:self.vidientuVC];
@@ -151,6 +151,7 @@
 -(void)tapNganHang:(UITapGestureRecognizer*)gesture{
     [self resetTab];
     app.selectedTab = 0;
+    app.selectedDienThoaiVC = 0;
     self.vNganHang.backgroundColor = [UIColor colorWithRed:0/255.0 green:116/255.0 blue:167/255.0 alpha:1.0 ];
     self.vViDienTu.backgroundColor = [UIColor colorWithRed:59/255.0 green:164/255.0 blue:168/255.0 alpha:1.0];
     self.vVicuatoi.backgroundColor = [UIColor colorWithRed:59/255.0 green:164/255.0 blue:168/255.0 alpha:1.0];
@@ -160,6 +161,8 @@
 -(void)tapViDienTu:(UITapGestureRecognizer*)gesture{
     [self resetTab];
     app.selectedTab = 1;
+    app.selectedDienThoaiVC = 0;
+
     self.vViDienTu.backgroundColor = [UIColor colorWithRed:0/255.0 green:116/255.0 blue:167/255.0 alpha:1.0 ];
     self.vVicuatoi.backgroundColor = [UIColor colorWithRed:59/255.0 green:164/255.0 blue:168/255.0 alpha:1.0];
     self.vQR.backgroundColor = [UIColor colorWithRed:59/255.0 green:164/255.0 blue:168/255.0 alpha:1.0];
@@ -170,6 +173,8 @@
 -(void)tapQR:(UITapGestureRecognizer*)gesture{
     [self resetTab];
     app.selectedTab = 2;
+    app.selectedDienThoaiVC = 0;
+
     self.vQR.backgroundColor = [UIColor colorWithRed:0/255.0 green:116/255.0 blue:167/255.0 alpha:1.0 ];
     self.vVicuatoi.backgroundColor = [UIColor colorWithRed:59/255.0 green:164/255.0 blue:168/255.0 alpha:1.0];
     self.vNganHang.backgroundColor = [UIColor colorWithRed:59/255.0 green:164/255.0 blue:168/255.0 alpha:1.0];
@@ -180,6 +185,7 @@
 -(void)tapVicuatoi:(UITapGestureRecognizer*)gesture{
     [self resetTab];
     app.selectedTab = 3;
+    app.selectedDienThoaiVC = 0;
     self.vVicuatoi.backgroundColor = [UIColor colorWithRed:0/255.0 green:116/255.0 blue:167/255.0 alpha:1.0 ];
     self.vNganHang.backgroundColor = [UIColor colorWithRed:59/255.0 green:164/255.0 blue:168/255.0 alpha:1.0];
     self.vQR.backgroundColor = [UIColor colorWithRed:59/255.0 green:164/255.0 blue:168/255.0 alpha:1.0];
@@ -908,7 +914,10 @@
                 break;
             case 1:{
                 // lien ket vi
-                GiaoDienTaiKhoanLienKet *vc = [[GiaoDienTaiKhoanLienKet alloc] initWithNibName:@"GiaoDienTaiKhoanLienKet" bundle:nil];
+//                GiaoDienTaiKhoanLienKet *vc = [[GiaoDienTaiKhoanLienKet alloc] initWithNibName:@"GiaoDienTaiKhoanLienKet" bundle:nil];
+//                [self.navigationController pushViewController:vc animated:YES];
+//                [vc release];
+                Giaodienlienket1ViewController * vc = [[Giaodienlienket1ViewController alloc] initWithNibName:@"Giaodienlienket1ViewController" bundle:nil];
                 [self.navigationController pushViewController:vc animated:YES];
                 [vc release];
             }
