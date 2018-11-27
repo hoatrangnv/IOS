@@ -19,14 +19,22 @@
     [self.edSoThe addTarget:self action:@selector(soTheDidChange:) forControlEvents:UIControlEventEditingChanged];
     [self.edNgayMoThe addTarget:self action:@selector(thoiDiemMoTheDidChange:) forControlEvents:UIControlEventEditingChanged];
     [self.edNamMoThe addTarget:self action:@selector(thoiDiemMoTheDidChange:) forControlEvents:UIControlEventEditingChanged];
+    [txtCvv addTarget:self action:@selector(cvvDidChange:) forControlEvents:UIControlEventEditingChanged];
     [self showCvvField:@""];
     // Do any additional setup after loading the view from its nib.
 }
 - (void)soTheDidChange:(UITextField *)tf {
 }
 - (void)thoiDiemMoTheDidChange:(UITextField *)tf {
+    if (tf.text.length > 2) {
+        tf.text = [tf.text substringToIndex:2];
+    }
 }
-
+- (void)cvvDidChange:(UITextField *)tf {
+    if (tf.text.length > 3) {
+        tf.text = [tf.text substringToIndex:3];
+    }
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
