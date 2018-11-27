@@ -67,7 +67,7 @@ const int NHA_CUNG_CAP_INTERNET_CMC = 6;
     else if (_nChucNang == 3) {
         [self suKienBamNutCMC:self.btnCMC];
     }
-    [self khoiTaoQuangCao];
+//    [self khoiTaoQuangCao];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {

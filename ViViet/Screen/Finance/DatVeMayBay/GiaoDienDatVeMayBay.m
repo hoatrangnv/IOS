@@ -133,7 +133,7 @@
     else{
         self.mbtnPKI.hidden = YES;
     }
-    [self khoiTaoQuangCao];
+//    [self khoiTaoQuangCao];
     [self setAnimationChoSoTay:self.btnSoTay];
     
 }

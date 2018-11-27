@@ -203,7 +203,7 @@ const int TIME_COUNT_DOWN_DIEN = 180;
     _mwvHienThiDanhSachMaDienLucChoPhep.frame = rWvHienThiDanhSachMaDienLuc;
     _mwvHienThiNoiDungHoaDon.frame = rWvHienThiNoiDungHoaDon;
     
-    [self khoiTaoQuangCao];
+//    [self khoiTaoQuangCao];
 }
 
 #pragma mark - overriden Base
