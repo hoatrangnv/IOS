@@ -81,7 +81,7 @@ static int const KIEU_KET_NOI_GOOGLE = 2;
     [self khoiTaoNutFacebook];
     [self khoiTaoNutDangNhapBangGoogle];
     isFaceId = false;
-    if([self kiemTraCoChucNangQuetVanTay])
+    if([self kiemTraCoChucNangQuetVanTay1])
     {
         self.mbtnDangNhapBangVanTay.hidden = NO;
     }
@@ -102,9 +102,15 @@ static int const KIEU_KET_NOI_GOOGLE = 2;
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [self suKienChonBaoMatVanTay:nil];
+    if([self kiemTraCoChucNangQuetVanTay])
+    {
+        self.mbtnDangNhapBangVanTay.hidden = NO;
+    }
+    else{
+        self.mbtnDangNhapBangVanTay.hidden = YES;
+    }
 }
-- (BOOL)kiemTraCoChucNangQuetVanTay
+- (BOOL)kiemTraCoChucNangQuetVanTay1
 {
     LAContext *laContext = [[[LAContext alloc] init] autorelease];
     NSError *error = nil;
@@ -113,7 +119,6 @@ static int const KIEU_KET_NOI_GOOGLE = 2;
         if (error != NULL) {
             // handle error
         } else {
-            [self.mbtnDangNhapBangVanTay setImage:[UIImage imageNamed:@"vantay"] forState:UIControlStateNormal];
             if (@available(iOS 11.0.1, *)) {
                 if (laContext.biometryType == LABiometryTypeFaceID) {
                     //localizedReason = "Unlock using Face ID"
@@ -336,7 +341,8 @@ static int const KIEU_KET_NOI_GOOGLE = 2;
             [_mtfMaDoanhNghiep show_error];
             return;
         }
-        [self xuLySuKienHienThiChucNangDangNhapVanTayVoiTieuDe:[@"su_dung_van_tay_dang_nhap_tai_khoan_VIMASS" localizableString]];
+//        [self xuLySuKienHienThiChucNangDangNhapVanTayVoiTieuDe:[@"su_dung_van_tay_dang_nhap_tai_khoan_VIMASS" localizableString]];
+        [self suKienChonBaoMatVanTay:nil];
     }
     else
     {
