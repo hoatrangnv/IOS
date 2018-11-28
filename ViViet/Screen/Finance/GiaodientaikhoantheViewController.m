@@ -124,6 +124,7 @@
     [dic setValue:tkLienket.sId forKey:@"id"];
     [dic setValue:tkLienket.idVi forKey:@"idVi"];
     [dic setValue:sBank forKey:@"maNganHang"];
+    [dic setValue:self.edChuTK.text forKey:@"tenChuTaiKhoan"];
     [dic setValue:(isMacdinh ? @(1) : @(0)) forKey:@"danhDauTheMacDinh"];
     [dic setValue:self.edSoThe.text forKey:@"soThe"];
     int cardMonth = 0;
@@ -146,17 +147,25 @@
     [dic setValue:sToken forKey:@"token"];
     [dic setValue:@"" forKey:@"otpConfirm"];
     [dic setValue:[NSNumber numberWithInt:self.mTypeAuthenticate] forKey:@"typeAuthenticate"];
-    if (!txtCvv.text.isEmpty) {
-        [dic setValue:txtCvv.text forKey:@"otpConfirm"];
+    if (txtCvv.isHidden) {
+        [dic setValue:[NSNumber numberWithInt:cardMonth] forKey:@"cardMonth"];
+        [dic setValue:[NSNumber numberWithInt:cardYear] forKey:@"cardYear"];
+    } else {
+        [dic setValue:[NSNumber numberWithInt:cardMonth] forKey:@"cardMonthExp"];
+        [dic setValue:[NSNumber numberWithInt:cardYear] forKey:@"cardYearExp"];
+        [dic setValue:txtCvv.text forKey:@"cvv"];
     }
+
     [dic setValue:[NSNumber numberWithInt:APP_ID] forKey:@"appId"];
     [dic setValue:[NSNumber numberWithInt:VM_APP] forKey:@"VMApp"];
     [self edittaikhoanlienket:dic];
 }
 -(void)taotaikhoanlienket:(NSString*)sBank macdinh:(BOOL)isMacdinh{
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+    [dic setValue:[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_ID_TEMP] forKey:@"idVi"];
     [dic setValue:(isMacdinh ? @(1) : @(0)) forKey:@"danhDauTheMacDinh"];
-    
+    [dic setValue:sBank forKey:@"maNganHang"];
+    [dic setValue:self.edChuTK.text forKey:@"tenChuTaiKhoan"];
     [dic setValue:self.edSoThe.text forKey:@"soThe"];
     int cardMonth = 0;
     if (![self.edNgayMoThe.text isEmpty]) {
@@ -167,8 +176,6 @@
     if (![self.edNamMoThe.text isEmpty]) {
         cardYear = [self.edNamMoThe.text intValue];
     }
-    [dic setValue:[NSNumber numberWithInt:cardMonth] forKey:@"cardMonth"];
-    [dic setValue:[NSNumber numberWithInt:cardYear] forKey:@"cardYear"];
     NSString *sMatKhau = self.txtOtp.text;
     sMatKhau = [DucNT_Token layMatKhauVanTayToken];
     
@@ -176,11 +183,17 @@
     NSString *sToken = [DucNT_Token OTPFromPIN:sMatKhau seed:sSeed];
 
     [dic setValue:sToken forKey:@"token"];
-    [dic setValue:@"" forKey:@"otpConfirm"];
+    [dic setValue:sToken forKey:@"otpConfirm"];
     [dic setValue:[NSNumber numberWithInt:self.mTypeAuthenticate] forKey:@"typeAuthenticate"];
-    if (!txtCvv.text.isEmpty) {
-        [dic setValue:txtCvv.text forKey:@"otpConfirm"];
+    if (txtCvv.isHidden) {
+        [dic setValue:[NSNumber numberWithInt:cardMonth] forKey:@"cardMonth"];
+        [dic setValue:[NSNumber numberWithInt:cardYear] forKey:@"cardYear"];
+    } else {
+        [dic setValue:[NSNumber numberWithInt:cardMonth] forKey:@"cardMonthExp"];
+        [dic setValue:[NSNumber numberWithInt:cardYear] forKey:@"cardYearExp"];
+        [dic setValue:txtCvv.text forKey:@"cvv"];
     }
+
     [dic setValue:[NSNumber numberWithInt:APP_ID] forKey:@"appId"];
     [dic setValue:[NSNumber numberWithInt:VM_APP] forKey:@"VMApp"];
     [self taotaikhoanlienket:dic];

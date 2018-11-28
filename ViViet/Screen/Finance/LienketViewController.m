@@ -202,22 +202,38 @@
         [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng chọn ngân hàng liên kết"];
         return;
     }
-    if (![[dic objectForKey:@"soThe"] isEmpty]) {
-        if ([[dic objectForKey:@"cardMonth"] intValue] == 0 || [[dic objectForKey:@"cardYear"] intValue] == 0) {
-            [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng nhập Tháng/Năm mở thẻ"];
-            return;
+    if ([self isKindOfClass:[GiaodientaikhoantheViewController class]]) {
+        if ([dic valueForKey:@"cvv"]) {
+            if ([[dic objectForKey:@"cardMonthExp"] intValue] == 0 || [[dic objectForKey:@"cardYearExp"] intValue] == 0) {
+                [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng nhập Tháng/Năm hết hạn"];
+                return;
+            }
+            if ([[dic valueForKey:@"cvv"] isEmpty]) {
+                [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng nhập CVV"];
+                return;
+            }
+
+        } else {
+            if ([[dic objectForKey:@"cardMonth"] intValue] == 0 || [[dic objectForKey:@"cardYear"] intValue] == 0) {
+                [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng nhập Tháng/Năm mở thẻ"];
+                return;
+            }
+
         }
+    } else {
+        if (![[dic objectForKey:@"soTaiKhoan"] isEmpty]) {
+            if ([[dic objectForKey:@"u"] isEmpty]) {
+                [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng nhập số tài khoản internet banking"];
+                return;
+            }
+            if ([[dic objectForKey:@"p"] isEmpty]) {
+                [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng nhập mật khẩu internet banking"];
+                return;
+            }
+        }
+
     }
-    if (![[dic objectForKey:@"soTaiKhoan"] isEmpty]) {
-        if ([[dic objectForKey:@"u"] isEmpty]) {
-            [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng nhập số tài khoản internet banking"];
-            return;
-        }
-        if ([[dic objectForKey:@"p"] isEmpty]) {
-            [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng nhập mật khẩu internet banking"];
-            return;
-        }
-    }
+
 
     [GiaoDichMang editTaiKhoanLienKet:sDic noiNhanKetQua:self];
 }
@@ -228,20 +244,36 @@
         [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng chọn ngân hàng liên kết"];
         return;
     }
-    if (![[dic objectForKey:@"soThe"] isEmpty]) {
-        if ([[dic objectForKey:@"cardMonth"] intValue] == 0 || [[dic objectForKey:@"cardYear"] intValue] == 0) {
-            [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng nhập Tháng/Năm mở thẻ"];
-            return;
+    if ([self isKindOfClass:[GiaodientaikhoantheViewController class]]) {
+        if ([dic valueForKey:@"cvv"]) {
+            if ([[dic objectForKey:@"cardMonthExp"] intValue] == 0 || [[dic objectForKey:@"cardYearExp"] intValue] == 0) {
+                [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng nhập Tháng/Năm hết hạn"];
+                return;
+            }
+            if ([[dic valueForKey:@"cvv"] isEmpty]) {
+                [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng nhập CVV"];
+                return;
+            }
+
+            
+        } else {
+            if ([[dic objectForKey:@"cardMonth"] intValue] == 0 || [[dic objectForKey:@"cardYear"] intValue] == 0) {
+                [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng nhập Tháng/Năm mở thẻ"];
+                return;
+            }
+            
         }
-    }
-    if (![[dic objectForKey:@"soTaiKhoan"] isEmpty]) {
-        if ([[dic objectForKey:@"u"] isEmpty]) {
-            [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng nhập số tài khoản internet banking"];
-            return;
-        }
-        if ([[dic objectForKey:@"p"] isEmpty]) {
-            [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng nhập mật khẩu internet banking"];
-            return;
+
+    } else {
+        if (![[dic objectForKey:@"soTaiKhoan"] isEmpty]) {
+            if ([[dic objectForKey:@"u"] isEmpty]) {
+                [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng nhập số tài khoản internet banking"];
+                return;
+            }
+            if ([[dic objectForKey:@"p"] isEmpty]) {
+                [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng nhập mật khẩu internet banking"];
+                return;
+            }
         }
     }
     [GiaoDichMang taoTaiKhoanLienKet:sDic noiNhanKetQua:self];
