@@ -2,7 +2,7 @@
 //  DialogXoaTKLienketViewController.m
 //  ViViMASS
 //
-//  Created by Dao Minh Nha on 11/27/18.
+//  Created by Nguyen Van Hoanh on 11/27/18.
 //
 
 #import "DialogXoaTKLienketViewController.h"
@@ -65,28 +65,21 @@
 
 - (void)xuLySuKienXacThucVanTayThanhCong
 {
-    self.mTypeAuthenticate = TYPE_AUTHENTICATE_TOKEN;
+    self.mTypeAuthenticate = TYPE_kieuXacThuc_khac;
     if([self.mDelegate respondsToSelector:@selector(xuLySuKienXacThucVoiKieu:token:otp:)])
     {
         NSString *sToken = @"";
         NSString *sOtp = @"";
-        if(self.mTypeAuthenticate == TYPE_AUTHENTICATE_TOKEN)
+        NSString *sSeed = [DucNT_Token laySeedTokenHienTai];
+        NSString *token = [DucNT_Token layMatKhauVanTayToken];
+        if(sSeed.length > 0)
         {
-            NSString *sSeed = [DucNT_Token laySeedTokenHienTai];
-            NSString *token = [DucNT_Token layMatKhauVanTayToken];
-            if(sSeed.length > 0)
-            {
-                sToken = [DucNT_Token OTPFromPIN:token seed:sSeed];
-            }
-            else
-            {
-                [[[[UIAlertView alloc] initWithTitle:[@"@thong_bao" localizableString]  message:[@"@can_tao_token" localizableString] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
-                return;
-            }
+            sToken = [DucNT_Token OTPFromPIN:token seed:sSeed];
         }
         else
         {
-            sOtp = @"";
+            [[[[UIAlertView alloc] initWithTitle:[@"@thong_bao" localizableString]  message:[@"@can_tao_token" localizableString] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
+                return;
         }
         [self.mDelegate xuLySuKienXacThucVoiKieu:self.mTypeAuthenticate token:sToken otp:sOtp];
     }
@@ -108,7 +101,7 @@
 
 }
 - (IBAction)doVantay:(id)sender {
-    self.mTypeAuthenticate = TYPE_AUTHENTICATE_TOKEN;
+    self.mTypeAuthenticate = TYPE_kieuXacThuc_khac;
     [self.btnVantay setBackgroundImage:[UIImage imageNamed:@"finger"] forState:UIControlStateNormal];
     [self.btnVantay setBackgroundImage:[UIImage imageNamed:@"fingerv"] forState:UIControlStateSelected];
     [self.btnVantay setSelected:YES];
@@ -135,22 +128,15 @@
         {
             NSString *sToken = @"";
             NSString *sOtp = @"";
-            if(self.mTypeAuthenticate == TYPE_AUTHENTICATE_TOKEN)
+            NSString *sSeed = [DucNT_Token laySeedTokenHienTai];
+            if(sSeed.length > 0)
             {
-                NSString *sSeed = [DucNT_Token laySeedTokenHienTai];
-                if(sSeed.length > 0)
-                {
-                    sToken = [DucNT_Token OTPFromPIN:self.txtToken.text seed:sSeed];
-                }
-                else
-                {
-                    [[[[UIAlertView alloc] initWithTitle:[@"@thong_bao" localizableString]  message:[@"@can_tao_token" localizableString] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
-                    return;
-                }
+                sToken = [DucNT_Token OTPFromPIN:self.txtToken.text seed:sSeed];
             }
             else
             {
-                sOtp = self.txtToken.text;
+                [[[[UIAlertView alloc] initWithTitle:[@"@thong_bao" localizableString]  message:[@"@can_tao_token" localizableString] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
+                return;
             }
             [self.mDelegate xuLySuKienXacThucVoiKieu:self.mTypeAuthenticate token:sToken otp:sOtp];
         }

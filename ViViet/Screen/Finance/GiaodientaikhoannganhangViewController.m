@@ -54,48 +54,46 @@
 
 - (void)suataikhoanlienket:(ItemTaiKhoanLienKet*)tkLienket sbank:(NSString*)sBank macdinh:(BOOL)isMacdinh {
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
-    [dic setValue:tkLienket.sId forKey:@"id"];
-    [dic setValue:tkLienket.idVi forKey:@"idVi"];
-    [dic setValue:sBank forKey:@"maNganHang"];
-    [dic setValue:self.edChuTK.text forKey:@"tenChuTaiKhoan"];
-    [dic setValue:self.edSoTK.text forKey:@"soTaiKhoan"];
-    [dic setValue:self.edTenDangNhap.text forKey:@"u"];
-    [dic setValue:self.edMatKhau.text forKey:@"p"];
-
-    
-    [dic setValue:(isMacdinh ? @(1) : @(0)) forKey:@"danhDauTKMacDinh"];
-
     NSString *sMatKhau = self.txtOtp.text;
     sMatKhau = [DucNT_Token layMatKhauVanTayToken];
     
     NSString *sSeed = [DucNT_Token laySeedTokenHienTai];
     NSString *sToken = [DucNT_Token OTPFromPIN:sMatKhau seed:sSeed];
 
+    [dic setValue:tkLienket.sId forKey:@"id"];
+    [dic setValue:tkLienket.idVi forKey:@"idVi"];
+    [dic setValue:(isMacdinh ? 1 : 0) forKey:@"tkMacDinh"];
+
     [dic setValue:sToken forKey:@"token"];
+    [dic setValue:@"" forKey:@"otpConfirm"];
     [dic setValue:[NSNumber numberWithInt:self.mTypeAuthenticate] forKey:@"typeAuthenticate"];
     [dic setValue:[NSNumber numberWithInt:APP_ID] forKey:@"appId"];
     [dic setValue:[NSNumber numberWithInt:VM_APP] forKey:@"VMApp"];
+    
     [self edittaikhoanlienket:dic];
 }
 -(void)taotaikhoanlienket:(NSString*)sBank macdinh:(BOOL)isMacdinh{
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
-    [dic setValue:[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_ID_TEMP] forKey:@"idVi"];
-    [dic setValue:sBank forKey:@"maNganHang"];
-    [dic setValue:self.edChuTK.text forKey:@"tenChuTaiKhoan"];
-    [dic setValue:self.edSoTK.text forKey:@"soTaiKhoan"];
-    [dic setValue:self.edTenDangNhap.text forKey:@"u"];
-    [dic setValue:self.edMatKhau.text forKey:@"p"];
-    [dic setValue: (isMacdinh ? @(1) : @(0)) forKey:@"danhDauTKMacDinh"];
     NSString *sMatKhau = self.txtOtp.text;
     sMatKhau = [DucNT_Token layMatKhauVanTayToken];
     
     NSString *sSeed = [DucNT_Token laySeedTokenHienTai];
     NSString *sToken = [DucNT_Token OTPFromPIN:sMatKhau seed:sSeed];
-
     [dic setValue:sToken forKey:@"token"];
-    [dic setValue:[NSNumber numberWithInt:self.mTypeAuthenticate] forKey:@"typeAuthenticate"];
+    [dic setValue:@"" forKey:@"otpConfirm"];
+    [dic setValue:[NSNumber numberWithInt:TYPE_AUTHENTICATE_TOKEN] forKey:@"typeAuthenticate"];
     [dic setValue:[NSNumber numberWithInt:APP_ID] forKey:@"appId"];
     [dic setValue:[NSNumber numberWithInt:VM_APP] forKey:@"VMApp"];
+    [dic setValue:[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_ID_TEMP] forKey:@"idVi"];
+    
+    [dic setValue:sBank forKey:@"maNganHang"];
+    [dic setValue:self.edChuTK.text forKey:@"tenChuTaiKhoan"];
+    [dic setValue:self.edSoTK.text forKey:@"soTaiKhoan"];
+    [dic setValue:(isMacdinh ? 1 : 0) forKey:@"tkMacDinh"];
+    
+    [dic setValue:self.edTenDangNhap.text forKey:@"u"];
+    [dic setValue:self.edMatKhau.text forKey:@"p"];
+    [dic setValue:[NSNumber numberWithInt:self.mTypeAuthenticate] forKey:@"kieuXacThuc"];
     [self taotaikhoanlienket:dic];
 }
 - (void)dealloc {

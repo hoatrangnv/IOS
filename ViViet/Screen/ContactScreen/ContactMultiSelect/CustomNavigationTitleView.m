@@ -2,7 +2,7 @@
 //  CustomNavigationTitleView.m
 //  ViViMASS
 //
-//  Created by Dao Minh Nha on 11/4/18.
+//  Created by Nguyen Van Hoanh on 11/4/18.
 //
 
 #import "CustomNavigationTitleView.h"

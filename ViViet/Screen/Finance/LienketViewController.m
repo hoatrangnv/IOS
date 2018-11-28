@@ -134,11 +134,11 @@
     self.btnThucHien.hidden = NO;
 }
 - (IBAction)doThucHien:(id)sender{
-    self.mTypeAuthenticate = TYPE_AUTHENTICATE_TOKEN;
+    self.mTypeAuthenticate = TYPE_kieuXacThuc_token;
     [self thuchienxuly];
 }
 - (IBAction)doVantay:(id)sender{
-    self.mTypeAuthenticate = TYPE_AUTHENTICATE_TOKEN;
+    self.mTypeAuthenticate = TYPE_kieuXacThuc_khac;
     [self.btnVanTay setBackgroundImage:[UIImage imageNamed:@"finger"] forState:UIControlStateNormal];
     [self.btnVanTay setBackgroundImage:[UIImage imageNamed:@"fingerv"] forState:UIControlStateSelected];
     [self.btnVanTay setSelected:YES];
@@ -223,7 +223,7 @@
     } else {
         if (![[dic objectForKey:@"soTaiKhoan"] isEmpty]) {
             if ([[dic objectForKey:@"u"] isEmpty]) {
-                [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng nhập số tài khoản internet banking"];
+                [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng nhập số tài khoản "];
                 return;
             }
             if ([[dic objectForKey:@"p"] isEmpty]) {

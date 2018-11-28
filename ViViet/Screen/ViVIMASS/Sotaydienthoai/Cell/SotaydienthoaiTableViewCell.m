@@ -2,7 +2,7 @@
 //  SotaydienthoaiTableViewCell.m
 //  ViViMASS
 //
-//  Created by Dao Minh Nha on 11/7/18.
+//  Created by Nguyen Van Hoanh on 11/7/18.
 //
 
 #import "SotaydienthoaiTableViewCell.h"
