@@ -63,7 +63,7 @@
     [dic setValue:self.edMatKhau.text forKey:@"p"];
 
     
-    [dic setValue:[NSNumber numberWithBool:isMacdinh] forKey:@"danhDauTKMacDinh"];
+    [dic setValue:(isMacdinh ? @(1) : @(0)) forKey:@"danhDauTKMacDinh"];
 
     NSString *sMatKhau = self.txtOtp.text;
     sMatKhau = [DucNT_Token layMatKhauVanTayToken];
@@ -85,7 +85,7 @@
     [dic setValue:self.edSoTK.text forKey:@"soTaiKhoan"];
     [dic setValue:self.edTenDangNhap.text forKey:@"u"];
     [dic setValue:self.edMatKhau.text forKey:@"p"];
-    [dic setValue:[NSNumber numberWithBool:isMacdinh] forKey:@"danhDauTKMacDinh"];
+    [dic setValue: (isMacdinh ? @(1) : @(0)) forKey:@"danhDauTKMacDinh"];
     NSString *sMatKhau = self.txtOtp.text;
     sMatKhau = [DucNT_Token layMatKhauVanTayToken];
     

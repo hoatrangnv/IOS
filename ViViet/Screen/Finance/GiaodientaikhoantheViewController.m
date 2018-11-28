@@ -9,6 +9,7 @@
     IBOutlet UIView *vMain;
     IBOutlet NSLayoutConstraint *contraintHeightCvv;
     IBOutlet ExTextField *txtCvv;
+    NSInteger year;
 }
 @end
 
@@ -21,13 +22,34 @@
     [self.edNamMoThe addTarget:self action:@selector(thoiDiemMoTheDidChange:) forControlEvents:UIControlEventEditingChanged];
     [txtCvv addTarget:self action:@selector(cvvDidChange:) forControlEvents:UIControlEventEditingChanged];
     [self showCvvField:@""];
+    NSCalendar * calendar = [NSCalendar currentCalendar];
+    year = [calendar component:NSCalendarUnitYear fromDate:[NSDate date]];
+
     // Do any additional setup after loading the view from its nib.
 }
 - (void)soTheDidChange:(UITextField *)tf {
 }
 - (void)thoiDiemMoTheDidChange:(UITextField *)tf {
-    if (tf.text.length > 2) {
+    if (tf.text.length >= 2) {
         tf.text = [tf.text substringToIndex:2];
+        if (tf == _edNgayMoThe) {
+            if (tf.text.integerValue > 12 || tf.text.integerValue == 0) {
+                tf.text = @"";
+            }
+        } else {
+            NSInteger temp = year % 100;
+            
+            if ([self.edBank.text.lowercaseString isEqualToString:@"Visa".lowercaseString] || [self.edBank.text.lowercaseString isEqualToString:@"MasterCard".lowercaseString] || [self.edBank.text.lowercaseString isEqualToString:@"JCB".lowercaseString]) {
+                if (((tf.text.integerValue - temp) > 5) || ((tf.text.integerValue - temp) < 0)) {
+                    tf.text = @"";
+                }
+
+            } else {
+                if (((tf.text.integerValue - temp) > 5)) {
+                    tf.text = @"";
+                }
+            }
+        }
     }
 }
 - (void)cvvDidChange:(UITextField *)tf {
@@ -86,9 +108,15 @@
     if ([nganhang.lowercaseString isEqualToString:@"Visa".lowercaseString] || [nganhang.lowercaseString isEqualToString:@"MasterCard".lowercaseString] || [nganhang.lowercaseString isEqualToString:@"JCB".lowercaseString]) {
         txtCvv.hidden = NO;
         contraintHeightCvv.constant = 35;
+        _edNgayMoThe.placeholder = @"Tháng hết hạn";
+        _edNamMoThe.placeholder = @"Năm hết hạn";
+
     }else {
         contraintHeightCvv.constant = 0;
         txtCvv.hidden = YES;
+        _edNgayMoThe.placeholder = @"Tháng mở thẻ";
+        _edNamMoThe.placeholder = @"Năm mở thẻ";
+
     }
 }
 -(void)suataikhoanlienket:(ItemTaiKhoanLienKet*)tkLienket sbank:(NSString*)sBank macdinh:(BOOL)isMacdinh{
@@ -96,7 +124,7 @@
     [dic setValue:tkLienket.sId forKey:@"id"];
     [dic setValue:tkLienket.idVi forKey:@"idVi"];
     [dic setValue:sBank forKey:@"maNganHang"];
-    [dic setValue:[NSNumber numberWithBool:isMacdinh] forKey:@"danhDauTheMacDinh"];
+    [dic setValue:(isMacdinh ? @(1) : @(0)) forKey:@"danhDauTheMacDinh"];
     [dic setValue:self.edSoThe.text forKey:@"soThe"];
     int cardMonth = 0;
     if (![self.edNgayMoThe.text isEmpty]) {
@@ -127,7 +155,7 @@
 }
 -(void)taotaikhoanlienket:(NSString*)sBank macdinh:(BOOL)isMacdinh{
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
-    [dic setValue:[NSNumber numberWithBool:isMacdinh] forKey:@"danhDauTheMacDinh"];
+    [dic setValue:(isMacdinh ? @(1) : @(0)) forKey:@"danhDauTheMacDinh"];
     
     [dic setValue:self.edSoThe.text forKey:@"soThe"];
     int cardMonth = 0;
