@@ -19,6 +19,8 @@
 @property (retain, nonatomic) IBOutlet ExTextField *edtTenChuTaiKhoan;
 @property (retain, nonatomic) IBOutlet ExTextField *edtSoTaiKhoan;
 @property (retain, nonatomic) IBOutlet ExTextField *edtSoTien;
+@property (retain, nonatomic) IBOutlet ExTextField *mtfChiNhanh;
+@property (retain, nonatomic) IBOutlet ExTextField *mtfChiNhanhKhac;
 @property (retain, nonatomic) IBOutlet UmiTextView *tvNoiDung;
 @property (retain, nonatomic) IBOutlet UIButton *btnLuuTaiKhoanThuongDung;
 
@@ -32,6 +34,11 @@
 
 @property (retain, nonatomic) IBOutlet UIView *viewTaiKhoan;
 @property (retain, nonatomic) IBOutlet NSLayoutConstraint *heightViewMain;
+@property (retain, nonatomic) IBOutlet NSLayoutConstraint *heightChiNhanh;
+@property (retain, nonatomic) IBOutlet NSLayoutConstraint *heightChiNhanhKhac;
+@property (retain, nonatomic) IBOutlet NSLayoutConstraint *topSpaceTenChuTaiKhoan;
+@property (retain, nonatomic) IBOutlet NSLayoutConstraint *heightViewThongTin;
+@property (retain, nonatomic) IBOutlet NSLayoutConstraint *topChiNhanhKhac;
 
 
 - (IBAction)suKienLuuTaiKhoanThuongDung:(id)sender;

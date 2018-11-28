@@ -57,7 +57,7 @@
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hwn-TO-Whc">
-                            <rect key="frame" x="5" y="5" width="310" height="790"/>
+                            <rect key="frame" x="5" y="5" width="310" height="780"/>
                             <subviews>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Quận/Huyện" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0LJ-Wg-xuz" customClass="ExTextField">
                                     <rect key="frame" x="8" y="51" width="294" height="35"/>
@@ -353,7 +353,7 @@
                                 <constraint firstAttribute="trailing" secondItem="wrL-uf-etv" secondAttribute="trailing" constant="8" id="BEW-JH-ulI"/>
                                 <constraint firstItem="0LJ-Wg-xuz" firstAttribute="top" secondItem="dHg-HP-SvU" secondAttribute="bottom" constant="8" id="Jo1-jU-sVW"/>
                                 <constraint firstItem="wrL-uf-etv" firstAttribute="leading" secondItem="dHg-HP-SvU" secondAttribute="trailing" constant="8" id="ODE-s7-DAw"/>
-                                <constraint firstAttribute="height" constant="790" id="TF1-nb-KAv"/>
+                                <constraint firstAttribute="height" constant="780" id="TF1-nb-KAv"/>
                                 <constraint firstAttribute="trailing" secondItem="0LJ-Wg-xuz" secondAttribute="trailing" constant="8" id="aqn-dU-yh6"/>
                                 <constraint firstItem="2Qb-dz-SCD" firstAttribute="top" secondItem="0LJ-Wg-xuz" secondAttribute="bottom" constant="6" id="gU0-3T-Dxr"/>
                                 <constraint firstItem="dHg-HP-SvU" firstAttribute="top" secondItem="Hwn-TO-Whc" secondAttribute="top" constant="8" id="i5C-MB-piI"/>

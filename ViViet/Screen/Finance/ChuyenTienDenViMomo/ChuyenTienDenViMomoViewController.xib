@@ -48,6 +48,10 @@
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="AQ2-lV-tpA" customClass="TPKeyboardAvoidAcessory">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="592"/>
                     <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kN0-6i-bvd">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="592"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fp5-yM-9cl">
                             <rect key="frame" x="8" y="5" width="304" height="400"/>
                             <subviews>
@@ -298,9 +302,14 @@
                     </subviews>
                     <constraints>
                         <constraint firstItem="fp5-yM-9cl" firstAttribute="top" secondItem="AQ2-lV-tpA" secondAttribute="top" constant="5" id="2me-BL-GKT"/>
-                        <constraint firstAttribute="bottom" secondItem="fp5-yM-9cl" secondAttribute="bottom" constant="120" id="3Pq-hd-Kjt"/>
                         <constraint firstItem="fp5-yM-9cl" firstAttribute="centerX" secondItem="AQ2-lV-tpA" secondAttribute="centerX" id="8XS-nj-1Qx"/>
+                        <constraint firstItem="kN0-6i-bvd" firstAttribute="leading" secondItem="AQ2-lV-tpA" secondAttribute="leading" id="Aav-PM-bbT"/>
+                        <constraint firstAttribute="bottom" secondItem="kN0-6i-bvd" secondAttribute="bottom" id="DeP-hX-3gQ"/>
                         <constraint firstAttribute="trailing" secondItem="fp5-yM-9cl" secondAttribute="trailing" constant="8" id="Jrn-YC-IG4"/>
+                        <constraint firstItem="kN0-6i-bvd" firstAttribute="top" secondItem="AQ2-lV-tpA" secondAttribute="top" id="PYs-R4-ELN"/>
+                        <constraint firstItem="kN0-6i-bvd" firstAttribute="width" secondItem="AQ2-lV-tpA" secondAttribute="width" id="abI-OG-apD"/>
+                        <constraint firstAttribute="trailing" secondItem="kN0-6i-bvd" secondAttribute="trailing" id="jKu-2o-eUw"/>
+                        <constraint firstItem="kN0-6i-bvd" firstAttribute="height" secondItem="AQ2-lV-tpA" secondAttribute="height" id="plw-M1-Zmy"/>
                         <constraint firstItem="fp5-yM-9cl" firstAttribute="leading" secondItem="AQ2-lV-tpA" secondAttribute="leading" constant="8" id="vb5-Qk-DtU"/>
                     </constraints>
                 </scrollView>

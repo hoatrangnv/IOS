@@ -40,10 +40,20 @@
         [self layChiTietThongTinHoaDon:_sIdShow];
     }
 
-    self.mbtnVanTay.hidden = YES;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateThongTinTraTienVay:) name:KEY_TAI_KHOAN_THUONG_DUNG object:nil];
 
 //    [self khoiTaoThongTinKhiCoPush];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self setAnimationChoSoTay:self.btnSoTay];
+//    [self khoiTaoQuangCao];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [self.btnSoTay.imageView stopAnimating];
 }
 
 - (void)khoiTaoQuangCao {
@@ -83,17 +93,6 @@
     }
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    [self setAnimationChoSoTay:self.btnSoTay];
-    [self khoiTaoQuangCao];
-}
-
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-    [self.btnSoTay.imageView stopAnimating];
-}
-
 - (void)suKienDonePicker:(UIButton *)btn {
     [_edQuyTraTien resignFirstResponder];
     _edQuyTraTien.text = [self getQuyTraTienVay:nIndexQuy];
@@ -101,41 +100,31 @@
 }
 
 - (void)refreshGiaoDienKhiChonQuy {
-    CGRect rectQC = viewQC.frame;
-    CGRect rectMain = self.mViewMain.frame;
-    CGRect rectTraCuu = self.btnTraCuu.frame;
-    CGRect rectCMND = self.edCMNDFE.frame;
     if (nIndexQuy == 1) {
-        [_edMaHopDong setPlaceholder:@"Mã hợp đồng"];
-        self.edCMNDFE.hidden = NO;
-        rectTraCuu.origin.y = rectCMND.origin.y + rectCMND.size.height + 8;
-//        rectMain.size.height = rectTraCuu.origin.y + rectTraCuu.size.height + 10;
-        rectQC.origin.y = rectTraCuu.origin.y + rectTraCuu.size.height + 10;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [_edMaHopDong setPlaceholder:@"Mã hợp đồng"];
+            self.edCMNDFE.hidden = NO;
+            self.heightCmndFE.constant = 35.0;
+            self.topBtnTraCuu.constant = 8;
+            self.heightViewMain.constant += (self.heightCmndFE.constant + self.topBtnTraCuu.constant);
+        });
     }
     else {
-        _edMaHopDong.placeholder = @"Số CMND/ mã HĐ";
-        self.edCMNDFE.hidden = YES;
-        rectTraCuu.origin.y = rectCMND.origin.y;
-//        rectMain.size.height = rectTraCuu.origin.y + rectTraCuu.size.height + 10;
-        rectQC.origin.y = rectTraCuu.origin.y + rectTraCuu.size.height + 10;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            _edMaHopDong.placeholder = @"Số CMND/ mã HĐ";
+            self.edCMNDFE.hidden = YES;
+            self.heightViewMain.constant -= (self.heightCmndFE.constant + self.topBtnTraCuu.constant);
+            self.heightCmndFE.constant = 0.0;
+            self.topBtnTraCuu.constant = 0.0;
+        });
     }
-    rectMain.size.height = rectQC.origin.y + rectQC.size.height;
     
-    if ([self.mViewMain.subviews containsObject:self.viewThanhToan] && !self.viewThanhToan.hidden) {
-        CGRect rectThanhToan = self.viewThanhToan.frame;
-        rectThanhToan.origin.y = rectTraCuu.origin.y;
-        self.viewThanhToan.frame = rectThanhToan;
-        rectQC.origin.y = rectThanhToan.origin.y + rectThanhToan.size.height + 10;
-        rectMain.size.height = rectQC.origin.y + rectQC.size.height + 10;
-
-        if ([self kiemTraCoChucNangQuetVanTay]) {
-            self.mbtnVanTay.hidden = NO;
-        }
-    }
-    viewQC.frame = rectQC;
-    self.mViewMain.frame = rectMain;
-    self.btnTraCuu.frame = rectTraCuu;
-    [self.scrMain setContentSize:CGSizeMake(_scrMain.frame.size.width, viewQC.frame.origin.y + viewQC.frame.size.height + 40)];
+//    if ([self.mViewMain.subviews containsObject:self.viewThanhToan] && !self.viewThanhToan.hidden) {
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            self.topViewThanhToan.constant = 8;
+//            self.heightViewThanhToan.constant = 220;
+//            self.heightViewMain.constant += (self.heightViewThanhToan.constant + self.topViewThanhToan.constant);
+//        });
 }
 
 - (void)suKienCancelPicker:(UIButton *)btn {
@@ -416,35 +405,19 @@
 }
 
 - (void)khoiTaoThongTinKhiCoPush {
-    CGRect rectTop = self.viewOptionTop.frame;
-    CGRect rectTraCuu = self.btnTraCuu.frame;
-    CGRect rectThanhToan = self.viewThanhToan.frame;
-    CGRect rectMain = self.mViewMain.frame;
-    CGRect rectQC = viewQC.frame;
-    rectTop.origin.x = rectMain.origin.x;
-    rectTop.origin.y = 0;
-    rectTop.size.width = rectMain.size.width;
-    rectThanhToan.origin.x = 0;
-    rectThanhToan.origin.y = rectTraCuu.origin.y;
-    rectMain.origin.y = rectTop.origin.y + rectTop.size.height - 4;
-    rectQC.origin.y = rectThanhToan.origin.y + rectThanhToan.size.height + 10;
-    rectMain.size.height = rectQC.origin.y + rectQC.size.height + 10;
-    NSLog(@"%s - rectThanhToan.origin.y : %f", __FUNCTION__, rectThanhToan.origin.y);
-    if (![self.mViewMain.subviews containsObject:self.viewThanhToan]) {
-        [self.mViewMain addSubview:self.viewThanhToan];
-    }
+//    if (![self.mViewMain.subviews containsObject:self.viewThanhToan]) {
+//        [self.mViewMain addSubview:self.viewThanhToan];
+//    }
+//    [self.mViewMain bringSubviewToFront:self.viewThanhToan];
+//    [self.viewThanhToan setTranslatesAutoresizingMaskIntoConstraints:NO];
+//    [self.viewThanhToan.trailingAnchor constraintEqualToAnchor:self.mViewMain.trailingAnchor].active = YES;
+//    [self.viewThanhToan.leadingAnchor constraintEqualToAnchor:self.mViewMain.leadingAnchor].active = YES;
+//    [self.viewThanhToan.topAnchor constraintEqualToAnchor:self.edMaHopDong.bottomAnchor constant:12].active = YES;
     self.viewThanhToan.hidden = NO;
     self.btnTraCuu.hidden = YES;
-//    rectMain.size.height = rectThanhToan.origin.y + rectThanhToan.size.height + 10;
-    self.viewOptionTop.frame = rectTop;
-    self.viewThanhToan.frame = rectThanhToan;
-    self.mViewMain.frame = rectMain;
-    viewQC.frame = rectQC;
-    self.viewOptionTop.hidden = NO;
-    if ([self kiemTraCoChucNangQuetVanTay]) {
-        self.mbtnVanTay.hidden = NO;
-    }
-    [self.scrMain setContentSize:CGSizeMake(_scrMain.frame.size.width, viewQC.frame.origin.y + viewQC.frame.size.height + rectTop.origin.y + rectTop.size.height + 10)];
+    self.heightViewThanhToan.constant = 200;
+    self.topViewThanhToan.constant = 0;
+    self.heightViewMain.constant += self.heightViewThanhToan.constant;
 }
 
 - (void)layChiTietThongTinHoaDon:(NSString *)idHoaDon {
@@ -463,6 +436,11 @@
     [_edHoTen release];
     [_edSoTien release];
 //    [_scrMain release];
+    [_heightViewMain release];
+    [_heightCmndFE release];
+    [_topBtnTraCuu release];
+    [_topViewThanhToan release];
+    [_heightViewThanhToan release];
     [super dealloc];
 }
 

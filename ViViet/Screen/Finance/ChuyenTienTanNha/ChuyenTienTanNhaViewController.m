@@ -166,7 +166,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self khoiTaoQuangCao];
+//    [self khoiTaoQuangCao];
     [_mtvTenDuong resignFirstResponder];
 //    self.btnVanTayMini.enabled = true;
 }

@@ -98,6 +98,7 @@
     _btnThucHien.hidden = NO;
     _btnToken.hidden = NO;
     contraintLeading.constant = ([UIScreen mainScreen].bounds.size.width - _btnToken.frame.size.width)/2 - _btnToken.frame.size.width/2;
+
 }
 
 - (void)xuLyKhiCoChucNangQuetVanTay
@@ -283,6 +284,7 @@
     }
 }
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
+    [textField resignFirstResponder];
     DanhsachNganHangViewController * ds = [[DanhsachNganHangViewController alloc] initWithNibName:@"DanhsachNganHangViewController" bundle:nil];
     ds.delegate = self;
     UINavigationController * nav = [[UINavigationController alloc] initWithRootViewController:ds];

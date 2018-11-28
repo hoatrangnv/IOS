@@ -128,7 +128,7 @@ typedef enum : NSUInteger {
     else{
         self.mbtnPKI.hidden = YES;
     }
-    [self khoiTaoQuangCao];
+//    [self khoiTaoQuangCao];
     [self.mtfSoTien resignFirstResponder];
     [_mtfNganHangGui resignFirstResponder];
     [_mtfSoTien resignFirstResponder];
@@ -174,12 +174,12 @@ typedef enum : NSUInteger {
     dispatch_async(dispatch_get_main_queue(), ^{
         self.heightViewMain.constant += 35.0;
         currentHeightMain = self.heightViewMain.constant;
-        [self.mScrvHienThi setContentSize:CGSizeMake(_mScrvHienThi.frame.size.width, self.heightViewMain.constant + 10)];
-        if (viewQC != nil) {
-            CGRect rectQC = viewQC.frame;
-            rectQC.origin.y += 35.0;
-            viewQC.frame = rectQC;
-        }
+        [self.mScrvHienThi setContentSize:CGSizeMake(_mScrvHienThi.frame.size.width, self.heightViewMain.constant + 20)];
+//        if (viewQC != nil) {
+//            CGRect rectQC = viewQC.frame;
+//            rectQC.origin.y += 35.0;
+//            viewQC.frame = rectQC;
+//        }
     });
 }
 
@@ -187,12 +187,12 @@ typedef enum : NSUInteger {
     dispatch_async(dispatch_get_main_queue(), ^{
         self.heightViewMain.constant -= 35.0;
         currentHeightMain = self.heightViewMain.constant;
-        [self.mScrvHienThi setContentSize:CGSizeMake(_mScrvHienThi.frame.size.width, self.heightViewMain.constant + 10)];
-        if (viewQC != nil) {
-            CGRect rectQC = viewQC.frame;
-            rectQC.origin.y -= 35.0;
-            viewQC.frame = rectQC;
-        }
+        [self.mScrvHienThi setContentSize:CGSizeMake(_mScrvHienThi.frame.size.width, self.heightViewMain.constant + 20)];
+//        if (viewQC != nil) {
+//            CGRect rectQC = viewQC.frame;
+//            rectQC.origin.y -= 35.0;
+//            viewQC.frame = rectQC;
+//        }
     });
 }
 
@@ -263,11 +263,11 @@ typedef enum : NSUInteger {
 
 - (void)updateXacThucKhac {
     [super updateXacThucKhac];
-    dispatch_async(dispatch_get_main_queue(), ^{
-        CGRect rectQC = viewQC.frame;
-        rectQC.origin.y += self.heightViewNhapXacThuc.constant;
-        viewQC.frame = rectQC;
-    });
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//        CGRect rectQC = viewQC.frame;
+//        rectQC.origin.y += self.heightViewNhapXacThuc.constant;
+//        viewQC.frame = rectQC;
+//    });
 }
 
 - (void)khoiTaoBanDau
@@ -779,16 +779,7 @@ typedef enum : NSUInteger {
         self.heightViewAddThem.constant = 0;
         self.heightViewMain.constant = currentHeightMain;
         
-        dispatch_async(dispatch_get_main_queue(), ^{
-            CGRect rectQC = viewQC.frame;
-            rectQC.origin.y += self.heightViewAddThem.constant;
-            viewQC.frame = rectQC;
-        });
         [self.mScrvHienThi setContentSize:CGSizeMake(self.mScrvHienThi.frame.size.width, self.heightViewMain.constant + 10)];
-//        rViewThoiGian.origin.y = rViewNhanGocVaLaiVe.origin.y + rViewNhanGocVaLaiVe.size.height + 8;
-//        rViewNhapToken.origin.y = rViewThoiGian.origin.y + rViewThoiGian.size.height + 8;
-//        rectQC.origin.y = rViewNhapToken.origin.y + rViewNhapToken.size.height + 15;
-//        rViewMain.size.height = rectQC.origin.y +rectQC.size.height + 10;
 
     }
     else if(nCachChon == KIEU_NHAN_TIEN_QUA_TK)
@@ -805,24 +796,8 @@ typedef enum : NSUInteger {
         [_mViewChonNganHangNhanTienGocVaLaiTietKiem.bottomAnchor constraintEqualToAnchor:self.viewAddThem.bottomAnchor constant:0].active = YES;
         [_mViewChonNganHangNhanTienGocVaLaiTietKiem.trailingAnchor constraintEqualToAnchor:self.viewAddThem.trailingAnchor constant:0].active = YES;
         [_mViewChonNganHangNhanTienGocVaLaiTietKiem.leadingAnchor constraintEqualToAnchor:self.viewAddThem.leadingAnchor constant:0].active = YES;
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            CGRect rectQC = viewQC.frame;
-            rectQC.origin.y += self.heightViewAddThem.constant;
-            viewQC.frame = rectQC;
-        });
-        [self.mScrvHienThi setContentSize:CGSizeMake(self.mScrvHienThi.frame.size.width, self.heightViewMain.constant + 10)];
-//        CGRect rViewChonNganHangNhanTienGocVaLai = _mViewChonNganHangNhanTienGocVaLaiTietKiem.frame;
-//        rViewChonNganHangNhanTienGocVaLai.origin.y = rViewNhanGocVaLaiVe.size.height + rViewNhanGocVaLaiVe.origin.y + 8;
-//        rViewChonNganHangNhanTienGocVaLai.size.width = rViewThoiGian.size.width;
-//
-//        rViewThoiGian.origin.y = rViewChonNganHangNhanTienGocVaLai.origin.y + rViewChonNganHangNhanTienGocVaLai.size.height + 8;
-//        rViewNhapToken.origin.y = rViewThoiGian.origin.y + rViewThoiGian.size.height + 8;
-//        rectQC.origin.y = rViewNhapToken.origin.y + rViewNhapToken.size.height + 15;
-//        rViewMain.size.height = rectQC.origin.y +rectQC.size.height + 10;
-//
-//        _mViewChonNganHangNhanTienGocVaLaiTietKiem.frame = rViewChonNganHangNhanTienGocVaLai;
-//        [self.mViewMain addSubview:_mViewChonNganHangNhanTienGocVaLaiTietKiem];
+        NSLog(@"%s - self.heightViewMain.constant : %f", __FUNCTION__, self.heightViewMain.constant);
+        [self.mScrvHienThi setContentSize:CGSizeMake(self.mScrvHienThi.frame.size.width, self.heightViewMain.constant + 50)];
     }
     else if(nCachChon == KIEU_NHAN_TIEN_QUA_THE)
     {
@@ -839,23 +814,8 @@ typedef enum : NSUInteger {
         [_mViewRutGocVaLaiVeThe.bottomAnchor constraintEqualToAnchor:self.viewAddThem.bottomAnchor constant:0].active = YES;
         [_mViewRutGocVaLaiVeThe.trailingAnchor constraintEqualToAnchor:self.viewAddThem.trailingAnchor constant:0].active = YES;
         [_mViewRutGocVaLaiVeThe.leadingAnchor constraintEqualToAnchor:self.viewAddThem.leadingAnchor constant:0].active = YES;
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            CGRect rectQC = viewQC.frame;
-            rectQC.origin.y += self.heightViewAddThem.constant;
-            viewQC.frame = rectQC;
-        });
-        [self.mScrvHienThi setContentSize:CGSizeMake(self.mScrvHienThi.frame.size.width, self.heightViewMain.constant + 10)];
-//        CGRect rViewChonTheNhanTienGocVaLai = _mViewRutGocVaLaiVeThe.frame;
-//        rViewChonTheNhanTienGocVaLai.origin.y = rViewNhanGocVaLaiVe.size.height + rViewNhanGocVaLaiVe.origin.y + 8;
-//        rViewChonTheNhanTienGocVaLai.size.width = rViewThoiGian.size.width;
-//        rViewThoiGian.origin.y = rViewChonTheNhanTienGocVaLai.origin.y + rViewChonTheNhanTienGocVaLai.size.height + 8;
-//        rViewNhapToken.origin.y = rViewThoiGian.origin.y + rViewThoiGian.size.height + 8;
-//        rectQC.origin.y = rViewNhapToken.origin.y + rViewNhapToken.size.height + 15;
-//        rViewMain.size.height = rectQC.origin.y +rectQC.size.height + 10;
-//
-//        _mViewRutGocVaLaiVeThe.frame = rViewChonTheNhanTienGocVaLai;
-//        [self.mViewMain addSubview:_mViewRutGocVaLaiVeThe];
+
+        [self.mScrvHienThi setContentSize:CGSizeMake(self.mScrvHienThi.frame.size.width, self.heightViewMain.constant + 20)];
     }
     
     if([self kiemTraCoChucNangQuetVanTay])

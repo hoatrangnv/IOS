@@ -64,7 +64,7 @@
         [self thayDoiTrangThaiButton:_nIndexBank];
     }
     
-    [self khoiTaoQuangCao];
+//    [self khoiTaoQuangCao];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

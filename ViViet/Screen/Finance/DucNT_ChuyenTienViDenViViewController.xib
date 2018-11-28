@@ -16,7 +16,6 @@
                 <outlet property="btnVanTayMini" destination="U8W-R2-If2" id="sIi-JM-Csw"/>
                 <outlet property="contraintWidth" destination="pom-SA-kfB" id="VIP-8o-SfQ"/>
                 <outlet property="heightContentView" destination="XMK-N0-bmH" id="00W-Xt-YRh"/>
-                <outlet property="heightViewMain" destination="5Pr-Tj-vvq" id="37q-SO-U0A"/>
                 <outlet property="heightViewNhapXacThuc" destination="KU7-Jr-okO" id="xvJ-Wk-vB8"/>
                 <outlet property="heightViewQR" destination="6js-wF-2Gc" id="KFI-SY-Ssh"/>
                 <outlet property="imgvAvatar" destination="X5X-Op-0Eq" id="JcS-kR-dum"/>
@@ -59,10 +58,10 @@
                             <rect key="frame" x="0.0" y="0.0" width="320" height="563"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dRZ-AN-5Si" userLabel="ViewMain">
-                                    <rect key="frame" x="8" y="5" width="304" height="540"/>
+                                    <rect key="frame" x="8" y="5" width="304" height="500"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eQf-nb-31m" userLabel="ViewKhongEdtDaiDien">
-                                            <rect key="frame" x="0.0" y="5" width="304" height="535"/>
+                                            <rect key="frame" x="0.0" y="5" width="304" height="495"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DN_" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="oYY-Si-jiU">
                                                     <rect key="frame" x="0.0" y="16" width="0.0" height="20"/>
@@ -347,15 +346,15 @@
                                                 <constraint firstItem="xRc-Dx-b9P" firstAttribute="top" secondItem="6e9-2u-4AR" secondAttribute="bottom" constant="8" id="z89-va-owN"/>
                                             </constraints>
                                         </view>
-                                        <webView hidden="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1pS-0p-rMF">
-                                            <rect key="frame" x="0.0" y="5" width="304" height="226"/>
+                                        <webView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1pS-0p-rMF">
+                                            <rect key="frame" x="0.0" y="5" width="304" height="487"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </webView>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="540" id="5Pr-Tj-vvq"/>
                                         <constraint firstAttribute="trailing" secondItem="1pS-0p-rMF" secondAttribute="trailing" id="5aC-sY-Cyp"/>
+                                        <constraint firstAttribute="bottom" secondItem="xRc-Dx-b9P" secondAttribute="bottom" constant="12" id="7hZ-5e-2R4"/>
                                         <constraint firstAttribute="trailing" secondItem="eQf-nb-31m" secondAttribute="trailing" id="Ihl-zc-Aum"/>
                                         <constraint firstItem="1pS-0p-rMF" firstAttribute="top" secondItem="dRZ-AN-5Si" secondAttribute="top" constant="5" id="Rl5-hP-cQo"/>
                                         <constraint firstAttribute="bottom" secondItem="1pS-0p-rMF" secondAttribute="bottom" constant="8" id="UVk-AH-I67"/>
