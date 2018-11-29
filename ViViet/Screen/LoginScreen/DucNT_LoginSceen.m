@@ -342,8 +342,8 @@ static int const KIEU_KET_NOI_GOOGLE = 2;
             [_mtfMaDoanhNghiep show_error];
             return;
         }
-//        [self xuLySuKienHienThiChucNangDangNhapVanTayVoiTieuDe:[@"su_dung_van_tay_dang_nhap_tai_khoan_VIMASS" localizableString]];
-        [self suKienChonBaoMatVanTay:nil];
+        [self xuLySuKienHienThiChucNangDangNhapVanTayVoiTieuDe:[@"su_dung_van_tay_dang_nhap_tai_khoan_VIMASS" localizableString]];
+//        [self suKienChonBaoMatVanTay:nil];
     }
     else
     {

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -60,7 +60,7 @@
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Chủ tài khoản" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rXs-BZ-Zlh" customClass="ExTextField">
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Tên chủ tài khoản" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rXs-BZ-Zlh" customClass="ExTextField">
                                     <rect key="frame" x="8" y="52" width="359" height="35"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="35" id="5ZR-0f-rF7"/>
@@ -78,7 +78,7 @@
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                                 </textField>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Tên đăng nhập internet banking" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iqp-rn-Zeh" customClass="ExTextField">
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Tên đăng nhập" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iqp-rn-Zeh" customClass="ExTextField">
                                     <rect key="frame" x="8" y="138" width="302" height="35"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="35" id="r8f-Bb-uI7"/>
@@ -87,7 +87,7 @@
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 </textField>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Mật khẩu internet banking" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zs3-SR-TBJ" customClass="ExTextField">
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Mật khẩu" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zs3-SR-TBJ" customClass="ExTextField">
                                     <rect key="frame" x="8" y="181" width="302" height="35"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="35" id="ltf-Yb-gZy"/>
@@ -168,7 +168,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w9S-KB-KCx">
-                                    <rect key="frame" x="168" y="273" width="44" height="44"/>
+                                    <rect key="frame" x="165.5" y="273" width="44" height="44"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="44" id="kuT-fk-8u3"/>
                                     </constraints>
@@ -201,12 +201,12 @@
                                 <constraint firstAttribute="trailing" secondItem="xic-Pn-Ir1" secondAttribute="trailing" constant="7" id="6RF-In-aZe"/>
                                 <constraint firstItem="bVI-CO-n2l" firstAttribute="leading" secondItem="Zs3-SR-TBJ" secondAttribute="trailing" constant="15" id="6Ro-O9-5Ef"/>
                                 <constraint firstItem="rKN-fq-nkm" firstAttribute="top" secondItem="pjO-qa-bYL" secondAttribute="top" constant="9" id="72l-lU-aBh"/>
+                                <constraint firstItem="w9S-KB-KCx" firstAttribute="centerX" secondItem="pjO-qa-bYL" secondAttribute="centerX" id="Chk-zs-PNb"/>
                                 <constraint firstItem="bVI-CO-n2l" firstAttribute="centerY" secondItem="Zs3-SR-TBJ" secondAttribute="centerY" id="CkY-jc-lbd"/>
                                 <constraint firstItem="o21-k1-0qQ" firstAttribute="top" secondItem="Zs3-SR-TBJ" secondAttribute="bottom" constant="12" id="DiA-vH-lgs"/>
                                 <constraint firstItem="GmT-R1-GPM" firstAttribute="top" secondItem="rXs-BZ-Zlh" secondAttribute="bottom" constant="8" id="FTl-5L-dmS"/>
                                 <constraint firstAttribute="trailing" secondItem="mCz-pY-oKS" secondAttribute="trailing" constant="35" id="GB4-iQ-I7f"/>
                                 <constraint firstItem="nVp-uP-jiK" firstAttribute="width" secondItem="nVp-uP-jiK" secondAttribute="height" multiplier="1:1" id="HAC-mp-yJX"/>
-                                <constraint firstItem="w9S-KB-KCx" firstAttribute="leading" secondItem="vpX-Z9-MUB" secondAttribute="trailing" constant="18" id="K4G-1F-vxm"/>
                                 <constraint firstItem="ixg-i0-Ee9" firstAttribute="leading" secondItem="pjO-qa-bYL" secondAttribute="leading" constant="17" id="Khi-2a-IGT"/>
                                 <constraint firstItem="x5i-CT-PCD" firstAttribute="leading" secondItem="o21-k1-0qQ" secondAttribute="trailing" constant="8" id="La1-f3-P35"/>
                                 <constraint firstItem="w9S-KB-KCx" firstAttribute="top" secondItem="vpX-Z9-MUB" secondAttribute="top" id="NhS-4l-jwA"/>

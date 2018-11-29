@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -62,7 +62,7 @@
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Chủ tài khoản" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4fx-4K-qMD" customClass="ExTextField">
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Tên chủ thẻ" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4fx-4K-qMD" customClass="ExTextField">
                                     <rect key="frame" x="8" y="52" width="359" height="35"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="35" id="GIH-43-l3V"/>
@@ -132,7 +132,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X0Y-a1-Xsp">
-                                    <rect key="frame" x="168" y="277" width="44" height="44"/>
+                                    <rect key="frame" x="165.5" y="277" width="44" height="44"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="44" id="owg-yG-XSj"/>
                                     </constraints>
@@ -158,12 +158,12 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O5X-nt-msc">
                                     <rect key="frame" x="8" y="181" width="359" height="35"/>
                                     <subviews>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Tháng hết hạn" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PBr-fQ-YO9" userLabel="ThangMoThe (2 so)" customClass="ExTextField">
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Từ tháng" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PBr-fQ-YO9" userLabel="ThangMoThe (2 so)" customClass="ExTextField">
                                             <rect key="frame" x="0.0" y="0.0" width="174.5" height="35"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                         </textField>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Năm hết hạn" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sK8-Ln-u2N" userLabel="Nam mo the (2 so)" customClass="ExTextField">
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Năm" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sK8-Ln-u2N" userLabel="Nam mo the (2 so)" customClass="ExTextField">
                                             <rect key="frame" x="184.5" y="0.0" width="174.5" height="35"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="35" id="yp6-LH-GTm"/>
@@ -220,6 +220,7 @@
                                 <constraint firstItem="SR9-L9-VlM" firstAttribute="leading" secondItem="1Qr-mm-fCc" secondAttribute="trailing" constant="8" id="Mbb-sX-0mp"/>
                                 <constraint firstItem="Hyl-tS-hxM" firstAttribute="top" secondItem="9oR-IF-Csl" secondAttribute="bottom" constant="18" id="NCb-Qz-8hk"/>
                                 <constraint firstItem="X0Y-a1-Xsp" firstAttribute="height" secondItem="9oR-IF-Csl" secondAttribute="height" id="O8C-er-QhI"/>
+                                <constraint firstItem="X0Y-a1-Xsp" firstAttribute="centerX" secondItem="oTX-2b-oTI" secondAttribute="centerX" id="ODL-HL-dTo"/>
                                 <constraint firstItem="WHv-KC-FDt" firstAttribute="leading" secondItem="SR9-L9-VlM" secondAttribute="trailing" constant="8" id="OeF-rM-he6"/>
                                 <constraint firstItem="4fx-4K-qMD" firstAttribute="top" secondItem="Gls-fO-2Jp" secondAttribute="bottom" constant="8" id="Pvo-zw-IvY"/>
                                 <constraint firstItem="sVi-29-bKb" firstAttribute="leading" secondItem="oTX-2b-oTI" secondAttribute="leading" constant="8" id="RVW-ys-iGq"/>
@@ -232,7 +233,6 @@
                                 <constraint firstItem="Hyl-tS-hxM" firstAttribute="leading" secondItem="oTX-2b-oTI" secondAttribute="leading" constant="17" id="X3g-R2-lpO"/>
                                 <constraint firstItem="X0Y-a1-Xsp" firstAttribute="top" secondItem="9oR-IF-Csl" secondAttribute="top" id="XeN-PZ-Syv"/>
                                 <constraint firstItem="9oR-IF-Csl" firstAttribute="top" secondItem="1Qr-mm-fCc" secondAttribute="bottom" constant="24" id="YKX-Kn-1uX"/>
-                                <constraint firstItem="X0Y-a1-Xsp" firstAttribute="leading" secondItem="9oR-IF-Csl" secondAttribute="trailing" constant="18" id="ett-LQ-Z0r"/>
                                 <constraint firstAttribute="trailing" secondItem="4fx-4K-qMD" secondAttribute="trailing" constant="8" id="fx7-ZJ-CHl"/>
                                 <constraint firstAttribute="trailing" secondItem="PUd-GX-2kf" secondAttribute="trailing" constant="8" id="mhe-ZO-bgf"/>
                                 <constraint firstItem="lWW-kM-YM4" firstAttribute="leading" secondItem="oTX-2b-oTI" secondAttribute="leading" constant="8" id="nP6-2U-gd3"/>

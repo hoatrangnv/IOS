@@ -105,7 +105,7 @@ NSString *sCauLuuY = @"<b>Lưu ý:</b> Số điện thoại nhận thanh toán c
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self setAnimationChoSoTay:self.btnSoTay];
-//    [self khoiTaoQuangCao];
+    [self khoiTaoQuangCao];
 }
 
 - (void)updateThongTinTraCuuDienThoai:(NSNotification *)notification

@@ -98,6 +98,7 @@
     _btnThucHien.hidden = NO;
     _btnToken.hidden = NO;
     contraintLeading.constant = ([UIScreen mainScreen].bounds.size.width - _btnToken.frame.size.width)/2 - _btnToken.frame.size.width/2;
+
 }
 
 - (void)xuLyKhiCoChucNangQuetVanTay
@@ -117,6 +118,10 @@
 
 - (void)xuLySuKienXacThucVanTayThanhCong
 {
+    if (nIndexBank < 0 ){
+        [UIAlertView alert:@"Vui lòng chọn mã ngân hàng" withTitle:[@"thong_bao" localizableString] block:nil];
+        return;
+    }
     [self thuchienxuly];
 }
 
@@ -133,11 +138,15 @@
     self.btnThucHien.hidden = NO;
 }
 - (IBAction)doThucHien:(id)sender{
-    self.mTypeAuthenticate = TYPE_AUTHENTICATE_TOKEN;
+    self.mTypeAuthenticate = TYPE_kieuXacThuc_token;
+    if (nIndexBank < 0 ){
+          [UIAlertView alert:@"Vui lòng chọn mã ngân hàng" withTitle:[@"thong_bao" localizableString] block:nil];
+        return;
+    }
     [self thuchienxuly];
 }
 - (IBAction)doVantay:(id)sender{
-    self.mTypeAuthenticate = TYPE_AUTHENTICATE_TOKEN;
+    self.mTypeAuthenticate = TYPE_kieuXacThuc_khac;
     [self.btnVanTay setBackgroundImage:[UIImage imageNamed:@"finger"] forState:UIControlStateNormal];
     [self.btnVanTay setBackgroundImage:[UIImage imageNamed:@"fingerv"] forState:UIControlStateSelected];
     [self.btnVanTay setSelected:YES];
@@ -201,22 +210,38 @@
         [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng chọn ngân hàng liên kết"];
         return;
     }
-    if (![[dic objectForKey:@"soThe"] isEmpty]) {
-        if ([[dic objectForKey:@"cardMonth"] intValue] == 0 || [[dic objectForKey:@"cardYear"] intValue] == 0) {
-            [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng nhập Tháng/Năm mở thẻ"];
-            return;
+    if ([self isKindOfClass:[GiaodientaikhoantheViewController class]]) {
+        if ([dic valueForKey:@"cvv"]) {
+            if ([[dic objectForKey:@"cardMonthExp"] intValue] == 0 || [[dic objectForKey:@"cardYearExp"] intValue] == 0) {
+                [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng nhập Tháng/Năm hết hạn"];
+                return;
+            }
+            if ([[dic valueForKey:@"cvv"] isEmpty]) {
+                [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng nhập CVV"];
+                return;
+            }
+
+        } else {
+            if ([[dic objectForKey:@"cardMonth"] intValue] == 0 || [[dic objectForKey:@"cardYear"] intValue] == 0) {
+                [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng nhập Tháng/Năm mở thẻ"];
+                return;
+            }
+
         }
+    } else {
+        if (![[dic objectForKey:@"soTaiKhoan"] isEmpty]) {
+            if ([[dic objectForKey:@"u"] isEmpty]) {
+                [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng nhập số tài khoản "];
+                return;
+            }
+            if ([[dic objectForKey:@"p"] isEmpty]) {
+                [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng nhập mật khẩu internet banking"];
+                return;
+            }
+        }
+
     }
-    if (![[dic objectForKey:@"soTaiKhoan"] isEmpty]) {
-        if ([[dic objectForKey:@"u"] isEmpty]) {
-            [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng nhập số tài khoản internet banking"];
-            return;
-        }
-        if ([[dic objectForKey:@"p"] isEmpty]) {
-            [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng nhập mật khẩu internet banking"];
-            return;
-        }
-    }
+
 
     [GiaoDichMang editTaiKhoanLienKet:sDic noiNhanKetQua:self];
 }
@@ -227,20 +252,36 @@
         [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng chọn ngân hàng liên kết"];
         return;
     }
-    if (![[dic objectForKey:@"soThe"] isEmpty]) {
-        if ([[dic objectForKey:@"cardMonth"] intValue] == 0 || [[dic objectForKey:@"cardYear"] intValue] == 0) {
-            [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng nhập Tháng/Năm mở thẻ"];
-            return;
+    if ([self isKindOfClass:[GiaodientaikhoantheViewController class]]) {
+        if ([dic valueForKey:@"cvv"]) {
+            if ([[dic objectForKey:@"cardMonthExp"] intValue] == 0 || [[dic objectForKey:@"cardYearExp"] intValue] == 0) {
+                [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng nhập Tháng/Năm hết hạn"];
+                return;
+            }
+            if ([[dic valueForKey:@"cvv"] isEmpty]) {
+                [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng nhập CVV"];
+                return;
+            }
+
+            
+        } else {
+            if ([[dic objectForKey:@"cardMonth"] intValue] == 0 || [[dic objectForKey:@"cardYear"] intValue] == 0) {
+                [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng nhập Tháng/Năm mở thẻ"];
+                return;
+            }
+            
         }
-    }
-    if (![[dic objectForKey:@"soTaiKhoan"] isEmpty]) {
-        if ([[dic objectForKey:@"u"] isEmpty]) {
-            [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng nhập số tài khoản internet banking"];
-            return;
-        }
-        if ([[dic objectForKey:@"p"] isEmpty]) {
-            [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng nhập mật khẩu internet banking"];
-            return;
+
+    } else {
+        if (![[dic objectForKey:@"soTaiKhoan"] isEmpty]) {
+            if ([[dic objectForKey:@"u"] isEmpty]) {
+                [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng nhập số tài khoản internet banking"];
+                return;
+            }
+            if ([[dic objectForKey:@"p"] isEmpty]) {
+                [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng nhập mật khẩu internet banking"];
+                return;
+            }
         }
     }
     [GiaoDichMang taoTaiKhoanLienKet:sDic noiNhanKetQua:self];
@@ -283,6 +324,7 @@
     }
 }
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
+    [textField resignFirstResponder];
     DanhsachNganHangViewController * ds = [[DanhsachNganHangViewController alloc] initWithNibName:@"DanhsachNganHangViewController" bundle:nil];
     ds.delegate = self;
     UINavigationController * nav = [[UINavigationController alloc] initWithRootViewController:ds];

@@ -35,6 +35,10 @@
 #define  TYPE_AUTHENTICATE_SMS 1
 #define  TYPE_AUTHENTICATE_EMAIL 2
 
+#define  TYPE_kieuXacThuc_khac 2
+#define  TYPE_kieuXacThuc_token 0
+
+
 #define FUNC_ID_CHUYEN_TIEN 1
 #define FUNC_ID_THAY_DOI_THONG_TIN_TAI_KHOAN 3
 #define FUNC_XOA_TAI_KHOAN_THUONG_DUNG 400
