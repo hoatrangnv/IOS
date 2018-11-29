@@ -118,6 +118,10 @@
 
 - (void)xuLySuKienXacThucVanTayThanhCong
 {
+    if (nIndexBank < 0 ){
+        [UIAlertView alert:@"Vui lòng chọn mã ngân hàng" withTitle:[@"thong_bao" localizableString] block:nil];
+        return;
+    }
     [self thuchienxuly];
 }
 
@@ -135,6 +139,10 @@
 }
 - (IBAction)doThucHien:(id)sender{
     self.mTypeAuthenticate = TYPE_kieuXacThuc_token;
+    if (nIndexBank < 0 ){
+          [UIAlertView alert:@"Vui lòng chọn mã ngân hàng" withTitle:[@"thong_bao" localizableString] block:nil];
+        return;
+    }
     [self thuchienxuly];
 }
 - (IBAction)doVantay:(id)sender{

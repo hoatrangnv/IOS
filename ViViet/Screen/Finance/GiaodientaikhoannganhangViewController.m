@@ -62,7 +62,7 @@
 
     [dic setValue:tkLienket.sId forKey:@"id"];
     [dic setValue:tkLienket.idVi forKey:@"idVi"];
-    [dic setValue:(isMacdinh ? 1 : 0) forKey:@"tkMacDinh"];
+    [dic setValue:(isMacdinh ? @1 : @0) forKey:@"tkMacDinh"];
 
     [dic setValue:sToken forKey:@"token"];
     [dic setValue:@"" forKey:@"otpConfirm"];
@@ -89,7 +89,7 @@
     [dic setValue:sBank forKey:@"maNganHang"];
     [dic setValue:self.edChuTK.text forKey:@"tenChuTaiKhoan"];
     [dic setValue:self.edSoTK.text forKey:@"soTaiKhoan"];
-    [dic setValue:(isMacdinh ? 1 : 0) forKey:@"tkMacDinh"];
+    [dic setValue:(isMacdinh ? @1 : @0) forKey:@"tkMacDinh"];
     
     [dic setValue:self.edTenDangNhap.text forKey:@"u"];
     [dic setValue:self.edMatKhau.text forKey:@"p"];

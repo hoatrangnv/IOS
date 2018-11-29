@@ -123,7 +123,7 @@
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
     [dic setValue:tkLienket.sId forKey:@"id"];
     [dic setValue:tkLienket.idVi forKey:@"idVi"];
-    [dic setValue:(isMacdinh ? 1 : 0) forKey:@"tkMacDinh"];
+    [dic setValue:(isMacdinh ? @1 : @0) forKey:@"tkMacDinh"];
 
     NSString *sMatKhau = self.txtOtp.text;
     sMatKhau = [DucNT_Token layMatKhauVanTayToken];
@@ -170,7 +170,7 @@
         [dic setValue:[NSNumber numberWithInt:cardYear] forKey:@"cardYearExp"];
         [dic setValue:txtCvv.text forKey:@"cvv"];
     }
-    [dic setValue:(isMacdinh ? 1 : 0) forKey:@"tkMacDinh"];
+    [dic setValue:(isMacdinh ? @1 : @0) forKey:@"tkMacDinh"];
     
     [dic setValue:@"" forKey:@"u"];
     [dic setValue:@"" forKey:@"p"];
