@@ -168,11 +168,13 @@
     }
 }
 
-
+- (void)hideViewNhapToken {
+}
 #pragma mark - overriden GiaoDichViewController
 
 - (BOOL)validateVanTay
 {
+    return YES;
     NSArray *tfs = @[_mtfTieuDe, _mtfTaiKhoanNhanQua, _mtfMaThe, _mtfSoSeriThe, _mtfThoiGianTangQua];
     ExTextField *first = nil;
     BOOL flg = YES;

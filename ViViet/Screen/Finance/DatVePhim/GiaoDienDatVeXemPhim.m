@@ -138,7 +138,7 @@ static NSString *youTubeVideoHTML = @"<html><body style='margin:0px;padding:0px;
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self khoiTaoQuangCao];
+//    [self khoiTaoQuangCao];
 }
 
 - (void)khoiTaoQuangCao {
@@ -372,7 +372,7 @@ static NSString *youTubeVideoHTML = @"<html><body style='margin:0px;padding:0px;
 
 - (void)khoiTaoThongTinViewThanhToanCGV{
     self.mbtnVanTay.hidden = NO;
-    CGRect rectQC = viewQC.frame;
+//    CGRect rectQC = viewQC.frame;
     CGRect rectInfo = self.viewThongTinThanhToan.frame;
     CGRect rectWeb = self.webPhongChieu.frame;
     CGRect rectMain = self.mViewMain.frame;
@@ -393,9 +393,9 @@ static NSString *youTubeVideoHTML = @"<html><body style='margin:0px;padding:0px;
         self.viewThongTinRapQuocGia.hidden = YES;
     }
 
-    rectQC.origin.y = rectInfo.origin.y + rectInfo.size.height + 15;
-    rectMain.size.height = rectQC.origin.y + 310.0f;
-    viewQC.frame = rectQC;
+//    rectQC.origin.y = rectInfo.origin.y + rectInfo.size.height + 15;
+    rectMain.size.height = rectInfo.origin.y + rectInfo.size.height + 15;
+//    viewQC.frame = rectQC;
     self.mViewMain.frame = rectMain;
     rectVanTay.origin.y = rectMain.origin.y + rectMain.size.height + 8;
     self.mbtnVanTay.frame = rectVanTay;
@@ -480,7 +480,7 @@ static NSString *youTubeVideoHTML = @"<html><body style='margin:0px;padding:0px;
 
 - (void)khoiTaoThongTinViewThanhToan{
     self.mbtnVanTay.hidden = NO;
-    CGRect rectQC = viewQC.frame;
+//    CGRect rectQC = viewQC.frame;
     CGRect rectInfo = self.viewThongTinThanhToan.frame;
     CGRect rectWeb = self.webPhongChieu.frame;
     CGRect rectMain = self.mViewMain.frame;
@@ -502,10 +502,10 @@ static NSString *youTubeVideoHTML = @"<html><body style='margin:0px;padding:0px;
         self.viewThongTinRapQuocGia.hidden = NO;
     }
 //    rectMain.size.height = rectInfo.origin.y + rectInfo.size.height + 20;
-    rectQC.origin.y = rectInfo.origin.y + rectInfo.size.height + 15;
-    NSLog(@"%s - rectQC.size.height : %f", __FUNCTION__, rectQC.size.height);
-    rectMain.size.height = rectQC.origin.y + 280.0f;
-    viewQC.frame = rectQC;
+//    rectQC.origin.y = rectInfo.origin.y + rectInfo.size.height + 15;
+//    NSLog(@"%s - rectQC.size.height : %f", __FUNCTION__, rectQC.size.height);
+    rectMain.size.height = rectInfo.origin.y + rectInfo.size.height + 15;
+//    viewQC.frame = rectQC;
     self.mViewMain.frame = rectMain;
     [self.scrMain setContentSize:CGSizeMake(self.scrMain.frame.size.width, rectMain.origin.y + rectMain.size.height + 10)];
 
@@ -575,7 +575,7 @@ static NSString *youTubeVideoHTML = @"<html><body style='margin:0px;padding:0px;
 
 - (void)khoiTaoThongTinViewThanhToanQuocGia{
     self.mbtnVanTay.hidden = NO;
-    CGRect rectQC = viewQC.frame;
+//    CGRect rectQC = viewQC.frame;
     CGRect rectInfoUser = self.viewThongTinRapQuocGia.frame;
     CGRect rectInfo = self.viewThongTinThanhToan.frame;
     CGRect rectWeb = self.webPhongChieu.frame;
@@ -599,10 +599,10 @@ static NSString *youTubeVideoHTML = @"<html><body style='margin:0px;padding:0px;
     else{
         self.viewThongTinRapQuocGia.hidden = NO;
     }
-    rectQC.origin.y = rectInfo.origin.y + rectInfo.size.height + 15;
-    NSLog(@"%s - rectQC.size.height : %f", __FUNCTION__, rectQC.size.height);
-    rectMain.size.height = rectQC.origin.y + 280.0f;
-    viewQC.frame = rectQC;
+//    rectQC.origin.y = rectInfo.origin.y + rectInfo.size.height + 15;
+//    NSLog(@"%s - rectQC.size.height : %f", __FUNCTION__, rectQC.size.height);
+    rectMain.size.height = rectInfo.origin.y + rectInfo.size.height + 15;
+//    viewQC.frame = rectQC;
     self.mViewMain.frame = rectMain;
     [self.scrMain setContentSize:CGSizeMake(self.scrMain.frame.size.width, rectMain.origin.y + rectMain.size.height + 10)];
 
@@ -735,12 +735,12 @@ static NSString *youTubeVideoHTML = @"<html><body style='margin:0px;padding:0px;
         [pickerChonRap release];
     }
 
-    CGRect rectQC = viewQC.frame;
+//    CGRect rectQC = viewQC.frame;
     CGRect rectMain = self.mViewMain.frame;
     CGRect rectRap = self.edChonPhim.frame;
-    rectQC.origin.y = rectRap.origin.y + rectRap.size.height + 15;
-    rectMain.size.height = rectQC.origin.y + rectQC.size.height / 2 + 20;
-    viewQC.frame = rectQC;
+//    rectQC.origin.y = rectRap.origin.y + rectRap.size.height + 15;
+    rectMain.size.height = rectRap.origin.y + rectRap.size.height + 15;
+//    viewQC.frame = rectQC;
     self.mViewMain.frame = rectMain;
 
     if (!arrRapHienTai) {
@@ -931,28 +931,28 @@ static NSString *youTubeVideoHTML = @"<html><body style='margin:0px;padding:0px;
     self.viewInfo.hidden = YES;
     self.webTrailer.hidden = YES;
     [self.webTrailer loadHTMLString:@"" baseURL:nil];
-    CGRect rectQC = viewQC.frame;
-    CGRect rectMain = self.mViewMain.frame;
-    CGRect rectPhim = self.edChonPhim.frame;
-    rectQC.origin.y = rectPhim.origin.y + rectPhim.size.height + 15;
-    rectMain.size.height = rectQC.origin.y + fHeightQc;
-    viewQC.frame = rectQC;
-    self.mViewMain.frame = rectMain;
-    [self.scrMain setContentSize:CGSizeMake(rectMain.size.width, rectMain.size.height + self.viewOptionTop.frame.origin.y + self.viewOptionTop.frame.size.height + 10)];
+//    CGRect rectQC = viewQC.frame;
+//    CGRect rectMain = self.mViewMain.frame;
+//    CGRect rectPhim = self.edChonPhim.frame;
+//    rectQC.origin.y = rectPhim.origin.y + rectPhim.size.height + 15;
+//    rectMain.size.height = rectQC.origin.y + fHeightQc;
+//    viewQC.frame = rectQC;
+//    self.mViewMain.frame = rectMain;
+//    [self.scrMain setContentSize:CGSizeMake(rectMain.size.width, rectMain.size.height + self.viewOptionTop.frame.origin.y + self.viewOptionTop.frame.size.height + 10)];
 }
 
 - (void)capNhatGiaoDienHienThiInfoPhim{
     self.collectionNgayChieu.hidden = YES;
     self.collectionGioChieu.hidden = YES;
     self.viewInfo.hidden = NO;
-    CGRect rectQC = viewQC.frame;
-    CGRect rectMain = self.mViewMain.frame;
-    CGRect rectPhim = self.viewInfo.frame;
-    rectQC.origin.y = rectPhim.origin.y + rectPhim.size.height + 15;
-    rectMain.size.height = rectQC.origin.y + fHeightQc + 10;
-    viewQC.frame = rectQC;
-    self.mViewMain.frame = rectMain;
-    [self.scrMain setContentSize:CGSizeMake(rectMain.size.width, rectMain.size.height + self.viewOptionTop.frame.origin.y + self.viewOptionTop.frame.size.height + 10)];
+//    CGRect rectQC = viewQC.frame;
+//    CGRect rectMain = self.mViewMain.frame;
+//    CGRect rectPhim = self.viewInfo.frame;
+//    rectQC.origin.y = rectPhim.origin.y + rectPhim.size.height + 15;
+//    rectMain.size.height = rectQC.origin.y + fHeightQc + 10;
+//    viewQC.frame = rectQC;
+//    self.mViewMain.frame = rectMain;
+//    [self.scrMain setContentSize:CGSizeMake(rectMain.size.width, rectMain.size.height + self.viewOptionTop.frame.origin.y + self.viewOptionTop.frame.size.height + 10)];
 }
 
 - (void)capNhatGiaoDienKhiChonPhim{
@@ -968,7 +968,7 @@ static NSString *youTubeVideoHTML = @"<html><body style='margin:0px;padding:0px;
     CGRect rectMain = self.mViewMain.frame;
     CGRect rectPhim = self.collectionNgayChieu.frame;
     CGRect rectGioChieu = self.collectionGioChieu.frame;
-    CGRect rectQC = viewQC.frame;
+//    CGRect rectQC = viewQC.frame;
 
     rectInfo.origin.y = rectTrailer.origin.y + rectTrailer.size.height + 8;
     self.viewInfo.frame = rectInfo;
@@ -979,9 +979,9 @@ static NSString *youTubeVideoHTML = @"<html><body style='margin:0px;padding:0px;
     rectGioChieu.origin.y = rectPhim.origin.y + rectPhim.size.height + 8;
     self.collectionGioChieu.frame = rectGioChieu;
 
-    rectQC.origin.y = rectPhim.origin.y + rectPhim.size.height + 15;
-    rectMain.size.height = rectQC.origin.y+ rectQC.size.height + 20;
-    viewQC.frame = rectQC;
+//    rectQC.origin.y = rectPhim.origin.y + rectPhim.size.height + 15;
+    rectMain.size.height = rectPhim.origin.y + rectPhim.size.height + 15;
+//    viewQC.frame = rectQC;
     self.mViewMain.frame = rectMain;
     [self.scrMain setContentSize:CGSizeMake(rectMain.size.width, rectMain.size.height + self.viewOptionTop.frame.origin.y + self.viewOptionTop.frame.size.height + 10)];
     [self playTrailerLuon];
@@ -1048,11 +1048,11 @@ static NSString *youTubeVideoHTML = @"<html><body style='margin:0px;padding:0px;
         rectPhim.size.height = nSizeBanDau;
     }
 
-    CGRect rectQC = viewQC.frame;
-    rectQC.origin.y = rectPhim.origin.y + rectPhim.size.height + 5;
-    rectMain.size.height = rectQC.origin.y + fHeightQc + 10;
+//    CGRect rectQC = viewQC.frame;
+//    rectQC.origin.y = rectPhim.origin.y + rectPhim.size.height + 5;
+    rectMain.size.height = rectPhim.origin.y + rectPhim.size.height + 5;
     self.collectionGioChieu.frame = rectPhim;
-    viewQC.frame = rectQC;
+//    viewQC.frame = rectQC;
     self.mViewMain.frame = rectMain;
     [self.scrMain setContentSize:CGSizeMake(rectMain.size.width, rectMain.size.height + self.viewOptionTop.frame.origin.y + self.viewOptionTop.frame.size.height + 20)];
 }
@@ -1077,10 +1077,10 @@ static NSString *youTubeVideoHTML = @"<html><body style='margin:0px;padding:0px;
 
     self.webPhongChieu.frame = rectWeb;
 //    [self.webPhongChieu setBackgroundColor:[UIColor redColor]];
-    CGRect rectQC = viewQC.frame;
-    rectQC.origin.y = rectWeb.origin.y + rectWeb.size.height + 15;
-    rectMain.size.height = rectQC.origin.y + fHeightQc + 10;
-    viewQC.frame = rectQC;
+//    CGRect rectQC = viewQC.frame;
+//    rectQC.origin.y = rectWeb.origin.y + rectWeb.size.height + 15;
+    rectMain.size.height = rectWeb.origin.y + rectWeb.size.height + 15;
+//    viewQC.frame = rectQC;
     self.mViewMain.frame = rectMain;
     [self.scrMain setContentSize:CGSizeMake(rectMain.size.width, rectMain.size.height + self.viewOptionTop.frame.origin.y + self.viewOptionTop.frame.size.height + 10)];
 }

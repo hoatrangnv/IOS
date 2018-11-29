@@ -109,7 +109,7 @@
 {
     [super viewDidAppear:animated];
     [self.view endEditing:YES];
-    [self khoiTaoQuangCao];
+//    [self khoiTaoQuangCao];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
@@ -193,6 +193,10 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+- (void)hideViewNhapToken {
+    
 }
 
 #pragma mark - overriden GiaoDichViewController

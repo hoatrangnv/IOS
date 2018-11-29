@@ -436,6 +436,7 @@ NSString *sCauLuuY = @"<b>Lưu ý:</b> Số điện thoại nhận thanh toán c
     }
     [self hienThiSoPhi];
     if ([sKieuLuaChon isEqualToString:@"ĐT cố định VNPT HN"] || [sKieuLuaChon isEqualToString:@"ĐT cố định VNPT HCM"] || [sKieuLuaChon isEqualToString:@"ĐT cố định VNPT HP"]) {
+        NSLog(@"%s - line : %d", __FUNCTION__, __LINE__);
         [self.mlblKhuyenMai setText:[NSString stringWithFormat:@"%@: 0%%",[@"khuyen_mai" localizableString]]];
     }
     else
@@ -444,65 +445,47 @@ NSString *sCauLuuY = @"<b>Lưu ý:</b> Số điện thoại nhận thanh toán c
 
 - (void)khoiTaoGiaoDienDatNgayVang{
     NSLog(@"%s ==========> START", __FUNCTION__);
-    self.btnTraCuuTraSau.hidden = YES;
-    self.mViewSoLuong.hidden = YES;
-    self.soTienViettel.hidden = NO;
-    self.edSoTienTraSauViettel.hidden = YES;
-    self.mViewSoDienThoai_TraCuu.hidden = NO;
-    self.mViewThoiGianConLai.hidden = NO;
-    self.mViewNhapToken.hidden = NO;
-    self.viewSoPhiVaKhuyenMai.hidden = NO;
-    [self.mwvHienThiLuuY setHidden:NO];
-
-    switch (self.mNhaMang) {
-        case NHA_MANG_VIETTEL:
-            [self.mwvHienThiLuuY loadHTMLString:infoViettel baseURL:nil];
-            break;
-        case NHA_MANG_VINA:
-            [self.mwvHienThiLuuY loadHTMLString:infoVina baseURL:nil];
-            break;
-        case NHA_MANG_MOBI:
-            [self.mwvHienThiLuuY loadHTMLString:infoMobi baseURL:nil];
-            break;
-        default:
-            break;
-    }
-    for(UIButton *button in _mbtnSoTien)
-    {
-        button.hidden = YES;
-    }
-    CGRect rlblKhuyenMai = self.viewSoPhiVaKhuyenMai.frame;
-    CGRect rectSoTien = self.soTienViettel.frame;
-    CGRect rViewThoiGianConLai = self.mViewThoiGianConLai.frame;
-    CGRect rViewNhapToken = self.mViewNhapToken.frame;
-    CGRect rectQC = viewQC.frame;
-//    CGFloat fKhoangCachDich = rlblKhuyenMai.origin.y -  rectSoTien.size.height;
-
-    rectSoTien.origin.y = self.mViewSoDienThoai_TraCuu.frame.origin.y + self.mViewSoDienThoai_TraCuu.frame.size.height + 8;
-    rlblKhuyenMai.origin.y = rectSoTien.origin.y + rectSoTien.size.height + 8;
-    rViewThoiGianConLai.origin.y = rlblKhuyenMai.origin.y + rlblKhuyenMai.size.height + 8;
-    rViewNhapToken.origin.y = rViewThoiGianConLai.origin.y + rViewThoiGianConLai.size.height + 8;
-    self.viewSoPhiVaKhuyenMai.frame = rlblKhuyenMai;
-    self.soTienViettel.frame = rectSoTien;
-    self.mViewThoiGianConLai.frame = rViewThoiGianConLai;
-    self.mViewNhapToken.frame = rViewNhapToken;
-
-    rectQC.origin.y = rViewNhapToken.origin.y + rViewNhapToken.size.height + 10;
-    viewQC.frame = rectQC;
-    CGRect rectMain = self.mViewMain.frame;
-    NSLog(@"%s - rectMain1 : %f", __FUNCTION__, rectMain.size.height);
-//    rectMain.size.height = rectQC.origin.y + rectQC.size.height + 10;
-//    if (rectMain.size.height < 530.0) {
-//        rectMain.size.height = 530.0;
-//    }
-//    NSLog(@"%s - rectMain2 : %f", __FUNCTION__, rectMain.size.height);
-    self.mViewMain.frame = rectMain;
-    [self.mscrv setContentSize:CGSizeMake(_mscrv.frame.size.width, rectMain.origin.y + rectMain.size.height + 10)];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        self.topBtnTraCuu.constant = 8;
+        self.topViewXacThuc.constant = 8;
+        self.btnTraCuuTraSau.hidden = YES;
+        self.heightBtnTraCuuTraSau.constant = 0.0;
+        self.mViewSoLuong.hidden = YES;
+        self.soTienViettel.hidden = NO;
+        self.topSoTienViettel.constant = 8;
+        self.edSoTienTraSauViettel.hidden = YES;
+        self.mViewSoDienThoai_TraCuu.hidden = NO;
+        self.mViewThoiGianConLai.hidden = NO;
+        //    self.mViewNhapToken.hidden = NO;
+        self.viewSoPhiVaKhuyenMai.hidden = NO;
+        [self.mwvHienThiLuuY setHidden:YES];
+        
+        switch (self.mNhaMang) {
+            case NHA_MANG_VIETTEL:
+                [self.mwvHienThiLuuY loadHTMLString:infoViettel baseURL:nil];
+                break;
+            case NHA_MANG_VINA:
+                [self.mwvHienThiLuuY loadHTMLString:infoVina baseURL:nil];
+                break;
+            case NHA_MANG_MOBI:
+                [self.mwvHienThiLuuY loadHTMLString:infoMobi baseURL:nil];
+                break;
+            default:
+                break;
+        }
+        for(UIButton *button in _mbtnSoTien)
+        {
+            button.hidden = YES;
+        }
+        self.heightMain.constant = 400;
+    });
 }
 
 - (void)khoiTaoGiaoDienViettelTraTruoc{
     NSLog(@"%s - START!!!!!", __FUNCTION__);
     dispatch_async(dispatch_get_main_queue(), ^{
+        self.topBtnTraCuu.constant = 8;
+        self.topViewXacThuc.constant = 8;
         self.btnTraCuuTraSau.hidden = YES;
         self.heightBtnTraCuuTraSau.constant = 0.0;
         self.mViewSoLuong.hidden = YES;
@@ -510,10 +493,11 @@ NSString *sCauLuuY = @"<b>Lưu ý:</b> Số điện thoại nhận thanh toán c
         self.edSoTienTraSauViettel.hidden = YES;
         self.heightSoTienTraSauViettel.constant = 0.0;
         self.soTienViettel.hidden = NO;
+        self.topSoTienViettel.constant = 8;
         self.heightSoTienViettel.constant = 35.0;
         
         self.mViewThoiGianConLai.hidden = NO;
-        self.mViewNhapToken.hidden = NO;
+//        self.mViewNhapToken.hidden = NO;
         self.viewSoPhiVaKhuyenMai.hidden = NO;
         self.mViewSoDienThoai_TraCuu.hidden = NO;
 
@@ -524,33 +508,7 @@ NSString *sCauLuuY = @"<b>Lưu ý:</b> Số điện thoại nhận thanh toán c
         {
             button.hidden = YES;
         }
-
-        CGRect rlblKhuyenMai = self.viewSoPhiVaKhuyenMai.frame;
-        CGRect rectSoTien = self.soTienViettel.frame;
-
-        rectSoTien.origin.y = self.mViewSoDienThoai_TraCuu.frame.origin.y + self.mViewSoDienThoai_TraCuu.frame.size.height + 8;
-        self.soTienViettel.frame = rectSoTien;
-        CGRect rViewThoiGianConLai = self.mViewThoiGianConLai.frame;
-        CGRect rViewNhapToken = self.mViewNhapToken.frame;
-        rlblKhuyenMai.origin.y = rectSoTien.origin.y + rectSoTien.size.height + 5;
-        rViewThoiGianConLai.origin.y = rlblKhuyenMai.origin.y + rlblKhuyenMai.size.height + 5;
-        rViewNhapToken.origin.y = rViewThoiGianConLai.origin.y + rViewThoiGianConLai.size.height + 5;
-        self.viewSoPhiVaKhuyenMai.frame = rlblKhuyenMai;
-        self.mViewThoiGianConLai.frame = rViewThoiGianConLai;
-        self.mViewNhapToken.frame = rViewNhapToken;
-        CGRect rectQC = viewQC.frame;
-        rectQC.origin.y = rViewNhapToken.origin.y + rViewNhapToken.size.height + 10;
-        viewQC.frame = rectQC;
-        CGRect rectMain = self.mViewMain.frame;
-        NSLog(@"%s - %d - rectMain1 : %f", __FUNCTION__, __LINE__, rectMain.size.height);
-        rectMain.size.height = rectQC.origin.y + rectQC.size.height + 10;
-        NSLog(@"%s - %d - rectMain1 : %f", __FUNCTION__, __LINE__, rectMain.size.height);
-        if (rectMain.size.height > 500.0 && rectMain.size.height < 600.0) {
-            rectMain.size.height = 500.0;
-        }
-        NSLog(@"%s - rectMain2 : %f", __FUNCTION__, rectMain.size.height);
-        self.mViewMain.frame = rectMain;
-        [self.mscrv setContentSize:CGSizeMake(_mscrv.frame.size.width, rectMain.origin.y + rectMain.size.height + 10)];
+        self.heightMain.constant = 390;
     });
 }
 
@@ -558,52 +516,35 @@ NSString *sCauLuuY = @"<b>Lưu ý:</b> Số điện thoại nhận thanh toán c
     if (!self.mwvHienThiLuuY.hidden) {
         [self.mwvHienThiLuuY setHidden:YES];
     }
+    self.topBtnTraCuu.constant = 8;
+    self.topViewXacThuc.constant = 8;
     self.soTienViettel.text = @"";
     self.edSoTienTraSauViettel.hidden = NO;
     self.mViewSoTien.hidden = YES;
+    self.heightViewSoTien.constant = 0;
     self.edSoTienTraSauViettel.hidden = YES;
     self.soTienViettel.hidden = NO;
+    self.topSoTienViettel.constant = 8;
     self.viewSoPhiVaKhuyenMai.hidden = YES;
-    self.mViewNhapToken.hidden = NO;
     self.mViewThoiGianConLai.hidden = NO;
     self.btnTraCuuTraSau.hidden = NO;
-    CGRect rectBtnTraCuu = self.btnTraCuuTraSau.frame;
-    CGRect rectSoTien = self.soTienViettel.frame;
-    CGRect rViewThoiGianConLai = self.mViewThoiGianConLai.frame;
-    CGRect rectToken = self.mViewNhapToken.frame;
-    CGRect rViewMain = self.mViewMain.frame;
-    CGRect rectQC = viewQC.frame;
-    rectSoTien.origin.y = rectBtnTraCuu.origin.y + rectBtnTraCuu.size.height + 10;
-    rViewThoiGianConLai.origin.y = rectSoTien.origin.y + rectSoTien.size.height + 5;
-    rectToken.origin.y = rViewThoiGianConLai.origin.y + rViewThoiGianConLai.size.height + 5;
-    self.soTienViettel.frame = rectSoTien;
-    self.mViewThoiGianConLai.frame = rViewThoiGianConLai;
-    self.mViewNhapToken.frame = rectToken;
-    rectQC.origin.y = rectToken.origin.y + rectToken.size.height + 10;
-    rViewMain.size.height = rectQC.origin.y + rectQC.size.height + 10;
-    viewQC.frame = rectQC;
-    self.mViewMain.frame = rViewMain;
-    [self.mscrv setContentSize:CGSizeMake(_mscrv.frame.size.width, rViewMain.origin.y + rViewMain.size.height + 10)];
+    self.heightBtnTraCuuTraSau.constant = 40.0;
+    self.heightMain.constant = self.mViewThoiGianConLai.frame.origin.y + self.mViewThoiGianConLai.frame.size.height + 8;
 }
 
 - (void)khoiTaoGiaoDienCoDinh {
+    self.topBtnTraCuu.constant = 8;
+    self.topViewXacThuc.constant = 8;
     self.mViewSoLuong_Phi.hidden = YES;
     self.mViewSoDienThoai_TraCuu.hidden = NO;
     self.edSoTienTraSauViettel.hidden = NO;
     self.mViewSoTien.hidden = YES;
+    self.heightViewSoTien.constant = 0.0;
     self.soTienViettel.hidden = YES;
+    self.topSoTienViettel.constant = 8;
     self.viewSoPhiVaKhuyenMai.hidden = YES;
     self.mViewNhapToken.hidden = YES;
     self.mViewThoiGianConLai.hidden = YES;
-    CGRect rViewMain = self.mViewMain.frame;
-    CGRect rectQC = viewQC.frame;
-    rectQC.origin.y = self.edSoTienTraSauViettel.frame.origin.y + self.edSoTienTraSauViettel.frame.size.height + 10;
-    rViewMain.size.height = rectQC.origin.y + rectQC.size.height + 20;
-    viewQC.frame = rectQC;
-    self.mViewMain.frame = rViewMain;
-    [self.mscrv setContentSize:CGSizeMake(_mscrv.frame.size.width, viewQC.frame.origin.y + viewQC.frame.size.height + 10)];
-//    rViewMain.size.height = self.btnTraCuuViettel.frame.origin.y + self.btnTraCuuViettel.frame.size.height + 75;
-//    self.mViewMain.frame = rViewMain;
 }
 
 - (void)khoiTaoGiaoDienTheoKieuNapDiDongTraTruoc
@@ -613,46 +554,21 @@ NSString *sCauLuuY = @"<b>Lưu ý:</b> Số điện thoại nhận thanh toán c
         {
             button.hidden = NO;
         }
+        self.topBtnTraCuu.constant = 8;
+        self.topViewXacThuc.constant = 8;
         self.btnTraCuuTraSau.hidden = YES;
+        self.heightBtnTraCuuTraSau.constant = 0.0;
         self.soTienViettel.hidden = YES;
+        self.topSoTienViettel.constant = 8;
         self.edSoTienTraSauViettel.hidden = YES;
         [self.mwvHienThiLuuY setHidden:YES];
         self.mViewSoDienThoai_TraCuu.hidden = NO;
         self.mViewSoTien.hidden = NO;
+        self.heightViewSoTien.constant = 70.0;
         self.mViewThoiGianConLai.hidden = NO;
-        self.mViewNhapToken.hidden = NO;
+        self.mViewNhapToken.hidden = YES;
         self.viewSoPhiVaKhuyenMai.hidden = NO;
-        //Chinh lai view tong
-        CGRect rViewMain = self.mViewMain.frame;
-        CGRect rViewSoDienThoai_TraCuu = self.mViewSoDienThoai_TraCuu.frame;
-        CGRect rViewSoTien = self.mViewSoTien.frame;
-        CGRect rlblKhuyenMai = self.viewSoPhiVaKhuyenMai.frame;
-        CGRect rViewThoiGianConLai = self.mViewThoiGianConLai.frame;
-        CGRect rViewNhapToken = self.mViewNhapToken.frame;
-        CGRect rectQC = viewQC.frame;
-
-        rViewSoTien.origin.y = rViewSoDienThoai_TraCuu.origin.y + rViewSoDienThoai_TraCuu.size.height + KHOANG_CACH_GIUA_2_CONTROL;
-        rlblKhuyenMai.origin.y = rViewSoTien.origin.y + rViewSoTien.size.height + KHOANG_CACH_GIUA_2_CONTROL;
-        rViewThoiGianConLai.origin.y = rlblKhuyenMai.origin.y + rlblKhuyenMai.size.height + KHOANG_CACH_GIUA_2_CONTROL;
-        rViewNhapToken.origin.y = rViewThoiGianConLai.origin.y + rViewThoiGianConLai.size.height + KHOANG_CACH_GIUA_2_CONTROL;
-        rectQC.origin.y = rViewNhapToken.origin.y + rViewNhapToken.size.height + 10;
-        NSLog(@"%s - %d : rViewMain.size.height : %f - %f - %f - %f", __FUNCTION__, __LINE__, rectQC.origin.x, rectQC.origin.y, rectQC.size.width, rectQC.size.height);
-        rViewMain.size.height = rectQC.origin.y + rectQC.size.height + 10;
-        NSLog(@"%s - %d : rViewMain.size.height : %f", __FUNCTION__, __LINE__, rViewMain.size.height);
-        if (rViewMain.size.height < 550.0) {
-            rViewMain.size.height = 550.0;
-        } else {
-            rViewMain.size.height = 550.0;
-        }
-        self.mViewSoTien.frame = rViewSoTien;
-        self.viewSoPhiVaKhuyenMai.frame = rlblKhuyenMai;
-        self.mViewThoiGianConLai.frame = rViewThoiGianConLai;
-        self.mViewNhapToken.frame = rViewNhapToken;
-        viewQC.frame = rectQC;
-        self.mViewMain.frame = rViewMain;
-
-        [self.mtfSoDienThoai setTextError:[@"so_dien_thoai_khong_dc_de_trong" localizableString] forType:ExTextFieldTypeEmpty];
-        [self.mscrv setContentSize:CGSizeMake(_mscrv.frame.size.width, rectQC.origin.y + rectQC.size.height + 10)];
+        
     });
 }
 
@@ -673,45 +589,21 @@ NSString *sCauLuuY = @"<b>Lưu ý:</b> Số điện thoại nhận thanh toán c
         self.mViewSoLuong.hidden = YES;
         self.mwvHienThiLuuY.hidden = YES;
         self.btnTraCuuTraSau.hidden = NO;
+        self.heightBtnTraCuuTraSau.constant = 40.0;
         self.soTienViettel.hidden = NO;
+//        self.topSoTienViettel.constant = 32;
         self.mViewSoDienThoai_TraCuu.hidden = NO;
-
+        self.mViewNhapToken.hidden = YES;
         for(UIButton *button in _mbtnSoTien)
         {
             button.hidden = NO;
         }
-        //Chinh lai view tong
-        CGRect rViewMain = self.mViewMain.frame;
-        CGRect rViewSoDienThoai_TraCuu = self.mViewSoDienThoai_TraCuu.frame;
-        CGRect rViewSoTien = self.mViewSoTien.frame;
-        CGRect rViewSoLuong_Phi = self.mViewSoLuong_Phi.frame;
-//        CGRect rlblKhuyenMai = self.viewSoPhiVaKhuyenMai.frame;
-        CGRect rViewThoiGianConLai = self.mViewThoiGianConLai.frame;
-        CGRect rViewNhapToken = self.mViewNhapToken.frame;
-        CGRect rWebviewHienThiLuuY = self.mwvHienThiLuuY.frame;
-        CGRect rectSoTien = self.soTienViettel.frame;
-        CGRect rectBtnTraCuu = self.btnTraCuuTraSau.frame;
-        CGRect rectQC = viewQC.frame;
-
-        rectSoTien.origin.y = rectBtnTraCuu.origin.y + rectBtnTraCuu.size.height + 8;
-        rViewSoTien.origin.y = rectSoTien.origin.y + rectSoTien.size.height + 8;
-//        rlblKhuyenMai.origin.y = rViewSoTien.origin.y + rViewSoTien.size.height + 8;
-        rViewThoiGianConLai.origin.y = rViewSoTien.origin.y + rViewSoTien.size.height + 8;
-        rViewNhapToken.origin.y = rViewThoiGianConLai.origin.y + rViewThoiGianConLai.size.height + 8;
-        rectQC.origin.y = rViewNhapToken.origin.y + rViewNhapToken.size.height + 10;
-        rViewMain.size.height = rectQC.origin.y + rectQC.size.height + 20;
-        NSLog(@"%s - rViewMain.size.height : %f", __FUNCTION__, rViewMain.size.height);
-        if (rViewMain.size.height <= 570.0) {
-            rViewMain.size.height = rectQC.origin.y + rectQC.size.height + 80;
-        }
-        viewQC.frame = rectQC;
-        self.mViewMain.frame = rViewMain;
-        self.mViewSoTien.frame = rViewSoTien;
-//        self.viewSoPhiVaKhuyenMai.frame = rlblKhuyenMai;
-        self.mViewThoiGianConLai.frame = rViewThoiGianConLai;
-        self.mViewNhapToken.frame = rViewNhapToken;
-        self.soTienViettel.frame = rectSoTien;
-        [self.mscrv setContentSize:CGSizeMake(_mscrv.frame.size.width, viewQC.frame.origin.y + viewQC.frame.size.height + 70)];
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            self.topBtnTraCuu.constant = 88;
+            self.topViewXacThuc.constant = 58;
+            self.heightMain.constant = 450;
+        });
     });
 }
 
@@ -719,58 +611,30 @@ NSString *sCauLuuY = @"<b>Lưu ý:</b> Số điện thoại nhận thanh toán c
 {
     dispatch_async(dispatch_get_main_queue(), ^{
         self.btnTraCuuTraSau.hidden = YES;
+        self.heightBtnTraCuuTraSau.constant = 0.0;
         self.edSoTienTraSauViettel.hidden = YES;
         [self.mwvHienThiLuuY setHidden:YES];
         self.mViewSoDienThoai_TraCuu.hidden = YES;
         self.soTienViettel.hidden = YES;
-
+        self.topSoTienViettel.constant = 8;
         self.mViewSoLuong.hidden = NO;
         self.viewSoPhiVaKhuyenMai.hidden = NO;
         self.mViewNhapToken.hidden = NO;
         self.mViewThoiGianConLai.hidden = NO;
         self.mViewSoLuong_Phi.hidden = NO;
         self.mViewSoTien.hidden = NO;
-
+        self.heightViewSoTien.constant = 70.0;
+        self.mViewNhapToken.hidden = YES;
         for(UIButton *button in _mbtnSoTien)
         {
             button.hidden = NO;
         }
-        //Chinh lai view tong
-        CGRect rViewMain = self.mViewMain.frame;
-        CGRect rViewSoDienThoai_TraCuu = self.mViewSoDienThoai_TraCuu.frame;
-        CGRect rViewSoTien = self.mViewSoTien.frame;
-        CGRect rViewSoLuong_Phi = self.mViewSoLuong_Phi.frame;
-        CGRect rlblKhuyenMai = self.viewSoPhiVaKhuyenMai.frame;
-        CGRect rViewThoiGianConLai = self.mViewThoiGianConLai.frame;
-        CGRect rViewNhapToken = self.mViewNhapToken.frame;
-        CGRect rtbSoLuong = self.mtbSoLuong.frame;
-        CGRect rectQC = viewQC.frame;
-        rViewSoTien.origin.y = self.mViewLuaChon.frame.origin.y + self.mViewLuaChon.frame.size.height + KHOANG_CACH_GIUA_2_CONTROL;
-        NSLog(@"%s - rViewSoTien.origin.y : %f", __FUNCTION__, rViewSoTien.origin.y);
-        rViewSoLuong_Phi.origin.y = rViewSoTien.origin.y + rViewSoTien.size.height + KHOANG_CACH_GIUA_2_CONTROL;
-        rtbSoLuong.origin.y = rViewSoLuong_Phi.origin.y + rViewSoLuong_Phi.size.height;
-        rlblKhuyenMai.origin.y = rViewSoLuong_Phi.origin.y + rViewSoLuong_Phi.size.height + KHOANG_CACH_GIUA_2_CONTROL;
-        rViewThoiGianConLai.origin.y = rlblKhuyenMai.origin.y + rlblKhuyenMai.size.height + KHOANG_CACH_GIUA_2_CONTROL;
-        rViewNhapToken.origin.y = rViewThoiGianConLai.origin.y + rViewThoiGianConLai.size.height + KHOANG_CACH_GIUA_2_CONTROL;
-        rectQC.origin.y = rViewNhapToken.origin.y + rViewNhapToken.size.height + 10;
-        rViewMain.size.height = rectQC.origin.y + rectQC.size.height + 20;
-        rViewMain.size.width = self.mscrv.frame.size.width - 20.0f;
-
-        viewQC.frame = rectQC;
-        self.mViewMain.frame = rViewMain;
-        self.mViewSoDienThoai_TraCuu.frame = rViewSoDienThoai_TraCuu;
-        self.mViewSoTien.frame = rViewSoTien;
-        self.mViewSoLuong_Phi.frame = rViewSoLuong_Phi;
-        self.viewSoPhiVaKhuyenMai.frame = rlblKhuyenMai;
-        self.mViewThoiGianConLai.frame = rViewThoiGianConLai;
-        self.mViewNhapToken.frame = rViewNhapToken;
-        self.mtbSoLuong.frame = rtbSoLuong;
-        [self.mscrv setContentSize:CGSizeMake(_mscrv.frame.size.width, viewQC.frame.origin.y + viewQC.frame.size.height + 80)];
-
-        self.mViewSoLuong.hidden = NO;
-        self.mtfSoDienThoai.checkEmpty = NO;
-        mViTriChonSoLuongTheCao = 0;
-        self.mtfSoLuong.text = [self.mDanhSachSoLuong objectAtIndex:mViTriChonSoLuongTheCao];
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            self.topBtnTraCuu.constant = 8;
+            self.topViewXacThuc.constant = 8;
+            self.heightMain.constant = self.mViewThoiGianConLai.frame.origin.y + self.mViewThoiGianConLai.frame.size.height + 30;
+        });
     });
 }
 
@@ -849,8 +713,19 @@ NSString *sCauLuuY = @"<b>Lưu ý:</b> Số điện thoại nhận thanh toán c
 
 #pragma mark - overriden
 
+- (void)hideViewNhapToken {
+    self.heightMain.constant -= 35;
+    self.mViewNhapToken.hidden = YES;
+}
+
+- (void)showViewNhapToken:(int)type {
+    self.heightMain.constant += 35;
+    self.mViewNhapToken.hidden = NO;
+}
+
 - (BOOL)validateVanTay
 {
+    return YES;
     if (![[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_STATE] boolValue]) {
         DucNT_LoginSceen *loginSceen = [[DucNT_LoginSceen alloc] initWithNibName:@"DucNT_LoginSceen" bundle:nil];
         [self presentViewController:loginSceen animated:YES completion:^{}];
@@ -1512,6 +1387,7 @@ NSString *sCauLuuY = @"<b>Lưu ý:</b> Số điện thoại nhận thanh toán c
     {
         self.edSoTienTraSauViettel.hidden = YES;
         self.soTienViettel.hidden = NO;
+        self.topSoTienViettel.constant = 8;
         self.mViewThoiGianConLai.hidden = NO;
         self.mViewNhapToken.hidden = NO;
         CGRect rectMain = self.mViewMain.frame;
@@ -1832,6 +1708,11 @@ NSString *sCauLuuY = @"<b>Lưu ý:</b> Số điện thoại nhận thanh toán c
     [_heightBtnTraCuuTraSau release];
     [_heightSoTienTraSauViettel release];
     [_heightSoTienViettel release];
+    [_heightMain release];
+    [_heightViewSoTien release];
+    [_topSoTienViettel release];
+    [_topBtnTraCuu release];
+    [_topViewXacThuc release];
     [super dealloc];
 }
 

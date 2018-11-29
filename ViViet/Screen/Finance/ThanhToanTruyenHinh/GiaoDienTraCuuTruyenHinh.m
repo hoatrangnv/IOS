@@ -111,7 +111,7 @@ static NSString *cssHoaDon = @"<div><b>Hoá đơn %d:</b><br />Số hoá đơn: 
         self.mDinhDanhKetNoi = DINH_DANH_KET_NOI_LAY_CHI_TIET_HOA_DON_DIEN_KHACH_HANG;
         [GiaoDichMang layChiTietHoaDonTruyenHinh:_mDoiTuongNotification.idShow noiNhanKetQua:self];
     }
-    [self khoiTaoQuangCao];
+//    [self khoiTaoQuangCao];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -489,7 +489,7 @@ static NSString *cssHoaDon = @"<div><b>Hoá đơn %d:</b><br />Số hoá đơn: 
 
 - (void)dealloc {
     NSLog(@"%s - 1", __FUNCTION__);
-    [viewQC release];
+//    [viewQC release];
     NSLog(@"%s - 2", __FUNCTION__);
     [_edOptionTruyenHinh release];
     NSLog(@"%s - 3", __FUNCTION__);

@@ -21,16 +21,16 @@
 #define DANH_SACH_DAU_SO_THE_NGAN_HANG_CHUYEN_TIEN_HOP_LE @"[{\"binMaThe\":\"686868\",\"doDaiThe\":16},{\"binMaThe\":\"97043668\",\"doDaiThe\":19},{\"binMaThe\":\"97043666\",\"doDaiThe\":19},{\"binMaThe\":\"97043628\",\"doDaiThe\":19},{\"binMaThe\":\"97043688\",\"doDaiThe\":19},{\"binMaThe\":\"526418\",\"doDaiThe\":16},{\"binMaThe\":\"428310\",\"doDaiThe\":16},{\"binMaThe\":\"377160\",\"doDaiThe\":15},{\"binMaThe\":\"469173\",\"doDaiThe\":16},{\"binMaThe\":\"621295\",\"doDaiThe\":16},{\"binMaThe\":\"970416\",\"doDaiThe\":16},{\"binMaThe\":\"422151\",\"doDaiThe\":16},{\"binMaThe\":\"429418\",\"doDaiThe\":16},{\"binMaThe\":\"436361\",\"doDaiThe\":16},{\"binMaThe\":\"436438\",\"doDaiThe\":16},{\"binMaThe\":\"436445\",\"doDaiThe\":16},{\"binMaThe\":\"462881\",\"doDaiThe\":16},{\"binMaThe\":\"464932\",\"doDaiThe\":16},{\"binMaThe\":\"467964\",\"doDaiThe\":16},{\"binMaThe\":\"469654\",\"doDaiThe\":16},{\"binMaThe\":\"472074\",\"doDaiThe\":16},{\"binMaThe\":\"472075\",\"doDaiThe\":16},{\"binMaThe\":\"486265\",\"doDaiThe\":16},{\"binMaThe\":\"512341\",\"doDaiThe\":16},{\"binMaThe\":\"526830\",\"doDaiThe\":16},{\"binMaThe\":\"620009\",\"doDaiThe\":16},{\"binMaThe\":\"621055\",\"doDaiThe\":16},{\"binMaThe\":\"625002\",\"doDaiThe\":16},{\"binMaThe\":\"970403\",\"doDaiThe\":16},{\"binMaThe\":\"970431\",\"doDaiThe\":16},{\"binMaThe\":\"707070\",\"doDaiThe\":16},{\"binMaThe\":\"970423\",\"doDaiThe\":16},{\"binMaThe\":\"970443\",\"doDaiThe\":16},{\"binMaThe\":\"126688\",\"doDaiThe\":16},{\"binMaThe\":\"970437\",\"doDaiThe\":16},{\"binMaThe\":\"193939\",\"doDaiThe\":16},{\"binMaThe\":\"472674\",\"doDaiThe\":16},{\"binMaThe\":\"484804\",\"doDaiThe\":16},{\"binMaThe\":\"484803\",\"doDaiThe\":16},{\"binMaThe\":\"548566\",\"doDaiThe\":16},{\"binMaThe\":\"97042292\",\"doDaiThe\":16},{\"binMaThe\":\"97042291\",\"doDaiThe\":16},{\"binMaThe\":\"970422\",\"doDaiThe\":16},{\"binMaThe\":\"970408\",\"doDaiThe\":16},{\"binMaThe\":\"970432\",\"doDaiThe\":16},{\"binMaThe\":\"981957\",\"doDaiThe\":16},{\"binMaThe\":\"520395\",\"doDaiThe\":16},{\"binMaThe\":\"520399\",\"doDaiThe\":16},{\"binMaThe\":\"521377\",\"doDaiThe\":16},{\"binMaThe\":\"524394\",\"doDaiThe\":16},{\"binMaThe\":\"528626\",\"doDaiThe\":16},{\"binMaThe\":\"97044168\",\"doDaiThe\":16},{\"binMaThe\":\"180906\",\"doDaiThe\":16},{\"binMaThe\":\"970414\",\"doDaiThe\":16},{\"binMaThe\":\"970427\",\"doDaiThe\":16},{\"binMaThe\":\"166888\",\"doDaiThe\":16},{\"binMaThe\":\"970407\",\"doDaiThe\":16},{\"binMaThe\":\"889988\",\"doDaiThe\":16},{\"binMaThe\":\"970448\",\"doDaiThe\":16},{\"binMaThe\":\"177777\",\"doDaiThe\":16},{\"binMaThe\":\"970419\",\"doDaiThe\":16},{\"binMaThe\":\"818188\",\"doDaiThe\":16},{\"binMaThe\":\"970442\",\"doDaiThe\":16},{\"binMaThe\":\"970449\",\"doDaiThe\":19},{\"binMaThe\":\"620160\",\"doDaiThe\":16},{\"binMaThe\":\"620162\",\"doDaiThe\":16},{\"binMaThe\":\"620163\",\"doDaiThe\":16},{\"binMaThe\":\"620164\",\"doDaiThe\":16},{\"binMaThe\":\"620165\",\"doDaiThe\":16},{\"binMaThe\":\"620166\",\"doDaiThe\":16},{\"binMaThe\":\"620168\",\"doDaiThe\":16},{\"binMaThe\":\"620169\",\"doDaiThe\":16},{\"binMaThe\":\"201010\",\"doDaiThe\":16},{\"binMaThe\":\"970415\",\"doDaiThe\":16},{\"binMaThe\":\"970425\",\"doDaiThe\":16},{\"binMaThe\":\"191919\",\"doDaiThe\":16},{\"binMaThe\":\"970401\",\"doDaiThe\":16},{\"binMaThe\":\"970409\",\"doDaiThe\":16},{\"binMaThe\":\"970438\",\"doDaiThe\":16},{\"binMaThe\":\"476636\",\"doDaiThe\":16},{\"binMaThe\":\"436546\",\"doDaiThe\":16},{\"binMaThe\":\"436545\",\"doDaiThe\":16},{\"binMaThe\":\"437421\",\"doDaiThe\":16},{\"binMaThe\":\"437420\",\"doDaiThe\":16},{\"binMaThe\":\"537158\",\"doDaiThe\":16},{\"binMaThe\":\"540392\",\"doDaiThe\":16},{\"binMaThe\":\"970440\",\"doDaiThe\":19},{\"binMaThe\":\"970429\",\"doDaiThe\":16},{\"binMaThe\":\"970439\",\"doDaiThe\":16},{\"binMaThe\":\"668868\",\"doDaiThe\":16},{\"binMaThe\":\"188188\",\"doDaiThe\":16},{\"binMaThe\":\"000002\",\"doDaiThe\":16},{\"binMaThe\":\"469674\",\"doDaiThe\":16},{\"binMaThe\":\"469673\",\"doDaiThe\":16},{\"binMaThe\":\"469672\",\"doDaiThe\":16},{\"binMaThe\":\"970424\",\"doDaiThe\":16},{\"binMaThe\":\"272727\",\"doDaiThe\":16},{\"binMaThe\":\"272728\",\"doDaiThe\":16},{\"binMaThe\":\"272729\",\"doDaiThe\":16},{\"binMaThe\":\"970405\",\"doDaiThe\":16}]"
 
 
-#define SO_TIEN_MOT_LAN_CHUYEN 1000
+#define SO_TIEN_MOT_LAN_CHUYEN 330
 #define SO_TIEN_MOC 20000000
 #define PHI_DUOI_20tr 1100
-#define PHI_TREN_20tr 3300
-#define PHI_DUOI_50tr 6600
-#define PHI_TREN_50tr 6600
+#define PHI_TREN_20tr 2200
+#define PHI_DUOI_50tr 2200
+#define PHI_TREN_50tr 2200
 
-#define PHI_CHUYEN_TIEN_DEN_VI_MOMO 6600
-#define PHI_CHUYEN_TIEN_DEN_THE 6600
-#define PHI_CHUYEN_TIEN_DEN_TAI_KHOAN 6600
+#define PHI_CHUYEN_TIEN_DEN_VI_MOMO 3300
+#define PHI_CHUYEN_TIEN_DEN_THE 3300
+#define PHI_CHUYEN_TIEN_DEN_TAI_KHOAN 3300
 
 //vietpd
 #define PHI_CHUYEN_TIEN_TAN_NHA_1 75600 //100.000->1.000.000
@@ -537,10 +537,13 @@ CLLocationManager *shared_location_manager = nil;
     double fSoTienPhi = 0;
     if(nKieuChuyenTien == KIEU_CHUYEN_TIEN_DEN_VI)
     {
-        fSoTienPhi = PHI_DUOI_20tr;
+        fSoTienPhi = SO_TIEN_MOT_LAN_CHUYEN;
+        if (fSoTien > 1000000) {
+            fSoTienPhi = PHI_DUOI_20tr;
+        }
         if(fSoTien >= SO_TIEN_MOC)
         {
-            fSoTienPhi = 2200;
+            fSoTienPhi = PHI_TREN_20tr;
         }
     }
     
@@ -621,7 +624,10 @@ CLLocationManager *shared_location_manager = nil;
     }
     else if ( nKieuChuyenTien == KIEU_CHUYEN_TIEN_NAP_THE_DIEN_THOAI)
     {
-        fSoTienPhi = PHI_DUOI_20tr;
+        fSoTienPhi = SO_TIEN_MOT_LAN_CHUYEN;
+        if (fSoTien > 1000000) {
+            fSoTienPhi = PHI_DUOI_20tr;
+        }
         if(fSoTien >= SO_TIEN_MOC)
         {
             fSoTienPhi = PHI_TREN_20tr;
@@ -637,7 +643,7 @@ CLLocationManager *shared_location_manager = nil;
     }
     else
     {
-        fSoTienPhi = 6600;
+        fSoTienPhi = 3300;
 //        if(fSoTien >= SO_TIEN_MOC)
 //        {
 //            fSoTienPhi = PHI_TREN_20tr;

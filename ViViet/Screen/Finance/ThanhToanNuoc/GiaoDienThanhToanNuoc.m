@@ -92,7 +92,7 @@ static NSString *cssHoaDon = @"<div><b>Hoá đơn %d:</b><br />Số hoá đơn: 
         [GiaoDichMang ketNoiLayChiTietThongTinTraCuuHoaDon:_mIdShow noiNhanKetQua:self];
     }
     [self addButtonHuongDan];
-    [self khoiTaoQuangCao];
+//    [self khoiTaoQuangCao];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -465,7 +465,7 @@ static NSString *cssHoaDon = @"<div><b>Hoá đơn %d:</b><br />Số hoá đơn: 
 }
 
 - (void)dealloc {
-    [viewQC release];
+//    [viewQC release];
     [_edChonNhaMay release];
     [_edMaKH release];
     if (_mDoiTuongNotification) {

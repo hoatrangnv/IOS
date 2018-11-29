@@ -44,10 +44,14 @@
         if (self.nKieu == 0) {
             self.edDanhXung.text = @"Ông";
             [self.edNgaySinh setHidden:YES];
-            self.edOptionHanhLy.frame = self.edNgaySinh.frame;
+//            self.edOptionHanhLy.frame = self.edNgaySinh.frame;
+            self.heightNgaySinh.constant = 0;
+            self.topHanhLy.constant = 0;
         }
         else{
             self.edDanhXung.text = @"Trai";
+            self.heightNgaySinh.constant = 30;
+            self.topHanhLy.constant = 8;
             [self.edNgaySinh setHidden:NO];
         }
         UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 44)];
@@ -223,6 +227,8 @@
     [_edHoTen release];
     [_edOptionHanhLy release];
     [_edNgaySinh release];
+    [_heightNgaySinh release];
+    [_topHanhLy release];
     [super dealloc];
 }
 @end

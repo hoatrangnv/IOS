@@ -85,7 +85,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self khoiTaoQuangCao];
+//    [self khoiTaoQuangCao];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -321,6 +321,10 @@
     return -1;
 }
 
+- (void)hideViewNhapToken {
+    
+}
+
 - (BOOL)validateVanTay {
     if (![[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_STATE] boolValue]) {
         DucNT_LoginSceen *loginSceen = [[DucNT_LoginSceen alloc] initWithNibName:@"DucNT_LoginSceen" bundle:nil];
@@ -328,33 +332,33 @@
         [loginSceen release];
         return NO;
     }
-//    if ([self.edMaKH.text isEmpty]) {
-//        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng nhập mã khách hàng"];
-//        return NO;
-//    }
-//    if (![_edSoTien validate]) {
-//        [_edSoTien show_error];
-//        return NO;
-//    }
-//    else{
-//        int fSoTien = [[_edSoTien.text stringByReplacingOccurrencesOfString:@"." withString:@""] intValue];
-//        if (fSoTien >= [self.mThongTinTaiKhoanVi.nAmount doubleValue]) {
-//            [UIAlertView alert:@"Số dư trong tài khoản không đủ" withTitle:[@"thong_bao" localizableString] block:nil];
-//            return NO;
-//        }
-//        else if (fSoTien < 10000) {
-//            [UIAlertView alert:@"Số tiền chuyển đi phải lớn hơn 10.000 đ" withTitle:[@"thong_bao" localizableString] block:nil];
-//            return NO;
-//        }
-//    }
-//    if ([_edTenKH.text isEmpty]) {
-//        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng nhập tên khách hàng"];
-//        return NO;
-//    }
-//    if ([_tvNoiDung.text isEmpty]) {
-//        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng nhập nhập nội dung"];
-//        return NO;
-//    }
+    if ([self.edMaKH.text isEmpty]) {
+        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng nhập mã khách hàng"];
+        return NO;
+    }
+    if (![_edSoTien validate]) {
+        [_edSoTien show_error];
+        return NO;
+    }
+    else{
+        int fSoTien = [[_edSoTien.text stringByReplacingOccurrencesOfString:@"." withString:@""] intValue];
+        if (fSoTien >= [self.mThongTinTaiKhoanVi.nAmount doubleValue]) {
+            [UIAlertView alert:@"Số dư trong tài khoản không đủ" withTitle:[@"thong_bao" localizableString] block:nil];
+            return NO;
+        }
+        else if (fSoTien < 10000) {
+            [UIAlertView alert:@"Số tiền chuyển đi phải lớn hơn 10.000 đ" withTitle:[@"thong_bao" localizableString] block:nil];
+            return NO;
+        }
+    }
+    if ([_edTenKH.text isEmpty]) {
+        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng nhập tên khách hàng"];
+        return NO;
+    }
+    if ([_tvNoiDung.text isEmpty]) {
+        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng nhập nhập nội dung"];
+        return NO;
+    }
 
     return YES;
 }

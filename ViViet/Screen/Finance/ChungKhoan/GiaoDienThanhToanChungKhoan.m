@@ -73,7 +73,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self khoiTaoQuangCao];
+//    [self khoiTaoQuangCao];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -97,6 +97,10 @@
     vc.nOption = HUONG_DAN_CHUNG_KHOAN;
     [self.navigationController pushViewController:vc animated:YES];
     [vc release];
+}
+
+- (void)hideViewNhapToken {
+    
 }
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView

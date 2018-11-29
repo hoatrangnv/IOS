@@ -130,11 +130,12 @@
             
             if (@available(iOS 11.0.1, *)) {
                 if (laContext.biometryType == LABiometryTypeFaceID) {
-                    //localizedReason = "Unlock using Face ID"
+                    [self.mbtnVanTay setImage:[UIImage imageNamed:@"face-id"] forState:UIControlStateNormal];
                     NSLog(@"FaceId support");
                     return YES;
                 } else if (laContext.biometryType == LABiometryTypeTouchID) {
                     //localizedReason = "Unlock using Touch ID"
+                    [self.mbtnVanTay setImage:[UIImage imageNamed:@"finger"] forState:UIControlStateNormal];
                     NSLog(@"TouchId support");
                     return YES;
                 } else {
