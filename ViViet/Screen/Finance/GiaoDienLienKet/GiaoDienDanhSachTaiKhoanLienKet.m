@@ -205,7 +205,7 @@
     [dic setValue:item.idVi forKey:@"idVi"];
     [dic setValue:sToken forKey:@"token"];
     [dic setValue:sOtp forKey:@"otpConfirm"];
-    [dic setValue:[NSNumber numberWithInteger:nKieuXacThuc] forKey:@"typeAuthenticate"];
+    [dic setValue:[NSNumber numberWithInteger:0] forKey:@"typeAuthenticate"];
     [dic setValue:[NSNumber numberWithInt:APP_ID] forKey:@"appId"];
     [dic setValue:[NSNumber numberWithInt:VM_APP] forKey:@"VMApp"];
     self.mDinhDanhKetNoi = @"XOA_TAI_KHOAN_LIEN_KET";

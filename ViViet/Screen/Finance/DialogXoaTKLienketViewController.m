@@ -56,6 +56,7 @@
     _btnToken.hidden = true;
     _txtToken.hidden = true;
     _btnVantay.hidden = false;
+    _btnThuchien.hidden = true;
     _contraintLeading.constant = 95;
 }
 
@@ -66,7 +67,7 @@
 
 - (void)xuLySuKienXacThucVanTayThanhCong
 {
-    self.mTypeAuthenticate = TYPE_kieuXacThuc_khac;
+    self.mTypeAuthenticate = 0;
     if([self.mDelegate respondsToSelector:@selector(xuLySuKienXacThucVoiKieu:token:otp:)])
     {
         NSString *sToken = @"";
@@ -101,7 +102,7 @@
 
 }
 - (IBAction)doVantay:(id)sender {
-    self.mTypeAuthenticate = TYPE_kieuXacThuc_khac;
+    self.mTypeAuthenticate = 0;
     [self.btnVantay setBackgroundImage:[UIImage imageNamed:@"finger"] forState:UIControlStateNormal];
     [self.btnVantay setBackgroundImage:[UIImage imageNamed:@"fingerv"] forState:UIControlStateSelected];
     [self.btnVantay setSelected:YES];
