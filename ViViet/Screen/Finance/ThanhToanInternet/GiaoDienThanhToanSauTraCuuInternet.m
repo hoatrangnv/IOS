@@ -78,6 +78,10 @@
     }
 }
 
+- (void)hideViewNhapToken {
+    
+}
+
 - (BOOL)validateVanTay{
     BOOL flag = YES;
     NSString *sSoTien = [_mtfSoTien.text stringByReplacingOccurrencesOfString:@"." withString:@""];

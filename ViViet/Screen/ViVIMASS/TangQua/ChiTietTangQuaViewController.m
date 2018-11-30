@@ -84,7 +84,13 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self khoiTaoQuangCao];
+    [_mtvNoiDungChuyenTien resignFirstResponder];
+    [_mtfNoiDungChuyenTien resignFirstResponder];
+//    [self khoiTaoQuangCao];
+}
+
+- (void)hideViewNhapToken {
+    
 }
 
 - (void)khoiTaoGiaTri
@@ -139,6 +145,7 @@
 
 - (BOOL)validateVanTay
 {
+    return YES;
     NSArray *tfs = @[_mtfTieuDe, _mtfTaiKhoanNhanQua, _mtfSoTien, _mtfThoiGianTangQua];
     ExTextField *first = nil;
     BOOL flg = YES;

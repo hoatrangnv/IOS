@@ -81,7 +81,7 @@
     [super viewDidAppear:animated];
     [self.view endEditing:YES];
     [self setAnimationChoSoTay:self.btnSoTay];
-    [self khoiTaoQuangCao];
+//    [self khoiTaoQuangCao];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -111,6 +111,10 @@
     self.mtfSoTien.inputAccessoryView = nil;
     
     self.mtvNoiDung.inputAccessoryView = nil;
+    
+}
+
+- (void)hideViewNhapToken {
     
 }
 

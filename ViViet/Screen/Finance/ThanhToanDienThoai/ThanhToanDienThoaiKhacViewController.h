@@ -57,6 +57,11 @@
 @property (retain, nonatomic) IBOutlet UIView *mViewNenThongBao;
 @property (retain, nonatomic) IBOutlet UIView *mViewTieuDeThongBao;
 @property (retain, nonatomic) IBOutlet UIView *mViewChuaThongBao;
+@property (retain, nonatomic) IBOutlet NSLayoutConstraint *heightMain;
+@property (retain, nonatomic) IBOutlet NSLayoutConstraint *heightViewSoTien;
+@property (retain, nonatomic) IBOutlet NSLayoutConstraint *topSoTienViettel;
+@property (retain, nonatomic) IBOutlet NSLayoutConstraint *topBtnTraCuu;
+@property (retain, nonatomic) IBOutlet NSLayoutConstraint *topViewXacThuc;
 
 - (IBAction)suKienBamNutChonSoTien:(id)sender;
 - (IBAction)suKienChonNhaMangViettel:(id)sender;

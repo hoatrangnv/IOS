@@ -29,30 +29,33 @@
     [self.navigationController.navigationBar setTranslucent:NO];
 
 //    self.navigationItem.hidesBackButton = YES;
-
-    UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.frame = CGRectMake(0, 0, 34, 40);
-    button.backgroundColor = [UIColor clearColor];
-    [button addTarget:self action:@selector(suKienChonTiepTuc:) forControlEvents:UIControlEventTouchUpInside];
-
-    [button setImage:[UIImage imageNamed:@"icon_back.png"] forState:UIControlStateNormal];
-    button.imageEdgeInsets = UIEdgeInsetsMake(0, -5, 0, 0);
-    button.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-    UIBarButtonItem *leftItem = [[[UIBarButtonItem alloc] initWithCustomView:button] autorelease];
-
-
-    UIBarButtonItem *negativeSeperator = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
-
-    if (SYSTEM_VERSION_LESS_THAN(@"11"))
-        negativeSeperator.width = -10;
-    else {
-        negativeSeperator.width = -15;
-    }
-
-    [leftItem.customView.widthAnchor constraintEqualToConstant:34].active = YES;
-    [leftItem.customView.heightAnchor constraintEqualToConstant:40].active = YES;
-
-    self.navigationItem.leftBarButtonItems = @[negativeSeperator, leftItem];
+    
+    UIBarButtonItem *btnLeft = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style:UIBarButtonItemStyleDone target:self action:@selector(suKienChonTiepTuc:)];
+    btnLeft.imageInsets = UIEdgeInsetsMake(0, -10, 0, 0);
+    self.navigationItem.leftBarButtonItem = btnLeft;
+//    UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
+//    button.frame = CGRectMake(0, 0, 34, 40);
+//    button.backgroundColor = [UIColor clearColor];
+//    [button addTarget:self action:@selector(suKienChonTiepTuc:) forControlEvents:UIControlEventTouchUpInside];
+//
+//    [button setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+//    button.imageEdgeInsets = UIEdgeInsetsMake(0, -5, 0, 0);
+//    button.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+//    UIBarButtonItem *leftItem = [[[UIBarButtonItem alloc] initWithCustomView:button] autorelease];
+//
+//
+//    UIBarButtonItem *negativeSeperator = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+//
+//    if (SYSTEM_VERSION_LESS_THAN(@"11"))
+//        negativeSeperator.width = -10;
+//    else {
+//        negativeSeperator.width = -15;
+//    }
+//
+//    [leftItem.customView.widthAnchor constraintEqualToConstant:34].active = YES;
+//    [leftItem.customView.heightAnchor constraintEqualToConstant:40].active = YES;
+//
+//    self.navigationItem.leftBarButtonItems = @[negativeSeperator, leftItem];
 
     [self addRightButton];
     if (!self.edLuaChon.rightView) {
@@ -365,7 +368,7 @@
     cell.lblGioDi.text = item.gioBay;
     cell.lblGioDen.text = item.gioDen;
     cell.lblGiaTien.text = [Common hienThiTienTe:item.gia];
-    NSLog(@"%s - indexDi : %d - %d", __FUNCTION__, (int)self.indexDi.section, (int)indexPath.row);
+//    NSLog(@"%s - indexDi : %d - %d", __FUNCTION__, (int)self.indexDi.section, (int)indexPath.row);
     if ((self.indexDi != nil && (indexPath.section == self.indexDi.section && indexPath.row == self.indexDi.row)) || (self.indexVe != nil && (indexPath.section == self.indexVe.section && indexPath.row == self.indexVe.row))) {
         cell.lblGiaTien.backgroundColor = [UIColor colorWithRed:0 green:114/255.0 blue:187/255.0 alpha:1];
         cell.lblGiaTien.textColor = [UIColor whiteColor];

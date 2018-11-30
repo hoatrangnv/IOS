@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -18,26 +18,35 @@
                 <rect key="frame" x="0.0" y="0.0" width="300" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Khách hàng" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="83M-jw-8SJ">
-                        <rect key="frame" x="8" y="11" width="93" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Khách hàng" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="83M-jw-8SJ">
+                        <rect key="frame" x="8" y="13.5" width="96" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Ko hành lý" borderStyle="line" textAlignment="center" minimumFontSize="17" id="OAh-qX-LSW" customClass="ExTextField">
-                        <rect key="frame" x="114" y="7" width="178" height="30"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Ko hành lý" borderStyle="line" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OAh-qX-LSW" customClass="ExTextField">
+                        <rect key="frame" x="112" y="3" width="180" height="37.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="180" id="MIM-5h-s8z"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="83M-jw-8SJ" firstAttribute="centerY" secondItem="OAh-qX-LSW" secondAttribute="centerY" id="IbO-Ya-hO2"/>
+                    <constraint firstItem="OAh-qX-LSW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="3" id="S4n-y0-2Ub"/>
+                    <constraint firstAttribute="bottom" secondItem="OAh-qX-LSW" secondAttribute="bottom" constant="3" id="UTK-Ov-R3f"/>
+                    <constraint firstAttribute="trailing" secondItem="OAh-qX-LSW" secondAttribute="trailing" constant="8" id="Y4Q-23-X7H"/>
+                    <constraint firstItem="OAh-qX-LSW" firstAttribute="leading" secondItem="83M-jw-8SJ" secondAttribute="trailing" constant="8" id="cMJ-xu-OY0"/>
+                    <constraint firstItem="83M-jw-8SJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="jCP-pw-Oi6"/>
+                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="edHanhLy" destination="OAh-qX-LSW" id="RyX-4o-eGW"/>
                 <outlet property="lblKhachHang" destination="83M-jw-8SJ" id="iLe-oD-4Mu"/>
             </connections>
-            <point key="canvasLocation" x="540" y="470"/>
+            <point key="canvasLocation" x="864" y="422.78860569715147"/>
         </tableViewCell>
     </objects>
 </document>

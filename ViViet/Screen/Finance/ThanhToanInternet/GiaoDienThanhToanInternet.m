@@ -427,7 +427,7 @@ const int NHA_CUNG_CAP_INTERNET_CMC = 6;
 }
 
 - (void)dealloc {
-    [viewQC release];
+//    [viewQC release];x
     [_viewMain release];
     [_btnVNPT release];
     [_btnFPT release];

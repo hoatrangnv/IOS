@@ -64,6 +64,10 @@
     [self.mViewMain addSubview:viewQC];
 }
 
+- (void)hideViewNhapToken {
+    
+}
+
 - (BOOL)validateVanTay
 {
     if (_edSoTien.text.isEmpty) {

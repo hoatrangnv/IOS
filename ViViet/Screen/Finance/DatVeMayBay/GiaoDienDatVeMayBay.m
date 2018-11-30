@@ -5,7 +5,7 @@
 //  Created by Tâm Nguyễn on 1/4/16.
 //
 //
-
+#import "HiNavigationBar.h"
 #import "GiaoDienDatVeMayBay.h"
 #import "CKCalendarView.h"
 #import "ItemSanBay.h"
@@ -29,7 +29,7 @@
     int nTongTien, nTongTienChuyenDi, nTongTienChuyenVe;
     GiaoDienChonChuyenBay *vcChonChuyenBay;
     UINavigationController *navigationController;
-    ViewQuangCao *viewQC;
+//    ViewQuangCao *viewQC;
 //    NSString *sTimeDi;
 //    NSString *sTimeVe;
 //    NSString *sIdVeMayBayGiaCao;
@@ -110,7 +110,25 @@
     self.edDiaChiCty.inputAccessoryView = nil;
     self.edMaSoThue.inputAccessoryView = nil;
     self.edDiaChiNhanHoaDon.inputAccessoryView = nil;
+    
+    self.heightTableDi.constant = 0.0;
+    self.heightViewDi.constant = 0.0;
+    self.viewChuyenDi.hidden = YES;
 
+    self.heightTableVe.constant = 0.0;
+    self.heightViewVe.constant = 0.0;
+    self.viewChuyenVe.hidden = YES;
+    
+    self.heightInfoNhanVe.constant = 0.0;
+    self.viewNhanVe.hidden = YES;
+    
+    self.heightNhanHoaDon.constant = 0.0;
+    self.viewNhanHoaDon.hidden = YES;
+    
+    self.heightViewToken.constant = 0.0;
+    self.viewToken.hidden = YES;
+    
+    self.heightMain.constant = 210;
 }
 
 - (void)updateThongTinHoaDonMayBay:(NSNotification *)notification {
@@ -146,26 +164,26 @@
 
 
 - (void)khoiTaoQuangCao {
-    if (!viewQC) {
-        viewQC = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([ViewQuangCao class]) owner:self options:nil] objectAtIndex:0];
-        viewQC.mDelegate = self;
-        CGRect rectToken = self.btnChonVeMayBay.frame;
-        CGRect rectQC = viewQC.frame;
-        CGRect rectMain = self.mViewMain.frame;
-        rectQC.origin.x = 0;
-        CGFloat fW = rectMain.size.width;
-        CGFloat fH = fW * 0.4533;
-//        CGFloat fH = rectQC.size.height * (9.0 / 16.0);
-        rectQC.origin.y = rectToken.origin.y + rectToken.size.height + 15.0;
-        NSLog(@"%s - %d - fW : %f - fH : %f", __FUNCTION__, __LINE__, fW, fH);
-        viewQC.frame = CGRectMake(0, rectQC.origin.y, fW, fH);
-        viewQC.mDelegate = self;
-        [viewQC updateSizeQuangCao];
-        rectMain.size.height = rectQC.origin.y + rectQC.size.height;
-        self.mViewMain.frame = rectMain;
-        [self.mViewMain addSubview:viewQC];
-        [self.scrMain setContentSize:CGSizeMake(_scrMain.frame.size.width, viewQC.frame.origin.y + viewQC.frame.size.height + 10)];
-    }
+//    if (!viewQC) {
+//        viewQC = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([ViewQuangCao class]) owner:self options:nil] objectAtIndex:0];
+//        viewQC.mDelegate = self;
+//        CGRect rectToken = self.btnChonVeMayBay.frame;
+//        CGRect rectQC = viewQC.frame;
+//        CGRect rectMain = self.mViewMain.frame;
+//        rectQC.origin.x = 0;
+//        CGFloat fW = rectMain.size.width;
+//        CGFloat fH = fW * 0.4533;
+////        CGFloat fH = rectQC.size.height * (9.0 / 16.0);
+//        rectQC.origin.y = rectToken.origin.y + rectToken.size.height + 15.0;
+//        NSLog(@"%s - %d - fW : %f - fH : %f", __FUNCTION__, __LINE__, fW, fH);
+//        viewQC.frame = CGRectMake(0, rectQC.origin.y, fW, fH);
+//        viewQC.mDelegate = self;
+//        [viewQC updateSizeQuangCao];
+//        rectMain.size.height = rectQC.origin.y + rectQC.size.height;
+//        self.mViewMain.frame = rectMain;
+//        [self.mViewMain addSubview:viewQC];
+//        [self.scrMain setContentSize:CGSizeMake(_scrMain.frame.size.width, viewQC.frame.origin.y + viewQC.frame.size.height + 10)];
+//    }
 }
 
 - (void)addRightButton{
@@ -291,82 +309,87 @@
                 nHeight += 80;
             }
         }
-        CGRect rectTable = self.tableNguoiDi.frame;
         CGRect rectInfoDi = self.viewThongTinDi.frame;
-        CGRect rectChuyenDi = self.viewChuyenDi.frame;
-        CGRect rectMain = self.mViewMain.frame;
-        CGRect rectToken = self.viewToken.frame;
-        CGRect rectNhanVe = self.viewNhanVe.frame;
-        CGRect rectHoaDon = self.viewNhanHoaDon.frame;
+        self.heightTableDi.constant = nHeight;
+        self.heightViewDi.constant = self.heightTableDi.constant + rectInfoDi.size.height;
+        self.heightMain.constant += self.heightViewDi.constant;
+//        CGRect rectTable = self.tableNguoiDi.frame;
+//        CGRect rectInfoDi = self.viewThongTinDi.frame;
+//        CGRect rectChuyenDi = self.viewChuyenDi.frame;
+//        CGRect rectMain = self.mViewMain.frame;
+//        CGRect rectToken = self.viewToken.frame;
+//        CGRect rectNhanVe = self.viewNhanVe.frame;
+//        CGRect rectHoaDon = self.viewNhanHoaDon.frame;
+//
+//        rectTable.size.height = nHeight;
+//        rectInfoDi.origin.y = rectTable.size.height + rectTable.origin.y + 5;
+//        rectChuyenDi.size.height = rectInfoDi.origin.y + rectInfoDi.size.height;
+//        rectNhanVe.origin.y = rectChuyenDi.origin.y + rectChuyenDi.size.height + 8;
+//        rectHoaDon.origin.y = rectNhanVe.origin.y + rectNhanVe.size.height + 8;
+//        self.tableNguoiDi.frame = rectTable;
+//        self.viewThongTinDi.frame = rectInfoDi;
+//        self.viewChuyenDi.frame = rectChuyenDi;
+//        rectToken.origin.y = rectNhanVe.origin.y + rectNhanVe.size.height + 8;
         
-        rectTable.size.height = nHeight;
-        rectInfoDi.origin.y = rectTable.size.height + rectTable.origin.y + 5;
-        rectChuyenDi.size.height = rectInfoDi.origin.y + rectInfoDi.size.height;
-        rectNhanVe.origin.y = rectChuyenDi.origin.y + rectChuyenDi.size.height + 8;
-        rectHoaDon.origin.y = rectNhanVe.origin.y + rectNhanVe.size.height + 8;
-        self.tableNguoiDi.frame = rectTable;
-        self.viewThongTinDi.frame = rectInfoDi;
-        self.viewChuyenDi.frame = rectChuyenDi;
-        rectToken.origin.y = rectNhanVe.origin.y + rectNhanVe.size.height + 8;
-        if(!itemChuyenDen){
-
-        }
-        else{
-            NSLog(@"%s - itemChuyenDen.hangBay : %d", __FUNCTION__, itemChuyenDen.hangBay);
-            CGRect rectChuyenVe = self.viewChuyenVe.frame;
-            CGRect rectInfoVe = self.viewThongTinVe.frame;
-            if (itemChuyenDen.hangBay == 2) {
-                self.tableChuyenVe.hidden = YES;
-                rectInfoVe.origin.y = self.tableChuyenVe.frame.origin.y;
-                rectChuyenVe.size.height = rectInfoVe.origin.y + rectInfoVe.size.height + 5;
-            }
-            else{
-                self.tableChuyenVe.hidden = NO;
-                int nSL = [self.edNguoiLon.text intValue] + [self.edTreEm.text intValue];
-                int nHeightChuyenVe = nSL * 44;
-                CGRect rectTableVe = self.tableChuyenVe.frame;
-                rectTableVe.size.height = nHeightChuyenVe;
-                NSLog(@"%s - nHeightChuyenVe : %f", __FUNCTION__, nHeightChuyenVe);
-                self.tableChuyenVe.frame = rectTableVe;
-                rectInfoVe.origin.y = rectTableVe.origin.y + rectTableVe.size.height;
-                rectChuyenVe.size.height = rectInfoVe.origin.y + rectInfoVe.size.height + 5;
-            }
-            self.viewThongTinVe.frame = rectInfoVe;
-            rectChuyenVe.origin.y = rectChuyenDi.origin.y + rectChuyenDi.size.height + 8;
-            rectNhanVe.origin.y = rectChuyenVe.origin.y + rectChuyenVe.size.height + 8;
-            rectHoaDon.origin.y = rectNhanVe.origin.y + rectNhanVe.size.height + 8;
-            rectToken.origin.y = rectHoaDon.origin.y + rectHoaDon.size.height + 8;
-            self.viewChuyenVe.frame = rectChuyenVe;
-            [self.tableChuyenVe reloadData];
-            [self tinhTienVaPhiChuyenVe];
-        }
-        NSLog(@"%s - ============> xem lai view nhan ve", __FUNCTION__);
-        self.viewNhanHoaDon.frame = rectHoaDon;
-        self.viewNhanVe.frame = rectNhanVe;
-        self.viewToken.frame = rectToken;
-        CGRect rectQC = viewQC.frame;
-        rectQC.origin.y = rectToken.origin.y + rectToken.size.height + 10;
-        rectMain.size.height = rectQC.origin.y + rectQC.size.height + 10;
-        viewQC.frame = rectQC;
-        self.mViewMain.frame = rectMain;
-        if ([self kiemTraCoChucNangQuetVanTay]){
-            self.mbtnVanTay.hidden = NO;
-            CGRect rectVanTay = self.mbtnVanTay.frame;
-            rectVanTay.origin.y = rectMain.origin.y + rectMain.size.height + 5;
-            self.mbtnVanTay.frame = rectVanTay;
-            [self.scrMain setContentSize:CGSizeMake(self.scrMain.contentSize.width, rectVanTay.origin.y + rectVanTay.size.height + 10)];
-        }
-        else
-            [self.scrMain setContentSize:CGSizeMake(self.scrMain.contentSize.width, rectMain.size.height + 20)];
-        [self.tableNguoiDi reloadData];
-        [self tinhTienVaPhiChuyenDi];
-
-        double fSoTienDi = [[self.lblTongLuotDi.text stringByReplacingOccurrencesOfString:@"." withString:@""] doubleValue];
-        double fSoTienVe = [[self.lblTongLuotVe.text stringByReplacingOccurrencesOfString:@"." withString:@""] doubleValue];
-        nTongTien = 0;
-        nTongTien += fSoTienDi;
-        nTongTien += fSoTienVe;
-        self.lblSoTienThanhToan.text = [Common hienThiTienTe:nTongTien];
+//        if(!itemChuyenDen){
+//
+//        }
+//        else{
+//            NSLog(@"%s - itemChuyenDen.hangBay : %d", __FUNCTION__, itemChuyenDen.hangBay);
+//            CGRect rectChuyenVe = self.viewChuyenVe.frame;
+//            CGRect rectInfoVe = self.viewThongTinVe.frame;
+//            if (itemChuyenDen.hangBay == 2) {
+//                self.tableChuyenVe.hidden = YES;
+//                rectInfoVe.origin.y = self.tableChuyenVe.frame.origin.y;
+//                rectChuyenVe.size.height = rectInfoVe.origin.y + rectInfoVe.size.height + 5;
+//            }
+//            else{
+//                self.tableChuyenVe.hidden = NO;
+//                int nSL = [self.edNguoiLon.text intValue] + [self.edTreEm.text intValue];
+//                int nHeightChuyenVe = nSL * 44;
+//                CGRect rectTableVe = self.tableChuyenVe.frame;
+//                rectTableVe.size.height = nHeightChuyenVe;
+//                NSLog(@"%s - nHeightChuyenVe : %f", __FUNCTION__, nHeightChuyenVe);
+//                self.tableChuyenVe.frame = rectTableVe;
+//                rectInfoVe.origin.y = rectTableVe.origin.y + rectTableVe.size.height;
+//                rectChuyenVe.size.height = rectInfoVe.origin.y + rectInfoVe.size.height + 5;
+//            }
+//            self.viewThongTinVe.frame = rectInfoVe;
+//            rectChuyenVe.origin.y = rectChuyenDi.origin.y + rectChuyenDi.size.height + 8;
+//            rectNhanVe.origin.y = rectChuyenVe.origin.y + rectChuyenVe.size.height + 8;
+//            rectHoaDon.origin.y = rectNhanVe.origin.y + rectNhanVe.size.height + 8;
+//            rectToken.origin.y = rectHoaDon.origin.y + rectHoaDon.size.height + 8;
+//            self.viewChuyenVe.frame = rectChuyenVe;
+//            [self.tableChuyenVe reloadData];
+//            [self tinhTienVaPhiChuyenVe];
+//        }
+//        NSLog(@"%s - ============> xem lai view nhan ve", __FUNCTION__);
+//        self.viewNhanHoaDon.frame = rectHoaDon;
+//        self.viewNhanVe.frame = rectNhanVe;
+//        self.viewToken.frame = rectToken;
+////        CGRect rectQC = viewQC.frame;
+////        rectQC.origin.y = rectToken.origin.y + rectToken.size.height + 10;
+//        rectMain.size.height = rectToken.origin.y + rectToken.size.height + 10;
+////        viewQC.frame = rectQC;
+//        self.mViewMain.frame = rectMain;
+//        if ([self kiemTraCoChucNangQuetVanTay]){
+//            self.mbtnVanTay.hidden = NO;
+//            CGRect rectVanTay = self.mbtnVanTay.frame;
+//            rectVanTay.origin.y = rectMain.origin.y + rectMain.size.height + 5;
+//            self.mbtnVanTay.frame = rectVanTay;
+//            [self.scrMain setContentSize:CGSizeMake(self.scrMain.contentSize.width, rectVanTay.origin.y + rectVanTay.size.height + 10)];
+//        }
+//        else
+//            [self.scrMain setContentSize:CGSizeMake(self.scrMain.contentSize.width, rectMain.size.height + 20)];
+//        [self.tableNguoiDi reloadData];
+//        [self tinhTienVaPhiChuyenDi];
+//
+//        double fSoTienDi = [[self.lblTongLuotDi.text stringByReplacingOccurrencesOfString:@"." withString:@""] doubleValue];
+//        double fSoTienVe = [[self.lblTongLuotVe.text stringByReplacingOccurrencesOfString:@"." withString:@""] doubleValue];
+//        nTongTien = 0;
+//        nTongTien += fSoTienDi;
+//        nTongTien += fSoTienVe;
+//        self.lblSoTienThanhToan.text = [Common hienThiTienTe:nTongTien];
     }
 }
 
@@ -765,7 +788,8 @@
                 vcChonChuyenBay = [[GiaoDienChonChuyenBay alloc] initWithNibName:@"GiaoDienChonChuyenBay" bundle:nil];
                 vcChonChuyenBay.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
                 vcChonChuyenBay.delegate = self;
-                navigationController = [[UINavigationController alloc] initWithRootViewController:vcChonChuyenBay];
+                navigationController = [HiNavigationBar navigationControllerWithRootViewController: vcChonChuyenBay];
+//                navigationController = [[hian alloc] initWithRootViewController:vcChonChuyenBay];
             }
             vcChonChuyenBay.dicKetQua = (NSDictionary *)ketQua;
             [self.navigationController presentViewController:navigationController animated:YES completion:^{
@@ -1277,159 +1301,86 @@
 
 - (void)chonChuyenBay:(ItemChuyenBay *)itemDi itemDen:(ItemChuyenBay *)itemDen{
     if (itemDi) {
-        itemChuyenDi = itemDi;
-        itemChuyenDen = itemDen;
-        NSLog(@"%s - itemChuyenDi : %@", __FUNCTION__, itemChuyenDi.thoiGian);
-        NSLog(@"%s - itemChuyenDen : %@", __FUNCTION__, itemChuyenDen.thoiGian);
-        int nHeight = 0;
-        for (int i = 0; i < arrNguoiDi.count; i ++) {
-            int temp = [[arrNguoiDi objectAtIndex:i] intValue];
-            if (temp == 0 || temp == 2) {
-                nHeight += 55;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            itemChuyenDi = itemDi;
+            itemChuyenDen = itemDen;
+            NSLog(@"%s - itemChuyenDi : %@", __FUNCTION__, itemChuyenDi.thoiGian);
+            NSLog(@"%s - itemChuyenDen : %@", __FUNCTION__, itemChuyenDen.thoiGian);
+            int nHeight = 0;
+            for (int i = 0; i < arrNguoiDi.count; i ++) {
+                int temp = [[arrNguoiDi objectAtIndex:i] intValue];
+                if (temp == 0 || temp == 2) {
+                    nHeight += 55;
+                }
+                else {
+                    nHeight += 80;
+                }
             }
-            else {
-               nHeight += 80;
-            }
-        }
-//        int nHeight = (int)arrNguoiDi.count * 80;
-        CGRect rectTable = self.tableNguoiDi.frame;
-        CGRect rectInfoDi = self.viewThongTinDi.frame;
-        CGRect rectChuyenDi = self.viewChuyenDi.frame;
-        CGRect rectMain = self.mViewMain.frame;
-        CGRect rectToken = self.viewToken.frame;
-        CGRect rectNhanVe = self.viewNhanVe.frame;
-        CGRect rectOption = self.btnChonVeMayBay.frame;
-        rectTable.size.height = nHeight;
-        self.tableNguoiDi.alwaysBounceVertical = NO;
-        rectInfoDi.origin.y = rectTable.size.height + rectTable.origin.y + 5;
-        rectChuyenDi.size.width = rectMain.size.width;
-        rectChuyenDi.origin.y = rectOption.origin.y + rectOption.size.height + 8;
-        rectChuyenDi.size.height = rectInfoDi.origin.y + rectInfoDi.size.height;
-        rectNhanVe.origin.y = rectChuyenDi.origin.y + rectChuyenDi.size.height + 8;
-        self.tableNguoiDi.frame = rectTable;
-        self.viewThongTinDi.frame = rectInfoDi;
-        self.viewChuyenDi.frame = rectChuyenDi;
-        
-        CGRect rectNhanHoaDon = self.viewNhanHoaDon.frame;
-        rectNhanHoaDon.origin.y = rectNhanVe.origin.y + rectNhanVe.size.height + 8;
-        rectToken.origin.y = rectNhanHoaDon.origin.y + rectNhanHoaDon.size.height + 8;
-
-        if (![self.mViewMain.subviews containsObject:self.viewChuyenDi]) {
-            [self.mViewMain addSubview:self.viewChuyenDi];
-        }
-        self.viewChuyenDi.hidden = NO;
-        
-        if (![self.mViewMain.subviews containsObject:self.viewNhanHoaDon]) {
-            rectNhanHoaDon.size.width = rectMain.size.width;
-            [self.mViewMain addSubview:self.viewNhanHoaDon];
-        }
-        self.viewNhanHoaDon.hidden = NO;
-        
-        [self.scrMain setContentSize:CGSizeMake(self.scrMain.contentSize.width, rectMain.size.height + 10)];
-        self.lblChuyenDi.text = [NSString stringWithFormat:@"Đi %@ %@-%@ %@ %@ %@ %@", [self getNgayBay:[self getThoiGianTruyenLenServer:self.edNgayDi.text]], itemChuyenDi.maSanBayDi, itemChuyenDi.maSanBayDen, [self layTenHangBay:itemChuyenDi.hangBay], itemChuyenDi.maChuyenBay, itemChuyenDi.gioBay, itemChuyenDi.gioDen];
-        [self tinhTienVaPhiChuyenDi];
-        if (itemChuyenDen) {
-            self.lblChuyenVe.text = [NSString stringWithFormat:@"Về %@ %@-%@ %@ %@ %@ %@", [self getNgayBay:[self getThoiGianTruyenLenServer:self.edNgayVe.text]], itemChuyenDen.maSanBayDi, itemChuyenDen.maSanBayDen, [self layTenHangBay:itemChuyenDen.hangBay], itemChuyenDen.maChuyenBay, itemChuyenDen.gioBay, itemChuyenDen.gioDen];
-
-            CGRect rectChuyenVe = self.viewChuyenVe.frame;
-            CGRect rectInfoVe = self.viewThongTinVe.frame;
-            CGRect rectTableChuyenVe = self.tableChuyenVe.frame;
+            NSLog(@"%s - nHeight : %d", __FUNCTION__, nHeight);
+            self.viewChuyenDi.hidden = NO;
+            [self.tableNguoiDi reloadData];
+            self.heightTableDi.constant = nHeight;
+            self.heightViewDi.constant = self.heightTableDi.constant + 150;
+            [self.viewChuyenDi setNeedsUpdateConstraints];
+            [self.viewChuyenDi updateConstraintsIfNeeded];
+            [self.viewChuyenDi setNeedsLayout];
+            [self.viewChuyenDi layoutIfNeeded];
             
-            if (itemChuyenDen.hangBay == 2) {
-                self.tableChuyenVe.hidden = YES;
-                rectInfoVe.origin.y = self.tableChuyenVe.frame.origin.y;
-                rectChuyenVe.size.height = rectInfoVe.origin.y + rectInfoVe.size.height + 8;
-            }
-            else{
-                self.tableChuyenVe.hidden = NO;
-                int nSL = [self.edNguoiLon.text intValue] + [self.edTreEm.text intValue];
-                int nHeightChuyenVe = nSL * 44;
-                rectTableChuyenVe.size.height = nHeightChuyenVe;
-                NSLog(@"%s - nSL : %d - nHeightChuyenVe : %d", __FUNCTION__, nSL, nHeightChuyenVe);
-                rectInfoVe.origin.y = rectTableChuyenVe.origin.y + rectTableChuyenVe.size.height;
-                rectChuyenVe.size.height = rectInfoVe.origin.y + rectInfoVe.size.height + 5;
-            }
-            rectChuyenVe.size.width = rectMain.size.width;
-            rectChuyenVe.origin.y = rectChuyenDi.origin.y + rectChuyenDi.size.height + 8;
-
-            rectNhanVe.size.width = rectMain.size.width - 5;
-            rectNhanVe.origin.y = rectChuyenVe.origin.y + rectChuyenVe.size.height + 8;
-            rectToken.size.width = rectMain.size.width - 5;
-            rectNhanHoaDon.origin.y = rectNhanVe.origin.y + rectNhanVe.size.height + 8;
-            rectToken.origin.y = rectNhanHoaDon.origin.y + rectNhanHoaDon.size.height + 8;
+            self.lblChuyenDi.text = [NSString stringWithFormat:@"Đi %@ %@-%@ %@ %@ %@ %@", [self getNgayBay:[self getThoiGianTruyenLenServer:self.edNgayDi.text]], itemChuyenDi.maSanBayDi, itemChuyenDi.maSanBayDen, [self layTenHangBay:itemChuyenDi.hangBay], itemChuyenDi.maChuyenBay, itemChuyenDi.gioBay, itemChuyenDi.gioDen];
+            [self tinhTienVaPhiChuyenDi];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                if (itemChuyenDen) {
+                    self.lblChuyenVe.text = [NSString stringWithFormat:@"Về %@ %@-%@ %@ %@ %@ %@", [self getNgayBay:[self getThoiGianTruyenLenServer:self.edNgayVe.text]], itemChuyenDen.maSanBayDi, itemChuyenDen.maSanBayDen, [self layTenHangBay:itemChuyenDen.hangBay], itemChuyenDen.maChuyenBay, itemChuyenDen.gioBay, itemChuyenDen.gioDen];
+                    if (itemChuyenDen.hangBay == 2) {
+                        self.heightTableVe.constant = 0.0;
+                        self.tableChuyenVe.hidden = YES;
+                    } else {
+                        self.tableChuyenVe.hidden = NO;
+                        int nSL = [self.edNguoiLon.text intValue] + [self.edTreEm.text intValue];
+                        int nHeightChuyenVe = nSL * 60;
+                        self.heightTableVe.constant = nHeightChuyenVe - ((nSL - 1) *30);
+                    }
+                    self.viewChuyenVe.hidden = NO;
+                    self.heightViewVe.constant = self.heightTableVe.constant + 150;
+                    
+                    [self.viewChuyenVe setNeedsUpdateConstraints];
+                    [self.viewChuyenVe updateConstraintsIfNeeded];
+                    [self.viewChuyenVe setNeedsLayout];
+                    [self.viewChuyenVe layoutIfNeeded];
+                    [self.tableChuyenVe reloadData];
+                    [self tinhTienVaPhiChuyenVe];
+                }
+                else {
+                    
+                }
+            });
             
-            self.tableChuyenVe.frame = rectTableChuyenVe;
-            self.viewChuyenVe.frame = rectChuyenVe;
-            self.viewThongTinVe.frame = rectInfoVe;
-            if (![self.mViewMain.subviews containsObject:self.viewChuyenVe]) {
-                [self.mViewMain addSubview:self.viewChuyenVe];
-            }
-            self.viewChuyenVe.hidden = NO;
-            [self tinhTienVaPhiChuyenVe];
-        }
-        else {
-            rectNhanHoaDon.origin.y = rectNhanVe.origin.y + rectNhanVe.size.height + 8;
-            rectToken.origin.y = rectNhanHoaDon.origin.y + rectNhanHoaDon.size.height + 8;
-        }
-        if (![self.mViewMain.subviews containsObject:self.viewNhanVe]) {
-            [self.mViewMain addSubview:self.viewNhanVe];
-        }
-        if (![self.mViewMain.subviews containsObject:self.viewToken]) {
-            [self.mViewMain addSubview:self.viewToken];
-        }
-        self.viewNhanVe.frame = rectNhanVe;
-        self.viewToken.frame = rectToken;
-        self.viewNhanHoaDon.frame = rectNhanHoaDon;
-        self.viewToken.hidden = NO;
-        CGRect rectQC = viewQC.frame;
-        rectQC.origin.y = rectToken.origin.y + rectToken.size.height + 10;
-        rectMain.size.height = rectQC.origin.y + rectQC.size.height + 10;
-        viewQC.frame = rectQC;
-        self.mViewMain.frame = rectMain;
-        if ([self kiemTraCoChucNangQuetVanTay]){
-            self.mbtnVanTay.hidden = NO;
-            CGRect rectVanTay = self.mbtnVanTay.frame;
-            rectVanTay.origin.y = rectMain.origin.y + rectMain.size.height + 5;
-            self.mbtnVanTay.frame = rectVanTay;
-            [self.scrMain setContentSize:CGSizeMake(self.scrMain.contentSize.width, rectVanTay.origin.y + rectVanTay.size.height + 10)];
-        }
-        else
-            [self.scrMain setContentSize:CGSizeMake(self.scrMain.contentSize.width, rectMain.size.height + 20)];
-
-        self.edSDT.text = [DucNT_LuuRMS layThongTinDangNhap:KEY_PHONE_AUTHENTICATE];
-        self.edEmail.text = [DucNT_LuuRMS layThongTinDangNhap:KEY_EMAIL_AUTHENTICATE];
-
-        double fSoTienDi = [[self.lblTongLuotDi.text stringByReplacingOccurrencesOfString:@"." withString:@""] doubleValue];
-        double fSoTienVe = [[self.lblTongLuotVe.text stringByReplacingOccurrencesOfString:@"." withString:@""] doubleValue];
-        nTongTien = 0;
-        nTongTien += fSoTienDi;
-        nTongTien += fSoTienVe;
-        self.lblSoTienThanhToan.text = [Common hienThiTienTe:nTongTien];
-        if(![CommonUtils isEmptyOrNull:self.mThongTinTaiKhoanVi.pki3] && [self.mThongTinTaiKhoanVi.hanMucPki3 doubleValue] >0 ){
-            if(fSoTienDi+ fSoTienVe > [self.mThongTinTaiKhoanVi.hanMucPki3 doubleValue]){
-                self.mbtnSMS.hidden = YES;
-                self.mbtnToken.hidden = YES;
-                self.mbtnEmail.hidden = YES;
-                self.mbtnPKI.hidden = NO;
-            }
-            else{
-                self.mbtnSMS.hidden = NO;
-                
-                self.mbtnToken.hidden = NO;
-                
-                self.mbtnEmail.hidden = NO;
-                
-                self.mbtnPKI.hidden = NO;
-            }
-        }
-        else{
-            self.mbtnPKI.hidden = YES;
-            self.mbtnToken.hidden = NO;
-            self.mbtnSMS.hidden = NO;
-            self.mbtnEmail.hidden = NO;
-        }
+            self.viewNhanVe.hidden = NO;
+            self.heightInfoNhanVe.constant = 120;
+            
+            self.viewNhanHoaDon.hidden = NO;
+            self.heightNhanHoaDon.constant = 200;
+            
+            self.viewToken.hidden = NO;
+            self.heightViewToken.constant = 135;
+            
+            [self.mViewMain setNeedsUpdateConstraints];
+            [self.mViewMain updateConstraintsIfNeeded];
+            [self.mViewMain setNeedsLayout];
+            [self.mViewMain layoutIfNeeded];
+            [self.mViewMain layoutSubviews];
+            
+        });
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            //200 là độ cao ban đầu theo nút tra cứu
+//            self.heightMain.constant = self.heightInfoNhanVe.constant + 8 + self.heightNhanHoaDon.constant + 8 + self.heightViewToken.constant + 8 + self.heightViewVe.constant + 8 + self.heightViewDi.constant + 200;
+            self.heightMain.constant = self.viewToken.frame.origin.y + self.heightViewToken.constant;
+            NSLog(@"%s - self.viewToken : %f - %f", __FUNCTION__, self.viewToken.frame.origin.y, self.viewToken.frame.size.height);
+            NSLog(@"%s - self.heightMain.constant : %f", __FUNCTION__, self.heightMain.constant);
+            [self.scrMain setContentSize:CGSizeMake(self.scrMain.frame.size.width, self.heightMain.constant + 20)];
+        });
     }
-    [self.tableNguoiDi reloadData];
 }
 
 - (NSString *)getNgayBay:(NSString *)sTime{
@@ -1440,6 +1391,10 @@
     date = [dateFormat dateFromString:sTime];
     NSDateComponents *dateComponents = [sysCalendar components:NSDayCalendarUnit|NSMonthCalendarUnit|NSYearCalendarUnit fromDate:date];
     return [NSString stringWithFormat:@"%ld/%ld/%ld", (long)dateComponents.day, (long)dateComponents.month, (long)dateComponents.year];
+}
+
+- (void)hideViewNhapToken {
+    
 }
 
 - (BOOL)validateVanTay{
@@ -1684,7 +1639,7 @@
 - (void)dealloc {
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(capNhatThoiGianTraCuuGuaCao) object:nil];
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(traCuuVeMayBayGiaCao) object:nil];
-    [viewQC dungChayQuangCao];
+//    [viewQC dungChayQuangCao];
     [_viewCalendar release];
     [_edNgayDi release];
     [_edNgayVe release];
@@ -1734,6 +1689,14 @@
     [_edMaSoThue release];
     [_edDiaChiNhanHoaDon release];
     [_lblPhiVimass release];
+    [_heightMain release];
+    [_heightTableDi release];
+    [_heightViewDi release];
+    [_heightViewVe release];
+    [_heightTableVe release];
+    [_heightInfoNhanVe release];
+    [_heightNhanHoaDon release];
+    [_heightViewToken release];
     [super dealloc];
 }
 @end

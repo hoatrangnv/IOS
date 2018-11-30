@@ -134,6 +134,38 @@ const int DINH_DANH_THONG_BAO_THANH_CONG = 100;
     [self.imgvQRCode addGestureRecognizer:longHander];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    NSLog(@"%s =========================> 2", __FUNCTION__);
+    NSString *sTaiKhoan = [DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_ID_TEMP];
+    if ([sTaiKhoan hasPrefix:@"fb_"] || [sTaiKhoan hasPrefix:@"gg_"]) {
+        self.mbtnXacThucBoiSMS.enabled = NO;
+        self.mbtnXacThucBoiToken.enabled = NO;
+        self.btnVanTayMini.hidden = YES;
+    }
+    else {
+        NSLog(@"%s - disable button email", __FUNCTION__);
+        self.mbtnXacThucBoiEmail.enabled = NO;
+        self.btnVanTayMini.hidden = NO;
+    }
+    
+    [self.edtDiaChiNha resignFirstResponder];
+    [self.tvDiaChiNha resignFirstResponder];
+    
+    [self khoiTaoView];
+    [self hienThiDuLieu];
+    [self khoiTaoViewCalendarNgaySinh];
+    [self khoiTaoViewCalenderNgayCap];
+    [self khoiTaoViewChonNoiCap];
+    [self khoiTaoGiaoDienChuyenTien];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    [self ketThucDemThoiGian];
+}
+
 - (void) handleHoldGesture:(UILongPressGestureRecognizer *)gestureRecognizer
 {
     NSLog(@"%s - START", __FUNCTION__);
@@ -272,40 +304,6 @@ const int DINH_DANH_THONG_BAO_THANH_CONG = 100;
     }
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-
-    [self khoiTaoView];
-    [self hienThiDuLieu];
-    [self khoiTaoViewCalendarNgaySinh];
-    [self khoiTaoViewCalenderNgayCap];
-    [self khoiTaoViewChonNoiCap];
-    [self khoiTaoGiaoDienChuyenTien];
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    NSLog(@"%s =========================> 2", __FUNCTION__);
-    NSString *sTaiKhoan = [DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_ID_TEMP];
-    if ([sTaiKhoan hasPrefix:@"fb_"] || [sTaiKhoan hasPrefix:@"gg_"]) {
-        self.mbtnXacThucBoiSMS.enabled = NO;
-        self.mbtnXacThucBoiToken.enabled = NO;
-        self.btnVanTayMini.hidden = YES;
-    }
-    else {
-        NSLog(@"%s - disable button email", __FUNCTION__);
-        self.mbtnXacThucBoiEmail.enabled = NO;
-        self.btnVanTayMini.hidden = NO;
-    }
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:animated];
-    [self ketThucDemThoiGian];
-}
-
 #pragma mark - handler error
 - (void)didReceiveMemoryWarning
 {
@@ -392,6 +390,7 @@ const int DINH_DANH_THONG_BAO_THANH_CONG = 100;
     [self.mbtnChupAnhDaiDien setTitle:[@"chup_anh" localizableString] forState:UIControlStateNormal];
     [self.mbtnLayAnhDaiDien setTitle:[@"@lay_anh" localizableString] forState:UIControlStateNormal];
     
+    
 }
 
 - (void)khoiTaoGiaoDienChuyenTien
@@ -421,16 +420,20 @@ const int DINH_DANH_THONG_BAO_THANH_CONG = 100;
     }
 }
 
+- (void)hideViewNhapToken {
+    
+}
+
 -(void)khoiTaoView
 {
-    CGRect rViewToken = self.mViewToken.frame;
-    NSLog(@"%s - self.view.frame.width : %f", __FUNCTION__, self.view.frame.size.width);
+//    CGRect rViewToken = self.mViewToken.frame;
+//    NSLog(@"%s - self.view.frame.width : %f", __FUNCTION__, self.view.frame.size.width);
     CGRect rectMain = viewMain.frame;
-    rectMain.size.width = scrollView.frame.size.width;
-    if (self.view.frame.size.width >= 414.0) {
-        rectMain.size.height += 380.0;
-    }
-    viewMain.frame = rectMain;
+//    rectMain.size.width = scrollView.frame.size.width;
+//    if (self.view.frame.size.width >= 414.0) {
+//        rectMain.size.height += 380.0;
+//    }
+//    viewMain.frame = rectMain;
     [scrollView setContentSize:CGSizeMake(viewMain.frame.size.width, rectMain.origin.y + rectMain.size.height + 20)];
     [scrollView addSubview:viewMain];
     [self khoiTaoViewMain];

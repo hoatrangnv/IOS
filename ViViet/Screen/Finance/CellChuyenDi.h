@@ -22,6 +22,8 @@
 @property (retain, nonatomic) IBOutlet ExTextField *edDanhXung;
 @property (retain, nonatomic) IBOutlet ExTextField *edHoTen;
 @property (retain, nonatomic) IBOutlet ExTextField *edOptionHanhLy;
+@property (retain, nonatomic) IBOutlet NSLayoutConstraint *heightNgaySinh;
+@property (retain, nonatomic) IBOutlet NSLayoutConstraint *topHanhLy;
 @property (retain, nonatomic) IBOutlet ExTextField *edNgaySinh;
 - (void)khoiTaoNguoiLon;
 @end

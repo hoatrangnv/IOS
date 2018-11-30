@@ -48,6 +48,14 @@
     }
 }
 
+- (void)hideViewNhapToken {
+    
+}
+
+- (BOOL)validateVanTay {
+    return YES;
+}
+
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     [self.viewSMS setHidden:![textField.text isEmpty]];
     [self.viewToken setHidden:![textField.text isEmpty]];

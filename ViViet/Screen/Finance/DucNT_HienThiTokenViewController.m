@@ -152,7 +152,12 @@
         self.nViewDangHienThi = VIEW_HIEN_TOKEN;
 //        self.navigationItem.title = [@"@title_6_so_token" localizableString];
         [self addTitleView:[@"title_6_so_token" localizableString]];
+//        [viewHienThiToken setTranslatesAutoresizingMaskIntoConstraints:NO];
         [self.view addSubview:viewHienThiToken];
+//        [viewHienThiToken.topAnchor constraintEqualToAnchor:self.view.topAnchor constant:5].active = YES;
+//        [viewHienThiToken.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor constant:5].active = YES;
+//        [viewHienThiToken.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor constant:5].active = YES;
+//        [viewHienThiToken.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor constant:0].active = YES;
     }
     else
     {

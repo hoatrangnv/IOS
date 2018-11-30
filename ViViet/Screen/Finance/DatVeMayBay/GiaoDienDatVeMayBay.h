@@ -26,6 +26,7 @@
 @property (retain, nonatomic) IBOutlet UIButton *btnCloseCalendarView;
 @property (retain, nonatomic) IBOutlet UIView *viewToken;
 @property (retain, nonatomic) IBOutlet UIButton *btnChonVeMayBay;
+@property (retain, nonatomic) IBOutlet NSLayoutConstraint *heightMain;
 
 //view chuyen di
 @property (retain, nonatomic) IBOutlet UILabel *lblChuyenDi;
@@ -40,6 +41,8 @@
 @property (retain, nonatomic) IBOutlet UILabel *lblHanhLy;
 @property (retain, nonatomic) IBOutlet UILabel *lblPhiThanhToan;
 @property (retain, nonatomic) IBOutlet UILabel *lblTongLuotDi;
+@property (retain, nonatomic) IBOutlet NSLayoutConstraint *heightTableDi;
+@property (retain, nonatomic) IBOutlet NSLayoutConstraint *heightViewDi;
 
 //view chuyen ve
 @property (retain, nonatomic) IBOutlet UIView *viewChuyenVe;
@@ -54,6 +57,8 @@
 @property (retain, nonatomic) IBOutlet UILabel *lblHanhLyVe;
 @property (retain, nonatomic) IBOutlet UILabel *lblPhiThanhToanVe;
 @property (retain, nonatomic) IBOutlet UILabel *lblTongLuotVe;
+@property (retain, nonatomic) IBOutlet NSLayoutConstraint *heightViewVe;
+@property (retain, nonatomic) IBOutlet NSLayoutConstraint *heightTableVe;
 
 //view thong tin nhan ve
 @property (retain, nonatomic) IBOutlet UIView *viewNhanVe;
@@ -71,6 +76,9 @@
 @property (retain, nonatomic) IBOutlet ExTextField *edMaSoThue;
 @property (retain, nonatomic) IBOutlet ExTextField *edDiaChiNhanHoaDon;
 @property (retain, nonatomic) IBOutlet UILabel *lblPhiVimass;
+@property (retain, nonatomic) IBOutlet NSLayoutConstraint *heightInfoNhanVe;
+@property (retain, nonatomic) IBOutlet NSLayoutConstraint *heightNhanHoaDon;
+@property (retain, nonatomic) IBOutlet NSLayoutConstraint *heightViewToken;
 
 
 - (IBAction)suKienChonNgayDi:(id)sender;

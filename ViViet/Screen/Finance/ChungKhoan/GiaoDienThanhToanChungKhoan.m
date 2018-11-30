@@ -99,6 +99,10 @@
     [vc release];
 }
 
+- (void)hideViewNhapToken {
+    
+}
+
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
     return 1;
