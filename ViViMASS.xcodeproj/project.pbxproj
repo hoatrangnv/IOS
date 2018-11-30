@@ -1007,7 +1007,6 @@
 		C6316FCA1DB4E9DD0042AEF4 /* eib.png in Resources */ = {isa = PBXBuildFile; fileRef = C6316FA01DB4E9DC0042AEF4 /* eib.png */; };
 		C6316FCB1DB4E9DD0042AEF4 /* gpb.png in Resources */ = {isa = PBXBuildFile; fileRef = C6316FA11DB4E9DC0042AEF4 /* gpb.png */; };
 		C6316FCC1DB4E9DD0042AEF4 /* hdb.png in Resources */ = {isa = PBXBuildFile; fileRef = C6316FA21DB4E9DC0042AEF4 /* hdb.png */; };
-		C6316FCD1DB4E9DD0042AEF4 /* jcb.png in Resources */ = {isa = PBXBuildFile; fileRef = C6316FA31DB4E9DC0042AEF4 /* jcb.png */; };
 		C6316FCE1DB4E9DD0042AEF4 /* klp.png in Resources */ = {isa = PBXBuildFile; fileRef = C6316FA41DB4E9DC0042AEF4 /* klp.png */; };
 		C6316FCF1DB4E9DD0042AEF4 /* lpb.png in Resources */ = {isa = PBXBuildFile; fileRef = C6316FA51DB4E9DC0042AEF4 /* lpb.png */; };
 		C6316FD01DB4E9DD0042AEF4 /* master.png in Resources */ = {isa = PBXBuildFile; fileRef = C6316FA61DB4E9DC0042AEF4 /* master.png */; };
@@ -1026,7 +1025,6 @@
 		C6316FDD1DB4E9DD0042AEF4 /* sgb.png in Resources */ = {isa = PBXBuildFile; fileRef = C6316FB31DB4E9DC0042AEF4 /* sgb.png */; };
 		C6316FDE1DB4E9DD0042AEF4 /* shb.png in Resources */ = {isa = PBXBuildFile; fileRef = C6316FB41DB4E9DC0042AEF4 /* shb.png */; };
 		C6316FDF1DB4E9DD0042AEF4 /* stb.png in Resources */ = {isa = PBXBuildFile; fileRef = C6316FB51DB4E9DC0042AEF4 /* stb.png */; };
-		C6316FE01DB4E9DD0042AEF4 /* tcb.png in Resources */ = {isa = PBXBuildFile; fileRef = C6316FB61DB4E9DC0042AEF4 /* tcb.png */; };
 		C6316FE11DB4E9DD0042AEF4 /* thenoidiakhac.png in Resources */ = {isa = PBXBuildFile; fileRef = C6316FB71DB4E9DC0042AEF4 /* thenoidiakhac.png */; };
 		C6316FE21DB4E9DD0042AEF4 /* TkVikhac1.png in Resources */ = {isa = PBXBuildFile; fileRef = C6316FB81DB4E9DC0042AEF4 /* TkVikhac1.png */; };
 		C6316FE31DB4E9DD0042AEF4 /* tpb.png in Resources */ = {isa = PBXBuildFile; fileRef = C6316FB91DB4E9DC0042AEF4 /* tpb.png */; };
@@ -3027,7 +3025,6 @@
 		C6316FA01DB4E9DC0042AEF4 /* eib.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eib.png; sourceTree = "<group>"; };
 		C6316FA11DB4E9DC0042AEF4 /* gpb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gpb.png; sourceTree = "<group>"; };
 		C6316FA21DB4E9DC0042AEF4 /* hdb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hdb.png; sourceTree = "<group>"; };
-		C6316FA31DB4E9DC0042AEF4 /* jcb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jcb.png; sourceTree = "<group>"; };
 		C6316FA41DB4E9DC0042AEF4 /* klp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = klp.png; sourceTree = "<group>"; };
 		C6316FA51DB4E9DC0042AEF4 /* lpb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lpb.png; sourceTree = "<group>"; };
 		C6316FA61DB4E9DC0042AEF4 /* master.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = master.png; sourceTree = "<group>"; };
@@ -3046,7 +3043,6 @@
 		C6316FB31DB4E9DC0042AEF4 /* sgb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sgb.png; sourceTree = "<group>"; };
 		C6316FB41DB4E9DC0042AEF4 /* shb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shb.png; sourceTree = "<group>"; };
 		C6316FB51DB4E9DC0042AEF4 /* stb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stb.png; sourceTree = "<group>"; };
-		C6316FB61DB4E9DC0042AEF4 /* tcb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tcb.png; sourceTree = "<group>"; };
 		C6316FB71DB4E9DC0042AEF4 /* thenoidiakhac.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thenoidiakhac.png; sourceTree = "<group>"; };
 		C6316FB81DB4E9DC0042AEF4 /* TkVikhac1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TkVikhac1.png; sourceTree = "<group>"; };
 		C6316FB91DB4E9DC0042AEF4 /* tpb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tpb.png; sourceTree = "<group>"; };
@@ -6446,7 +6442,6 @@
 				C6316FA01DB4E9DC0042AEF4 /* eib.png */,
 				C6316FA11DB4E9DC0042AEF4 /* gpb.png */,
 				C6316FA21DB4E9DC0042AEF4 /* hdb.png */,
-				C6316FA31DB4E9DC0042AEF4 /* jcb.png */,
 				C6316FA41DB4E9DC0042AEF4 /* klp.png */,
 				C6316FA51DB4E9DC0042AEF4 /* lpb.png */,
 				C6316FA61DB4E9DC0042AEF4 /* master.png */,
@@ -6465,7 +6460,6 @@
 				C6316FB31DB4E9DC0042AEF4 /* sgb.png */,
 				C6316FB41DB4E9DC0042AEF4 /* shb.png */,
 				C6316FB51DB4E9DC0042AEF4 /* stb.png */,
-				C6316FB61DB4E9DC0042AEF4 /* tcb.png */,
 				C6316FB71DB4E9DC0042AEF4 /* thenoidiakhac.png */,
 				C6316FB81DB4E9DC0042AEF4 /* TkVikhac1.png */,
 				C6316FB91DB4E9DC0042AEF4 /* tpb.png */,
@@ -7702,7 +7696,6 @@
 				A3CAF07C1AE4E69E0029486B /* NapViTuTheNganHangViewController.xib in Resources */,
 				C6316FCE1DB4E9DD0042AEF4 /* klp.png in Resources */,
 				C664B0801D125C60003B9976 /* phong4_CGVBigCDongNai.txt in Resources */,
-				C6316FCD1DB4E9DD0042AEF4 /* jcb.png in Resources */,
 				C664B02F1D125C60003B9976 /* phong1_CrescentMall.txt in Resources */,
 				C664B0A91D125C60003B9976 /* phong5_CTPlaza.txt in Resources */,
 				0BCBB7C72163BE1100FB8832 /* TblHomeFooterView.xib in Resources */,
@@ -7806,7 +7799,6 @@
 				0B22A177177D3C4C0043C7EB /* table_category_arrow.png in Resources */,
 				180610AC19D917150066FFFE /* balloon_read_right.png in Resources */,
 				C6928C2B1FD100FB00EB30D5 /* QRDonViTableViewCell.xib in Resources */,
-				C6316FE01DB4E9DD0042AEF4 /* tcb.png in Resources */,
 				C664B0681D125C60003B9976 /* phong3_CGVVincomDanang.txt in Resources */,
 				0B22A178177D3C4C0043C7EB /* table_category_arrow@2x.png in Resources */,
 				1806109419D909DC0066FFFE /* icon_chat_me.png in Resources */,

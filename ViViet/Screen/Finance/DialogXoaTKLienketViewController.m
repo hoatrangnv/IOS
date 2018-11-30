@@ -7,6 +7,7 @@
 
 #import "DialogXoaTKLienketViewController.h"
 #import "ExTextField.h"
+#import "CommonUtils.h"
 @interface DialogXoaTKLienketViewController ()
 @property (retain, nonatomic) IBOutlet UIButton *btnToken;
 @property (retain, nonatomic) IBOutlet UIButton *btnVantay;
@@ -14,6 +15,7 @@
 @property (retain, nonatomic) IBOutlet UIButton *btnThuchien;
 @property (retain, nonatomic) IBOutlet UILabel *lblTitle;
 @property (retain, nonatomic) IBOutlet NSLayoutConstraint *contraintLeading;
+@property (retain, nonatomic) IBOutlet UIView *view_dialog;
 
 @end
 
@@ -43,18 +45,19 @@
 }
 - (void)xuLyKhiKhongCoChucNangQuetVanTay
 {
-    _btnToken.hidden = false;
+    _btnToken.hidden = NO;
     _txtToken.hidden = YES;
     _btnThuchien.hidden = YES;
     _btnVantay.hidden = YES;
-    _contraintLeading.constant = ([UIScreen mainScreen].bounds.size.width - 44)/2 - 22 ;
+    _contraintLeading.constant = self.view_dialog.frame.size.width/2 - 22;
 }
 
 - (void)xuLyKhiCoChucNangQuetVanTay
 {
-    _btnToken.hidden = true;
-    _txtToken.hidden = true;
-    _btnVantay.hidden = false;
+    _btnToken.hidden = YES;
+    _txtToken.hidden = YES;
+    _btnThuchien.hidden = YES;
+    _btnVantay.hidden = NO;
     _contraintLeading.constant = 95;
 }
 
@@ -65,27 +68,28 @@
 
 - (void)xuLySuKienXacThucVanTayThanhCong
 {
-    self.mTypeAuthenticate = TYPE_kieuXacThuc_khac;
+    self.mTypeAuthenticate = 0;
     if([self.mDelegate respondsToSelector:@selector(xuLySuKienXacThucVoiKieu:token:otp:)])
     {
         NSString *sToken = @"";
         NSString *sOtp = @"";
+        NSString *sMatKhau = self.txtToken.text;
+        sMatKhau = [DucNT_Token layMatKhauVanTayToken];
+        
         NSString *sSeed = [DucNT_Token laySeedTokenHienTai];
-        NSString *token = [DucNT_Token layMatKhauVanTayToken];
-        if(sSeed.length > 0)
-        {
-            sToken = [DucNT_Token OTPFromPIN:token seed:sSeed];
-        }
-        else
+        sToken = [DucNT_Token OTPFromPIN:sMatKhau seed:sSeed];
+        if([CommonUtils isEmptyOrNull:sToken])
         {
             [[[[UIAlertView alloc] initWithTitle:[@"@thong_bao" localizableString]  message:[@"@can_tao_token" localizableString] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
-                return;
+            return;
         }
         [self.mDelegate xuLySuKienXacThucVoiKieu:self.mTypeAuthenticate token:sToken otp:sOtp];
     }
 
 }
-
+-(void)huyXacThucVanTay{
+    [self dotoken:self];
+}
 - (void)hienThiThongBaoDienMatKhau
 {
     [UIAlertView alert:[@"thong_bao_xac_thuc_van_tay_khong_dung" localizableString] withTitle:[@"thong_bao" localizableString] block:nil];
@@ -95,13 +99,12 @@
     [self.btnToken setSelected:YES];
     [self.btnToken setBackgroundImage:[UIImage imageNamed:@"tokenv"] forState:UIControlStateSelected];
     [self.btnVantay setSelected:NO];
-    self.btnToken.hidden = false;
+    self.btnToken.hidden = NO;
     self.txtToken.hidden = NO;
     self.btnThuchien.hidden = NO;
-
 }
 - (IBAction)doVantay:(id)sender {
-    self.mTypeAuthenticate = TYPE_kieuXacThuc_khac;
+    self.mTypeAuthenticate = 0;
     [self.btnVantay setBackgroundImage:[UIImage imageNamed:@"finger"] forState:UIControlStateNormal];
     [self.btnVantay setBackgroundImage:[UIImage imageNamed:@"fingerv"] forState:UIControlStateSelected];
     [self.btnVantay setSelected:YES];
@@ -126,14 +129,13 @@
     {
         if([self.mDelegate respondsToSelector:@selector(xuLySuKienXacThucVoiKieu:token:otp:)])
         {
-            NSString *sToken = @"";
             NSString *sOtp = @"";
+            NSString *sMatKhau = self.txtToken.text;
+            sMatKhau = [DucNT_Token layMatKhauVanTayToken];
+            
             NSString *sSeed = [DucNT_Token laySeedTokenHienTai];
-            if(sSeed.length > 0)
-            {
-                sToken = [DucNT_Token OTPFromPIN:self.txtToken.text seed:sSeed];
-            }
-            else
+            NSString *sToken = [DucNT_Token OTPFromPIN:sMatKhau seed:sSeed];
+            if([CommonUtils isEmptyOrNull:sToken])
             {
                 [[[[UIAlertView alloc] initWithTitle:[@"@thong_bao" localizableString]  message:[@"@can_tao_token" localizableString] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
                 return;
@@ -157,6 +159,7 @@
     [_txtToken release];
     [_btnThuchien release];
     [_lblTitle release];
+    [_view_dialog release];
     [super dealloc];
 }
 @end

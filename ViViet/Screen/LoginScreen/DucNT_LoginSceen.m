@@ -268,7 +268,7 @@ static int const KIEU_KET_NOI_GOOGLE = 2;
     if(!_mbtnViCaNhan.selected)
     {
         [self.mViewChuaNutLuaChonVi bringSubviewToFront:_mbtnViCaNhan];
-        _mtfMaDoanhNghiep.hidden = YES;
+        _mtfMaDoanhNghiep.hidden = YES; 
         _btnTaoDoanhNghiep.hidden = YES;
         _mbtnViCaNhan.selected = YES;
         _mbtnViDoanhNghiep.selected = NO;

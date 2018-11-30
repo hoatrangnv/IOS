@@ -206,6 +206,8 @@
 - (void)edittaikhoanlienket:(NSDictionary*)dic {
     NSString *sDic = [dic JSONString];
     NSLog(@"%s - sDic : %@)", __FUNCTION__, sDic);
+    [GiaoDichMang editTaiKhoanLienKet:sDic noiNhanKetQua:self];
+    return;
     if (nIndexBank == -1) {
         [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng chọn ngân hàng liên kết"];
         return;
@@ -243,7 +245,6 @@
     }
 
 
-    [GiaoDichMang editTaiKhoanLienKet:sDic noiNhanKetQua:self];
 }
 -(void)taotaikhoanlienket:(NSDictionary*)dic{
     NSString *sDic = [dic JSONString];
