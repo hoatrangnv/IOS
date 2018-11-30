@@ -285,47 +285,52 @@ static NSString *cssHoaDon = @"<div><b>Hoá đơn %d:</b><br />Số hoá đơn: 
 }
 
 - (IBAction)suKienBamNutTraCuu:(id)sender {
-    [self resignFirstResponder];
-    if (![[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_STATE] boolValue]) {
-        DucNT_LoginSceen *loginSceen = [[DucNT_LoginSceen alloc] initWithNibName:@"DucNT_LoginSceen" bundle:nil];
-        [self presentViewController:loginSceen animated:YES completion:^{}];
-        [loginSceen release];
-        return;
-    }
-    if(_mMoTaChiTietKhachHang)
-    {
-        //Thanh Toan
-        ThanhToanTienDienViewController *thanhToanTienDienViewController = [[ThanhToanTienDienViewController alloc] initWithNibName:@"ThanhToanTienDienViewController" bundle:nil];
-        thanhToanTienDienViewController.nChucNang = 2;
-        thanhToanTienDienViewController.mMoTaChiTietKhachHang = _mMoTaChiTietKhachHang;
-        [self.navigationController pushViewController:thanhToanTienDienViewController animated:YES];
-        [thanhToanTienDienViewController release];
-    }
-    else
-    {
-        NSString *seccsion = self.mThongTinTaiKhoanVi.secssion;
-        int nKieuThanhToan = [self layMaTraCuu:nRowNhaMay];
-        if (nKieuThanhToan == -1) {
-            [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng chọn đơn vị cung cấp dịch vụ"];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self resignFirstResponder];
+        if (![[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_STATE] boolValue]) {
+            DucNT_LoginSceen *loginSceen = [[DucNT_LoginSceen alloc] initWithNibName:@"DucNT_LoginSceen" bundle:nil];
+            [self presentViewController:loginSceen animated:YES completion:^{}];
+            [loginSceen release];
             return;
         }
-        if ([self.edMaKH.text isEmpty]) {
-            [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng nhập mã khách hàng"];
-            return;
-        }
-        if(seccsion)
+        if(_mMoTaChiTietKhachHang)
         {
-            self.mDinhDanhKetNoi = DINH_DANH_KET_NOI_TRA_CUU_HOA_DON_DIEN_KHACH_HANG;
-            [GiaoDichMang ketNoiTraCuuHoaDonTienDien:nKieuThanhToan
-                                         maKhachHang:self.edMaKH.text
-                                            secssion:self.mThongTinTaiKhoanVi.secssion
-                                       noiNhanKetQua:self];
+            //Thanh Toan
+            ThanhToanTienDienViewController *thanhToanTienDienViewController = [[ThanhToanTienDienViewController alloc] initWithNibName:@"ThanhToanTienDienViewController" bundle:nil];
+            thanhToanTienDienViewController.nChucNang = 2;
+            thanhToanTienDienViewController.mMoTaChiTietKhachHang = _mMoTaChiTietKhachHang;
+            [self.navigationController pushViewController:thanhToanTienDienViewController animated:YES];
+            [thanhToanTienDienViewController release];
         }
         else
         {
-            [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Xin vui lòng đăng nhập lại để thực hiện chức năng này"];
+            NSString *seccsion = self.mThongTinTaiKhoanVi.secssion;
+            int nKieuThanhToan = [self layMaTraCuu:nRowNhaMay];
+            if (nKieuThanhToan == -1) {
+                [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng chọn đơn vị cung cấp dịch vụ"];
+                return;
+            }
+            if ([self.edMaKH.text isEmpty]) {
+                [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng nhập mã khách hàng"];
+                return;
+            }
+            if(seccsion)
+            {
+                if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"11")){
+                    [self hienThiLoading];
+                }
+                self.mDinhDanhKetNoi = DINH_DANH_KET_NOI_TRA_CUU_HOA_DON_DIEN_KHACH_HANG;
+                [GiaoDichMang ketNoiTraCuuHoaDonTienDien:nKieuThanhToan
+                                             maKhachHang:self.edMaKH.text
+                                                secssion:self.mThongTinTaiKhoanVi.secssion
+                                           noiNhanKetQua:self];
+            }
+            else
+            {
+                [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Xin vui lòng đăng nhập lại để thực hiện chức năng này"];
+            }
         }
-    }
+    });
 }
 
 - (IBAction)suKienBamSoTayNuoc:(id)sender {
@@ -341,7 +346,11 @@ static NSString *cssHoaDon = @"<div><b>Hoá đơn %d:</b><br />Số hoá đơn: 
 }
 
 - (void)xuLyKetNoiThanhCong:(NSString *)sDinhDanhKetNoi thongBao:(NSString *)sThongBao ketQua:(id)ketQua{
+    NSLog(@"%s - sDinhDanhKetNoi : %@", __FUNCTION__, sDinhDanhKetNoi);
     if ([sDinhDanhKetNoi isEqualToString:DINH_DANH_KET_NOI_TRA_CUU_HOA_DON_DIEN_KHACH_HANG]) {
+        if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"11")){
+            [self anLoading];
+        }
         NSLog(@"%s - sThongBao : %@", __FUNCTION__, sThongBao);
         if (!alertTimer) {
             alertTimer = [[UIAlertView alloc] initWithTitle:@"Thông báo" message:@"Hệ thống đang tra cứu hoá đơn nước. Vui lòng đợi sau: 60 s" delegate:nil cancelButtonTitle:@"Đóng" otherButtonTitles: nil];

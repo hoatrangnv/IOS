@@ -87,24 +87,27 @@
 
 - (void)xuLyThucHienKhiKiemTraThanhCongTraVeToken:(NSString*)sToken otp:(NSString*)sOtp
 {
-    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"11")){
-        [self hienThiLoading];
-    }
-    self.mDinhDanhKetNoi = DINH_DANH_CHUYEN_TIEN_MAT_VE_TAN_NHA_BANK_PLUS;
-    double fSoTien = [[_mtfSoTien.text stringByReplacingOccurrencesOfString:@"." withString:@""] doubleValue];
-    [GiaoDichMang ketNoiChuyenTienDenTanNhaCho:_mtfHoTenNguoiNhan.text
-                      soDienThoaiNguoiThuHuong:_mtfSoDienThoaiNguoiNhan.text
-                                        soTien:fSoTien
-                           soCMNDNguoiThuHuong:_mtfCMNDNguoiNhan.text
-                                     tinhThanh:_mtfTinhThanhPho.text
-                                     quanHuyen:_mtfQuanHuyen.text
-                                      phuongXa:_mtfPhuongXa.text
-                                        diaChi:_mtvTenDuong.text
-                                       noiDung:_mtvNoiDung.text
-                                         token:sToken
-                                           otp:sOtp
-                              typeAuthenticate:self.mTypeAuthenticate
-                                 noiNhanKetQua:self];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"11")){
+            [self hienThiLoading];
+        }
+        self.mDinhDanhKetNoi = DINH_DANH_CHUYEN_TIEN_MAT_VE_TAN_NHA_BANK_PLUS;
+        double fSoTien = [[_mtfSoTien.text stringByReplacingOccurrencesOfString:@"." withString:@""] doubleValue];
+        [GiaoDichMang ketNoiChuyenTienDenTanNhaCho:_mtfHoTenNguoiNhan.text
+                          soDienThoaiNguoiThuHuong:_mtfSoDienThoaiNguoiNhan.text
+                                            soTien:fSoTien
+                               soCMNDNguoiThuHuong:_mtfCMNDNguoiNhan.text
+                                         tinhThanh:_mtfTinhThanhPho.text
+                                         quanHuyen:_mtfQuanHuyen.text
+                                          phuongXa:_mtfPhuongXa.text
+                                            diaChi:_mtvTenDuong.text
+                                           noiDung:_mtvNoiDung.text
+                                             token:sToken
+                                               otp:sOtp
+                                  typeAuthenticate:self.mTypeAuthenticate
+                                     noiNhanKetQua:self];
+    });
+    
 }
 
 - (void)xuLyKetNoiThanhCong:(NSString*)sDinhDanhKetNoi thongBao:(NSString*)sThongBao ketQua:(id)ketQua

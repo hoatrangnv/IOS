@@ -527,30 +527,30 @@ typedef enum : NSUInteger {
 - (void)xuLyThucHienKhiKiemTraThanhCongTraVeToken:(NSString*)sToken otp:(NSString*)sOtp
 {
     NSLog(@"%s - thuc hien viec gui tiet kiem", __FUNCTION__);
-    self.mDinhDanhKetNoi = DINH_DANH_GUI_TIET_KIEM;
-    double fSoTien = [[[self.mtfSoTien.text componentsSeparatedByCharactersInSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]] componentsJoinedByString:@""] doubleValue];
-    NSInteger nKieuNhanTien = [_mDanhSachCachNhanGocVaLai indexOfObject:_mtfNhanGocVaLaiVe.text];
-    NSString *sSoTaiKhoan = @"";
-    NSString *sMaNganHangNhanTien = @"";
-    NSString *sTenChuTaiKhoan = @"";
-    
-    if(nKieuNhanTien == KIEU_NHAN_TIEN_QUA_THE)
-    {
-        sSoTaiKhoan = _mTaiKhoanThuongDung.sCardNumber;
-    }
-    else
-    {
-        sSoTaiKhoan = _mtfSoTaiKhoanRutTienVe.text;
-        sTenChuTaiKhoan = [[Common chuyenKhongDau:_mtfTenChuTaiKhoan.text] uppercaseString];
-        sMaNganHangNhanTien = self.mNganHangRutTienDuocChon.bank_sms;
-    }
-    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"11")){
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self hienThiLoading];
-        });
-        
-    }
     dispatch_async(dispatch_get_main_queue(), ^{
+        self.mDinhDanhKetNoi = DINH_DANH_GUI_TIET_KIEM;
+        double fSoTien = [[[self.mtfSoTien.text componentsSeparatedByCharactersInSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]] componentsJoinedByString:@""] doubleValue];
+        NSInteger nKieuNhanTien = [_mDanhSachCachNhanGocVaLai indexOfObject:_mtfNhanGocVaLaiVe.text];
+        NSString *sSoTaiKhoan = @"";
+        NSString *sMaNganHangNhanTien = @"";
+        NSString *sTenChuTaiKhoan = @"";
+        
+        if(nKieuNhanTien == KIEU_NHAN_TIEN_QUA_THE)
+        {
+            sSoTaiKhoan = _mTaiKhoanThuongDung.sCardNumber;
+        }
+        else
+        {
+            sSoTaiKhoan = _mtfSoTaiKhoanRutTienVe.text;
+            sTenChuTaiKhoan = [[Common chuyenKhongDau:_mtfTenChuTaiKhoan.text] uppercaseString];
+            sMaNganHangNhanTien = self.mNganHangRutTienDuocChon.bank_sms;
+        }
+        if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"11")){
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self hienThiLoading];
+            });
+            
+        }
         [GiaoDichMang ketNoiGuiTienTietKiemTaiNganHang:_mNganHangDuocChon.maNganHang
                                                 soTien:fSoTien
                                       cachThucQuayVong:[_mCachThucQuayVongDuocChon.maQuayVong intValue]
@@ -568,7 +568,6 @@ typedef enum : NSUInteger {
                                       typeAuthenticate:self.mTypeAuthenticate
                                          noiNhanKetQua:self];
     });
-    
 }
 
 - (void)xuLyKetNoiThanhCong:(NSString*)sDinhDanhKetNoi thongBao:(NSString*)sThongBao ketQua:(id)ketQua

@@ -175,38 +175,39 @@
 
 - (void)xuLyThucHienKhiKiemTraThanhCongTraVeToken:(NSString*)sToken otp:(NSString*)sOtp
 {
-    self.mDinhDanhKetNoi = DINH_DANH_KET_NOI_TAO_QUA_TANG;
-    double fSoTienThanhToan = [[[self.mtfSoTien.text componentsSeparatedByCharactersInSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]] componentsJoinedByString:@""] doubleValue];
-    NSString *sTaiKhoanNhan = self.mtfTaiKhoanNhanQua.text;
-    long milisecondThoiGianTangQua = [self.mdtThoiGianTangQua timeIntervalSince1970] * 1000;
-    if([self.mItemQuaTang.mId intValue] == 14)
-    {
-        [GiaoDichMang ketNoiTaoKhuyenMaiDen:sTaiKhoanNhan
-                                   thoiGian:milisecondThoiGianTangQua
-                                     soTien:fSoTienThanhToan
-                             sTieuDeQuaTang:self.mItemQuaTang.mName.content
-                                   sLoiChuc:self.mItemQuaTang.mMessage.content
-                                     idIcon:[self.mItemQuaTang.mId intValue]
-                                      token:sToken
-                                        otp:sOtp
-                           typeAuthenticate:self.mTypeAuthenticate
-                              noiNhanKetQua:self];
-    }
-
-    else
-    {
-        [GiaoDichMang ketNoiTaoQuaTangDen:sTaiKhoanNhan
-                                 thoiGian:milisecondThoiGianTangQua
-                                   soTien:fSoTienThanhToan
-                           sTieuDeQuaTang:self.mItemQuaTang.mName.content
-                                 sLoiChuc:self.mItemQuaTang.mMessage.content
-                                   idIcon:[self.mItemQuaTang.mId intValue]
-                                    token:sToken
-                                      otp:sOtp
-                         typeAuthenticate:self.mTypeAuthenticate
-                            noiNhanKetQua:self];
-    }
-
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.mDinhDanhKetNoi = DINH_DANH_KET_NOI_TAO_QUA_TANG;
+        double fSoTienThanhToan = [[[self.mtfSoTien.text componentsSeparatedByCharactersInSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]] componentsJoinedByString:@""] doubleValue];
+        NSString *sTaiKhoanNhan = self.mtfTaiKhoanNhanQua.text;
+        long milisecondThoiGianTangQua = [self.mdtThoiGianTangQua timeIntervalSince1970] * 1000;
+        if([self.mItemQuaTang.mId intValue] == 14)
+        {
+            [GiaoDichMang ketNoiTaoKhuyenMaiDen:sTaiKhoanNhan
+                                       thoiGian:milisecondThoiGianTangQua
+                                         soTien:fSoTienThanhToan
+                                 sTieuDeQuaTang:self.mItemQuaTang.mName.content
+                                       sLoiChuc:self.mItemQuaTang.mMessage.content
+                                         idIcon:[self.mItemQuaTang.mId intValue]
+                                          token:sToken
+                                            otp:sOtp
+                               typeAuthenticate:self.mTypeAuthenticate
+                                  noiNhanKetQua:self];
+        }
+        
+        else
+        {
+            [GiaoDichMang ketNoiTaoQuaTangDen:sTaiKhoanNhan
+                                     thoiGian:milisecondThoiGianTangQua
+                                       soTien:fSoTienThanhToan
+                               sTieuDeQuaTang:self.mItemQuaTang.mName.content
+                                     sLoiChuc:self.mItemQuaTang.mMessage.content
+                                       idIcon:[self.mItemQuaTang.mId intValue]
+                                        token:sToken
+                                          otp:sOtp
+                             typeAuthenticate:self.mTypeAuthenticate
+                                noiNhanKetQua:self];
+        }
+    });
 }
 
 - (void)xuLyKetNoiThanhCong:(NSString*)sDinhDanhKetNoi thongBao:(NSString*)sThongBao ketQua:(id)ketQua

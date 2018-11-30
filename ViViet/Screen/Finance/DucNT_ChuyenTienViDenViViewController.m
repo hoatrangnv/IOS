@@ -290,21 +290,20 @@
 
 - (void)xuLyThucHienKhiKiemTraThanhCongTraVeToken:(NSString*)sToken otp:(NSString*)sOtp
 {
-    self.mDinhDanhKetNoi = DINH_DANH_KET_NOI_CHUYEN_TIEN_DEN_VI;
-    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"11")){
-        [self hienThiLoading];
-    }
-    NSString *sSoTien = [_mtfSoTien.text stringByReplacingOccurrencesOfString:@"." withString:@""];
-    double fSoTien = [sSoTien doubleValue];
-    int nHienSoVi = 0;
-//    if (self.switchHienSoVi.isOn) {
-//        nHienSoVi = 1;
-//    }
-    NSString *maVi = self.mtfSoVi.text;
-    if(isDN){
-        maVi = [NSString stringWithFormat:@"dn_%@",self.mtfSoVi.text];
-    }
-    [GiaoDichMang ketNoiChuyenTienDenViHienSoVi:maVi soTien:fSoTien noiDung:self.mtvNoiDungGiaoDich.text hienSoVi:nHienSoVi token:sToken otp:sOtp typeAuthenticate:self.mTypeAuthenticate noiNhanKetQua:self];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.mDinhDanhKetNoi = DINH_DANH_KET_NOI_CHUYEN_TIEN_DEN_VI;
+        if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"11")){
+            [self hienThiLoading];
+        }
+        NSString *sSoTien = [_mtfSoTien.text stringByReplacingOccurrencesOfString:@"." withString:@""];
+        double fSoTien = [sSoTien doubleValue];
+        int nHienSoVi = 0;
+        NSString *maVi = self.mtfSoVi.text;
+        if(isDN){
+            maVi = [NSString stringWithFormat:@"dn_%@",self.mtfSoVi.text];
+        }
+        [GiaoDichMang ketNoiChuyenTienDenViHienSoVi:maVi soTien:fSoTien noiDung:self.mtvNoiDungGiaoDich.text hienSoVi:nHienSoVi token:sToken otp:sOtp typeAuthenticate:self.mTypeAuthenticate noiNhanKetQua:self];
+    });
 }
 
 - (void)xuLyKetNoiThanhCong:(NSString*)sDinhDanhKetNoi thongBao:(NSString*)sThongBao ketQua:(id)ketQua

@@ -901,85 +901,86 @@ NSString *sCauLuuY = @"<b>Lưu ý:</b> Số điện thoại nhận thanh toán c
 
 - (void)xuLyThucHienKhiKiemTraThanhCongTraVeToken:(NSString *)sToken otp:(NSString *)sOtp
 {
-
-    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"11")){
-        [self hienThiLoading];
-    }
-    NSString *sLuaChonThanhToan = [self.mDanhSachLuaChonThanhToan objectAtIndex:self.mLuaChonThanhToan];
-    NSLog(@"%s ===========> NAP_DI_DONG_TRA_TRUOC %@", __FUNCTION__, sLuaChonThanhToan);
-    if(self.mFuncID == FUNC_BUY_CARD/*[sLuaChonThanhToan isEqualToString:NAP_THE_CAO]*/)
-    {
-        self.mDinhDanhKetNoi = DINH_DANH_KET_NOI_MUA_THE_CAO;
-        [GiaoDichMang ketNoiMuaTheCaoThuocNhaMang:self.mNhaMang
-                                           soTien:mSoTienThanhToan
-                                          soLuong:(int)(mViTriChonSoLuongTheCao + 1)
-                                            token:sToken
-                                              otp:sOtp
-                                 typeAuthenticate:self.mTypeAuthenticate
-                                    noiNhanKetQua:self];
-    }
-    else if(self.mFuncID == FUNC_BILLING_CELLPHONE/*[sLuaChonThanhToan isEqualToString:NAP_DI_DONG_TRA_TRUOC]*/)
-    {
-        if ([_mtfLuaChon.text isEqualToString:[@"thanh_toan_viettel_thanh_toan_di_dong_hoac_dcom_tra_truoc" localizableString]]
-            || [_mtfLuaChon.text isEqualToString:[@"thanh_toan_viettel_thanh_toan_di_dong_hoac_dcom_tra_sau" localizableString]]
-            || [_mtfLuaChon.text isEqualToString:[@"thanh_toan_viettel_thanh_toan_dien_thoai_co_dinh" localizableString]]
-            || [_mtfLuaChon.text isEqualToString:[@"thanh_toan_viettel_thanh_toan_homephone" localizableString]]
-            || [_mtfLuaChon.text isEqualToString:[@"thanh_toan_viettel_thanh_toan_truyen_hinh_va_internet" localizableString]])
-        {
-            double fSoTien = [[[self.soTienViettel.text componentsSeparatedByCharactersInSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]] componentsJoinedByString:@""] doubleValue];
-            self.mDinhDanhKetNoi = DINH_DANH_KET_NOI_THANH_TOAN_CUOC;
-            NSString *sText = self.mtfLuaChon.text;
-            int nIndex = (int)[_mDanhSachLuaChonThanhToan indexOfObject:sText];
-            NSString *sSoDienThoai = _mtfSoDienThoai.text;
-            switch (nIndex) {
-                case 0:
-                case 1:
-                    sSoDienThoai = [sSoDienThoai stringByReplacingOccurrencesOfString:@"[^0-9]" withString:@"" options:NSRegularExpressionSearch range:NSMakeRange(0, [_mtfSoDienThoai.text length])];
-                default:
-                    break;
-            }
-            int nKieuThanhToan = TRA_TRUOC;
-            if ([_mtfLuaChon.text isEqualToString:[@"thanh_toan_viettel_thanh_toan_dien_thoai_co_dinh" localizableString]]
-                || [_mtfLuaChon.text isEqualToString:[@"thanh_toan_viettel_thanh_toan_homephone" localizableString]]
-                || [_mtfLuaChon.text isEqualToString:[@"thanh_toan_viettel_thanh_toan_truyen_hinh_va_internet" localizableString]]) {
-                nKieuThanhToan = TRA_SAU_HOAC_TRA_TRUOC_VIETNAMMOBILE_GMOBILE;
-            }
-            [GiaoDichMang ketNoiThanhToanCuocDienThoaiChoSo:sSoDienThoai maNhaMang:NHA_MANG_VIETTEL kieuThanhToan:(int)nKieuThanhToan soTien:fSoTien token:sToken otp:sOtp typeAuthenticate:self.mTypeAuthenticate noiNhanKetQua:self];
-        }else{
-            self.mDinhDanhKetNoi = DINH_DANH_KET_NOI_THANH_TOAN_CUOC;
-            int nKieuThanhToan = TRA_TRUOC;
-            NSString *sSoDienThoai = [_mtfSoDienThoai.text stringByReplacingOccurrencesOfString:@"[^0-9]" withString:@"" options:NSRegularExpressionSearch range:NSMakeRange(0, [_mtfSoDienThoai.text length])];
-            if(self.mNhaMang == NHA_MANG_GMOBILE || self.mNhaMang == NHA_MANG_VIETNAMMOBILE
-               || [_mtfLuaChon.text isEqualToString:[@"thanh_toan_di_dong_tra_sau_mobi" localizableString]]
-               || [_mtfLuaChon.text isEqualToString:[@"thanh_toan_di_dong_tra_sau_vina" localizableString]])
-            {
-                nKieuThanhToan = TRA_SAU_HOAC_TRA_TRUOC_VIETNAMMOBILE_GMOBILE;
-            }
-
-            NSLog(@"%s - sSoDienThoai : %@", __FUNCTION__, sSoDienThoai);
-            NSLog(@"%s - mNhaMang : %ld", __FUNCTION__, (long)self.mNhaMang);
-            NSLog(@"%s - nKieuThanhToan : %ld", __FUNCTION__, (long)nKieuThanhToan);
-            if (self.soTienViettel.text.length > 0) {
-                mSoTienThanhToan = [[[self.soTienViettel.text componentsSeparatedByCharactersInSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]] componentsJoinedByString:@""] doubleValue];
-            }
-            [GiaoDichMang ketNoiThanhToanCuocDienThoaiChoSo:sSoDienThoai maNhaMang:self.mNhaMang kieuThanhToan:nKieuThanhToan soTien:mSoTienThanhToan token:sToken otp:sOtp typeAuthenticate:self.mTypeAuthenticate noiNhanKetQua:self];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"11")){
+            [self hienThiLoading];
         }
-    }
-    else if([_mtfLuaChon.text isEqualToString:[@"thanh_toan_nap_di_dong_ngay_vang_vina" localizableString]]
-            || [_mtfLuaChon.text isEqualToString:[@"thanh_toan_nap_di_dong_ngay_vang_mobi" localizableString]]
-            || [_mtfLuaChon.text isEqualToString:[@"thanh_toan_viettel_thanh_toan_ngay_vang" localizableString]])
-    {
-        self.mDinhDanhKetNoi = DINH_DANH_KET_NOI_THANH_TOAN_CUOC;
-
-        double fSoTien = [[[self.soTienViettel.text componentsSeparatedByCharactersInSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]] componentsJoinedByString:@""] doubleValue];
-
-        [GiaoDichMang ketNoiThanhToanNgayVangDienThoaiChoSo:self.mtfSoDienThoai.text maNhaMang:self.mNhaMang kieuThanhToan:TRA_TRUOC soTien:fSoTien token:sToken otp:sOtp typeAuthenticate:self.mTypeAuthenticate noiNhanKetQua:self];
-    }
-    else{
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Thông báo" message:@"Hình thức thanh toán đang được phát triển" delegate:nil cancelButtonTitle:@"Đóng" otherButtonTitles: nil];
-        [alert show];
-        [alert release];
-    }
+        NSString *sLuaChonThanhToan = [self.mDanhSachLuaChonThanhToan objectAtIndex:self.mLuaChonThanhToan];
+        NSLog(@"%s ===========> NAP_DI_DONG_TRA_TRUOC %@", __FUNCTION__, sLuaChonThanhToan);
+        if(self.mFuncID == FUNC_BUY_CARD/*[sLuaChonThanhToan isEqualToString:NAP_THE_CAO]*/)
+        {
+            self.mDinhDanhKetNoi = DINH_DANH_KET_NOI_MUA_THE_CAO;
+            [GiaoDichMang ketNoiMuaTheCaoThuocNhaMang:self.mNhaMang
+                                               soTien:mSoTienThanhToan
+                                              soLuong:(int)(mViTriChonSoLuongTheCao + 1)
+                                                token:sToken
+                                                  otp:sOtp
+                                     typeAuthenticate:self.mTypeAuthenticate
+                                        noiNhanKetQua:self];
+        }
+        else if(self.mFuncID == FUNC_BILLING_CELLPHONE/*[sLuaChonThanhToan isEqualToString:NAP_DI_DONG_TRA_TRUOC]*/)
+        {
+            if ([_mtfLuaChon.text isEqualToString:[@"thanh_toan_viettel_thanh_toan_di_dong_hoac_dcom_tra_truoc" localizableString]]
+                || [_mtfLuaChon.text isEqualToString:[@"thanh_toan_viettel_thanh_toan_di_dong_hoac_dcom_tra_sau" localizableString]]
+                || [_mtfLuaChon.text isEqualToString:[@"thanh_toan_viettel_thanh_toan_dien_thoai_co_dinh" localizableString]]
+                || [_mtfLuaChon.text isEqualToString:[@"thanh_toan_viettel_thanh_toan_homephone" localizableString]]
+                || [_mtfLuaChon.text isEqualToString:[@"thanh_toan_viettel_thanh_toan_truyen_hinh_va_internet" localizableString]])
+            {
+                double fSoTien = [[[self.soTienViettel.text componentsSeparatedByCharactersInSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]] componentsJoinedByString:@""] doubleValue];
+                self.mDinhDanhKetNoi = DINH_DANH_KET_NOI_THANH_TOAN_CUOC;
+                NSString *sText = self.mtfLuaChon.text;
+                int nIndex = (int)[_mDanhSachLuaChonThanhToan indexOfObject:sText];
+                NSString *sSoDienThoai = _mtfSoDienThoai.text;
+                switch (nIndex) {
+                    case 0:
+                    case 1:
+                        sSoDienThoai = [sSoDienThoai stringByReplacingOccurrencesOfString:@"[^0-9]" withString:@"" options:NSRegularExpressionSearch range:NSMakeRange(0, [_mtfSoDienThoai.text length])];
+                    default:
+                        break;
+                }
+                int nKieuThanhToan = TRA_TRUOC;
+                if ([_mtfLuaChon.text isEqualToString:[@"thanh_toan_viettel_thanh_toan_dien_thoai_co_dinh" localizableString]]
+                    || [_mtfLuaChon.text isEqualToString:[@"thanh_toan_viettel_thanh_toan_homephone" localizableString]]
+                    || [_mtfLuaChon.text isEqualToString:[@"thanh_toan_viettel_thanh_toan_truyen_hinh_va_internet" localizableString]]) {
+                    nKieuThanhToan = TRA_SAU_HOAC_TRA_TRUOC_VIETNAMMOBILE_GMOBILE;
+                }
+                [GiaoDichMang ketNoiThanhToanCuocDienThoaiChoSo:sSoDienThoai maNhaMang:NHA_MANG_VIETTEL kieuThanhToan:(int)nKieuThanhToan soTien:fSoTien token:sToken otp:sOtp typeAuthenticate:self.mTypeAuthenticate noiNhanKetQua:self];
+            }else{
+                self.mDinhDanhKetNoi = DINH_DANH_KET_NOI_THANH_TOAN_CUOC;
+                int nKieuThanhToan = TRA_TRUOC;
+                NSString *sSoDienThoai = [_mtfSoDienThoai.text stringByReplacingOccurrencesOfString:@"[^0-9]" withString:@"" options:NSRegularExpressionSearch range:NSMakeRange(0, [_mtfSoDienThoai.text length])];
+                if(self.mNhaMang == NHA_MANG_GMOBILE || self.mNhaMang == NHA_MANG_VIETNAMMOBILE
+                   || [_mtfLuaChon.text isEqualToString:[@"thanh_toan_di_dong_tra_sau_mobi" localizableString]]
+                   || [_mtfLuaChon.text isEqualToString:[@"thanh_toan_di_dong_tra_sau_vina" localizableString]])
+                {
+                    nKieuThanhToan = TRA_SAU_HOAC_TRA_TRUOC_VIETNAMMOBILE_GMOBILE;
+                }
+                
+                NSLog(@"%s - sSoDienThoai : %@", __FUNCTION__, sSoDienThoai);
+                NSLog(@"%s - mNhaMang : %ld", __FUNCTION__, (long)self.mNhaMang);
+                NSLog(@"%s - nKieuThanhToan : %ld", __FUNCTION__, (long)nKieuThanhToan);
+                if (self.soTienViettel.text.length > 0) {
+                    mSoTienThanhToan = [[[self.soTienViettel.text componentsSeparatedByCharactersInSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]] componentsJoinedByString:@""] doubleValue];
+                }
+                [GiaoDichMang ketNoiThanhToanCuocDienThoaiChoSo:sSoDienThoai maNhaMang:self.mNhaMang kieuThanhToan:nKieuThanhToan soTien:mSoTienThanhToan token:sToken otp:sOtp typeAuthenticate:self.mTypeAuthenticate noiNhanKetQua:self];
+            }
+        }
+        else if([_mtfLuaChon.text isEqualToString:[@"thanh_toan_nap_di_dong_ngay_vang_vina" localizableString]]
+                || [_mtfLuaChon.text isEqualToString:[@"thanh_toan_nap_di_dong_ngay_vang_mobi" localizableString]]
+                || [_mtfLuaChon.text isEqualToString:[@"thanh_toan_viettel_thanh_toan_ngay_vang" localizableString]])
+        {
+            self.mDinhDanhKetNoi = DINH_DANH_KET_NOI_THANH_TOAN_CUOC;
+            
+            double fSoTien = [[[self.soTienViettel.text componentsSeparatedByCharactersInSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]] componentsJoinedByString:@""] doubleValue];
+            
+            [GiaoDichMang ketNoiThanhToanNgayVangDienThoaiChoSo:self.mtfSoDienThoai.text maNhaMang:self.mNhaMang kieuThanhToan:TRA_TRUOC soTien:fSoTien token:sToken otp:sOtp typeAuthenticate:self.mTypeAuthenticate noiNhanKetQua:self];
+        }
+        else{
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Thông báo" message:@"Hình thức thanh toán đang được phát triển" delegate:nil cancelButtonTitle:@"Đóng" otherButtonTitles: nil];
+            [alert show];
+            [alert release];
+        }
+    });
 }
 
 - (void)xuLyKetNoiThanhCong:(NSString*)sDinhDanhKetNoi thongBao:(NSString*)sThongBao ketQua:(id)ketQua

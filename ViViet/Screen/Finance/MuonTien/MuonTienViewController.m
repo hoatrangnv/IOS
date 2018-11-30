@@ -201,9 +201,11 @@
 
 - (void)xuLyThucHienKhiKiemTraThanhCongTraVeToken:(NSString*)sToken otp:(NSString*)sOtp
 {
-    double fSoTien = [[self.mtfSoTien.text stringByReplacingOccurrencesOfString:@"." withString:@""] doubleValue];
-    self.mDinhDanhKetNoi = DINH_DANH_KET_NOI_MUON_TIEN;
-    [GiaoDichMang ketNoiMuonTienTaiKhoan:self.mtfTenTKCanMuonTien.text noiDung:self.mtvNoiDung.text soTien:fSoTien token:sToken otp:sOtp typeAuthenticate:self.mTypeAuthenticate noiNhanKetQua:self];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        double fSoTien = [[self.mtfSoTien.text stringByReplacingOccurrencesOfString:@"." withString:@""] doubleValue];
+        self.mDinhDanhKetNoi = DINH_DANH_KET_NOI_MUON_TIEN;
+        [GiaoDichMang ketNoiMuonTienTaiKhoan:self.mtfTenTKCanMuonTien.text noiDung:self.mtvNoiDung.text soTien:fSoTien token:sToken otp:sOtp typeAuthenticate:self.mTypeAuthenticate noiNhanKetQua:self];
+    });
 }
 
 - (void)xuLyKetNoiThanhCong:(NSString*)sDinhDanhKetNoi thongBao:(NSString*)sThongBao ketQua:(id)ketQua

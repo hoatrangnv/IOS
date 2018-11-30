@@ -44,7 +44,7 @@
     [_edSoTien setTextError:[@"so_tien_khong_duoc_de_trong" localizableString] forType:ExTextFieldTypeEmpty];
     [_edSoTien setType:ExTextFieldTypeMoney];
     _edSoTien.inputAccessoryView = nil;
-    [self khoiTaoQuangCao];
+//    [self khoiTaoQuangCao];
 }
 
 - (void)khoiTaoQuangCao {
@@ -85,12 +85,14 @@
 
 - (void)xuLyThucHienKhiKiemTraThanhCongTraVeToken:(NSString*)sToken otp:(NSString*)sOtp
 {
-    double fSoTien = [[[self.edSoTien.text componentsSeparatedByCharactersInSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]] componentsJoinedByString:@""] doubleValue];
-    self.mDinhDanhKetNoi = DINH_DANH_THANH_TOAN_TRUYEN_HINH;
-    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"11")){
-        [self hienThiLoading];
-    }
-    [GiaoDichMang thanhToanHoaDonTruyenHinh:_sIdTraCuu maNhaCungCap:_nNhaCungCap soTien:fSoTien token:sToken otpConfirm:sOtp typeAuthenticate:self.mTypeAuthenticate noiNhanKetQua:self];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        double fSoTien = [[[self.edSoTien.text componentsSeparatedByCharactersInSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]] componentsJoinedByString:@""] doubleValue];
+        self.mDinhDanhKetNoi = DINH_DANH_THANH_TOAN_TRUYEN_HINH;
+        if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"11")){
+            [self hienThiLoading];
+        }
+        [GiaoDichMang thanhToanHoaDonTruyenHinh:_sIdTraCuu maNhaCungCap:_nNhaCungCap soTien:fSoTien token:sToken otpConfirm:sOtp typeAuthenticate:self.mTypeAuthenticate noiNhanKetQua:self];
+    });
 }
 
 - (void)xuLyKetNoiThanhCong:(NSString *)sDinhDanhKetNoi thongBao:(NSString *)sThongBao ketQua:(id)ketQua {

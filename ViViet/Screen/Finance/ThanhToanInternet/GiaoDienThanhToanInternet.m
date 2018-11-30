@@ -267,19 +267,23 @@ const int NHA_CUNG_CAP_INTERNET_CMC = 6;
 }
 
 - (IBAction)suKienBamNutTraCuu:(id)sender {
-    if (self.mtfMaKH.text.length == 0) {
-        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng nhập mã khách hàng"];
-        return;
-    }
-    if (![[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_STATE] boolValue]) {
-        DucNT_LoginSceen *loginSceen = [[DucNT_LoginSceen alloc] initWithNibName:@"DucNT_LoginSceen" bundle:nil];
-        [self presentViewController:loginSceen animated:YES completion:^{}];
-        [loginSceen release];
-        return;
-    }
-    [self showLoadingScreen];
-    self.mDinhDanhKetNoi = DINH_DANH_TRA_CUU_INTERNET;
-    [GiaoDichMang traCuuTienInternet:self.mtfMaKH.text maNhaCungCap:nIdVNPT user:self.mThongTinTaiKhoanVi.sID noiNhanKetQua:self];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (self.mtfMaKH.text.length == 0) {
+            [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng nhập mã khách hàng"];
+            return;
+        }
+        if (![[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_STATE] boolValue]) {
+            DucNT_LoginSceen *loginSceen = [[DucNT_LoginSceen alloc] initWithNibName:@"DucNT_LoginSceen" bundle:nil];
+            [self presentViewController:loginSceen animated:YES completion:^{}];
+            [loginSceen release];
+            return;
+        }
+        if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"11")){
+            [self hienThiLoading];
+        }
+        self.mDinhDanhKetNoi = DINH_DANH_TRA_CUU_INTERNET;
+        [GiaoDichMang traCuuTienInternet:self.mtfMaKH.text maNhaCungCap:nIdVNPT user:self.mThongTinTaiKhoanVi.sID noiNhanKetQua:self];
+    });
 }
 
 - (IBAction)suKienBamNutCMC:(id)sender {

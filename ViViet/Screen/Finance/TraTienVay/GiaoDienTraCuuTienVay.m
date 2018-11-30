@@ -261,21 +261,23 @@
 }
 
 - (void)xuLyThucHienKhiKiemTraThanhCongTraVeToken:(NSString *)sToken otp:(NSString *)sOtp {
-    double fSoTien = [[[self.edSoTien.text componentsSeparatedByCharactersInSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]] componentsJoinedByString:@""] doubleValue];
-    self.mDinhDanhKetNoi = DINH_DANH_THANH_TOAN_TIEN_VAY;
-    NSDictionary *dic = @{@"maNhaCungCap":[NSNumber numberWithInt:[self getMaCungCapQuyTraTienVay:nIndexQuy]],
-                          @"maHopDong":_edMaHopDong.text,
-                          @"cmnd":_edCMNDFE.text,
-                          @"soTien":[NSNumber numberWithDouble:fSoTien],
-                          @"user":[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_ID_TEMP],
-                          @"token":sToken,
-                          @"typeAuthenticate":[NSNumber numberWithInt:self.mTypeAuthenticate],
-                          @"appId":[NSNumber numberWithInt:APP_ID],
-                          @"VMApp" : [NSNumber numberWithInt:VM_APP]
-                          };
-    NSString *sJson = [dic JSONString];
-    NSLog(@"%s - sJson : %@", __FUNCTION__, sJson);
-    [GiaoDichMang thanhToanTraTienVay:sJson noiNhanKetQua:self];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        double fSoTien = [[[self.edSoTien.text componentsSeparatedByCharactersInSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]] componentsJoinedByString:@""] doubleValue];
+        self.mDinhDanhKetNoi = DINH_DANH_THANH_TOAN_TIEN_VAY;
+        NSDictionary *dic = @{@"maNhaCungCap":[NSNumber numberWithInt:[self getMaCungCapQuyTraTienVay:nIndexQuy]],
+                              @"maHopDong":_edMaHopDong.text,
+                              @"cmnd":_edCMNDFE.text,
+                              @"soTien":[NSNumber numberWithDouble:fSoTien],
+                              @"user":[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_ID_TEMP],
+                              @"token":sToken,
+                              @"typeAuthenticate":[NSNumber numberWithInt:self.mTypeAuthenticate],
+                              @"appId":[NSNumber numberWithInt:APP_ID],
+                              @"VMApp" : [NSNumber numberWithInt:VM_APP]
+                              };
+        NSString *sJson = [dic JSONString];
+        NSLog(@"%s - sJson : %@", __FUNCTION__, sJson);
+        [GiaoDichMang thanhToanTraTienVay:sJson noiNhanKetQua:self];
+    });
 }
 
 - (IBAction)suKienBamNutTraCuu:(id)sender {

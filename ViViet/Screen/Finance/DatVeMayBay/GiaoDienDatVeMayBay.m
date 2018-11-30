@@ -1475,142 +1475,144 @@
 }
 
 - (void)xuLyThucHienKhiKiemTraThanhCongTraVeToken:(NSString *)sToken otp:(NSString *)sOtp{
-    NSMutableArray *arrNguoiBay1 = [[NSMutableArray alloc] init];
-    NSMutableArray *arrTreEm1 = [[NSMutableArray alloc] init];
-    NSMutableArray *arrEmBe1 = [[NSMutableArray alloc] init];
-    NSMutableArray *arrNguoiBay2 = [[NSMutableArray alloc] init];
-    NSMutableArray *arrTreEm2 = [[NSMutableArray alloc] init];
-    NSMutableArray *arrEmBe2 = [[NSMutableArray alloc] init];
-    for (int i = 0; i < [self.tableNguoiDi numberOfRowsInSection:0]; i ++) {
-        CellChuyenDi *cell = [self.tableNguoiDi cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
-        ExTextField *edDanhXungTemp = [cell viewWithTag:1000];
-        ExTextField *edHoTenTemp = [cell viewWithTag:1001];
-        ExTextField *edHanhLyTemp = [cell viewWithTag:1002];
-        ExTextField *edNgaySinh = [cell viewWithTag:1003];
-        int nIndexDanhXung = 1;
-        if ([edDanhXungTemp.text isEqualToString:@"Bà"]) {
-            nIndexDanhXung = 2;
-        }
-        else if ([edDanhXungTemp.text isEqualToString:@"Trai"]) {
-            nIndexDanhXung = 3;
-        }
-        else if ([edDanhXungTemp.text isEqualToString:@"Gái"]) {
-            nIndexDanhXung = 4;
-        }
-        else if ([edDanhXungTemp.text hasPrefix:@"Bé"]){
-            nIndexDanhXung = 5;
-        }
-        int nMaHanhLy = 0;
-        NSString *sNgaySinh = @"";
-        if ([edHanhLyTemp.text hasSuffix:@"kg"]) {
-            NSString *sKg = [edHanhLyTemp.text stringByReplacingOccurrencesOfString:@"kg" withString:@""];
-            int nKg = [sKg intValue];
-            nMaHanhLy = [self getMaHanhLy:nKg];
-        }
-//        else if (![edHanhLyTemp.text hasPrefix:@"Ko"]){
-//            sNgaySinh = edNgaySinh.text;
-//        }
-        
-        sNgaySinh = edNgaySinh.text;
-        
-        NSDictionary *dicNguoiBay = @{@"xungDanh" : [NSNumber numberWithInt:nIndexDanhXung],
-                                    @"ten" : edHoTenTemp.text,
-                                    @"maHanhLy" : [NSNumber numberWithInt:nMaHanhLy],
-                                    @"ngaySinh" : sNgaySinh};
-        if (nIndexDanhXung == 1 || nIndexDanhXung == 2) {
-            [arrNguoiBay1 addObject:dicNguoiBay];
-            if ([self.tableChuyenVe numberOfRowsInSection:0] > i) {
-                CellChuyenVe *cellVe = [self.tableChuyenVe cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
-                int nMaHanhLy2 = 0;
-                if ([cellVe.edHanhLy.text hasSuffix:@"kg"]) {
-                    NSString *sKg2 = [cellVe.edHanhLy.text stringByReplacingOccurrencesOfString:@"kg" withString:@""];
-                    nMaHanhLy2 = [self getMaHanhLy:[sKg2 intValue]];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSMutableArray *arrNguoiBay1 = [[NSMutableArray alloc] init];
+        NSMutableArray *arrTreEm1 = [[NSMutableArray alloc] init];
+        NSMutableArray *arrEmBe1 = [[NSMutableArray alloc] init];
+        NSMutableArray *arrNguoiBay2 = [[NSMutableArray alloc] init];
+        NSMutableArray *arrTreEm2 = [[NSMutableArray alloc] init];
+        NSMutableArray *arrEmBe2 = [[NSMutableArray alloc] init];
+        for (int i = 0; i < [self.tableNguoiDi numberOfRowsInSection:0]; i ++) {
+            CellChuyenDi *cell = [self.tableNguoiDi cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+            ExTextField *edDanhXungTemp = [cell viewWithTag:1000];
+            ExTextField *edHoTenTemp = [cell viewWithTag:1001];
+            ExTextField *edHanhLyTemp = [cell viewWithTag:1002];
+            ExTextField *edNgaySinh = [cell viewWithTag:1003];
+            int nIndexDanhXung = 1;
+            if ([edDanhXungTemp.text isEqualToString:@"Bà"]) {
+                nIndexDanhXung = 2;
+            }
+            else if ([edDanhXungTemp.text isEqualToString:@"Trai"]) {
+                nIndexDanhXung = 3;
+            }
+            else if ([edDanhXungTemp.text isEqualToString:@"Gái"]) {
+                nIndexDanhXung = 4;
+            }
+            else if ([edDanhXungTemp.text hasPrefix:@"Bé"]){
+                nIndexDanhXung = 5;
+            }
+            int nMaHanhLy = 0;
+            NSString *sNgaySinh = @"";
+            if ([edHanhLyTemp.text hasSuffix:@"kg"]) {
+                NSString *sKg = [edHanhLyTemp.text stringByReplacingOccurrencesOfString:@"kg" withString:@""];
+                int nKg = [sKg intValue];
+                nMaHanhLy = [self getMaHanhLy:nKg];
+            }
+            //        else if (![edHanhLyTemp.text hasPrefix:@"Ko"]){
+            //            sNgaySinh = edNgaySinh.text;
+            //        }
+            
+            sNgaySinh = edNgaySinh.text;
+            
+            NSDictionary *dicNguoiBay = @{@"xungDanh" : [NSNumber numberWithInt:nIndexDanhXung],
+                                          @"ten" : edHoTenTemp.text,
+                                          @"maHanhLy" : [NSNumber numberWithInt:nMaHanhLy],
+                                          @"ngaySinh" : sNgaySinh};
+            if (nIndexDanhXung == 1 || nIndexDanhXung == 2) {
+                [arrNguoiBay1 addObject:dicNguoiBay];
+                if ([self.tableChuyenVe numberOfRowsInSection:0] > i) {
+                    CellChuyenVe *cellVe = [self.tableChuyenVe cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+                    int nMaHanhLy2 = 0;
+                    if ([cellVe.edHanhLy.text hasSuffix:@"kg"]) {
+                        NSString *sKg2 = [cellVe.edHanhLy.text stringByReplacingOccurrencesOfString:@"kg" withString:@""];
+                        nMaHanhLy2 = [self getMaHanhLy:[sKg2 intValue]];
+                    }
+                    NSDictionary *dicNguoiBayTemp = @{@"xungDanh" : [NSNumber numberWithInt:nIndexDanhXung],
+                                                      @"ten" : edHoTenTemp.text,
+                                                      @"maHanhLy" : [NSNumber numberWithInt:nMaHanhLy2],
+                                                      @"ngaySinh" : sNgaySinh};
+                    [arrNguoiBay2 addObject:dicNguoiBayTemp];
                 }
-                NSDictionary *dicNguoiBayTemp = @{@"xungDanh" : [NSNumber numberWithInt:nIndexDanhXung],
-                                                  @"ten" : edHoTenTemp.text,
-                                                  @"maHanhLy" : [NSNumber numberWithInt:nMaHanhLy2],
-                                                  @"ngaySinh" : sNgaySinh};
-                [arrNguoiBay2 addObject:dicNguoiBayTemp];
+            }
+            else if (nIndexDanhXung == 3 || nIndexDanhXung == 4) {
+                [arrTreEm1 addObject:dicNguoiBay];
+                if ([self.tableChuyenVe numberOfRowsInSection:0] > i) {
+                    CellChuyenVe *cellVe = [self.tableChuyenVe cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+                    int nMaHanhLy2 = 0;
+                    if ([cellVe.edHanhLy.text hasSuffix:@"kg"]) {
+                        NSString *sKg2 = [cellVe.edHanhLy.text stringByReplacingOccurrencesOfString:@"kg" withString:@""];
+                        nMaHanhLy2 = [self getMaHanhLy:[sKg2 intValue]];
+                    }
+                    NSDictionary *dicNguoiBayTemp = @{@"xungDanh" : [NSNumber numberWithInt:nIndexDanhXung],
+                                                      @"ten" : edHoTenTemp.text,
+                                                      @"maHanhLy" : [NSNumber numberWithInt:nMaHanhLy2],
+                                                      @"ngaySinh" : sNgaySinh};
+                    [arrTreEm2 addObject:dicNguoiBayTemp];
+                }
+            }
+            else{
+                [arrEmBe1 addObject:dicNguoiBay];
+                [arrEmBe2 addObject:dicNguoiBay];
             }
         }
-        else if (nIndexDanhXung == 3 || nIndexDanhXung == 4) {
-            [arrTreEm1 addObject:dicNguoiBay];
-            if ([self.tableChuyenVe numberOfRowsInSection:0] > i) {
-                CellChuyenVe *cellVe = [self.tableChuyenVe cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
-                int nMaHanhLy2 = 0;
-                if ([cellVe.edHanhLy.text hasSuffix:@"kg"]) {
-                    NSString *sKg2 = [cellVe.edHanhLy.text stringByReplacingOccurrencesOfString:@"kg" withString:@""];
-                    nMaHanhLy2 = [self getMaHanhLy:[sKg2 intValue]];
-                }
-                NSDictionary *dicNguoiBayTemp = @{@"xungDanh" : [NSNumber numberWithInt:nIndexDanhXung],
-                                                  @"ten" : edHoTenTemp.text,
-                                                  @"maHanhLy" : [NSNumber numberWithInt:nMaHanhLy2],
-                                                  @"ngaySinh" : sNgaySinh};
-                [arrTreEm2 addObject:dicNguoiBayTemp];
+        int fSoTienDi = [[self.lblTongLuotDi.text stringByReplacingOccurrencesOfString:@"." withString:@""] intValue];
+        int fSoTienVe = [[self.lblTongLuotVe.text stringByReplacingOccurrencesOfString:@"." withString:@""] intValue];
+        
+        NSMutableDictionary *dic1 = [[NSMutableDictionary alloc] init];
+        [dic1 setValue:[NSNumber numberWithInt:self.mFuncID] forKey:@"funcId"];
+        [dic1 setValue:[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_ID_TEMP] forKey:@"user"];
+        [dic1 setValue:sToken forKey:@"token"];
+        [dic1 setValue:sOtp forKey:@"otpConfirm"];
+        [dic1 setValue:[NSNumber numberWithInt:self.mTypeAuthenticate] forKey:@"typeAuthenticate"];
+        [dic1 setValue:[NSNumber numberWithInt:APP_ID] forKey:@"appId"];
+        [dic1 setValue:[NSNumber numberWithInt:VM_APP] forKey:@"VMApp"];
+        [dic1 setValue:itemChuyenDi.maSanBayDi forKey:@"maSanBayDi"];
+        [dic1 setValue:itemChuyenDi.maSanBayDen forKey:@"maSanBayDen"];
+        [dic1 setValue:[NSNumber numberWithInt:itemChuyenDi.hangBay] forKey:@"hangBay1"];
+        [dic1 setValue:itemChuyenDi.maChuyenBay forKey:@"maChuyenBay1"];
+        [dic1 setValue:itemChuyenDi.thoiGian forKey:@"thoiGian1"];
+        [dic1 setValue:itemChuyenDi.gioBay forKey:@"gioBayDi1"];
+        [dic1 setValue:arrNguoiBay1 forKey:@"dsNguoiLon1"];
+        [dic1 setValue:[NSNumber numberWithInteger:arrNguoiBay1.count] forKey:@"slNguoiLon"];
+        if (arrTreEm1.count > 0) {
+            [dic1 setValue:arrTreEm1 forKey:@"dsTreEm1"];
+            [dic1 setValue:[NSNumber numberWithInteger:arrTreEm1.count] forKey:@"slTreEm"];
+        }
+        if (arrEmBe1.count > 0) {
+            [dic1 setValue:arrEmBe1 forKey:@"dsEmBe1"];
+            [dic1 setValue:[NSNumber numberWithInteger:arrEmBe1.count] forKey:@"slEmBe"];
+        }
+        [dic1 setValue:[NSNumber numberWithInt:fSoTienDi] forKey:@"soTien1"];
+        int nPhiThanhToan = (nIndexTreEm + nIndexNguoiLon) * itemChuyenDi.phiVimass;
+        [dic1 setValue:[NSNumber numberWithInt:nPhiThanhToan] forKey:@"fee1"];
+        [dic1 setValue:self.edEmail.text forKey:@"emailLienHe"];
+        [dic1 setValue:self.edSDT.text forKey:@"sdtLienHe"];
+        [dic1 setValue:self.edTenCty.text forKey:@"tenCongTyXuatHoaDon"];
+        [dic1 setValue:self.edDiaChiCty.text forKey:@"diaChiCongTyXuatHoaDon"];
+        [dic1 setValue:self.edMaSoThue.text forKey:@"maSoThueCongTyXuatHoaDon"];
+        [dic1 setValue:self.edDiaChiNhanHoaDon.text forKey:@"diaChiNhanHoaDon"];
+        if (itemChuyenDen) {
+            [dic1 setValue:[NSNumber numberWithInt:itemChuyenDen.hangBay] forKey:@"hangBay2"];
+            [dic1 setValue:itemChuyenDen.maChuyenBay forKey:@"maChuyenBay2"];
+            [dic1 setValue:itemChuyenDen.thoiGian forKey:@"thoiGian2"];
+            [dic1 setValue:itemChuyenDen.gioBay forKey:@"gioBayDi2"];
+            [dic1 setValue:[NSNumber numberWithInt:fSoTienVe] forKey:@"soTien2"];
+            int nPhiThanhToanVe = (nIndexTreEm + nIndexNguoiLon) * itemChuyenDen.phiVimass;
+            [dic1 setValue:[NSNumber numberWithInt:nPhiThanhToanVe] forKey:@"fee2"];
+            
+            [dic1 setValue:arrNguoiBay2 forKey:@"dsNguoiLon2"];
+            if (arrTreEm2.count > 0) {
+                [dic1 setValue:arrTreEm2 forKey:@"dsTreEm2"];
+            }
+            if (arrEmBe2.count > 0) {
+                [dic1 setValue:arrEmBe2 forKey:@"dsEmBe2"];
             }
         }
-        else{
-            [arrEmBe1 addObject:dicNguoiBay];
-            [arrEmBe2 addObject:dicNguoiBay];
-        }
-    }
-    int fSoTienDi = [[self.lblTongLuotDi.text stringByReplacingOccurrencesOfString:@"." withString:@""] intValue];
-    int fSoTienVe = [[self.lblTongLuotVe.text stringByReplacingOccurrencesOfString:@"." withString:@""] intValue];
-
-    NSMutableDictionary *dic1 = [[NSMutableDictionary alloc] init];
-    [dic1 setValue:[NSNumber numberWithInt:self.mFuncID] forKey:@"funcId"];
-    [dic1 setValue:[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_ID_TEMP] forKey:@"user"];
-    [dic1 setValue:sToken forKey:@"token"];
-    [dic1 setValue:sOtp forKey:@"otpConfirm"];
-    [dic1 setValue:[NSNumber numberWithInt:self.mTypeAuthenticate] forKey:@"typeAuthenticate"];
-    [dic1 setValue:[NSNumber numberWithInt:APP_ID] forKey:@"appId"];
-    [dic1 setValue:[NSNumber numberWithInt:VM_APP] forKey:@"VMApp"];
-    [dic1 setValue:itemChuyenDi.maSanBayDi forKey:@"maSanBayDi"];
-    [dic1 setValue:itemChuyenDi.maSanBayDen forKey:@"maSanBayDen"];
-    [dic1 setValue:[NSNumber numberWithInt:itemChuyenDi.hangBay] forKey:@"hangBay1"];
-    [dic1 setValue:itemChuyenDi.maChuyenBay forKey:@"maChuyenBay1"];
-    [dic1 setValue:itemChuyenDi.thoiGian forKey:@"thoiGian1"];
-    [dic1 setValue:itemChuyenDi.gioBay forKey:@"gioBayDi1"];
-    [dic1 setValue:arrNguoiBay1 forKey:@"dsNguoiLon1"];
-    [dic1 setValue:[NSNumber numberWithInteger:arrNguoiBay1.count] forKey:@"slNguoiLon"];
-    if (arrTreEm1.count > 0) {
-        [dic1 setValue:arrTreEm1 forKey:@"dsTreEm1"];
-        [dic1 setValue:[NSNumber numberWithInteger:arrTreEm1.count] forKey:@"slTreEm"];
-    }
-    if (arrEmBe1.count > 0) {
-        [dic1 setValue:arrEmBe1 forKey:@"dsEmBe1"];
-        [dic1 setValue:[NSNumber numberWithInteger:arrEmBe1.count] forKey:@"slEmBe"];
-    }
-    [dic1 setValue:[NSNumber numberWithInt:fSoTienDi] forKey:@"soTien1"];
-    int nPhiThanhToan = (nIndexTreEm + nIndexNguoiLon) * itemChuyenDi.phiVimass;
-    [dic1 setValue:[NSNumber numberWithInt:nPhiThanhToan] forKey:@"fee1"];
-    [dic1 setValue:self.edEmail.text forKey:@"emailLienHe"];
-    [dic1 setValue:self.edSDT.text forKey:@"sdtLienHe"];
-    [dic1 setValue:self.edTenCty.text forKey:@"tenCongTyXuatHoaDon"];
-    [dic1 setValue:self.edDiaChiCty.text forKey:@"diaChiCongTyXuatHoaDon"];
-    [dic1 setValue:self.edMaSoThue.text forKey:@"maSoThueCongTyXuatHoaDon"];
-    [dic1 setValue:self.edDiaChiNhanHoaDon.text forKey:@"diaChiNhanHoaDon"];
-    if (itemChuyenDen) {
-        [dic1 setValue:[NSNumber numberWithInt:itemChuyenDen.hangBay] forKey:@"hangBay2"];
-        [dic1 setValue:itemChuyenDen.maChuyenBay forKey:@"maChuyenBay2"];
-        [dic1 setValue:itemChuyenDen.thoiGian forKey:@"thoiGian2"];
-        [dic1 setValue:itemChuyenDen.gioBay forKey:@"gioBayDi2"];
-        [dic1 setValue:[NSNumber numberWithInt:fSoTienVe] forKey:@"soTien2"];
-        int nPhiThanhToanVe = (nIndexTreEm + nIndexNguoiLon) * itemChuyenDen.phiVimass;
-        [dic1 setValue:[NSNumber numberWithInt:nPhiThanhToanVe] forKey:@"fee2"];
-
-        [dic1 setValue:arrNguoiBay2 forKey:@"dsNguoiLon2"];
-        if (arrTreEm2.count > 0) {
-            [dic1 setValue:arrTreEm2 forKey:@"dsTreEm2"];
-        }
-        if (arrEmBe2.count > 0) {
-            [dic1 setValue:arrEmBe2 forKey:@"dsEmBe2"];
-        }
-    }
-    NSLog(@"%s - [dic1 JSONString] : %@", __FUNCTION__, [dic1 JSONString]);
-    self.mDinhDanhKetNoi = DINH_DANH_THANH_TOAN_MAY_BAY;
-    [GiaoDichMang thanhToanMayBay:[dic1 JSONString] noiNhanKetQua:self];
-    [self showLoadingScreen];
+        NSLog(@"%s - [dic1 JSONString] : %@", __FUNCTION__, [dic1 JSONString]);
+        self.mDinhDanhKetNoi = DINH_DANH_THANH_TOAN_MAY_BAY;
+        [GiaoDichMang thanhToanMayBay:[dic1 JSONString] noiNhanKetQua:self];
+        [self showLoadingScreen];
+    });
 }
 
 - (int)getMaHanhLy:(int)nKg{

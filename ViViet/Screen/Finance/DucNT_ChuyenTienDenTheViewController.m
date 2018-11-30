@@ -239,18 +239,20 @@
 
 - (void)xuLyThucHienKhiKiemTraThanhCongTraVeToken:(NSString*)sToken otp:(NSString*)sOtp
 {
-    self.mDinhDanhKetNoi = DINH_DANH_KET_NOI_CHUYEN_TIEN_VE_THE;
-    NSString *sSoTien = [_mtfSoTien.text stringByReplacingOccurrencesOfString:@"." withString:@""];
-    double fSoTien = [sSoTien doubleValue];
-    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"11")){
-        [self hienThiLoading];
-    }
-    [GiaoDichMang ketNoiChuyenTienDenThe:_mtfSoTheNganHang.text
-                                  soTien:fSoTien
-                                   token:sToken
-                                     otp:sOtp
-                        typeAuthenticate:self.mTypeAuthenticate
-                           noiNhanKetQua:self];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.mDinhDanhKetNoi = DINH_DANH_KET_NOI_CHUYEN_TIEN_VE_THE;
+        NSString *sSoTien = [_mtfSoTien.text stringByReplacingOccurrencesOfString:@"." withString:@""];
+        double fSoTien = [sSoTien doubleValue];
+        if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"11")){
+            [self hienThiLoading];
+        }
+        [GiaoDichMang ketNoiChuyenTienDenThe:_mtfSoTheNganHang.text
+                                      soTien:fSoTien
+                                       token:sToken
+                                         otp:sOtp
+                            typeAuthenticate:self.mTypeAuthenticate
+                               noiNhanKetQua:self];
+    });
 }
 
 - (void)xuLyKetNoiThanhCong:(NSString*)sDinhDanhKetNoi thongBao:(NSString*)sThongBao ketQua:(id)ketQua

@@ -630,46 +630,47 @@
 - (void)xuLyThucHienKhiKiemTraThanhCongTraVeToken:(NSString*)sToken otp:(NSString*)sOtp
 {
     NSLog(@"%s- sMaChiNhanh : %@", __FUNCTION__, sMaChiNhanh);
-
-    NSString *sNgayCap = self.edNgayCap.text;
-    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    [dateFormat setDateFormat:@"dd-MM-yyyy"];
-    NSDate *date = [dateFormat dateFromString:sNgayCap];
-    long long lNgayCap = [date timeIntervalSince1970] * 1000;
-    double fSoTien = [[[self.edSoTien.text componentsSeparatedByCharactersInSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]] componentsJoinedByString:@""] doubleValue];
-    NSString *sMaDoanhNghiep = @"";
-    int nKieuDangNhap = [[DucNT_LuuRMS layThongTinDangNhap:KEY_HIEN_THI_VI] intValue];
-    if(nKieuDangNhap == KIEU_DOANH_NGHIEP)
-    {
-        sMaDoanhNghiep = [DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_COMPANY_ID];
-    }
-//    edSDTNguoiNhan
-    NSDictionary *dic = @{@"tenNguoiHuongThu": self.edTenNguoiNhan.text,
-                          @"appId": [NSNumber numberWithInt:APP_ID],
-                          @"noiCap": self.edNoiCap.text,
-                          @"noiDung": self.tvNoiDung.text,
-                          @"ngayCap": [NSNumber numberWithLongLong:lNgayCap],
-                          @"typeAuthenticate": [NSNumber numberWithInt:self.mTypeAuthenticate],
-                          @"maChiNhanh": sMaChiNhanh,
-                          @"diaChiChiNhanh": self.tvDiaChi.text,
-                          @"soTien": [NSNumber numberWithDouble:fSoTien],
-                          @"token": sToken,
-                          @"otpConfirm": sOtp,
-                          @"cmnd": self.edCMND.text,
-                          @"tinhThanh": self.edKhuVuc.text,
-                          @"quanHuyen": self.edQuanHuyen.text,
-                          @"maNganHang": sMaBank,
-                          @"user": [DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_ID_TEMP],
-                          @"tenChiNhanh": self.edTenCN.text,
-                          @"companyCode"   :sMaDoanhNghiep,
-                          @"VMApp" : [NSNumber numberWithInt:VM_APP]};
-    NSString *sJson = [dic JSONString];
-    NSLog(@"%s - sJson : %@", __FUNCTION__, sJson);
-    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"11")){
-        [self hienThiLoading];
-    }
-    self.mDinhDanhKetNoi = DINH_DANH_CHUYEN_TIEN_CMND;
-    [GiaoDichMang chuyenTienDenCMND:sJson noiNhanKetQua:self];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSString *sNgayCap = self.edNgayCap.text;
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+        [dateFormat setDateFormat:@"dd-MM-yyyy"];
+        NSDate *date = [dateFormat dateFromString:sNgayCap];
+        long long lNgayCap = [date timeIntervalSince1970] * 1000;
+        double fSoTien = [[[self.edSoTien.text componentsSeparatedByCharactersInSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]] componentsJoinedByString:@""] doubleValue];
+        NSString *sMaDoanhNghiep = @"";
+        int nKieuDangNhap = [[DucNT_LuuRMS layThongTinDangNhap:KEY_HIEN_THI_VI] intValue];
+        if(nKieuDangNhap == KIEU_DOANH_NGHIEP)
+        {
+            sMaDoanhNghiep = [DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_COMPANY_ID];
+        }
+        //    edSDTNguoiNhan
+        NSDictionary *dic = @{@"tenNguoiHuongThu": self.edTenNguoiNhan.text,
+                              @"appId": [NSNumber numberWithInt:APP_ID],
+                              @"noiCap": self.edNoiCap.text,
+                              @"noiDung": self.tvNoiDung.text,
+                              @"ngayCap": [NSNumber numberWithLongLong:lNgayCap],
+                              @"typeAuthenticate": [NSNumber numberWithInt:self.mTypeAuthenticate],
+                              @"maChiNhanh": sMaChiNhanh,
+                              @"diaChiChiNhanh": self.tvDiaChi.text,
+                              @"soTien": [NSNumber numberWithDouble:fSoTien],
+                              @"token": sToken,
+                              @"otpConfirm": sOtp,
+                              @"cmnd": self.edCMND.text,
+                              @"tinhThanh": self.edKhuVuc.text,
+                              @"quanHuyen": self.edQuanHuyen.text,
+                              @"maNganHang": sMaBank,
+                              @"user": [DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_ID_TEMP],
+                              @"tenChiNhanh": self.edTenCN.text,
+                              @"companyCode"   :sMaDoanhNghiep,
+                              @"VMApp" : [NSNumber numberWithInt:VM_APP]};
+        NSString *sJson = [dic JSONString];
+        NSLog(@"%s - sJson : %@", __FUNCTION__, sJson);
+        if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"11")){
+            [self hienThiLoading];
+        }
+        self.mDinhDanhKetNoi = DINH_DANH_CHUYEN_TIEN_CMND;
+        [GiaoDichMang chuyenTienDenCMND:sJson noiNhanKetQua:self];
+    });
 }
 
 - (void)xuLyKetNoiThanhCong:(NSString*)sDinhDanhKetNoi thongBao:(NSString*)sThongBao ketQua:(id)ketQua

@@ -279,25 +279,27 @@
 }
 
 - (void)xuLyThucHienKhiKiemTraThanhCongTraVeToken:(NSString *)sToken otp:(NSString *)sOtp {
-    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"11")){
-        [self hienThiLoading];
-    }
-    self.mDinhDanhKetNoi = @"DINH_DANH_KET_NOI_CHUNG_KHOAN";
-    double fSoTien = [[[self.edSoTien.text componentsSeparatedByCharactersInSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]] componentsJoinedByString:@""] doubleValue];
-    NSDictionary *dic = @{@"noiDung" : _tvNoiDung.text,
-                          @"nhaCungCap" : [NSNumber numberWithInt:37],
-                          @"soTien" : [NSNumber numberWithDouble:fSoTien],
-                          @"maCongTyChungKhoan" : [NSNumber numberWithInt:[self getCongTyChungKhoan:nIndexQuy]],
-                          @"loaiDichVuChungKhoan" : [NSNumber numberWithInt:[self getDichVuCongTyChungKhoan:nIndexQuy]],
-                          @"maKhachHangChungKhoan" : _edMaKhachHang.text,
-                          @"tenKhachHangChungKhoan" : _edHoTen.text,
-                          @"token" : sToken,
-                          @"otpConfirm" : sOtp,
-                          @"typeAuthenticate" : [NSNumber numberWithInt:self.mTypeAuthenticate],
-                          @"appId" : [NSNumber numberWithInt:APP_ID],
-                          @"VMApp" : [NSNumber numberWithInt:VM_APP]
-                          };
-    [GiaoDichMang thanhToanTienChungKhoan:[dic JSONString] noiNhanKetQua:self];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"11")){
+            [self hienThiLoading];
+        }
+        self.mDinhDanhKetNoi = @"DINH_DANH_KET_NOI_CHUNG_KHOAN";
+        double fSoTien = [[[self.edSoTien.text componentsSeparatedByCharactersInSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]] componentsJoinedByString:@""] doubleValue];
+        NSDictionary *dic = @{@"noiDung" : _tvNoiDung.text,
+                              @"nhaCungCap" : [NSNumber numberWithInt:37],
+                              @"soTien" : [NSNumber numberWithDouble:fSoTien],
+                              @"maCongTyChungKhoan" : [NSNumber numberWithInt:[self getCongTyChungKhoan:nIndexQuy]],
+                              @"loaiDichVuChungKhoan" : [NSNumber numberWithInt:[self getDichVuCongTyChungKhoan:nIndexQuy]],
+                              @"maKhachHangChungKhoan" : _edMaKhachHang.text,
+                              @"tenKhachHangChungKhoan" : _edHoTen.text,
+                              @"token" : sToken,
+                              @"otpConfirm" : sOtp,
+                              @"typeAuthenticate" : [NSNumber numberWithInt:self.mTypeAuthenticate],
+                              @"appId" : [NSNumber numberWithInt:APP_ID],
+                              @"VMApp" : [NSNumber numberWithInt:VM_APP]
+                              };
+        [GiaoDichMang thanhToanTienChungKhoan:[dic JSONString] noiNhanKetQua:self];
+    });
 }
 
 - (void)xuLyKetNoiThanhCong:(NSString *)sDinhDanhKetNoi thongBao:(NSString *)sThongBao ketQua:(id)ketQua {

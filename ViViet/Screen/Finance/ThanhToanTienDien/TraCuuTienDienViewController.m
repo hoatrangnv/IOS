@@ -269,48 +269,47 @@ const int TIME_COUNT_DOWN_DIEN = 180;
 
 - (IBAction)suKienBamNutTraCuu:(id)sender
 {
-    [self.view endEditing:YES];
-//    ThanhToanTienDienViewController *thanhToanTienDienViewController = [[ThanhToanTienDienViewController alloc] initWithNibName:@"ThanhToanTienDienViewController" bundle:nil];
-//    [self.navigationController pushViewController:thanhToanTienDienViewController animated:YES];
-//    [thanhToanTienDienViewController release];
-    if(_mMoTaChiTietKhachHang)
-    {
-        //Thanh Toan
-        ThanhToanTienDienViewController *thanhToanTienDienViewController = [[ThanhToanTienDienViewController alloc] initWithNibName:@"ThanhToanTienDienViewController" bundle:nil];
-        thanhToanTienDienViewController.mMoTaChiTietKhachHang = _mMoTaChiTietKhachHang;
-        thanhToanTienDienViewController.mDanhSachMaDienLuc = _mDanhSachMaDienLuc;
-        [self.navigationController pushViewController:thanhToanTienDienViewController animated:YES];
-        [thanhToanTienDienViewController release];
-    }
-    else
-    {
-        NSString *sMaKhachHangDangTraCuu = _mtfMaKhachHang.text;
-        if([self kiemTraHoaDonDaTraCuuThanhCong])
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.view endEditing:YES];
+        if(_mMoTaChiTietKhachHang)
         {
-            [self ketThucDemThoiGian];
-            DoiTuongNotification *doiTuong = [_mDictNoiDungTheoMaDienLuc valueForKey:sMaKhachHangDangTraCuu];
-            self.mDoiTuongNotification = doiTuong;
-            [self xuLyChuyenViewThanhToan];
+            //Thanh Toan
+            ThanhToanTienDienViewController *thanhToanTienDienViewController = [[ThanhToanTienDienViewController alloc] initWithNibName:@"ThanhToanTienDienViewController" bundle:nil];
+            thanhToanTienDienViewController.mMoTaChiTietKhachHang = _mMoTaChiTietKhachHang;
+            thanhToanTienDienViewController.mDanhSachMaDienLuc = _mDanhSachMaDienLuc;
+            [self.navigationController pushViewController:thanhToanTienDienViewController animated:YES];
+            [thanhToanTienDienViewController release];
         }
         else
         {
-            NSInteger nIndex = [_mDanhSachMaDienLucDangTraCuu indexOfObject:sMaKhachHangDangTraCuu];
-            if(nIndex == _mDanhSachMaDienLucDangTraCuu.count - 1 && mThoiGianDoi > 0 && mThoiGianDoi < TIME_COUNT_DOWN_DIEN)
-                [self hienThiViewThongBaoHoaDonDien];
+            NSString *sMaKhachHangDangTraCuu = _mtfMaKhachHang.text;
+            if([self kiemTraHoaDonDaTraCuuThanhCong])
+            {
+                [self ketThucDemThoiGian];
+                DoiTuongNotification *doiTuong = [_mDictNoiDungTheoMaDienLuc valueForKey:sMaKhachHangDangTraCuu];
+                self.mDoiTuongNotification = doiTuong;
+                [self xuLyChuyenViewThanhToan];
+            }
             else
             {
-                if(nIndex != NSNotFound)
+                NSInteger nIndex = [_mDanhSachMaDienLucDangTraCuu indexOfObject:sMaKhachHangDangTraCuu];
+                if(nIndex == _mDanhSachMaDienLucDangTraCuu.count - 1 && mThoiGianDoi > 0 && mThoiGianDoi < TIME_COUNT_DOWN_DIEN)
+                    [self hienThiViewThongBaoHoaDonDien];
+                else
                 {
-                    [_mDanhSachMaDienLucDangTraCuu removeObjectAtIndex:nIndex];
+                    if(nIndex != NSNotFound)
+                    {
+                        [_mDanhSachMaDienLucDangTraCuu removeObjectAtIndex:nIndex];
+                    }
+                    
+                    [_mDanhSachMaDienLucDangTraCuu addObject:sMaKhachHangDangTraCuu];
+                    self.mDoiTuongNotification = nil;
+                    [self xuLyTraCuuHoaDonDien];
                 }
-
-                [_mDanhSachMaDienLucDangTraCuu addObject:sMaKhachHangDangTraCuu];
-                self.mDoiTuongNotification = nil;
-                [self xuLyTraCuuHoaDonDien];
+                
             }
-
         }
-    }
+    });
 }
 
 #pragma mark - UIScrollViewDelegate

@@ -151,59 +151,60 @@
 
 - (void)xuLyThucHienKhiKiemTraThanhCongTraVeToken:(NSString *)sToken otp:(NSString *)sOtp
 {
-    self.mDinhDanhKetNoi = DINH_DANH_KET_NOI_THANH_TOAN_HOA_DON_DIEN_KHACH_HANG;
-    int nKieuThanhToan = [Common layKieuThanhToanHoaDonDienTheoMaKhachHang:_mMoTaChiTietKhachHang.maKhachHang];
-    if (self.nChucNang == 2) {
-        nKieuThanhToan = [self layMaThanhToanNhaMayNuoc:_mMoTaChiTietKhachHang.maDienLuc];
-    }
-    if(nKieuThanhToan == -1)
-    {
-        if (self.nChucNang == 2) {
-            [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Không lấy được kiểu thanh toán tiền nước"];
-        }
-        else {
-            [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:[NSString stringWithFormat:[@"thong_bao_chuc_nang_thanh_toan_dang_duoc_hoan_tat" localizableString], _mMoTaChiTietKhachHang.maKhachHang, _mMoTaChiTietKhachHang.maDienLuc]];
-        }
-    }
-    else
-    {
+    dispatch_async(dispatch_get_main_queue(), ^{
         self.mDinhDanhKetNoi = DINH_DANH_KET_NOI_THANH_TOAN_HOA_DON_DIEN_KHACH_HANG;
-        NSMutableString * sMaHoaDon = [[[NSMutableString alloc] init] autorelease];
-        NSMutableString * sKyThanhToan = [[[NSMutableString alloc] init] autorelease];
-        int nCount = (int)_mMoTaChiTietKhachHang.list.count;
-        
-        for(int i = 0; i < nCount; i ++)
+        int nKieuThanhToan = [Common layKieuThanhToanHoaDonDienTheoMaKhachHang:_mMoTaChiTietKhachHang.maKhachHang];
+        if (self.nChucNang == 2) {
+            nKieuThanhToan = [self layMaThanhToanNhaMayNuoc:_mMoTaChiTietKhachHang.maDienLuc];
+        }
+        if(nKieuThanhToan == -1)
         {
-            MoTaChiTietHoaDonDien *moTaChiTietHoaDonDien = [_mMoTaChiTietKhachHang.list objectAtIndex:i];
-            if(i < nCount - 1)
-            {
-                [sMaHoaDon appendFormat:@"%@,",moTaChiTietHoaDonDien.maHoaDon];
-                [sKyThanhToan appendFormat:@"%@,",moTaChiTietHoaDonDien.kyThanhToan];
+            if (self.nChucNang == 2) {
+                [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Không lấy được kiểu thanh toán tiền nước"];
             }
-            else if (i == nCount - 1)
-            {
-                [sMaHoaDon appendString:moTaChiTietHoaDonDien.maHoaDon];
-                [sKyThanhToan appendString:moTaChiTietHoaDonDien.kyThanhToan];
+            else {
+                [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:[NSString stringWithFormat:[@"thong_bao_chuc_nang_thanh_toan_dang_duoc_hoan_tat" localizableString], _mMoTaChiTietKhachHang.maKhachHang, _mMoTaChiTietKhachHang.maDienLuc]];
             }
         }
-        NSLog(@"_mMoTaChiTietKhachHang.maKhachHang : %@", _mMoTaChiTietKhachHang.maKhachHang);
-        if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"11")){
-            [self hienThiLoading];
+        else
+        {
+            self.mDinhDanhKetNoi = DINH_DANH_KET_NOI_THANH_TOAN_HOA_DON_DIEN_KHACH_HANG;
+            NSMutableString * sMaHoaDon = [[[NSMutableString alloc] init] autorelease];
+            NSMutableString * sKyThanhToan = [[[NSMutableString alloc] init] autorelease];
+            int nCount = (int)_mMoTaChiTietKhachHang.list.count;
+            
+            for(int i = 0; i < nCount; i ++)
+            {
+                MoTaChiTietHoaDonDien *moTaChiTietHoaDonDien = [_mMoTaChiTietKhachHang.list objectAtIndex:i];
+                if(i < nCount - 1)
+                {
+                    [sMaHoaDon appendFormat:@"%@,",moTaChiTietHoaDonDien.maHoaDon];
+                    [sKyThanhToan appendFormat:@"%@,",moTaChiTietHoaDonDien.kyThanhToan];
+                }
+                else if (i == nCount - 1)
+                {
+                    [sMaHoaDon appendString:moTaChiTietHoaDonDien.maHoaDon];
+                    [sKyThanhToan appendString:moTaChiTietHoaDonDien.kyThanhToan];
+                }
+            }
+            NSLog(@"_mMoTaChiTietKhachHang.maKhachHang : %@", _mMoTaChiTietKhachHang.maKhachHang);
+            if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"11")){
+                [self hienThiLoading];
+            }
+            
+            [GiaoDichMang ketNoithanhToanHoaDonDienKieuThanhToan:nKieuThanhToan
+                                                     maKhachHang:_mMoTaChiTietKhachHang.maKhachHang
+                                                          soTien:[_mMoTaChiTietKhachHang.total doubleValue]
+                                                         noiDung:_mtvNoiDung.text
+                                               soDienThoaiLienHe:_mtfSoDienThoaiLienHe.text
+                                                        maHoaDon:sMaHoaDon
+                                                     kyThanhToan:sKyThanhToan
+                                                           token:sToken
+                                                             otp:sOtp
+                                                typeAuthenticate:self.mTypeAuthenticate
+                                                   noiNhanKetQua:self];
         }
-
-        [GiaoDichMang ketNoithanhToanHoaDonDienKieuThanhToan:nKieuThanhToan
-                                                 maKhachHang:_mMoTaChiTietKhachHang.maKhachHang
-                                                      soTien:[_mMoTaChiTietKhachHang.total doubleValue]
-                                                     noiDung:_mtvNoiDung.text
-                                           soDienThoaiLienHe:_mtfSoDienThoaiLienHe.text
-                                                    maHoaDon:sMaHoaDon
-                                                 kyThanhToan:sKyThanhToan
-                                                       token:sToken
-                                                         otp:sOtp
-                                            typeAuthenticate:self.mTypeAuthenticate
-                                               noiNhanKetQua:self];
-    }
-
+    });
 }
 
 - (void)xuLyKetNoiThanhCong:(NSString *)sDinhDanhKetNoi thongBao:(NSString *)sThongBao ketQua:(id)ketQua

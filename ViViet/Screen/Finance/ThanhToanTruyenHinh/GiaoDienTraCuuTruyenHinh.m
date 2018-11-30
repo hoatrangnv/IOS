@@ -222,19 +222,21 @@ static NSString *cssHoaDon = @"<div><b>Hoá đơn %d:</b><br />Số hoá đơn: 
     html = [html stringByReplacingOccurrencesOfString:@"PHO THONG#" withString:@"<br/>PHO THONG#"];
     html = [html stringByReplacingOccurrencesOfString:@"HD" withString:@"<br/>HD"];
     [self.webInfo loadHTMLString:html baseURL:nil];
-    CGRect rectWeb = self.webInfo.frame;
-    CGRect rectTraCuu = self.btnTraCuu.frame;
-    CGRect rectMai = self.mViewMain.frame;
-    rectWeb.size.height += 150;
-    rectTraCuu.origin.y = rectWeb.origin.y + rectWeb.size.height + 10;
-    CGRect rectQC = viewQC.frame;
-    rectQC.origin.y = rectTraCuu.origin.y + rectTraCuu.size.height + 10;
-    rectMai.size.height = rectQC.origin.y + rectQC.size.height + 10;
-    viewQC.frame = rectQC;
-    self.webInfo.frame = rectWeb;
-    self.btnTraCuu.frame = rectTraCuu;
-    self.mViewMain.frame = rectMai;
-    [self.btnTraCuu setTitle:@"THANH TOÁN" forState:UIControlStateNormal];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        CGRect rectWeb = self.webInfo.frame;
+        CGRect rectTraCuu = self.btnTraCuu.frame;
+        CGRect rectMai = self.mViewMain.frame;
+        rectWeb.size.height += 150;
+        rectTraCuu.origin.y = rectWeb.origin.y + rectWeb.size.height + 10;
+//        CGRect rectQC = viewQC.frame;
+//        rectQC.origin.y = rectTraCuu.origin.y + rectTraCuu.size.height + 10;
+        rectMai.size.height = rectTraCuu.origin.y + rectTraCuu.size.height + 10;
+//        viewQC.frame = rectQC;
+        self.webInfo.frame = rectWeb;
+        self.btnTraCuu.frame = rectTraCuu;
+        self.mViewMain.frame = rectMai;
+        [self.btnTraCuu setTitle:@"THANH TOÁN" forState:UIControlStateNormal];
+    });
 }
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
@@ -346,32 +348,34 @@ static NSString *cssHoaDon = @"<div><b>Hoá đơn %d:</b><br />Số hoá đơn: 
 }
 
 - (IBAction)suKienBamNutTraCuu:(id)sender {
-    GiaoDienThanhToanTruyenHinh *vc = [[GiaoDienThanhToanTruyenHinh alloc] initWithNibName:@"GiaoDienThanhToanTruyenHinh" bundle:nil];
-    [self.navigationController pushViewController:vc animated:YES];
-    [vc release];
-    return;
-
-    if (![[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_STATE] boolValue]) {
-        DucNT_LoginSceen *loginSceen = [[DucNT_LoginSceen alloc] initWithNibName:@"DucNT_LoginSceen" bundle:nil];
-        [self presentViewController:loginSceen animated:YES completion:^{}];
-        [loginSceen release];
-        return;
-    }
-    if (_mDoiTuongNotification) {
+    dispatch_async(dispatch_get_main_queue(), ^{
         GiaoDienThanhToanTruyenHinh *vc = [[GiaoDienThanhToanTruyenHinh alloc] initWithNibName:@"GiaoDienThanhToanTruyenHinh" bundle:nil];
-        vc.sIdTraCuu = _mDoiTuongNotification.idShow;
-        vc.sMaThueBao = _edMaThueBao.text;
-        vc.nNhaCungCap = nMaNhaCungCap;
         [self.navigationController pushViewController:vc animated:YES];
         [vc release];
         return;
-    }
-    if (![self kiemTraTruocKhiTraCuu]) {
-        return;
-    }
-    [self.edMaThueBao resignFirstResponder];
-    self.mDinhDanhKetNoi = DINH_DANH_TRA_CUU_TRUYEN_HINH;
-    [GiaoDichMang traCuuHoaDonTruyenHinh:_edMaThueBao.text nhaCungCap:nMaNhaCungCap noiNhanKetQua:self];
+        
+        if (![[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_STATE] boolValue]) {
+            DucNT_LoginSceen *loginSceen = [[DucNT_LoginSceen alloc] initWithNibName:@"DucNT_LoginSceen" bundle:nil];
+            [self presentViewController:loginSceen animated:YES completion:^{}];
+            [loginSceen release];
+            return;
+        }
+        if (_mDoiTuongNotification) {
+            GiaoDienThanhToanTruyenHinh *vc = [[GiaoDienThanhToanTruyenHinh alloc] initWithNibName:@"GiaoDienThanhToanTruyenHinh" bundle:nil];
+            vc.sIdTraCuu = _mDoiTuongNotification.idShow;
+            vc.sMaThueBao = _edMaThueBao.text;
+            vc.nNhaCungCap = nMaNhaCungCap;
+            [self.navigationController pushViewController:vc animated:YES];
+            [vc release];
+            return;
+        }
+        if (![self kiemTraTruocKhiTraCuu]) {
+            return;
+        }
+        [self.edMaThueBao resignFirstResponder];
+        self.mDinhDanhKetNoi = DINH_DANH_TRA_CUU_TRUYEN_HINH;
+        [GiaoDichMang traCuuHoaDonTruyenHinh:_edMaThueBao.text nhaCungCap:nMaNhaCungCap noiNhanKetQua:self];
+    });
 }
 
 - (IBAction)suKienBamNutSoTay:(id)sender {

@@ -99,10 +99,15 @@
 
 - (void)xuLyThucHienKhiKiemTraThanhCongTraVeToken:(NSString *)sToken otp:(NSString *)sOtp{
     NSLog(@"%s - START", __FUNCTION__);
-    self.mDinhDanhKetNoi = DINH_DANH_THANH_TOAN_TIEN_INTERNET;
-    NSString *sSoTien = [_mtfSoTien.text stringByReplacingOccurrencesOfString:@"." withString:@""];
-    int fSoTien = [sSoTien intValue];
-    [GiaoDichMang thanhToanHoaDonInternet:self.mtfMaKhachHang.text maNhaCungCap:nMaNhaCungCap soTien:fSoTien token:sToken otpConfirm:sOtp typeAuthenticate:self.mTypeAuthenticate noiNhanKetQua:self];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.mDinhDanhKetNoi = DINH_DANH_THANH_TOAN_TIEN_INTERNET;
+        NSString *sSoTien = [_mtfSoTien.text stringByReplacingOccurrencesOfString:@"." withString:@""];
+        int fSoTien = [sSoTien intValue];
+        if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"11")){
+            [self hienThiLoading];
+        }
+        [GiaoDichMang thanhToanHoaDonInternet:self.mtfMaKhachHang.text maNhaCungCap:nMaNhaCungCap soTien:fSoTien token:sToken otpConfirm:sOtp typeAuthenticate:self.mTypeAuthenticate noiNhanKetQua:self];
+    });
 }
 
 - (void)didReceiveMemoryWarning {

@@ -245,12 +245,14 @@
 
 - (void)xuLyThucHienKhiKiemTraThanhCongTraVeToken:(NSString*)sToken otp:(NSString*)sOtp
 {
-    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"11")){
-        [self hienThiLoading];
-    }
-    self.mDinhDanhKetNoi = @"CHUYEN_TIEN_ATM";
-    double fSoTien = [[_edSoTien.text stringByReplacingOccurrencesOfString:@"." withString:@""] doubleValue];
-    [GiaoDichMang chuyenTienDenATM:_edViNhan.text soTien:fSoTien maATM:nMaATM token:sToken otpConfirm:sOtp typeAuthenticate:self.mTypeAuthenticate noiDung:_tvNoiDung.text noiNhanKetQua:self];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"11")){
+            [self hienThiLoading];
+        }
+        self.mDinhDanhKetNoi = @"CHUYEN_TIEN_ATM";
+        double fSoTien = [[_edSoTien.text stringByReplacingOccurrencesOfString:@"." withString:@""] doubleValue];
+        [GiaoDichMang chuyenTienDenATM:_edViNhan.text soTien:fSoTien maATM:nMaATM token:sToken otpConfirm:sOtp typeAuthenticate:self.mTypeAuthenticate noiDung:_tvNoiDung.text noiNhanKetQua:self];
+    });
 }
 
 - (BOOL)validateVanTay{

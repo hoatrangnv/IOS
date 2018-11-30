@@ -364,25 +364,27 @@
 }
 
 - (void)xuLyThucHienKhiKiemTraThanhCongTraVeToken:(NSString *)sToken otp:(NSString *)sOtp {
-    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"11")){
-        [self hienThiLoading];
-    }
-    self.mDinhDanhKetNoi = DINH_DANH_THANH_TOAN_HOC_PHI;
-    double fSoTien = [[[self.edSoTien.text componentsSeparatedByCharactersInSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]] componentsJoinedByString:@""] doubleValue];
-    NSDictionary *dic = @{@"noiDung":_tvNoiDung.text,
-                          @"nhaCungCap":[NSNumber numberWithInt:38],
-                          @"soTien":[NSNumber numberWithDouble:fSoTien],
-                          @"maHocPhi":[self getMaHocPhiTheoTruongHoc:nIndexTruongHoc],
-                          @"loaiDichVuHocPhi":[NSNumber numberWithInt:[self getLoaiDichVuHocPhi]],
-                          @"maKhachHangHocPhi":_edMaKH.text,
-                          @"tenKhachHangHocPhi":_edTenKH.text,
-                          @"user":[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_ID_TEMP],
-                          @"token":sToken,
-                          @"otpConfirm":sOtp,
-                          @"typeAuthenticate":[NSNumber numberWithInt:self.mTypeAuthenticate],
-                          @"appId":[NSNumber numberWithInt:5],
-                          @"VMApp" : [NSNumber numberWithInt:VM_APP]};
-    [GiaoDichMang thanhToanHocPhi:[dic JSONString] noiNhanKetQua:self];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"11")){
+            [self hienThiLoading];
+        }
+        self.mDinhDanhKetNoi = DINH_DANH_THANH_TOAN_HOC_PHI;
+        double fSoTien = [[[self.edSoTien.text componentsSeparatedByCharactersInSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]] componentsJoinedByString:@""] doubleValue];
+        NSDictionary *dic = @{@"noiDung":_tvNoiDung.text,
+                              @"nhaCungCap":[NSNumber numberWithInt:38],
+                              @"soTien":[NSNumber numberWithDouble:fSoTien],
+                              @"maHocPhi":[self getMaHocPhiTheoTruongHoc:nIndexTruongHoc],
+                              @"loaiDichVuHocPhi":[NSNumber numberWithInt:[self getLoaiDichVuHocPhi]],
+                              @"maKhachHangHocPhi":_edMaKH.text,
+                              @"tenKhachHangHocPhi":_edTenKH.text,
+                              @"user":[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_ID_TEMP],
+                              @"token":sToken,
+                              @"otpConfirm":sOtp,
+                              @"typeAuthenticate":[NSNumber numberWithInt:self.mTypeAuthenticate],
+                              @"appId":[NSNumber numberWithInt:5],
+                              @"VMApp" : [NSNumber numberWithInt:VM_APP]};
+        [GiaoDichMang thanhToanHocPhi:[dic JSONString] noiNhanKetQua:self];
+    });
 }
 
 - (void)xuLyKetNoiThanhCong:(NSString *)sDinhDanhKetNoi thongBao:(NSString *)sThongBao ketQua:(id)ketQua {
