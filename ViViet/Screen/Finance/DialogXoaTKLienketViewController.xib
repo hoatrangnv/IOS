@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,8 +15,8 @@
                 <outlet property="btnThuchien" destination="Q5d-bj-Sed" id="Ane-LS-sO4"/>
                 <outlet property="btnToken" destination="LY0-dZ-P2Y" id="NBH-kc-0oe"/>
                 <outlet property="btnVantay" destination="0Hn-W9-I9f" id="neO-cW-a2W"/>
-                <outlet property="contraintLeading" destination="UJ7-ML-wZh" id="P8d-lN-0mA"/>
                 <outlet property="lblTitle" destination="1s1-ME-5Xl" id="e1T-F1-MPP"/>
+                <outlet property="stackView" destination="QBN-xw-8s9" id="cT2-yK-sNz"/>
                 <outlet property="txtToken" destination="iT0-TE-uiA" id="XGN-Z7-aqC"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="view_dialog" destination="YTD-iX-ug8" id="h6R-Y6-JX8"/>
@@ -65,18 +65,6 @@
                                         <constraint firstAttribute="bottom" secondItem="1s1-ME-5Xl" secondAttribute="bottom" id="ywW-B6-dzF"/>
                                     </constraints>
                                 </view>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LY0-dZ-P2Y">
-                                    <rect key="frame" x="95" y="52" width="44" height="44"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="44" id="M5s-kE-IxR"/>
-                                        <constraint firstAttribute="width" constant="44" id="foa-OG-GWW"/>
-                                    </constraints>
-                                    <state key="normal" title="Button" image="token"/>
-                                    <state key="selected" image="tokenv"/>
-                                    <connections>
-                                        <action selector="dotoken:" destination="-1" eventType="touchUpInside" id="zxr-jf-9Cy"/>
-                                    </connections>
-                                </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q5d-bj-Sed">
                                     <rect key="frame" x="269" y="104" width="82" height="36"/>
                                     <constraints>
@@ -98,35 +86,53 @@
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                     <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
                                 </textField>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Hn-W9-I9f">
-                                    <rect key="frame" x="157" y="52" width="44" height="44"/>
+                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QBN-xw-8s9">
+                                    <rect key="frame" x="135" y="52" width="88" height="44"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LY0-dZ-P2Y">
+                                            <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="44" id="M5s-kE-IxR"/>
+                                                <constraint firstAttribute="width" constant="44" id="foa-OG-GWW"/>
+                                            </constraints>
+                                            <state key="normal" title="Button" image="token"/>
+                                            <state key="selected" image="tokenv"/>
+                                            <connections>
+                                                <action selector="dotoken:" destination="-1" eventType="touchUpInside" id="zxr-jf-9Cy"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Hn-W9-I9f">
+                                            <rect key="frame" x="44" y="0.0" width="44" height="44"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="44" id="Kjw-n0-Fkd"/>
+                                                <constraint firstAttribute="height" constant="44" id="v3P-5w-eOc"/>
+                                            </constraints>
+                                            <state key="normal" title="Button" image="finger"/>
+                                            <state key="selected" image="fingerv"/>
+                                            <connections>
+                                                <action selector="doVantay:" destination="-1" eventType="touchUpInside" id="w2u-W2-GAU"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="44" id="Kjw-n0-Fkd"/>
-                                        <constraint firstAttribute="height" constant="44" id="v3P-5w-eOc"/>
+                                        <constraint firstAttribute="height" constant="44" id="uef-F7-zEE"/>
                                     </constraints>
-                                    <state key="normal" title="Button" image="finger"/>
-                                    <state key="selected" image="fingerv"/>
-                                    <connections>
-                                        <action selector="doVantay:" destination="-1" eventType="touchUpInside" id="w2u-W2-GAU"/>
-                                    </connections>
-                                </button>
+                                </stackView>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
+                                <constraint firstItem="QBN-xw-8s9" firstAttribute="top" secondItem="v4b-Tp-cSC" secondAttribute="bottom" constant="8" id="8uv-cV-KJc"/>
                                 <constraint firstAttribute="trailing" secondItem="Q5d-bj-Sed" secondAttribute="trailing" constant="8" id="9GT-ni-9gD"/>
-                                <constraint firstItem="iT0-TE-uiA" firstAttribute="top" secondItem="LY0-dZ-P2Y" secondAttribute="bottom" constant="8" id="9HM-ed-P2W"/>
-                                <constraint firstItem="0Hn-W9-I9f" firstAttribute="centerX" secondItem="YTD-iX-ug8" secondAttribute="centerX" id="JIv-3E-ReO"/>
                                 <constraint firstAttribute="height" constant="160" id="MSi-kQ-yHd"/>
-                                <constraint firstItem="LY0-dZ-P2Y" firstAttribute="leading" secondItem="YTD-iX-ug8" secondAttribute="leading" constant="95" id="UJ7-ML-wZh"/>
                                 <constraint firstItem="Q5d-bj-Sed" firstAttribute="centerY" secondItem="iT0-TE-uiA" secondAttribute="centerY" id="Ukg-Jd-kP6"/>
+                                <constraint firstItem="iT0-TE-uiA" firstAttribute="top" secondItem="QBN-xw-8s9" secondAttribute="bottom" constant="8" id="Xlm-fX-9DQ"/>
                                 <constraint firstItem="iT0-TE-uiA" firstAttribute="leading" secondItem="YTD-iX-ug8" secondAttribute="leading" constant="20" id="Z29-rs-ffo"/>
                                 <constraint firstAttribute="trailing" secondItem="v4b-Tp-cSC" secondAttribute="trailing" id="b8r-Zc-jhj"/>
-                                <constraint firstItem="LY0-dZ-P2Y" firstAttribute="top" secondItem="v4b-Tp-cSC" secondAttribute="bottom" constant="8" id="nQw-xh-fpI"/>
+                                <constraint firstItem="QBN-xw-8s9" firstAttribute="centerX" secondItem="YTD-iX-ug8" secondAttribute="centerX" id="fTD-ni-hfE"/>
                                 <constraint firstItem="Q5d-bj-Sed" firstAttribute="leading" secondItem="iT0-TE-uiA" secondAttribute="trailing" constant="15" id="nwJ-eK-gMX"/>
                                 <constraint firstItem="v4b-Tp-cSC" firstAttribute="leading" secondItem="YTD-iX-ug8" secondAttribute="leading" id="nwM-01-LYS"/>
                                 <constraint firstItem="v4b-Tp-cSC" firstAttribute="top" secondItem="YTD-iX-ug8" secondAttribute="top" id="o3k-lD-1Sd"/>
                                 <constraint firstItem="Q5d-bj-Sed" firstAttribute="height" secondItem="iT0-TE-uiA" secondAttribute="height" id="oiF-Qd-Zd1"/>
-                                <constraint firstItem="0Hn-W9-I9f" firstAttribute="top" secondItem="v4b-Tp-cSC" secondAttribute="bottom" constant="8" id="qAp-mH-Lej"/>
                             </constraints>
                         </view>
                     </subviews>

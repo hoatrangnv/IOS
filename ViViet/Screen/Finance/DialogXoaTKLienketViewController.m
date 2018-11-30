@@ -16,6 +16,7 @@
 @property (retain, nonatomic) IBOutlet UILabel *lblTitle;
 @property (retain, nonatomic) IBOutlet NSLayoutConstraint *contraintLeading;
 @property (retain, nonatomic) IBOutlet UIView *view_dialog;
+@property (retain, nonatomic) IBOutlet UIStackView *stackView;
 
 @end
 
@@ -49,7 +50,7 @@
     _txtToken.hidden = YES;
     _btnThuchien.hidden = YES;
     _btnVantay.hidden = YES;
-    _contraintLeading.constant = self.view_dialog.frame.size.width/2 - 22;
+    [_stackView removeArrangedSubview:_btnVantay];
 }
 
 - (void)xuLyKhiCoChucNangQuetVanTay
@@ -58,7 +59,6 @@
     _txtToken.hidden = YES;
     _btnThuchien.hidden = YES;
     _btnVantay.hidden = NO;
-    _contraintLeading.constant = 95;
 }
 
 - (void)xuLySuKienDangNhapVanTay
@@ -160,6 +160,7 @@
     [_btnThuchien release];
     [_lblTitle release];
     [_view_dialog release];
+    [_stackView release];
     [super dealloc];
 }
 @end
