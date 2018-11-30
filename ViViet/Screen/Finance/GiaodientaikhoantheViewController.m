@@ -3,6 +3,8 @@
 #import "GiaodientaikhoantheViewController.h"
 #import "GiaoDienDanhSachTaiKhoanLienKet.h"
 #import "ViewQuangCao.h"
+#import "CommonUtils.h"
+
 @interface GiaodientaikhoantheViewController ()
 {
     ViewQuangCao * viewQC;
@@ -143,6 +145,11 @@
     sMatKhau = [DucNT_Token layMatKhauVanTayToken];
     NSString *sSeed = [DucNT_Token laySeedTokenHienTai];
     NSString *sToken = [DucNT_Token OTPFromPIN:sMatKhau seed:sSeed];
+    if([CommonUtils isEmptyOrNull:sToken])
+    {
+        [[[[UIAlertView alloc] initWithTitle:[@"@thong_bao" localizableString]  message:[@"@can_tao_token" localizableString] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
+        return;
+    }
     [dic setValue:sToken forKey:@"token"];
     [dic setValue:@"" forKey:@"otpConfirm"];
     [dic setValue:[NSNumber numberWithInt:TYPE_AUTHENTICATE_TOKEN] forKey:@"typeAuthenticate"];

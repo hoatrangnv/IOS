@@ -7,6 +7,7 @@
 
 #import "DialogXoaTKLienketViewController.h"
 #import "ExTextField.h"
+#import "CommonUtils.h"
 @interface DialogXoaTKLienketViewController ()
 @property (retain, nonatomic) IBOutlet UIButton *btnToken;
 @property (retain, nonatomic) IBOutlet UIButton *btnVantay;
@@ -70,16 +71,15 @@
     {
         NSString *sToken = @"";
         NSString *sOtp = @"";
+        NSString *sMatKhau = self.txtToken.text;
+        sMatKhau = [DucNT_Token layMatKhauVanTayToken];
+        
         NSString *sSeed = [DucNT_Token laySeedTokenHienTai];
-        NSString *token = [DucNT_Token layMatKhauVanTayToken];
-        if(sSeed.length > 0)
-        {
-            sToken = [DucNT_Token OTPFromPIN:token seed:sSeed];
-        }
-        else
+        sToken = [DucNT_Token OTPFromPIN:sMatKhau seed:sSeed];
+        if([CommonUtils isEmptyOrNull:sToken])
         {
             [[[[UIAlertView alloc] initWithTitle:[@"@thong_bao" localizableString]  message:[@"@can_tao_token" localizableString] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
-                return;
+            return;
         }
         [self.mDelegate xuLySuKienXacThucVoiKieu:self.mTypeAuthenticate token:sToken otp:sOtp];
     }
@@ -126,14 +126,13 @@
     {
         if([self.mDelegate respondsToSelector:@selector(xuLySuKienXacThucVoiKieu:token:otp:)])
         {
-            NSString *sToken = @"";
             NSString *sOtp = @"";
+            NSString *sMatKhau = self.txtToken.text;
+            sMatKhau = [DucNT_Token layMatKhauVanTayToken];
+            
             NSString *sSeed = [DucNT_Token laySeedTokenHienTai];
-            if(sSeed.length > 0)
-            {
-                sToken = [DucNT_Token OTPFromPIN:self.txtToken.text seed:sSeed];
-            }
-            else
+            NSString *sToken = [DucNT_Token OTPFromPIN:sMatKhau seed:sSeed];
+            if([CommonUtils isEmptyOrNull:sToken])
             {
                 [[[[UIAlertView alloc] initWithTitle:[@"@thong_bao" localizableString]  message:[@"@can_tao_token" localizableString] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
                 return;

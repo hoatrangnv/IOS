@@ -10,7 +10,7 @@
 #import "DucNT_TaiKhoanThuongDungCell.h"
 #import "ViewXacThuc.h"
 #import "DialogXoaTKLienketViewController.h"
-@interface GiaoDienDanhSachTaiKhoanLienKet () <TaiKhoanThuongDungCellDelegate, ViewXacThucDelegate>{
+@interface GiaoDienDanhSachTaiKhoanLienKet () <TaiKhoanThuongDungCellDelegate, ViewXacThucDelegate,DialogXoaTKLienketViewControllerDelegate>{
     NSMutableArray *arrTaiKhoan;
     int nIndexDelete;
 }
@@ -81,7 +81,7 @@
         cell = [[DucNT_TaiKhoanThuongDungCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:sReuseId];
     }
     ItemTaiKhoanLienKet *item = [arrTaiKhoan objectAtIndex:indexPath.row];
-    NSString *sDsBank = @"BID - Đầu tư và phát triển Việt Nam/CTG - Công thương Việt Nam/VCB - Ngoại thương Việt Nam/ABB - An bình/ACB - Á châu/BAB - Bắc á/BVB - Bảo Việt/EAB - Đông á/EIB - Xuất nhập khẩu Việt Nam/GPB - Dầu khí toàn cầu/HDB - Phát triển TPHCM/KLB - Kiên Long/LPB - Bưu điện Liên Việt/MB - Quân đội/MSB - Hàng hải/NAB - Nam á/NCB - Quốc dân/OCB -  Phương đông/OJB - Đại dương/PGB - Xăng dầu Petrolimex/PVB - Đại chúng Việt Nam/SCB - Sài Gòn/SEAB - Đông nam á/SGB - Sài Gòn công thương/SHB - Sài Gòn - Hà Nội/STB - Sài Gòn thương tín/TCB - Kỹ thương Việt Nam/TPB - Tiên Phong/VAB - Việt Á/VB - Việt Nam thương tín/VCCB - Bản Việt/VIB - Quốc tế/VPB - Việt Nam thịnh vượng/VISA/MasterCar/JCB";
+    NSString *sDsBank = @"BID - Đầu tư và phát triển Việt Nam/CTG - Công thương Việt Nam/VCB - Ngoại thương Việt Nam/ABB - An bình/ACB - Á châu/BAB - Bắc á/BVB - Bảo Việt/EAB - Đông á/EIB - Xuất nhập khẩu Việt Nam/GPB - Dầu khí toàn cầu/HDB - Phát triển TPHCM/KLB - Kiên Long/LPB - Bưu điện Liên Việt/MB - Quân đội/MSB - Hàng hải/NAB - Nam á/NCB - Quốc dân/OCB -  Phương đông/OJB - Đại dương/PGB - Xăng dầu Petrolimex/PVB - Đại chúng Việt Nam/SCB - Sài Gòn/SEAB - Đông nam á/SGB - Sài Gòn công thương/SHB - Sài Gòn - Hà Nội/STB - Sài Gòn thương tín/TCB - Kỹ thương Việt Nam/TPB - Tiên Phong/VAB - Việt Á/VB - Việt Nam thương tín/VCCB - Bản Việt/VIB - Quốc tế/VPB - Việt Nam thịnh vượng/VISA/MasterCard/JCB";
     NSArray *arrTemp = [sDsBank componentsSeparatedByString:@"/"];
     for (NSString *sBank in arrTemp) {
         if ([sBank hasPrefix:item.maNganHang]) {
@@ -89,15 +89,29 @@
             break;
         }
     }
-    NSString *sImageName = [NSString stringWithFormat:@"%@.png", item.maNganHang.lowercaseString];
+    NSString *sImageName = [item.maNganHang lowercaseString];
     if (![item.soThe isEmpty]) {
         sImageName = [NSString stringWithFormat:@"%@-the", item.maNganHang.lowercaseString];
-        cell.imvLoaiTaiKhoan.image = [UIImage imageNamed:sImageName];
+        UIImage *img  = [UIImage imageNamed:sImageName];
+        if (img == nil){
+            img = [UIImage imageNamed:[sImageName uppercaseString]];
+        }
+        cell.imvLoaiTaiKhoan.image = img;
     }
     else{
         sImageName = [NSString stringWithFormat:@"%@-nh", item.maNganHang.lowercaseString];
-        cell.imvLoaiTaiKhoan.image = [UIImage imageNamed:sImageName];
+        UIImage *img  = [UIImage imageNamed:sImageName];
+        if (img == nil){
+            img = [UIImage imageNamed:[sImageName uppercaseString]];
+        }
+        cell.imvLoaiTaiKhoan.image = img;
+
     }
+    if([item.maNganHang isEqualToString:@"MasterCard"]){
+        cell.imvLoaiTaiKhoan.image = [UIImage imageNamed:@"master"];
+        cell.lbTenTaoKhoan.text = @"MasterCard";
+    }
+
     cell.lbTenTaoKhoan.textColor = [UIColor blackColor];
     cell.delegate = self;
     if (self.bChinhSua) {
@@ -127,6 +141,7 @@
     dialog.view.frame = [UIScreen mainScreen].bounds;
     UIWindow * window = [UIApplication sharedApplication].keyWindow;
     [window addSubview:dialog.view];
+    dialog.mDelegate = self;
     [self addChildViewController:dialog];
     DucNT_TaiKhoanThuongDungCell *cell = [_tableView cellForRowAtIndexPath:indexPath];
     [dialog setitleLable:[NSString stringWithFormat:@"Xóa %@",cell.lbTenTaoKhoan.text]];
