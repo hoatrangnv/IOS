@@ -538,16 +538,16 @@ CLLocationManager *shared_location_manager = nil;
     if(nKieuChuyenTien == KIEU_CHUYEN_TIEN_DEN_VI)
     {
         fSoTienPhi = SO_TIEN_MOT_LAN_CHUYEN;
-        if (fSoTien > 1000000) {
+        if (fSoTien >= 1000000) {
             fSoTienPhi = PHI_DUOI_20tr;
         }
         if(fSoTien >= SO_TIEN_MOC)
         {
             fSoTienPhi = PHI_TREN_20tr;
         }
-        if (fSoTien >= 50000000) {
-            fSoTienPhi = PHI_TREN_50tr;
-        }
+//        if (fSoTien >= 50000000) {
+//            fSoTienPhi = PHI_TREN_50tr;
+//        }
     }
     
     //vietpd
@@ -609,7 +609,7 @@ CLLocationManager *shared_location_manager = nil;
     else if (nKieuChuyenTien == KIEU_CHUYEN_TIEN_DEN_TAI_KHOAN_NGAN_HANG)
     {
         fSoTienPhi = PHI_DUOI_50tr;
-        if (fSoTien > 50000000) {
+        if (fSoTien >= 50000000) {
 //            fSoTienPhi = PHI_TREN_50tr + ((int)(fSoTien / 50000000) * PHI_TREN_50tr);
             fSoTienPhi = ceil(fSoTien / 50000000.0f) * PHI_TREN_50tr;
         }

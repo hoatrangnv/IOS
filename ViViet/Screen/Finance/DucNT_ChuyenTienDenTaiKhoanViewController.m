@@ -608,6 +608,7 @@
         Banks *bank = [_mDanhSachNganHang objectAtIndex:mViTriNganHangDuocChon];
         sBankCode = bank.bank_sms;
     }
+    NSLog(@"%s - sSoTien : %@", __FUNCTION__, sSoTien);
     double fSoPhi = [Common layPhiChuyenTienCuaSoTien:[sSoTien doubleValue] kieuChuyenTien:KIEU_CHUYEN_TIEN_DEN_TAI_KHOAN_NGAN_HANG maNganHang:sBankCode];
     self.mtfPhiGiaoDich.text = [Common hienThiTienTe_1:fSoPhi];
 }
