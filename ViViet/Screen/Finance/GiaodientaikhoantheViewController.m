@@ -133,7 +133,7 @@
     NSString *sToken = [DucNT_Token OTPFromPIN:sMatKhau seed:sSeed];
     [dic setValue:sToken forKey:@"token"];
     [dic setValue:@"" forKey:@"otpConfirm"];
-    [dic setValue:[NSNumber numberWithInt:self.mTypeAuthenticate] forKey:@"typeAuthenticate"];
+    [dic setValue:[NSNumber numberWithInt:0] forKey:@"typeAuthenticate"];
     [dic setValue:[NSNumber numberWithInt:APP_ID] forKey:@"appId"];
     [dic setValue:[NSNumber numberWithInt:VM_APP] forKey:@"VMApp"];
 
