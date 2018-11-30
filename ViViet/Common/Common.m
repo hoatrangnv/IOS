@@ -26,7 +26,7 @@
 #define PHI_DUOI_20tr 1100
 #define PHI_TREN_20tr 2200
 #define PHI_DUOI_50tr 2200
-#define PHI_TREN_50tr 2200
+#define PHI_TREN_50tr 3300
 
 #define PHI_CHUYEN_TIEN_DEN_VI_MOMO 3300
 #define PHI_CHUYEN_TIEN_DEN_THE 3300
@@ -544,6 +544,9 @@ CLLocationManager *shared_location_manager = nil;
         if(fSoTien >= SO_TIEN_MOC)
         {
             fSoTienPhi = PHI_TREN_20tr;
+        }
+        if (fSoTien >= 50000000) {
+            fSoTienPhi = PHI_TREN_50tr;
         }
     }
     

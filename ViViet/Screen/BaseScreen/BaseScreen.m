@@ -810,9 +810,13 @@
 
 - (void)hienThiHopThoaiMotNutBamKieu:(int)nKieu cauThongBao:(NSString*)sCauThongBao
 {
-    UIAlertView *alertView = [[[UIAlertView alloc] initWithTitle:[@"thong_bao" localizableString] message:sCauThongBao delegate:self cancelButtonTitle:[@"dong" localizableString] otherButtonTitles:nil, nil] autorelease];
-    alertView.tag = nKieu;
-    [alertView show];
+//    UIAlertView *alertView = [[[UIAlertView alloc] initWithTitle:[@"thong_bao" localizableString] message:sCauThongBao delegate:self cancelButtonTitle:[@"dong" localizableString] otherButtonTitles:nil, nil] autorelease];
+//    alertView.tag = nKieu;
+//    [alertView show];
+    UIAlertController *alertView = [UIAlertController alertControllerWithTitle:[@"thong_bao" localizableString] message:sCauThongBao preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *action = [UIAlertAction actionWithTitle:[@"dong" localizableString] style:UIAlertActionStyleCancel handler:nil];
+    [alertView addAction:action];
+    [self presentViewController:alertView animated:YES completion:nil];
 }
 
 #pragma mark - DEALLOC
