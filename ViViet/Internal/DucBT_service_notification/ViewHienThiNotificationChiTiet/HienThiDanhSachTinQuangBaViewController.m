@@ -240,8 +240,6 @@ typedef enum : int {
 
 - (void)suKienBamNutMore:(UIBarButtonItem *)sender {
     [self.tableMenu setHidden:!self.tableMenu.isHidden];
-//    UIView *view = sender.customView;
-//    [view setBackgroundColor:[UIColor colorWithRed:0 green:135.0/255.0 blue:195.0/255.0 alpha:1]];
 }
 
 - (void)suKienBamNutXoaTin:(UIBarButtonItem *)sender

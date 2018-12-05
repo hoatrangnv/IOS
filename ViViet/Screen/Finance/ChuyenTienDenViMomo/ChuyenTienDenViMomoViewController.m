@@ -30,6 +30,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateThongTinViMoMo:) name:KEY_TAI_KHOAN_THUONG_DUNG object:nil];
+    [self.mtfSoPhi setBackgroundImage:nil forState:UIControlStateNormal];
     nRowNhaMay = 0;
     [self khoiTaoBanDau];
     [self khoiTaoViewNhapTenDaiDienXacThucTaiKhoan];
@@ -108,7 +109,12 @@
 
 - (void)xuLyChonVi {
     NSLog(@"%s - nRowNhaMay : %d", __FUNCTION__, nRowNhaMay);
-    _edChonVi.text = [self layTenNhaMayNuoc:nRowNhaMay];
+    _mtfViMomo.placeholder = [NSString stringWithFormat:@"Tài khoản %@", [self layTenNhaMayNuoc:nRowNhaMay]];
+    if ([self layIndexChonVi:nRowNhaMay] == ZALO_PAY) {
+        self.mtfSoTien.placeholder = @"Số tiền (≥ 100.000 đ)";
+    } else {
+        self.mtfSoTien.placeholder = @"Số tiền (≥ 10.000 đ)";
+    }
     if (nRowNhaMay != 2 && nRowNhaMay != 4 && nRowNhaMay != 6) {
         _tfNoiDung.hidden = NO;
         _mtvNoiDung.hidden = NO;
@@ -201,7 +207,8 @@
     
     self.mtfViMomo.text = _mTaiKhoanThuongDung.taiKhoan;
     self.mtvNoiDung.text = _mTaiKhoanThuongDung.sDesc;
-    self.edChonVi.text = [self layTenNhaMayNuoc:_mTaiKhoanThuongDung.nhaCungCap];
+    _mtfViMomo.placeholder = [NSString stringWithFormat:@"Tài khoản %@", [self layTenNhaMayNuoc:_mTaiKhoanThuongDung.nhaCungCap]];
+    self.mtfSoTien.placeholder =
     nRowNhaMay = [self layIndexChonVi:_mTaiKhoanThuongDung.nhaCungCap];
 } 
 
@@ -225,7 +232,7 @@
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    return [self layTenNhaMayNuoc:(int)row];
+    return [NSString stringWithFormat:@"Tài khoản %@", [self layTenNhaMayNuoc:(int)row]];
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component

@@ -28,7 +28,7 @@
       @{@"name":@"Chuyển tiền đến tài khoản", @"image":@"icon_grid_dentaikhoan"},
       @{@"name":@"Chuyển tiền đến thẻ", @"image":@"icon_grid_denthe"},
       @{@"name":@"Chuyển tiền đến ATM", @"image":@"icon_grid_den_atm"},
-      @{@"name":@"Chuyển tiền đến tận nhà", @"image":@"icon_chuyen_den_tannhan"},
+      @{@"name":@"Chuyển tiền đến tận nhà", @"image":@"icon_grid_dentannha"},
       @{@"name":@"Chuyển tiền đến CMND", @"image":@"icon_grid_den_cmnd"},
       @{@"name":@"Gửi & rút tiết kiệm", @"image":@"icon_grid_guitietkiem"},
       @{@"name":@"Vay & trả tiền vay", @"image":@"icon_grid_naptientuthe"},

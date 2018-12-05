@@ -33,6 +33,10 @@
 @property (retain, nonatomic) IBOutlet UIView *mViewTongSoTien;
 @property (retain, nonatomic) IBOutlet UILabel *mTongSoTien;
 @property (retain, nonatomic) IBOutlet UILabel *mlblTongSoPhi;
+@property (retain, nonatomic) IBOutlet NSLayoutConstraint *heightWebHienThi;
+@property (retain, nonatomic) IBOutlet NSLayoutConstraint *heightTableView;
+@property (retain, nonatomic) IBOutlet NSLayoutConstraint *heightViewNoiDung;
+@property (retain, nonatomic) IBOutlet NSLayoutConstraint *heightViewTongSoTien;
 
 @property (nonatomic, retain) DoiTuongGiaoDich *mDoiTuongGiaoDich;
 @end

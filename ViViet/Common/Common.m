@@ -1127,10 +1127,10 @@ CLLocationManager *shared_location_manager = nil;
     
     NSNumber *nAmount = [NSNumber numberWithDouble:fAmount];
     NSNumberFormatter *_currencyFormatter = [[NSNumberFormatter alloc] init];
-    [_currencyFormatter setLocale:[NSLocale currentLocale]];
-    [_currencyFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
-    [_currencyFormatter setCurrencyCode:@"VND"];
-    return [_currencyFormatter stringFromNumber:nAmount];
+//    [_currencyFormatter setLocale:[NSLocale currentLocale]];
+    [_currencyFormatter setNumberStyle:kCFNumberFormatterDecimalStyle];
+//    [_currencyFormatter setCurrencyCode:@"VND"];
+    return [NSString stringWithFormat:@"%@ đ", [_currencyFormatter stringFromNumber:nAmount]];
 }
 
 +(NSString *)hienThiTienTe:(double)sAmount

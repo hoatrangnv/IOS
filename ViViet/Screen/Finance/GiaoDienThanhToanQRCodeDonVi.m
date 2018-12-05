@@ -40,6 +40,8 @@
     longHander.delegate = self;
     longHander.minimumPressDuration = 1;
     [self.imgvQR addGestureRecognizer:longHander];
+    
+    NSLog(@"%s - START", __FUNCTION__);
 }
 
 - (void)viewWillAppear:(BOOL)animated {

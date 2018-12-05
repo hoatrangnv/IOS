@@ -114,22 +114,25 @@
 {
     NSLog(@"%s - [_mDoiTuongGiaoDich.trangThai intValue] : %d", __FUNCTION__, [_mDoiTuongGiaoDich.trangThai intValue]);
     [_mtbDsGiaoDich layoutIfNeeded];
-    CGSize tableViewSize = _mtbDsGiaoDich.contentSize;
-    
-    CGRect rViewThoiGianConLai = _mViewThoiGianConLai.frame;
-    CGRect rViewNhapToken = self.mViewNhapToken.frame;
-    CGRect rViewChuaNutXacNhan = _mViewChuaNutXacNhan.frame;
-    CGRect rViewChuaNoiDung = _mViewChuaNoiDung.frame;
-    CGRect rViewTongSoTien = _mViewTongSoTien.frame;
-    CGRect rBtnVanTay = self.mbtnVanTay.frame;
-    CGRect rViewMain = self.mViewMain.frame;
-    CGRect rtbHienThiDsGiaoDich = _mtbDsGiaoDich.frame;
-    CGRect rWebviewHienThi = _mwvHienThi.frame;
+    self.heightTableView.constant = _mtbDsGiaoDich.contentSize.height;
+//    CGSize tableViewSize = _mtbDsGiaoDich.contentSize;
+//
+//    CGRect rViewThoiGianConLai = _mViewThoiGianConLai.frame;
+//    CGRect rViewNhapToken = self.mViewNhapToken.frame;
+//    CGRect rViewChuaNutXacNhan = _mViewChuaNutXacNhan.frame;
+//    CGRect rViewChuaNoiDung = _mViewChuaNoiDung.frame;
+//    CGRect rViewTongSoTien = _mViewTongSoTien.frame;
+//    CGRect rBtnVanTay = self.mbtnVanTay.frame;
+//    CGRect rViewMain = self.mViewMain.frame;
+//    CGRect rtbHienThiDsGiaoDich = _mtbDsGiaoDich.frame;
+//    CGRect rWebviewHienThi = _mwvHienThi.frame;
 
     if([_mDoiTuongGiaoDich.trangThai intValue] == DOANH_NGHIEP_LAP_LENH_THANH_CONG)
     {
         [_mViewChuaNoiDung setHidden:YES];
+        self.heightViewNoiDung.constant = 0.0;
         [self.mViewNhapToken setHidden:YES];
+        self.heightViewNhapXacThuc.constant = 0.0;
         [_mViewThoiGianConLai setHidden:YES];
 
         
@@ -143,23 +146,28 @@
         {
             [_mtbDsGiaoDich setHidden:NO];
             [_mViewTongSoTien setHidden:NO];
-            rtbHienThiDsGiaoDich.size = tableViewSize;
-            rtbHienThiDsGiaoDich.origin.y = rWebviewHienThi.origin.y + rWebviewHienThi.size.height + 8;
-            rViewTongSoTien.origin.y = rtbHienThiDsGiaoDich.origin.y + rtbHienThiDsGiaoDich.size.height + 8;
-            rViewChuaNutXacNhan.origin.y = rViewTongSoTien.origin.y + rViewTongSoTien.size.height + 8;
+            self.heightViewTongSoTien.constant = 50.0;
+//            rtbHienThiDsGiaoDich.size = tableViewSize;
+//            rtbHienThiDsGiaoDich.origin.y = rWebviewHienThi.origin.y + rWebviewHienThi.size.height + 8;
+//            rViewTongSoTien.origin.y = rtbHienThiDsGiaoDich.origin.y + rtbHienThiDsGiaoDich.size.height + 8;
+//            rViewChuaNutXacNhan.origin.y = rViewTongSoTien.origin.y + rViewTongSoTien.size.height + 8;
         }
         else
         {
             [_mtbDsGiaoDich setHidden:YES];
             [_mViewTongSoTien setHidden:YES];
-            rViewChuaNutXacNhan.origin.y = rWebviewHienThi.origin.y + rWebviewHienThi.size.height + 8;
+            self.heightTableView.constant = 0;
+            self.heightViewTongSoTien.constant = 0.0;
+//            rViewChuaNutXacNhan.origin.y = rWebviewHienThi.origin.y + rWebviewHienThi.size.height + 8;
         }
-        rViewMain.size.height = rViewChuaNutXacNhan.origin.y + rViewChuaNutXacNhan.size.height + 10;
+//        rViewMain.size.height = rViewChuaNutXacNhan.origin.y + rViewChuaNutXacNhan.size.height + 10;
     }
     else
     {
         [_mViewChuaNoiDung setHidden:YES];
+        self.heightViewNoiDung.constant = 0.0;
         [self.mViewNhapToken setHidden:YES];
+        self.heightViewNhapXacThuc.constant = 0.0;
         [_mViewThoiGianConLai setHidden:YES];
         [_mViewChuaNutXacNhan setHidden:YES];
         [self.mbtnVanTay setHidden:YES];
@@ -167,32 +175,35 @@
         {
             [_mtbDsGiaoDich setHidden:NO];
             [_mViewTongSoTien setHidden:NO];
-            rtbHienThiDsGiaoDich.size = tableViewSize;
-            rtbHienThiDsGiaoDich.origin.y = rWebviewHienThi.origin.y + rWebviewHienThi.size.height + 8;
-            rViewTongSoTien.origin.y = rtbHienThiDsGiaoDich.origin.y + rtbHienThiDsGiaoDich.size.height + 8;
-            rViewMain.size.height = rViewTongSoTien.origin.y + rViewTongSoTien.size.height + 10;
+            self.heightViewTongSoTien.constant = 50.0;
+//            rtbHienThiDsGiaoDich.size = tableViewSize;
+//            rtbHienThiDsGiaoDich.origin.y = rWebviewHienThi.origin.y + rWebviewHienThi.size.height + 8;
+//            rViewTongSoTien.origin.y = rtbHienThiDsGiaoDich.origin.y + rtbHienThiDsGiaoDich.size.height + 8;
+//            rViewMain.size.height = rViewTongSoTien.origin.y + rViewTongSoTien.size.height + 10;
         }
         else
         {
             [_mtbDsGiaoDich setHidden:YES];
             [_mViewTongSoTien setHidden:YES];
-            rViewMain.size.height = 2*rWebviewHienThi.origin.y + rWebviewHienThi.size.height;
+            self.heightViewTongSoTien.constant = 0.0;
+            self.heightTableView.constant = 0.0;
+//            rViewMain.size.height = 2*rWebviewHienThi.origin.y + rWebviewHienThi.size.height;
         }
 
     }
     
-    [self.mbtnVanTay setHidden:YES];
-    float fHeight = 2*rViewMain.origin.y + rViewMain.size.height;
-    _mscvHienThi.contentSize = CGSizeMake(_mscvHienThi.frame.size.width, fHeight);
-    _mtbDsGiaoDich.frame = rtbHienThiDsGiaoDich;
-    _mViewThoiGianConLai.frame = rViewThoiGianConLai;
-    self.mViewNhapToken.frame = rViewNhapToken;
-    _mViewChuaNutXacNhan.frame = rViewChuaNutXacNhan;
-    _mViewChuaNoiDung.frame = rViewChuaNoiDung;
-    _mViewTongSoTien.frame = rViewTongSoTien;
-    self.mbtnVanTay.frame = rBtnVanTay;
-    self.mViewMain.frame = rViewMain;
-    _mwvHienThi.frame = rWebviewHienThi;
+//    [self.mbtnVanTay setHidden:YES];
+//    float fHeight = 2*rViewMain.origin.y + rViewMain.size.height;
+//    _mscvHienThi.contentSize = CGSizeMake(_mscvHienThi.frame.size.width, fHeight);
+//    _mtbDsGiaoDich.frame = rtbHienThiDsGiaoDich;
+//    _mViewThoiGianConLai.frame = rViewThoiGianConLai;
+//    self.mViewNhapToken.frame = rViewNhapToken;
+//    _mViewChuaNutXacNhan.frame = rViewChuaNutXacNhan;
+//    _mViewChuaNoiDung.frame = rViewChuaNoiDung;
+//    _mViewTongSoTien.frame = rViewTongSoTien;
+//    self.mbtnVanTay.frame = rBtnVanTay;
+//    self.mViewMain.frame = rViewMain;
+//    _mwvHienThi.frame = rWebviewHienThi;
     
     [_mscvHienThi setContentOffset:CGPointMake(0.0f, 0.0f) animated:NO];
 }
@@ -390,11 +401,12 @@
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
     CGRect frame = _mwvHienThi.frame;
-    frame.size.height = 1;
-    _mwvHienThi.frame = frame;
+//    frame.size.height = 1;
+//    _mwvHienThi.frame = frame;
     CGSize fittingSize = [_mwvHienThi sizeThatFits:CGSizeZero];
     frame.size = fittingSize;
-    _mwvHienThi.frame = frame;
+//    _mwvHienThi.frame = frame;
+    self.heightWebHienThi.constant = frame.size.height;
     
     [self khoiTaoGiaoDienTheoDoiTuongDuyetGiaoDich];
 }
@@ -522,6 +534,10 @@
     [_mViewTongSoTien release];
     [_mTongSoTien release];
     [_mlblTongSoPhi release];
+    [_heightWebHienThi release];
+    [_heightTableView release];
+    [_heightViewNoiDung release];
+    [_heightViewTongSoTien release];
     [super dealloc];
 }
 @end

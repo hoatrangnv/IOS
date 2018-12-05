@@ -32,6 +32,7 @@ enum DINH_DANH_KET_NOI
 @property (assign, nonatomic) int nLoaiTaiKhoan;
 @property (retain, nonatomic) NSMutableArray *dsTaiKhoanThuongDung;
 @property (retain, nonatomic) IBOutlet UIButton *btnBack;
+@property (retain, nonatomic) IBOutlet NSLayoutConstraint *topRootView;
 
 - (IBAction)suKienBack:(id)sender;
 -(id)initWithType:(int)nLoaiVi;

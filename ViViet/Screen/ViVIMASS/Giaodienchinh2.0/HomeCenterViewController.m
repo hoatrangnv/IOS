@@ -607,6 +607,7 @@
     [reader dismissViewControllerAnimated:YES completion:^{
         NSString *str = [[result substringToIndex:1]uppercaseString] ;
         if ([str isEqualToString:@"V"]) {
+            NSLog(@"%s - line : %d", __FUNCTION__, __LINE__);
             GiaoDienThanhToanQRCodeDonVi *vc = [[GiaoDienThanhToanQRCodeDonVi alloc] initWithNibName:@"GiaoDienThanhToanQRCodeDonVi" bundle:nil];
             vc.sIdQRCode = result;
             vc.typeQRCode = 1;
@@ -615,6 +616,7 @@
             [vc release];
         }
         else if ([str isEqualToString:@"M"]){
+            NSLog(@"%s - line : %d", __FUNCTION__, __LINE__);
             GiaoDienThanhToanQRCodeDonVi *vc = [[GiaoDienThanhToanQRCodeDonVi alloc] initWithNibName:@"GiaoDienThanhToanQRCodeDonVi" bundle:nil];
             vc.sIdQRCode = result;
             vc.typeQRCode = 0;
@@ -623,6 +625,7 @@
             [vc release];
         }
         else{
+            NSLog(@"%s - line : %d", __FUNCTION__, __LINE__);
             GiaoDienThanhToanQRCode *vc = [[GiaoDienThanhToanQRCode alloc] initWithNibName:@"GiaoDienThanhToanQRCode" bundle:nil];
             vc.sIdQRCode = result;
             self.navigationController.navigationBar.hidden = NO;

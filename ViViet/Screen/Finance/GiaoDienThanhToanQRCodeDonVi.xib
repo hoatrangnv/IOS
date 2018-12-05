@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -15,17 +13,16 @@
             <connections>
                 <outlet property="btnVanTayMini" destination="qHg-DI-skt" id="Fpb-Jh-HgY"/>
                 <outlet property="constantHeightNoiDung" destination="L4i-33-cr4" id="fTy-QQ-ofa"/>
-                <outlet property="constantHeightViewMain" destination="m5f-xj-KAK" id="sxe-bB-ckV"/>
                 <outlet property="edNoiDung" destination="egE-Uh-5yj" id="zwF-sC-hgq"/>
                 <outlet property="edSoTien" destination="WUo-av-AUi" id="e96-Eh-qZZ"/>
+                <outlet property="heightViewNhapXacThuc" destination="Ky7-uQ-v7Y" id="03k-nP-WWG"/>
                 <outlet property="imgvAvatar" destination="e1n-Ys-bzk" id="non-SK-m97"/>
                 <outlet property="imgvQR" destination="Pd1-Ai-Tql" id="cYe-cr-1Uo"/>
                 <outlet property="lblTenCty" destination="5Lz-tJ-c2Z" id="N0a-dK-nUL"/>
                 <outlet property="lblTenNguoiNhan" destination="1nv-qH-uaS" id="7Kg-AW-6RJ"/>
                 <outlet property="mViewMain" destination="aTc-dg-BxG" id="lrR-af-I2n"/>
                 <outlet property="mViewNhapToken" destination="UGV-A7-2rV" id="EcJ-2A-lvf"/>
-                <outlet property="mbtnEmail" destination="V8T-r6-JGX" id="Sd6-Uv-d8H"/>
-                <outlet property="mbtnSMS" destination="EGW-7E-oiH" id="tEE-2Q-AAD"/>
+                <outlet property="mbtnPKI" destination="EGW-7E-oiH" id="5TW-s2-6Vx"/>
                 <outlet property="mbtnThucHien" destination="DGL-0i-2kq" id="igm-Ne-bec"/>
                 <outlet property="mbtnToken" destination="xsO-Hd-l4c" id="1nN-rn-rum"/>
                 <outlet property="mtfMatKhauToken" destination="hRE-sg-Uhf" id="nam-MM-Icg"/>
@@ -48,13 +45,26 @@
                             <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aTc-dg-BxG">
-                                    <rect key="frame" x="10" y="10" width="300" height="315"/>
+                                    <rect key="frame" x="10" y="10" width="300" height="352"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="e1n-Ys-bzk">
                                             <rect key="frame" x="8" y="8" width="60" height="60"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="e1n-Ys-bzk" secondAttribute="height" id="fSr-pT-sQo"/>
                                                 <constraint firstAttribute="width" constant="60" id="hlr-3Q-CwI"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Công ty TNHH MTV ABC Công ty TNHH MTV ABC Công ty TNHH MTV ABC" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Lz-tJ-c2Z">
+                                            <rect key="frame" x="73" y="8" width="156" height="60"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Pd1-Ai-Tql">
+                                            <rect key="frame" x="232" y="8" width="60" height="60"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="Pd1-Ai-Tql" secondAttribute="height" id="INd-p7-zd4"/>
+                                                <constraint firstAttribute="width" constant="60" id="os3-GI-MRh"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1nv-qH-uaS">
@@ -104,55 +114,59 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wkV-Mb-on4" userLabel="ViewThoiGianConLai">
-                                            <rect key="frame" x="8" y="217" width="284" height="35"/>
+                                            <rect key="frame" x="8" y="217" width="284" height="80"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Xác thực" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K45-su-ss6">
-                                                    <rect key="frame" x="0.0" y="0.0" width="66" height="35"/>
-                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Xác thực" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K45-su-ss6">
+                                                    <rect key="frame" x="0.0" y="0.0" width="65" height="18"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="18" id="gE2-6F-CvQ"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xsO-Hd-l4c">
-                                                    <rect key="frame" x="68" y="3" width="51" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES"/>
-                                                    <state key="normal" title="Token" backgroundImage="bg-nuttrang.png"/>
-                                                    <connections>
-                                                        <action selector="suKienBamNutToken:" destination="-1" eventType="touchUpInside" id="QUH-Hf-TMQ"/>
-                                                    </connections>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EGW-7E-oiH">
-                                                    <rect key="frame" x="122" y="3" width="52" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES"/>
-                                                    <state key="normal" title="SMS" backgroundImage="bg-nuttrang.png"/>
-                                                    <connections>
-                                                        <action selector="suKienBamNutSMS:" destination="-1" eventType="touchUpInside" id="0u9-cC-MsG"/>
-                                                    </connections>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V8T-r6-JGX">
-                                                    <rect key="frame" x="176" y="3" width="53" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES"/>
-                                                    <state key="normal" title="Email" backgroundImage="bg-nuttrang.png"/>
-                                                    <connections>
-                                                        <action selector="suKienBamNutEmail:" destination="-1" eventType="touchUpInside" id="yCM-PS-zZa"/>
-                                                    </connections>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qHg-DI-skt">
-                                                    <rect key="frame" x="231" y="3" width="53" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES"/>
-                                                    <state key="normal" image="finger-ngang" backgroundImage="bg-nuttrang.png"/>
-                                                    <connections>
-                                                        <action selector="suKienBamNutMatKhauVanTay:" destination="-1" eventType="touchUpInside" id="5aX-GC-QnU"/>
-                                                    </connections>
-                                                </button>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="6YE-xB-mUZ">
+                                                    <rect key="frame" x="51" y="23" width="182" height="52"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EGW-7E-oiH">
+                                                            <rect key="frame" x="0.0" y="0.0" width="54" height="52"/>
+                                                            <state key="normal" image="pki"/>
+                                                            <connections>
+                                                                <action selector="suKienBamNutPKI:" destination="-1" eventType="touchUpInside" id="CVN-vb-8Og"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xsO-Hd-l4c">
+                                                            <rect key="frame" x="64" y="0.0" width="54" height="52"/>
+                                                            <state key="normal" image="token"/>
+                                                            <connections>
+                                                                <action selector="suKienBamNutToken:" destination="-1" eventType="touchUpInside" id="QUH-Hf-TMQ"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qHg-DI-skt">
+                                                            <rect key="frame" x="128" y="0.0" width="54" height="52"/>
+                                                            <state key="normal" image="finger"/>
+                                                            <connections>
+                                                                <action selector="suKienBamNutMatKhauVanTay:" destination="-1" eventType="touchUpInside" id="5aX-GC-QnU"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="6YE-xB-mUZ" secondAttribute="height" multiplier="3.5" id="riw-0C-dbG"/>
+                                                    </constraints>
+                                                </stackView>
                                             </subviews>
                                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="35" id="e2g-8R-D9Y"/>
+                                                <constraint firstItem="K45-su-ss6" firstAttribute="leading" secondItem="wkV-Mb-on4" secondAttribute="leading" id="Iz5-HY-2EU"/>
+                                                <constraint firstItem="6YE-xB-mUZ" firstAttribute="centerX" secondItem="wkV-Mb-on4" secondAttribute="centerX" id="UTF-aX-Ox8"/>
+                                                <constraint firstAttribute="height" constant="80" id="e2g-8R-D9Y"/>
+                                                <constraint firstItem="K45-su-ss6" firstAttribute="top" secondItem="wkV-Mb-on4" secondAttribute="top" id="gyK-nz-X41"/>
+                                                <constraint firstItem="6YE-xB-mUZ" firstAttribute="top" secondItem="K45-su-ss6" secondAttribute="bottom" constant="5" id="m3v-o9-2yj"/>
+                                                <constraint firstAttribute="bottom" secondItem="6YE-xB-mUZ" secondAttribute="bottom" constant="5" id="sOi-Ip-uIk"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UGV-A7-2rV" userLabel="ViewNhapToKen">
-                                            <rect key="frame" x="8" y="260" width="284" height="35"/>
+                                            <rect key="frame" x="8" y="305" width="284" height="35"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hRE-sg-Uhf" customClass="ExTextField">
                                                     <rect key="frame" x="0.0" y="0.0" width="156" height="35"/>
@@ -187,19 +201,6 @@
                                                 <constraint firstAttribute="bottom" secondItem="hRE-sg-Uhf" secondAttribute="bottom" id="pJl-OQ-iou"/>
                                             </constraints>
                                         </view>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Công ty TNHH MTV ABC Công ty TNHH MTV ABC Công ty TNHH MTV ABC" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Lz-tJ-c2Z">
-                                            <rect key="frame" x="73" y="8" width="156" height="60"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Pd1-Ai-Tql">
-                                            <rect key="frame" x="232" y="8" width="60" height="60"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" secondItem="Pd1-Ai-Tql" secondAttribute="height" id="INd-p7-zd4"/>
-                                                <constraint firstAttribute="width" constant="60" id="os3-GI-MRh"/>
-                                            </constraints>
-                                        </imageView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4CN-YS-R8V">
                                             <rect key="frame" x="8" y="147" width="284" height="60"/>
                                             <subviews>
@@ -240,7 +241,7 @@
                                         <constraint firstItem="wkV-Mb-on4" firstAttribute="top" secondItem="4CN-YS-R8V" secondAttribute="bottom" constant="10" id="6KB-ZS-zra"/>
                                         <constraint firstItem="1nv-qH-uaS" firstAttribute="top" secondItem="5Lz-tJ-c2Z" secondAttribute="bottom" constant="8" id="8Kf-cR-d5l"/>
                                         <constraint firstItem="1nv-qH-uaS" firstAttribute="leading" secondItem="aTc-dg-BxG" secondAttribute="leading" constant="8" id="8vk-3H-keN"/>
-                                        <constraint firstAttribute="bottom" secondItem="UGV-A7-2rV" secondAttribute="bottom" constant="20" id="D4V-OG-6VT"/>
+                                        <constraint firstAttribute="bottom" secondItem="UGV-A7-2rV" secondAttribute="bottom" constant="12" id="D4V-OG-6VT"/>
                                         <constraint firstItem="UGV-A7-2rV" firstAttribute="top" secondItem="wkV-Mb-on4" secondAttribute="bottom" constant="8" id="FoL-BM-2RD"/>
                                         <constraint firstAttribute="trailing" secondItem="1nv-qH-uaS" secondAttribute="trailing" constant="8" id="NQy-tI-bCz"/>
                                         <constraint firstAttribute="trailing" secondItem="Pd1-Ai-Tql" secondAttribute="trailing" constant="8" id="OQu-TD-xqq"/>
@@ -264,7 +265,6 @@
                             <constraints>
                                 <constraint firstItem="aTc-dg-BxG" firstAttribute="top" secondItem="vDb-Bp-7VU" secondAttribute="top" constant="10" id="7lp-jC-HVq"/>
                                 <constraint firstItem="aTc-dg-BxG" firstAttribute="leading" secondItem="vDb-Bp-7VU" secondAttribute="leading" constant="10" id="X4X-jS-EPs"/>
-                                <constraint firstItem="aTc-dg-BxG" firstAttribute="height" secondItem="vDb-Bp-7VU" secondAttribute="height" multiplier="0.63" constant="12.600000000000023" id="m5f-xj-KAK"/>
                                 <constraint firstAttribute="trailing" secondItem="aTc-dg-BxG" secondAttribute="trailing" constant="10" id="pcJ-fd-IhG"/>
                             </constraints>
                         </view>
@@ -295,8 +295,9 @@
         </view>
     </objects>
     <resources>
-        <image name="bg-nuttrang.png" width="128" height="52"/>
         <image name="bg_nen.png" width="720" height="1280"/>
-        <image name="finger-ngang" width="56" height="30"/>
+        <image name="finger" width="225" height="225"/>
+        <image name="pki" width="225" height="225"/>
+        <image name="token" width="225" height="225"/>
     </resources>
 </document>

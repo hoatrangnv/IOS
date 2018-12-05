@@ -89,22 +89,23 @@ NSString *KEY_TAI_KHOAN_NAP_TIEN = @"KEY_TAI_KHOAN_NAP_TIEN";
         dsTaiKhoanThuongDung = [[NSMutableArray alloc] init];
     [dsTaiKhoanThuongDung removeAllObjects];
     
+    [self.lvDanhSachTaiKhoan setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
     [self.lvDanhSachTaiKhoan registerNib:[UINib nibWithNibName:@"DucNT_TaiKhoanThuongDungCell" bundle:nil] forCellReuseIdentifier:sReuseId];
-
+    
+    NSLog(@"%s - [UIScreen mainScreen].bounds.size.height : %f", __FUNCTION__, [UIScreen mainScreen].bounds.size.height);
+    NSLog(@"%s - self.topRootView.constant : %f", __FUNCTION__, self.topRootView.constant);
+    if ([UIScreen mainScreen].bounds.size.height >= 812 && self.topRootView.constant == 0) {
+        self.topRootView.constant += 12.0;
+    }
+    NSLog(@"%s - self.topRootView.constant : %f", __FUNCTION__, self.topRootView.constant);
+    
     [self khoiTaoKetNoiLayDanhSachTaiKhoanThuongDung];
     [self khoiTaoViewXacThuc];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 -(void)viewDidLayoutSubviews
@@ -309,7 +310,7 @@ NSString *KEY_TAI_KHOAN_NAP_TIEN = @"KEY_TAI_KHOAN_NAP_TIEN";
 {
 //    NSLog(@"%s - sKetQua : %@", __FUNCTION__, sKetQua);
     NSDictionary *dic = [sKetQua objectFromJSONString];
-    NSLog(@"%s - dictTemp : %@", __FUNCTION__, [dic description]);
+//    NSLog(@"%s - dictTemp : %@", __FUNCTION__, [dic description]);
 //    NSDictionary *dic = [[[[sKetQua stringByReplacingOccurrencesOfString:@"\\" withString:@""] stringByReplacingOccurrencesOfString:@"\"{" withString:@"{"] stringByReplacingOccurrencesOfString:@"}\"" withString:@"}"] objectFromJSONString];
 //    NSLog(@"%s - dic : %@", __FUNCTION__, [dic description]);
     int nCode = [[dic objectForKey:@"msgCode"] intValue];
@@ -429,7 +430,7 @@ NSString *KEY_TAI_KHOAN_NAP_TIEN = @"KEY_TAI_KHOAN_NAP_TIEN";
                 
                 if(obj.nType != TAI_KHOAN_THE_RUT_TIEN)
                 {
-                    NSLog(@"DanhSachTaiKhoanThuongDungController : cellphoneNumber : %@", [itemDs objectForKey:@"cellphoneNumber"]);
+//                    NSLog(@"DanhSachTaiKhoanThuongDungController : cellphoneNumber : %@", [itemDs objectForKey:@"cellphoneNumber"]);
 //                    if (self.nLoaiTaiKhoan == TAI_KHOAN_THE_DIRECT && obj.nType == self.nLoaiTaiKhoan) {
 //                        [dsTaiKhoanThuongDung addObject:obj];
 //                    }
@@ -1177,6 +1178,7 @@ NSString *KEY_TAI_KHOAN_NAP_TIEN = @"KEY_TAI_KHOAN_NAP_TIEN";
         [rootView release];
     if(btnBack)
         [btnBack release];
+    [_topRootView release];
     [super dealloc];
 }
 
