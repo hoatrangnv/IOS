@@ -382,13 +382,6 @@ static NSString *const DINH_DANH_KET_NOI_DOI_SO_DIEN_THOAI_TOKEN = @"DINH_DANH_K
     NSString *message = [dicKetQua objectForKey:@"msgContent"];
     if(nCode == 1)
     {
-//        DucNT_LoginSceen *ctrl = [[DucNT_LoginSceen alloc] init];
-//        ctrl.sTenViewController = [DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_TEN_VIEWCONTROLLER_CAN_TOI];
-//        ctrl.sKieuChuyenGiaoDien = [DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_KIEU_CHUYEN_GIAO_DIEN];
-//        [viewControllerParent.navigationController presentModalViewController:ctrl animated:YES];
-//        [ctrl release];
-        
-        /*push notification về cho viewController -> chuyển lại về đăng nhập*/
         [[NSNotificationCenter defaultCenter] postNotificationName:@"XAC_THUC_OTP_THANH_CONG" object:nil];
         [self removeFromSuperview];
     }

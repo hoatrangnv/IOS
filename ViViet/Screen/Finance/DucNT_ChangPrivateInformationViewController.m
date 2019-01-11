@@ -111,9 +111,9 @@ const int DINH_DANH_THONG_BAO_THANH_CONG = 100;
     mXacThucVanTay = NO;
     nRowChiNhanh = -1;
     nRowBank = -1;
-//    self.thongTinTaiKhoan = [DucNT_LuuRMS layThongTinTaiKhoanVi];
+
     [self addButtonBack];
-//    self.navigationItem.title = [@"@title_thay_doi_thong_tin_tai_khoan" localizableString];
+
     [self addTitleView:[@"title_thay_doi_thong_tin_tai_khoan" localizableString]];
     bTrangThaiCoAnhMatTruocMoi = false;
     bTrangThaiCoAnhMatSauMoi = false;
@@ -132,32 +132,22 @@ const int DINH_DANH_THONG_BAO_THANH_CONG = 100;
     longHander.delegate = self;
     longHander.minimumPressDuration = 1;
     [self.imgvQRCode addGestureRecognizer:longHander];
+    
+    [self khoiTaoView];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    NSLog(@"%s =========================> 2", __FUNCTION__);
-    NSString *sTaiKhoan = [DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_ID_TEMP];
-    if ([sTaiKhoan hasPrefix:@"fb_"] || [sTaiKhoan hasPrefix:@"gg_"]) {
-        self.mbtnXacThucBoiSMS.enabled = NO;
-        self.mbtnXacThucBoiToken.enabled = NO;
-        self.btnVanTayMini.hidden = YES;
-    }
-    else {
-        NSLog(@"%s - disable button email", __FUNCTION__);
-        self.mbtnXacThucBoiEmail.enabled = NO;
-        self.btnVanTayMini.hidden = NO;
-    }
-    
     [self.edtDiaChiNha resignFirstResponder];
     [self.tvDiaChiNha resignFirstResponder];
     
-    [self khoiTaoView];
+    CGRect rectMain = viewMain.frame;
+    [scrollView setContentSize:CGSizeMake(viewMain.frame.size.width, rectMain.origin.y + rectMain.size.height + 20)];
     [self hienThiDuLieu];
     [self khoiTaoViewCalendarNgaySinh];
     [self khoiTaoViewCalenderNgayCap];
     [self khoiTaoViewChonNoiCap];
-    [self khoiTaoGiaoDienChuyenTien];
+//    [self khoiTaoGiaoDienChuyenTien];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -393,32 +383,32 @@ const int DINH_DANH_THONG_BAO_THANH_CONG = 100;
     
 }
 
-- (void)khoiTaoGiaoDienChuyenTien
-{
-    //Kiem tra co 1 trong 3 loai xac thuc token, sms, email
-    //Xac thuc = dien thoai
-    self.mPhoneAuthenticate = [DucNT_LuuRMS layThongTinDangNhap:KEY_PHONE_AUTHENTICATE];
-    //Xac thuc = token
-    self.mIsToken = [[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_TRANG_THAI_CO_TOKEN] intValue];
-    //Xac thuc = email
-    self.mEmailAuthenticate = [DucNT_LuuRMS layThongTinDangNhap:KEY_EMAIL_AUTHENTICATE];
-    
-    [self.mbtnXacThucBoiToken setTitle:@"TOKEN" forState:UIControlStateNormal];
-    [self.mbtnXacThucBoiToken setBackgroundImage:[UIImage imageNamed:@"bg-nuttrang"] forState:UIControlStateNormal];
-    [self.mbtnXacThucBoiSMS setTitle:@"SMS" forState:UIControlStateNormal];
-    [self.mbtnXacThucBoiSMS setBackgroundImage:[UIImage imageNamed:@"bg-nuttrang"] forState:UIControlStateNormal];
-    [self.mbtnXacThucBoiEmail setTitle:@"EMAIL" forState:UIControlStateNormal];
-    [self.mbtnXacThucBoiEmail setBackgroundImage:[UIImage imageNamed:@"bg-nuttrang"] forState:UIControlStateNormal];
-    
-    self.mbtnXacThucBoiSMS.selected = NO;
-    self.mbtnXacThucBoiToken.selected = NO;
-    self.mbtnXacThucBoiEmail.selected = NO;
-    
-    if(_mIsToken > 0)
-    {
-        [self suKienBamNutToken:self.mbtnXacThucBoiToken];
-    }
-}
+//- (void)khoiTaoGiaoDienChuyenTien
+//{
+//    //Kiem tra co 1 trong 3 loai xac thuc token, sms, email
+//    //Xac thuc = dien thoai
+//    self.mPhoneAuthenticate = [DucNT_LuuRMS layThongTinDangNhap:KEY_PHONE_AUTHENTICATE];
+//    //Xac thuc = token
+//    self.mIsToken = [[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_TRANG_THAI_CO_TOKEN] intValue];
+//    //Xac thuc = email
+//    self.mEmailAuthenticate = [DucNT_LuuRMS layThongTinDangNhap:KEY_EMAIL_AUTHENTICATE];
+//
+//    [self.mbtnXacThucBoiToken setTitle:@"TOKEN" forState:UIControlStateNormal];
+//    [self.mbtnXacThucBoiToken setBackgroundImage:[UIImage imageNamed:@"bg-nuttrang"] forState:UIControlStateNormal];
+//    [self.mbtnXacThucBoiSMS setTitle:@"SMS" forState:UIControlStateNormal];
+//    [self.mbtnXacThucBoiSMS setBackgroundImage:[UIImage imageNamed:@"bg-nuttrang"] forState:UIControlStateNormal];
+//    [self.mbtnXacThucBoiEmail setTitle:@"EMAIL" forState:UIControlStateNormal];
+//    [self.mbtnXacThucBoiEmail setBackgroundImage:[UIImage imageNamed:@"bg-nuttrang"] forState:UIControlStateNormal];
+//
+//    self.mbtnXacThucBoiSMS.selected = NO;
+//    self.mbtnXacThucBoiToken.selected = NO;
+//    self.mbtnXacThucBoiEmail.selected = NO;
+//
+//    if(_mIsToken > 0)
+//    {
+//        [self suKienBamNutToken:self.mbtnXacThucBoiToken];
+//    }
+//}
 
 - (void)hideViewNhapToken {
     
@@ -426,16 +416,6 @@ const int DINH_DANH_THONG_BAO_THANH_CONG = 100;
 
 -(void)khoiTaoView
 {
-//    CGRect rViewToken = self.mViewToken.frame;
-//    NSLog(@"%s - self.view.frame.width : %f", __FUNCTION__, self.view.frame.size.width);
-    CGRect rectMain = viewMain.frame;
-//    rectMain.size.width = scrollView.frame.size.width;
-//    if (self.view.frame.size.width >= 414.0) {
-//        rectMain.size.height += 380.0;
-//    }
-//    viewMain.frame = rectMain;
-    [scrollView setContentSize:CGSizeMake(viewMain.frame.size.width, rectMain.origin.y + rectMain.size.height + 20)];
-    [scrollView addSubview:viewMain];
     [self khoiTaoViewMain];
 }
 #pragma mark - khởi tạo dữ liệu đổ vào
@@ -463,15 +443,6 @@ const int DINH_DANH_THONG_BAO_THANH_CONG = 100;
         [dsAnhCanUp removeAllObjects];
     
     NSString *sTaiKhoan = [DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_ID_TEMP];
-    if ([sTaiKhoan hasPrefix:@"fb_"] || [sTaiKhoan hasPrefix:@"gg_"]) {
-        self.mbtnSMS.enabled = NO;
-        self.mbtnToken.enabled = NO;
-        self.btnVanTayMini.enabled = NO;
-    }
-    else {
-        NSLog(@"%s - disable button email", __FUNCTION__);
-        self.mbtnEmail.enabled = NO;
-    }
     self.mtfTaiKhoan.text = sTaiKhoan;
     self.mtfTaiKhoan.userInteractionEnabled = NO;
     
@@ -781,36 +752,34 @@ const int DINH_DANH_THONG_BAO_THANH_CONG = 100;
     }];
 }
 
-- (IBAction)suKienBamNutToken:(UIButton *)sender
-{
-//    if([self validateKhongToken])
-//    {
-        if(!self.mbtnXacThucBoiToken.selected)
-        {
-            mTypeAuthenticate = TYPE_AUTHENTICATE_TOKEN;
-            [self.mbtnXacThucBoiToken setSelected:YES];
-            [self.mbtnXacThucBoiToken setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
-            
-            if(self.mbtnXacThucBoiSMS.enabled)
-            {
-                [self.mbtnXacThucBoiSMS setBackgroundImage:[UIImage imageNamed:@"bg-nuttrang"] forState:UIControlStateNormal];
-                [self.mbtnXacThucBoiSMS setTitleColor:nil forState:UIControlStateNormal];
-                [self.mbtnXacThucBoiSMS setSelected:NO];
-            }
-            
-            if(self.mbtnXacThucBoiEmail.enabled)
-            {
-                [self.mbtnXacThucBoiEmail setSelected:NO];
-                [self.mbtnXacThucBoiEmail setBackgroundImage:[UIImage imageNamed:@"bg-nuttrang"] forState:UIControlStateNormal];
-                [self.mbtnXacThucBoiEmail setTitleColor:nil forState:UIControlStateNormal];
-            }
-            
-            edtMatKhauToken.placeholder = [@"mat_khau_token" localizableString];
-            [edtMatKhauToken setTextError:[@"@mat_khau_token_khong_dc_de_trong" localizableString]
-                                  forType:ExTextFieldTypeEmpty];
-        }
-//    }
-}
+//- (IBAction)suKienBamNutToken:(UIButton *)sender
+//{
+//    [super suKienBamNutToken:sender];
+//        if(!self.mbtnXacThucBoiToken.selected)
+//        {
+//            mTypeAuthenticate = TYPE_AUTHENTICATE_TOKEN;
+//            [self.mbtnXacThucBoiToken setSelected:YES];
+//            [self.mbtnXacThucBoiToken setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+//            
+//            if(self.mbtnXacThucBoiSMS.enabled)
+//            {
+//                [self.mbtnXacThucBoiSMS setBackgroundImage:[UIImage imageNamed:@"bg-nuttrang"] forState:UIControlStateNormal];
+//                [self.mbtnXacThucBoiSMS setTitleColor:nil forState:UIControlStateNormal];
+//                [self.mbtnXacThucBoiSMS setSelected:NO];
+//            }
+//            
+//            if(self.mbtnXacThucBoiEmail.enabled)
+//            {
+//                [self.mbtnXacThucBoiEmail setSelected:NO];
+//                [self.mbtnXacThucBoiEmail setBackgroundImage:[UIImage imageNamed:@"bg-nuttrang"] forState:UIControlStateNormal];
+//                [self.mbtnXacThucBoiEmail setTitleColor:nil forState:UIControlStateNormal];
+//            }
+//            
+//            edtMatKhauToken.placeholder = [@"mat_khau_token" localizableString];
+//            [edtMatKhauToken setTextError:[@"@mat_khau_token_khong_dc_de_trong" localizableString]
+//                                  forType:ExTextFieldTypeEmpty];
+//        }
+//}
 
 - (IBAction)suKienBamNutSMS:(UIButton *)sender
 {

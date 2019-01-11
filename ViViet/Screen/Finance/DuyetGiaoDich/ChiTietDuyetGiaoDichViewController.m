@@ -42,6 +42,8 @@
     [super viewDidAppear:animated];
     [self khoiTaoGiaoDienTheoQuyenCuaDoiTuong];
     [self.view endEditing:YES];
+    
+//    [self xuLyKetNoiThanhCong:DINH_DANH_KET_NOI_DUYET_GIAO_DICH thongBao:@"Thanh Cong" ketQua:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -59,6 +61,7 @@
     [self addTitleView:@"Chi tiết giao dịch"];
     self.mFuncID = FUNC_DUYET_GIAO_DICH_DOANH_NGHIEP;
     _mtvNoiDung.inputAccessoryView = nil;
+    
     [_mbtnHuy setBackgroundImage:[UIImage imageNamed:@"bg-nuttrang"] forState:UIControlStateSelected];
     [_mbtnHuy setTitleColor:[UIColor blackColor] forState:UIControlStateSelected];
     [_mbtnHuy setBackgroundImage:[UIImage imageNamed:@"bg_button"] forState:UIControlStateNormal];
@@ -67,6 +70,7 @@
     [_mbtnDuyet setTitleColor:[UIColor blackColor] forState:UIControlStateSelected];
     [_mbtnDuyet setBackgroundImage:[UIImage imageNamed:@"bg_button"] forState:UIControlStateNormal];
     [_mbtnDuyet setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    
     [self.mtbDsGiaoDich setHidden:YES];
     [_mViewChuaNoiDung setHidden:YES];
     [self.mViewNhapToken setHidden:YES];
@@ -112,21 +116,11 @@
 
 - (void)khoiTaoGiaoDienTheoDoiTuongDuyetGiaoDich
 {
-    NSLog(@"%s - [_mDoiTuongGiaoDich.trangThai intValue] : %d", __FUNCTION__, [_mDoiTuongGiaoDich.trangThai intValue]);
+    NSLog(@"%s - line : %d - [_mDoiTuongGiaoDich.trangThai intValue] : %d", __FUNCTION__, __LINE__, [_mDoiTuongGiaoDich.trangThai intValue]);
+    NSLog(@"%s - line : %d - _mDoiTuongGiaoDich.funcId : %d", __FUNCTION__, __LINE__, [_mDoiTuongGiaoDich.funcId intValue]);
     [_mtbDsGiaoDich layoutIfNeeded];
     self.heightTableView.constant = _mtbDsGiaoDich.contentSize.height;
-//    CGSize tableViewSize = _mtbDsGiaoDich.contentSize;
-//
-//    CGRect rViewThoiGianConLai = _mViewThoiGianConLai.frame;
-//    CGRect rViewNhapToken = self.mViewNhapToken.frame;
-//    CGRect rViewChuaNutXacNhan = _mViewChuaNutXacNhan.frame;
-//    CGRect rViewChuaNoiDung = _mViewChuaNoiDung.frame;
-//    CGRect rViewTongSoTien = _mViewTongSoTien.frame;
-//    CGRect rBtnVanTay = self.mbtnVanTay.frame;
-//    CGRect rViewMain = self.mViewMain.frame;
-//    CGRect rtbHienThiDsGiaoDich = _mtbDsGiaoDich.frame;
-//    CGRect rWebviewHienThi = _mwvHienThi.frame;
-
+    NSLog(@"%s - line : %d - self.heightTableView.constant : %f", __FUNCTION__, __LINE__, self.heightTableView.constant);
     if([_mDoiTuongGiaoDich.trangThai intValue] == DOANH_NGHIEP_LAP_LENH_THANH_CONG)
     {
         [_mViewChuaNoiDung setHidden:YES];
@@ -137,20 +131,12 @@
 
         
         [_mViewChuaNutXacNhan setHidden:NO];
-        if([self kiemTraCoChucNangQuetVanTay])
-        {
-            [self.mbtnVanTay setHidden:NO];
-        }
 
         if([_mDoiTuongGiaoDich.funcId intValue] == FUNC_DOANH_NGHIEP_LAP_LENH_THEO_LO)
         {
             [_mtbDsGiaoDich setHidden:NO];
             [_mViewTongSoTien setHidden:NO];
             self.heightViewTongSoTien.constant = 50.0;
-//            rtbHienThiDsGiaoDich.size = tableViewSize;
-//            rtbHienThiDsGiaoDich.origin.y = rWebviewHienThi.origin.y + rWebviewHienThi.size.height + 8;
-//            rViewTongSoTien.origin.y = rtbHienThiDsGiaoDich.origin.y + rtbHienThiDsGiaoDich.size.height + 8;
-//            rViewChuaNutXacNhan.origin.y = rViewTongSoTien.origin.y + rViewTongSoTien.size.height + 8;
         }
         else
         {
@@ -158,9 +144,7 @@
             [_mViewTongSoTien setHidden:YES];
             self.heightTableView.constant = 0;
             self.heightViewTongSoTien.constant = 0.0;
-//            rViewChuaNutXacNhan.origin.y = rWebviewHienThi.origin.y + rWebviewHienThi.size.height + 8;
         }
-//        rViewMain.size.height = rViewChuaNutXacNhan.origin.y + rViewChuaNutXacNhan.size.height + 10;
     }
     else
     {
@@ -176,10 +160,6 @@
             [_mtbDsGiaoDich setHidden:NO];
             [_mViewTongSoTien setHidden:NO];
             self.heightViewTongSoTien.constant = 50.0;
-//            rtbHienThiDsGiaoDich.size = tableViewSize;
-//            rtbHienThiDsGiaoDich.origin.y = rWebviewHienThi.origin.y + rWebviewHienThi.size.height + 8;
-//            rViewTongSoTien.origin.y = rtbHienThiDsGiaoDich.origin.y + rtbHienThiDsGiaoDich.size.height + 8;
-//            rViewMain.size.height = rViewTongSoTien.origin.y + rViewTongSoTien.size.height + 10;
         }
         else
         {
@@ -187,24 +167,17 @@
             [_mViewTongSoTien setHidden:YES];
             self.heightViewTongSoTien.constant = 0.0;
             self.heightTableView.constant = 0.0;
-//            rViewMain.size.height = 2*rWebviewHienThi.origin.y + rWebviewHienThi.size.height;
         }
 
     }
-    
-//    [self.mbtnVanTay setHidden:YES];
-//    float fHeight = 2*rViewMain.origin.y + rViewMain.size.height;
-//    _mscvHienThi.contentSize = CGSizeMake(_mscvHienThi.frame.size.width, fHeight);
-//    _mtbDsGiaoDich.frame = rtbHienThiDsGiaoDich;
-//    _mViewThoiGianConLai.frame = rViewThoiGianConLai;
-//    self.mViewNhapToken.frame = rViewNhapToken;
-//    _mViewChuaNutXacNhan.frame = rViewChuaNutXacNhan;
-//    _mViewChuaNoiDung.frame = rViewChuaNoiDung;
-//    _mViewTongSoTien.frame = rViewTongSoTien;
-//    self.mbtnVanTay.frame = rBtnVanTay;
-//    self.mViewMain.frame = rViewMain;
-//    _mwvHienThi.frame = rWebviewHienThi;
-    
+    if (self.heightTableView.constant > 0) {
+        [_mscvHienThi setContentSize:CGSizeMake(_mscvHienThi.frame.size.width, _mtbDsGiaoDich.frame.origin.y + self.heightTableView.constant + _mViewTongSoTien.frame.origin.y + self.heightViewTongSoTien.constant)];
+        NSLog(@"%s - line : %d - size contnt : %f", __FUNCTION__, __LINE__, _mtbDsGiaoDich.frame.origin.y + self.heightTableView.constant + _mViewTongSoTien.frame.origin.y + self.heightViewTongSoTien.constant);
+    }
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [_mscvHienThi setContentSize:CGSizeMake(_mscvHienThi.frame.size.width, self.mViewMain.frame.size.height + self.mViewMain.frame.origin.y)];
+        NSLog(@"%s - line : %d - size mViewMain : %f", __FUNCTION__, __LINE__, self.mViewMain.frame.size.height);
+    });
     [_mscvHienThi setContentOffset:CGPointMake(0.0f, 0.0f) animated:NO];
 }
 
@@ -217,36 +190,35 @@
 
 - (void)xuLyThucHienKhiKiemTraThanhCongTraVeToken:(NSString*)sToken otp:(NSString*)sOtp
 {
-    if(_mbtnDuyet.selected)
-    {
+    dispatch_async(dispatch_get_main_queue(), ^{
         if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"11")){
             [self hienThiLoading];
         }
-        self.mDinhDanhKetNoi = DINH_DANH_KET_NOI_DUYET_GIAO_DICH;        
-        [GiaoDichMang ketNoiDuyetGiaoDich:@[_mDoiTuongGiaoDich.maGiaoDich]
-                                 chucNang:[_mDoiTuongGiaoDich.funcId intValue]
-                                  noiDung:_mtvNoiDung.text
-                            maDoanhNghiep:_mDoiTuongGiaoDich.companyCode
-                                    token:sToken
-                                      otp:sOtp
-                         typeAuthenticate:self.mTypeAuthenticate
-                            noiNhanKetQua:self];
-    }
-    else if (_mbtnHuy.selected)
-    {
-        if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"11")){
-            [self hienThiLoading];
+        if(_mbtnDuyet.selected)
+        {
+            self.mDinhDanhKetNoi = DINH_DANH_KET_NOI_DUYET_GIAO_DICH;
+            [GiaoDichMang ketNoiDuyetGiaoDich:@[_mDoiTuongGiaoDich.maGiaoDich]
+                                     chucNang:[_mDoiTuongGiaoDich.funcId intValue]
+                                      noiDung:_mtvNoiDung.text
+                                maDoanhNghiep:_mDoiTuongGiaoDich.companyCode
+                                        token:sToken
+                                          otp:sOtp
+                             typeAuthenticate:self.mTypeAuthenticate
+                                noiNhanKetQua:self];
         }
-        self.mDinhDanhKetNoi = DINH_DANH_KET_NOI_HUY_GIAO_DICH;
-        [GiaoDichMang ketNoiHuyDuyetGiaoDich:@[_mDoiTuongGiaoDich.maGiaoDich]
-                                    chucNang:[_mDoiTuongGiaoDich.funcId intValue]
-                               maDoanhNghiep:_mDoiTuongGiaoDich.companyCode
-                                     noiDung:_mtvNoiDung.text
-                                       token:sToken
-                                         otp:sOtp
-                            typeAuthenticate:self.mTypeAuthenticate
-                               noiNhanKetQua:self];
-    }
+        else if (_mbtnHuy.selected)
+        {
+            self.mDinhDanhKetNoi = DINH_DANH_KET_NOI_HUY_GIAO_DICH;
+            [GiaoDichMang ketNoiHuyDuyetGiaoDich:@[_mDoiTuongGiaoDich.maGiaoDich]
+                                        chucNang:[_mDoiTuongGiaoDich.funcId intValue]
+                                   maDoanhNghiep:_mDoiTuongGiaoDich.companyCode
+                                         noiDung:_mtvNoiDung.text
+                                           token:sToken
+                                             otp:sOtp
+                                typeAuthenticate:self.mTypeAuthenticate
+                                   noiNhanKetQua:self];
+        }
+    });
 }
 
 - (void)xuLyKetNoiThanhCong:(NSString*)sDinhDanhKetNoi thongBao:(NSString*)sThongBao ketQua:(id)ketQua
@@ -292,12 +264,12 @@
     else if ([sDinhDanhKetNoi isEqualToString:DINH_DANH_KET_NOI_DUYET_GIAO_DICH])
     {
         //Duyet thanh cong thay doi trang thai
+        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:sThongBao];
         _mDoiTuongGiaoDich.trangThai = [NSNumber numberWithInt:DOANH_NGHIEP_DUYET_LENH_THANH_CONG];
         if([self.mDelegate respondsToSelector:@selector(suKienDuyetGiaoDichThanhCong)])
         {
             [self.mDelegate suKienDuyetGiaoDichThanhCong];
         }
-        [self hienThiHopThoaiMotNutBamKieu:HOP_THOAI_XAC_NHAN_CHUYEN_TIEN_THANH_CONG cauThongBao:sThongBao];
     }
     else if ([sDinhDanhKetNoi isEqualToString:DINH_DANH_KET_NOI_HUY_GIAO_DICH])
     {
@@ -306,9 +278,16 @@
         {
             [self.mDelegate suKienHuyDuyetGiaoDichThanhCong];
         }
-        [self hienThiHopThoaiMotNutBamKieu:HOP_THOAI_XAC_NHAN_CHUYEN_TIEN_THANH_CONG cauThongBao:sThongBao];
+        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:sThongBao];
     }
     self.mViewMain.hidden = NO;
+}
+
+- (void)xuLyKetNoiThatBai:(NSString *)sDinhDanhKetNoi thongBao:(NSString *)sThongBao ketQua:(id)ketQua{
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"11")){
+        [self anLoading];
+    }
+    [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:sThongBao];
 }
 
 #pragma mark - UITableViewDataSource
@@ -409,6 +388,8 @@
     self.heightWebHienThi.constant = frame.size.height;
     
     [self khoiTaoGiaoDienTheoDoiTuongDuyetGiaoDich];
+    
+//    self.mscvHienThi setContentSize:CGSizeMake(self.mscvHienThi.frame.size.width, self.)
 }
 
 #pragma mark - suKien
@@ -431,42 +412,52 @@
     [_mbtnHuy setSelected:YES];
     [_mbtnDuyet setSelected:NO];
     
-    CGRect rViewThoiGianConLai = _mViewThoiGianConLai.frame;
-    CGRect rViewNhapToken = self.mViewNhapToken.frame;
-    CGRect rViewChuaNutXacNhan = _mViewChuaNutXacNhan.frame;
-    CGRect rViewChuaNoiDung = _mViewChuaNoiDung.frame;
-    CGRect rBtnVanTay = self.mbtnVanTay.frame;
-    CGRect rViewMain = self.mViewMain.frame;
-    
     [_mViewChuaNoiDung setHidden:NO];
-    [self.mViewNhapToken setHidden:NO];
+    [self.mViewNhapToken setHidden:YES];
     [_mViewThoiGianConLai setHidden:NO];
+    self.heightViewNhapXacThuc.constant = 0.0;
+    self.heightViewNoiDung.constant = 70.0;
     
-    rViewChuaNoiDung.origin.y = rViewChuaNutXacNhan.origin.y + rViewChuaNutXacNhan.size.height + 8;
-    rViewThoiGianConLai.origin.y = rViewChuaNoiDung.origin.y + rViewChuaNoiDung.size.height + 8;
-    rViewNhapToken.origin.y = rViewThoiGianConLai.origin.y + rViewThoiGianConLai.size.height + 8;
-    rViewMain.size.height = rViewNhapToken.origin.y + rViewNhapToken.size.height + 10;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        _mscvHienThi.contentSize = CGSizeMake(_mscvHienThi.frame.size.width, self.mViewMain.frame.origin.y + self.mViewMain.frame.size.height + 20);
+    });
     
-    if([self kiemTraCoChucNangQuetVanTay])
-    {
-        [self.mbtnVanTay setHidden:NO];
-        rBtnVanTay.origin.y = rViewMain.origin.y + rViewMain.size.height + 20;
-        float fHeight = rBtnVanTay.origin.y + rBtnVanTay.size.height + 10;
-        _mscvHienThi.contentSize = CGSizeMake(_mscvHienThi.frame.size.width, fHeight);
-    }
-    else
-    {
-        [self.mbtnVanTay setHidden:YES];
-        float fHeight = 2*rViewMain.origin.y + rViewMain.size.height;
-        _mscvHienThi.contentSize = CGSizeMake(_mscvHienThi.frame.size.width, fHeight);
-    }
-    
-    _mViewThoiGianConLai.frame = rViewThoiGianConLai;
-    self.mViewNhapToken.frame = rViewNhapToken;
-    _mViewChuaNutXacNhan.frame = rViewChuaNutXacNhan;
-    _mViewChuaNoiDung.frame = rViewChuaNoiDung;
-    self.mbtnVanTay.frame = rBtnVanTay;
-    self.mViewMain.frame = rViewMain;
+//    CGRect rViewThoiGianConLai = _mViewThoiGianConLai.frame;
+//    CGRect rViewNhapToken = self.mViewNhapToken.frame;
+//    CGRect rViewChuaNutXacNhan = _mViewChuaNutXacNhan.frame;
+//    CGRect rViewChuaNoiDung = _mViewChuaNoiDung.frame;
+//    CGRect rBtnVanTay = self.mbtnVanTay.frame;
+//    CGRect rViewMain = self.mViewMain.frame;
+//
+//    [_mViewChuaNoiDung setHidden:NO];
+//    [self.mViewNhapToken setHidden:NO];
+//    [_mViewThoiGianConLai setHidden:NO];
+//
+//    rViewChuaNoiDung.origin.y = rViewChuaNutXacNhan.origin.y + rViewChuaNutXacNhan.size.height + 8;
+//    rViewThoiGianConLai.origin.y = rViewChuaNoiDung.origin.y + rViewChuaNoiDung.size.height + 8;
+//    rViewNhapToken.origin.y = rViewThoiGianConLai.origin.y + rViewThoiGianConLai.size.height + 8;
+//    rViewMain.size.height = rViewNhapToken.origin.y + rViewNhapToken.size.height + 10;
+//
+//    if([self kiemTraCoChucNangQuetVanTay])
+//    {
+//        [self.mbtnVanTay setHidden:NO];
+//        rBtnVanTay.origin.y = rViewMain.origin.y + rViewMain.size.height + 20;
+//        float fHeight = rBtnVanTay.origin.y + rBtnVanTay.size.height + 10;
+//        _mscvHienThi.contentSize = CGSizeMake(_mscvHienThi.frame.size.width, fHeight);
+//    }
+//    else
+//    {
+//        [self.mbtnVanTay setHidden:YES];
+//        float fHeight = 2*rViewMain.origin.y + rViewMain.size.height;
+//        _mscvHienThi.contentSize = CGSizeMake(_mscvHienThi.frame.size.width, fHeight);
+//    }
+//
+//    _mViewThoiGianConLai.frame = rViewThoiGianConLai;
+//    self.mViewNhapToken.frame = rViewNhapToken;
+//    _mViewChuaNutXacNhan.frame = rViewChuaNutXacNhan;
+//    _mViewChuaNoiDung.frame = rViewChuaNoiDung;
+//    self.mbtnVanTay.frame = rBtnVanTay;
+//    self.mViewMain.frame = rViewMain;
     
 }
 
@@ -475,42 +466,55 @@
     [_mbtnHuy setSelected:NO];
     [_mbtnDuyet setSelected:YES];
     
-    CGRect rViewThoiGianConLai = _mViewThoiGianConLai.frame;
-    CGRect rViewNhapToken = self.mViewNhapToken.frame;
-    CGRect rViewChuaNutXacNhan = _mViewChuaNutXacNhan.frame;
-    CGRect rViewChuaNoiDung = _mViewChuaNoiDung.frame;
-    CGRect rBtnVanTay = self.mbtnVanTay.frame;
-    CGRect rViewMain = self.mViewMain.frame;
-    
     [_mViewChuaNoiDung setHidden:YES];
-    [self.mViewNhapToken setHidden:NO];
+    [self.mViewNhapToken setHidden:YES];
     [_mViewThoiGianConLai setHidden:NO];
+    self.heightViewNhapXacThuc.constant = 0.0;
+    self.heightViewNoiDung.constant = 0.0;
     
-//    rViewChuaNoiDung.origin.y = rViewChuaNutXacNhan.origin.y + rViewChuaNutXacNhan.size.height + 8;
-    rViewThoiGianConLai.origin.y = rViewChuaNutXacNhan.origin.y + rViewChuaNutXacNhan.size.height + 8;
-    rViewNhapToken.origin.y = rViewThoiGianConLai.origin.y + rViewThoiGianConLai.size.height + 8;
-    rViewMain.size.height = rViewNhapToken.origin.y + rViewNhapToken.size.height + 10;
-    
-    if([self kiemTraCoChucNangQuetVanTay])
-    {
-        [self.mbtnVanTay setHidden:NO];
-        rBtnVanTay.origin.y = rViewMain.origin.y + rViewMain.size.height + 20;
-        float fHeight = rBtnVanTay.origin.y + rBtnVanTay.size.height + 10;
-        _mscvHienThi.contentSize = CGSizeMake(_mscvHienThi.frame.size.width, fHeight);
-    }
-    else
-    {
-        [self.mbtnVanTay setHidden:YES];
-        float fHeight = 2*rViewMain.origin.y + rViewMain.size.height;
-        _mscvHienThi.contentSize = CGSizeMake(_mscvHienThi.frame.size.width, fHeight);
-    }
-    
-    _mViewThoiGianConLai.frame = rViewThoiGianConLai;
-    self.mViewNhapToken.frame = rViewNhapToken;
-    _mViewChuaNutXacNhan.frame = rViewChuaNutXacNhan;
-    _mViewChuaNoiDung.frame = rViewChuaNoiDung;
-    self.mbtnVanTay.frame = rBtnVanTay;
-    self.mViewMain.frame = rViewMain;
+    _mscvHienThi.contentSize = CGSizeMake(_mscvHienThi.frame.size.width, self.mViewMain.frame.origin.y + self.mViewMain.frame.size.height + 20);
+//
+//    CGRect rViewThoiGianConLai = _mViewThoiGianConLai.frame;
+//    CGRect rViewNhapToken = self.mViewNhapToken.frame;
+//    CGRect rViewChuaNutXacNhan = _mViewChuaNutXacNhan.frame;
+//    CGRect rViewChuaNoiDung = _mViewChuaNoiDung.frame;
+//    CGRect rBtnVanTay = self.mbtnVanTay.frame;
+//    CGRect rViewMain = self.mViewMain.frame;
+//
+//    [_mViewChuaNoiDung setHidden:YES];
+//    [self.mViewNhapToken setHidden:NO];
+//    [_mViewThoiGianConLai setHidden:NO];
+//
+//    rViewThoiGianConLai.origin.y = rViewChuaNutXacNhan.origin.y + rViewChuaNutXacNhan.size.height + 8;
+//    rViewNhapToken.origin.y = rViewThoiGianConLai.origin.y + rViewThoiGianConLai.size.height + 8;
+//    rViewMain.size.height = rViewNhapToken.origin.y + rViewNhapToken.size.height + 10;
+//
+//    if([self kiemTraCoChucNangQuetVanTay])
+//    {
+//        [self.mbtnVanTay setHidden:NO];
+//        rBtnVanTay.origin.y = rViewMain.origin.y + rViewMain.size.height + 20;
+//        float fHeight = rBtnVanTay.origin.y + rBtnVanTay.size.height + 10;
+//        _mscvHienThi.contentSize = CGSizeMake(_mscvHienThi.frame.size.width, fHeight);
+//    }
+//    else
+//    {
+//        [self.mbtnVanTay setHidden:YES];
+//        float fHeight = 2*rViewMain.origin.y + rViewMain.size.height;
+//        _mscvHienThi.contentSize = CGSizeMake(_mscvHienThi.frame.size.width, fHeight);
+//    }
+//
+//    _mViewThoiGianConLai.frame = rViewThoiGianConLai;
+//    self.mViewNhapToken.frame = rViewNhapToken;
+//    _mViewChuaNutXacNhan.frame = rViewChuaNutXacNhan;
+//    _mViewChuaNoiDung.frame = rViewChuaNoiDung;
+//    self.mbtnVanTay.frame = rBtnVanTay;
+//    self.mViewMain.frame = rViewMain;
+}
+
+- (void)hideViewNhapToken {
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//        
+//    });
 }
 
 #pragma mark - dealloc

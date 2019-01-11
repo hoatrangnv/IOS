@@ -60,6 +60,10 @@
     self.navigationItem.leftBarButtonItem = btnBack;
 }
 
+- (void)suKienBamVaoTitle:(UITapGestureRecognizer *)sender {
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+}
+
 - (void)suKienChonBack:(UIBarButtonItem *)sender {
     NSLog(@"%s - click click", __FUNCTION__);
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];

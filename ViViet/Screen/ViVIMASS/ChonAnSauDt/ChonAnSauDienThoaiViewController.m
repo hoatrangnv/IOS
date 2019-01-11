@@ -31,7 +31,7 @@
     [self setButtonRightNav];
     [self getDanhsach];
     _tbvDanhsach.tableFooterView = [UIView new];
-    self.navigationItem.title = @"Chọn ví,thẻ,tk ẩn sau điện thoại";
+    [self addTitleView:@"Chọn ví,thẻ,tk ẩn sau điện thoại"];
     isShowKeyBoard = false;
 }
 -(void)viewWillAppear:(BOOL)animated{
@@ -116,7 +116,7 @@
 - (void)actionThucHien:(NSString*)token {
     self.mTypeAuthenticate = TYPE_AUTHENTICATE_TOKEN;
     if([CommonUtils isEmptyOrNull:token]){
-        [UIAlertView alert:@"Vui lòng nhập mật khẩu " withTitle:[@"thong_bao" localizableString] block:nil];
+        [UIAlertView alert:@"Vui lòng nhập mật khẩu" withTitle:[@"thong_bao" localizableString] block:nil];
         return;
     }
     mkToken = token;

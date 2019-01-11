@@ -23,7 +23,10 @@
     [self addTitleView:@"Bảo hiểm"];
     indexLoai = 0;
     arrLoaiBaoHiem = [[NSArray alloc] initWithObjects:@"Trả phí bảo hiểm Liberty", @"Trả phí bảo hiểm nhân thọ ACE Life VN", @"Trả phí bảo hiểm nhân thọ AIA VN", @"Trả phí bảo hiểm nhân thọ Prudential VN", @"Trả phí bảo hiểm AIG VN", @"Trả phí bảo hiểm Hanwha Life VN", @"Trả phí bảo hiểm nhân thọ Dai-ichi VN", @"Trả phí bảo hiểm nhân thọ PVI Sun Life", @"Trả phí bảo hiểm Manulife VN", @"Trả phí bảo hiểm Vietcombank Cardif (VCLI)", nil];
-//    arrLoaiBaoHiem = @[@"Trả phí bảo hiểm Liberty", @"Trả phí bảo hiểm nhân thọ ACE Life VN", @"Trả phí bảo hiểm nhân thọ AIA VN", @"Trả phí bảo hiểm nhân thọ Prudential VN", @"Trả phí bảo hiểm AIG VN", @"Trả phí bảo hiểm Hanwha Life VN", @"Trả phí bảo hiểm nhân thọ Dai-ichi VN", @"Trả phí bảo hiểm nhân thọ PVI Sun Life", @"Trả phí bảo hiểm Manulife VN", @"Trả phí bảo hiểm Vietcombank Cardif (VCLI)"];
+    
+    UIView *viewTemp = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+    UIBarButtonItem *right = [[UIBarButtonItem alloc] initWithCustomView:viewTemp];
+    self.navigationItem.rightBarButtonItem = right;
 }
 
 - (void)viewDidAppear:(BOOL)animated {

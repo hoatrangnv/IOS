@@ -160,6 +160,10 @@
 - (void)khoiTaoBanDau
 {
 //    self.title = [@"Contact" localizableString];
+    NSLog(@"%s - line : %d ============> START", __FUNCTION__, __LINE__);
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self hienThiLoadingLayDanhBa];
+    });
     [self addTitleView:[@"Contact" localizableString]];
     [self addBackButton:YES];
     [self addButton:@"refresh64" selector:@selector(suKienBamNutRefresh:) atSide:1];

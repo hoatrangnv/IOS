@@ -103,8 +103,9 @@
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = false;
 //    self.navigationController.navigationBarHidden = YES;
-    [self hienThiBagdeNumber];
+    [self khoiTaoNaviGationBar];
     [self reloadGiaoDien:nil];
+    
     UITapGestureRecognizer *tap1 = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapNganHang:)];
     tap1.numberOfTapsRequired = 1;
     [self.vNganHang addGestureRecognizer:tap1 ];
@@ -145,7 +146,7 @@
     }
 }
 - (void)viewDidAppear:(BOOL)animated{
-    [self khoiTaoNaviGationBar];
+    
     [self xuLyGiaoDienKhiVaoApp];
 }
 -(void)tapNganHang:(UITapGestureRecognizer*)gesture{
@@ -159,6 +160,7 @@
     [self displayContentController:self.nganhangVC];
 }
 -(void)tapViDienTu:(UITapGestureRecognizer*)gesture{
+    NSLog(@"%s - click vi dien tu : %d", __FUNCTION__, app.selectedTab);
     [self resetTab];
     app.selectedTab = 1;
     app.selectedDienThoaiVC = 0;
@@ -243,24 +245,17 @@
                 }
             }
         }
+        
         btnTemp.backgroundColor = [UIColor clearColor];
-        btnTemp.frame = CGRectMake(0, 0, 40, 40);
         if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"11")) {
             [btnTemp.widthAnchor constraintEqualToConstant:40].active = YES;
             [btnTemp.heightAnchor constraintEqualToConstant:40].active = YES;
         }
         [btnTemp addTarget:self action:@selector(suKienBamNutMore:) forControlEvents:UIControlEventTouchUpInside];
-        
+
         UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithCustomView:btnTemp];
-        leftItem.width = 30;
-        UIBarButtonItem *negativeSeperator = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil] autorelease];
-        
-        if (SYSTEM_VERSION_LESS_THAN(@"11"))
-            negativeSeperator.width = -10;
-        else
-            negativeSeperator.width = -15;
-        self.navigationItem.rightBarButtonItems = @[negativeSeperator, leftItem];
-        
+        self.navigationItem.rightBarButtonItem = leftItem;
+
         [self capNhatSoDuVi];
     }
     else {
@@ -277,6 +272,24 @@
                 [self hienThongBaoDangNhapVanTay:sTaiKhoan];
             }
         }
+    }
+}
+
+- (void)khoiTaoNaviGationBar
+{
+    if (mViewNavigationGiaoDienChinh == nil) {
+        mViewNavigationGiaoDienChinh = [[[NSBundle mainBundle] loadNibNamed:@"ViewNavigationGiaoDienChinh" owner:self options:nil] objectAtIndex:0];
+        mViewNavigationGiaoDienChinh.mDelegate = self;
+        self.navigationItem.titleView = mViewNavigationGiaoDienChinh;
+        
+        UIButton *btnLeft = [UIButton buttonWithType:UIButtonTypeCustom];
+        [btnLeft addTarget:self action:@selector(suKienBamNutHome:) forControlEvents:UIControlEventTouchUpInside];
+        [btnLeft setImage:[UIImage imageNamed:@"ic_home_32"] forState:UIControlStateNormal];
+        [btnLeft.widthAnchor constraintEqualToConstant:25].active = YES;
+        [btnLeft.heightAnchor constraintEqualToConstant:25].active = YES;
+        UIBarButtonItem *leftBtn = [[UIBarButtonItem alloc] initWithCustomView:btnLeft];
+        self.navigationItem.leftBarButtonItem = leftBtn;
+        //        [self addButton:@"ic_home_32" selector:@selector(suKienBamNutHome :) atSide:0];
     }
 }
 
@@ -490,16 +503,7 @@
 
 // For Navigate
 
-- (void)khoiTaoNaviGationBar
-{
-    if (mViewNavigationGiaoDienChinh == nil) {
-        mViewNavigationGiaoDienChinh = [[[NSBundle mainBundle] loadNibNamed:@"ViewNavigationGiaoDienChinh" owner:self options:nil] objectAtIndex:0];
-        mViewNavigationGiaoDienChinh.mDelegate = self;
-        self.navigationItem.titleView = mViewNavigationGiaoDienChinh;
-        [self addButton:@"ic_home_32" selector:@selector(suKienBamNutHome :) atSide:0];
-    }
-    //    [self addButtonBack];
-}
+
 - (IBAction)suKienBamNutHome:(UIButton *)sender
 {
     [self resetTab];
@@ -546,7 +550,7 @@
 
 - (IBAction)suKienBamNutMore:(UIButton *)sender
 {
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Đóng" destructiveButtonTitle:nil otherButtonTitles:@"Đăng xuất bản 2.0", @"Chia sẻ", @"Góp ý", @"Hướng dẫn", nil];
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Đóng" destructiveButtonTitle:nil otherButtonTitles:@"Đăng xuất", @"Chia sẻ", @"Góp ý", @"Hướng dẫn", nil];
     [actionSheet showInView:self.view];
     [actionSheet release];
 }
@@ -712,17 +716,24 @@
 
 - (void)hienThiBagdeNumber
 {
-    int nBagdeNumberQuangBa = [[DichVuNotification shareService] laySoLuongTinChuaDocTrongChucNang:TIN_QUANG_BA];
-    NSLog(@"%s - nBagdeNumberQuangBa : %d", __FUNCTION__, nBagdeNumberQuangBa);
-    if(nBagdeNumberQuangBa > 0)
-    {
-        [self.mlblThongBaoBadgeNumber setText:[NSString stringWithFormat:@"%d", nBagdeNumberQuangBa]];
-        [self.mlblThongBaoBadgeNumber setHidden:NO];
+    if (mViewNavigationGiaoDienChinh != nil) {
+        int nBagdeNumberQuangBa = [[DichVuNotification shareService] laySoLuongTinChuaDocTrongChucNang:TIN_QUANG_BA];
+//        int nBagdeNumberQuangBa = 10;
+        NSLog(@"%s - nBagdeNumberQuangBa : %d", __FUNCTION__, nBagdeNumberQuangBa);
+        if(nBagdeNumberQuangBa > 0)
+        {
+            mViewNavigationGiaoDienChinh.mlblThongBaoBadgeNumber.text = [NSString stringWithFormat:@"%d", nBagdeNumberQuangBa];
+            [mViewNavigationGiaoDienChinh.mlblThongBaoBadgeNumber setHidden:NO];
+//            [self.mlblThongBaoBadgeNumber setText:[NSString stringWithFormat:@"%d", nBagdeNumberQuangBa]];
+//            [self.mlblThongBaoBadgeNumber setHidden:NO];
+        }
+        else
+        {
+            [mViewNavigationGiaoDienChinh.mlblThongBaoBadgeNumber setHidden:YES];
+//            [self.mlblThongBaoBadgeNumber setHidden:YES];
+        }
     }
-    else
-    {
-        [self.mlblThongBaoBadgeNumber setHidden:YES];
-    }
+    
 }
 
 - (void)hienThiSoTien:(NSString *)sSoTien {
@@ -934,7 +945,8 @@
                 break;
             case 3:{
                 // chuyen tien dt
-                
+                [self resetTab];
+                [self displayContentController:self.dienthoaiVC];
             }
                 break;
             case 4:{
@@ -1052,6 +1064,7 @@
 
 - (void) hideContentController: (UIViewController*) content
 {
+    NSLog(@"%s - remove view ngan hang", __FUNCTION__);
     [content willMoveToParentViewController:nil];  // 1
     [content.view removeFromSuperview];            // 2
     [content removeFromParentViewController];      // 3

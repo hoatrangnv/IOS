@@ -116,6 +116,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+//    [self hienThiLoadingLayDanhBa];
+    NSLog(@"%s -------------------> START", __FUNCTION__);
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self hienThiLoadingLayDanhBa];
+    });
+    _multiSelectContact = [NSMutableArray new];
+    [self khoiTaoBanDau];
     if (app.global.loadContactSuccess == NO)
     {
         self.isLoading = YES;
@@ -123,6 +130,8 @@
     }
     else
     {
+        NSLog(@"%s - line : %d - loadContactSuccess == YES", __FUNCTION__, __LINE__);
+        self.isLoading = NO;
         if(_mKieuHienThiLienHe == KIEU_HIEN_THI_LIEN_HE_THUONG)
         {
             self.mDanhSachLienHe = app.global.contacts;
@@ -131,11 +140,16 @@
         {
             self.mDanhSachLienHe = app.global.mDanhSachLienHeDaCoVi;
         }
-        [self.tableView reloadData];
-        [self classifyFromContacts:self.mDanhSachLienHe withKeyword:nil];
+        NSLog(@"%s - line : %d - self.mDanhSachLienHe.count : %ld", __FUNCTION__, __LINE__, self.mDanhSachLienHe.count);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self anLoading];
+            [self classifyFromContacts:self.mDanhSachLienHe withKeyword:nil];
+            [self.tableView reloadData];
+        });
     }
-    [self khoiTaoBanDau];
-    _multiSelectContact = [NSMutableArray new];
+    
+    
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -151,7 +165,7 @@
 - (void)viewDidUnload
 {
     [self setTableView:nil];
-    [self setSearchBar:nil];
+//    [self setSearchBar:nil];
     [super viewDidUnload];
 }
 
@@ -167,9 +181,12 @@
 
 - (void)khoiTaoBanDau
 {
-//    self.title = [@"Contact" localizableString];
+    NSLog(@"%s - line : %d ============> START", __FUNCTION__, __LINE__);
     [self addTitleView:[@"Contact" localizableString]];
-    [self addBackButton:YES];
+    UIBarButtonItem *btnLeft = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style:UIBarButtonItemStyleDone target:self action:@selector(suKienChonBack:)];
+    btnLeft.imageInsets = UIEdgeInsetsMake(0, -10, 0, 0);
+    self.navigationItem.leftBarButtonItem = btnLeft;
+    
     [self addButtonRight];
     [self initTitleViewNavigationbar];
     SearchView.delegate = self;
@@ -199,6 +216,10 @@
          return ;
      }];
     
+}
+
+- (void)suKienChonBack:(UIButton *)sender {
+    [[self navigationController] popViewControllerAnimated:YES];
 }
 
 - (void)initTitleViewNavigationbar {
@@ -252,6 +273,7 @@
     [self classifyFromContacts:self.mDanhSachLienHe withKeyword:nil];
     self.isLoading = NO;
     dispatch_async(dispatch_get_main_queue(), ^(void){
+        [self anLoading];
         [tableView reloadData];
     });
 }
@@ -393,7 +415,7 @@
 
 - (CGFloat)tableView:(UITableView *)tbl heightForRowAtIndexPath:(NSIndexPath *)indexPath;
 {
-    return [ContactViewCellMultiSelect height];
+    return 54.0;
 }
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tbl
 {
@@ -403,19 +425,13 @@
 // header in section view + title + height
 - (UIView *)tableView:(UITableView *)tbl viewForHeaderInSection:(NSInteger)section
 {
-    CGRect r = CGRectMake(0, 0, 320, 20);
-    UIView *view = [[UIView alloc] initWithFrame:r];
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tbl.frame.size.width, 32.0)];
     view.backgroundColor = [UIColor lightGrayColor];
-    
-    //    UIImageView *img = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 20)];
-    //    img.image = [Common stretchImage:@"section_header_bg"];
-    r.origin.x = 10;
-    r.size.width = 300;
-    UILabel *lbl = [[UILabel alloc] initWithFrame:r];
+    UILabel *lbl = [[UILabel alloc] initWithFrame:CGRectMake(8, 0, 50, 32)];
     lbl.text = [_firstChars objectAtIndex:section];
     lbl.textColor = [UIColor blackColor];
     lbl.backgroundColor = [UIColor lightGrayColor];
-    lbl.font = [UIFont boldSystemFontOfSize:14];
+    lbl.font = [UIFont boldSystemFontOfSize:15];
     lbl.backgroundColor = [UIColor clearColor];
     
     //    [view addSubview:img];
@@ -427,7 +443,7 @@
 }
 -(CGFloat)tableView:(UITableView *)tbl heightForHeaderInSection:(NSInteger)section
 {
-    return 20;
+    return 32;
 }
 
 #pragma mark - CustomSearchDelegate

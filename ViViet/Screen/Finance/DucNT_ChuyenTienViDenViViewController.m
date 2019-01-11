@@ -272,9 +272,9 @@
     }
 
     double fSoTien = [[_mtfSoTien.text stringByReplacingOccurrencesOfString:@"." withString:@""] doubleValue];
-    if(![Common kiemTraSoTienMotLanChuyenHopLe:fSoTien])
+    if(fSoTien < 1)
     {
-        [UIAlertView alert:@"chuyển đi tối thiểu là 1000 đồng" withTitle:[@"thong_bao" localizableString] block:nil];
+        [UIAlertView alert:@"chuyển đi tối thiểu là 1 đồng" withTitle:[@"thong_bao" localizableString] block:nil];
         return NO;
     }
     else if (fSoTien >= [self.mThongTinTaiKhoanVi.nAmount doubleValue]) {

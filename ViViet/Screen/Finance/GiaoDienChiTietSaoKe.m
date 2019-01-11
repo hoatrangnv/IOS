@@ -48,8 +48,9 @@
     [super viewDidAppear:animated];
     if (_saoKe) {
         NSString *sHTML = [self updateView:_saoKe];
-        _sXauGuiMail = sHTML;
-        [_webChiTiet loadHTMLString:sHTML baseURL:nil];
+        NSLog(@"%s - line : %d - sHTML : %@", __FUNCTION__, __LINE__, sHTML);
+        _sXauGuiMail = [[NSString alloc] initWithString:sHTML];
+        [_webChiTiet loadHTMLString:[NSString stringWithFormat:@"<p style=\"font-size:20px;\">%@</p>", sHTML] baseURL:nil];
         [_webChiTiet setDelegate:self];
         [_btnMail setTitle:[NSString stringWithFormat:@"Gửi về %@", [self.mThongTinTaiKhoanVi layThuDienTu]] forState:UIControlStateNormal];
     }
@@ -58,23 +59,28 @@
     _webChiTiet.backgroundColor = [UIColor redColor];
 }
 -(void)webViewDidFinishLoad:(UIWebView *)webView{
-    NSString *fontSize=@"143";
-    NSString *jsString = [[NSString alloc]      initWithFormat:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '%d%%'",[fontSize intValue]];
-    [_webChiTiet stringByEvaluatingJavaScriptFromString:jsString];
-//    CGRect frame = webView.frame;
-//    frame.size.height = 1;
-//    webView.frame = frame;
-//    CGSize fittingSize = [webView sizeThatFits:CGSizeZero];
-//    frame.size = fittingSize;
-//    webView.frame = frame;
+//    NSString *fontSize=@"143";
+//    NSString *jsString = [[NSString alloc]      initWithFormat:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '%d%%'",[fontSize intValue]];
+//    [_webChiTiet stringByEvaluatingJavaScriptFromString:jsString];
     
-    CGRect v1 = self.viewBtnMail.frame;
-    v1.origin.y = CGRectGetMaxY(webView.frame);
-    self.viewBtnMail.frame = v1;
-    CGRect vMain = self.mViewMain.frame;
-    vMain.size.height = CGRectGetMaxY(self.viewBtnMail.frame) + 10;
-    self.mViewMain.frame = vMain;
-    self.mainScroll.contentSize = CGSizeMake(1,CGRectGetMaxY(self.mViewMain.frame) +20);
+    CGFloat height = webView.scrollView.contentSize.height;
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        CGRect rectWeb = webView.frame;
+        rectWeb.size.height = height + 8;
+        webView.frame = rectWeb;
+        
+        CGRect rectKhieuNai = self.viewKhieuNai.frame;
+        rectKhieuNai.origin.y = height + webView.frame.origin.y + 16;
+        self.viewKhieuNai.frame = rectKhieuNai;
+        CGRect v1 = self.viewBtnMail.frame;
+        v1.origin.y = CGRectGetMaxY(webView.frame);
+        self.viewBtnMail.frame = v1;
+        CGRect vMain = self.mViewMain.frame;
+        vMain.size.height = CGRectGetMaxY(self.viewBtnMail.frame) + 10;
+        self.mViewMain.frame = vMain;
+        self.mainScroll.contentSize = CGSizeMake(1,CGRectGetMaxY(self.mViewMain.frame) +20);
+    });
 }
 -(NSString *)updateView:(DucNT_SaoKeObject*)item
 {
@@ -262,11 +268,21 @@
 }
 
 - (IBAction)suKienBamNutGuiMail:(id)sender {
-    self.btnMail.enabled = NO;
-    [GiaoDichMang ketNoiGuiMailSaoKeDen:[self.mThongTinTaiKhoanVi layThuDienTu]
-                             tieuDeMail:@"Sao kê giao dịch ví điện tử"
-                                noiDung:_sXauGuiMail
-                          noiNhanKetQua:self];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.btnMail.enabled = NO;
+        self.mDinhDanhKetNoi = @"GUI_VE_EMAIL";
+        if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"11")){
+            [self hienThiLoadingChuyenTien];
+        }
+        NSString *sEmail = [self.mThongTinTaiKhoanVi layThuDienTu];
+        NSLog(@"%s - line : %d - sEmail : %@", __FUNCTION__, __LINE__, sEmail);
+        NSLog(@"%s - line : %d - _sXauGuiMail : %@", __FUNCTION__, __LINE__, _sXauGuiMail);
+        [GiaoDichMang ketNoiGuiMailSaoKeDen:sEmail
+                                 tieuDeMail:@"Sao kê giao dịch ví điện tử"
+                                    noiDung:_sXauGuiMail
+                              noiNhanKetQua:self];
+    });
+    
 }
 
 - (IBAction)suKienBamNutGuiKhieuNai:(id)sender {
@@ -293,13 +309,17 @@
         self.viewBtnMail.hidden = NO;
         self.viewKhieuNai.hidden = YES;
         [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:sThongBao];
+    } else if ([sDinhDanhKetNoi isEqualToString:@"GUI_VE_EMAIL"]){
+        [self anLoading];
+        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:sThongBao];
     }
 }
 
 - (void)xuLyKetNoiThatBai:(NSString*)sDinhDanhKetNoi thongBao:(NSString*)sThongBao ketQua:(id)ketQua
 {
-    [self anLoading];
+    NSLog(@"%s - line : %d : START", __FUNCTION__, __LINE__);
     [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:sThongBao];
+    [self anLoading];
 }
 
 - (void)taoViewKhieuNai {

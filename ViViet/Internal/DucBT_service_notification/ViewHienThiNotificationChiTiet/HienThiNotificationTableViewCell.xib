@@ -55,12 +55,12 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ViMASS thông báo bây giờ là 19h. abc abc ViMASS thông báo bây giờ là 19h. abc abc avc asdsad asd" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xox-Tc-5ca">
                                 <rect key="frame" x="3" y="3" width="277" height="48"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <color key="textColor" red="0.062745098039215685" green="0.47843137254901957" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HH:mm - dd/MM/yyyy" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ib-NE-f83">
-                                <rect key="frame" x="117.5" y="109.5" width="160.5" height="14"/>
+                                <rect key="frame" x="117.5" y="106.5" width="160.5" height="14"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="14" id="14I-Ge-XqQ"/>
@@ -70,14 +70,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Đã từ chối" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8BG-h2-FBD">
-                                <rect key="frame" x="3" y="109.5" width="74.5" height="14"/>
+                                <rect key="frame" x="3" y="106.5" width="74.5" height="14"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" red="0.045056134462356567" green="0.3764621913433075" blue="0.71320122480392456" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="ViMASS thông báo bây giờ là 19h. abc abc aasdfasdfasdfasdfasdfasdfad abc abc aasdfasdfasdfasdfasdfasdfad asdads asdsads asdsa" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HoL-xd-fuH">
-                                <rect key="frame" x="3" y="54" width="277" height="54"/>
+                                <rect key="frame" x="3" y="54" width="277" height="51"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" red="0.50196078431372548" green="0.47843137254901957" blue="0.47843137254901957" alpha="1" colorSpace="calibratedRGB"/>
@@ -88,10 +88,10 @@
                         <constraints>
                             <constraint firstItem="3ib-NE-f83" firstAttribute="top" secondItem="HoL-xd-fuH" secondAttribute="bottom" constant="1.5" id="2c5-Gg-wCG"/>
                             <constraint firstItem="8BG-h2-FBD" firstAttribute="height" secondItem="3ib-NE-f83" secondAttribute="height" id="4t6-J7-B12"/>
-                            <constraint firstAttribute="bottom" secondItem="3ib-NE-f83" secondAttribute="bottom" id="8bo-tC-yq0"/>
+                            <constraint firstAttribute="bottom" secondItem="3ib-NE-f83" secondAttribute="bottom" constant="3" id="8bo-tC-yq0"/>
                             <constraint firstAttribute="trailing" secondItem="Xox-Tc-5ca" secondAttribute="trailing" constant="3" id="GOf-mz-fah"/>
                             <constraint firstItem="HoL-xd-fuH" firstAttribute="top" secondItem="Xox-Tc-5ca" secondAttribute="bottom" constant="3" id="Mnk-dX-9Ry"/>
-                            <constraint firstAttribute="bottom" secondItem="8BG-h2-FBD" secondAttribute="bottom" id="Nsz-mC-TsF"/>
+                            <constraint firstAttribute="bottom" secondItem="8BG-h2-FBD" secondAttribute="bottom" constant="3" id="Nsz-mC-TsF"/>
                             <constraint firstItem="8BG-h2-FBD" firstAttribute="leading" secondItem="T4M-Vt-XSG" secondAttribute="leading" constant="3" id="Wjc-A1-bHE"/>
                             <constraint firstItem="HoL-xd-fuH" firstAttribute="leading" secondItem="T4M-Vt-XSG" secondAttribute="leading" constant="3" id="b7v-Zc-8zO"/>
                             <constraint firstAttribute="trailing" secondItem="3ib-NE-f83" secondAttribute="trailing" constant="5" id="hbG-Bd-WfE"/>

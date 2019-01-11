@@ -1748,7 +1748,7 @@
 "mat_khau_token_cu" = "Mật khẩu token cũ";
 "mat_khau_token_moi" = "Mật khẩu token mới";
 "mat_khau_token_moi_confirm" = "Nhập lại mật khẩu token mới";
-"mat_khau_token_require" = "Mật khẩu Token phải có đủ 6 ký tự";
+"mat_khau_token_require" = "Mật khẩu Token phải có đủ 6 ký tự số hoặc chữ";
 "mat_khau_token_cu_phai_khac_mat_khau_moi" = "Mật khẩu mới phải khác mật khẩu cũ";
 "mat_khau_token_khong_dc_de_trong" = "Mật khẩu token không được để trống";
 "mat_khau_acc_require" = "Mật khẩu tài khoản phải từ 6 đến 20 ký tự và không có kí tự đặc biệt!";

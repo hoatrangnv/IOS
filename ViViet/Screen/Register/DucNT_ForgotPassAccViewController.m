@@ -38,25 +38,11 @@
 //    [self addButtonBack];
 //    lbTitle.text = [@"@title_quen_mat_khau" localizableString];
     [self addTitleView:[@"@title_quen_mat_khau" localizableString]];
-    UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.frame = CGRectMake(0, 0, 35, 44);
-    button.backgroundColor = [UIColor clearColor];
-    [button addTarget:self action:@selector(didSelectBackButton) forControlEvents:UIControlEventTouchUpInside];
     
-    //    [button setImage:[UIImage imageNamed:@"login-btn-back-white.png"] forState:UIControlStateNormal];
-    [button setImage:[UIImage imageNamed:@"icon_back.png"] forState:UIControlStateNormal];
-    button.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-    UIBarButtonItem *leftItem = [[[UIBarButtonItem alloc] initWithCustomView:button] autorelease];
-    leftItem.width = 35;
+    UIBarButtonItem *btnBack = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style:UIBarButtonItemStyleDone target:self action:@selector(didSelectBackButton)];
+    btnBack.imageInsets = UIEdgeInsetsMake(0, -10, 0, 0);
+    self.navigationItem.leftBarButtonItem = btnBack;
     
-    UIBarButtonItem *negativeSeperator = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
-    
-    if (SYSTEM_VERSION_LESS_THAN(@"7"))
-        negativeSeperator.width = -5;
-    else
-        negativeSeperator.width = -16;
-    
-    self.navigationItem.leftBarButtonItems = @[negativeSeperator, leftItem];
     [self khoiTaoTextField];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(chuyenFormVeDangNhap:) name:@"XAC_THUC_OTP_THANH_CONG" object:nil];
 }
@@ -107,15 +93,16 @@
 {
     if([[notification name] isEqualToString:@"XAC_THUC_OTP_THANH_CONG"])
     {
-        [app.navigationController dismissViewControllerAnimated:NO completion:^
-         {
-             DucNT_LoginSceen *vc = [[DucNT_LoginSceen alloc] init];
-             vc.sTenViewController = [DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_TEN_VIEWCONTROLLER_CAN_TOI];
-             vc.sKieuChuyenGiaoDien = [DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_KIEU_CHUYEN_GIAO_DIEN];
-//             [app.navigationController presentModalViewController:vc animated:YES];
-             [app.navigationController presentViewController:vc animated:YES completion:^{}];
-             [vc release];
-         }];
+        [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+//        [app.navigationController dismissViewControllerAnimated:NO completion:^
+//         {
+//             DucNT_LoginSceen *vc = [[DucNT_LoginSceen alloc] init];
+//             vc.sTenViewController = [DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_TEN_VIEWCONTROLLER_CAN_TOI];
+//             vc.sKieuChuyenGiaoDien = [DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_KIEU_CHUYEN_GIAO_DIEN];
+////             [app.navigationController presentModalViewController:vc animated:YES];
+//             [app.navigationController presentViewController:vc animated:YES completion:^{}];
+//             [vc release];
+//         }];
     }
 }
 #pragma mark - khởi tạo cho các text field
@@ -203,13 +190,17 @@
     NSString *sMessage = [dicKetQua objectForKey:@"msgContent"];
     if(nCode == 1)
     {
-        DucNT_ViewOTPConfirm *view = [[DucNT_ViewOTPConfirm alloc] initwithNib];
-        [view khoiTaoThamSoTaiKhoan:KIEU_OTP_QUEN_MAT_KHAU_TAI_KHOAN withPhone:edtSoDienThoai.text];
-        [self.view addSubview:view];
-        [view release];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            DucNT_ViewOTPConfirm *view = [[DucNT_ViewOTPConfirm alloc] initwithNib];
+            [view khoiTaoThamSoTaiKhoan:KIEU_OTP_QUEN_MAT_KHAU_TAI_KHOAN withPhone:edtSoDienThoai.text];
+            view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+            [self.view addSubview:view];
+            [view release];
+        });
     }
     else{
-        [[[[UIAlertView alloc] initWithTitle:[@"@thong_bao" localizableString] message:sMessage delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
+        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:sMessage];
+//        [[[[UIAlertView alloc] initWithTitle:[@"@thong_bao" localizableString] message:sMessage delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
     }
 }
 @end

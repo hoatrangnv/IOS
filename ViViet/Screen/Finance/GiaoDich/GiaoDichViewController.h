@@ -53,6 +53,7 @@
 @property (retain, nonatomic) IBOutlet NSLayoutConstraint *heightViewNhapXacThuc;
 - (void)khoiTaoButtonXacThucBanDau;
 - (void)hienThiLoading;
+- (void)hienThiLoadingLayDanhBa;
 - (void)hienThiLoadingChuyenTien;
 - (void)anLoading;
 - (void)suKienDonePicker:(UIButton *)btn;
@@ -64,7 +65,7 @@
 - (BOOL)validateVanTay;
 - (void)addTitleView:(NSString *)sTitle;
 - (void)xuLyThucHienKhiKiemTraThanhCongTraVeToken:(NSString*)sToken otp:(NSString*)sOtp;
-
+- (void)suKienBamVaoTitle:(UITapGestureRecognizer *)sender;
 - (void)xuLyKetNoiThanhCong:(NSString*)sDinhDanhKetNoi thongBao:(NSString*)sThongBao ketQua:(id)ketQua;
 
 - (void)xuLyKetNoiThatBai:(NSString*)sDinhDanhKetNoi thongBao:(NSString*)sThongBao ketQua:(id)ketQua;

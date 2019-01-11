@@ -34,10 +34,12 @@
     self.navigationItem.title = @"Sổ tay chuyển tiền điện thoại";
     // Do any additional setup after loading the view from its nib.
 }
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
     [self getSotay];
 }
+
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     NSArray *viewControllers = self.navigationController.viewControllers;
@@ -128,6 +130,7 @@
     [super dealloc];
 }
 - (void)getSotay{
+    [self hienThiLoadingLayDanhBa];
     NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSDate *currentDate = [NSDate date];
     NSDateComponents *comps = [[NSDateComponents alloc] init];
@@ -160,6 +163,7 @@
         [self.arrData addObjectsFromArray:result];
         [self.danhsachsodienthoai reloadData];
     }
+    [self anLoading];
 }
 
 #pragma mark - SotaydienthoaiDialogViewControllerDelegate

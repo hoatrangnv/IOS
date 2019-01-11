@@ -498,28 +498,6 @@
                     }
                 }
                     break;
-//                case 11:
-//                case 12:
-//                case 13:
-//                {
-//                    if (money > 0) {
-//
-//                        if(floor(money) == money){
-//                            if((int)money%50000000 == 0)
-//                                obj.fee = 3300 * (money/50000000);
-//                            else{
-//                                obj.fee = 1 + (3300 *(money/50000000));
-//                            }
-//                        }
-//                        else{
-//                            obj.fee = 1 + (3300 *(money/50000000));
-//                        }
-//                    }
-//                    else{
-//                        obj.fee = 0;
-//                    }
-//                }
-//                    break;
                 default:
                     if (money > 0) {
                         obj.fee = 6600.0;

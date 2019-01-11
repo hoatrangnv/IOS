@@ -101,7 +101,7 @@
 
 + (CGFloat) height
 {
-    return 47;
+    return 54;
 }
 
 - (void)dealloc

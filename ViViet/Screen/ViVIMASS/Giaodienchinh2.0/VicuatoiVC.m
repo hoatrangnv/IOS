@@ -21,6 +21,7 @@
     
     [self.tableView registerNib:[UINib nibWithNibName:@"ItemListCell" bundle:nil] forCellReuseIdentifier:@"ItemListCell"];
     [self.tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
+//    @{@"name":@"Chuyển tiền đến điện thoại", @"image":@"ic_chuyentien_dienthoai"},
     self.arrDanhSach =@[@{@"name":@"Sao kê",@"image":@"ic_vicuatoi_saoke"},
                         @{@"name":@"Liên kết ví với tk,thẻ", @"image":@"ic_vicuatoi_lienket"},
                         @{@"name":@"Chọn ví,thẻ,tk ẩn sau điện thoại", @"image":@"icon_vicuatoi_vi_an"},

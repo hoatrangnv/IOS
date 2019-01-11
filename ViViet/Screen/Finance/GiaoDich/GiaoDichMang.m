@@ -47,6 +47,7 @@
 
 
 //URL chuyen tien
+#define URL_THAY_DOI_HAN_MUC_MOI [NSString stringWithFormat:@"%@%@", ROOT_URL, @"hanMucViDienTu/edit"]
 #define URL_CHUYEN_TIEN_DEN_VI [NSString stringWithFormat:@"%@%@", ROOT_URL, @"account/transactionMoney1"]
 #define URL_CHUYEN_TIEN_DEN_VI_CHUA_DANG_KY [NSString stringWithFormat:@"%@%@", ROOT_URL, @"account/confirmTransactionMoneyToAccNotExist"]
 #define URL_CHUYEN_TIEN_DEN_THE [NSString stringWithFormat:@"%@%@", ROOT_URL, @"autoBank/transactionViaCardNumber"]
@@ -180,6 +181,30 @@
 
 #define URL_DOI_MAT_KHAU_PKI [NSString stringWithFormat:@"%@%@", ROOT_URL, @"auth1/caiDatHanMucPKI"]
 #define URL_DOI_MAT_KHAU_PKI [NSString stringWithFormat:@"%@%@", ROOT_URL, @"auth1/caiDatHanMucPKI"]
+#define URL_LAY_TIN_TUC [NSString stringWithFormat:@"%@%@", ROOT_URL, @"categoryAdv/getDetail"]
+#define URL_LAY_CHI_TIET_TIN_TUC [NSString stringWithFormat:@"%@%@", ROOT_URL, @"quangCaoUuDai/getDetail"]
+
++ (void)ketNoiLayTinTuc:(int)langID idInput:(NSString *)idInput noiNhanKetQua:(id<DucNT_ServicePostDelegate>)noiNhanKetQua {
+    NSDictionary *dic = @{@"langId" : [NSNumber numberWithInt:langID],
+                          @"id" : idInput
+                          };
+    NSLog(@"%s - dic : %@", __FUNCTION__, [dic JSONString]);
+    DucNT_ServicePost *connectPost = [[DucNT_ServicePost alloc] init];
+    [connectPost setDucnt_connectDelegate:noiNhanKetQua];
+    [connectPost connect:URL_LAY_TIN_TUC withContent:[dic JSONString]];
+    [connectPost release];
+}
+
++ (void)ketNoiLayChiTietTinTuc:(int)langID sIDTinTuc:(NSString *)sIDTinTuc noiNhanKetQua:(id<DucNT_ServicePostDelegate>)noiNhanKetQua {
+    NSDictionary *dic = @{@"langId" : [NSNumber numberWithInt:langID],
+                          @"id" : sIDTinTuc
+                          };
+    NSLog(@"%s - dic : %@", __FUNCTION__, [dic JSONString]);
+    DucNT_ServicePost *connectPost = [[DucNT_ServicePost alloc] init];
+    [connectPost setDucnt_connectDelegate:noiNhanKetQua];
+    [connectPost connect:URL_LAY_CHI_TIET_TIN_TUC withContent:[dic JSONString]];
+    [connectPost release];
+}
 
 + (void)traCuuKPlus:(NSString *)maThueBao noiNhanKetQua:(id<DucNT_ServicePostDelegate>)noiNhanKetQua {
     NSDictionary *dic = @{@"maThueBao" : maThueBao,
@@ -1398,6 +1423,13 @@
     DucNT_ServicePost *connect = [[DucNT_ServicePost alloc] init];
     [connect setDucnt_connectDelegate:noiNhanKetQua];
     [connect connect:URL_CHUYEN_TIEN_DEN_VI withContent:sUrlContent];
+    [connect release];
+}
+
++ (void)keyNoiThayDoiHanMuc:(NSString *)dictJSON noiNhanKetQua:(id<DucNT_ServicePostDelegate>)noiNhanKetQua {
+    DucNT_ServicePost *connect = [[DucNT_ServicePost alloc] init];
+    [connect setDucnt_connectDelegate:noiNhanKetQua];
+    [connect connect:ROOT_URL withContent:dictJSON];
     [connect release];
 }
 

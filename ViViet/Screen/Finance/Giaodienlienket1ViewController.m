@@ -18,7 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"Liên kết tài khoản / thẻ";
+    [self addTitleView:@"Liên kết tài khoản / thẻ"];
     self.segmentControl.selectedSegmentIndex = 0;
     if (!taikhoanNH) {
         taikhoanNH = [[GiaodientaikhoannganhangViewController alloc] initWithNibName:@"GiaodientaikhoannganhangViewController" bundle:nil];

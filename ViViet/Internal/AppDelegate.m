@@ -313,6 +313,14 @@ void uncaughtExceptionHandler(NSException *exception) {
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     NSLog(@"%s - %s : START", __FILE__, __FUNCTION__);
+//    if (thread_load_contact != nil) {
+//        NSLog(@"%s - %s : load contact", __FILE__, __FUNCTION__);
+//        [thread_load_contact start];
+//    } else {
+//        thread_load_contact = [[NSThread alloc] initWithTarget:self selector:@selector(thread_loadContact) object:nil];
+//        [thread_load_contact start];
+//    }
+    
     [[NSUserDefaults standardUserDefaults] setObject:@"tamnv_hienthi" forKey:@"0"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     [FBAppEvents activateApp];

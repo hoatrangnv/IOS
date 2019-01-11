@@ -222,20 +222,6 @@
 - (void)khoiTaoGiaoDienChuyenTien
 {
     NSLog(@"%s =========================> 1", __FUNCTION__);
-    
-//    [self.mbtnVanTay setImage:[UIImage imageNamed:@"finger"] forState:UIControlStateNormal];
-//
-//    [self.mbtnToken setTitle:@"TOKEN" forState:UIControlStateNormal];
-//    [self.mbtnToken setBackgroundImage:[UIImage imageNamed:@"bg-nuttrang"] forState:UIControlStateNormal];
-//
-//    [self.mbtnSMS setTitle:@"SMS" forState:UIControlStateNormal];
-//    [self.mbtnSMS setBackgroundImage:[UIImage imageNamed:@"bg-nuttrang"] forState:UIControlStateNormal];
-//
-//    [self.mbtnEmail setTitle:@"EMAIL" forState:UIControlStateNormal];
-//    [self.mbtnEmail setBackgroundImage:[UIImage imageNamed:@"bg-nuttrang"] forState:UIControlStateNormal];
-//
-//    [self.mbtnPKI setTitle:@"PKI" forState:UIControlStateNormal];
-//    [self.mbtnPKI setBackgroundImage:[UIImage imageNamed:@"bg-nuttrang"] forState:UIControlStateNormal];
     [self.mbtnPKI.imageView setContentMode:UIViewContentModeScaleAspectFit];
     [self.btnVanTayMini.imageView setContentMode:UIViewContentModeScaleAspectFit];
     [self.mbtnVanTay.imageView setContentMode:UIViewContentModeScaleAspectFit];
@@ -301,8 +287,6 @@
 
 - (void)updateXacThucKhac {
     dispatch_async(dispatch_get_main_queue(), ^{
-//        self.heightViewNhapXacThuc.constant = 35;
-//        [self.mViewNhapToken setHidden:NO];
         [self khoiTaoButtonXacThucBanDau];
         [self.mbtnToken setHidden:NO];
         [self checkButtonPKI];
@@ -568,6 +552,8 @@
 - (IBAction)suKienBamNutMatKhauVanTay:(id)sender
 {
     NSLog(@"%s - van tay!!!!", __FUNCTION__);
+    self.mbtnToken.hidden = YES;
+    self.mbtnPKI.hidden = YES;
     if (self.heightViewNhapXacThuc.constant > 0) {
         self.heightViewNhapXacThuc.constant = 0;
         self.mViewNhapToken.hidden = YES;
@@ -844,12 +830,13 @@
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"11")){
         [self anLoading];
     }
-    if([sDinhDanhKetNoi isEqualToString:@"KET_NOI_LAY_QRCODE_VI"] || [sDinhDanhKetNoi isEqualToString:@"KET_NOI_LAY_QRCODE"] || [sDinhDanhKetNoi isEqualToString:@"KET_NOI_LAY_QRCODE_DON_VI"]){
-        [self hienThiHopThoaiMotNutBamKieu:226 cauThongBao:sThongBao];
-    }
-    else{
-        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:sThongBao];
-    }
+    [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:sThongBao];
+//    if([sDinhDanhKetNoi isEqualToString:@"KET_NOI_LAY_QRCODE_VI"] || [sDinhDanhKetNoi isEqualToString:@"KET_NOI_LAY_QRCODE"] || [sDinhDanhKetNoi isEqualToString:@"KET_NOI_LAY_QRCODE_DON_VI"]){
+//        [self hienThiHopThoaiMotNutBamKieu:226 cauThongBao:sThongBao];
+//    }
+//    else{
+//        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:sThongBao];
+//    }
 }
 
 #pragma mark - UIAlertViewDelegate
@@ -892,7 +879,7 @@
 #pragma mark - DucNT_ServicePostDelegate
 -(void)ketNoiThanhCong:(NSString *)sKetQua
 {
-    NSLog(@"%s - mDinhDanhKetNoi : %@ - sKetQua : %@", __FUNCTION__, self.mDinhDanhKetNoi, sKetQua);
+//    NSLog(@"%s - mDinhDanhKetNoi : %@ - sKetQua : %@", __FUNCTION__, self.mDinhDanhKetNoi, sKetQua);
     NSDictionary *dicKetQua = [sKetQua objectFromJSONString];
     int nCode = [[dicKetQua objectForKey:@"msgCode"] intValue];
     NSString *message = [dicKetQua objectForKey:@"msgContent"];
@@ -997,6 +984,12 @@
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.mode = MBProgressHUDModeIndeterminate;
     hud.labelText = @"Đang lấy dữ liệu...";
+}
+
+- (void)hienThiLoadingLayDanhBa {
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDModeIndeterminate;
+    hud.labelText = @"Đang lấy danh bạ...";
 }
 
 - (void)hienThiLoadingChuyenTien {

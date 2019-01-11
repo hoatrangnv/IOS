@@ -9,7 +9,7 @@
 #import "DucNT_DangKyToken.h"
 #import "Common.h"
 #import "DucNT_ViewOTPConfirm.h"
-
+#import "GiaoDienThongTinPhim.h"
 @interface DucNT_DangKyToken ()
 {
     IBOutlet ExTextField *mtfTenTaiKhoan;
@@ -43,6 +43,9 @@
     [super viewDidLoad];
     [self showBackButton];
     [self addTitleView:[@"title_dang_ky_token" localizableString]];
+    
+    
+    
     [self khoiTaoTextFieldSoDienThoai];
     [self khoiTaoTextField];
     // Do any additional setup after loading the view from its nib.
@@ -52,10 +55,21 @@
     UIBarButtonItem *btnBack = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style:UIBarButtonItemStyleDone target:self action:@selector(suKienChonBack:)];
     btnBack.imageInsets = UIEdgeInsetsMake(0, -10.0, 0, 0);
     self.navigationItem.leftBarButtonItem = btnBack;
+    
+    UIBarButtonItem *btnRight = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"hdsd-icon"] style:UIBarButtonItemStyleDone target:self action:@selector(suKienChonHuongDan:)];
+    btnRight.imageInsets = UIEdgeInsetsMake(0, 0, 0, -20.0);
+    self.navigationItem.rightBarButtonItem = btnRight;
 }
 
 - (void)suKienChonBack:(UIBarButtonItem *) sender {
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)suKienChonHuongDan:(UIBarButtonItem *)sender {
+    GiaoDienThongTinPhim *vc = [[GiaoDienThongTinPhim alloc] initWithNibName:@"GiaoDienThongTinPhim" bundle:nil];
+    vc.nOption = HUONG_DAN_PHONE_TOKEN;
+    [self.navigationController pushViewController:vc animated:YES];
+    [vc release];
 }
 
 #pragma mark - handler error

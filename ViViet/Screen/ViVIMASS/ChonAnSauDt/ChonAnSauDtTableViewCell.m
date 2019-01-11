@@ -19,9 +19,11 @@
 }
 - (void)setDataForCell:(NSDictionary*)dic {
     _dicData = dic;
-    _lblTitle.text = [self getMappingName:[dic[@"loaiMapping"]intValue] andManganhang:dic[@"maNganHang"]];
-    int loaimaping = [[dic objectForKey:@"loaiMapping"]intValue];
-    NSString *manganhang = [[dic objectForKey:@"maNganHang"] stringValue];
+//    NSLog(@"%s- dic : %@", __FUNCTION__, [dic debugDescription]);
+    int loaimaping = [[dic objectForKey:@"loaiMapping"] intValue];
+    NSString *manganhang = [dic objectForKey:@"maNganHang"];
+    _lblTitle.text = [self getMappingName:loaimaping andManganhang:manganhang];
+    
     _lblLogo.image = [self getImageFromVi:loaimaping andManganhang:manganhang];
 
 }

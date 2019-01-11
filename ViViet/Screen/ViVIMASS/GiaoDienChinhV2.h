@@ -19,6 +19,7 @@
 @property (retain, nonatomic) IBOutlet UIView *vHuongDan;
 @property (retain, nonatomic) IBOutlet UIView *vSoTay;
 @property (retain, nonatomic) IBOutlet UIView *vUuDai;
+@property (retain, nonatomic) IBOutlet UIView *vCenter;
 
 @property (retain, nonatomic) IBOutlet UICollectionView *collectionMain;
 
@@ -54,5 +55,7 @@
 - (IBAction)suKienChonPhoneTokenLan2:(id)sender;
 - (IBAction)suKienChonLixi:(id)sender;
 - (IBAction)suKienChonXemGiayPhep:(id)sender;
+- (IBAction)suKienChonTinTuc:(id)sender;
+
 
 @end

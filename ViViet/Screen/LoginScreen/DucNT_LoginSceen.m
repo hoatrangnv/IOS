@@ -42,6 +42,7 @@
 {
     NSString *sDinhDanhKetNoi;
     AppDelegate *app;
+    BOOL isVanTay;
 }
 @synthesize edtMainInfo;
 @synthesize edtPass;
@@ -75,6 +76,7 @@ static int const KIEU_KET_NOI_GOOGLE = 2;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    isVanTay = YES;
     app = (AppDelegate*)[UIApplication sharedApplication].delegate;
     NSLog(@"%s - %s : ================><===============", __FILE__, __FUNCTION__);
     [self khoiTaoGiaoDien];
@@ -119,17 +121,19 @@ static int const KIEU_KET_NOI_GOOGLE = 2;
         if (error != NULL) {
             // handle error
         } else {
-            [self.mbtnDangNhapBangVanTay setBackgroundImage:[UIImage imageNamed:@"vantay"] forState:UIControlStateNormal];
+            [self.mbtnDangNhapBangVanTay setImage:[UIImage imageNamed:@"vantay"] forState:UIControlStateNormal];
             if (@available(iOS 11.0.1, *)) {
                 if (laContext.biometryType == LABiometryTypeFaceID) {
                     //localizedReason = "Unlock using Face ID"
-                        [self.mbtnDangNhapBangVanTay setBackgroundImage:[UIImage imageNamed:@"face_new"] forState:UIControlStateNormal];
+                    [self.mbtnDangNhapBangVanTay setImage:[UIImage imageNamed:@"face-sang"] forState:UIControlStateNormal];
                     self.mbtnDangNhapBangVanTay.hidden = false;
+                    isVanTay = NO;
                     return YES;
                 } else if (laContext.biometryType == LABiometryTypeTouchID) {
                     //localizedReason = "Unlock using Touch ID"
-                    [self.mbtnDangNhapBangVanTay setBackgroundImage:[UIImage imageNamed:@"vantay"] forState:UIControlStateNormal];
+                    [self.mbtnDangNhapBangVanTay setImage:[UIImage imageNamed:@"vantay"] forState:UIControlStateNormal];
                     self.mbtnDangNhapBangVanTay.hidden = false;
+                    isVanTay = YES;
                     return YES;
                 } else {
                     //localizedReason = "Unlock using Application Passcode"
@@ -138,7 +142,8 @@ static int const KIEU_KET_NOI_GOOGLE = 2;
                 }
             } else {
                 // Fallback on earlier versions
-                self.mbtnDangNhapBangVanTay.hidden = true;
+//                self.mbtnDangNhapBangVanTay.hidden = true;
+                return YES;
             }
         }
     }
@@ -333,6 +338,11 @@ static int const KIEU_KET_NOI_GOOGLE = 2;
 
 - (IBAction)suKienChonBaoMatVanTay:(id)sender
 {
+    if (isVanTay) {
+        
+    } else {
+        [self.mbtnDangNhapBangVanTay setImage:[UIImage imageNamed:@"face-sang-v"] forState:UIControlStateNormal];
+    }
     NSString *sKeyDangNhap = [DucNT_LuuRMS layThongTinDangNhap:KEY_DANG_NHAP];
     if(sKeyDangNhap.length > 0)
     {
@@ -372,8 +382,6 @@ static int const KIEU_KET_NOI_GOOGLE = 2;
     NSLog(@"%s - click click", __FUNCTION__);
     [DucNT_LuuRMS luuThongTinDangNhap:KEY_LOGIN_TEN_VIEWCONTROLLER_CAN_TOI value:_sTenViewController];
     [DucNT_LuuRMS luuThongTinDangNhap:KEY_LOGIN_KIEU_CHUYEN_GIAO_DIEN value:_sKieuChuyenGiaoDien];
-//    _sTenViewController = @"DucNT_ForgotPassAccViewController";
-//    [self chuyenGiaoDienTiepTheoTuLogin];
     DucNT_ForgotPassAccViewController *vc = [[DucNT_ForgotPassAccViewController alloc] initWithNibName:@"DucNT_ForgotPassAccViewController" bundle:nil];
     UINavigationController *nav = [HiNavigationBar navigationControllerWithRootViewController: vc];
     [vc release];
@@ -392,8 +400,6 @@ static int const KIEU_KET_NOI_GOOGLE = 2;
     {
         [DucNT_LuuRMS luuThongTinDangNhap:KEY_LOGIN_TEN_VIEWCONTROLLER_CAN_TOI value:_sTenViewController];
         [DucNT_LuuRMS luuThongTinDangNhap:KEY_LOGIN_KIEU_CHUYEN_GIAO_DIEN value:_sKieuChuyenGiaoDien];
-//        _sTenViewController = @"DucNT_RegisterViewViewController";
-//        [self chuyenGiaoDienTiepTheoTuLogin];
         DucNT_RegisterViewViewController *vc = [[DucNT_RegisterViewViewController alloc] initWithNibName:@"DucNT_RegisterViewViewController" bundle:nil];
         [self presentViewController:vc animated:YES completion:nil];
         [vc release];
@@ -701,6 +707,7 @@ static int const KIEU_KET_NOI_GOOGLE = 2;
         {
             [self anLoading];
             NSDictionary *dicKQ2 = [dicKetQua objectForKey:@"result"];
+            NSLog(@"%s - [dicKQ2 JSONString] : %@", __FUNCTION__, [dicKQ2 JSONString]);
             app.mThongTinTaiKhoanVi = [[DucNT_TaiKhoanViObject alloc] initWithDict:dicKQ2];
             if(nKieuDangNhap == KIEU_CA_NHAN)
             {
@@ -831,7 +838,8 @@ static int const KIEU_KET_NOI_GOOGLE = 2;
     
     [self setupTextField:_mtfMaDoanhNghiep icon:@"dnicon"];
 
-    edtMainInfo.placeholder = [@"so_vi" localizableString];
+//    edtMainInfo.placeholder = [@"so_vi" localizableString];
+    edtMainInfo.placeholder = @" Số điện thoại";
     [edtMainInfo setTextError:[@"@lg - SO_VI_KHONG_DUOC_DE_TRONG" localizableString]
                       forType:ExTextFieldTypeEmpty];
     edtMainInfo.delegate = self;

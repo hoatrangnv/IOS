@@ -414,16 +414,18 @@ static NSString *jsonGMobile = @"{\"id\":12,\"type\":1,\"image\":\"0984009815142
                 else if (nTrangThai == 31) {
                     tb = @"Đã thanh toán giá vé cao hơn giá vé tra cứu";
                 }
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Thông báo" message:tb delegate:nil cancelButtonTitle:@"Đóng" otherButtonTitles: nil];
-                [alert show];
+//                [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:tb];
+//                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Thông báo" message:tb delegate:nil cancelButtonTitle:@"Đóng" otherButtonTitles: nil];
+//                [alert show];
             }
         }
     }
     else
     {
-        [UIAlertView alert:message withTitle:[@"thong_bao" localizableString] block:^(UIAlertView *alert,int indexClicked){
-            [self.navigationController popViewControllerAnimated:YES];
-        }];
+        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:message];
+//        [UIAlertView alert:message withTitle:[@"thong_bao" localizableString] block:^(UIAlertView *alert,int indexClicked){
+//            [self.navigationController popViewControllerAnimated:YES];
+//        }];
     }
 }
 

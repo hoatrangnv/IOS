@@ -291,21 +291,6 @@
 
 -(void) addButton:(NSString*)imageNamed selector:(SEL)selector atSide:(int)side
 {
-    //    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:imageNamed] style:UIBarButtonItemStyleDone target:self action:selector];
-    //    UIBarButtonItem *negativeSeperator = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil] autorelease];
-    //    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"11")) {
-    //        [btnTemp.widthAnchor constraintEqualToConstant:40].active = YES;
-    //        [btnTemp.heightAnchor constraintEqualToConstant:40].active = YES;
-    //    }
-    //    if (SYSTEM_VERSION_LESS_THAN(@"11"))
-    //        negativeSeperator.width = -10;
-    //    else
-    //        negativeSeperator.width = -15;
-    //    if (side > 0)
-    //        self.navigationItem.rightBarButtonItems = @[negativeSeperator, item];
-    //    else
-    //        self.navigationItem.leftBarButtonItems = @[item, negativeSeperator];
-    
     UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
     button.frame = CGRectMake(0, 0, 30, 30);
     [button setImage:[UIImage imageNamed:imageNamed]forState:UIControlStateNormal];
@@ -729,42 +714,51 @@
         } else {
             if([context canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&err])
             {
-                NSLog(@"%s - START 2", __FUNCTION__);
-                __block BaseScreen *weakSelf = self;
-    //            [RoundAlert show];
+                NSLog(@"%s - line : %d - START 2", __FUNCTION__, __LINE__);
                 [context evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics
                         localizedReason:sTieuDe
                                   reply:^(BOOL success, NSError *error)
                  {
                      dispatch_async(dispatch_get_main_queue(), ^{
-
-                         if (error) {
-                             switch (error.code) {
-                                 case LAErrorUserCancel:
-                                     NSLog(@"info:%@: %@, LAErrorUserCancel", NSStringFromClass([self class]),NSStringFromSelector(_cmd));
-                                     [weakSelf updateXacThucKhac];
-                                     break;
-                                 case LAErrorAuthenticationFailed:
-                                     NSLog(@"info:%@: %@, LAErrorAuthenticationFailed", NSStringFromClass([self class]),NSStringFromSelector(_cmd));
-                                     [weakSelf hienThiThongBaoDienMatKhau];
-                                     break;
-                                 case LAErrorPasscodeNotSet:
-                                     NSLog(@"info:%@: %@, LAErrorPasscodeNotSet", NSStringFromClass([self class]),NSStringFromSelector(_cmd));
-                                     break;
-                                 case LAErrorUserFallback:
-                                     NSLog(@"info:%@: %@, LAErrorUserFallback", NSStringFromClass([self class]),NSStringFromSelector(_cmd));
-                                     break;
-                                 default:
-                                     break;
+                         if (error != NULL) {
+                             NSLog(@"%s - error : %@", __FUNCTION__, error.description);
+                             if (error.code == LAErrorUserCancel) {
+                                 [self updateXacThucKhac];
                              }
-    //                         [RoundAlert hide];
-                             return;
-                         }
-                         if(success)
-                         {
-                             NSLog(@"%s - xac thuc van tay thanh cong", __FUNCTION__);
+                         } else if (success) {
+                             NSLog(@"%s - xac thuc thanh cong", __FUNCTION__);
                              [self xuLySuKienXacThucVanTayThanhCong];
+                         } else {
+                             NSLog(@"%s - handle false response", __FUNCTION__);
+                             // handle false response
                          }
+//                         if (error) {
+//                             switch (error.code) {
+//                                 case LAErrorUserCancel:
+//                                     NSLog(@"info:%@: %@, LAErrorUserCancel", NSStringFromClass([self class]),NSStringFromSelector(_cmd));
+//                                     [self updateXacThucKhac];
+//                                     break;
+//                                 case LAErrorAuthenticationFailed:
+//                                     NSLog(@"info:%@: %@, LAErrorAuthenticationFailed", NSStringFromClass([self class]),NSStringFromSelector(_cmd));
+//                                     [self hienThiThongBaoDienMatKhau];
+//                                     break;
+//                                 case LAErrorPasscodeNotSet:
+//                                     NSLog(@"info:%@: %@, LAErrorPasscodeNotSet", NSStringFromClass([self class]),NSStringFromSelector(_cmd));
+//                                     break;
+//                                 case LAErrorUserFallback:
+//                                     NSLog(@"info:%@: %@, LAErrorUserFallback", NSStringFromClass([self class]),NSStringFromSelector(_cmd));
+//                                     break;
+//                                 default:
+//                                     break;
+//                             }
+//    //                         [RoundAlert hide];
+//                             return;
+//                         }
+//                         if(success)
+//                         {
+//                             NSLog(@"%s - xac thuc van tay thanh cong", __FUNCTION__);
+//                             [self xuLySuKienXacThucVanTayThanhCong];
+//                         }
                      });
                  }];
             }
@@ -810,9 +804,7 @@
 
 - (void)hienThiHopThoaiMotNutBamKieu:(int)nKieu cauThongBao:(NSString*)sCauThongBao
 {
-//    UIAlertView *alertView = [[[UIAlertView alloc] initWithTitle:[@"thong_bao" localizableString] message:sCauThongBao delegate:self cancelButtonTitle:[@"dong" localizableString] otherButtonTitles:nil, nil] autorelease];
-//    alertView.tag = nKieu;
-//    [alertView show];
+
     UIAlertController *alertView = [UIAlertController alertControllerWithTitle:[@"thong_bao" localizableString] message:sCauThongBao preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *action = [UIAlertAction actionWithTitle:[@"dong" localizableString] style:UIAlertActionStyleCancel handler:nil];
     [alertView addAction:action];

@@ -1044,6 +1044,10 @@
 		C63CE4741BDF32DE00C548FE /* ItemPhongXemFilm.m in Sources */ = {isa = PBXBuildFile; fileRef = C63CE46F1BDF32DE00C548FE /* ItemPhongXemFilm.m */; };
 		C63CE4831BDF36BB00C548FE /* GiaoDienThanhToanInternet.m in Sources */ = {isa = PBXBuildFile; fileRef = C63CE4811BDF36BB00C548FE /* GiaoDienThanhToanInternet.m */; };
 		C63CE4841BDF36BB00C548FE /* GiaoDienThanhToanInternet.xib in Resources */ = {isa = PBXBuildFile; fileRef = C63CE4821BDF36BB00C548FE /* GiaoDienThanhToanInternet.xib */; };
+		C63D020E21E4F2FD00FD0086 /* GiaoDienTinTuc.m in Sources */ = {isa = PBXBuildFile; fileRef = C63D020C21E4F2FD00FD0086 /* GiaoDienTinTuc.m */; };
+		C63D020F21E4F2FD00FD0086 /* GiaoDienTinTuc.xib in Resources */ = {isa = PBXBuildFile; fileRef = C63D020D21E4F2FD00FD0086 /* GiaoDienTinTuc.xib */; };
+		C63D021321E4FE6A00FD0086 /* TinTucTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C63D021121E4FE6A00FD0086 /* TinTucTableViewCell.m */; };
+		C63D021421E4FE6A00FD0086 /* TinTucTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C63D021221E4FE6A00FD0086 /* TinTucTableViewCell.xib */; };
 		C6404AD81FBD3C4900CB1B51 /* GiaoDienThanhToanQRCodeDonVi.m in Sources */ = {isa = PBXBuildFile; fileRef = C6404AD61FBD3C4900CB1B51 /* GiaoDienThanhToanQRCodeDonVi.m */; };
 		C6404AD91FBD3C4900CB1B51 /* GiaoDienThanhToanQRCodeDonVi.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6404AD71FBD3C4900CB1B51 /* GiaoDienThanhToanQRCodeDonVi.xib */; };
 		C6405FB01E71123100BABF05 /* phong1_RapchieuphimQG.txt in Resources */ = {isa = PBXBuildFile; fileRef = C6405FA31E71123100BABF05 /* phong1_RapchieuphimQG.txt */; };
@@ -1099,6 +1103,8 @@
 		C65D20171BE778C200D2A87D /* KASlideShow.m in Sources */ = {isa = PBXBuildFile; fileRef = C65D20161BE778C100D2A87D /* KASlideShow.m */; };
 		C65D993D1CA249E900CEB067 /* icon10.png in Resources */ = {isa = PBXBuildFile; fileRef = C65D993C1CA249E900CEB067 /* icon10.png */; };
 		C65E58011C2E531900CA407F /* ghedachon.png in Resources */ = {isa = PBXBuildFile; fileRef = C65E58001C2E531900CA407F /* ghedachon.png */; };
+		C65EFCE721E8F4BC00240658 /* GiaoDienChiTietTinTuc.m in Sources */ = {isa = PBXBuildFile; fileRef = C65EFCE521E8F4BC00240658 /* GiaoDienChiTietTinTuc.m */; };
+		C65EFCE821E8F4BC00240658 /* GiaoDienChiTietTinTuc.xib in Resources */ = {isa = PBXBuildFile; fileRef = C65EFCE621E8F4BC00240658 /* GiaoDienChiTietTinTuc.xib */; };
 		C66010F31CFFE0D100C7152B /* ViewThuongDungInternet.m in Sources */ = {isa = PBXBuildFile; fileRef = C66010F21CFFE0D100C7152B /* ViewThuongDungInternet.m */; };
 		C66010F51CFFE0EC00C7152B /* ViewThuongDungInternet.xib in Resources */ = {isa = PBXBuildFile; fileRef = C66010F41CFFE0EC00C7152B /* ViewThuongDungInternet.xib */; };
 		C66154601CE1E81000AD9264 /* tab-cat1.png in Resources */ = {isa = PBXBuildFile; fileRef = C661545F1CE1E81000AD9264 /* tab-cat1.png */; };
@@ -3068,6 +3074,12 @@
 		C63CE4801BDF36BB00C548FE /* GiaoDienThanhToanInternet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GiaoDienThanhToanInternet.h; path = ThanhToanInternet/GiaoDienThanhToanInternet.h; sourceTree = "<group>"; };
 		C63CE4811BDF36BB00C548FE /* GiaoDienThanhToanInternet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GiaoDienThanhToanInternet.m; path = ThanhToanInternet/GiaoDienThanhToanInternet.m; sourceTree = "<group>"; };
 		C63CE4821BDF36BB00C548FE /* GiaoDienThanhToanInternet.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GiaoDienThanhToanInternet.xib; path = ThanhToanInternet/GiaoDienThanhToanInternet.xib; sourceTree = "<group>"; };
+		C63D020B21E4F2FD00FD0086 /* GiaoDienTinTuc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GiaoDienTinTuc.h; sourceTree = "<group>"; };
+		C63D020C21E4F2FD00FD0086 /* GiaoDienTinTuc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GiaoDienTinTuc.m; sourceTree = "<group>"; };
+		C63D020D21E4F2FD00FD0086 /* GiaoDienTinTuc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GiaoDienTinTuc.xib; sourceTree = "<group>"; };
+		C63D021021E4FE6A00FD0086 /* TinTucTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TinTucTableViewCell.h; sourceTree = "<group>"; };
+		C63D021121E4FE6A00FD0086 /* TinTucTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TinTucTableViewCell.m; sourceTree = "<group>"; };
+		C63D021221E4FE6A00FD0086 /* TinTucTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TinTucTableViewCell.xib; sourceTree = "<group>"; };
 		C6404AD51FBD3C4900CB1B51 /* GiaoDienThanhToanQRCodeDonVi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GiaoDienThanhToanQRCodeDonVi.h; sourceTree = "<group>"; };
 		C6404AD61FBD3C4900CB1B51 /* GiaoDienThanhToanQRCodeDonVi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GiaoDienThanhToanQRCodeDonVi.m; sourceTree = "<group>"; };
 		C6404AD71FBD3C4900CB1B51 /* GiaoDienThanhToanQRCodeDonVi.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GiaoDienThanhToanQRCodeDonVi.xib; sourceTree = "<group>"; };
@@ -3142,6 +3154,9 @@
 		C65D20161BE778C100D2A87D /* KASlideShow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KASlideShow.m; path = SlideShowImage/KASlideShow.m; sourceTree = "<group>"; };
 		C65D993C1CA249E900CEB067 /* icon10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon10.png; path = ViViet/Screen/ViVIMASS/AnhViViMass/icon10.png; sourceTree = SOURCE_ROOT; };
 		C65E58001C2E531900CA407F /* ghedachon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ghedachon.png; sourceTree = "<group>"; };
+		C65EFCE421E8F4BC00240658 /* GiaoDienChiTietTinTuc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GiaoDienChiTietTinTuc.h; sourceTree = "<group>"; };
+		C65EFCE521E8F4BC00240658 /* GiaoDienChiTietTinTuc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GiaoDienChiTietTinTuc.m; sourceTree = "<group>"; };
+		C65EFCE621E8F4BC00240658 /* GiaoDienChiTietTinTuc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GiaoDienChiTietTinTuc.xib; sourceTree = "<group>"; };
 		C66010F11CFFE0D100C7152B /* ViewThuongDungInternet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewThuongDungInternet.h; path = ThuongDung/ViewThuongDungInternet.h; sourceTree = "<group>"; };
 		C66010F21CFFE0D100C7152B /* ViewThuongDungInternet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewThuongDungInternet.m; path = ThuongDung/ViewThuongDungInternet.m; sourceTree = "<group>"; };
 		C66010F41CFFE0EC00C7152B /* ViewThuongDungInternet.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ViewThuongDungInternet.xib; path = ThuongDung/ViewThuongDungInternet.xib; sourceTree = "<group>"; };
@@ -5620,6 +5635,7 @@
 		8577B13518AF1F5F007B72A5 /* Finance */ = {
 			isa = PBXGroup;
 			children = (
+				C63D020A21E4F27700FD0086 /* TinTuc */,
 				C66CAD302044FA2D00ADBB74 /* ThanhToanKPlus */,
 				C6928C1C1FD0FD3700EB30D5 /* QRSanPham */,
 				C6A115571FB2AF4E0077634C /* ThanhToanQRCode */,
@@ -6472,6 +6488,22 @@
 				C6316FC01DB4E9DC0042AEF4 /* vtcpay.png */,
 			);
 			path = icontaikhoanlienket;
+			sourceTree = "<group>";
+		};
+		C63D020A21E4F27700FD0086 /* TinTuc */ = {
+			isa = PBXGroup;
+			children = (
+				C63D020B21E4F2FD00FD0086 /* GiaoDienTinTuc.h */,
+				C63D020C21E4F2FD00FD0086 /* GiaoDienTinTuc.m */,
+				C63D020D21E4F2FD00FD0086 /* GiaoDienTinTuc.xib */,
+				C63D021021E4FE6A00FD0086 /* TinTucTableViewCell.h */,
+				C63D021121E4FE6A00FD0086 /* TinTucTableViewCell.m */,
+				C63D021221E4FE6A00FD0086 /* TinTucTableViewCell.xib */,
+				C65EFCE421E8F4BC00240658 /* GiaoDienChiTietTinTuc.h */,
+				C65EFCE521E8F4BC00240658 /* GiaoDienChiTietTinTuc.m */,
+				C65EFCE621E8F4BC00240658 /* GiaoDienChiTietTinTuc.xib */,
+			);
+			name = TinTuc;
 			sourceTree = "<group>";
 		};
 		C643295F1FBEE12E00DAF926 /* GiaoDienHuongDan */ = {
@@ -7524,6 +7556,7 @@
 				0B4FBE4E219F184C00010A70 /* SHINHAN-NH.png in Resources */,
 				C68828A31C196E8B000C7934 /* phong5_garden.txt in Resources */,
 				C664B0AE1D125C60003B9976 /* phong5_LibertyCitypoint.txt in Resources */,
+				C63D020F21E4F2FD00FD0086 /* GiaoDienTinTuc.xib in Resources */,
 				1810550A19E7955000E8D8CE /* ic_share_facebook.png in Resources */,
 				C679EA5F1CCA1BBE0098D540 /* micro-header.png in Resources */,
 				C6003F611C8E77150030F176 /* GiaoDienThanhToanHocPhi.xib in Resources */,
@@ -7670,6 +7703,7 @@
 				0BCC8EEF17471C4400C47970 /* time-out-icon@2x.png in Resources */,
 				C645210C1BE3544C00E8091C /* GiaoDienChinhV2.xib in Resources */,
 				C664B0531D125C60003B9976 /* phong2_LibertyCitypoint.txt in Resources */,
+				C65EFCE821E8F4BC00240658 /* GiaoDienChiTietTinTuc.xib in Resources */,
 				0B5F684F216EE18F00A0B15A /* VicuatoiVC.xib in Resources */,
 				C68828A81C196E8B000C7934 /* phong6_timecity.txt in Resources */,
 				0BCC8EFB1747346100C47970 /* setting-webview-bg.png in Resources */,
@@ -7877,6 +7911,7 @@
 				C68828931C196E8B000C7934 /* phong1_royal.txt in Resources */,
 				0B4FBDD3219F184C00010A70 /* xyz.png in Resources */,
 				0B4FBDE4219F184C00010A70 /* bid-the.png in Resources */,
+				C63D021421E4FE6A00FD0086 /* TinTucTableViewCell.xib in Resources */,
 				C6638F652047A3E200244AE1 /* QRDonViHeaderCuaToi.xib in Resources */,
 				03587E861B9455E500C62734 /* flag_1.png in Resources */,
 				0BFB54A91785247C0033DD20 /* table_cate_untick.png in Resources */,
@@ -8546,6 +8581,7 @@
 				0397450A1B9D3F5D000DDF41 /* ItemInfoDiaDiem.m in Sources */,
 				CDB789F1219B2BD30094D040 /* ChonAnSauDienThoaiViewController.m in Sources */,
 				18A96B051A820F3900F10739 /* MuonTienViewController.m in Sources */,
+				C63D020E21E4F2FD00FD0086 /* GiaoDienTinTuc.m in Sources */,
 				1893435119ECE1EE009E91F2 /* DoiTuongNotification.m in Sources */,
 				A349CF531B4F6E60000CBC30 /* DoiTuongChiTietGiaoDichGuiTietKiem.m in Sources */,
 				850D7CAF1678592900A54A3F /* KazeCheckBox.m in Sources */,
@@ -8709,6 +8745,7 @@
 				3EED3CD9197FA76D00A6A872 /* DucNT_ViewOTPConfirm.m in Sources */,
 				0BD723B3175D8FBD0029ACD2 /* UITextField+Extend.m in Sources */,
 				C67B16171CFC52BE0082DB4A /* ViewThuongDungNuoc.m in Sources */,
+				C63D021321E4FE6A00FD0086 /* TinTucTableViewCell.m in Sources */,
 				0B146B7F1765D9F700E9C80F /* CellProductDetail.m in Sources */,
 				0B146B811765D9F700E9C80F /* CellProductOther.m in Sources */,
 				A38479A21ADE669D00DCF2B6 /* GiaoDienChinhTableViewCell.m in Sources */,
@@ -8785,6 +8822,7 @@
 				A3CAF0851AE506380029486B /* NganHangNapTien.m in Sources */,
 				0BE7F4A619CFDD1B00E15A46 /* HienThiNotificationTableViewCell.m in Sources */,
 				A3E2F74A1B53B686003C9A3D /* DoiTuongQuanHuyen.m in Sources */,
+				C65EFCE721E8F4BC00240658 /* GiaoDienChiTietTinTuc.m in Sources */,
 				A357992D1B33D5B700B38098 /* CheckNetworkStatus.m in Sources */,
 				0B7BDD6618290693009E78EE /* NSData+Base64.m in Sources */,
 				85FDE3E9184DC2210073DD51 /* TTTAttributedLabel.m in Sources */,
@@ -8992,7 +9030,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = ViVimass;
 				PROVISIONING_PROFILE = "e24ddeff-81de-4c5f-958e-96be3bb5749e";
-				PROVISIONING_PROFILE_SPECIFIER = Dis_ViVimass;
+				PROVISIONING_PROFILE_SPECIFIER = TamNV_Dis;
 				SEPARATE_SYMBOL_EDIT = NO;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
@@ -9147,7 +9185,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = ViVimass;
 				PROVISIONING_PROFILE = "e24ddeff-81de-4c5f-958e-96be3bb5749e";
-				PROVISIONING_PROFILE_SPECIFIER = Dis_ViVimass;
+				PROVISIONING_PROFILE_SPECIFIER = TamNV_Dis;
 				SEPARATE_SYMBOL_EDIT = NO;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";

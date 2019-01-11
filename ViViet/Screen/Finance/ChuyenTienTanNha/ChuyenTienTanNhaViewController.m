@@ -172,6 +172,7 @@
 //    [self khoiTaoQuangCao];
     [_mtvTenDuong resignFirstResponder];
 //    self.btnVanTayMini.enabled = true;
+    [self.mScrView setContentSize:CGSizeMake(self.mScrView.frame.size.width, 650.0)];
 }
 
 - (void)viewWillDisappear:(BOOL)animated

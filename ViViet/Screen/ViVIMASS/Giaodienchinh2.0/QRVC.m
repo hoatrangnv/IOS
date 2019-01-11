@@ -21,14 +21,15 @@
     
     [self.tableView registerNib:[UINib nibWithNibName:@"ItemListCell" bundle:nil] forCellReuseIdentifier:@"ItemListCell"];
     [self.tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
-    self.arrDanhSach =@[@{@"name":@"Vimass QR",@"image":@"vimass-qr"},
-                        @{@"name":@"VNPAY QR", @"image":@"vnpt-qr"},
-                        @{@"name":@"Momo QR", @"image":@"momo-qr"},
-                        @{@"name":@"VCB Pay QR", @"image":@"vcb-pay"},
-                        @{@"name":@"Viettel Pay QR", @"image":@"viettel-qr"},
-                        @{@"name":@"Zalo Pay QR", @"image":@"zalo-qr"},
-                        @{@"name":@"Giao dịch QR", @"image":@"ic_qr_giaodich"}
-                        ];
+    self.arrDanhSach =@[@{@"name":@"Vimass QR",@"image":@"vimass-qr"}];
+//    self.arrDanhSach =@[@{@"name":@"Vimass QR",@"image":@"vimass-qr"},
+//                        @{@"name":@"VNPAY QR", @"image":@"vnpt-qr"},
+//                        @{@"name":@"Momo QR", @"image":@"momo-qr"},
+//                        @{@"name":@"VCB Pay QR", @"image":@"vcb-pay"},
+//                        @{@"name":@"Viettel Pay QR", @"image":@"viettel-qr"},
+//                        @{@"name":@"Zalo Pay QR", @"image":@"zalo-qr"},
+//                        @{@"name":@"Giao dịch QR", @"image":@"ic_qr_giaodich"}
+//                        ];
 }
 
 - (void)didReceiveMemoryWarning {

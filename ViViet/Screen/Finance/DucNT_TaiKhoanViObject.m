@@ -71,6 +71,10 @@ NSString *const HIEN_NOI_DUNG_QR_CODE = @"HIEN_NOI_DUNG_QR_CODE";
 NSString *const KEY_PKI = @"PKI";
 NSString *const KEY_HAN_MUC_PKI = @"HAN_MUC_PKI";
 
+NSString *const KEY_ID_SOFT_TOKEN = @"KEY_ID_SOFT_TOKEN";
+NSString *const KEY_ID_VAN_TAY = @"KEY_ID_VAN_TAY";
+NSString *const KEY_ID_MPKI = @"KEY_ID_MPKI";
+
 NSString *const KEY_HAN_MUC_AMOUNT_DAY_SOFT_TOKEN = @"KEY_HAN_MUC_AMOUNT_DAY_SOFT_TOKEN";
 NSString *const KEY_HAN_MUC_AMOUNT_TIME_SOFT_TOKEN = @"KEY_HAN_MUC_AMOUNT_TIME_SOFT_TOKEN";
 NSString *const KEY_HAN_MUC_AMOUNT_DAY_SOFT_TOKEN_MAX = @"KEY_HAN_MUC_AMOUNT_DAY_SOFT_TOKEN_MAX";
@@ -152,16 +156,19 @@ NSString *const KEY_HAN_MUC_AMOUNT_TIME_MPKI_MAX = @"KEY_HAN_MUC_AMOUNT_TIME_MPK
         self.pki3 = [decoder decodeObjectForKey:KEY_PKI];
         self.hanMucPki3 = [decoder decodeObjectForKey:KEY_HAN_MUC_PKI];
 
+        self.idSoftToken = [decoder decodeObjectForKey:KEY_ID_SOFT_TOKEN];
         self.hanMucTimeSoftToken = [decoder decodeObjectForKey:KEY_HAN_MUC_AMOUNT_TIME_SOFT_TOKEN];
         self.hanMucDaySoftToken = [decoder decodeObjectForKey:KEY_HAN_MUC_AMOUNT_DAY_SOFT_TOKEN];
         self.hanMucTimeSoftTokenMax = [decoder decodeObjectForKey:KEY_HAN_MUC_AMOUNT_TIME_SOFT_TOKEN_MAX];
         self.hanMucDaySoftTokenMax = [decoder decodeObjectForKey:KEY_HAN_MUC_AMOUNT_DAY_SOFT_TOKEN_MAX];
         
+        self.idVantay = [decoder decodeObjectForKey:KEY_ID_VAN_TAY];
         self.hanMucTimeVanTay = [decoder decodeObjectForKey:KEY_HAN_MUC_AMOUNT_TIME_VAN_TAY];
         self.hanMucDayVanTay = [decoder decodeObjectForKey:KEY_HAN_MUC_AMOUNT_DAY_VAN_TAY];
         self.hanMucTimeVanTayMax = [decoder decodeObjectForKey:KEY_HAN_MUC_AMOUNT_TIME_VAN_TAY_MAX];
         self.hanMucDayVanTayMax = [decoder decodeObjectForKey:KEY_HAN_MUC_AMOUNT_DAY_VAN_TAY_MAX];
         
+        self.idMPKI = [decoder decodeObjectForKey:KEY_ID_MPKI];
         self.hanMucTimeMPKI = [decoder decodeObjectForKey:KEY_HAN_MUC_AMOUNT_TIME_MPKI];
         self.hanMucDayMPKI = [decoder decodeObjectForKey:KEY_HAN_MUC_AMOUNT_DAY_MPKI];
         self.hanMucTimeMPKIMax = [decoder decodeObjectForKey:KEY_HAN_MUC_AMOUNT_TIME_MPKI_MAX];
@@ -230,16 +237,19 @@ NSString *const KEY_HAN_MUC_AMOUNT_TIME_MPKI_MAX = @"KEY_HAN_MUC_AMOUNT_TIME_MPK
     [encoder encodeObject:self.linkQR forKey:KEY_LINK_QR];
     [encoder encodeObject:self.hienThiNoiDungThanhToanQR forKey:HIEN_NOI_DUNG_QR_CODE];
 
+    [encoder encodeObject:self.idSoftToken forKey:KEY_ID_SOFT_TOKEN];
     [encoder encodeObject:self.hanMucTimeSoftToken forKey:KEY_HAN_MUC_AMOUNT_TIME_SOFT_TOKEN];
     [encoder encodeObject:self.hanMucDaySoftToken forKey:KEY_HAN_MUC_AMOUNT_DAY_SOFT_TOKEN];
     [encoder encodeObject:self.hanMucTimeSoftTokenMax forKey:KEY_HAN_MUC_AMOUNT_TIME_SOFT_TOKEN_MAX];
     [encoder encodeObject:self.hanMucDaySoftTokenMax forKey:KEY_HAN_MUC_AMOUNT_DAY_SOFT_TOKEN_MAX];
     
+    [encoder encodeObject:self.idVantay forKey:KEY_ID_VAN_TAY];
     [encoder encodeObject:self.hanMucTimeVanTay forKey:KEY_HAN_MUC_AMOUNT_TIME_VAN_TAY];
     [encoder encodeObject:self.hanMucDayVanTay forKey:KEY_HAN_MUC_AMOUNT_DAY_VAN_TAY];
     [encoder encodeObject:self.hanMucTimeVanTayMax forKey:KEY_HAN_MUC_AMOUNT_TIME_VAN_TAY_MAX];
     [encoder encodeObject:self.hanMucDayVanTayMax forKey:KEY_HAN_MUC_AMOUNT_DAY_VAN_TAY_MAX];
     
+    [encoder encodeObject:self.idMPKI forKey:KEY_ID_MPKI];
     [encoder encodeObject:self.hanMucTimeMPKI forKey:KEY_HAN_MUC_AMOUNT_TIME_MPKI];
     [encoder encodeObject:self.hanMucDayMPKI forKey:KEY_HAN_MUC_AMOUNT_DAY_MPKI];
     [encoder encodeObject:self.hanMucTimeMPKIMax forKey:KEY_HAN_MUC_AMOUNT_TIME_MPKI_MAX];
@@ -612,19 +622,23 @@ NSString *const KEY_HAN_MUC_AMOUNT_TIME_MPKI_MAX = @"KEY_HAN_MUC_AMOUNT_TIME_MPK
                 NSNumber *amountTime = [temp objectForKey:@"amountTime"];
                 NSNumber *maxAmountDay = [temp objectForKey:@"maxAmountDay"];
                 NSNumber *maxAmountTime = [temp objectForKey:@"maxAmountTime"];
+                NSString *sIDHanMucTemp = [temp valueForKey:@"id"];
                 if ([level intValue] == 1) {
+                    self.idSoftToken = sIDHanMucTemp;
                     self.hanMucTimeSoftToken = amountTime;
                     self.hanMucDaySoftToken = amountDay;
                     self.hanMucTimeSoftTokenMax = maxAmountTime;
                     self.hanMucDaySoftTokenMax = maxAmountDay;
                 }
                 else if ([level intValue] == 3){
+                    self.idVantay = sIDHanMucTemp;
                     self.hanMucTimeVanTay = amountTime;
                     self.hanMucDayVanTay = amountDay;
                     self.hanMucTimeVanTayMax = maxAmountTime;
                     self.hanMucDayVanTayMax = maxAmountDay;
                 }
                 else {
+                    self.idMPKI = sIDHanMucTemp;
                     self.hanMucTimeMPKI = amountTime;
                     self.hanMucDayMPKI = amountDay;
                     self.hanMucTimeMPKIMax = maxAmountTime;

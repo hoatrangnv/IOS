@@ -225,6 +225,9 @@ static NSString *dongYDieuKhoan = @"<span style=\"color:#fff; text-align:center;
 -(void)khoiTaoKetNoi
 {
     NSLog(@"%s - click click", __FUNCTION__);
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"11")){
+        [self hienThiLoading];
+    }
     self.mDinhDanhKetNoi = @"KET_NOI_DANG_KY";
     [GiaoDichMang ketNoiDangKyTaiKhoanViViMASS:edtId.text
                                        matKhau:edtPassword.text
@@ -252,7 +255,10 @@ static NSString *dongYDieuKhoan = @"<span style=\"color:#fff; text-align:center;
 
 -(void)ketNoiThanhCong:(NSString *)sKetQua
 {
-    [self hideLoadingScreen];
+//    [self hideLoadingScreen];
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"11")){
+        [self anLoading];
+    }
     NSDictionary *dicKetQua = [sKetQua objectFromJSONString];
     int nCode = [[dicKetQua objectForKey:@"msgCode"] intValue];
     NSString *message = [dicKetQua objectForKey:@"msgContent"];

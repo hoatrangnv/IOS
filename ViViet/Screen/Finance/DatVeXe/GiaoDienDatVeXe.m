@@ -17,7 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"Đặt vé xe";
+    [self addTitleView:@"Đặt vé xe"];
 
     CKCalendarView *calendar = [[CKCalendarView alloc] init];
     calendar.onlyShowCurrentMonth = NO;
@@ -31,6 +31,10 @@
     [calendar release];
     [self.viewCalendar bringSubviewToFront:self.btnCloseCalendarView];
     [self.mViewMain bringSubviewToFront:self.viewCalendar];
+    
+    UIView *viewTemp = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+    UIBarButtonItem *right = [[UIBarButtonItem alloc] initWithCustomView:viewTemp];
+    self.navigationItem.rightBarButtonItem = right;
 }
 
 - (void)viewDidAppear:(BOOL)animated {

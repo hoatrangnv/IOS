@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,28 +20,26 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yO5-WO-9pi">
-                        <rect key="frame" x="285" y="8" width="27" height="27.5"/>
+                        <rect key="frame" x="278.5" y="8" width="27.5" height="27.5"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="yO5-WO-9pi" secondAttribute="height" multiplier="1:1" id="gRR-HL-H5l"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chuyen tien vi dien tu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jEL-kV-iym">
-                        <rect key="frame" x="10" y="5" width="270" height="33.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <rect key="frame" x="10" y="5" width="263.5" height="33.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                         <color key="textColor" red="0.023529411764705882" green="0.44705882352941173" blue="0.63921568627450975" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="yO5-WO-9pi" secondAttribute="bottom" constant="8" id="6Cw-z5-eba"/>
-                    <constraint firstAttribute="trailing" secondItem="yO5-WO-9pi" secondAttribute="trailing" constant="8" id="7uo-85-oBm"/>
+                    <constraint firstAttribute="trailing" secondItem="yO5-WO-9pi" secondAttribute="trailing" constant="14" id="7uo-85-oBm"/>
                     <constraint firstItem="yO5-WO-9pi" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Ihw-8O-mRA"/>
                     <constraint firstItem="jEL-kV-iym" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="K3F-5t-680"/>
                     <constraint firstItem="jEL-kV-iym" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="N93-8B-u4r"/>
                     <constraint firstItem="yO5-WO-9pi" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="NSX-f2-tto"/>
                     <constraint firstAttribute="bottom" secondItem="jEL-kV-iym" secondAttribute="bottom" constant="5" id="Ohi-mZ-d1D"/>
                     <constraint firstItem="yO5-WO-9pi" firstAttribute="leading" secondItem="jEL-kV-iym" secondAttribute="trailing" constant="5" id="Uy2-pz-d26"/>
-                    <constraint firstAttribute="trailing" secondItem="yO5-WO-9pi" secondAttribute="trailing" constant="8" id="gaj-PC-945"/>
                     <constraint firstItem="jEL-kV-iym" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="uca-of-W3Q"/>
                 </constraints>
             </tableViewCellContentView>
