@@ -827,16 +827,12 @@
 
 - (void)xuLyKetNoiThatBai:(NSString*)sDinhDanhKetNoi thongBao:(NSString*)sThongBao ketQua:(id)ketQua
 {
-    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"11")){
+    NSLog(@"%s - sDinhDanhKetNoi : %@", __FUNCTION__, sDinhDanhKetNoi);
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSLog(@"%s - an loading", __FUNCTION__);
         [self anLoading];
-    }
+    });
     [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:sThongBao];
-//    if([sDinhDanhKetNoi isEqualToString:@"KET_NOI_LAY_QRCODE_VI"] || [sDinhDanhKetNoi isEqualToString:@"KET_NOI_LAY_QRCODE"] || [sDinhDanhKetNoi isEqualToString:@"KET_NOI_LAY_QRCODE_DON_VI"]){
-//        [self hienThiHopThoaiMotNutBamKieu:226 cauThongBao:sThongBao];
-//    }
-//    else{
-//        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:sThongBao];
-//    }
 }
 
 #pragma mark - UIAlertViewDelegate
@@ -879,7 +875,7 @@
 #pragma mark - DucNT_ServicePostDelegate
 -(void)ketNoiThanhCong:(NSString *)sKetQua
 {
-//    NSLog(@"%s - mDinhDanhKetNoi : %@ - sKetQua : %@", __FUNCTION__, self.mDinhDanhKetNoi, sKetQua);
+    NSLog(@"%s - mDinhDanhKetNoi : %@ - sKetQua : %@", __FUNCTION__, self.mDinhDanhKetNoi, sKetQua);
     NSDictionary *dicKetQua = [sKetQua objectFromJSONString];
     int nCode = [[dicKetQua objectForKey:@"msgCode"] intValue];
     NSString *message = [dicKetQua objectForKey:@"msgContent"];

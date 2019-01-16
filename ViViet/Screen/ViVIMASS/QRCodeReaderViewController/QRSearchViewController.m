@@ -19,10 +19,14 @@
     _txtSearch.layer.borderColor=[[UIColor lightGrayColor]CGColor];
     _txtSearch.adjustsFontSizeToFitWidth = true;
     _txtSearch.layer.borderWidth=1.0;
+    [_txtSearch setValue:[UIColor lightGrayColor] forKeyPath:@"_placeholderLabel.textColor"];
     
-    [_codeReader.previewLayer setFrame:CGRectMake(0, 0, _cameraView.frame.size.width, _cameraView.frame.size.height)];
-
-    [_cameraView.layer insertSublayer:_codeReader.previewLayer atIndex:0];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [_codeReader.previewLayer setFrame:CGRectMake(0, 0, _cameraView.frame.size.width, _cameraView.frame.size.height)];
+        
+        [_cameraView.layer insertSublayer:_codeReader.previewLayer atIndex:0];
+    });
+    
     [_codeReader setCompletionWithBlock:^(NSString *resultAsString) {
         if (self.completionBlock != nil) {
             self.completionBlock(resultAsString);
@@ -32,6 +36,7 @@
             [self.delegate reader:self didScanResult:resultAsString];
         }
     }];
+    
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                           action:@selector(dismissKeyboard)];
     

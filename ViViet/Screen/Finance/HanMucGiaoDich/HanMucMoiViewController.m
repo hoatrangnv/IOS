@@ -50,6 +50,12 @@
     }
 }
 
+- (IBAction)suKienThayDoiGiaTriTextField:(UITextField*)sender
+{
+    NSString *sSoTien = [sender.text stringByReplacingOccurrencesOfString:@"." withString:@""];
+    [sender setText:[Common hienThiTienTeFromString:sSoTien]];
+}
+
 - (void)hideViewNhapToken {
     
 }
@@ -144,89 +150,143 @@
 - (void)xuLyThucHienKhiKiemTraThanhCongTraVeToken:(NSString *)sToken otp:(NSString *)sOtp {
     self.mDinhDanhKetNoi = @"DINH_DANH_THAY_HAN_MUC";
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"11")){
-        [self hienThiLoadingChuyenTien];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self hienThiLoadingChuyenTien];
+        });
     }
-    NSString *sMaDoanhNghiep = @"";
-    int nKieuDangNhap = [[DucNT_LuuRMS layThongTinDangNhap:KEY_HIEN_THI_VI] intValue];
-    if(nKieuDangNhap == KIEU_DOANH_NGHIEP)
-    {
-        sMaDoanhNghiep = [DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_COMPANY_ID];
-    }
-    
-    double fSoTien1Token = [[self.tfTimeSoftToken.text stringByReplacingOccurrencesOfString:@"." withString:@""] doubleValue];
-    double fSoTien2Token = [[self.tfDaySoftToken.text stringByReplacingOccurrencesOfString:@"." withString:@""] doubleValue];
-
-    double fSoTien1VanTay = [[self.tfTimeVanTay.text stringByReplacingOccurrencesOfString:@"." withString:@""] doubleValue];
-    double fSoTien2VanTay = [[self.tfDayVanTay.text stringByReplacingOccurrencesOfString:@"." withString:@""] doubleValue];
-    
-    double fSoTien1MPKI = [[self.tfTimeMPKI.text stringByReplacingOccurrencesOfString:@"." withString:@""] doubleValue];
-    double fSoTien2MPKI = [[self.tfDayMPKI.text stringByReplacingOccurrencesOfString:@"." withString:@""] doubleValue];
-    if (fSoTien1MPKI == 0) {
-        fSoTien1MPKI = DBL_MAX;
-    }
-    if (fSoTien2MPKI == 0) {
-        fSoTien2MPKI = DBL_MAX;
-    }
-    
-    NSMutableArray *arrDict = [[NSMutableArray alloc] init];
-    NSDictionary *dictToken = @{
-                                @"id":self.mThongTinTaiKhoanVi.idSoftToken,
-                                @"user":[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_ID_TEMP],
-                                @"level":[NSNumber numberWithInt:1],
-                                @"amountTime":[NSNumber numberWithInt:fSoTien1Token],
-                                @"amountDay":[NSNumber numberWithInt:fSoTien2Token],
-                                @"maxAmountTime":self.mThongTinTaiKhoanVi.hanMucTimeSoftTokenMax,
-                                @"maxAmountDay":self.mThongTinTaiKhoanVi.hanMucDaySoftTokenMax
-                                };
-    NSDictionary *dictVantay = @{
-                                @"id":self.mThongTinTaiKhoanVi.idVantay,
-                                @"user":[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_ID_TEMP],
-                                @"level":[NSNumber numberWithInt:3],
-                                @"amountTime":[NSNumber numberWithInt:fSoTien1VanTay],
-                                @"amountDay":[NSNumber numberWithInt:fSoTien2VanTay],
-                                @"maxAmountTime":self.mThongTinTaiKhoanVi.hanMucTimeVanTayMax,
-                                @"maxAmountDay":self.mThongTinTaiKhoanVi.hanMucDayVanTayMax
-                                };
-    NSDictionary *dictMPKI = @{
-                                @"id":self.mThongTinTaiKhoanVi.idSoftToken,
-                                @"user":[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_ID_TEMP],
-                                @"level":[NSNumber numberWithInt:5],
-                                @"amountTime":[NSNumber numberWithInt:fSoTien1MPKI],
-                                @"amountDay":[NSNumber numberWithInt:fSoTien2MPKI],
-                                @"maxAmountTime":self.mThongTinTaiKhoanVi.hanMucTimeMPKIMax,
-                                @"maxAmountDay":self.mThongTinTaiKhoanVi.hanMucDayMPKIMax
-                                };
-    [arrDict addObject:dictToken];
-    [arrDict addObject:dictVantay];
-    [arrDict addObject:dictMPKI];
-    
-    NSDictionary *dicPost = @{
-                              @"companyCode":sMaDoanhNghiep,
-                              @"token":sToken,
-                              @"type":[NSNumber numberWithInt:1],
-                              @"appId" : [NSString stringWithFormat:@"%d", APP_ID],
-                              @"otpConfirm": sOtp,
-                              @"typeAuthenticate": [NSNumber numberWithInt:self.mTypeAuthenticate],
-                              @"VMApp" : [NSNumber numberWithInt:VM_APP],
-                              @"dsHanMuc":arrDict,
-                              @"idOwner":self.mThongTinTaiKhoanVi.sID
-                              };
-    [GiaoDichMang keyNoiThayDoiHanMuc:[dicPost JSONString] noiNhanKetQua:self];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSString *sMaDoanhNghiep = @"";
+        int nKieuDangNhap = [[DucNT_LuuRMS layThongTinDangNhap:KEY_HIEN_THI_VI] intValue];
+        if(nKieuDangNhap == KIEU_DOANH_NGHIEP)
+        {
+            sMaDoanhNghiep = [DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_COMPANY_ID];
+        }
+        
+        double fSoTien1Token = [[self.tfTimeSoftToken.text stringByReplacingOccurrencesOfString:@"." withString:@""] doubleValue];
+        double fSoTien2Token = [[self.tfDaySoftToken.text stringByReplacingOccurrencesOfString:@"." withString:@""] doubleValue];
+        
+        double fSoTien1VanTay = [[self.tfTimeVanTay.text stringByReplacingOccurrencesOfString:@"." withString:@""] doubleValue];
+        double fSoTien2VanTay = [[self.tfDayVanTay.text stringByReplacingOccurrencesOfString:@"." withString:@""] doubleValue];
+        
+        double fSoTien1MPKI = [[self.tfTimeMPKI.text stringByReplacingOccurrencesOfString:@"." withString:@""] doubleValue];
+        double fSoTien2MPKI = [[self.tfDayMPKI.text stringByReplacingOccurrencesOfString:@"." withString:@""] doubleValue];
+        if (fSoTien1MPKI == 0) {
+            fSoTien1MPKI = DBL_MAX;
+        }
+        if (fSoTien2MPKI == 0) {
+            fSoTien2MPKI = DBL_MAX;
+        }
+        
+        self.mThongTinTaiKhoanVi.hanMucTimeSoftToken = [NSNumber numberWithDouble:fSoTien1Token];
+        self.mThongTinTaiKhoanVi.hanMucDaySoftToken = [NSNumber numberWithDouble:fSoTien2Token];
+        self.mThongTinTaiKhoanVi.hanMucTimeVanTay = [NSNumber numberWithDouble:fSoTien1VanTay];
+        self.mThongTinTaiKhoanVi.hanMucDayVanTay = [NSNumber numberWithDouble:fSoTien2VanTay];
+        self.mThongTinTaiKhoanVi.hanMucTimeMPKI = [NSNumber numberWithDouble:fSoTien1MPKI];
+        
+        NSMutableArray *arrDict = [[NSMutableArray alloc] init];
+        NSDictionary *dictToken = @{
+                                    @"id":self.mThongTinTaiKhoanVi.idSoftToken,
+                                    @"user":[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_ID_TEMP],
+                                    @"level":[NSNumber numberWithInt:1],
+                                    @"amountTime":[NSNumber numberWithInt:fSoTien1Token],
+                                    @"amountDay":[NSNumber numberWithInt:fSoTien2Token],
+                                    @"maxAmountTime":self.mThongTinTaiKhoanVi.hanMucTimeSoftTokenMax,
+                                    @"maxAmountDay":self.mThongTinTaiKhoanVi.hanMucDaySoftTokenMax
+                                    };
+        NSDictionary *dictVantay = @{
+                                     @"id":self.mThongTinTaiKhoanVi.idVantay,
+                                     @"user":[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_ID_TEMP],
+                                     @"level":[NSNumber numberWithInt:3],
+                                     @"amountTime":[NSNumber numberWithInt:fSoTien1VanTay],
+                                     @"amountDay":[NSNumber numberWithInt:fSoTien2VanTay],
+                                     @"maxAmountTime":self.mThongTinTaiKhoanVi.hanMucTimeVanTayMax,
+                                     @"maxAmountDay":self.mThongTinTaiKhoanVi.hanMucDayVanTayMax
+                                     };
+        NSDictionary *dictMPKI = @{
+                                   @"id":self.mThongTinTaiKhoanVi.idSoftToken,
+                                   @"user":[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_ID_TEMP],
+                                   @"level":[NSNumber numberWithInt:5],
+                                   @"amountTime":[NSNumber numberWithInt:fSoTien1MPKI],
+                                   @"amountDay":[NSNumber numberWithInt:fSoTien2MPKI],
+                                   @"maxAmountTime":self.mThongTinTaiKhoanVi.hanMucTimeMPKIMax,
+                                   @"maxAmountDay":self.mThongTinTaiKhoanVi.hanMucDayMPKIMax
+                                   };
+        [arrDict addObject:dictToken];
+        [arrDict addObject:dictVantay];
+        [arrDict addObject:dictMPKI];
+        
+        NSDictionary *dicPost = @{
+                                  @"companyCode":sMaDoanhNghiep,
+                                  @"token":sToken,
+                                  @"type":[NSNumber numberWithInt:1],
+                                  @"appId" : [NSString stringWithFormat:@"%d", APP_ID],
+                                  @"otpConfirm": sOtp,
+                                  @"typeAuthenticate": [NSNumber numberWithInt:self.mTypeAuthenticate],
+                                  @"VMApp" : [NSNumber numberWithInt:VM_APP],
+                                  @"dsHanMuc":arrDict,
+                                  @"idOwner":self.mThongTinTaiKhoanVi.sID
+                                  };
+        NSString *sDictJson = [dicPost JSONString];
+        NSLog(@"%s - sDictJson : %@", __FUNCTION__, sDictJson);
+//        [GiaoDichMang keyNoiThayDoiHanMuc:sDictJson noiNhanKetQua:self];
+        NSString *sUrl = @"https://vimass.vn/vmbank/services/hanMucViDienTu/edit";
+        NSURL * url = [NSURL URLWithString:sUrl];
+        NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[sDictJson length]];
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[url standardizedURL]];
+        request.timeoutInterval = 120;
+        [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+        [request setHTTPMethod:@"POST"];
+        [request setValue:@"application/x-www-form-urlencoded; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+        [request setHTTPBody:[sDictJson dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES]];
+        NSLog(@"%s - sURL : %@", __FUNCTION__, sUrl);
+        NSURLSession *session = [NSURLSession sharedSession];
+        NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self anLoading];
+            });
+            
+            if(httpResponse.statusCode == 200)
+            {
+                NSDictionary * dictResult = [data objectFromJSONData];
+                 NSLog(@"%s - dictResult : %@", __FUNCTION__, [dictResult JSONString]);
+                int msgCode = [[dictResult valueForKey:@"msgCode"] intValue];
+                NSString *sThongBao = (NSString *)[dictResult valueForKey:@"msgContent"];
+                if (msgCode == 1) {
+                    [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:sThongBao];
+                    if (self.mThongTinTaiKhoanVi) {
+                        [DucNT_LuuRMS luuThongTinTaiKhoanViSauDangNhap:self.mThongTinTaiKhoanVi];
+                    }
+                } else {
+                    [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:sThongBao];
+                }
+            } else {
+                
+            }
+        }];
+        [task resume];
+//        NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+//        [connection start];
+    });
 }
 
 - (void)xuLyKetNoiThanhCong:(NSString *)sDinhDanhKetNoi thongBao:(NSString *)sThongBao ketQua:(id)ketQua {
-    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"11")){
+    dispatch_async(dispatch_get_main_queue(), ^{
         [self anLoading];
-    }
+    });
     if ([sDinhDanhKetNoi isEqualToString:@"DINH_DANH_THAY_HAN_MUC"]) {
         [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:sThongBao];
+        if (self.mThongTinTaiKhoanVi) {
+            [DucNT_LuuRMS luuThongTinTaiKhoanViSauDangNhap:self.mThongTinTaiKhoanVi];
+        }
     }
 }
 
 - (void)xuLyKetNoiThatBai:(NSString *)sDinhDanhKetNoi thongBao:(NSString *)sThongBao ketQua:(id)ketQua {
-    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"11")){
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSLog(@"%s - an loading", __FUNCTION__);
         [self anLoading];
-    }
+    });
     [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:sThongBao];
 }
 

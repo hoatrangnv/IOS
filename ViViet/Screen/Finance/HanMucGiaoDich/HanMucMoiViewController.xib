@@ -74,6 +74,9 @@
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    <connections>
+                                        <action selector="suKienThayDoiGiaTriTextField:" destination="-1" eventType="editingChanged" id="C42-eO-ZFY"/>
+                                    </connections>
                                 </textField>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="đồng / giao dịch" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xMR-Jk-eIj">
                                     <rect key="frame" x="252.5" y="71.5" width="146.5" height="18"/>
@@ -88,6 +91,9 @@
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    <connections>
+                                        <action selector="suKienThayDoiGiaTriTextField:" destination="-1" eventType="editingChanged" id="tLU-I6-C1n"/>
+                                    </connections>
                                 </textField>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="đồng / ngày" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pXZ-a9-2K7">
                                     <rect key="frame" x="252.5" y="111.5" width="81" height="18"/>
@@ -121,6 +127,9 @@
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    <connections>
+                                        <action selector="suKienThayDoiGiaTriTextField:" destination="-1" eventType="editingChanged" id="rsN-jd-TdP"/>
+                                    </connections>
                                 </textField>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="đồng / giao dịch" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Za4-T9-naY">
                                     <rect key="frame" x="252.5" y="208.5" width="110.5" height="18"/>
@@ -135,6 +144,9 @@
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    <connections>
+                                        <action selector="suKienThayDoiGiaTriTextField:" destination="-1" eventType="editingChanged" id="ldd-0S-h0Z"/>
+                                    </connections>
                                 </textField>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="đồng / ngày" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rx5-pE-LoG">
                                     <rect key="frame" x="252.5" y="248.5" width="81" height="18"/>
@@ -168,6 +180,9 @@
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    <connections>
+                                        <action selector="suKienThayDoiGiaTriTextField:" destination="-1" eventType="editingChanged" id="cKh-rk-1f2"/>
+                                    </connections>
                                 </textField>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="đồng / giao dịch" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9BO-2D-Zxe">
                                     <rect key="frame" x="252.5" y="346.5" width="110.5" height="18"/>
@@ -182,6 +197,9 @@
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    <connections>
+                                        <action selector="suKienThayDoiGiaTriTextField:" destination="-1" eventType="editingChanged" id="Kbh-1m-aXa"/>
+                                    </connections>
                                 </textField>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="đồng / ngày" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SmI-aN-8SZ">
                                     <rect key="frame" x="252.5" y="386.5" width="81" height="18"/>

@@ -99,7 +99,7 @@
                                                         <action selector="suKienNhapSoTien:" destination="-1" eventType="valueChanged" id="naj-uA-oiW"/>
                                                     </connections>
                                                 </textField>
-                                                <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1.100 đ" borderStyle="line" placeholder="@so_tien" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Pd-JB-XLn" customClass="ExTextField">
+                                                <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="330 đ" borderStyle="line" placeholder="@so_tien" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Pd-JB-XLn" customClass="ExTextField">
                                                     <rect key="frame" x="208" y="387" width="91" height="35"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="35" id="P8u-Cb-gey"/>
@@ -355,8 +355,8 @@
                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zTX-eZ-SCd">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="725"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GdT-6n-fRD">
-                            <rect key="frame" x="8" y="210.5" width="304" height="304"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GdT-6n-fRD">
+                            <rect key="frame" x="8" y="211" width="304" height="74"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="GdT-6n-fRD" secondAttribute="height" id="yhh-Lh-K8e"/>
                             </constraints>
@@ -402,7 +402,7 @@
                 <constraint firstAttribute="bottom" secondItem="zTX-eZ-SCd" secondAttribute="bottom" id="zUl-Eu-tbr"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-909" y="-138"/>
+            <point key="canvasLocation" x="-909.375" y="-138.90845070422534"/>
         </view>
         <view contentMode="scaleToFill" id="60N-Zw-jwN">
             <rect key="frame" x="0.0" y="0.0" width="302" height="314"/>

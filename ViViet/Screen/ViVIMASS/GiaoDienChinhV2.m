@@ -556,7 +556,11 @@
     
     if ([sNameImage hasPrefix:@"giới thiệu"]) {
 
-    } else {
+    }
+    else if ([sNameImage hasPrefix:@"backdrop_"]) {
+        
+    }
+    else {
         self.navigationController.navigationBar.hidden = false;
         if ([sNameImage containsString:@"vé phim"]) {
             NSArray *arrSplit = [sNameImage componentsSeparatedByString:@"_"];
