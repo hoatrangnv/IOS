@@ -40,15 +40,37 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZpP-O4-cHs">
+                            <rect key="frame" x="362" y="2" width="44" height="40"/>
+                            <state key="normal" image="setting_icon_flag_english"/>
+                            <connections>
+                                <action selector="suKienChonEnglish:" destination="-1" eventType="touchUpInside" id="qlT-mr-dB5"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="brr-Zc-CGK">
+                            <rect key="frame" x="310" y="2" width="44" height="40"/>
+                            <state key="normal" image="setting_icon_flag_vietnam"/>
+                            <connections>
+                                <action selector="suKienChonVietNam:" destination="-1" eventType="touchUpInside" id="BUI-ST-iui"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" red="0.0" green="0.44705882352941173" blue="0.73333333333333328" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
+                        <constraint firstItem="brr-Zc-CGK" firstAttribute="height" secondItem="ZpP-O4-cHs" secondAttribute="height" id="0JE-xC-zlt"/>
+                        <constraint firstItem="ZpP-O4-cHs" firstAttribute="width" secondItem="E5d-1j-1mG" secondAttribute="height" id="AeA-FE-kDr"/>
                         <constraint firstItem="VVK-Wn-A1o" firstAttribute="top" secondItem="E5d-1j-1mG" secondAttribute="top" constant="3" id="KeB-Fn-jNh"/>
+                        <constraint firstItem="ZpP-O4-cHs" firstAttribute="centerY" secondItem="E5d-1j-1mG" secondAttribute="centerY" id="SqP-XU-KXx"/>
                         <constraint firstAttribute="bottom" secondItem="VVK-Wn-A1o" secondAttribute="bottom" constant="3" id="WA0-ui-bJK"/>
                         <constraint firstAttribute="height" constant="44" id="ZyQ-to-OEq"/>
                         <constraint firstItem="dng-7f-txC" firstAttribute="centerY" secondItem="E5d-1j-1mG" secondAttribute="centerY" id="gki-Ki-LJp"/>
+                        <constraint firstItem="brr-Zc-CGK" firstAttribute="centerY" secondItem="E5d-1j-1mG" secondAttribute="centerY" id="gkz-QJ-cya"/>
+                        <constraint firstItem="ZpP-O4-cHs" firstAttribute="leading" secondItem="brr-Zc-CGK" secondAttribute="trailing" constant="8" id="hkz-Ja-uwp"/>
+                        <constraint firstItem="ZpP-O4-cHs" firstAttribute="height" secondItem="E5d-1j-1mG" secondAttribute="height" multiplier="0.9" id="j8Q-pF-aDI"/>
+                        <constraint firstItem="brr-Zc-CGK" firstAttribute="width" secondItem="ZpP-O4-cHs" secondAttribute="width" id="mMt-sn-xCA"/>
                         <constraint firstItem="dng-7f-txC" firstAttribute="centerX" secondItem="E5d-1j-1mG" secondAttribute="centerX" id="nid-5H-Ea4"/>
                         <constraint firstItem="VVK-Wn-A1o" firstAttribute="leading" secondItem="E5d-1j-1mG" secondAttribute="leading" id="onU-aA-huz"/>
+                        <constraint firstAttribute="trailing" secondItem="ZpP-O4-cHs" secondAttribute="trailing" constant="8" id="sEu-Qz-Ey0"/>
                     </constraints>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" separatorInsetReference="fromAutomaticInsets" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="p0v-lW-VYl">
@@ -73,5 +95,7 @@
     </objects>
     <resources>
         <image name="back" width="22" height="22"/>
+        <image name="setting_icon_flag_english" width="45" height="45"/>
+        <image name="setting_icon_flag_vietnam" width="45" height="45"/>
     </resources>
 </document>

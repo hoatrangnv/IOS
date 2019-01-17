@@ -33,18 +33,20 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.tableView registerNib:[UINib nibWithNibName:@"TinTucTableViewCell" bundle:nil] forCellReuseIdentifier:@"TinTucTableViewCell"];
+    [arrTinTuc removeAllObjects];
+    [self ketNoiLayTinTuc];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [arrTinTuc removeAllObjects];
-    [self ketNoiLayTinTuc];
+    
 }
 
 - (void)ketNoiLayTinTuc {
     dispatch_async(dispatch_get_main_queue(), ^{
         [self hienThiLoading];
     });
+    [arrTinTuc removeAllObjects];
     self.mDinhDanhKetNoi = @"LAY_TIN_TUC";
     [GiaoDichMang ketNoiLayTinTuc:langID idInput:@"1541494373838is4v3" noiNhanKetQua:self];
 }
@@ -74,6 +76,26 @@
 - (IBAction)suKienChonBack:(id)sender {
     if (self.delegate) {
         [self.delegate suKienChonBackTinTuc];
+    }
+}
+
+- (IBAction)suKienChonVietNam:(id)sender {
+    if (langID != 1) {
+        keyTitle = @"title_vi";
+        keyContent = @"shortContent_vi";
+        keyImage = @"img_vi";
+        langID = 1;
+        [self ketNoiLayTinTuc];
+    }
+}
+
+- (IBAction)suKienChonEnglish:(id)sender {
+    if (langID != 2) {
+        keyTitle = @"title_en";
+        keyContent = @"shortContent_en";
+        keyImage = @"img_en";
+        langID = 2;
+        [self ketNoiLayTinTuc];
     }
 }
 

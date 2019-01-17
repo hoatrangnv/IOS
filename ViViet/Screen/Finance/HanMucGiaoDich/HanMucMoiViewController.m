@@ -39,14 +39,22 @@
     }
     
     if (self.mThongTinTaiKhoanVi) {
-        self.tfTimeSoftToken.text = [Common hienThiTienTe:[self.mThongTinTaiKhoanVi.hanMucTimeSoftToken doubleValue]];
-        self.tfDaySoftToken.text = [Common hienThiTienTe:[self.mThongTinTaiKhoanVi.hanMucDaySoftToken doubleValue]];
-        
-        self.tfTimeVanTay.text = [Common hienThiTienTe:[self.mThongTinTaiKhoanVi.hanMucTimeVanTay doubleValue]];
-        self.tfDayVanTay.text = [Common hienThiTienTe:[self.mThongTinTaiKhoanVi.hanMucDayVanTay doubleValue]];
-        
+        self.tfTimeSoftToken.text = [Common hienThiTienTe:[DucNT_LuuRMS layHanMuc:KEY_TIME_SOFT_TOKEN]];
+        self.tfDaySoftToken.text = [Common hienThiTienTe:[DucNT_LuuRMS layHanMuc:KEY_DAY_SOFT_TOKEN]];
+
+        self.tfTimeVanTay.text = [Common hienThiTienTe:[DucNT_LuuRMS layHanMuc:KEY_TIME_VAN_TAY]];
+        self.tfDayVanTay.text = [Common hienThiTienTe:[DucNT_LuuRMS layHanMuc:KEY_DAY_VAN_TAY]];
+
         self.tfTimeMPKI.text = @"";
         self.tfDayMPKI.text = @"";
+//        self.tfTimeSoftToken.text = [Common hienThiTienTe:[self.mThongTinTaiKhoanVi.hanMucTimeSoftToken doubleValue]];
+//        self.tfDaySoftToken.text = [Common hienThiTienTe:[self.mThongTinTaiKhoanVi.hanMucDaySoftToken doubleValue]];
+//
+//        self.tfTimeVanTay.text = [Common hienThiTienTe:[self.mThongTinTaiKhoanVi.hanMucTimeVanTay doubleValue]];
+//        self.tfDayVanTay.text = [Common hienThiTienTe:[self.mThongTinTaiKhoanVi.hanMucDayVanTay doubleValue]];
+//
+//        self.tfTimeMPKI.text = @"";
+//        self.tfDayMPKI.text = @"";
     }
 }
 
@@ -203,7 +211,7 @@
                                      @"maxAmountDay":self.mThongTinTaiKhoanVi.hanMucDayVanTayMax
                                      };
         NSDictionary *dictMPKI = @{
-                                   @"id":self.mThongTinTaiKhoanVi.idSoftToken,
+                                   @"id":self.mThongTinTaiKhoanVi.idMPKI,
                                    @"user":[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_ID_TEMP],
                                    @"level":[NSNumber numberWithInt:5],
                                    @"amountTime":[NSNumber numberWithInt:fSoTien1MPKI],
@@ -249,16 +257,81 @@
             if(httpResponse.statusCode == 200)
             {
                 NSDictionary * dictResult = [data objectFromJSONData];
-                 NSLog(@"%s - dictResult : %@", __FUNCTION__, [dictResult JSONString]);
+                NSLog(@"%s - dictResult : %@", __FUNCTION__, [dictResult JSONString]);
                 int msgCode = [[dictResult valueForKey:@"msgCode"] intValue];
                 NSString *sThongBao = (NSString *)[dictResult valueForKey:@"msgContent"];
                 if (msgCode == 1) {
-                    [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:sThongBao];
                     if (self.mThongTinTaiKhoanVi) {
-                        [DucNT_LuuRMS luuThongTinTaiKhoanViSauDangNhap:self.mThongTinTaiKhoanVi];
+                        NSLog(@"%s - self.mThongTinTaiKhoanVi : %@", __FUNCTION__, self.mThongTinTaiKhoanVi.hanMucTimeSoftToken);
+                        DucNT_TaiKhoanViObject *newThongTin = [[DucNT_TaiKhoanViObject alloc] init];
+                        newThongTin.sID = self.mThongTinTaiKhoanVi.sID;
+                        newThongTin.sTenTaiKhoan = @"";
+                        newThongTin.sTenNganHang = @"";
+                        newThongTin.sThuDienTu = self.mThongTinTaiKhoanVi.sThuDienTu;
+                        newThongTin.sNgaySinh = self.mThongTinTaiKhoanVi.sNgaySinh;
+                        newThongTin.sCMND = self.mThongTinTaiKhoanVi.sCMND;
+                        newThongTin.sNgayCapCMND = self.mThongTinTaiKhoanVi.sNgayCapCMND;
+                        newThongTin.sNoiCapCMND = self.mThongTinTaiKhoanVi.sNoiCapCMND;
+                        newThongTin.sDiaChiNha = self.mThongTinTaiKhoanVi.sDiaChiNha;
+                        newThongTin.sLinkAnhTruocCMND = self.mThongTinTaiKhoanVi.sLinkAnhTruocCMND;
+                        newThongTin.sLinkAnhSauCMND = self.mThongTinTaiKhoanVi.sLinkAnhSauCMND;
+                        newThongTin.sLinkAnhChuKy = self.mThongTinTaiKhoanVi.sLinkAnhChuKy;
+                        newThongTin.sLinkAnhDaiDien = self.mThongTinTaiKhoanVi.sLinkAnhDaiDien;
+                        newThongTin.nIsToken = self.mThongTinTaiKhoanVi.nIsToken;
+                        newThongTin.sNameAlias = self.mThongTinTaiKhoanVi.sNameAlias;
+                        newThongTin.sPhone = self.mThongTinTaiKhoanVi.sPhone;
+                        newThongTin.sTenCMND = self.mThongTinTaiKhoanVi.sTenCMND;
+                        newThongTin.sPhoneAuthenticate = self.mThongTinTaiKhoanVi.sPhoneAuthenticate;
+                        newThongTin.sPass = self.mThongTinTaiKhoanVi.sPass;
+                        newThongTin.sPhoneToken = self.mThongTinTaiKhoanVi.sPhoneToken;
+                        newThongTin.nAmount = self.mThongTinTaiKhoanVi.nAmount;
+                        newThongTin.nPromotionStatus = self.mThongTinTaiKhoanVi.nPromotionStatus;
+                        newThongTin.nPromotionTotal = self.mThongTinTaiKhoanVi.nPromotionTotal;
+                        newThongTin.linkQR = self.mThongTinTaiKhoanVi.linkQR;
+                        newThongTin.pki3 = self.mThongTinTaiKhoanVi.pki3;
+                        newThongTin.hanMucPki3 = self.mThongTinTaiKhoanVi.hanMucPki3;
+                        newThongTin.hienThiNoiDungThanhToanQR = self.mThongTinTaiKhoanVi.hienThiNoiDungThanhToanQR;
+                        newThongTin.tKRutTien = self.mThongTinTaiKhoanVi.tKRutTien;
+                        newThongTin.idSoftToken = self.mThongTinTaiKhoanVi.idSoftToken;
+                        newThongTin.hanMucTimeSoftToken = self.mThongTinTaiKhoanVi.hanMucTimeSoftToken;
+                        NSLog(@"%s - newThongTin.hanMucTimeSoftToken : %@", __FUNCTION__, newThongTin.hanMucTimeSoftToken);
+                        newThongTin.hanMucDaySoftToken = self.mThongTinTaiKhoanVi.hanMucDaySoftToken;
+                        newThongTin.hanMucTimeSoftTokenMax = self.mThongTinTaiKhoanVi.hanMucTimeSoftTokenMax;
+                        newThongTin.hanMucDaySoftTokenMax = self.mThongTinTaiKhoanVi.hanMucDaySoftTokenMax;
+                        newThongTin.idVantay = self.mThongTinTaiKhoanVi.idVantay;
+                        newThongTin.hanMucTimeVanTay = self.mThongTinTaiKhoanVi.hanMucTimeVanTay;
+                        newThongTin.hanMucDayVanTay = self.mThongTinTaiKhoanVi.hanMucDayVanTay;
+                        newThongTin.hanMucTimeVanTayMax = self.mThongTinTaiKhoanVi.hanMucTimeVanTayMax;
+                        newThongTin.hanMucDayVanTayMax = self.mThongTinTaiKhoanVi.hanMucDayVanTayMax;
+                        newThongTin.idMPKI = self.mThongTinTaiKhoanVi.idMPKI;
+                        newThongTin.hanMucTimeMPKI = self.mThongTinTaiKhoanVi.hanMucTimeMPKI;
+                        newThongTin.hanMucDayMPKI = self.mThongTinTaiKhoanVi.hanMucDayMPKI;
+                        newThongTin.hanMucTimeMPKIMax = self.mThongTinTaiKhoanVi.hanMucTimeMPKIMax;
+                        newThongTin.hanMucDayMPKIMax = self.mThongTinTaiKhoanVi.hanMucDayMPKIMax;
+                        
+                        [DucNT_LuuRMS luuHanMuc:KEY_TIME_SOFT_TOKEN dHanMuc:[self.mThongTinTaiKhoanVi.hanMucTimeSoftToken doubleValue]];
+                        [DucNT_LuuRMS luuHanMuc:KEY_DAY_SOFT_TOKEN dHanMuc:[self.mThongTinTaiKhoanVi.hanMucDaySoftToken doubleValue]];
+                        [DucNT_LuuRMS luuHanMuc:KEY_TIME_VAN_TAY dHanMuc:[self.mThongTinTaiKhoanVi.hanMucTimeVanTay doubleValue]];
+                        [DucNT_LuuRMS luuHanMuc:KEY_DAY_VAN_TAY dHanMuc:[self.mThongTinTaiKhoanVi.hanMucDayVanTay doubleValue]];
+                        [DucNT_LuuRMS luuHanMuc:KEY_TIME_MPKI dHanMuc:[self.mThongTinTaiKhoanVi.hanMucTimeMPKI doubleValue]];
+                        [DucNT_LuuRMS luuHanMuc:KEY_DAY_MPKI dHanMuc:[self.mThongTinTaiKhoanVi.hanMucDayMPKI doubleValue]];
+
+                        [DucNT_LuuRMS luuThongTinTaiKhoanViSauDangNhap:newThongTin];
+//                        AppDelegate *app = (AppDelegate*)[UIApplication sharedApplication].delegate;
+//                        app.objUpdateProfile = newThongTin;
+//                        app.mThongTinTaiKhoanVi = newThongTin;
+//                        //END
+                        self.mThongTinTaiKhoanVi = newThongTin;
+                        NSLog(@"%s - [DucNT_LuuRMS layHanMuc:KEY_TIME_SOFT_TOKEN] : %f", __FUNCTION__, [DucNT_LuuRMS layHanMuc:KEY_TIME_SOFT_TOKEN]);
+                        [newThongTin release];
                     }
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:sThongBao];
+                    });
                 } else {
-                    [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:sThongBao];
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:sThongBao];
+                    });
                 }
             } else {
                 
@@ -309,6 +382,7 @@
     [_viewSMS release];
     [_viewToken release];
     [_viewMPKI release];
+    NSLog(@"%s - =========+> dealloc", __FUNCTION__);
     [super dealloc];
 }
 @end

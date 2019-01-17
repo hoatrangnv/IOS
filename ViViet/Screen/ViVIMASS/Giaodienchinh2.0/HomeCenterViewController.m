@@ -269,7 +269,7 @@
             if (arrTemp != nil && arrTemp.count > 0) {
                 NSString *sTaiKhoan = (NSString *)[arrTemp firstObject];
                 NSLog(@"%s - tai khoan : %@", __FUNCTION__, sTaiKhoan);
-                [self hienThongBaoDangNhapVanTay:sTaiKhoan];
+//                [self hienThongBaoDangNhapVanTay:sTaiKhoan];
             }
         }
     }

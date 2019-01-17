@@ -18,6 +18,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (retain, nonatomic) IBOutlet UITableView *tableView;
 
 - (IBAction)suKienChonBack:(id)sender;
+- (IBAction)suKienChonVietNam:(id)sender;
+- (IBAction)suKienChonEnglish:(id)sender;
+
 @end
 
 NS_ASSUME_NONNULL_END

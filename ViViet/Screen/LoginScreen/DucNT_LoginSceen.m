@@ -709,6 +709,12 @@ static int const KIEU_KET_NOI_GOOGLE = 2;
             NSDictionary *dicKQ2 = [dicKetQua objectForKey:@"result"];
             NSLog(@"%s - [dicKQ2 JSONString] : %@", __FUNCTION__, [dicKQ2 JSONString]);
             app.mThongTinTaiKhoanVi = [[DucNT_TaiKhoanViObject alloc] initWithDict:dicKQ2];
+            [DucNT_LuuRMS luuHanMuc:KEY_TIME_SOFT_TOKEN dHanMuc:[app.mThongTinTaiKhoanVi.hanMucTimeSoftToken doubleValue]];
+            [DucNT_LuuRMS luuHanMuc:KEY_DAY_SOFT_TOKEN dHanMuc:[app.mThongTinTaiKhoanVi.hanMucDaySoftToken doubleValue]];
+            [DucNT_LuuRMS luuHanMuc:KEY_TIME_VAN_TAY dHanMuc:[app.mThongTinTaiKhoanVi.hanMucTimeVanTay doubleValue]];
+            [DucNT_LuuRMS luuHanMuc:KEY_DAY_VAN_TAY dHanMuc:[app.mThongTinTaiKhoanVi.hanMucDayVanTay doubleValue]];
+            [DucNT_LuuRMS luuHanMuc:KEY_TIME_MPKI dHanMuc:[app.mThongTinTaiKhoanVi.hanMucTimeMPKI doubleValue]];
+            [DucNT_LuuRMS luuHanMuc:KEY_DAY_MPKI dHanMuc:[app.mThongTinTaiKhoanVi.hanMucDayMPKI doubleValue]];
             if(nKieuDangNhap == KIEU_CA_NHAN)
             {
                 self.mID = app.mThongTinTaiKhoanVi.sID;
@@ -767,8 +773,8 @@ static int const KIEU_KET_NOI_GOOGLE = 2;
 }
 
 - (void)xuLySauKhiDangKyThietBi:(int)nKieuDangNhap {
-     [DucNT_LuuRMS luuThongTinDangNhap:KEY_LOGIN_ID value:self.mID];
-        [DucNT_LuuRMS luuThongTinDangNhap:KEY_LOGIN_PASS value:edtPass.text];
+    [DucNT_LuuRMS luuThongTinDangNhap:KEY_LOGIN_ID value:self.mID];
+    [DucNT_LuuRMS luuThongTinDangNhap:KEY_LOGIN_PASS value:edtPass.text];
     [DucNT_LuuRMS luuThongTinDangNhap:KEY_LOGIN_SECSSION value:app.mThongTinTaiKhoanVi.secssion];
     [DucNT_LuuRMS luuThongTinDangNhap:KEY_LOGIN_STATE value:@"YES"];
     if(nKieuDangNhap == KIEU_DOANH_NGHIEP)

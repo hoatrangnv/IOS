@@ -42,7 +42,9 @@
 }
 
 - (void)xuLyKetNoiThanhCong:(NSString *)sDinhDanhKetNoi thongBao:(NSString *)sThongBao ketQua:(id)ketQua {
-    [self anLoading];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self anLoading];
+    });
     if ([sDinhDanhKetNoi isEqualToString:@"LAY_CHI_TIET_TIN_TUC"]) {
         NSDictionary *dict = (NSDictionary *)ketQua;
 //        NSLog(@"%s - dict : %@", __FUNCTION__, [dict JSONString]);
@@ -50,8 +52,9 @@
         self.navigationItem.title = [self decodeBase64:sTile];
         
         NSString *sContent = (NSString *)[dict valueForKey:keyContent];
-        NSString *html = [self decodeBase64:sContent];
-        NSLog(@"%s - html : %@", __FUNCTION__, html );
+        NSString *sContentDecode = [self decodeBase64:sContent];
+        NSString *html = [NSString stringWithFormat:@"<html><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" /><meta name=\"viewport\" content=\"width=device-width\" /><style type=\"text/css\">body {font-size: medium; text-align: justify; font-size: 16pt !important;} p {font-size: 16pt !important;} a {font-size: 16pt !important;}div {font-size: 16pt !important;} span {font-size: 16pt !important;} img {max-width: 100%% !important; height: auto !important; width: auto !important;} iframe { max-width: 100%% !important; height: auto !important;}</style></head><body>%@</body></html>", sContentDecode];
+        NSLog(@"%s - html : %@", __FUNCTION__, html);
         [self.webChiTiet loadHTMLString:html baseURL:nil];
     }
 }

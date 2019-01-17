@@ -10,6 +10,15 @@
 
 @implementation DucNT_LuuRMS
 
++ (void)luuHanMuc:(NSString *)sKey dHanMuc:(double)dHanMuc {
+    [[NSUserDefaults standardUserDefaults] setDouble:dHanMuc forKey:sKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
++ (double)layHanMuc:(NSString *)sKey {
+    return [[NSUserDefaults standardUserDefaults] doubleForKey:sKey];
+}
+
 + (void)luuTypeShowNotification:(NSString*)sKey value:(NSString *)value {
     [[NSUserDefaults standardUserDefaults] setValue:value forKey:sKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
@@ -60,8 +69,8 @@
 
 +(void)luuThongTinTaiKhoanViSauDangNhap:(DucNT_TaiKhoanViObject *)obj
 {
-    NSData *encodedObject = [NSKeyedArchiver archivedDataWithRootObject:obj];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSData *encodedObject = [NSKeyedArchiver archivedDataWithRootObject:obj];
     [defaults setObject:encodedObject forKey:KEY_LOGIN_THONG_TIN_TAI_KHOAN];
     [defaults synchronize];
 }
@@ -84,6 +93,12 @@
     [self xoaThongTinRMSTheoKey:KEY_LOGIN_TEN_VIEWCONTROLLER_CAN_TOI];
     [self xoaThongTinRMSTheoKey:KEY_LOGIN_KIEU_CHUYEN_GIAO_DIEN];
     [self xoaThongTinRMSTheoKey:KEY_LOGIN_SECSSION];
+    [self xoaThongTinRMSTheoKey:KEY_TIME_SOFT_TOKEN];
+    [self xoaThongTinRMSTheoKey:KEY_DAY_SOFT_TOKEN];
+    [self xoaThongTinRMSTheoKey:KEY_TIME_VAN_TAY];
+    [self xoaThongTinRMSTheoKey:KEY_DAY_VAN_TAY];
+    [self xoaThongTinRMSTheoKey:KEY_TIME_MPKI];
+    [self xoaThongTinRMSTheoKey:KEY_DAY_MPKI];
 //    [self xoaThongTinRMSTheoKey:KEY_DEVICE_TOKEN];
 }
 @end

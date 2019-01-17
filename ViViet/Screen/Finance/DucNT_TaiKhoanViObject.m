@@ -258,7 +258,7 @@ NSString *const KEY_HAN_MUC_AMOUNT_TIME_MPKI_MAX = @"KEY_HAN_MUC_AMOUNT_TIME_MPK
 
 - (id)initWithDict:(NSDictionary *)dict
 {
-    NSLog(@"%s - %s : dict : %@", __FILE__, __FUNCTION__, dict);
+//    NSLog(@"%s - %s : dict : %@", __FILE__, __FUNCTION__, dict);
     self = [super init];
     if(self)
     {
@@ -637,7 +637,7 @@ NSString *const KEY_HAN_MUC_AMOUNT_TIME_MPKI_MAX = @"KEY_HAN_MUC_AMOUNT_TIME_MPK
                     self.hanMucTimeVanTayMax = maxAmountTime;
                     self.hanMucDayVanTayMax = maxAmountDay;
                 }
-                else {
+                else if ([level intValue] == 5){
                     self.idMPKI = sIDHanMucTemp;
                     self.hanMucTimeMPKI = amountTime;
                     self.hanMucDayMPKI = amountDay;

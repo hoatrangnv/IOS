@@ -54,8 +54,19 @@
 //Chi dung cho thanh toan dien thoai
 #define KEY_LUU_KIEU_THANH_TOAN_DIEN_THOAI @"KEY_LUU_KIEU_THANH_TOAN_DIEN_THOAI"
 
+#define KEY_TIME_SOFT_TOKEN @"KEY_TIME_SOFT_TOKEN"
+#define KEY_DAY_SOFT_TOKEN @"KEY_DAY_SOFT_TOKEN"
+
+#define KEY_TIME_VAN_TAY @"KEY_TIME_VAN_TAY"
+#define KEY_DAY_VAN_TAY @"KEY_DAY_VAN_TAY"
+
+#define KEY_TIME_MPKI @"KEY_TIME_MPKI"
+#define KEY_DAY_MPKI @"KEY_DAY_MPKI"
+
 @interface DucNT_LuuRMS : NSObject
 
++ (void)luuHanMuc:(NSString *)sKey dHanMuc:(double)dHanMuc;
++ (double)layHanMuc:(NSString *)sKey;
 +(void)luuThongTinDangNhap:(NSString *)sKeyID value:(id)sValueID;
 +(NSString *)layThongTinDangNhap:(NSString *)sKeyID;
 +(void)xoaThongTinRMSTheoKey:(NSString *)sKeyID;
