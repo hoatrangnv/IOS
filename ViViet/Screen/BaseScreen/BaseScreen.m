@@ -566,6 +566,7 @@
     }
     else
     {
+        NSLog(@"%s - khong co van tay va face id", __FUNCTION__);
         [self xuLyKhiKhongCoChucNangQuetVanTay];
     }
 }
@@ -578,6 +579,10 @@
 
 - (void)xuLyKhiKhongCoChucNangQuetVanTay
 {
+    [self xuLyKhiChiCoToken];
+}
+
+- (void)xuLyKhiChiCoToken {
     
 }
 

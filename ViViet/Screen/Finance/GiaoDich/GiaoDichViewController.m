@@ -117,10 +117,6 @@
     }
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-}
-
 - (void)addButtonHuongDan {
     UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
     button.frame = CGRectMake(0, 0, 34, 34);
@@ -279,8 +275,8 @@
     [self.mbtnTokenView addTarget:self action:@selector(suKienBamNutToken:) forControlEvents:UIControlEventTouchUpInside];
     [self.mbtnEmailView addTarget:self action:@selector(suKienBamNutEmail:) forControlEvents:UIControlEventTouchUpInside];
     
-    [self.mbtnPKI setHidden:YES];
-    [self.mbtnToken setHidden:YES];
+//    [self.mbtnPKI setHidden:YES];
+//    [self.mbtnToken setHidden:YES];
     self.heightViewNhapXacThuc.constant = 0;
     [self.mViewNhapToken setHidden:YES];
 }
@@ -624,21 +620,33 @@
 {
     NSLog(@"%s - ============> co van tay", __FUNCTION__);
     [self.mbtnVanTay setHidden:YES];
+    [self.mbtnPKI setHidden:YES];
+    [self.mbtnToken setHidden:YES];
     _btnVanTayMini.enabled = YES;
 }
 
 - (void)xuLyKhiCoChucNangFaceID {
     NSLog(@"%s - ============> co face id", __FUNCTION__);
     [self.mbtnVanTay setHidden:YES];
+    [self.mbtnPKI setHidden:YES];
+    [self.mbtnToken setHidden:YES];
     _btnVanTayMini.enabled = YES;
     [_btnVanTayMini setImage:[UIImage imageNamed:@"face-id"] forState:UIControlStateNormal];
+}
+
+- (void)xuLyKhiChiCoToken {
+    NSLog(@"%s - ============> co face id", __FUNCTION__);
+    [self.mbtnVanTay setHidden:YES];
+    [self.mbtnToken setHidden:NO];
 }
 
 - (void)xuLyKhiKhongCoChucNangQuetVanTay
 {
     NSLog(@"%s - ============> khong van tay", __FUNCTION__);
     [self.mbtnVanTay setHidden:YES];
+    [self.btnVanTayMini setHidden:YES];
     _btnVanTayMini.enabled = NO;
+    [self.mbtnToken setHidden:NO];
 }
 
 #pragma mark - xuly

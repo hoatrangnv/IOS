@@ -26,26 +26,26 @@
                         </constraints>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RLE-Sd-DNN">
-                        <rect key="frame" x="33" y="0.0" width="282" height="66"/>
+                        <rect key="frame" x="33" y="0.0" width="282" height="66.5"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99.000.000.000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jTg-xK-onl">
-                                <rect key="frame" x="0.0" y="8" width="131" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99.000.000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jTg-xK-onl">
+                                <rect key="frame" x="0.0" y="5" width="95" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="noi dung" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cPk-WA-Xwf">
-                                <rect key="frame" x="0.0" y="37" width="227" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="noi dung" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cPk-WA-Xwf">
+                                <rect key="frame" x="0.0" y="37" width="227" height="21.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00-00-0000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a69-sN-i4r">
-                                <rect key="frame" x="189" y="3" width="93" height="20"/>
+                                <rect key="frame" x="189" y="5" width="93" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="00:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7R5-8B-gb0">
-                                <rect key="frame" x="232" y="43" width="50" height="20"/>
+                                <rect key="frame" x="232" y="43.5" width="50" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="lPM-yc-DP0"/>
                                 </constraints>
@@ -53,8 +53,8 @@
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.000.000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xek-zE-Aa5">
-                                <rect key="frame" x="134" y="3" width="81" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.000.000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xek-zE-Aa5">
+                                <rect key="frame" x="100" y="5" width="81" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -66,15 +66,14 @@
                             <constraint firstAttribute="trailing" secondItem="7R5-8B-gb0" secondAttribute="trailing" id="3OK-kl-eZs"/>
                             <constraint firstItem="cPk-WA-Xwf" firstAttribute="leading" secondItem="RLE-Sd-DNN" secondAttribute="leading" id="Dif-Wi-oUx"/>
                             <constraint firstItem="7R5-8B-gb0" firstAttribute="leading" secondItem="cPk-WA-Xwf" secondAttribute="trailing" constant="5" id="I4X-vk-eG4"/>
-                            <constraint firstItem="Xek-zE-Aa5" firstAttribute="top" secondItem="RLE-Sd-DNN" secondAttribute="top" constant="3" id="IYF-WU-07Z"/>
-                            <constraint firstItem="Xek-zE-Aa5" firstAttribute="leading" secondItem="jTg-xK-onl" secondAttribute="trailing" constant="3" id="PtK-7p-b5j"/>
+                            <constraint firstItem="Xek-zE-Aa5" firstAttribute="top" secondItem="RLE-Sd-DNN" secondAttribute="top" constant="5" id="IYF-WU-07Z"/>
                             <constraint firstItem="cPk-WA-Xwf" firstAttribute="top" secondItem="jTg-xK-onl" secondAttribute="bottom" constant="8" id="Ryy-ex-XHl"/>
-                            <constraint firstItem="a69-sN-i4r" firstAttribute="top" secondItem="RLE-Sd-DNN" secondAttribute="top" constant="3" id="UT4-Jp-DqJ"/>
-                            <constraint firstItem="jTg-xK-onl" firstAttribute="top" secondItem="RLE-Sd-DNN" secondAttribute="top" constant="8" id="Wy5-o1-zX8"/>
+                            <constraint firstItem="a69-sN-i4r" firstAttribute="top" secondItem="RLE-Sd-DNN" secondAttribute="top" constant="5" id="UT4-Jp-DqJ"/>
+                            <constraint firstItem="jTg-xK-onl" firstAttribute="top" secondItem="RLE-Sd-DNN" secondAttribute="top" constant="5" id="Wy5-o1-zX8"/>
                             <constraint firstAttribute="bottom" secondItem="7R5-8B-gb0" secondAttribute="bottom" constant="3" id="XzX-1H-6ES"/>
                             <constraint firstAttribute="bottom" secondItem="cPk-WA-Xwf" secondAttribute="bottom" constant="8" id="sst-UZ-CtT"/>
                             <constraint firstItem="jTg-xK-onl" firstAttribute="leading" secondItem="RLE-Sd-DNN" secondAttribute="leading" id="xQJ-i6-uyL"/>
-                            <constraint firstItem="a69-sN-i4r" firstAttribute="leading" relation="lessThanOrEqual" secondItem="Xek-zE-Aa5" secondAttribute="trailing" constant="8" id="xff-Gt-rYs"/>
+                            <constraint firstItem="a69-sN-i4r" firstAttribute="leading" secondItem="Xek-zE-Aa5" secondAttribute="trailing" constant="8" id="xff-Gt-rYs"/>
                         </constraints>
                     </view>
                 </subviews>

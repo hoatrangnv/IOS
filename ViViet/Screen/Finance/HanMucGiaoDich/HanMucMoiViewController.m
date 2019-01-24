@@ -45,8 +45,22 @@
         self.tfTimeVanTay.text = [Common hienThiTienTe:[DucNT_LuuRMS layHanMuc:KEY_TIME_VAN_TAY]];
         self.tfDayVanTay.text = [Common hienThiTienTe:[DucNT_LuuRMS layHanMuc:KEY_DAY_VAN_TAY]];
 
-        self.tfTimeMPKI.text = @"";
-        self.tfDayMPKI.text = @"";
+        double timeMpki = [DucNT_LuuRMS layHanMuc:KEY_TIME_MPKI];
+        double dayMpki = [DucNT_LuuRMS layHanMuc:KEY_DAY_MPKI];
+//        NSLog(@"%s - timeMpki : %f - DBL_MAX : %f", __FUNCTION__, timeMpki, DBL_MAX);
+        if (timeMpki == 0 || timeMpki == DBL_MAX) {
+            self.tfTimeMPKI.text = @"";
+        } else {
+            self.tfTimeMPKI.text = [Common hienThiTienTe:timeMpki];
+        }
+        if (dayMpki == 0 || dayMpki == DBL_MAX) {
+            self.tfDayMPKI.text = @"";
+        } else {
+            self.tfDayMPKI.text = [Common hienThiTienTe:dayMpki];
+        }
+//        double fSoTien1MPKI = [[self.tfTimeMPKI.text stringByReplacingOccurrencesOfString:@"." withString:@""] doubleValue];
+//        double fSoTien2MPKI = [[self.tfDayMPKI.text stringByReplacingOccurrencesOfString:@"." withString:@""] doubleValue];
+//        NSLog(@"%s - fSoTien1MPKI : %f - fSoTien2MPKI : %f", __FUNCTION__, fSoTien2MPKI, fSoTien2MPKI);
 //        self.tfTimeSoftToken.text = [Common hienThiTienTe:[self.mThongTinTaiKhoanVi.hanMucTimeSoftToken doubleValue]];
 //        self.tfDaySoftToken.text = [Common hienThiTienTe:[self.mThongTinTaiKhoanVi.hanMucDaySoftToken doubleValue]];
 //
@@ -190,7 +204,7 @@
         self.mThongTinTaiKhoanVi.hanMucTimeVanTay = [NSNumber numberWithDouble:fSoTien1VanTay];
         self.mThongTinTaiKhoanVi.hanMucDayVanTay = [NSNumber numberWithDouble:fSoTien2VanTay];
         self.mThongTinTaiKhoanVi.hanMucTimeMPKI = [NSNumber numberWithDouble:fSoTien1MPKI];
-        
+        self.mThongTinTaiKhoanVi.hanMucDayMPKI = [NSNumber numberWithDouble:fSoTien2MPKI];
         NSMutableArray *arrDict = [[NSMutableArray alloc] init];
         NSDictionary *dictToken = @{
                                     @"id":self.mThongTinTaiKhoanVi.idSoftToken,

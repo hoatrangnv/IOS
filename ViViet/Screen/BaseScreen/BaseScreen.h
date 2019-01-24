@@ -88,6 +88,7 @@
 - (BOOL)kiemTraCoChucNangQuetVanTay;
 - (void)xuLyKhiCoChucNangQuetVanTay;
 - (void)xuLyKhiCoChucNangFaceID;
+- (void)xuLyKhiChiCoToken;
 - (void)hienThiThongBaoDienMatKhau;
 - (void)updateXacThucKhac;
 - (void)xuLyKhiKhongCoChucNangQuetVanTay;
@@ -124,6 +125,7 @@
 @property (nonatomic, assign) BOOL isLoading;
 @property (nonatomic, assign) BOOL enableBarButton;
 @property (nonatomic, assign) BOOL enableFaceID;
+@property (nonatomic, assign) BOOL enableToken;
 @property (nonatomic, retain) NSMutableArray *viewToText;
 +(void) drawerTouchEnableOrDisable:(BOOL) enable;
 - (void) didRotate:(NSNotification *)notification;
