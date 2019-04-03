@@ -18,7 +18,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self addTitleView:@"Liên kết tài khoản / thẻ"];
+    [self addTitleView:[@"tai_khoan_lien_ket" localizableString]];
+    [self.segmentControl setTitle:[@"register_personal_accBank" localizableString] forSegmentAtIndex:0];
+    [self.segmentControl setTitle:[@"tai_khoan_the" localizableString] forSegmentAtIndex:1];
     self.segmentControl.selectedSegmentIndex = 0;
     if (!taikhoanNH) {
         taikhoanNH = [[GiaodientaikhoannganhangViewController alloc] initWithNibName:@"GiaodientaikhoannganhangViewController" bundle:nil];

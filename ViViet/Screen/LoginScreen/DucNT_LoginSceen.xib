@@ -17,6 +17,7 @@
                 <outlet property="edtMainInfo" destination="jc6-h6-7ge" id="jrS-BL-tPH"/>
                 <outlet property="edtPass" destination="HCL-Vg-YVl" id="mzh-8D-FhZ"/>
                 <outlet property="imgVimass" destination="lvh-5w-Elg" id="sWN-P1-Ebc"/>
+                <outlet property="lblPhienBan" destination="BuB-oJ-w5F" id="dAM-tx-rPZ"/>
                 <outlet property="mViewChuaNutLuaChonVi" destination="3uj-rD-mF9" id="LHS-Cv-GAO"/>
                 <outlet property="mbtnDangNhapBangVanTay" destination="d17-1K-Qzz" id="tbS-af-hx5"/>
                 <outlet property="mbtnViCaNhan" destination="Hw8-qG-AOY" id="6bL-ef-Ebr"/>
@@ -188,6 +189,22 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="tmn-qc-H6k">
+                            <rect key="frame" x="166" y="472" width="56" height="45"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <state key="normal" image="setting_icon_flag_english"/>
+                            <connections>
+                                <action selector="suKienChonLanguageEnglish:" destination="-1" eventType="touchUpInside" id="YKC-qD-ogR"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Eg3-jf-N28">
+                            <rect key="frame" x="102" y="472" width="56" height="45"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <state key="normal" image="setting_icon_flag_vietnam"/>
+                            <connections>
+                                <action selector="suKienChonLanguageViet:" destination="-1" eventType="touchUpInside" id="VPt-E1-hgn"/>
+                            </connections>
+                        </button>
                     </subviews>
                 </scrollView>
             </subviews>
@@ -203,6 +220,8 @@
         <image name="login_tabactive.png" width="319" height="68"/>
         <image name="login_tabthuong.png" width="319" height="68"/>
         <image name="login_txt_bg.png" width="16" height="16"/>
+        <image name="setting_icon_flag_english" width="45" height="45"/>
+        <image name="setting_icon_flag_vietnam" width="45" height="45"/>
         <image name="vantay" width="225" height="225"/>
     </resources>
 </document>

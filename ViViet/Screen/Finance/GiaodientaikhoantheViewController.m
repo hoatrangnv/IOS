@@ -19,6 +19,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.edChuTK.placeholder = [@"ten_chu_the" localizableString];
+    self.edSoThe.placeholder = [@"register_bank_card_link_card_number" localizableString];
+    self.edNgayMoThe.placeholder = [@"tu_thang" localizableString];
+    self.edNamMoThe.placeholder = [@"tu_nam" localizableString];
+    self.lblUuTien.text = [@"uu_tien_su_dung" localizableString];
+    self.lblMacDinh.text = [@"mac_dinh" localizableString];
+    [self.btnThucHien setTitle:[@"button_thuc_hien" localizableString] forState:UIControlStateNormal];
+    
     [self.edSoThe addTarget:self action:@selector(soTheDidChange:) forControlEvents:UIControlEventEditingChanged];
     [self.edNgayMoThe addTarget:self action:@selector(thoiDiemMoTheDidChange:) forControlEvents:UIControlEventEditingChanged];
     [self.edNamMoThe addTarget:self action:@selector(thoiDiemMoTheDidChange:) forControlEvents:UIControlEventEditingChanged];
@@ -110,14 +119,14 @@
     if ([nganhang.lowercaseString isEqualToString:@"Visa".lowercaseString] || [nganhang.lowercaseString isEqualToString:@"MasterCard".lowercaseString] || [nganhang.lowercaseString isEqualToString:@"JCB".lowercaseString]) {
         txtCvv.hidden = NO;
         contraintHeightCvv.constant = 35;
-        _edNgayMoThe.placeholder = @"Tháng hết hạn";
-        _edNamMoThe.placeholder = @"Năm hết hạn";
+        _edNgayMoThe.placeholder = [@"payment_card_add_expire_date_label" localizableString];
+        _edNamMoThe.placeholder = [@"nam_het_han" localizableString];
 
     }else {
         contraintHeightCvv.constant = 0;
         txtCvv.hidden = YES;
-        _edNgayMoThe.placeholder = @"Từ tháng";
-        _edNamMoThe.placeholder = @"Năm";
+        _edNgayMoThe.placeholder = [@"tu_thang" localizableString];
+        _edNamMoThe.placeholder = [@"tu_nam" localizableString];
 
     }
 }
@@ -147,7 +156,7 @@
     NSString *sToken = [DucNT_Token OTPFromPIN:sMatKhau seed:sSeed];
     if([CommonUtils isEmptyOrNull:sToken])
     {
-        [[[[UIAlertView alloc] initWithTitle:[@"@thong_bao" localizableString]  message:[@"@can_tao_token" localizableString] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
+        [[[[UIAlertView alloc] initWithTitle:[@"thong_bao" localizableString]  message:[@"can_tao_token" localizableString] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
         return;
     }
     [dic setValue:sToken forKey:@"token"];
@@ -187,6 +196,8 @@
 }
 - (void)dealloc {
     [contraintHeightCvv release];
+    [_lblUuTien release];
+    [_lblMacDinh release];
     [super dealloc];
 }
 @end

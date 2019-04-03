@@ -182,9 +182,9 @@
     
     [edtSoDienThoai setBackgroundImage:[Common stretchImage:@"login_txt_bg"] forState:UIControlStateNormal];
     [edtSoDienThoai setBackgroundImage:[Common stretchImage:@"login_txt_bg"] forState:UIControlStateHighlighted];
-    [edtSoDienThoai setTextError: [@"@so_dien_thoai_khong_dc_de_trong" localizableString]
+    [edtSoDienThoai setTextError: [@"so_dien_thoai_khong_dc_de_trong" localizableString]
                          forType: ExTextFieldTypeEmpty];
-    [edtSoDienThoai setTextError: [@"@qrcode_phone_invalid" localizableString]
+    [edtSoDienThoai setTextError: [@"qrcode_phone_invalid" localizableString]
                          forType: ExTextFieldTypePhone];
     
     edtMatKhauToken.max_length = 6;
@@ -193,17 +193,17 @@
     
     [edtMatKhauToken setBackgroundImage: [Common stretchImage:@"login_txt_bg"]
                                forState: UIControlStateHighlighted];
-    [edtMatKhauToken setTextError:[@"@mat_khau_token_khong_dc_de_trong" localizableString]
+    [edtMatKhauToken setTextError:[@"mat_khau_token_khong_dc_de_trong" localizableString]
                       forType:ExTextFieldTypeEmpty];
-    [edtMatKhauToken setTextError:[@"@mat_khau_token_require" localizableString]
+    [edtMatKhauToken setTextError:[@"mat_khau_token_require" localizableString]
                       forType:ExTextFieldTypeViTokenPassword];
     
     edtMatKhauTokenConfirm.max_length = 6;
     [edtMatKhauTokenConfirm setBackgroundImage:[Common stretchImage:@"login_txt_bg"] forState:UIControlStateNormal];
     [edtMatKhauTokenConfirm setBackgroundImage:[Common stretchImage:@"login_txt_bg"] forState:UIControlStateHighlighted];
-    [edtMatKhauTokenConfirm setTextError:[@"@mat_khau_token_khong_dc_de_trong" localizableString]
+    [edtMatKhauTokenConfirm setTextError:[@"mat_khau_token_khong_dc_de_trong" localizableString]
                              forType:ExTextFieldTypeEmpty];
-    [edtMatKhauTokenConfirm setTextError:[@"@mat_khau_token_require" localizableString]
+    [edtMatKhauTokenConfirm setTextError:[@"mat_khau_token_require" localizableString]
                              forType:ExTextFieldTypeViTokenPassword];
 }
 
@@ -269,7 +269,7 @@
             }
         }
         else{
-            [[[[UIAlertView alloc] initWithTitle:[@"@thong_bao" localizableString]  message:[@"@mat_khau_khong_trung_khop" localizableString] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
+            [[[[UIAlertView alloc] initWithTitle:[@"thong_bao" localizableString]  message:[@"mat_khau_khong_trung_khop" localizableString] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
         }
     }
 }
@@ -320,7 +320,7 @@
     }
     else
     {
-        [[[[UIAlertView alloc] initWithTitle:[@"@thong_bao" localizableString]  message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
+        [[[[UIAlertView alloc] initWithTitle:[@"thong_bao" localizableString]  message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
     }
 }
 

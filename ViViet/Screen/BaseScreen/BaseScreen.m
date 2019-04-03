@@ -330,7 +330,7 @@
         return;
     
     NSLog(@"----%s - exit button clicked----",__FUNCTION__);
-    [self confirm:@"@exit - Are you sure?" title:nil block:^(UIAlertView *alert, int indexClicked) {
+    [self confirm:[@"exit - Are you sure?" localizableString] title:nil block:^(UIAlertView *alert, int indexClicked) {
         if (indexClicked == 1)
             exit(0);
     }];
@@ -686,7 +686,7 @@
         LAContext *context = [[[LAContext alloc] init] autorelease];
         NSError *err = nil;
         if (@available(iOS 11.0, *)) {
-            [context setLocalizedCancelTitle:@"Sử dụng xác thực khác"];
+            [context setLocalizedCancelTitle:[@"su_dung_xac_thuc_khac" localizableString]];
             if ([context canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&err]) {
                 if (err != NULL) {
                     NSLog(@"%s - error : %@", __FUNCTION__, err.description);

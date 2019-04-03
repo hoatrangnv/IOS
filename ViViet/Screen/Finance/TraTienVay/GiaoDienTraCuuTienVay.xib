@@ -28,6 +28,8 @@
                 <outlet property="mbtnPKI" destination="coH-Em-gIr" id="OXg-ka-67B"/>
                 <outlet property="mbtnThucHien" destination="Rny-hO-P3F" id="VIS-zg-u2o"/>
                 <outlet property="mbtnToken" destination="jy5-ap-Ob0" id="L8x-2C-QpK"/>
+                <outlet property="mlblPhi" destination="nq5-ML-YZb" id="ohi-Fx-I9w"/>
+                <outlet property="mlblXacThuc" destination="Yl5-b9-dAd" id="6Pk-Ga-nja"/>
                 <outlet property="mtfMatKhauToken" destination="XMN-KI-Laf" id="dRu-Dr-DHX"/>
                 <outlet property="scrMain" destination="uIS-Ix-heU" id="OiH-oO-9OA"/>
                 <outlet property="topBtnTraCuu" destination="u1x-QW-dcY" id="1FN-xr-AtK"/>

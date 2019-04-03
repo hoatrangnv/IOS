@@ -187,13 +187,13 @@
     btnViewHienThi = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 200, 40)];
     btnViewQuenMatKhau = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 200, 40)];
     btnViewDoiMatKhau = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 200, 40)];
-    [btnViewDoiMatKhau setTitle:[@"@title_doi_mat_khau_token" localizableString] forState:UIControlStateNormal];
+    [btnViewDoiMatKhau setTitle:[@"title_doi_mat_khau_token" localizableString] forState:UIControlStateNormal];
     [btnViewDoiMatKhau addTarget:self action:@selector(suKienClickViewDoiMatKhau) forControlEvents:UIControlEventTouchUpInside];
     btnViewDoiMatKhau.titleLabel.font = [UIFont systemFontOfSize:15];
-    [btnViewQuenMatKhau setTitle:[@"@title_quen_mat_khau_token" localizableString] forState:UIControlStateNormal];
+    [btnViewQuenMatKhau setTitle:[@"title_quen_mat_khau_token" localizableString] forState:UIControlStateNormal];
     [btnViewQuenMatKhau addTarget:self action:@selector(suKienClickViewQuenMatKhau) forControlEvents:UIControlEventTouchUpInside];
     btnViewQuenMatKhau.titleLabel.font = [UIFont systemFontOfSize:15];
-    [btnViewHienThi setTitle:[@"@title_6_so_token" localizableString] forState:UIControlStateNormal];
+    [btnViewHienThi setTitle:[@"title_6_so_token" localizableString] forState:UIControlStateNormal];
     [btnViewHienThi addTarget:self action:@selector(suKienClickViewHienThiToken) forControlEvents:UIControlEventTouchUpInside];
     btnViewHienThi.titleLabel.font = [UIFont systemFontOfSize:15];
     viewSeperator = [[UIView alloc] initWithFrame:CGRectMake(0, 40, 200, 1)];
@@ -272,7 +272,7 @@
     [self showOptionViewSetting];
     [viewQuenMatKhauToken removeFromSuperview];
     [viewHienThiToken removeFromSuperview];
-    self.title = [@"@title_doi_mat_khau_token" localizableString];
+    self.title = [@"title_doi_mat_khau_token" localizableString];
     [self.view addSubview:viewDoiMatKhauToken];
 }
 
@@ -283,7 +283,7 @@
     [self showOptionViewSetting];
     [viewDoiMatKhauToken removeFromSuperview];
     [viewQuenMatKhauToken removeFromSuperview];
-    self.title = [@"@title_6_so_token" localizableString];
+    self.title = [@"title_6_so_token" localizableString];
     [self.view addSubview:viewHienThiToken];
 }
 

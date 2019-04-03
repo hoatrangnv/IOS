@@ -10,6 +10,15 @@
 
 @implementation DucNT_LuuRMS
 
++ (void)luuNgonNgu:(int)nValue {
+    [[NSUserDefaults standardUserDefaults] setInteger:nValue forKey:@"NGON_NGU"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
++ (int)layNgonNgu {
+    return (int)[[NSUserDefaults standardUserDefaults] integerForKey:@"NGON_NGU"];
+}
+
 + (void)luuHanMuc:(NSString *)sKey dHanMuc:(double)dHanMuc {
     [[NSUserDefaults standardUserDefaults] setDouble:dHanMuc forKey:sKey];
     [[NSUserDefaults standardUserDefaults] synchronize];

@@ -115,10 +115,10 @@ static int const KIEU_KET_NOI_GOOGLE = 2;
 {
     _edtPass.placeholder = [@"lg - pwd" localizableString];
     _edtPass.max_length = 20;
-    [_edtPass setTextError:[@"@lg - TRUONG_MAT_KHAU_KHONG_DUOC_DE_TRONG" localizableString]
+    [_edtPass setTextError:[@"lg - TRUONG_MAT_KHAU_KHONG_DUOC_DE_TRONG" localizableString]
                   forType:ExTextFieldTypeEmpty];
 
-    [_edtPass setTextError:[@"@lg - MAT_KHAU_O_HOP_LE" localizableString]
+    [_edtPass setTextError:[@"lg - MAT_KHAU_O_HOP_LE" localizableString]
                   forType:ExTextFieldTypePassword];
     _edtPass.inputAccessoryView = nil;
 
@@ -129,7 +129,7 @@ static int const KIEU_KET_NOI_GOOGLE = 2;
     [self setupTextField:_mtfMaDoanhNghiep icon:@"dnicon"];
 
     _edtMainInfo.placeholder = [@"so_vi" localizableString];
-    [_edtMainInfo setTextError:[@"@lg - SO_VI_KHONG_DUOC_DE_TRONG" localizableString]
+    [_edtMainInfo setTextError:[@"lg - SO_VI_KHONG_DUOC_DE_TRONG" localizableString]
                       forType:ExTextFieldTypeEmpty];
     _edtMainInfo.delegate = self;
     _edtMainInfo.inputAccessoryView = nil;

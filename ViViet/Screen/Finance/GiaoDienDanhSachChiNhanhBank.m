@@ -22,7 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self addTitleView:@"Danh sách CN/PGD"];
+    [self addTitleView:[@"danh_sach_cn_pgd" localizableString]];
     nPage = 1;
     bPullToRefresh = NO;
     [self.tableDanhSach addInfiniteScrollingWithActionHandler:^{

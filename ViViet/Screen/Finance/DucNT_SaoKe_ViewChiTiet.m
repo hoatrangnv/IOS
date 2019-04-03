@@ -64,11 +64,11 @@
     [self setBackgroundColor:[[UIColor blackColor] colorWithAlphaComponent:0.75]];
     [viewMain.layer setCornerRadius:4];
     [viewMain.layer setMasksToBounds:YES];
-    lbFromAcc.text = [@"@tu" localizableString];
-    lbToAcc.text = [@"@den" localizableString];
-    lbAmount.text = [@"@so_tien_giao_dich" localizableString];
-    lbTime.text = [@"@thoi_diem_giao_dich" localizableString];
-    tvDescrip.text = [@"@noi_dung_giao_dich" localizableString];
+    lbFromAcc.text = [@"tu" localizableString];
+    lbToAcc.text = [@"den" localizableString];
+    lbAmount.text = [@"so_tien_giao_dich" localizableString];
+    lbTime.text = [@"thoi_diem_giao_dich" localizableString];
+    tvDescrip.text = [@"place_holder_noi_dung" localizableString];
 }
 
 - (void)dealloc {
@@ -163,10 +163,10 @@
 
 -(void)updateView:(NSString *)sFromAcc toAcc:(NSString *)sToAcc withAmount:(NSString *)sAmount withTime:(NSString *)sTime withDesc:(NSString *)sDescrip
 {
-    lbFromAcc.text = [NSString stringWithFormat:@"%@: %@", [@"@tu" localizableString], sFromAcc];
-    lbToAcc.text = [NSString stringWithFormat:@"%@: %@", [@"@den" localizableString], sToAcc];
-    lbAmount.text = [NSString stringWithFormat:@"%@: %@", [@"@so_tien_giao_dich" localizableString], sAmount];
-    lbTime.text = [NSString stringWithFormat:@"%@: %@", [@"@thoi_diem_giao_dich" localizableString], sTime];
+    lbFromAcc.text = [NSString stringWithFormat:@"%@: %@", [@"tu" localizableString], sFromAcc];
+    lbToAcc.text = [NSString stringWithFormat:@"%@: %@", [@"den" localizableString], sToAcc];
+    lbAmount.text = [NSString stringWithFormat:@"%@: %@", [@"so_tien_giao_dich" localizableString], sAmount];
+    lbTime.text = [NSString stringWithFormat:@"%@: %@", [@"thoi_diem_giao_dich" localizableString], sTime];
     tvDescrip.text = [NSString stringWithFormat:@"%@ %@", [@"sk noi dung" localizableString], sDescrip];
 }
 
@@ -245,14 +245,14 @@
 
     if([item.type integerValue] == 3)
     {
-        lbFromAcc.text = [NSString stringWithFormat:@"%@: %@", [@"@qua_tang_tang" localizableString], item.fromAcc];
+        lbFromAcc.text = [NSString stringWithFormat:@"%@: %@", [@"qua_tang_tang" localizableString], item.fromAcc];
     }
     else
     {
-        lbFromAcc.text = [NSString stringWithFormat:@"%@: %@", [@"@tu" localizableString], item.fromAcc];
+        lbFromAcc.text = [NSString stringWithFormat:@"%@: %@", [@"tu" localizableString], item.fromAcc];
     }
 
-    lbToAcc.text = [NSString stringWithFormat:@"%@: %@", [@"@den" localizableString], sDenTK];
+    lbToAcc.text = [NSString stringWithFormat:@"%@: %@", [@"den" localizableString], sDenTK];
     
     
     NSString *sAmount = @"";
@@ -260,37 +260,37 @@
     NSString *idVi = [DucNT_LuuRMS layThongTinTaiKhoanVi].sID;
     if([item.fromAcc hasPrefix:idVi])
     {
-        sAmount = [NSString stringWithFormat:@"%@: - %@ đ", [@"@so_tien_giao_dich" localizableString], [Common hienThiTienTe:[item.amount doubleValue]]];
+        sAmount = [NSString stringWithFormat:@"%@: - %@ đ", [@"so_tien_giao_dich" localizableString], [Common hienThiTienTe:[item.amount doubleValue]]];
         if([item.type intValue] != 4)
         {
             // so du vi
-            sSoDu = [NSString stringWithFormat:@"%@%@: %@ đ", [@"Inq - blance" localizableString], [@"tao_tai_khoan_thuong_dung_vi" localizableString], [Common hienThiTienTe:[item.totalAmount doubleValue]]];
+            sSoDu = [NSString stringWithFormat:@"%@%@: %@ đ", [@"inquiry_balance_value" localizableString], [@"tao_tai_khoan_thuong_dung_vi" localizableString], [Common hienThiTienTe:[item.totalAmount doubleValue]]];
         }
         else
         {
             // so du km
-            sSoDu = [NSString stringWithFormat:@"%@%@: %@ đ", [@"Inq - blance" localizableString], [@"TKKM" localizableString], [Common hienThiTienTe:[item.totalPromotion doubleValue]]];
+            sSoDu = [NSString stringWithFormat:@"%@%@: %@ đ", [@"inquiry_balance_value" localizableString], [@"TKKM" localizableString], [Common hienThiTienTe:[item.totalPromotion doubleValue]]];
         }
     }
     else
     {
-        sAmount = [NSString stringWithFormat:@"%@: +%@ đ", [@"@so_tien_giao_dich" localizableString], [Common hienThiTienTe:[item.amount doubleValue]]];
+        sAmount = [NSString stringWithFormat:@"%@: +%@ đ", [@"so_tien_giao_dich" localizableString], [Common hienThiTienTe:[item.amount doubleValue]]];
         if([item.type intValue] != 4)
         {
             // so du vi
-            sSoDu = [NSString stringWithFormat:@"%@%@: %@ đ", [@"Inq - blance" localizableString], [@"tao_tai_khoan_thuong_dung_vi" localizableString], [Common hienThiTienTe:[item.totalAmountToAcc doubleValue]]];
+            sSoDu = [NSString stringWithFormat:@"%@%@: %@ đ", [@"inquiry_balance_value" localizableString], [@"tao_tai_khoan_thuong_dung_vi" localizableString], [Common hienThiTienTe:[item.totalAmountToAcc doubleValue]]];
         }
         else
         {
             // so du km
-            sSoDu = [NSString stringWithFormat:@"%@%@: %@", [@"Inq - blance" localizableString], [@"TKKM" localizableString], [Common hienThiTienTe_1:[item.totalPromotionToAcc doubleValue]]];
+            sSoDu = [NSString stringWithFormat:@"%@%@: %@", [@"inquiry_balance_value" localizableString], [@"TKKM" localizableString], [Common hienThiTienTe_1:[item.totalPromotionToAcc doubleValue]]];
         }
     }
 
     self.mlblSoDu.text = sSoDu;
     lbAmount.text = sAmount;
-    lbTime.text = [NSString stringWithFormat:@"%@: %@", [@"@thoi_diem_giao_dich" localizableString],  [item layThoiGianChuyenTien]];
-    self.mlblSoPhi.text = [NSString stringWithFormat:@"%@: %@ đ", [@"so_phi" localizableString], [Common hienThiTienTe:[item.feeAmount doubleValue]]];
+    lbTime.text = [NSString stringWithFormat:@"%@: %@", [@"thoi_diem_giao_dich" localizableString],  [item layThoiGianChuyenTien]];
+    self.mlblSoPhi.text = [NSString stringWithFormat:@"%@: %@ đ", [@"phi_chuyen_tien" localizableString], [Common hienThiTienTe:[item.feeAmount doubleValue]]];
     
     
 //    if([item.type intValue] != 3 && [item.type intValue] != 4)

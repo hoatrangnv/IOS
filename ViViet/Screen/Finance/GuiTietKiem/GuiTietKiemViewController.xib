@@ -19,6 +19,13 @@
                 <outlet property="heightViewAddThem" destination="Sio-Xb-Fzj" id="6P1-DV-9UK"/>
                 <outlet property="heightViewMain" destination="dds-Wx-8hN" id="cjo-v1-TFz"/>
                 <outlet property="heightViewNhapXacThuc" destination="5Ur-uH-Tyi" id="5ga-Gu-Yef"/>
+                <outlet property="lblChuTaiKhoan" destination="QcL-nc-xth" id="08w-A0-pn7"/>
+                <outlet property="lblNganHangNhanTien" destination="ecb-Sa-oNa" id="HgR-f9-4qE"/>
+                <outlet property="lblNhanTienVe" destination="ilN-wf-L2a" id="ndK-bi-gHo"/>
+                <outlet property="lblPhiChuyenKhoan" destination="1vI-Hd-YaT" id="oN0-tN-hbv"/>
+                <outlet property="lblPhiChuyenKhoanThe" destination="xVN-s6-WvW" id="dqL-jG-ThZ"/>
+                <outlet property="lblSoTaiKhoan" destination="fvD-Gh-OWZ" id="GGi-d5-QHC"/>
+                <outlet property="lblSoThe" destination="g5i-gI-Ttw" id="39e-xE-0ku"/>
                 <outlet property="mScrvHienThi" destination="b73-8G-Quw" id="U3l-aa-j5X"/>
                 <outlet property="mVIewNhanGocVaLaiVe" destination="Lry-5N-PUh" id="c7G-Rg-nDI"/>
                 <outlet property="mViewChonNganHangNhanTienGocVaLaiTietKiem" destination="4bq-5G-HMt" id="iOo-nu-s3g"/>
@@ -34,9 +41,11 @@
                 <outlet property="mbtnTraCuu" destination="UBv-uz-gBf" id="c52-jo-nL5"/>
                 <outlet property="mbtnVanTay" destination="H48-Z2-ic5" id="8jj-Ak-zNG"/>
                 <outlet property="mlblLaiSuat" destination="esD-ky-L88" id="zyn-nD-prk"/>
+                <outlet property="mlblPhi" destination="LiA-gu-AJR" id="kGe-C5-avw"/>
                 <outlet property="mlblSoDu" destination="qFt-4C-bcY" id="4rK-mb-HOD"/>
                 <outlet property="mlblSoDuKhuyenMai" destination="iea-3e-5R9" id="96W-vJ-si2"/>
                 <outlet property="mlblTienLai" destination="RKE-GW-eh5" id="PVI-XK-VEn"/>
+                <outlet property="mlblXacThuc" destination="7Bc-xM-OvQ" id="Pj2-bW-XOQ"/>
                 <outlet property="mswtKhuyenMai" destination="A1s-EX-C4y" id="ZGz-vH-Jnj"/>
                 <outlet property="mtfCachThucQuayVong" destination="2FQ-1h-iWP" id="674-du-ELg"/>
                 <outlet property="mtfDiaChi" destination="Iyx-Sx-kZd" id="bWS-MH-4lE"/>

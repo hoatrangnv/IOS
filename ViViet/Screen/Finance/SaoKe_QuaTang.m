@@ -43,7 +43,7 @@
     viewQuaTang.frame = self.mViewQuaTang.bounds;
     [viewQuaTang reloadData];
     [self.mViewQuaTang addSubview:viewQuaTang];
-    self.mlblThoiDiemTang.text = [NSString stringWithFormat:@"%@: %@", [@"@thoi_diem_giao_dich" localizableString],  [saoKeObject layThoiGianChuyenTien]];
+    self.mlblThoiDiemTang.text = [NSString stringWithFormat:@"%@: %@", [@"thoi_diem_giao_dich" localizableString],  [saoKeObject layThoiGianChuyenTien]];
     BOOL flag = [saoKeObject.fromAcc isEqualToString:[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_ID_TEMP]];
     if(flag)
     {

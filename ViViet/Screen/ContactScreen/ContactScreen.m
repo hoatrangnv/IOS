@@ -15,7 +15,9 @@
 #import "ContactViewCell.h"
 #import "LocalizationSystem.h"
 
-@interface ContactScreen ()
+@interface ContactScreen () {
+    MBProgressHUD *hud;
+}
 
 @property (nonatomic, retain) NSArray *mDanhSachLienHe;
 @property (nonatomic, retain) NSArray *firstChars;
@@ -109,32 +111,39 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self khoiTaoBanDau];
     if (app.global.loadContactSuccess == NO)
     {
+        NSLog(@"%s - load contact trong thread", __FUNCTION__);
         self.isLoading = YES;
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(thread_loadContact_success:) name:@"thread_loadContact" object:nil];
     }
     else
     {
-        if(_mKieuHienThiLienHe == KIEU_HIEN_THI_LIEN_HE_THUONG)
-        {
-            self.mDanhSachLienHe = app.global.contacts;
-        }
-        else if(_mKieuHienThiLienHe == KIEU_HIEN_THI_LIEN_HE_MUON_TIEN)
-        {
-            self.mDanhSachLienHe = app.global.mDanhSachLienHeDaCoVi;
-        }
-        [self.tableView reloadData];
-        [self classifyFromContacts:self.mDanhSachLienHe withKeyword:nil];
+        [self loadDanhBa];
+//        if(_mKieuHienThiLienHe == KIEU_HIEN_THI_LIEN_HE_THUONG)
+//        {
+//            self.mDanhSachLienHe = app.global.contacts;
+//        }
+//        else if(_mKieuHienThiLienHe == KIEU_HIEN_THI_LIEN_HE_MUON_TIEN)
+//        {
+//            self.mDanhSachLienHe = app.global.mDanhSachLienHeDaCoVi;
+//        }
+//        [self classifyFromContacts:self.mDanhSachLienHe withKeyword:nil];
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            [self anLoading];
+//            NSLog(@"%s - self.mDanhSachLienHe : %d", __FUNCTION__, (int)self.mDanhSachLienHe.count);
+//            [self.tableView reloadData];
+//        });
     }
-    [self khoiTaoBanDau];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self khoiTaoSearchBar];
     self.searchDC = [[[UISearchDisplayController alloc] initWithSearchBar:self.searchBar contentsController:self] autorelease];
+    [self khoiTaoSearchBar];
     
 	self.searchDisplayController.searchResultsDataSource = self;
 	self.searchDisplayController.searchResultsDelegate = self;
@@ -162,10 +171,12 @@
 //    self.title = [@"Contact" localizableString];
     NSLog(@"%s - line : %d ============> START", __FUNCTION__, __LINE__);
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self hienThiLoadingLayDanhBa];
+        [self hienThiLoadingLayDanhBaNew];
     });
     [self addTitleView:[@"Contact" localizableString]];
-    [self addBackButton:YES];
+    UIBarButtonItem *btnBack = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style:UIBarButtonItemStyleDone target:self action:@selector(suKienChonBackNew:)];
+    self.navigationItem.leftBarButtonItem = btnBack;
+//    [self addBackButton:YES];
     [self addButton:@"refresh64" selector:@selector(suKienBamNutRefresh:) atSide:1];
     
     __block ContactScreen *weak = self;
@@ -185,12 +196,30 @@
              [weak classifyFromContacts:weak.mDanhSachLienHe withKeyword:nil];
              dispatch_async(dispatch_get_main_queue(), ^{
                  [weak->tableView.pullToRefreshView performSelector:@selector(stopAnimating) withObject:nil afterDelay:0];
-                 [weak.tableView reloadData];
                  weak.isLoading = NO;
+                 NSLog(@"%s - line : %d ============> START 2", __FUNCTION__, __LINE__);
              });
          });
          return ;
      }];
+}
+
+- (void)suKienChonBackNew:(UIBarButtonItem *)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)hienThiLoadingLayDanhBaNew {
+    hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDModeIndeterminate;
+    hud.labelText = [Localization languageSelectedStringForKey:@"dang_lay_danh_ba"];
+}
+
+- (void)anLoadingNew {
+    [hud hideUsingAnimation:YES];
+//    if (self.mThongTinTaiKhoanVi != nil && [self.mThongTinTaiKhoanVi.sID isEqualToString:@"0917951277"]) {
+//        NSLog(@"%s - self.mThongTinTaiKhoanVi.sID : %@", __FUNCTION__, self.mThongTinTaiKhoanVi.sID);
+//        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Test ẩn loading trên máy của thành"];
+//    }
 }
 
 #pragma mark - xuLy
@@ -208,7 +237,10 @@
     
     [self classifyFromContacts:self.mDanhSachLienHe withKeyword:nil];
     self.isLoading = NO;
-    [tableView reloadData];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [tableView reloadData];
+        [self anLoadingNew];
+    });
 }
 
 - (NSString *)formatPhoneNumer:(NSString *)phone
@@ -241,6 +273,10 @@
 
 - (void)suKienBamNutRefresh:(id)sender
 {
+    [self loadDanhBa];
+}
+
+- (void)loadDanhBa {
     __block ContactScreen *weak = self;
     weak.isLoading = YES;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -255,12 +291,12 @@
         }
         [weak classifyFromContacts:weak.mDanhSachLienHe withKeyword:nil];
         dispatch_async(dispatch_get_main_queue(), ^{
+            [weak anLoadingNew];
             [weak->tableView.pullToRefreshView performSelector:@selector(stopAnimating) withObject:nil afterDelay:0];
             [weak.tableView reloadData];
             weak.isLoading = NO;
         });
     });
-
 }
 
 

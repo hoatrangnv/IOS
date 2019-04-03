@@ -274,7 +274,7 @@ typedef enum : NSUInteger {
 {
     [self addButtonBack];
 //    self.title = @"Gửi tiết kiệm";
-    [self addTitleView:@"Gửi tiết kiệm"];
+    [self addTitleView:[@"financer_viewer_wallet_saving" localizableString]];
     mFirst = YES;
     self.mFuncID = FUNC_GUI_TIEN_TIET_KIEM;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateThongTin:) name:NOTIFICATION_LAY_TAI_KHOAN_THUONG_DUNG object:nil];
@@ -284,24 +284,38 @@ typedef enum : NSUInteger {
 - (void)khoiTaoGiaoDien
 {
     [self.viewOptionTop setHidden:YES];
+    self.lblNhanTienVe.text = [@"nhan_tien_ve" localizableString];
+    [self.mbtnGuiTK setTitle:[@"gui_tk" localizableString] forState:UIControlStateNormal];
+    [self.mbtnTraCuu setTitle:[@"rut_tk" localizableString] forState:UIControlStateNormal];
+    [self.mbtnLaiSuat setTitle:[@"lai_xuat" localizableString] forState:UIControlStateNormal];
     
-    [_mtfSoTien setPlaceholder:[@"so_tien_dong" localizableString]];
+    _lblNganHangNhanTien.text = [@"ngan_hang_nhan_tien" localizableString];
+    _lblSoTaiKhoan.text = [@"register_account_link_acc_no" localizableString];
+    _lblChuTaiKhoan.text = [@"register_account_link_account_holders" localizableString];
+    _lblPhiChuyenKhoan.text = [NSString stringWithFormat:@"%@: 6.600đ", [@"financer_viewer_bussiness_fee_transfer" localizableString]];
+    _lblSoThe.text = [@"payment_card_add_number_label" localizableString];
+    _lblPhiChuyenKhoanThe.text = [NSString stringWithFormat:@"%@: 6.600đ", [@"financer_viewer_bussiness_fee_transfer" localizableString]];
+    
+    _mtfSoThe.placeholder = [@"payment_card_add_number_label" localizableString];
+    _mtfSoTaiKhoanRutTienVe.placeholder = [@"register_account_link_acc_no" localizableString];
+    
+    [_mtfSoTien setPlaceholder:[@"place_holder_so_tien" localizableString]];
     [_mtfSoTien setTextError:[@"so_tien_khong_duoc_de_trong" localizableString] forType:ExTextFieldTypeEmpty];
     [_mtfSoTien setType:ExTextFieldTypeMoney];
     _mtfSoTien.inputAccessoryView = nil;
     
-    [_mtfTenNguoiGui setPlaceholder:@"Tên người gửi"];
-    [_mtfTenNguoiGui setTextError:@"Tên người gửi không được để trống" forType:ExTextFieldTypeEmpty];
+    [_mtfTenNguoiGui setPlaceholder:[@"ten_nguoi_gui" localizableString]];
+    [_mtfTenNguoiGui setTextError:[@"ten_nguoi_gui_khong_de_trong" localizableString] forType:ExTextFieldTypeEmpty];
     _mtfTenNguoiGui.inputAccessoryView = nil;
     
-    [_mtfSoCMND setPlaceholder:@"Số CMND/HC/Mã DN"];
-    [_mtfSoCMND setTextError:@"Số CMND/HC/Mã DN không được bỏ trống" forType:ExTextFieldTypeEmpty];
+    [_mtfSoCMND setPlaceholder:[@"so_cmnd_hc_madn" localizableString]];
+    [_mtfSoCMND setTextError:@"" forType:ExTextFieldTypeEmpty];
     _mtfSoCMND.inputAccessoryView = nil;
     
-    [_mtfDiaChi setPlaceholder:[@"location form - address" localizableString]];
+    [_mtfDiaChi setPlaceholder:[@"address" localizableString]];
     _mtfSoCMND.inputAccessoryView = nil;
     
-    [_mtfSoThe setTextError:[@"so_the_ngan_hang_khong_duoc_de_trong" localizableString] forType:ExTextFieldTypeEmpty];
+    [_mtfSoThe setTextError:[@"so_the_ngan_hang_khong_de_trong" localizableString] forType:ExTextFieldTypeEmpty];
     _mtfSoThe.type = ExTextFieldTypeCardNumber;
     _mtfSoThe.inputAccessoryView = nil;
     
@@ -974,7 +988,7 @@ typedef enum : NSUInteger {
 - (void)xuLyHienThiSoTienLai
 {
     double fSoTien = [[[self.mtfSoTien.text componentsSeparatedByCharactersInSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]] componentsJoinedByString:@""] doubleValue];
-    _mlblLaiSuat.text = [NSString stringWithFormat:@"Lãi suất: %@\uFF05", [NSString stringWithFormat:@"%.02f", _mLaiSuatTheoKyLai]];
+    _mlblLaiSuat.text = [NSString stringWithFormat:@"%@: %@\uFF05", [@"lai_xuat" localizableString], [NSString stringWithFormat:@"%.02f", _mLaiSuatTheoKyLai]];
     double fSoTienLai = 0;
     if([_mKyHanDuocChon.maKyHan rangeOfString:@"M"].location != NSNotFound)
     {
@@ -992,16 +1006,16 @@ typedef enum : NSUInteger {
     {
         fSoTienLai = [self laySoTienLaiTheoNgay:1];
         if(fSoTien > 0)
-            _mlblTienLai.text = [NSString stringWithFormat:@"Tiền lãi: %@ đ/ngày", [Common hienThiTienTe:fSoTienLai]];
+            _mlblTienLai.text = [NSString stringWithFormat:@"%@: %@ đ%@", [@"tien_lai" localizableString], [Common hienThiTienTe:fSoTienLai], [@"label_ngay" localizableString]];
         else
-            _mlblTienLai.text = @"Tiền lãi: 0 đ/ngày";
+            _mlblTienLai.text = [NSString stringWithFormat:@"%@: 0 đ", [@"tien_lai" localizableString]];
         return;
     }
     
     if(fSoTien > 0)
-        _mlblTienLai.text = [NSString stringWithFormat:@"Tiền lãi: %@ đ", [Common hienThiTienTe:fSoTienLai]];
+        _mlblTienLai.text = [NSString stringWithFormat:@"%@: %@ đ", [@"tien_lai" localizableString], [Common hienThiTienTe:fSoTienLai]];
     else
-        _mlblTienLai.text = @"Tiền lãi: 0 đ";
+        _mlblTienLai.text = [NSString stringWithFormat:@"%@: 0 đ", [@"tien_lai" localizableString]];
 }
 
 - (double)laySoTienLaiTheoNgay:(NSInteger)nSoNgayTinhLai
@@ -1228,6 +1242,13 @@ typedef enum : NSUInteger {
     [_heightViewAddThem release];
     [_heightViewMain release];
 //    [_mScrvHienThi release];
+    [_lblNhanTienVe release];
+    [_lblNganHangNhanTien release];
+    [_lblSoTaiKhoan release];
+    [_lblChuTaiKhoan release];
+    [_lblPhiChuyenKhoan release];
+    [_lblSoThe release];
+    [_lblPhiChuyenKhoanThe release];
     [super dealloc];
 }
 @end

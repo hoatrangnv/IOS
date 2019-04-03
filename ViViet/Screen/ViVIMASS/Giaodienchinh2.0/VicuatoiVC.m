@@ -7,6 +7,7 @@
 
 #import "VicuatoiVC.h"
 #import "ItemListCell.h"
+#import "Localization.h"
 @interface VicuatoiVC ()<UITableViewDataSource,UITableViewDelegate>
 
 @end
@@ -22,17 +23,17 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"ItemListCell" bundle:nil] forCellReuseIdentifier:@"ItemListCell"];
     [self.tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
 //    @{@"name":@"Chuyển tiền đến điện thoại", @"image":@"ic_chuyentien_dienthoai"},
-    self.arrDanhSach =@[@{@"name":@"Sao kê",@"image":@"ic_vicuatoi_saoke"},
-                        @{@"name":@"Liên kết ví với tk,thẻ", @"image":@"ic_vicuatoi_lienket"},
-                        @{@"name":@"Chọn ví,thẻ,tk ẩn sau điện thoại", @"image":@"icon_vicuatoi_vi_an"},
-                        @{@"name":@"Chuyển tiền đến điện thoại", @"image":@"ic_chuyentien_dienthoai"},
-                        @{@"name":@"Nạp tiền từ TK liên kết", @"image":@"icon_grid_cachnapvi"},
-                        @{@"name":@"Rút tiền về TK liên kết", @"image":@"ic_vicuatoi_ruttien"},
-                        @{@"name":@"Mượn tiền", @"image":@"icon_chuyen_tien_tan_nha_64x64"},
-                        @{@"name":@"Tặng quà", @"image":@"icon_grid_tangqua"},
-                        @{@"name":@"Thay đổi thông tin", @"image":@"icon_edit_the_luu"},
+    self.arrDanhSach =@[@{@"name":[Localization languageSelectedStringForKey:@"sao_ke"],@"image":@"ic_vicuatoi_saoke"},
+                        @{@"name":[Localization languageSelectedStringForKey:@"tai_khoan_lien_ket"], @"image":@"ic_vicuatoi_lienket"},
+                        @{@"name":[Localization languageSelectedStringForKey:@"chuyen_tien_den_vi_tk_an_sau_dien_thoai"], @"image":@"icon_vicuatoi_vi_an"},
+                        @{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_wallet_to_dienthoai"], @"image":@"ic_chuyentien_dienthoai"},
+                        @{@"name":[Localization languageSelectedStringForKey:@"nap_tien_tu_the_bank2"], @"image":@"icon_grid_cachnapvi"},
+                        @{@"name":[Localization languageSelectedStringForKey:@"rut_tien"], @"image":@"ic_vicuatoi_ruttien"},
+                        @{@"name":[Localization languageSelectedStringForKey:@"muon_tien"], @"image":@"icon_chuyen_tien_tan_nha_64x64"},
+                        @{@"name":[Localization languageSelectedStringForKey:@"tang_qua"], @"image":@"icon_grid_tangqua"},
+                        @{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_bussiness_update_information"], @"image":@"icon_edit_the_luu"},
                         @{@"name":@"Soft Token", @"image":@"ic_vicuatoi_soft_token"},
-                        @{@"name":@"Hạn mức giao dịch", @"image":@"ic_vicuatoi_hanmuc"}
+                        @{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_transaction_limit_xacthuc"], @"image":@"ic_vicuatoi_hanmuc"}
                         ];
 }
 

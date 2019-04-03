@@ -7,7 +7,7 @@
 //
 
 #import "LocalizationSystem.h"
-
+#import "Localization.h"
 #import <CommonCrypto/CommonDigest.h>
 @implementation NSString (Extended)
 
@@ -64,13 +64,7 @@
 
 -(NSString *)localizableString
 {
-    NSRange range = [self rangeOfString:@"@"];
-    if (range.location == 0)
-    {
-        NSString *text = LocalizedString([self substringFromIndex:1]);
-        return text;
-    }
-    return LocalizedString(self);
+    return [Localization languageSelectedStringForKey:self];
 }
 
 -(NSString *)upperCaseFirstChar

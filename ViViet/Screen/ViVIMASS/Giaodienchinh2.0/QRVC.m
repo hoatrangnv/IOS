@@ -21,7 +21,8 @@
     
     [self.tableView registerNib:[UINib nibWithNibName:@"ItemListCell" bundle:nil] forCellReuseIdentifier:@"ItemListCell"];
     [self.tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
-    self.arrDanhSach =@[@{@"name":@"Vimass QR",@"image":@"vimass-qr"}];
+    self.arrDanhSach =@[@{@"name":@"Vimass QR",@"image":@"vimass-qr"},
+                        @{@"name":@"VNPAY QR", @"image":@"Logo_VNPAYQR"}];
 //    self.arrDanhSach =@[@{@"name":@"Vimass QR",@"image":@"vimass-qr"},
 //                        @{@"name":@"VNPAY QR", @"image":@"vnpt-qr"},
 //                        @{@"name":@"Momo QR", @"image":@"momo-qr"},

@@ -1670,7 +1670,7 @@ NSString *sCauLuuY = @"<b>Lưu ý:</b> Số điện thoại nhận thanh toán c
     [_mViewSoLuong_Phi release];
     [_mtfSoLuong release];
     [_mbtnChonSoLuong release];
-    [_mlblPhi release];
+//    [_mlblPhi release];
     [_mViewSoDienThoai_TraCuu release];
     [_mtfSoDienThoai release];
     [_mbtnTraCuu release];

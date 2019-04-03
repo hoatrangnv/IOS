@@ -502,7 +502,7 @@
     }
     else
     {
-        [UIAlertView alert:[@"@thiet_bi_khong_ho_tro_chuc_nang_nay" localizableString] withTitle:nil block:nil];
+        [UIAlertView alert:[@"thiet_bi_khong_ho_tro_chuc_nang_nay" localizableString] withTitle:nil block:nil];
     }
 }
 

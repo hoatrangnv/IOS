@@ -78,7 +78,7 @@
 
 - (void)khoiTaoBanDau
 {
-    [self.mlblTitle setText:[@"@title_tai_khoan_thuong_dung" localizableString]];
+    [self.mlblTitle setText:[@"title_tai_khoan_thuong_dung" localizableString]];
 }
 
 - (void)khoiTaoViewXacThuc

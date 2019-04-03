@@ -194,7 +194,7 @@ NSString *const LINK_XAC_THUC_QUEN_MAT_KHAU_TOKEN;
             if(mShowAlert)
                 [RoundAlert hide];
             //Khong ket noi duoc den server
-            [[[[UIAlertView alloc] initWithTitle:[@"@thong_bao" localizableString]  message:[@"SYS001" localizableString] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
+            [[[[UIAlertView alloc] initWithTitle:[@"thong_bao" localizableString]  message:[@"SYS001" localizableString] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
             [connection cancel];
             [connection release];
         }

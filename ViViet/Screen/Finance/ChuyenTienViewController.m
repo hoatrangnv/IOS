@@ -134,7 +134,7 @@
 {
     [self.mtfTenTKRutTien setTextError:[@"ten_tk_rut_tien_khong_duoc_de_tong" localizableString] forType:ExTextFieldTypeEmpty];
     [self.mtfSoTien setTextError:[@"so_tien_khong_duoc_de_trong" localizableString] forType:ExTextFieldTypeEmpty];
-    [self.mtfSoTien setTextError:[@"@so_tien_khong_hop_le" localizableString]forType:ExTextFieldTypeMoney];
+    [self.mtfSoTien setTextError:[@"so_tien_khong_hop_le" localizableString]forType:ExTextFieldTypeMoney];
     [self.mtfSoTien setText:@""];
     self.mtfSoTien.inputAccessoryView = nil;
     [self.mtvNoiDungGiaoDich setText:@""];

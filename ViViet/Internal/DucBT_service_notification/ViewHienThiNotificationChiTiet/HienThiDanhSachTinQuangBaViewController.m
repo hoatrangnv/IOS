@@ -156,7 +156,7 @@ typedef enum : int {
 #pragma mark - khoiTao
 - (void)khoiTaoThanhBar
 {
-    self.navigationItem.title = @"Thông báo";
+    self.navigationItem.title = [@"thong_bao" localizableString];
     UIBarButtonItem *btnDelete = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_del"] style:UIBarButtonItemStyleDone target:self action:@selector(suKienBamNutXoaTin:)];
     btnDelete.imageInsets = UIEdgeInsetsMake(0.0, 20.0, 0.0, 0.0);
     

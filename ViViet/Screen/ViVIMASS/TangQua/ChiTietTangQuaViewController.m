@@ -104,7 +104,7 @@
     self.mtfTaiKhoanNhanQua.inputAccessoryView = nil;
     [self.mtfTaiKhoanNhanQua setTextError:[@"thong_bao_nhap_nguoi_nhan_qua" localizableString] forType:ExTextFieldTypeEmpty];
     
-    self.mtfSoTien.placeholder = [@"so_tien_dong" localizableString];
+    self.mtfSoTien.placeholder = [@"amount" localizableString];
     self.mtfSoTien.inputAccessoryView = nil;
     [self.mtfSoTien setTextError:[@"so_tien_khong_duoc_de_trong" localizableString] forType:ExTextFieldTypeEmpty];
 

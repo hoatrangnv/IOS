@@ -121,13 +121,13 @@
 #pragma mark - Khoi tao
 - (void)khoiTaoGiaoDien
 {
-    [self.mtfSoTien setPlaceholder:[NSString stringWithFormat:@"%@ (%@)",[@"so_tien_dong" localizableString], [@"co_the_bo_qua" localizableString]]];
+    [self.mtfSoTien setPlaceholder:[NSString stringWithFormat:@"%@ (%@)",[@"amount" localizableString], [@"co_the_bo_qua" localizableString]]];
     [self.mtfSoTien setTextError:[@"so_tien_khong_duoc_de_trong" localizableString] forType:ExTextFieldTypeEmpty];
-    [self.mtfSoTien setTextError:[@"@so_tien_khong_hop_le" localizableString]forType:ExTextFieldTypeMoney];
+    [self.mtfSoTien setTextError:[@"so_tien_khong_hop_le" localizableString]forType:ExTextFieldTypeMoney];
     [self.mtfSoTien setText:@""];
     self.mtfSoTien.inputAccessoryView = nil;
     
-    [self.mtfTenChuTaiKhoan setPlaceholder:[@"ten_chu_tk" localizableString]];
+    [self.mtfTenChuTaiKhoan setPlaceholder:[@"ten_chu_tai_khoan" localizableString]];
     [self.mtfTenChuTaiKhoan setTextError:[@"ten_tai_khoan_khong_duoc_de_trong" localizableString] forType:ExTextFieldTypeEmpty];
     [self.mtfTenChuTaiKhoan setText:@""];
     self.mtfTenChuTaiKhoan.inputAccessoryView = nil;
@@ -137,7 +137,7 @@
     [self.mtfTenDaiDien setText:@""];
     self.mtfTenDaiDien.inputAccessoryView = nil;
     
-    [self.mtfNoiDungGiaoDich setPlaceholder:[@"noi_dung_giao_dich" localizableString]];
+    [self.mtfNoiDungGiaoDich setPlaceholder:[@"place_holder_noi_dung" localizableString]];
     self.mtvNoiDungGiaoDich.inputAccessoryView = nil;
     self.mtvNoiDungGiaoDich.text = @"";
     

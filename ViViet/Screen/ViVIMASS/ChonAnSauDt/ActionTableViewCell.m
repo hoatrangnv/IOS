@@ -7,6 +7,8 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    [_btnThuchien setTitle:[@"button_thuc_hien" localizableString] forState:UIControlStateNormal];
+    _txtToken.placeholder = [@"mat_khau_token" localizableString];
 }
 - (BOOL)kiemTraCoChucNangQuetVanTay
 {

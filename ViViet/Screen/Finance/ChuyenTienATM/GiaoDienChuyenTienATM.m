@@ -27,7 +27,7 @@
     [super viewDidLoad];
     self.mFuncID = 441;
     nMaATM = 0;
-    [self addTitleView:@"Chuyển tiền đến ATM"];
+    [self addTitleView:[@"financer_viewer_atm" localizableString]];
 
     self.edNoiDung.inputAccessoryView = nil;
     self.edSoTien.inputAccessoryView = nil;
@@ -38,6 +38,8 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateThongTinATM:) name:KEY_TAI_KHOAN_THUONG_DUNG object:nil];
     
     [self.edSoTien setDelegate:self];
+    _edSoTien.placeholder = [@"amount" localizableString];
+    _edViNhan.placeholder = [@"sdt_nhan_tien_tai_atm" localizableString];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -263,11 +265,11 @@
         return NO;
     }
     if ([_edViNhan.text isEmpty]) {
-        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng nhập số điện thoại nhận tiền"];
+        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:[@"vui_long_nhap_sdt_nhan_tien" localizableString]];
         return NO;
     }
     if ([_edSoTien.text isEmpty]) {
-        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng nhập số tiền"];
+        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:[@"amount_empty" localizableString]];
         return NO;
     }
     else{
@@ -277,15 +279,15 @@
             nSoTienChia = 50000;
         }
         if (fSoTien < nSoTienChia) {
-            [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:[NSString stringWithFormat:@"Số tiền chuyển đi phải lớn hơn hoặc bằng %@ đ", [Common hienThiTienTe:nSoTienChia]]];
+            [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:[NSString stringWithFormat:@"%@ %@ đ", [@"so_tien_chuyen_di_phai_lon_hon" localizableString], [Common hienThiTienTe:nSoTienChia]]];
             return NO;
         }
         else if (fSoTien % nSoTienChia != 0){
-            [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:[NSString stringWithFormat:@"Số tiền chuyển đi phải là bội của %@ đ", [Common hienThiTienTe:nSoTienChia]]];
+            [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:[NSString stringWithFormat:@"%@ %@ đ", [@"so_tien_chuyen_di_la_boi" localizableString], [Common hienThiTienTe:nSoTienChia]]];
             return NO;
         }
         else if (fSoTien >= [self.mThongTinTaiKhoanVi.nAmount doubleValue]) {
-            [UIAlertView alert:@"Số dư trong tài khoản không đủ" withTitle:[@"thong_bao" localizableString] block:nil];
+            [UIAlertView alert:[@"so_du_khong_du" localizableString] withTitle:[@"thong_bao" localizableString] block:nil];
             return NO;
         }
     }
@@ -390,11 +392,12 @@
             [self doiTrangThaiButton1:self.btnSacomBank];
             [self doiTrangThaiButton2:self.btnTechcombank];
             [self doiTrangThaiButton2:self.btnVietinbank];
-            self.lblPhi.text = @"Phí: 10.000 đ";
+            
+            self.lblPhi.text = [NSString stringWithFormat:@"%@: %@", [@"phi_chuyen_tien" localizableString], @"10.000 đ"];
             if (![self.edSoTien.text isEmpty]) {
                 int fSoTien = [[_edSoTien.text stringByReplacingOccurrencesOfString:@"." withString:@""] intValue];
                 if (fSoTien > 5000000) {
-                    self.lblPhi.text = @"Phí: 13.200 đ";
+                    self.lblPhi.text = [NSString stringWithFormat:@"%@: %@", [@"phi_chuyen_tien" localizableString], @"13.200 đ"];
                 }
             }
             break;
@@ -402,14 +405,14 @@
             [self doiTrangThaiButton2:self.btnSacomBank];
             [self doiTrangThaiButton1:self.btnTechcombank];
             [self doiTrangThaiButton2:self.btnVietinbank];
-            self.lblPhi.text = @"Phí: 6.600 đ";
+            self.lblPhi.text = [NSString stringWithFormat:@"%@: %@", [@"phi_chuyen_tien" localizableString], @"6.600 đ"];
             
             break;
         case 2:
             [self doiTrangThaiButton2:self.btnSacomBank];
             [self doiTrangThaiButton2:self.btnTechcombank];
             [self doiTrangThaiButton1:self.btnVietinbank];
-            self.lblPhi.text = @"Phí: 6.600 đ";
+            self.lblPhi.text = [NSString stringWithFormat:@"%@: %@", [@"phi_chuyen_tien" localizableString], @"6.600 đ"];
             break;
         default:
             break;

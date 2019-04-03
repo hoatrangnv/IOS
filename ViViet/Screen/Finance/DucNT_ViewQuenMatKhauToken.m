@@ -56,11 +56,11 @@
 - (void)khoiTaoGiaoDien
 {
 //    [btnThucHien setTitle:[@"@thuc hien" localizableString] forState:UIControlStateNormal];
-    edtMatKhauMoi.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[@"@new pin vitoken" localizableString] attributes:@{NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
+    edtMatKhauMoi.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[@"new pin vitoken" localizableString] attributes:@{NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
     
-    edtMatKhauMoiConfirm.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[@"@confirm new pin vitoken" localizableString] attributes:@{NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
+    edtMatKhauMoiConfirm.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[@"confirm new pin vitoken" localizableString] attributes:@{NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
     
-    edtID.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[@"reg bds - phone" localizableString] attributes:@{NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
+    edtID.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[@"mobile numbers" localizableString] attributes:@{NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
     [self khoiTaoTextField];
     NSString *sTaiKhoan = [DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_ID_TEMP];
     [_mtfTenTaiKhoan setText:[NSString stringWithFormat:@"%@: %@", [@"tai_khoan" localizableString], sTaiKhoan]];
@@ -118,7 +118,7 @@
     }
     else
     {
-        [[[[UIAlertView alloc] initWithTitle:[@"@thong_bao" localizableString]  message:sMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
+        [[[[UIAlertView alloc] initWithTitle:[@"thong_bao" localizableString]  message:sMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
     }
 }
 
@@ -142,7 +142,7 @@
     }
     else
     {
-        [[[[UIAlertView alloc] initWithTitle:[@"@thong_bao" localizableString]  message:[@"@mat_khau_khong_trung_khop" localizableString] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
+        [[[[UIAlertView alloc] initWithTitle:[@"thong_bao" localizableString]  message:[@"mat_khau_khong_trung_khop" localizableString] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
     }
 }
 
@@ -177,22 +177,22 @@
 -(void)khoiTaoTextField
 {
     
-    [edtID setTextError:[@"@so_dien_thoai_khong_dc_de_trong" localizableString]
+    [edtID setTextError:[@"so_dien_thoai_khong_dc_de_trong" localizableString]
                 forType:ExTextFieldTypeEmpty];
     
-    [edtID setTextError:[@"@so_dien_thoai_khong_hop_le" localizableString]
+    [edtID setTextError:[@"so_dien_thoai_khong_hop_le" localizableString]
                 forType:ExTextFieldTypePhone];
     
     edtMatKhauMoi.max_length = 6;
-    [edtMatKhauMoi setTextError:[@"@mat_khau_token_khong_dc_de_trong" localizableString]
+    [edtMatKhauMoi setTextError:[@"mat_khau_token_khong_dc_de_trong" localizableString]
                         forType:ExTextFieldTypeEmpty];
-    [edtMatKhauMoi setTextError:[@"@mat_khau_token_require" localizableString]
+    [edtMatKhauMoi setTextError:[@"mat_khau_token_require" localizableString]
                         forType:ExTextFieldTypeViTokenPassword];
     
     edtMatKhauMoiConfirm.max_length = 6;
-    [edtMatKhauMoiConfirm setTextError:[@"@mat_khau_token_khong_dc_de_trong" localizableString]
+    [edtMatKhauMoiConfirm setTextError:[@"mat_khau_token_khong_dc_de_trong" localizableString]
                                forType:ExTextFieldTypeEmpty];
-    [edtMatKhauMoiConfirm setTextError:[@"@mat_khau_token_require" localizableString]
+    [edtMatKhauMoiConfirm setTextError:[@"mat_khau_token_require" localizableString]
                                forType:ExTextFieldTypeViTokenPassword];
 }
 

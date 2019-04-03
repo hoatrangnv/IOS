@@ -31,7 +31,7 @@
     [self setButtonRightNav];
     [self getDanhsach];
     _tbvDanhsach.tableFooterView = [UIView new];
-    [self addTitleView:@"Chọn ví,thẻ,tk ẩn sau điện thoại"];
+    [self addTitleView:[@"chuyen_tien_den_vi_tk_an_sau_dien_thoai" localizableString]];
     isShowKeyBoard = false;
 }
 -(void)viewWillAppear:(BOOL)animated{
@@ -182,6 +182,9 @@
     NSDictionary *dicKQ = [sKetQua objectFromJSONString];
     int nCode = [[dicKQ objectForKey:@"msgCode"] intValue];
     NSString *sThongBao = [dicKQ objectForKey:@"msgContent"];
+    if (Localization.getCurrentLang == ENGLISH) {
+        sThongBao = [dicKQ objectForKey:@"msgContent_en"];
+    }
     if (nCode != 1) {
         UIAlertView *alertView = [[[UIAlertView alloc] initWithTitle:[@"thong_bao" localizableString] message:sThongBao delegate:self cancelButtonTitle:[@"dong" localizableString] otherButtonTitles:nil, nil] autorelease];
         [alertView show];

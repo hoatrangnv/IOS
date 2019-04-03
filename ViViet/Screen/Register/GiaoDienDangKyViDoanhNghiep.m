@@ -32,7 +32,7 @@
 
     [self addBackButton:YES];
 //    self.title = @"Tạo tài khoản ví doanh nghiệp";
-    [self addTitleView:@"Tạo tài khoản ví doanh nghiệp"];
+    [self addTitleView:[@"tao_tai_khoan_vi_doanh_nghiep" localizableString]];
     [self.viewScroll addSubview:self.viewMain];
     CGRect rectView = self.viewScroll.frame;
     rectView.size.height = self.viewMain.frame.size.height + 10;
@@ -165,7 +165,7 @@
     }
     else
     {
-        [UIAlertView alert:[@"@thiet_bi_khong_ho_tro_chuc_nang_nay" localizableString] withTitle:nil block:nil];
+        [UIAlertView alert:[@"thiet_bi_khong_ho_tro_chuc_nang_nay" localizableString] withTitle:nil block:nil];
     }
 }
 

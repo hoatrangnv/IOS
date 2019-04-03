@@ -22,8 +22,10 @@
                 <outlet property="mbtnSMS" destination="szE-ni-9CS" id="Z1P-8j-YxU"/>
                 <outlet property="mbtnThucHien" destination="Q9P-ZD-TXv" id="XPB-Fy-ayv"/>
                 <outlet property="mbtnToken" destination="bS6-Np-Gr1" id="08C-Ge-oDK"/>
+                <outlet property="mlblPhi" destination="xrc-wZ-5gb" id="vJX-cX-hu2"/>
                 <outlet property="mlblSoDu" destination="IFz-7a-hzf" id="Qk8-jx-U1K"/>
                 <outlet property="mlblSoDuKhuyenMai" destination="gej-wF-QfR" id="KQ6-79-Lw2"/>
+                <outlet property="mlblXacThuc" destination="ewH-2i-6oZ" id="90v-UV-PM1"/>
                 <outlet property="mswtKhuyenMai" destination="7M4-cY-4nG" id="bgE-bq-Xaw"/>
                 <outlet property="mtfCMNDNguoiNhan" destination="5Da-Gf-jhI" id="CNg-R2-p8Q"/>
                 <outlet property="mtfHoTenNguoiNhan" destination="eKR-so-Qmo" id="jHD-Fa-2n5"/>
@@ -37,6 +39,7 @@
                 <outlet property="mtfTinhThanhPho" destination="cfk-P0-2Ic" id="pmy-06-PGK"/>
                 <outlet property="mtvNoiDung" destination="8DE-It-lMZ" id="9RK-6o-epC"/>
                 <outlet property="mtvTenDuong" destination="1ma-16-JwJ" id="PLl-aQ-RPL"/>
+                <outlet property="tvNoiDung" destination="CeC-ng-USP" id="Rbi-ni-GMk"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="viewOptionTop" destination="j1b-MJ-E7p" id="gtt-MD-0KJ"/>
             </connections>
@@ -209,8 +212,8 @@
                                         <constraint firstItem="NOm-Jw-HoI" firstAttribute="leading" secondItem="zfn-1g-8zu" secondAttribute="leading" id="yOU-Js-Pt3"/>
                                     </constraints>
                                 </view>
-                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="78a-Xt-xsk" userLabel="ViewTenDuongSoNha">
-                                    <rect key="frame" x="0.0" y="352" width="365" height="267"/>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="78a-Xt-xsk" userLabel="ViewTenDuongSoNha">
+                                    <rect key="frame" x="0.0" y="352" width="365" height="271"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yx9-DE-g7T" userLabel="ViewTenDuong">
                                             <rect key="frame" x="8" y="0.0" width="349" height="50"/>
@@ -220,8 +223,8 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                                 </textField>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1ma-16-JwJ" customClass="UmiTextView">
-                                                    <rect key="frame" x="0.0" y="32" width="349" height="18"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1ma-16-JwJ" customClass="UmiTextView">
+                                                    <rect key="frame" x="0.0" y="0.0" width="349" height="50"/>
                                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -326,7 +329,7 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eXm-pi-hmn" userLabel="ViewNhapToKen">
                                             <rect key="frame" x="0.0" y="224" width="365" height="35"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="@mat_khau_token" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hLV-dV-dm3" customClass="ExTextField">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="mat_khau_token" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hLV-dV-dm3" customClass="ExTextField">
                                                     <rect key="frame" x="9" y="0.0" width="230" height="35"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
@@ -391,6 +394,7 @@
                                 <constraint firstItem="5Da-Gf-jhI" firstAttribute="top" secondItem="eKR-so-Qmo" secondAttribute="bottom" constant="8" id="CRy-t2-jhA"/>
                                 <constraint firstItem="bZ0-hv-5Vg" firstAttribute="top" secondItem="qmb-JG-G2h" secondAttribute="bottom" constant="8" id="D8c-aN-wPr"/>
                                 <constraint firstItem="zfn-1g-8zu" firstAttribute="top" secondItem="cfk-P0-2Ic" secondAttribute="bottom" constant="8" id="DWQ-7r-Uxe"/>
+                                <constraint firstAttribute="bottom" secondItem="78a-Xt-xsk" secondAttribute="bottom" id="FId-FI-3Tk"/>
                                 <constraint firstAttribute="trailing" secondItem="zfn-1g-8zu" secondAttribute="trailing" constant="8" id="Ggy-ls-zc7"/>
                                 <constraint firstItem="bZ0-hv-5Vg" firstAttribute="leading" secondItem="rDc-zi-Mte" secondAttribute="leading" constant="8" id="J6U-Ou-UWm"/>
                                 <constraint firstItem="cfk-P0-2Ic" firstAttribute="top" secondItem="bZ0-hv-5Vg" secondAttribute="bottom" constant="8" id="KCj-fx-pOa"/>
@@ -433,7 +437,7 @@
                 <constraint firstItem="kNm-eF-niJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="nrT-lw-JJ6"/>
                 <constraint firstItem="MUq-Ei-ljW" firstAttribute="trailing" secondItem="kNm-eF-niJ" secondAttribute="trailing" id="u3b-7h-AmN"/>
             </constraints>
-            <point key="canvasLocation" x="-94" y="140"/>
+            <point key="canvasLocation" x="-95.200000000000003" y="139.880059970015"/>
         </view>
     </objects>
     <resources>

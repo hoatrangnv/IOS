@@ -16,6 +16,8 @@
                 <outlet property="edtToTime" destination="50G-XJ-uil" id="7pS-xy-b3Q"/>
                 <outlet property="lbToTime" destination="ZFO-1Y-cen" id="qDv-rH-oe8"/>
                 <outlet property="lbUserBalance" destination="10g-fa-kM6" id="eiT-rO-1WF"/>
+                <outlet property="lblTitleKhuyenMai" destination="RhS-Jv-trI" id="RAr-9t-MzL"/>
+                <outlet property="lblTitleSoDu" destination="tsb-Lf-lPd" id="4ih-3v-tZe"/>
                 <outlet property="lvHistory" destination="wDE-Fa-dKa" id="aCD-sN-ykJ"/>
                 <outlet property="mbtnKhuyenMai" destination="7x3-TR-2PR" id="3Aj-XV-QJW"/>
                 <outlet property="mbtnNhanQua" destination="TRL-vH-VyR" id="sTQ-pl-j0F"/>
@@ -92,22 +94,22 @@
                     <rect key="frame" x="0.0" y="33" width="375" height="40"/>
                     <subviews>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="ngày" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Ah-pI-Hd1">
-                            <rect key="frame" x="0.0" y="0.0" width="131.5" height="40"/>
+                            <rect key="frame" x="0.0" y="0.0" width="120" height="40"/>
                             <color key="backgroundColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="ngày" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="50G-XJ-uil">
-                            <rect key="frame" x="186" y="0.0" width="131" height="40"/>
+                            <rect key="frame" x="167" y="0.0" width="120" height="40"/>
                             <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IEh-22-qVc">
-                            <rect key="frame" x="322" y="3" width="50" height="34"/>
+                            <rect key="frame" x="292" y="3" width="80" height="34"/>
                             <color key="backgroundColor" red="0.0039215686269999999" green="0.31372549020000001" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="50" id="cfX-XC-BLV"/>
+                                <constraint firstAttribute="width" constant="80" id="cfX-XC-BLV"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                             <state key="normal" title="Tìm">
@@ -119,7 +121,7 @@
                             </connections>
                         </button>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="đến" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZFO-1Y-cen">
-                            <rect key="frame" x="131.5" y="0.0" width="54.5" height="40"/>
+                            <rect key="frame" x="120" y="0.0" width="47" height="40"/>
                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -139,7 +141,7 @@
                         <constraint firstAttribute="bottom" secondItem="ZFO-1Y-cen" secondAttribute="bottom" id="mjT-FE-VSt"/>
                         <constraint firstItem="ZFO-1Y-cen" firstAttribute="leading" secondItem="5Ah-pI-Hd1" secondAttribute="trailing" id="tsg-Ll-dNL"/>
                         <constraint firstAttribute="bottom" secondItem="50G-XJ-uil" secondAttribute="bottom" id="x2s-iL-D4n"/>
-                        <constraint firstItem="50G-XJ-uil" firstAttribute="width" secondItem="JiB-xg-A8a" secondAttribute="width" multiplier="0.35" id="yNa-nf-ARI"/>
+                        <constraint firstItem="50G-XJ-uil" firstAttribute="width" secondItem="JiB-xg-A8a" secondAttribute="width" multiplier="0.32" id="yNa-nf-ARI"/>
                         <constraint firstAttribute="trailing" secondItem="IEh-22-qVc" secondAttribute="trailing" constant="3" id="yTN-q5-qpY"/>
                         <constraint firstItem="5Ah-pI-Hd1" firstAttribute="width" secondItem="50G-XJ-uil" secondAttribute="width" id="zY6-kT-UNU"/>
                     </constraints>

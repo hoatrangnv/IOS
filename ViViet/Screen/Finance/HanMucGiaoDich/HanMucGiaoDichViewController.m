@@ -146,7 +146,7 @@
     self.mtfMatKhauToken.max_length = 6;
     self.mtfMatKhauToken.inputAccessoryView = nil;
     self.mtfMatKhauToken.placeholder = [@"mat_khau_token" localizableString];
-    [self.mtfMatKhauToken setTextError:[@"@mat_khau_token_khong_dc_de_trong" localizableString]
+    [self.mtfMatKhauToken setTextError:[@"mat_khau_token_khong_dc_de_trong" localizableString]
                                forType:ExTextFieldTypeEmpty];
 }
 
@@ -184,7 +184,7 @@
             }
             
             self.mtfMatKhauToken.placeholder = [@"mat_khau_token" localizableString];
-            [self.mtfMatKhauToken setTextError:[@"@mat_khau_token_khong_dc_de_trong" localizableString]
+            [self.mtfMatKhauToken setTextError:[@"mat_khau_token_khong_dc_de_trong" localizableString]
                                        forType:ExTextFieldTypeEmpty];
         }
     }
@@ -461,7 +461,7 @@
             }
             else
             {
-                [[[[UIAlertView alloc] initWithTitle:[@"@thong_bao" localizableString]  message:[@"@can_tao_token" localizableString] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
+                [[[[UIAlertView alloc] initWithTitle:[@"thong_bao" localizableString]  message:[@"can_tao_token" localizableString] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
                 return;
             }
         }

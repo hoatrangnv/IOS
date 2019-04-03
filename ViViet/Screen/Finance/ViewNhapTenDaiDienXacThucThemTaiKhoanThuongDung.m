@@ -136,7 +136,7 @@
     self.mtfMatKhauToken.textAlignment = NSTextAlignmentCenter;
     self.mtfMatKhauToken.inputAccessoryView = nil;
     self.mtfMatKhauToken.placeholder = [@"mat_khau_token" localizableString];
-    [self.mtfMatKhauToken setTextError:[@"@mat_khau_token_khong_dc_de_trong" localizableString]
+    [self.mtfMatKhauToken setTextError:[@"mat_khau_token_khong_dc_de_trong" localizableString]
                                forType:ExTextFieldTypeEmpty];
 }
 
@@ -226,7 +226,7 @@
             }
             else
             {
-                [[[[UIAlertView alloc] initWithTitle:[@"@thong_bao" localizableString]  message:[@"@can_tao_token" localizableString] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
+                [[[[UIAlertView alloc] initWithTitle:[@"thong_bao" localizableString]  message:[@"can_tao_token" localizableString] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
                 return;
             }
         }
@@ -265,7 +265,7 @@
             
             self.mtfMatKhauToken.secureTextEntry = YES;
             self.mtfMatKhauToken.placeholder = [@"mat_khau_token" localizableString];
-            [self.mtfMatKhauToken setTextError:[@"@mat_khau_token_khong_dc_de_trong" localizableString]
+            [self.mtfMatKhauToken setTextError:[@"mat_khau_token_khong_dc_de_trong" localizableString]
                                        forType:ExTextFieldTypeEmpty];
         }
     }
@@ -413,7 +413,7 @@
     }
     else
     {
-        [UIAlertView alert:[@"thong_bao_chua_co_xac_thuc_van_tay_token" localizableString] withTitle:[@"@thong_bao" localizableString] block:nil];
+        [UIAlertView alert:[@"thong_bao_chua_co_xac_thuc_van_tay_token" localizableString] withTitle:[@"thong_bao" localizableString] block:nil];
     }
 }
 
@@ -435,7 +435,7 @@
         }
         else
         {
-            [[[[UIAlertView alloc] initWithTitle:[@"@thong_bao" localizableString]  message:[@"@can_tao_token" localizableString] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
+            [[[[UIAlertView alloc] initWithTitle:[@"thong_bao" localizableString]  message:[@"can_tao_token" localizableString] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
             return;
         }
     }

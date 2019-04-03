@@ -18,6 +18,7 @@
 #import "GiaoDienChuyenTienATM.h"
 #import "DucNT_LoginSceen.h"
 #import "CommonUtils.h"
+
 @interface DucNT_ChuyenTienViDenViViewController () <UITextFieldDelegate, UIGestureRecognizerDelegate>
 {
     NSString *mDinhDanhKetNoi;
@@ -60,7 +61,7 @@
     longHander.minimumPressDuration = 1;
     [self.imgvQRCode addGestureRecognizer:longHander];
     
-
+    self.mtfSoTien.placeholder = [Localization languageSelectedStringForKey:@"payment_electricity_amount"];
 }
 
 - (void) handleHoldGesture:(UILongPressGestureRecognizer *)gestureRecognizer
@@ -73,11 +74,11 @@
 }
 
 - (void)showThongBaoLuuQRCode {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Thông báo" message:@"Lưu ảnh QRCode vào thư viện ảnh của điện thoại?" preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Đóng" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:[Localization languageSelectedStringForKey:@"thong_bao"] message:@"Lưu ảnh QRCode vào thư viện ảnh của điện thoại?" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:[Localization languageSelectedStringForKey:@"dong"] style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         isLongPress = NO;
     }];
-    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"Lưu" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *ok = [UIAlertAction actionWithTitle:[Localization languageSelectedStringForKey:@"luu"] style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         UIImage *img = self.imgvQRCode.image;
         if (img != nil) {
             UIImageWriteToSavedPhotosAlbum(img, nil, nil, nil);
@@ -107,12 +108,6 @@
         [self.viewVi addSubview:viewQC];
         NSLog(@"%s - self.heightContentView.constant : %f", __FUNCTION__, self.heightContentView.constant);
         self.heightViewMain.constant = rectQC.size.height + rectQC.origin.y;
-//        self.heightContentView.constant += viewQC.frame.size.height / 2;
-//        if ([UIScreen mainScreen].bounds.size.height < 812.0) {
-//            self.heightContentView.constant += 50.0;
-//        } else {
-//            self.heightContentView.constant -= 70.0;
-//        }
     }
 }
 
@@ -207,15 +202,15 @@
 - (void)khoiTaoGiaoDien
 {
 //    [self addButtonBack];
-    [self addTitleView:[@"@title_chuyen_tien_den_vi" localizableString]];
+    [self addTitleView:[Localization languageSelectedStringForKey:@"financer_viewer_wallet_to_wallet"]];
 }
 
 - (void)khoiTaoTextField
 {
-    [self.mtfSoVi setTextError:[@"so_tai_khoan_khong_hop_le" localizableString]
+    [self.mtfSoVi setTextError:[Localization languageSelectedStringForKey:@"transfer_bank_account_invalid"]
                        forType:ExTextFieldTypeEmpty];
     
-    [self.mtfSoTien setTextError:[@"@so_tien_khong_duoc_de_trong" localizableString]
+    [self.mtfSoTien setTextError:[Localization languageSelectedStringForKey:@"amount_invalid"]
                          forType:ExTextFieldTypeEmpty];
 //    [self.mtfSoTien setTextError:@"@so_tien_khong_hop_le" forType:ExTextFieldTypeMoney];
 
@@ -274,15 +269,15 @@
     double fSoTien = [[_mtfSoTien.text stringByReplacingOccurrencesOfString:@"." withString:@""] doubleValue];
     if(fSoTien < 1)
     {
-        [UIAlertView alert:@"chuyển đi tối thiểu là 1 đồng" withTitle:[@"thong_bao" localizableString] block:nil];
+        [UIAlertView alert:[NSString stringWithFormat:@"%@ 1 đồng", [Localization languageSelectedStringForKey:@"so_tien_chuyen_di_toi_thieu_la"]] withTitle:[@"thong_bao" localizableString] block:nil];
         return NO;
     }
     else if (fSoTien >= [self.mThongTinTaiKhoanVi.nAmount doubleValue]) {
-        [UIAlertView alert:@"Số dư trong tài khoản không đủ" withTitle:[@"thong_bao" localizableString] block:nil];
+        [UIAlertView alert:[Localization languageSelectedStringForKey:@"so_tien_chuyen_di_phai_nho_hon_sodu_tk"] withTitle:[@"thong_bao" localizableString] block:nil];
         return NO;
     }
     else if (fSoTien > [self.mThongTinTaiKhoanVi.nHanMucDenVi doubleValue]) {
-        [UIAlertView alert:@"Số tiền chuyển đi vượt quá hạn mức. Bạn có thể thay đổi hạn mức tại mục Thay đổi" withTitle:[@"thong_bao" localizableString] block:nil];
+        [UIAlertView alert:[Localization languageSelectedStringForKey:@"so_tien_chuyen_di_phai_nho_hon_han_muc_gd"] withTitle:[@"thong_bao" localizableString] block:nil];
         return NO;
     }
     return flg;
@@ -331,6 +326,9 @@
         NSDictionary *dictKetQua = (NSDictionary*)ketQua;
         int nCode = [[dictKetQua objectForKey:@"msgCode"] intValue];
         NSString *message = [dictKetQua objectForKey:@"msgContent"];
+        if (Localization.getCurrentLang == ENGLISH) {
+            message = [dictKetQua objectForKey:@"msgContent_en"];
+        }
         if(nCode == 14)
         {
             NSString *sCauThongBao = @"";
@@ -446,7 +444,7 @@
     [btnDN setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [btnDN setBackgroundColor:[UIColor colorWithRed:16.0/255.0 green:117.0/255.0 blue:165.0/255.0 alpha:1]];
     btnDN.layer.borderColor = [UIColor colorWithRed:16.0/255.0 green:117.0/255.0 blue:165.0/255.0 alpha:1].CGColor;
-    _mtfSoVi.placeholder = @"Mã số doanh nghiệp";
+    _mtfSoVi.placeholder = [Localization languageSelectedStringForKey:@"ma_so_doanh_nghiep"];
     isDN = true;
     
 }

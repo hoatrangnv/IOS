@@ -30,6 +30,7 @@
 @property (retain, nonatomic) IBOutlet ExTextField *edSDTNguoiNhan;
 @property (retain, nonatomic) IBOutlet NSLayoutConstraint *heightEdQuanHuyen;
 @property (retain, nonatomic) IBOutlet NSLayoutConstraint *heightViewMain;
+@property (retain, nonatomic) IBOutlet UIButton *btnSearch;
 
 - (IBAction)suKienTimChiNhanh:(id)sender;
 - (IBAction)suKienThayDoiSoTien:(id)sender;

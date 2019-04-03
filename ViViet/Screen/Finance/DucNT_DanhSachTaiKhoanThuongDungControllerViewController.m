@@ -445,18 +445,18 @@ NSString *KEY_TAI_KHOAN_NAP_TIEN = @"KEY_TAI_KHOAN_NAP_TIEN";
                 [obj release];
             }
             if (dsTaiKhoanThuongDung.count == 0){
-                [[[[UIAlertView alloc] initWithTitle:[@"@thong_bao" localizableString]  message:[@"@tai_khoan_thuong_dung_khong_co" localizableString] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
+                [[[[UIAlertView alloc] initWithTitle:[@"thong_bao" localizableString]  message:[@"tai_khoan_thuong_dung_khong_co" localizableString] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
                 return;
             }
             [lvDanhSachTaiKhoan reloadData];
         }
         else
         {
-            [[[[UIAlertView alloc] initWithTitle:[@"@thong_bao" localizableString]  message:[@"@tai_khoan_thuong_dung_khong_co" localizableString] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
+            [[[[UIAlertView alloc] initWithTitle:[@"thong_bao" localizableString]  message:[@"tai_khoan_thuong_dung_khong_co" localizableString] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
         }
     }
     else
-        [[[[UIAlertView alloc] initWithTitle:[@"@thong_bao" localizableString]  message:sMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
+        [[[[UIAlertView alloc] initWithTitle:[@"thong_bao" localizableString]  message:sMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
 }
 
 -(void)xuLyKetNoiXoaTaiKhoan:(NSString *)sKetQua
@@ -1054,7 +1054,7 @@ NSString *KEY_TAI_KHOAN_NAP_TIEN = @"KEY_TAI_KHOAN_NAP_TIEN";
     }
     else
     {
-        [[[[UIAlertView alloc] initWithTitle:[@"@thong_bao" localizableString]  message:[@"@Under development" localizableString] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
+        [[[[UIAlertView alloc] initWithTitle:[@"thong_bao" localizableString]  message:[@"Under development" localizableString] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
         vc = (BaseScreen*)[[NSClassFromString(@"DucNT_FinanceController") alloc] init];
     }
     [app.navigationController dismissViewControllerAnimated:NO completion:^

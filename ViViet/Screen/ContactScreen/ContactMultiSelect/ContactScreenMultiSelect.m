@@ -20,6 +20,7 @@
 {
     IBOutlet CustomViewSearch *SearchView;
     CustomNavigationTitleView * titleCustom;
+    MBProgressHUD *hud;
 }
 @property (nonatomic, retain) NSArray *mDanhSachLienHe;
 @property (nonatomic, retain) NSArray *firstChars;
@@ -121,7 +122,7 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         [self hienThiLoadingLayDanhBa];
     });
-    _multiSelectContact = [NSMutableArray new];
+    _multiSelectContact = [[NSMutableArray alloc] init];
     [self khoiTaoBanDau];
     if (app.global.loadContactSuccess == NO)
     {
@@ -147,9 +148,6 @@
             [self.tableView reloadData];
         });
     }
-    
-    
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -167,6 +165,12 @@
     [self setTableView:nil];
 //    [self setSearchBar:nil];
     [super viewDidUnload];
+}
+
+- (void)hienThiLoadingLayDanhBa {
+    hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDModeIndeterminate;
+    hud.labelText = [Localization languageSelectedStringForKey:@"dang_lay_danh_ba"];
 }
 
 #pragma mark - khoiTao
@@ -278,6 +282,10 @@
     });
 }
 
+- (void)anLoading {
+    [hud hide:YES];
+}
+
 - (NSString *)formatPhoneNumer:(NSString *)phone
 {
     NSString *p = [phone stringByReplacingOccurrencesOfString:@"+84" withString:@"0"];
@@ -382,6 +390,10 @@
     Contact *ct = [sect objectAtIndex:indexPath.row];
     BOOL isSelected = [_multiSelectContact containsObject:ct];
     [cell setContact:ct isSelected:isSelected];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self anLoading];
+    });
     return cell;
 }
 

@@ -60,7 +60,7 @@
     bChayLanDau = true;
     [edtTimer setAlpha:0.0f];
     edtPassToken.max_length = 6;
-    edtPassToken.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[@"@mat_khau_token" localizableString] attributes:@{NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
+    edtPassToken.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[@"mat_khau_token" localizableString] attributes:@{NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
     
     [self startTimer];
     [btnTestOTP setHidden:YES];
@@ -220,7 +220,7 @@
     }
     else
     {
-        [UIAlertView alert:[@"thong_bao_chua_co_xac_thuc_van_tay_token" localizableString] withTitle:[@"@thong_bao" localizableString] block:nil];
+        [UIAlertView alert:[@"thong_bao_chua_co_xac_thuc_van_tay_token" localizableString] withTitle:[@"thong_bao" localizableString] block:nil];
     }
 }
 
@@ -249,7 +249,7 @@
     if(edtPassToken.text.length == 6)
     {
         NSInteger nCounter = time(NULL)%30;
-        edtTimer.text = [NSString stringWithFormat:@" %@ %ld %@",[@"@regLocSer - remaining" localizableString], (long)(30 - nCounter), [@"@so_giay" localizableString]];
+        edtTimer.text = [NSString stringWithFormat:@" %@ %ld %@",[@"regLocSer - remaining" localizableString], (long)(30 - nCounter), [@"so_giay" localizableString]];
         if(bChayLanDau)
         {
             NSString *sSeed = [DucNT_Token layThongTinTrongKeyChain:[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_ID_TEMP]];
@@ -273,7 +273,7 @@
     {
         bChayLanDau = true;
         lbToken.text = @"000 000";
-        edtTimer.text =[NSString stringWithFormat:@"%@ %@ %@", [@"@regLocSer - remaining" localizableString], @"0", [@"@so_giay" localizableString]];
+        edtTimer.text =[NSString stringWithFormat:@"%@ %@ %@", [@"regLocSer - remaining" localizableString], @"0", [@"so_giay" localizableString]];
         [edtTimer setAlpha:0.0f];
     }
 }

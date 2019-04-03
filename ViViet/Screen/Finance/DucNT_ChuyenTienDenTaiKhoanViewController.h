@@ -25,7 +25,7 @@
 @property (retain, nonatomic) IBOutlet UIButton *btnLuuTaiKhoanThuongDung;
 
 @property (retain, nonatomic) IBOutlet ExTextField *mtfPhiGiaoDich;
-@property (retain, nonatomic) IBOutlet UILabel *mlblPhi;
+//@property (retain, nonatomic) IBOutlet UILabel *mlblPhi;
 @property (retain, nonatomic) IBOutlet UIView *viewThongTin;
 @property (retain, nonatomic) IBOutlet UIView *viewToken;
 @property (retain, nonatomic) IBOutlet UIView *viewButtonOption;

@@ -37,7 +37,7 @@
     [super viewDidLoad];
 //    [self addButtonBack];
 //    lbTitle.text = [@"@title_quen_mat_khau" localizableString];
-    [self addTitleView:[@"@title_quen_mat_khau" localizableString]];
+    [self addTitleView:[@"title_quen_mat_khau" localizableString]];
     
     UIBarButtonItem *btnBack = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style:UIBarButtonItemStyleDone target:self action:@selector(didSelectBackButton)];
     btnBack.imageInsets = UIEdgeInsetsMake(0, -10, 0, 0);
@@ -128,22 +128,22 @@
     edtMatKhau.max_length = 20;
     [edtMatKhau setBackgroundImage:[Common stretchImage:@"login_txt_bg"] forState:UIControlStateNormal];
     [edtMatKhau setBackgroundImage:[Common stretchImage:@"login_txt_bg"] forState:UIControlStateHighlighted];
-    [edtMatKhau setTextError:[@"@mat_khau_khong_dc_de_trong" localizableString]
+    [edtMatKhau setTextError:[@"mat_khau_khong_dc_de_trong" localizableString]
                   forType:ExTextFieldTypeEmpty];
-    [edtMatKhau setTextError:[@"@mat_khau_acc_require" localizableString]
+    [edtMatKhau setTextError:[@"mat_khau_acc_require" localizableString]
                   forType:ExTextFieldTypePassword];
     
     edtMatKhauConfirm.max_length = 20;
     [edtMatKhauConfirm setBackgroundImage:[Common stretchImage:@"login_txt_bg"] forState:UIControlStateNormal];
     [edtMatKhauConfirm setBackgroundImage:[Common stretchImage:@"login_txt_bg"] forState:UIControlStateHighlighted];
-    [edtMatKhauConfirm setTextError:[@"@mat_khau_khong_dc_de_trong" localizableString]
+    [edtMatKhauConfirm setTextError:[@"mat_khau_khong_dc_de_trong" localizableString]
                       forType:ExTextFieldTypeEmpty];
-    [edtMatKhauConfirm setTextError:[@"@mat_khau_acc_require" localizableString]
+    [edtMatKhauConfirm setTextError:[@"mat_khau_acc_require" localizableString]
                       forType:ExTextFieldTypePassword];
     
     [edtSoDienThoai setBackgroundImage:[Common stretchImage:@"login_txt_bg"] forState:UIControlStateNormal];
     [edtSoDienThoai setBackgroundImage:[Common stretchImage:@"login_txt_bg"] forState:UIControlStateHighlighted];
-    [edtSoDienThoai setTextError:[@"@so_dien_thoai_khong_dc_de_trong" localizableString] forType:ExTextFieldTypeEmpty];
+    [edtSoDienThoai setTextError:[@"so_dien_thoai_khong_dc_de_trong" localizableString] forType:ExTextFieldTypeEmpty];
 }
 
 #pragma mark - sự kiện click
@@ -156,7 +156,7 @@
         }
     }
     else{
-        [[[[UIAlertView alloc] initWithTitle:[@"@thong_bao" localizableString] message:[@"@mat_khau_khong_trung_khop" localizableString] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
+        [[[[UIAlertView alloc] initWithTitle:[@"thong_bao" localizableString] message:[@"mat_khau_khong_trung_khop" localizableString] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
     }
 }
 

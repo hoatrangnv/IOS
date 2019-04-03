@@ -198,11 +198,13 @@
                 <outlet property="lbTime" destination="nGL-bV-QPm" id="a97-bf-slj"/>
                 <outlet property="lbTongPhi" destination="y3g-In-Bed" id="aNX-f4-Pjs"/>
                 <outlet property="lbTongTien" destination="38r-w4-yCh" id="3MI-JX-4t6"/>
+                <outlet property="lblTitlePhi" destination="UTZ-iF-yQm" id="2hx-GI-R2r"/>
+                <outlet property="lblTitleTongTien" destination="UsE-fF-ERf" id="GFC-47-nCA"/>
                 <outlet property="tfNoiDung" destination="GSt-eb-CYa" id="QN4-I6-CZ2"/>
                 <outlet property="txtNoiDung" destination="Zos-cR-uo8" id="RmN-Kn-CXf"/>
                 <outlet property="txtOtp" destination="GCe-X3-Kfv" id="r5s-8k-yya"/>
             </connections>
-            <point key="canvasLocation" x="-4.5" y="-23"/>
+            <point key="canvasLocation" x="-134" y="-33"/>
         </view>
     </objects>
     <resources>

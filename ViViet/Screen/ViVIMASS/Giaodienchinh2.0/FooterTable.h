@@ -27,6 +27,8 @@
 @property (retain, nonatomic) IBOutlet UIButton *btnThucHien;
 @property (retain, nonatomic) IBOutlet UILabel *lbTime;
 @property (assign, nonatomic) BOOL hasFaceID;
+@property (retain, nonatomic) IBOutlet UILabel *lblTitleTongTien;
+@property (retain, nonatomic) IBOutlet UILabel *lblTitlePhi;
 
 - (IBAction)onGiauVi:(id)sender;
 - (IBAction)doToken:(id)sender;

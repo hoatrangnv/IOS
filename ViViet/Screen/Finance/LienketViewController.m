@@ -27,7 +27,7 @@
     NSArray *arrTemp = [sDsBank componentsSeparatedByString:@"/"];
     arrBank = [[NSArray alloc] initWithArray:arrTemp];
     NSLog(@"%s - arrBank.count : %ld", __FUNCTION__, (long)arrBank.count);
-    _edBank.text = @"Chọn ngân hàng";
+    _edBank.text = [@"chon_ngan_hang" localizableString];
     _edBank.delegate = self;
     [self khoiTaoGiaoDienTextFeild:self.edBank nTag:100];
     self.btnThucHien.hidden = true;

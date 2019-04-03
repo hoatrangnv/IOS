@@ -16,10 +16,26 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 //    self.navigationItem.title = @"Hạn mức";
-    [self addTitleView:@"Hạn mức"];
+    [self addTitleView:[@"financer_viewer_bussiness_transaction_limit" localizableString]];
     self.mFuncID = 468;
     self.tfTimeMPKI.delegate = self;
     self.tfDayMPKI.delegate = self;
+    
+    _lblSoftToken.text = [@"han_muc_soft_token" localizableString];
+    _lblMaxSoftToken.text = [@"han_muc_van_tay" localizableString];
+    _lblMPKI.text = [@"han_muc_mki" localizableString];
+    _lblMaxSoftToken.text = [@"han_muc_soft_token2" localizableString];
+    _lblMaxVanTay.text = [@"han_muc_van_tay2" localizableString];
+    _lblMaxMPKI.text = [@"han_muc_mki2" localizableString];
+    
+    _tfTimeSoftToken.placeholder = [@"place_holder_so_tien" localizableString];
+    _tfDaySoftToken.placeholder = [@"place_holder_so_tien" localizableString];
+    _tfTimeVanTay.placeholder = [@"place_holder_so_tien" localizableString];
+    _tfDayVanTay.placeholder = [@"place_holder_so_tien" localizableString];
+    _tfTimeMPKI.placeholder = [@"place_holder_so_tien" localizableString];
+    _tfDayMPKI.placeholder = [@"place_holder_so_tien" localizableString];
+    _tfMaXacThuc.placeholder = [@"mat_khau_token" localizableString];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -150,7 +166,7 @@
         frame.size.height += self.heightViewMaXacThuc.constant;
         self.viewUI.frame = frame;
     }
-    [self.tfMaXacThuc setPlaceholder:@"Mật khẩu token"];
+    [self.tfMaXacThuc setPlaceholder:[@"mat_khau_token" localizableString]];
     [self.viewMaXacThuc setHidden:NO];
 }
 
@@ -162,7 +178,7 @@
         frame.size.height += self.heightViewMaXacThuc.constant;
         self.viewUI.frame = frame;
     }
-    [self.tfMaXacThuc setPlaceholder:@"Chữ ký mPKI"];
+    [self.tfMaXacThuc setPlaceholder:[@"chu_ky_mpki" localizableString]];
     [self.viewMaXacThuc setHidden:NO];
 }
 
@@ -397,6 +413,12 @@
     [_viewToken release];
     [_viewMPKI release];
     NSLog(@"%s - =========+> dealloc", __FUNCTION__);
+    [_lblSoftToken release];
+    [_lblMaxSoftToken release];
+    [_lblVanTay release];
+    [_lblMaxVanTay release];
+    [_lblMPKI release];
+    [_lblMaxMPKI release];
     [super dealloc];
 }
 @end

@@ -91,25 +91,25 @@
     edtOldPass.max_length = 40;
 //    [edtOldPass setBackgroundImage:[Common stretchImage:@"login_txt_bg"] forState:UIControlStateNormal];
 //    [edtOldPass setBackgroundImage:[Common stretchImage:@"login_txt_bg"] forState:UIControlStateHighlighted];
-    [edtOldPass setTextError:[@"@lg - TRUONG_MAT_KHAU_KHONG_DUOC_DE_TRONG" localizableString]
+    [edtOldPass setTextError:[@"lg - TRUONG_MAT_KHAU_KHONG_DUOC_DE_TRONG" localizableString]
                      forType:ExTextFieldTypeEmpty];
-    [edtOldPass setTextError:[@"@lg - MAT_KHAU_O_HOP_LE" localizableString]
+    [edtOldPass setTextError:[@"lg - MAT_KHAU_O_HOP_LE" localizableString]
                      forType:ExTextFieldTypePassword];
     
     edtNewPass.max_length = 40;
 //    [edtNewPass setBackgroundImage:[Common stretchImage:@"login_txt_bg"] forState:UIControlStateNormal];
 //    [edtNewPass setBackgroundImage:[Common stretchImage:@"login_txt_bg"] forState:UIControlStateHighlighted];
-    [edtNewPass setTextError:[@"@lg - TRUONG_MAT_KHAU_KHONG_DUOC_DE_TRONG" localizableString]
+    [edtNewPass setTextError:[@"lg - TRUONG_MAT_KHAU_KHONG_DUOC_DE_TRONG" localizableString]
                      forType:ExTextFieldTypeEmpty];
-    [edtNewPass setTextError:[@"@lg - MAT_KHAU_O_HOP_LE" localizableString]
+    [edtNewPass setTextError:[@"lg - MAT_KHAU_O_HOP_LE" localizableString]
                      forType:ExTextFieldTypePassword];
     
     edtReNewPass.max_length = 40;
 //    [edtReNewPass setBackgroundImage:[Common stretchImage:@"login_txt_bg"] forState:UIControlStateNormal];
 //    [edtReNewPass setBackgroundImage:[Common stretchImage:@"login_txt_bg"] forState:UIControlStateHighlighted];
-    [edtReNewPass setTextError:[@"@lg - TRUONG_MAT_KHAU_KHONG_DUOC_DE_TRONG" localizableString]
+    [edtReNewPass setTextError:[@"lg - TRUONG_MAT_KHAU_KHONG_DUOC_DE_TRONG" localizableString]
                        forType:ExTextFieldTypeEmpty];
-    [edtReNewPass setTextError:[@"@lg - MAT_KHAU_O_HOP_LE" localizableString]
+    [edtReNewPass setTextError:[@"lg - MAT_KHAU_O_HOP_LE" localizableString]
                        forType:ExTextFieldTypePassword];
 }
 
@@ -137,7 +137,7 @@
     }
     else
     {
-        [[[[UIAlertView alloc] initWithTitle:[@"@thong_bao" localizableString]  message:[@"@mat_khau_khong_trung_khop" localizableString] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
+        [[[[UIAlertView alloc] initWithTitle:[@"thong_bao" localizableString]  message:[@"mat_khau_khong_trung_khop" localizableString] delegate:nil cancelButtonTitle:[@"OK" localizableString] otherButtonTitles:nil] autorelease] show];
     }
 }
 
@@ -172,7 +172,7 @@
     }
     else
     {
-       [[[[UIAlertView alloc] initWithTitle:[@"@thong_bao" localizableString]  message:[@"@co_loi_trong_qua_trinh_doi_mat_khau" localizableString] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show]; 
+       [[[[UIAlertView alloc] initWithTitle:[@"thong_bao" localizableString]  message:[@"co_loi_trong_qua_trinh_doi_mat_khau" localizableString] delegate:nil cancelButtonTitle:[@"OK" localizableString] otherButtonTitles:nil] autorelease] show];
     }
 }
 
@@ -187,7 +187,7 @@
     }
     else
     {
-        [[[[UIAlertView alloc] initWithTitle:[@"@thong_bao" localizableString]  message:sMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
+        [[[[UIAlertView alloc] initWithTitle:[@"thong_bao" localizableString]  message:sMessage delegate:nil cancelButtonTitle:[@"OK" localizableString] otherButtonTitles:nil] autorelease] show];
     }
 }
 

@@ -51,6 +51,7 @@
 #import "ChonAnSauDienThoaiViewController.h"
 #import "HanMucMoiViewController.h"
 #import "Giaodienlienket1ViewController.h"
+#import "GiaoDienThanhToanQRVNPay.h"
 @interface HomeCenterViewController ()<UIActionSheetDelegate, QRCodeReaderDelegate,RowSelectDelegate,ViewNavigationGiaoDienChinhDelegate>{
     ViewNavigationGiaoDienChinh *mViewNavigationGiaoDienChinh;
     NSString *keyPin;
@@ -97,6 +98,8 @@
     app.selectedDienThoaiVC = 1;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onBackVicuatoi) name:@"ClickVicuatoi" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onBackSoTay) name:@"ClickBackSoTay" object:nil];
+    
+//    [Localization strSelectLanguage:ENGLISH];
 
 }
 -(void)viewWillAppear:(BOOL)animated{
@@ -144,6 +147,10 @@
 
         }
     }
+    
+    [self.btnNganHang setTitle:[Localization languageSelectedStringForKey:@"label_bank"] forState:UIControlStateNormal];
+    [self.btnViDienTu setTitle:[Localization languageSelectedStringForKey:@"vi_dien_tu"] forState:UIControlStateNormal];
+    [self.btnViCuaToi setTitle:[Localization languageSelectedStringForKey:@"vi_cua_toi"] forState:UIControlStateNormal];
 }
 - (void)viewDidAppear:(BOOL)animated{
     
@@ -609,32 +616,41 @@
     [reader stopScanning];
     NSLog(@"%s - -->result : %@", __FUNCTION__, result);
     [reader dismissViewControllerAnimated:YES completion:^{
-        NSString *str = [[result substringToIndex:1]uppercaseString] ;
-        if ([str isEqualToString:@"V"]) {
-            NSLog(@"%s - line : %d", __FUNCTION__, __LINE__);
-            GiaoDienThanhToanQRCodeDonVi *vc = [[GiaoDienThanhToanQRCodeDonVi alloc] initWithNibName:@"GiaoDienThanhToanQRCodeDonVi" bundle:nil];
-            vc.sIdQRCode = result;
-            vc.typeQRCode = 1;
+        if (![result containsString:@"http"] && ![result containsString:@"vimass.vn"] && result.length > 20) {
+            NSLog(@"%s - chuyen huong vnpay QR", __FUNCTION__);
+            GiaoDienThanhToanQRVNPay *vc = [[GiaoDienThanhToanQRVNPay alloc] initWithNibName:@"GiaoDienThanhToanQRVNPay" bundle:nil];
+            vc.sDataQR = result;
             self.navigationController.navigationBar.hidden = NO;
             [self.navigationController pushViewController:vc animated:YES];
             [vc release];
-        }
-        else if ([str isEqualToString:@"M"]){
-            NSLog(@"%s - line : %d", __FUNCTION__, __LINE__);
-            GiaoDienThanhToanQRCodeDonVi *vc = [[GiaoDienThanhToanQRCodeDonVi alloc] initWithNibName:@"GiaoDienThanhToanQRCodeDonVi" bundle:nil];
-            vc.sIdQRCode = result;
-            vc.typeQRCode = 0;
-            self.navigationController.navigationBar.hidden = NO;
-            [self.navigationController pushViewController:vc animated:YES];
-            [vc release];
-        }
-        else{
-            NSLog(@"%s - line : %d", __FUNCTION__, __LINE__);
-            GiaoDienThanhToanQRCode *vc = [[GiaoDienThanhToanQRCode alloc] initWithNibName:@"GiaoDienThanhToanQRCode" bundle:nil];
-            vc.sIdQRCode = result;
-            self.navigationController.navigationBar.hidden = NO;
-            [self.navigationController pushViewController:vc animated:YES];
-            [vc release];
+        } else {
+            NSString *str = [[result substringToIndex:1]uppercaseString] ;
+            if ([str isEqualToString:@"V"]) {
+                NSLog(@"%s - line : %d", __FUNCTION__, __LINE__);
+                GiaoDienThanhToanQRCodeDonVi *vc = [[GiaoDienThanhToanQRCodeDonVi alloc] initWithNibName:@"GiaoDienThanhToanQRCodeDonVi" bundle:nil];
+                vc.sIdQRCode = result;
+                vc.typeQRCode = 1;
+                self.navigationController.navigationBar.hidden = NO;
+                [self.navigationController pushViewController:vc animated:YES];
+                [vc release];
+            }
+            else if ([str isEqualToString:@"M"]){
+                NSLog(@"%s - line : %d", __FUNCTION__, __LINE__);
+                GiaoDienThanhToanQRCodeDonVi *vc = [[GiaoDienThanhToanQRCodeDonVi alloc] initWithNibName:@"GiaoDienThanhToanQRCodeDonVi" bundle:nil];
+                vc.sIdQRCode = result;
+                vc.typeQRCode = 0;
+                self.navigationController.navigationBar.hidden = NO;
+                [self.navigationController pushViewController:vc animated:YES];
+                [vc release];
+            }
+            else{
+                NSLog(@"%s - line : %d", __FUNCTION__, __LINE__);
+                GiaoDienThanhToanQRCode *vc = [[GiaoDienThanhToanQRCode alloc] initWithNibName:@"GiaoDienThanhToanQRCode" bundle:nil];
+                vc.sIdQRCode = result;
+                self.navigationController.navigationBar.hidden = NO;
+                [self.navigationController pushViewController:vc animated:YES];
+                [vc release];
+            }
         }
     }];
 }
@@ -644,51 +660,60 @@
     NSLog(@"%s - -->result : %@", __FUNCTION__, result);
     [reader dismissViewControllerAnimated:YES completion:^{
         if (result.length > 0) {
-            if (![result hasPrefix:@"http"] || [result hasSuffix:@"/transfers"]) {
-                GiaoDienThanhToanQRCodeDonVi *vc = [[GiaoDienThanhToanQRCodeDonVi alloc] initWithNibName:@"GiaoDienThanhToanQRCodeDonVi" bundle:nil];
-                if ([result containsString:@"/transfers"]) {
-                    NSString *qrcode = [result stringByReplacingOccurrencesOfString:@"/transfers" withString:@""];
-                    vc.sIdQRCode = qrcode;
-                }
-                else {
-                    vc.sIdQRCode = result;
-                }
-                vc.typeQRCode = 1;
+            if (![result containsString:@"http"] && ![result containsString:@"vimass.vn"] && result.length > 20) {
+                NSLog(@"%s - chuyen huong vnpay QR", __FUNCTION__);
+                GiaoDienThanhToanQRVNPay *vc = [[GiaoDienThanhToanQRVNPay alloc] initWithNibName:@"GiaoDienThanhToanQRVNPay" bundle:nil];
+                vc.sDataQR = result;
                 self.navigationController.navigationBar.hidden = NO;
                 [self.navigationController pushViewController:vc animated:YES];
                 [vc release];
-            }
-            else {
-                NSURL *url = [NSURL URLWithString:result];
-                NSString *queryQRCode = url.query;
-                NSLog(@"%s - -->queryQRCode : %@", __FUNCTION__, queryQRCode);
-                if (queryQRCode == nil && [[url lastPathComponent] isEqualToString:@"quickpay"]) {
-                    NSLog(@"%s - -->queryQRCode == null", __FUNCTION__);
-                    NSLog(@"%s - -->queryQRCode == null : %@", __FUNCTION__, [url lastPathComponent]);
+            } else {
+                if (![result hasPrefix:@"http"] || [result hasSuffix:@"/transfers"]) {
                     GiaoDienThanhToanQRCodeDonVi *vc = [[GiaoDienThanhToanQRCodeDonVi alloc] initWithNibName:@"GiaoDienThanhToanQRCodeDonVi" bundle:nil];
-                    if ([[url lastPathComponent] isEqualToString:@"quickpay"]) {
-                        NSString *sKQ = [result stringByReplacingOccurrencesOfString:@"/quickpay" withString:@""];
-                        NSURL *url1 = [NSURL URLWithString:sKQ];
-                        vc.sIdQRCode = [url1 lastPathComponent];
-                    } else {
-                        vc.sIdQRCode = [url lastPathComponent];
+                    if ([result containsString:@"/transfers"]) {
+                        NSString *qrcode = [result stringByReplacingOccurrencesOfString:@"/transfers" withString:@""];
+                        vc.sIdQRCode = qrcode;
                     }
-                    vc.typeQRCode = 0;
+                    else {
+                        vc.sIdQRCode = result;
+                    }
+                    vc.typeQRCode = 1;
                     self.navigationController.navigationBar.hidden = NO;
                     [self.navigationController pushViewController:vc animated:YES];
                     [vc release];
                 }
                 else {
+                    NSURL *url = [NSURL URLWithString:result];
+                    NSString *queryQRCode = url.query;
                     NSLog(@"%s - -->queryQRCode : %@", __FUNCTION__, queryQRCode);
-                    NSArray *arrQuery = [queryQRCode componentsSeparatedByString:@"="];
-                    if (arrQuery.count == 2) {
-                        NSString *idQRCode = [arrQuery lastObject];
-                        NSLog(@"%s - -->idQRCode : %@", __FUNCTION__, idQRCode);
-                        GiaoDienThanhToanQRCode *vc = [[GiaoDienThanhToanQRCode alloc] initWithNibName:@"GiaoDienThanhToanQRCode" bundle:nil];
-                        vc.sIdQRCode = idQRCode;
-                        [self.navigationController pushViewController:vc animated:YES];
+                    if (queryQRCode == nil && [[url lastPathComponent] isEqualToString:@"quickpay"]) {
+                        NSLog(@"%s - -->queryQRCode == null", __FUNCTION__);
+                        NSLog(@"%s - -->queryQRCode == null : %@", __FUNCTION__, [url lastPathComponent]);
+                        GiaoDienThanhToanQRCodeDonVi *vc = [[GiaoDienThanhToanQRCodeDonVi alloc] initWithNibName:@"GiaoDienThanhToanQRCodeDonVi" bundle:nil];
+                        if ([[url lastPathComponent] isEqualToString:@"quickpay"]) {
+                            NSString *sKQ = [result stringByReplacingOccurrencesOfString:@"/quickpay" withString:@""];
+                            NSURL *url1 = [NSURL URLWithString:sKQ];
+                            vc.sIdQRCode = [url1 lastPathComponent];
+                        } else {
+                            vc.sIdQRCode = [url lastPathComponent];
+                        }
+                        vc.typeQRCode = 0;
                         self.navigationController.navigationBar.hidden = NO;
+                        [self.navigationController pushViewController:vc animated:YES];
                         [vc release];
+                    }
+                    else {
+                        NSLog(@"%s - -->queryQRCode : %@", __FUNCTION__, queryQRCode);
+                        NSArray *arrQuery = [queryQRCode componentsSeparatedByString:@"="];
+                        if (arrQuery.count == 2) {
+                            NSString *idQRCode = [arrQuery lastObject];
+                            NSLog(@"%s - -->idQRCode : %@", __FUNCTION__, idQRCode);
+                            GiaoDienThanhToanQRCode *vc = [[GiaoDienThanhToanQRCode alloc] initWithNibName:@"GiaoDienThanhToanQRCode" bundle:nil];
+                            vc.sIdQRCode = idQRCode;
+                            [self.navigationController pushViewController:vc animated:YES];
+                            self.navigationController.navigationBar.hidden = NO;
+                            [vc release];
+                        }
                     }
                 }
             }
@@ -1078,6 +1103,10 @@
     [_vQR release];
     [_vVicuatoi release];
     [_vCenter release];
+    [_btnNganHang release];
+    [_btnViDienTu release];
+    [_btnQR release];
+    [_btnViCuaToi release];
     [super dealloc];
 }
 

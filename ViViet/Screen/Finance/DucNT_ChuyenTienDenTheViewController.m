@@ -73,14 +73,6 @@
 
 - (void)updateXacThucKhac {
     [super updateXacThucKhac];
-//    dispatch_async(dispatch_get_main_queue(), ^{
-//        if (viewQC != nil) {
-//            CGRect rectToken = self.viewCenter.frame;
-//            CGRect rectQC = viewQC.frame;
-//            rectQC.origin.y = rectQC.origin.y + self.heightViewNhapXacThuc.constant;
-//            viewQC.frame = rectQC;
-//        }
-//    });
 }
 
 - (void)showViewNhapToken:(int)type {
@@ -164,10 +156,13 @@
 - (void)khoiTaoBanDau
 {
     [self addButtonBack]; 
-    [self addTitleView:[@"@title_chuyen_tien_den_the" localizableString]];
+    [self addTitleView:[@"financer_viewer_wallet_to_BankCard" localizableString]];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateThongTin:) name:KEY_TAI_KHOAN_THUONG_DUNG object:nil];
     
     self.mFuncID = FUNC_TRANSACTION_VIA_CARD_NUMBER;
+    
+    _mtfSoTheNganHang.placeholder = [@"card_number" localizableString];
+    _mtfSoTien.placeholder = [@"amount" localizableString];
 }
 
 - (void)khoiTaoViewNhapTenDaiDienXacThucTaiKhoan
@@ -180,13 +175,13 @@
 
 -(void)khoiTaoTextField
 {
-    [_mtfSoTheNganHang setTextError:[@"@so_the_ngan_hang_khong_duoc_de_trong" localizableString] forType:ExTextFieldTypeEmpty];
+    [_mtfSoTheNganHang setTextError:[@"so_the_ngan_hang_khong_de_trong" localizableString] forType:ExTextFieldTypeEmpty];
     [_mtfSoTheNganHang setType:ExTextFieldTypeCardNumber];
     _mtfSoTheNganHang.max_length = 20;
     _mtfSoTheNganHang.inputAccessoryView = nil;
     
     [_mtfSoTien setTextError:[@"so_tien_khong_duoc_de_trong" localizableString] forType:ExTextFieldTypeEmpty];
-    [_mtfSoTien setTextError:[@"@so_tien_khong_hop_le" localizableString]forType:ExTextFieldTypeMoney];
+    [_mtfSoTien setTextError:[@"so_tien_khong_hop_le" localizableString]forType:ExTextFieldTypeMoney];
     _mtfSoTien.inputAccessoryView = nil;
 }
 
@@ -219,19 +214,19 @@
     NSLog(@"%s - nHanMucDenThe : %f", __FUNCTION__, [self.mThongTinTaiKhoanVi.nHanMucDenThe doubleValue]);
     if(fSoTien < 50000)
     {
-        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Số tiền chuyển đi tối thiểu là 50.000 đồng"];
+        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:[@"so_tien_min_den_the_ngan_hang" localizableString]];
         return NO;
     }
     else if (fSoTien >= [self.mThongTinTaiKhoanVi.nAmount doubleValue]) {
-        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Số dư trong tài khoản không đủ"];
+        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:[@"so_tien_chuyen_di_phai_nho_hon_sodu_tk" localizableString]];
         return NO;
     }
     else if (fSoTien > [self.mThongTinTaiKhoanVi.nHanMucDenThe doubleValue]) {
-        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Số tiền chuyển đi vượt quá hạn mức. Bạn có thể thay đổi hạn mức tại mục Thay đổi"];
+        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:[@"vuot_han_muc" lowercaseString]];
         return NO;
     }
     if ([_mtfSoTheNganHang.text hasPrefix:@"272727"] || [_mtfSoTheNganHang.text hasPrefix:@"272728"] || [_mtfSoTheNganHang.text hasPrefix:@"272729"] || [_mtfSoTheNganHang.text hasPrefix:@"970405"]) {
-        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Chức năng không thể thực hiện với số thẻ ngân hàng Agribank"];
+        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:[@"the_agribank" lowercaseString]];
         return NO;
     }
     return flg;

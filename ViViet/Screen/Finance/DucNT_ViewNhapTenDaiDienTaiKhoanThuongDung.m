@@ -53,14 +53,14 @@
 {
     [super awakeFromNib];
     [self setBackgroundColor:[[UIColor blackColor] colorWithAlphaComponent:0.75]];
-    lbTitle.text = [@"@title_ten_dai_dien_tai_khoan" localizableString];
-    edtTenHienThi.placeholder = [@"@thong_bao_nhap_ten_alias_tai_khoan" localizableString];
-    [edtTenHienThi setTextError:@"@ten_dai_dien_tai_khoan_require".localizableString forType:ExTextFieldTypeEmpty];
-    edtMatKhauToken.placeholder = [@"@mat_khau_token" localizableString];
+    lbTitle.text = [@"title_ten_dai_dien_tai_khoan" localizableString];
+    edtTenHienThi.placeholder = [@"reg_nickname" localizableString];
+    [edtTenHienThi setTextError:@"ten_dai_dien_tai_khoan_require".localizableString forType:ExTextFieldTypeEmpty];
+    edtMatKhauToken.placeholder = [@"mat_khau_token" localizableString];
     edtMatKhauToken.max_length = 6;
-    [edtMatKhauToken setTextError:[@"@mat_khau_token_khong_dc_de_trong" localizableString] forType:ExTextFieldTypeEmpty];
-    [btnOK setTitle:[@"@button_dong_y" localizableString] forState:UIControlStateNormal];
-    [btnCancel setTitle:[@"@button_huy" localizableString] forState:UIControlStateNormal];
+    [edtMatKhauToken setTextError:[@"mat_khau_token_khong_dc_de_trong" localizableString] forType:ExTextFieldTypeEmpty];
+    [btnOK setTitle:[@"dong_y" localizableString] forState:UIControlStateNormal];
+    [btnCancel setTitle:[@"huy" localizableString] forState:UIControlStateNormal];
     [edtTenHienThi becomeFirstResponder];
     if([[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_TRANG_THAI_CO_TOKEN] isEqualToString:@"0"])
     {
@@ -164,14 +164,17 @@
     NSDictionary *dic = [sKetQua objectFromJSONString];
     int nCode = [[dic objectForKey:@"msgCode"] intValue];
     NSString *sMessage = [dic objectForKey:@"msgContent"];
+    if (Localization.getCurrentLang == ENGLISH) {
+        sMessage = [dic objectForKey:@"msgContent_en"];
+    }
     if(sMessage.length == 0)
         sMessage = @"Lỗi ko xác định";
     if(nCode == 1)
     {
-        [[[[UIAlertView alloc] initWithTitle:[@"@thong_bao" localizableString]  message:sMessage delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
+        [[[[UIAlertView alloc] initWithTitle:[@"thong_bao" localizableString]  message:sMessage delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
     }
     else{
-        [[[[UIAlertView alloc] initWithTitle:[@"@thong_bao" localizableString]  message:sMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
+        [[[[UIAlertView alloc] initWithTitle:[@"thong_bao" localizableString]  message:sMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
     }
 }
 

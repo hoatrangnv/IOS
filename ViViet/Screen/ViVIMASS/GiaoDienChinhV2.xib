@@ -13,6 +13,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GiaoDienChinhV2">
             <connections>
                 <outlet property="collectionMain" destination="ce4-u3-7cd" id="UW4-Jd-uPU"/>
+                <outlet property="lblHuongDan" destination="w0N-TM-DAD" id="jaH-l8-ydE"/>
+                <outlet property="lblSoTayGD" destination="SmA-Sk-IPs" id="1kP-fu-tk8"/>
+                <outlet property="lblTheVID" destination="TkE-5l-l4m" id="42u-DC-Pfd"/>
+                <outlet property="lblTinTuc" destination="hCn-ir-cTg" id="Cji-Vt-UXE"/>
                 <outlet property="quangcaoView" destination="OYX-ix-vgX" id="qu2-zW-Myb"/>
                 <outlet property="vCenter" destination="wtn-hc-mLs" id="jKn-5T-qY7"/>
                 <outlet property="vHuongDan" destination="Orn-vE-0MT" id="dyY-t9-euy"/>
@@ -279,7 +283,7 @@
                 <constraint firstItem="ce4-u3-7cd" firstAttribute="top" secondItem="OYX-ix-vgX" secondAttribute="bottom" id="vIM-Zg-7eO"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="dQU-Tp-XIu"/>
-            <point key="canvasLocation" x="155.07246376811597" y="189.94565217391306"/>
+            <point key="canvasLocation" x="-107" y="138"/>
         </view>
         <view contentMode="scaleToFill" id="1RH-wJ-PlP">
             <rect key="frame" x="0.0" y="0.0" width="320" height="618"/>

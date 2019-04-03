@@ -133,7 +133,7 @@
 //    [self.mtfSoTien setText:@""];
 //    self.mtfSoTien.inputAccessoryView = nil;
     
-    [self.mtfTenChuTaiKhoan setPlaceholder:[@"ten_chu_tk" localizableString]];
+    [self.mtfTenChuTaiKhoan setPlaceholder:[@"ten_chu_tai_khoan" localizableString]];
     [self.mtfTenChuTaiKhoan setTextError:[@"ten_tai_khoan_khong_duoc_de_trong" localizableString] forType:ExTextFieldTypeEmpty];
     [self.mtfTenChuTaiKhoan setText:@""];
     self.mtfTenChuTaiKhoan.inputAccessoryView = nil;
@@ -144,7 +144,7 @@
 //    self.mtfTenDaiDien.enabled = NO;
     self.mtfTenDaiDien.inputAccessoryView = nil;
     
-    [self.mtfNoiDungGiaoDich setPlaceholder:[@"noi_dung_giao_dich" localizableString]];
+    [self.mtfNoiDungGiaoDich setPlaceholder:[@"place_holder_noi_dung" localizableString]];
     self.mtvNoiDungGiaoDich.inputAccessoryView = nil;
     self.mtvNoiDungGiaoDich.text = @"";
     
@@ -165,7 +165,7 @@
     self.mtfSoTaiKhoan.text = @"";
     self.mtfSoTaiKhoan.inputAccessoryView = nil;
     
-    self.mtfSoTien.placeholder = [NSString stringWithFormat:@"%@ (%@)", [@"so_tien_dong" localizableString], [@"co_the_bo_qua" localizableString]];
+    self.mtfSoTien.placeholder = [NSString stringWithFormat:@"%@ (%@)", [@"amount" localizableString], [@"co_the_bo_qua" localizableString]];
     [self.mtfSoTien setTextError:[@"so_tien_khong_hop_le" localizableString] forType:ExTextFieldTypeMoney];
     self.mtfSoTien.text = @"";
     self.mtfSoTien.inputAccessoryView = nil;

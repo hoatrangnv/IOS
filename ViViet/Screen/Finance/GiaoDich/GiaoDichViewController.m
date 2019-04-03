@@ -64,6 +64,10 @@
     }
     self.bHienViewXacThuc = NO;
     [self khoiTaoButtonXacThucBanDau];
+    
+    
+    self.mlblPhi.text = [Localization languageSelectedStringForKey:@"title_phi"];
+    self.mlblXacThuc.text = [Localization languageSelectedStringForKey:@"xac_thuc_boi"];
 }
 
 - (void)khoiTaoButtonXacThucBanDau {
@@ -240,7 +244,7 @@
     self.mtfMatKhauToken.max_length = 6;
     self.mtfMatKhauToken.inputAccessoryView = nil;
     self.mtfMatKhauToken.placeholder = [@"mat_khau_token" localizableString];
-    [self.mtfMatKhauToken setTextError:[@"@mat_khau_token_khong_dc_de_trong" localizableString]
+    [self.mtfMatKhauToken setTextError:[@"mat_khau_token_khong_dc_de_trong" localizableString]
                                forType:ExTextFieldTypeEmpty];
     
     [self.mbtnThucHien addTarget:self action:@selector(suKienBamNutThucHien:) forControlEvents:UIControlEventTouchUpInside];
@@ -267,7 +271,7 @@
     self.mtfMatKhauTokenView.max_length = 6;
     self.mtfMatKhauTokenView.inputAccessoryView = nil;
     self.mtfMatKhauTokenView.placeholder = [@"mat_khau_token" localizableString];
-    [self.mtfMatKhauTokenView setTextError:[@"@mat_khau_token_khong_dc_de_trong" localizableString]
+    [self.mtfMatKhauTokenView setTextError:[@"mat_khau_token_khong_dc_de_trong" localizableString]
                                forType:ExTextFieldTypeEmpty];
     
     [self.mbtnThucHienView addTarget:self action:@selector(suKienBamNutThucHien:) forControlEvents:UIControlEventTouchUpInside];
@@ -294,9 +298,9 @@
 - (void)showViewNhapToken:(int)type {
     dispatch_async(dispatch_get_main_queue(), ^{
         if (type == 1) {
-            self.mtfMatKhauToken.placeholder = @"Mật khẩu token";
+            self.mtfMatKhauToken.placeholder = [@"mat_khau_token" localizableString];
         } else {
-            self.mtfMatKhauToken.placeholder = @"Chữ ký mPKI";
+            self.mtfMatKhauToken.placeholder = [@"chu_ky_mpki" localizableString];
         }
         self.heightViewNhapXacThuc.constant = 35;
         [self.mViewNhapToken setHidden:NO];
@@ -343,7 +347,7 @@
             }
             else
             {
-                [[[[UIAlertView alloc] initWithTitle:[@"@thong_bao" localizableString]  message:[@"@can_tao_token" localizableString] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
+                [[[[UIAlertView alloc] initWithTitle:[@"thong_bao" localizableString]  message:[@"can_tao_token" localizableString] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
                 return;
             }
         }
@@ -375,7 +379,7 @@
     }
     else
     {
-        [[[[UIAlertView alloc] initWithTitle:[@"@thong_bao" localizableString]  message:[@"@can_tao_token" localizableString] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
+        [[[[UIAlertView alloc] initWithTitle:[@"thong_bao" localizableString]  message:[@"can_tao_token" localizableString] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
         return;
     }
     
@@ -439,8 +443,8 @@
             }
             self.mtfMatKhauToken.placeholder = [@"mat_khau_token" localizableString];
             self.mtfMatKhauTokenView.placeholder = [@"mat_khau_token" localizableString];
-            [self.mtfMatKhauToken setTextError:[@"@mat_khau_token_khong_dc_de_trong" localizableString] forType:ExTextFieldTypeEmpty];
-            [self.mtfMatKhauTokenView setTextError:[@"@mat_khau_token_khong_dc_de_trong" localizableString] forType:ExTextFieldTypeEmpty];
+            [self.mtfMatKhauToken setTextError:[@"mat_khau_token_khong_dc_de_trong" localizableString] forType:ExTextFieldTypeEmpty];
+            [self.mtfMatKhauTokenView setTextError:[@"mat_khau_token_khong_dc_de_trong" localizableString] forType:ExTextFieldTypeEmpty];
         }
     }
     else
@@ -488,9 +492,9 @@
         }
         self.mtfMatKhauToken.placeholder = [@"mat_khau_token" localizableString];
         self.mtfMatKhauTokenView.placeholder = [@"mat_khau_token" localizableString];
-        [self.mtfMatKhauToken setTextError:[@"@mat_khau_token_khong_dc_de_trong" localizableString]
+        [self.mtfMatKhauToken setTextError:[@"mat_khau_token_khong_dc_de_trong" localizableString]
                                    forType:ExTextFieldTypeEmpty];
-        [self.mtfMatKhauTokenView setTextError:[@"@mat_khau_token_khong_dc_de_trong" localizableString]
+        [self.mtfMatKhauTokenView setTextError:[@"mat_khau_token_khong_dc_de_trong" localizableString]
                                        forType:ExTextFieldTypeEmpty];
     }
 }
@@ -645,6 +649,7 @@
     NSLog(@"%s - ============> khong van tay", __FUNCTION__);
     [self.mbtnVanTay setHidden:YES];
     [self.btnVanTayMini setHidden:YES];
+    [self.mbtnPKI setHidden:YES];
     _btnVanTayMini.enabled = NO;
     [self.mbtnToken setHidden:NO];
 }
@@ -887,6 +892,12 @@
     NSDictionary *dicKetQua = [sKetQua objectFromJSONString];
     int nCode = [[dicKetQua objectForKey:@"msgCode"] intValue];
     NSString *message = [dicKetQua objectForKey:@"msgContent"];
+    if (Localization.getCurrentLang == ENGLISH) {
+        message = [dicKetQua objectForKey:@"msgContent_en"];
+        if ([message isEmpty]) {
+            message = [dicKetQua objectForKey:@"msgContent"];
+        }
+    }
     id result = [dicKetQua objectForKey:@"result"];
     if ([self.mDinhDanhKetNoi isEqualToString:DINH_DANH_KET_NOI_LAY_MA_XAC_THUC_TAO_SAN_PHAM]) {
         if (self.mTypeAuthenticate == 1) {
@@ -987,19 +998,19 @@
 - (void)hienThiLoading {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.mode = MBProgressHUDModeIndeterminate;
-    hud.labelText = @"Đang lấy dữ liệu...";
+    hud.labelText = [Localization languageSelectedStringForKey:@"dang_lay_du_lieu"];
 }
 
 - (void)hienThiLoadingLayDanhBa {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.mode = MBProgressHUDModeIndeterminate;
-    hud.labelText = @"Đang lấy danh bạ...";
+    hud.labelText = [Localization languageSelectedStringForKey:@"dang_lay_danh_ba"];
 }
 
 - (void)hienThiLoadingChuyenTien {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.mode = MBProgressHUDModeIndeterminate;
-    hud.labelText = @"Đang xử lý...";
+    hud.labelText = [Localization languageSelectedStringForKey:@"dang_xu_ly"];
 }
 
 - (void)anLoading {

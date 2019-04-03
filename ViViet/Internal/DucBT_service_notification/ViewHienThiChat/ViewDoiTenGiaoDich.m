@@ -12,7 +12,7 @@
 #import "Alert+Block.h"
 #import "DucNT_LuuRMS.h"
 #import "Common.h"
-
+#import "Localization.h"
 @implementation ViewDoiTenGiaoDich 
 
 - (void)awakeFromNib
@@ -57,17 +57,17 @@
 -(void)khoiTaoTextField
 {
     _mtfMatKhau.max_length = 20;
-    [_mtfMatKhau setTextError:[@"@lg - TRUONG_MAT_KHAU_KHONG_DUOC_DE_TRONG" localizableString]
+    [_mtfMatKhau setTextError:[@"lg - TRUONG_MAT_KHAU_KHONG_DUOC_DE_TRONG" localizableString]
                   forType:ExTextFieldTypeEmpty];
     
-    [_mtfMatKhau setTextError:[@"@lg - MAT_KHAU_O_HOP_LE" localizableString]
+    [_mtfMatKhau setTextError:[@"lg - MAT_KHAU_O_HOP_LE" localizableString]
                   forType:ExTextFieldTypePassword];
     
     
-    [_mtfTenGiaoDich setTextError:[@"@lg - SO_VI_KHONG_DUOC_DE_TRONG" localizableString]
+    [_mtfTenGiaoDich setTextError:[@"lg - SO_VI_KHONG_DUOC_DE_TRONG" localizableString]
                       forType:ExTextFieldTypeEmpty];
     
-    [_mtfTenGiaoDich setTextError:[@"@lg - SO_VI_O_HOP_LE" localizableString]
+    [_mtfTenGiaoDich setTextError:[@"lg - SO_VI_O_HOP_LE" localizableString]
                       forType:ExTextFieldTypeName];
     _mtfTenGiaoDich.delegate = self;
 }
@@ -126,6 +126,9 @@
     NSDictionary *dicKetQua = [sKetQua objectFromJSONString];
     int nCode = [[dicKetQua objectForKey:@"msgCode"] intValue];
     NSString *message = [dicKetQua objectForKey:@"msgContent"];
+    if (Localization.getCurrentLang == ENGLISH) {
+        message = [dicKetQua objectForKey:@"msgContent_en"];
+    }
     if(nCode == 1)
     {
         if([self.mDelegate respondsToSelector:@selector(suKienThayDoiThanhCongTenGiaoDich)])

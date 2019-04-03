@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GiaoDienChuyenTienDenCMND">
             <connections>
+                <outlet property="btnSearch" destination="OWu-hx-RUh" id="mfn-vE-Zg5"/>
                 <outlet property="btnSoTay" destination="wrL-uf-etv" id="FIR-T7-YEG"/>
                 <outlet property="btnVanTayMini" destination="oSK-6V-1dP" id="KHK-KA-3rP"/>
                 <outlet property="edCMND" destination="7a3-ZW-0GZ" id="VId-lq-4vH"/>
@@ -32,6 +33,8 @@
                 <outlet property="mbtnPKI" destination="ViU-3R-kdf" id="L7s-sx-cyT"/>
                 <outlet property="mbtnThucHien" destination="FyG-Lk-5ps" id="M0A-It-xWp"/>
                 <outlet property="mbtnToken" destination="Yfb-vf-YTP" id="3nm-Pp-rJW"/>
+                <outlet property="mlblPhi" destination="1O9-Yf-VjF" id="izj-cF-8kD"/>
+                <outlet property="mlblXacThuc" destination="Wkl-nM-Qms" id="I5M-af-m8e"/>
                 <outlet property="mtfMatKhauToken" destination="lyQ-zh-heF" id="fbQ-tA-l7Q"/>
                 <outlet property="rfNoiDung" destination="202-8Y-Msa" id="0Fx-wu-k3C"/>
                 <outlet property="scrMain" destination="vSv-mm-PlJ" id="nKd-GV-x4P"/>

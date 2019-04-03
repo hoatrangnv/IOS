@@ -106,13 +106,13 @@
 {
     if (token_type <= 0)
     {
-        [self alert:@"@ban chua dang ky loai token nao" withTitle:nil block:nil];
+        [self alert:[@"ban chua dang ky loai token nao" localizableString] withTitle:nil block:nil];
         return NO;
     }
     
     if (token_type == TOKEN_TYPE_SOFT && [ViToken canGenerateOTP:current_account] == NO)
     {
-        [self alert:@"@chua dang ky vitoken tren thiet bi" withTitle:nil block:nil];
+        [self alert:[@"chua dang ky vitoken tren thiet bi" localizableString] withTitle:nil block:nil];
         return NO;
     }
     
@@ -122,7 +122,7 @@
 {
     if ([ViToken available] == NO)
     {
-        [self alert:@"@chua dang ky softoken" withTitle:nil block:nil];
+        [self alert:[@"chua dang ky softoken" localizableString] withTitle:nil block:nil];
         return NO;
     }
     
@@ -393,7 +393,7 @@
     [button addTarget:self action:@selector(didSelectBackButton) forControlEvents:UIControlEventTouchUpInside];
 
 //    [button setImage:[UIImage imageNamed:@"login-btn-back-white.png"] forState:UIControlStateNormal];
-    [button setImage:[UIImage imageNamed:@"icon_back.png"] forState:UIControlStateNormal];
+    [button setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
     button.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     UIBarButtonItem *leftItem = [[[UIBarButtonItem alloc] initWithCustomView:button] autorelease];
     leftItem.width = 35;

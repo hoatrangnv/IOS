@@ -19,7 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self addTitleView:@"Chi tiết sao kê"];
+    [self addTitleView:[@"inquiry_detail_title" localizableString]];
     _sXauGuiMail = @"";
     self.viewKhieuNai.hidden = YES;
     [_tvKhieuNai resignFirstResponder];
@@ -161,11 +161,11 @@
 
     if([item.type integerValue] == 3)
     {
-        sFromAcc = [NSString stringWithFormat:@"%@: %@", [@"@qua_tang_tang" localizableString], item.fromAcc];
+        sFromAcc = [NSString stringWithFormat:@"%@: %@", [@"qua_tang_tang" localizableString], item.fromAcc];
     }
     else
     {
-        sFromAcc = [NSString stringWithFormat:@"%@: %@", [@"@tu" localizableString], item.fromAcc];
+        sFromAcc = [NSString stringWithFormat:@"%@: %@", [@"tu" localizableString], item.fromAcc];
     }
 
     NSString *sAmount = @"";
@@ -174,16 +174,16 @@
 //    [item.fromAcc hasPrefix:idVi]
     if([item.feeAmount intValue] > 0)
     {
-        sAmount = [NSString stringWithFormat:@"%@: - %@ đ", [@"@so_tien_giao_dich" localizableString], [Common hienThiTienTe:[item.amount doubleValue]]];
+        sAmount = [NSString stringWithFormat:@"%@: - %@ đ", [@"so_tien_giao_dich" localizableString], [Common hienThiTienTe:[item.amount doubleValue]]];
         if([item.type intValue] != 4)
         {
             // so du vi
-            sSoDu = [NSString stringWithFormat:@"%@%@: %@ đ", [@"Inq - blance" localizableString], [@"tao_tai_khoan_thuong_dung_vi" localizableString], [Common hienThiTienTe:[item.totalAmount doubleValue]]];
+            sSoDu = [NSString stringWithFormat:@"%@ %@: %@ đ", [@"inquiry_balance_value" localizableString], [@"tao_tai_khoan_thuong_dung_vi" localizableString], [Common hienThiTienTe:[item.totalAmount doubleValue]]];
         }
         else
         {
             // so du km
-            sSoDu = [NSString stringWithFormat:@"%@%@: %@ đ", [@"Inq - blance" localizableString], [@"TKKM" localizableString], [Common hienThiTienTe:[item.totalPromotion doubleValue]]];
+            sSoDu = [NSString stringWithFormat:@"%@ %@: %@ đ", [@"inquiry_balance_value" localizableString], [@"TKKM" localizableString], [Common hienThiTienTe:[item.totalPromotion doubleValue]]];
         }
     }
     else
@@ -192,25 +192,25 @@
         if([item.type intValue] != 4)
         {
             // so du vi
-            sSoDu = [NSString stringWithFormat:@"%@%@: %@ đ", [@"Inq - blance" localizableString], [@"tao_tai_khoan_thuong_dung_vi" localizableString], [Common hienThiTienTe:[item.totalAmountToAcc doubleValue]]];
+            sSoDu = [NSString stringWithFormat:@"%@%@: %@ đ", [@"inquiry_balance_value" localizableString], [@"tao_tai_khoan_thuong_dung_vi" localizableString], [Common hienThiTienTe:[item.totalAmountToAcc doubleValue]]];
         }
         else
         {
             // so du km
-            sSoDu = [NSString stringWithFormat:@"%@%@: %@", [@"Inq - blance" localizableString], [@"TKKM" localizableString], [Common hienThiTienTe_1:[item.totalPromotionToAcc doubleValue]]];
+            sSoDu = [NSString stringWithFormat:@"%@ %@: %@", [@"inquiry_balance_value" localizableString], [@"TKKM" localizableString], [Common hienThiTienTe_1:[item.totalPromotionToAcc doubleValue]]];
         }
     }
 
     NSString *sNoiDung = @"";
     NSString *sDes = @"";
     if([item.type intValue] != 3 && [item.type intValue] != 4)
-        sDes = [NSString stringWithFormat:@"%@ %@", [@"sk noi dung" localizableString], [item layNoiDung]];
+        sDes = [NSString stringWithFormat:@"%@ %@", [@"title_noi_dung" localizableString], [item layNoiDung]];
     else
-        sDes = [NSString stringWithFormat:@"%@ %@ : %@", [@"sk noi dung" localizableString], [item layNoiDung], [item layGiftName]];
+        sDes = [NSString stringWithFormat:@"%@ %@ : %@", [@"title_noi_dung" localizableString], [item layNoiDung], [item layGiftName]];
     //Tu
     sNoiDung = [NSString stringWithFormat:@"%@ <br/>", sFromAcc];
     //Den
-    sNoiDung = [sNoiDung stringByAppendingFormat:@"%@ <br/>", [NSString stringWithFormat:@"%@: %@", [@"@den" localizableString], sDenTK]];
+    sNoiDung = [sNoiDung stringByAppendingFormat:@"%@ <br/>", [NSString stringWithFormat:@"%@: %@", [@"den" localizableString], sDenTK]];
     if(sTenNguoiThuHuong.length > 0) {
         sNoiDung = [sNoiDung stringByAppendingFormat:@"%@ <br/>", sTenNguoiThuHuong];
     }
@@ -220,29 +220,33 @@
     //soTien
     sNoiDung = [sNoiDung stringByAppendingFormat:@"%@ <br/>", sAmount];
     //sophi
-    sNoiDung = [sNoiDung stringByAppendingFormat:@"%@ <br/>", [NSString stringWithFormat:@"%@: %@ đ", [@"so_phi" localizableString], [Common hienThiTienTe:[item.feeAmount doubleValue]]]];
+    sNoiDung = [sNoiDung stringByAppendingFormat:@"%@ <br/>", [NSString stringWithFormat:@"%@: %@ đ", [@"phi_chuyen_tien" localizableString], [Common hienThiTienTe:[item.feeAmount doubleValue]]]];
     //noidung
     sNoiDung = [sNoiDung stringByAppendingFormat:@"%@ <br/>", sDes];
 
     //thoiDiem
-    sNoiDung = [sNoiDung stringByAppendingFormat:@"%@ <br/>", [NSString stringWithFormat:@"%@: %@", [@"@thoi_diem_giao_dich" localizableString],  [item layThoiGianChuyenTien]]];
+    sNoiDung = [sNoiDung stringByAppendingFormat:@"%@ <br/>", [NSString stringWithFormat:@"%@: %@", [@"thoi_diem_giao_dich" localizableString],  [item layThoiGianChuyenTien]]];
     if (item.VMApp != nil) {
         int nVM_APP = [item.VMApp intValue];
         switch (nVM_APP) {
             case 1:
-                sNoiDung = [sNoiDung stringByAppendingFormat:@"Ứng dụng: Ví Vimass Android<br/>"];
+                sNoiDung = [sNoiDung stringByAppendingFormat:@"%@", [NSString stringWithFormat:@"%@: Ví Vimass Android<br/>", [@"ung_dung" localizableString]]];
                 break;
             case 2:
-                sNoiDung = [sNoiDung stringByAppendingFormat:@"Ứng dụng: Ví Vimass iOS<br/>"];
+                sNoiDung = [sNoiDung stringByAppendingFormat:@"%@", [NSString stringWithFormat:@"%@: Ví Vimass iOS<br/>", [@"ung_dung" localizableString]]];
+//                sNoiDung = [sNoiDung stringByAppendingFormat:@"Ứng dụng: Ví Vimass iOS<br/>"];
                 break;
             case 3:
-                sNoiDung = [sNoiDung stringByAppendingFormat:@"Ứng dụng: Ví Vimass WP<br/>"];
+                sNoiDung = [sNoiDung stringByAppendingFormat:@"%@", [NSString stringWithFormat:@"%@: Ví Vimass WP<br/>", [@"ung_dung" localizableString]]];
+//                sNoiDung = [sNoiDung stringByAppendingFormat:@"Ứng dụng: Ví Vimass WP<br/>"];
                 break;
             case 4:
-                sNoiDung = [sNoiDung stringByAppendingFormat:@"Ứng dụng: VĐT Vimass <br/>"];
+                sNoiDung = [sNoiDung stringByAppendingFormat:@"%@", [NSString stringWithFormat:@"%@: VĐT Vimass<br/>", [@"ung_dung" localizableString]]];
+//                sNoiDung = [sNoiDung stringByAppendingFormat:@"Ứng dụng: VĐT Vimass <br/>"];
                 break;
             case 5:
-                sNoiDung = [sNoiDung stringByAppendingFormat:@"Ứng dụng: Ví Vimass iOS<br/>"];
+                sNoiDung = [sNoiDung stringByAppendingFormat:@"%@", [NSString stringWithFormat:@"%@: Ví Vimass iOS<br/>", [@"ung_dung" localizableString]]];
+//                sNoiDung = [sNoiDung stringByAppendingFormat:@"Ứng dụng: Ví Vimass iOS<br/>"];
                 break;
             default:
                 break;
@@ -251,7 +255,7 @@
     }
     //soDu
     sNoiDung = [sNoiDung stringByAppendingFormat:@"%@ <br/>", sSoDu];
-    sNoiDung = [sNoiDung stringByAppendingFormat:@"Số dư KM: %@ đ<br/>", [Common hienThiTienTe:[self.mThongTinTaiKhoanVi.nPromotionTotal doubleValue]]];
+    sNoiDung = [sNoiDung stringByAppendingFormat:@"%@ %@: %@ đ<br/>", [@"inquiry_balance_value" localizableString], [@"TKKM" localizableString], [Common hienThiTienTe:[self.mThongTinTaiKhoanVi.nPromotionTotal doubleValue]]];
     return sNoiDung;
 }
 

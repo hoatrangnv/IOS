@@ -30,6 +30,12 @@
 @property (retain, nonatomic) IBOutlet UIView *viewToken;
 @property (retain, nonatomic) IBOutlet UIView *viewMPKI;
 
+@property (retain, nonatomic) IBOutlet UILabel *lblSoftToken;
+@property (retain, nonatomic) IBOutlet UILabel *lblMaxSoftToken;
+@property (retain, nonatomic) IBOutlet UILabel *lblVanTay;
+@property (retain, nonatomic) IBOutlet UILabel *lblMaxVanTay;
+@property (retain, nonatomic) IBOutlet UILabel *lblMPKI;
+@property (retain, nonatomic) IBOutlet UILabel *lblMaxMPKI;
 
 
 - (IBAction)suKienChonSMS:(id)sender;

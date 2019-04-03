@@ -36,7 +36,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self addTitleView:@"Chuyển tiền đến CMND"];
+    [self addTitleView:[@"financer_viewer_cmnd" localizableString]];
     
     indexKhuVuc = -1;
     indexQuanHuyen = -1;
@@ -57,30 +57,6 @@
 
     [self khoiTaoBanDau];
     
-}
-
-- (void)khoiTaoQuangCao {
-    if (!viewQC) {
-        viewQC = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([ViewQuangCao class]) owner:self options:nil] objectAtIndex:0];
-        viewQC.mDelegate = self;
-//        CGRect rectToken = self.mViewNhapToken.frame;
-        CGRect rectQC = viewQC.frame;
-        CGRect rectMain = self.mViewMain.frame;
-        CGRect rectGuiThongTin = self.viewThongTinNhan.frame;
-        CGFloat fW = rectMain.size.width;
-        CGFloat fH = fW * 0.46;
-        rectQC.origin.y = rectGuiThongTin.origin.y + rectGuiThongTin.size.height + 5;
-        viewQC.frame = CGRectMake(0, rectQC.origin.y, fW, fH);
-        viewQC.mDelegate = self;
-        [viewQC updateSizeQuangCao];
-//        rectGuiThongTin.size.height = rectQC.origin.y + rectQC.size.height;
-//        rectMain.size.height = rectGuiThongTin.origin.y + rectGuiThongTin.size.height;
-//        self.viewThongTinNhan.frame = rectGuiThongTin;
-        self.heightViewMain.constant = rectQC.origin.y + rectQC.size.height;
-//        self.mViewMain.frame = rectMain;
-        [self.mViewMain addSubview:viewQC];
-        [self.scrMain setContentSize:CGSizeMake(_scrMain.frame.size.width, self.mViewMain.frame.origin.y + self.heightViewMain.constant + 20)];
-    }
 }
 
 - (void)suKienBamNutHuongDanCMND:(UIButton *)sender {
@@ -235,7 +211,7 @@
     NSArray *arrTemp = [plist objectForKey:@"MainItem"];
 
     ItemInfoDiaDiem *itemTemp = [[ItemInfoDiaDiem alloc] init];
-    itemTemp.ten = @"Chọn khu vực";
+    itemTemp.ten = [@"vui_long_chon_khu_vuc" localizableString];
     [arrInfoDiaDiem addObject:itemTemp];
 
     for (int i = 0; i < arrTemp.count; i++) {
@@ -249,7 +225,19 @@
     self.edKhuVuc.text = item.ten;
     indexKhuVuc = 0;
     [self capNhatGiaoDienKhiChonKhuVuc];
-
+    
+    self.mlblPhi.text = [NSString stringWithFormat:@"%@: 6.600 đ", [@"fee" localizableString]];
+    self.edTenCN.placeholder = [@"ten_chi_nhanh_pgd" localizableString];
+    [self.btnSearch setTitle:[@"tim_chi_nhanh_pgd" localizableString] forState:UIControlStateNormal];
+    self.edDiaChiCN.placeholder = [@"dia_chi_cn_pgd_nhan_tien" localizableString];
+    self.edTenNguoiNhan.placeholder = [@"ho_ten_nguoi_nhan" localizableString];
+    self.edCMND.placeholder = [@"cmnd_nguoi_nhan" localizableString];
+    self.edNgayCap.placeholder = [@"ngay_cap_cmnd" localizableString];
+    self.edNoiCap.placeholder = [@"noi_cap_cmnd" localizableString];
+    self.edSDTNguoiNhan.placeholder = [@"so_dt_nguoi_nhan" localizableString];
+    self.rfNoiDung.placeholder = [@"noi_dung_chuyen_tien_cmnd_70_ky_tu" localizableString];
+    self.edSoTien.placeholder = [@"payment_electricity_amount" localizableString];
+    self.edNganHang.text = [@"vui_long_chon_ngan_hang" localizableString];
 }
 
 - (void)suKienDonePicker:(UIButton *)btn {
@@ -269,7 +257,7 @@
         [self.edNganHang resignFirstResponder];
         if (indexBank == -1) {
             sMaBank = @"";
-            self.edNganHang.text = @"Chọn ngân hàng";
+            self.edNganHang.text = [@"vui_long_chon_ngan_hang" localizableString];
         }
         else {
             Banks *bank = [mDanhSachNganHang objectAtIndex:indexBank];
@@ -372,7 +360,7 @@
     }
     else if (pickerView.tag == 102) {
         if (row == 0) {
-            return @"Chọn ngân hàng";
+            return [@"vui_long_chon_ngan_hang" localizableString];
         }
         Banks *bank = [mDanhSachNganHang objectAtIndex:row - 1];
         NSString *sTenNganHang = bank.bank_name;
@@ -397,20 +385,20 @@
 
 - (IBAction)suKienTimChiNhanh:(id)sender {
     if (indexKhuVuc < 1) {
-        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng chọn khu vực"];
+        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:[@"vui_long_chon_khu_vuc" localizableString]];
         return;
     }
     else {
         ItemInfoDiaDiem *item = [arrInfoDiaDiem objectAtIndex:indexKhuVuc];
         if (item.dsCon.count > 0) {
             if (indexQuanHuyen < 0) {
-                [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng chọn quận/huyện"];
+                [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:[@"vui_long_chon_quan_huyen" localizableString]];
                 return;
             }
         }
     }
     if (indexBank < 0) {
-        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng chọn ngân hàng"];
+        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:[@"vui_long_chon_ngan_hang" localizableString]];
         return;
     }
     double lat = 0.0;
@@ -574,53 +562,53 @@
         return NO;
     }
     if (self.edTenCN.text.isEmpty) {
-        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng chọn chi nhánh ngân hàng"];
+        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:[@"transfer_empty_branch_name" localizableString]];
         return NO;
     }
     if (self.tvDiaChi.text.isEmpty) {
-        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng nhập địa chỉ chi nhánh"];
+        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:[@"vui_long_nhap_dia_chi_chi_nhanh" localizableString]];
         return NO;
     }
     if (self.edTenNguoiNhan.text.isEmpty) {
-        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng nhập tên người nhận tiền"];
+        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:[@"vui_long_nhap_hoten_nhantien" localizableString]];
         return NO;
     }
     if (self.edCMND.text.isEmpty) {
-        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng nhập số CMND người nhận tiền"];
+        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:[@"transfer_empty_ID_number" localizableString]];
         return NO;
     }
     if (self.edNgayCap.text.isEmpty) {
-        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng chọn ngày cấp CMND"];
+        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:[@"vui_long_nhap_ngay_cap_cmnd" localizableString]];
         return NO;
     }
     if (self.edNoiCap.text.isEmpty) {
-        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng nhập nơi cấp CMND"];
+        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:[@"transfer_empty_issue_place" localizableString]];
         return NO;
     }
     if (self.tvNoiDung.text.isEmpty) {
-        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng nhập nội dung chuyển tiền"];
+        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:[@"comment_empty" localizableString]];
         return NO;
     }
     else if (self.tvNoiDung.text.length > 70) {
-        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Nội dung chuyển tiền tối đa 70 ký tự"];
+        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:[@"noi_dung_chuyen_tien_cmnd_70_ky_tu" localizableString]];
         return NO;
     }
     if (self.edSoTien.text.isEmpty) {
-        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Vui lòng nhập số tiền muốn chuyển"];
+        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:[@"vui_long_nhap_so_tien" localizableString]];
         return NO;
     }
     else {
         double fSoTien = [[[self.edSoTien.text componentsSeparatedByCharactersInSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]] componentsJoinedByString:@""] doubleValue];
         if (fSoTien < 50000 && fSoTien > 1000000000) {
-            [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Số tiền chuyển đi phải lớn hơn 50.000 đ"];
+            [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:[NSString stringWithFormat:@"%@ 50.000 đ",[@"so_tien_chuyen_di_phai_lon_hon" localizableString]]];
             return NO;
         }
         else if (fSoTien >= [self.mThongTinTaiKhoanVi.nAmount doubleValue]) {
-            [UIAlertView alert:@"Số dư trong tài khoản không đủ" withTitle:[@"thong_bao" localizableString] block:nil];
+            [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:[@"so_du_khong_du" localizableString]];
             return NO;
         }
         else if (fSoTien > [self.mThongTinTaiKhoanVi.nHanMucDenTaiKhoan doubleValue]) {
-            [UIAlertView alert:@"Số tiền chuyển đi phải nhỏ hơn hạn mức giao dịch" withTitle:[@"thong_bao" localizableString] block:nil];
+            [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:[@"so_tien_chuyen_di_phai_nho_hon_han_muc_gd" localizableString]];
             return NO;
         }
     }
@@ -706,6 +694,7 @@
     [_edSDTNguoiNhan release];
     [_heightEdQuanHuyen release];
     [_heightViewMain release];
+    [_btnSearch release];
     [super dealloc];
 }
 @end

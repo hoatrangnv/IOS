@@ -82,25 +82,25 @@ static NSString *dongYDieuKhoan = @"<span style=\"color:#fff; text-align:center;
 {
     edtPassword.max_length = 40;
     edtPassword.inputAccessoryView = nil;
-    [edtPassword setTextError:[@"@mat_khau_khong_dc_de_trong" localizableString]
+    [edtPassword setTextError:[@"mat_khau_khong_dc_de_trong" localizableString]
                       forType:ExTextFieldTypeEmpty];
-    [edtPassword setTextError:[@"@mat_khau_acc_require" localizableString]
+    [edtPassword setTextError:[@"mat_khau_acc_require" localizableString]
                       forType:ExTextFieldTypePassword];
     [edtPassword setBackgroundImage:[Common stretchImage:@"login_txt_bg"] forState:UIControlStateNormal];
     [edtPassword setBackgroundImage:[Common stretchImage:@"login_txt_bg"] forState:UIControlStateHighlighted];
     
     edtPasswordConfirm.max_length = 40;
     edtPasswordConfirm.inputAccessoryView = nil;
-    [edtPasswordConfirm setTextError:[@"@mat_khau_khong_dc_de_trong" localizableString]
+    [edtPasswordConfirm setTextError:[@"mat_khau_khong_dc_de_trong" localizableString]
                              forType:ExTextFieldTypeEmpty];
-    [edtPasswordConfirm setTextError:[@"@mat_khau_acc_require" localizableString]
+    [edtPasswordConfirm setTextError:[@"mat_khau_acc_require" localizableString]
                              forType:ExTextFieldTypePassword];
     [edtPasswordConfirm setBackgroundImage:[Common stretchImage:@"login_txt_bg"] forState:UIControlStateNormal];
     [edtPasswordConfirm setBackgroundImage:[Common stretchImage:@"login_txt_bg"] forState:UIControlStateHighlighted];
     
-    [edtId setTextError:[@"@so_dien_thoai_khong_dc_de_trong" localizableString]
+    [edtId setTextError:[@"so_dien_thoai_khong_dc_de_trong" localizableString]
                 forType:ExTextFieldTypeEmpty];
-    [edtId setTextError:[@"@so_dien_thoai_khong_hop_le" localizableString]
+    [edtId setTextError:[@"so_dien_thoai_khong_hop_le" localizableString]
                 forType:ExTextFieldTypePhone];
     edtId.inputAccessoryView = nil;
     [edtId setBackgroundImage:[Common stretchImage:@"login_txt_bg"] forState:UIControlStateNormal];
@@ -210,15 +210,29 @@ static NSString *dongYDieuKhoan = @"<span style=\"color:#fff; text-align:center;
 {
     if([[notification name] isEqualToString:@"XAC_THUC_OTP_THANH_CONG"])
     {
-        [app.navigationController dismissViewControllerAnimated:NO completion:^
-         {
-             DucNT_LoginSceen *vc = [[DucNT_LoginSceen alloc] init];
-             vc.sTenViewController = [DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_TEN_VIEWCONTROLLER_CAN_TOI];
-             vc.sKieuChuyenGiaoDien = [DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_KIEU_CHUYEN_GIAO_DIEN];
-             [app.navigationController presentViewController:vc animated:YES completion:^{}];
-             [vc release];
-         }];
+        [self hienThiAlertThanhCong];
+//        [app.navigationController dismissViewControllerAnimated:NO completion:^
+//         {
+//             DucNT_LoginSceen *vc = [[DucNT_LoginSceen alloc] init];
+//             vc.sTenViewController = [DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_TEN_VIEWCONTROLLER_CAN_TOI];
+//             vc.sKieuChuyenGiaoDien = [DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_KIEU_CHUYEN_GIAO_DIEN];
+//             [app.navigationController presentViewController:vc animated:YES completion:^{}];
+//             [vc release];
+//         }];
     }
+}
+
+- (void)hienThiAlertThanhCong {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:[@"thong_bao" localizableString] message:@"Đăng ký tài khoản ví Vimass thành công" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *close = [UIAlertAction actionWithTitle:[@"tiep_ " localizableString] style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        DucNT_LoginSceen *vc = [[DucNT_LoginSceen alloc] init];
+        vc.sTenViewController = [DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_TEN_VIEWCONTROLLER_CAN_TOI];
+        vc.sKieuChuyenGiaoDien = [DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_KIEU_CHUYEN_GIAO_DIEN];
+        [app.navigationController presentViewController:vc animated:YES completion:^{}];
+        [vc release];
+    }];
+    [alert addAction:close];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 #pragma mark - xử lý kết nối

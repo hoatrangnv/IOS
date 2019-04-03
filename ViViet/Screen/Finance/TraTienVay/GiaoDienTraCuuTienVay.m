@@ -27,7 +27,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self addTitleView:@"Trả tiền vay"];
+    [self addTitleView:[@"financer_viewer_tra_tien_vay" localizableString]];
     self.mFuncID = FUNC_THANH_TOAN_TIEN_VAY;
     nIndexQuy = 0;
     [self themButtonHuongDanSuDung:@selector(suKienBamNutHuongDanTraTienVay:)];
@@ -41,7 +41,10 @@
     }
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateThongTinTraTienVay:) name:KEY_TAI_KHOAN_THUONG_DUNG object:nil];
-
+    _edMaHopDong.placeholder = [@"so_cmnd_ma_hop_dong" localizableString];
+    [_btnTraCuu setTitle:[@"tra_cuu" localizableString] forState:UIControlStateNormal];
+    _edHoTen.placeholder = [@"reg_fullname" localizableString];
+    self.mlblPhi.text = [NSString stringWithFormat:@"%@: 6.600 đ", [@"fee" localizableString]];
 //    [self khoiTaoThongTinKhiCoPush];
 }
 

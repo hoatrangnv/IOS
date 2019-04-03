@@ -21,8 +21,10 @@
                 <outlet property="mbtnPKI" destination="y9N-KL-Qzf" id="ddg-3q-5hB"/>
                 <outlet property="mbtnThucHien" destination="XpR-Pz-wgN" id="Wg0-Z2-qa9"/>
                 <outlet property="mbtnToken" destination="HeB-jk-iUv" id="sYx-eu-Q1j"/>
+                <outlet property="mlblPhi" destination="PH8-oF-Pd9" id="tRc-fm-PVq"/>
                 <outlet property="mlblSoDu" destination="ycP-OJ-Rdr" id="jZh-fg-oCp"/>
                 <outlet property="mlblSoDuKhuyenMai" destination="22l-5b-HqQ" id="5U5-cD-him"/>
+                <outlet property="mlblXacThuc" destination="s9d-cs-IuK" id="101-mE-RSc"/>
                 <outlet property="mswtKhuyenMai" destination="JD4-cf-1Mc" id="qQM-ir-w9w"/>
                 <outlet property="mtfMatKhauToken" destination="Sq4-ia-8iL" id="D1v-I7-XZG"/>
                 <outlet property="mtfSoPhi" destination="vCZ-BT-QFC" id="mzw-70-A8p"/>
@@ -30,7 +32,7 @@
                 <outlet property="mtfViMomo" destination="IrG-mL-A0c" id="4lX-Gz-Sof"/>
                 <outlet property="mtvNoiDung" destination="2xq-3Z-U8g" id="ZK2-v4-uDm"/>
                 <outlet property="scrMain" destination="AQ2-lV-tpA" id="zoL-rf-Mt8"/>
-                <outlet property="tfNoiDung" destination="U7S-n2-OkB" id="pYD-vO-hFc"/>
+                <outlet property="tfNoiDung" destination="U7S-n2-OkB" id="dsM-M6-JWy"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="viewSoTien" destination="XLc-LW-7VS" id="5lQ-yy-1F2"/>
                 <outlet property="viewXacThuc" destination="thp-1A-yG3" id="9Fe-UH-Wmd"/>

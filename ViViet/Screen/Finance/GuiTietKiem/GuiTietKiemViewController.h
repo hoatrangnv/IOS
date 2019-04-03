@@ -27,6 +27,7 @@
 @property (retain, nonatomic) IBOutlet ExTextField *mtfNhanGocVaLaiVe;
 @property (retain, nonatomic) IBOutlet UIView *mVIewNhanGocVaLaiVe;
 @property (retain, nonatomic) IBOutlet UIView *mViewThoiGianConLai;
+@property (retain, nonatomic) IBOutlet UILabel *lblNhanTienVe;
 
 //Ngan hang nhan tien
 @property (retain, nonatomic) IBOutlet UIView *mViewChonNganHangNhanTienGocVaLaiTietKiem;
@@ -37,6 +38,12 @@
 //The
 @property (retain, nonatomic) IBOutlet UIView *mViewRutGocVaLaiVeThe;
 @property (retain, nonatomic) IBOutlet ExTextField *mtfSoThe;
+@property (retain, nonatomic) IBOutlet UILabel *lblNganHangNhanTien;
+@property (retain, nonatomic) IBOutlet UILabel *lblSoTaiKhoan;
+@property (retain, nonatomic) IBOutlet UILabel *lblChuTaiKhoan;
+@property (retain, nonatomic) IBOutlet UILabel *lblPhiChuyenKhoan;
+@property (retain, nonatomic) IBOutlet UILabel *lblSoThe;
+@property (retain, nonatomic) IBOutlet UILabel *lblPhiChuyenKhoanThe;
 
 
 @property (retain, nonatomic) IBOutlet UIButton *mbtnGuiTK;

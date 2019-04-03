@@ -119,7 +119,23 @@
 
     keyPin = @"11111111";
 //    self.arrData = @[@{@"icon":@"6vephim",@"title":@"Vé phim"},@{@"icon":@"6vebay",@"title":@"Vé bay"},@{@"icon":@"6vetau",@"title":@"Vé tàu"},@{@"icon":@"6vexe",@"title":@"Vé xe"},@{@"icon":@"6dthoai",@"title":@"D. thoại"},@{@"icon":@"6tiendtu",@"title":@"Tiền đ.tử"},@{@"icon":@"6mathe",@"title":@"Mã thẻ"},@{@"icon":@"6travay",@"title":@"Trả vay"},@{@"icon":@"6dien",@"title":@"Điện"},@{@"icon":@"6nuoc",@"title":@"Nước"},@{@"icon":@"6internet",@"title":@"Internet"},@{@"icon":@"6trhinh",@"title":@"Tr.hình"},@{@"icon":@"6chkhoan",@"title":@"Ch.khoán"},@{@"icon":@"6hocphi",@"title":@"Học phí"},@{@"icon":@"6tangqua",@"title":@"Tặng quà"},@{@"icon":@"6baohiem",@"title":@"Bảo hiểm"},@{@"icon":@"6tuthien",@"title":@"Từ thiện"},@{@"icon":@"6lixi",@"title":@"Lì xì"},@{@"icon":@"6token.png",@"title":@"Token"},@{@"icon":@"6napvi",@"title":@"Nạp ví"}];
-    self.arrData = @[@{@"icon":@"6vephim",@"title":@"Vé phim"},@{@"icon":@"6vebay",@"title":@"Vé bay"},@{@"icon":@"6vetau",@"title":@"Vé tàu"},@{@"icon":@"6vexe",@"title":@"Vé xe"},@{@"icon":@"6dthoai",@"title":@"D. thoại"},@{@"icon":@"6travay",@"title":@"Trả vay"},@{@"icon":@"6dien",@"title":@"Điện"},@{@"icon":@"6nuoc",@"title":@"Nước"},@{@"icon":@"6internet",@"title":@"Internet"},@{@"icon":@"6trhinh",@"title":@"Tr.hình"},@{@"icon":@"6chkhoan",@"title":@"Ch.khoán"},@{@"icon":@"6hocphi",@"title":@"Học phí"},@{@"icon":@"6tangqua",@"title":@"Tặng quà"},@{@"icon":@"6baohiem",@"title":@"Bảo hiểm"},@{@"icon":@"6token.png",@"title":@"Token"},@{@"icon":@"6napvi",@"title":@"Nạp ví"}];
+    
+    self.arrData = @[@{@"icon":[Localization languageSelectedStringForKey:@"icon_ve_phim"], @"title":[Localization languageSelectedStringForKey:@"financer_viewer_Movie_ticketst"]},
+                     @{@"icon":[Localization languageSelectedStringForKey:@"icon_ve_bay"], @"title":[Localization languageSelectedStringForKey:@"financer_viewer_Airfare"]},
+                     @{@"icon":[Localization languageSelectedStringForKey:@"icon_ve_tau"],@"title":[Localization languageSelectedStringForKey:@"financer_viewer_Ship_tickets"]},
+                     @{@"icon":[Localization languageSelectedStringForKey:@"icon_ve_xe"],@"title":[Localization languageSelectedStringForKey:@"financer_viewer_Train_tickets"]},
+                     @{@"icon":[Localization languageSelectedStringForKey:@"icon_dien_thoai"],@"title":[Localization languageSelectedStringForKey:@"dien_thoai"]},
+                     @{@"icon":[Localization languageSelectedStringForKey:@"icon_tra_vay"],@"title":[Localization languageSelectedStringForKey:@"tra_vay"]},
+                     @{@"icon":[Localization languageSelectedStringForKey:@"icon_tien_dien"],@"title":[Localization languageSelectedStringForKey:@"financer_viewer_electricity"]},
+                     @{@"icon":[Localization languageSelectedStringForKey:@"icon_tien_nuoc"],@"title":[Localization languageSelectedStringForKey:@"financer_viewer_water"]},
+                     @{@"icon":[Localization languageSelectedStringForKey:@"icon_tien_internet"],@"title":@"Internet"},
+                     @{@"icon":[Localization languageSelectedStringForKey:@"icon_tien_truyen_hinh"],@"title":[Localization languageSelectedStringForKey:@"financer_viewer_Television"]},
+                     @{@"icon":[Localization languageSelectedStringForKey:@"icon_chung_khoan"],@"title":[Localization languageSelectedStringForKey:@"financer_viewer_chung_khoan"]},
+                     @{@"icon":[Localization languageSelectedStringForKey:@"icon_hoc_phi"],@"title":[Localization languageSelectedStringForKey:@"financer_viewer_tuition_fee"]},
+                     @{@"icon":[Localization languageSelectedStringForKey:@"icon_tang_qua"],@"title":[Localization languageSelectedStringForKey:@"tang_qua"]},
+                     @{@"icon":[Localization languageSelectedStringForKey:@"icon_bao_hiem"],@"title":[Localization languageSelectedStringForKey:@"financer_viewer_bao_hiem"]},
+                     @{@"icon":@"6token.png",@"title":@"Token"},
+                     @{@"icon":[Localization languageSelectedStringForKey:@"icon_nap_vi"],@"title":[Localization languageSelectedStringForKey:@"nap_vi"]}];
     
     NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
     [user setInteger:0 forKey:@"KEY_INDEX_CLICK_QC"];
@@ -131,11 +147,6 @@
     for (UIGestureRecognizer *recognizer in self.view.gestureRecognizers) {
         [self.view removeGestureRecognizer:recognizer];
     }
-    
-//    vVicuatoi;
-//    @property (retain, nonatomic) IBOutlet UIView *vHuongDan;
-//    @property (retain, nonatomic) IBOutlet UIView *vSoTay;
-//    @property (retain, nonatomic) IBOutlet UIView *vUuDai;
     
     UITapGestureRecognizer *tapHuongDan1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(suKienChonTapGesture:)];
     tapHuongDan1.numberOfTapsRequired = 1;
@@ -253,7 +264,14 @@
 
     UITapGestureRecognizer *tap4 = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapVicuatoi:)];
     tap4.numberOfTapsRequired = 1;
-    [self.vVicuatoi addGestureRecognizer:tap4 ];}
+    [self.vVicuatoi addGestureRecognizer:tap4 ];
+    
+    [self.lblTheVID setTitle:[Localization languageSelectedStringForKey:@"the_v_id"] forState:UIControlStateNormal];
+    [self.lblSoTayGD setTitle:[Localization languageSelectedStringForKey:@"so_tay_giao_dich"] forState:UIControlStateNormal];
+    [self.lblHuongDan setTitle:[Localization languageSelectedStringForKey:@"huong_dan"] forState:UIControlStateNormal];
+    [self.lblTinTuc setTitle:[Localization languageSelectedStringForKey:@"tin_tuc"] forState:UIControlStateNormal];
+}
+
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -1033,8 +1051,6 @@
     NSDictionary *dict = [self.arrData objectAtIndex:indexPath.row];
     UIImageView *img = (UIImageView *)[cell viewWithTag:100];
     [img setImage:[UIImage imageNamed:[dict objectForKey:@"icon"]]];
-//    UILabel *lbTitle = (UILabel *)[cell viewWithTag:101];
-//    lbTitle.text = [dict objectForKey:@"title"];
     return cell;
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -1181,6 +1197,10 @@
     [_vUuDai release];
     [_topSlideConstraint release];
     [_vCenter release];
+    [_lblTheVID release];
+    [_lblSoTayGD release];
+    [_lblHuongDan release];
+    [_lblTinTuc release];
     [super dealloc];
 }
 

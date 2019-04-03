@@ -7,6 +7,7 @@
 
 #import "ViDienTuVC.h"
 #import "ItemListCell.h"
+#import "Localization.h"
 @interface ViDienTuVC ()<UITableViewDataSource,UITableViewDelegate>
 
 @end
@@ -21,17 +22,17 @@
     
     [self.tableView registerNib:[UINib nibWithNibName:@"ItemListCell" bundle:nil] forCellReuseIdentifier:@"ItemListCell"];
     [self.tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
-    self.arrDanhSach = @[@{@"name":@"Chuyển tiền đến Ví Vimass",@"image":@"vimass"},
-                         @{@"name":@"Chuyển tiền đến AIR Pay", @"image":@"air"},
-                         @{@"name":@"Chuyển tiền đến Momo", @"image":@"momo"},
-                          @{@"name":@"Chuyển tiền đến Ngân lượng", @"image":@"nganluong"},
-                          @{@"name":@"Chuyển tiền đến Payoo", @"image":@"payoo"},
-                          @{@"name":@"Chuyển tiền đến Viettel Pay", @"image":@"viettel"},
-                          @{@"name":@"Chuyển tiền đến Vimo", @"image":@"vimo"},
-                         @{@"name":@"Chuyển tiền đến Ví việt", @"image":@"viviet"},
-                          @{@"name":@"Chuyển tiền đến VNPT Pay", @"image":@"vnpt"},
-                         @{@"name":@"Chuyển tiền đến VTC Pay", @"image":@"vtc"},
-                         @{@"name":@"Chuyển tiền đến Zalopay", @"image":@"zalo"}
+    self.arrDanhSach = @[@{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_wallet_to_wallet"],@"image":@"vimass"},
+                         @{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_wallet_to_airpay"], @"image":@"air"},
+                         @{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_wallet_to_momo"], @"image":@"momo"},
+                          @{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_wallet_to_nganluong"], @"image":@"nganluong"},
+                          @{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_wallet_to_payoo"], @"image":@"payoo"},
+                          @{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_wallet_to_viettel_pay"], @"image":@"viettel"},
+                          @{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_wallet_to_vimo"], @"image":@"vimo"},
+                         @{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_wallet_to_viviet"], @"image":@"viviet"},
+                          @{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_wallet_to_vnpt_pay"], @"image":@"vnpt"},
+                         @{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_wallet_to_vtc_pay"], @"image":@"vtc"},
+                         @{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_wallet_to_zalo_pay"], @"image":@"zalo"}
                         ];
 }
 

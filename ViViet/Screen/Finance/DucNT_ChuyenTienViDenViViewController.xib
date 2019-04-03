@@ -26,8 +26,10 @@
                 <outlet property="mbtnPKI" destination="hLl-8s-7Ot" id="IrH-dI-jjq"/>
                 <outlet property="mbtnThucHien" destination="bLP-0y-JdW" id="ChT-Yl-s67"/>
                 <outlet property="mbtnToken" destination="k8s-32-8wO" id="hgF-Sz-WPl"/>
+                <outlet property="mlblPhi" destination="0Ji-ul-jvW" id="sWF-sx-En1"/>
                 <outlet property="mlblSoDu" destination="ICk-30-fvI" id="gvZ-Qy-7gq"/>
                 <outlet property="mlblSoDuKhuyenMai" destination="Sc5-41-z0P" id="gdW-T7-v7g"/>
+                <outlet property="mlblXacThuc" destination="CvQ-GH-k4O" id="Joi-Hv-L1y"/>
                 <outlet property="mswtKhuyenMai" destination="nh9-Md-Frv" id="Sib-IE-8xG"/>
                 <outlet property="mtfMatKhauToken" destination="lIa-u9-OlL" id="B7C-lP-YZo"/>
                 <outlet property="mtfNoiDung" destination="JMW-z4-1fo" id="90X-dq-GYs"/>
@@ -74,7 +76,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Ví Vimass" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IJy-Qf-oWo" customClass="ExTextField">
-                                                    <rect key="frame" x="0.0" y="0.0" width="168" height="35"/>
+                                                    <rect key="frame" x="8" y="0.0" width="160" height="35"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="35" id="X7r-Nu-Pvm"/>
                                                     </constraints>
@@ -330,7 +332,7 @@
                                                 <constraint firstItem="2ht-JA-hJ2" firstAttribute="leading" secondItem="IJy-Qf-oWo" secondAttribute="trailing" constant="50" id="fCf-X7-OkG"/>
                                                 <constraint firstItem="THE-Il-WYl" firstAttribute="top" secondItem="eQf-nb-31m" secondAttribute="top" id="gEe-2c-J6F"/>
                                                 <constraint firstItem="lIC-6s-eyn" firstAttribute="width" secondItem="eQf-nb-31m" secondAttribute="width" multiplier="0.5" id="hCu-Jq-O2v"/>
-                                                <constraint firstItem="IJy-Qf-oWo" firstAttribute="leading" secondItem="oYY-Si-jiU" secondAttribute="trailing" id="hh9-z7-T4s"/>
+                                                <constraint firstItem="IJy-Qf-oWo" firstAttribute="leading" secondItem="oYY-Si-jiU" secondAttribute="trailing" constant="8" id="hh9-z7-T4s"/>
                                                 <constraint firstItem="ZEP-2S-lFY" firstAttribute="leading" secondItem="0Ji-ul-jvW" secondAttribute="trailing" constant="5" id="j6t-Bj-F1H"/>
                                                 <constraint firstItem="ZEP-2S-lFY" firstAttribute="top" secondItem="LFD-SP-Ipa" secondAttribute="bottom" constant="8" id="lhT-ZU-ZCO"/>
                                                 <constraint firstAttribute="trailing" secondItem="Htf-3R-gJd" secondAttribute="trailing" constant="8" id="nPr-5p-mqg"/>
@@ -346,8 +348,8 @@
                                                 <constraint firstItem="xRc-Dx-b9P" firstAttribute="top" secondItem="6e9-2u-4AR" secondAttribute="bottom" constant="8" id="z89-va-owN"/>
                                             </constraints>
                                         </view>
-                                        <webView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1pS-0p-rMF">
-                                            <rect key="frame" x="0.0" y="5" width="304" height="487"/>
+                                        <webView hidden="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1pS-0p-rMF">
+                                            <rect key="frame" x="0.0" y="5" width="304" height="0.0"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </webView>
                                     </subviews>
@@ -396,7 +398,7 @@
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-878.39999999999998" y="-22.488755622188908"/>
+            <point key="canvasLocation" x="-998" y="-19"/>
         </view>
         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="J7Y-F3-pPS">
             <rect key="frame" x="0.0" y="0.0" width="36" height="36"/>

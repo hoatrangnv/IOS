@@ -218,7 +218,7 @@
     [self addButtonBack];
     self.mFuncID = FUNC_BANKPLUS_CHUYEN_TIEN_MAT;
 //    self.navigationItem.title = @"Chuyển tiền tận nhà";
-    [self addTitleView:@"Chuyển tiền tận nhà"];
+    [self addTitleView:[@"financer_viewer_wallet_to_home" localizableString]];
     [self khoiTaoGiaoDien];
     self.mChonNhapQuanHuyen = NO;
     self.mChonNhapPhuongXa = NO;
@@ -252,35 +252,45 @@
     [_mScrView addSubview:self.mViewMain];
 //    [_mScrView bringSubviewToFront:self.viewOptionTop];
     [_mScrView setContentSize:CGSizeMake(_mScrView.frame.size.width, fHeight)];
+    
+    _mtfHoTenNguoiNhan.placeholder = [@"ho_ten_nguoi_nhan" localizableString];
+    _mtfCMNDNguoiNhan.placeholder = [@"cmnd_nguoi_nhan" localizableString];
+    _mtfSoTien.placeholder = [@"amount" localizableString];
+    _mtfSoDienThoaiNguoiNhan.placeholder = [@"sdt_nguoi_nhan" localizableString];
+    _mtfTinhThanhPho.placeholder = [@"register_account_link_province" localizableString];
+    _mtfQuanHuyen.placeholder = [@"quan_huyen" localizableString];
+    _mtfPhuongXa.placeholder = [@"phuong_xa" localizableString];
+    _mtfTenDuong.placeholder = [@"ten_duong_so_nha" localizableString];
+    _tvNoiDung.placeholder = [@"description" localizableString];
 }
 
 - (void)khoiTaoTextField
 {
-    [_mtfHoTenNguoiNhan setTextError:@"Tên người nhận không được để trống" forType:ExTextFieldTypeEmpty];
+    [_mtfHoTenNguoiNhan setTextError:[@"transfer_toId_invalid_receiver_name" localizableString] forType:ExTextFieldTypeEmpty];
     [_mtfHoTenNguoiNhan setInputAccessoryView:nil];
     
-    [_mtfCMNDNguoiNhan setTextError:@"CMND không được để trống" forType:ExTextFieldTypeEmpty];
+    [_mtfCMNDNguoiNhan setTextError:[@"transfer_empty_ID_number" localizableString] forType:ExTextFieldTypeEmpty];
     _mtfCMNDNguoiNhan.inputAccessoryView = nil;
     
     
-    [_mtfSoTien setTextError:@"Số tiền không được để trống" forType:ExTextFieldTypeEmpty];
+    [_mtfSoTien setTextError:[@"so_tien_khong_duoc_de_trong" localizableString] forType:ExTextFieldTypeEmpty];
     _mtfSoTien.type = ExTextFieldTypeMoney;
     _mtfSoTien.inputAccessoryView = nil;
     
-    [_mtfSoDienThoaiNguoiNhan setTextError:@"Số điện thoại người nhận không được để trống" forType:ExTextFieldTypeEmpty];
+    [_mtfSoDienThoaiNguoiNhan setTextError:[@"so_dien_thoai_khong_duoc_de_trong" localizableString] forType:ExTextFieldTypeEmpty];
     _mtfSoDienThoaiNguoiNhan.type = ExTextFieldTypePhone;
     _mtfSoDienThoaiNguoiNhan.inputAccessoryView = nil;
     
-    [_mtfTinhThanhPho setTextError:@"Tỉnh/Thành phố không được để trống" forType:ExTextFieldTypeEmpty];
+    [_mtfTinhThanhPho setTextError:[@"tinh_thanh_khong_duoc_de_trong" localizableString] forType:ExTextFieldTypeEmpty];
     _mtfTinhThanhPho.inputAccessoryView = nil;
     
-    [_mtfQuanHuyen setTextError:@"Quận/Huyện không được để trống" forType:ExTextFieldTypeEmpty];
+    [_mtfQuanHuyen setTextError:[@"quan_huyen_khong_duoc_de_trong" localizableString] forType:ExTextFieldTypeEmpty];
     _mtfQuanHuyen.inputAccessoryView = nil;
     
-    [_mtfPhuongXa setTextError:@"Phường/Xã không được để trống" forType:ExTextFieldTypeEmpty];
+    [_mtfPhuongXa setTextError:[@"phuong_xa_khong_duoc_de_trong" localizableString] forType:ExTextFieldTypeEmpty];
     _mtfPhuongXa.inputAccessoryView = nil;
     
-    [_mtfTenDuong setTextError:@"Tên đường/Số nhà không được để trống" forType:ExTextFieldTypeEmpty];
+    [_mtfTenDuong setTextError:[@"ten_duong_khong_duoc_de_trong" localizableString] forType:ExTextFieldTypeEmpty];
     _mtfTenDuong.inputAccessoryView = nil;
     
     _mtvNoiDung.inputAccessoryView = nil;
@@ -564,6 +574,7 @@
     [_mtvTenDuong release];
 //    [_mScrView release];
     [_heightViewMain release];
+    [_tvNoiDung release];
     [super dealloc];
 }
 

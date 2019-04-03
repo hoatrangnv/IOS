@@ -100,8 +100,8 @@
     [self.mtfNganHang setTextError:[@"ten_ngan_hang_khong_duoc_de_trong" localizableString] forType:ExTextFieldTypeEmpty];
     self.mtfNganHang.text = @"";
     
-    [self.mtfSoThe setPlaceholder:[@"so_the_ngan_hang" localizableString]];
-    [self.mtfSoThe setTextError:[@"@so_the_ngan_hang_khong_duoc_de_trong" localizableString] forType:ExTextFieldTypeEmpty];
+    [self.mtfSoThe setPlaceholder:[@"card_number" localizableString]];
+    [self.mtfSoThe setTextError:[@"so_the_ngan_hang_khong_duoc_de_trong" localizableString] forType:ExTextFieldTypeEmpty];
     [self.mtfSoThe setType:ExTextFieldTypeCardNumber];
     [self.mtfSoThe setText:@""];
     

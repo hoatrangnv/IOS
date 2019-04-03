@@ -14,6 +14,12 @@
             <connections>
                 <outlet property="btnVanTayMini" destination="XHU-J9-tmx" id="0vB-px-Epa"/>
                 <outlet property="heightViewNhapXacThuc" destination="mnF-va-qSD" id="6VW-wm-QeA"/>
+                <outlet property="lblMPKI" destination="cWO-Si-2de" id="jgd-kj-B58"/>
+                <outlet property="lblMaxMPKI" destination="mJJ-E6-NRg" id="ZMm-eX-lVh"/>
+                <outlet property="lblMaxSoftToken" destination="eQY-6S-KVT" id="q7f-dK-cda"/>
+                <outlet property="lblMaxVanTay" destination="zcM-TU-95a" id="OPi-Ur-c0w"/>
+                <outlet property="lblSoftToken" destination="sKA-gx-MrJ" id="1bd-bh-TNP"/>
+                <outlet property="lblVanTay" destination="d3K-CG-i0i" id="UQx-6R-79c"/>
                 <outlet property="mViewNhapToken" destination="BdO-du-kwd" id="Yqj-pE-HgW"/>
                 <outlet property="mbtnPKI" destination="Ddr-10-xX5" id="ut0-zT-Kom"/>
                 <outlet property="mbtnToken" destination="GVl-xe-8Dq" id="r15-kx-ydC"/>
@@ -210,7 +216,7 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BdO-du-kwd">
                                     <rect key="frame" x="0.0" y="483" width="404" height="35"/>
                                     <subviews>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Chữ ký mPKI" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="b39-pf-7BE" customClass="ExTextField">
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Mật khẩu Token" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="b39-pf-7BE" customClass="ExTextField">
                                             <rect key="frame" x="8" y="0.0" width="268" height="35"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                             <textInputTraits key="textInputTraits" returnKeyType="done"/>

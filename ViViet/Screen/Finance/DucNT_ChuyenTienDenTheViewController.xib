@@ -24,8 +24,10 @@
                 <outlet property="mbtnPKI" destination="c2k-2z-6g9" id="sWH-5o-Sx5"/>
                 <outlet property="mbtnThucHien" destination="zT5-g8-HtX" id="xuC-XV-mhW"/>
                 <outlet property="mbtnToken" destination="Z9I-OP-Ubf" id="aOE-X6-Drg"/>
+                <outlet property="mlblPhi" destination="qca-6N-FtW" id="4Y6-vQ-VuP"/>
                 <outlet property="mlblSoDu" destination="NrU-Vt-Rl1" id="iZZ-Pm-bxd"/>
                 <outlet property="mlblSoDuKhuyenMai" destination="6Od-ot-VmW" id="3kV-7M-aCW"/>
+                <outlet property="mlblXacThuc" destination="lyh-dl-U01" id="s32-av-0v8"/>
                 <outlet property="mscrvHienThi" destination="jWg-RX-NKX" id="yE3-Hi-lsd"/>
                 <outlet property="mtfMatKhauToken" destination="TMV-rI-lZb" id="clG-sc-PXL"/>
                 <outlet property="mtfSoPhi" destination="JgU-0s-NrM" id="CyF-Bi-hSi"/>
@@ -71,7 +73,7 @@
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Số dư: 10.000.000 đ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NrU-Vt-Rl1">
                                             <rect key="frame" x="40" y="0.0" width="220" height="20"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.068081496419999998" green="0.01342051071" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>

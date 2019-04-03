@@ -183,6 +183,14 @@
 #define URL_DOI_MAT_KHAU_PKI [NSString stringWithFormat:@"%@%@", ROOT_URL, @"auth1/caiDatHanMucPKI"]
 #define URL_LAY_TIN_TUC [NSString stringWithFormat:@"%@%@", ROOT_URL, @"categoryAdv/getDetail"]
 #define URL_LAY_CHI_TIET_TIN_TUC [NSString stringWithFormat:@"%@%@", ROOT_URL, @"quangCaoUuDai/getDetail"]
+#define URL_LAY_THONG_TIN_QR [NSString stringWithFormat:@"%@%@", ROOT_URL, @"QRVietNam/traCuuThongTinQR"]
+
++ (void)ketNoiLayThongTinQR:(NSString *)dictJSON noiNhanKetQua:(id<DucNT_ServicePostDelegate>)noiNhanKetQua {
+    DucNT_ServicePost *connectPost = [[DucNT_ServicePost alloc] init];
+    [connectPost setDucnt_connectDelegate:noiNhanKetQua];
+    [connectPost connect:URL_LAY_THONG_TIN_QR withContent:dictJSON];
+    [connectPost release];
+}
 
 + (void)ketNoiLayTinTuc:(int)langID idInput:(NSString *)idInput noiNhanKetQua:(id<DucNT_ServicePostDelegate>)noiNhanKetQua {
     NSDictionary *dic = @{@"langId" : [NSNumber numberWithInt:langID],

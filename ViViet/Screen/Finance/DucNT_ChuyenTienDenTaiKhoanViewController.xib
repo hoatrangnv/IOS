@@ -35,6 +35,7 @@
                 <outlet property="mlblPhi" destination="Ku9-2b-3dy" id="lmQ-fF-Bui"/>
                 <outlet property="mlblSoDu" destination="12t-pV-mA5" id="FxK-co-Dof"/>
                 <outlet property="mlblSoDuKhuyenMai" destination="9ss-9R-Lh8" id="Ya4-IG-B9m"/>
+                <outlet property="mlblXacThuc" destination="iA6-5O-cI9" id="kQw-Y2-sos"/>
                 <outlet property="mswtKhuyenMai" destination="tZa-r7-ODE" id="frc-6P-fNA"/>
                 <outlet property="mtfChiNhanh" destination="P7b-Lh-LNe" id="t7z-7F-uWW"/>
                 <outlet property="mtfChiNhanhKhac" destination="es9-Rq-Ixr" id="Lm4-iG-mCD"/>

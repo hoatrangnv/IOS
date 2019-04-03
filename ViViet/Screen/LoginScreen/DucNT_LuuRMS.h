@@ -64,7 +64,8 @@
 #define KEY_DAY_MPKI @"KEY_DAY_MPKI"
 
 @interface DucNT_LuuRMS : NSObject
-
++ (void)luuNgonNgu:(int)nValue;
++ (int)layNgonNgu;
 + (void)luuHanMuc:(NSString *)sKey dHanMuc:(double)dHanMuc;
 + (double)layHanMuc:(NSString *)sKey;
 +(void)luuThongTinDangNhap:(NSString *)sKeyID value:(id)sValueID;

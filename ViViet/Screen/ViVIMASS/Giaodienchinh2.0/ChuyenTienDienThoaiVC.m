@@ -59,6 +59,8 @@
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
     
     [self.view addGestureRecognizer:tap];
+    
+    _lblChuyenTienDienThoai.text = [@"financer_viewer_wallet_to_dienthoai" localizableString];
 
 }
 -(void)dismissKeyboard
@@ -118,7 +120,7 @@
         if ([CommonUtils isEmptyOrNull: footer.lbTongTien.text]){
             footer.lbTongTien.text = @"0 đ";
         }
-        [footer.tfNoiDung setPlaceholder:[NSString stringWithFormat:@"%@(%@)",[@"noi_dung" localizableString], [@"co_the_bo_qua" localizableString]]];
+        [footer.tfNoiDung setPlaceholder:[@"place_holder_noi_dung" localizableString]];
         footer.txtNoiDung.textfield = footer.tfNoiDung;
         if(![CommonUtils isEmptyOrNull:self.strNoidung]){
             footer.txtNoiDung.text = self.strNoidung;
@@ -632,6 +634,7 @@
 }
 
 - (void)dealloc {
+    [_lblChuyenTienDienThoai release];
     [super dealloc];
 }
 -(UIImage*)getImageFromVi:(int)loaiMaping andManganhang:(NSString*)manganhang{

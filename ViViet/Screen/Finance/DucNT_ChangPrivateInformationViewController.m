@@ -114,7 +114,7 @@ const int DINH_DANH_THONG_BAO_THANH_CONG = 100;
 
     [self addButtonBack];
 
-    [self addTitleView:[@"title_thay_doi_thong_tin_tai_khoan" localizableString]];
+    [self addTitleView:[@"financer_viewer_bussiness_update_information" localizableString]];
     bTrangThaiCoAnhMatTruocMoi = false;
     bTrangThaiCoAnhMatSauMoi = false;
     bTrangThaiCoAnhChuKyMoi = false;
@@ -321,31 +321,31 @@ const int DINH_DANH_THONG_BAO_THANH_CONG = 100;
     [_mlblAnhMatSauCMND setText:[NSString stringWithFormat:@"%@ (%@)", [@"anh_mat_sau_cmnd" localizableString], [@"co_the_bo_qua" localizableString]]];
     [_mlblAnhChuKy setText:[NSString stringWithFormat:@"%@ (%@)", [@"anh_chu_ky" localizableString], [@"co_the_bo_qua" localizableString]]];
     
-    self.mtfTaiKhoan.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[@"@tai_khoan" localizableString] attributes:@{NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
+    self.mtfTaiKhoan.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[@"tai_khoan" localizableString] attributes:@{NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
     
     self.mtfSoDienThoaiNhanMaXacThuc.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[@"so_dien_thoai_nhan_ma_xac_thuc" localizableString] attributes:@{NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
     [self.mtfSoDienThoaiNhanMaXacThuc setTextError:[@"so_dien_thoai_nhan_ma_xac_thuc_khong_duoc_de_trong" localizableString] forType:ExTextFieldTypeEmpty];
     [self.mtfSoDienThoaiNhanMaXacThuc setTextError:[@"reg - phone is invalid" localizableString] forType:ExTextFieldTypePhone];
     
-    self.mtfTenGiaoDich.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[@"@co_the_bo_qua_ten_giao_dich" localizableString] attributes:@{NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
+    self.mtfTenGiaoDich.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[@"co_the_bo_qua_ten_giao_dich" localizableString] attributes:@{NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
     [self.mtfTenGiaoDich.inputAccessoryView setHidden:YES];
     
-    self.mtfTenCMND.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[@"@co_the_bo_qua_ten_CMND" localizableString] attributes:@{NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
+    self.mtfTenCMND.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[@"co_the_bo_qua_ten_CMND" localizableString] attributes:@{NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
     
-    [edtThuDienTu setTextError:[@"@thu_dien_tu_khong_duoc_de_trong" localizableString] forType:ExTextFieldTypeEmpty];
+    [edtThuDienTu setTextError:[@"thu_dien_tu_khong_duoc_de_trong" localizableString] forType:ExTextFieldTypeEmpty];
     [edtThuDienTu setType:ExTextFieldTypeMail];
     [edtThuDienTu.inputAccessoryView setHidden:YES];
     
     edtMatKhauToken.max_length = 6;
     [edtMatKhauToken.inputAccessoryView setHidden:YES];
     edtMatKhauToken.placeholder = [@"mat_khau_token" localizableString];
-    [edtMatKhauToken setTextError:[@"@mat_khau_token_khong_dc_de_trong" localizableString]
+    [edtMatKhauToken setTextError:[@"mat_khau_token_khong_dc_de_trong" localizableString]
                           forType:ExTextFieldTypeEmpty];
     
-    edtNgaySinh.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[@"@co_the_bo_qua_ngay_sinh" localizableString] attributes:@{NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
+    edtNgaySinh.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[@"co_the_bo_qua_ngay_sinh" localizableString] attributes:@{NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
     [edtNgaySinh.inputAccessoryView setHidden:YES];
     
-    edtThuDienTu.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[@"@thu_dien_tu" localizableString] attributes:@{NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
+    edtThuDienTu.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[@"thu_dien_tu" localizableString] attributes:@{NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
     [edtThuDienTu.inputAccessoryView setHidden:YES];
     
     edtSoCMND.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[@"co_the_bo_qua_CMND" localizableString] attributes:@{NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
@@ -360,7 +360,7 @@ const int DINH_DANH_THONG_BAO_THANH_CONG = 100;
     edtDiaChiNha.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[@"co_the_bo_qua_noi_thuong_tru" localizableString] attributes:@{NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
     [edtDiaChiNha.inputAccessoryView setHidden:YES];
     
-    self.mtfTenGiaoDich.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[@"@ten_hien_thi" localizableString] attributes:@{NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
+    self.mtfTenGiaoDich.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[@"ten_hien_thi" localizableString] attributes:@{NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
     [self.mtfTenGiaoDich.inputAccessoryView setHidden:YES];
     
     // HOANHNV FIX
@@ -370,15 +370,15 @@ const int DINH_DANH_THONG_BAO_THANH_CONG = 100;
     self.edtVilienket4.attributedPlaceholder =[[NSAttributedString alloc] initWithString:[@"co_the_bo_qua_vi_lien_ket_4" localizableString] attributes:@{NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
     self.edtVilienket5.attributedPlaceholder =[[NSAttributedString alloc] initWithString:[@"co_the_bo_qua_vi_lien_ket_5" localizableString] attributes:@{NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
     //END
-    [btnThucHien setTitle:[@"@thuc_hien" localizableString] forState:UIControlStateNormal];
-    [btnChupAnhMatTruocCMND setTitle:[@"@chup_anh" localizableString] forState:UIControlStateNormal];
+    [btnThucHien setTitle:[@"thuc_hien" localizableString] forState:UIControlStateNormal];
+    [btnChupAnhMatTruocCMND setTitle:[@"chup_anh" localizableString] forState:UIControlStateNormal];
     [btnChupAnhMatSauCMND setTitle:[@"chup_anh" localizableString] forState:UIControlStateNormal];
     [btnChupAnhChuKy setTitle:[@"chup_anh" localizableString] forState:UIControlStateNormal];
-    [btnLayAnhMatTruocCMND setTitle:[@"@lay_anh" localizableString] forState:UIControlStateNormal];
-    [btnLayAnhMatSauCMND setTitle:[@"@lay_anh" localizableString] forState:UIControlStateNormal];
-    [btnLayAnhChuKy setTitle:[@"@lay_anh" localizableString] forState:UIControlStateNormal];
+    [btnLayAnhMatTruocCMND setTitle:[@"lay_anh" localizableString] forState:UIControlStateNormal];
+    [btnLayAnhMatSauCMND setTitle:[@"lay_anh" localizableString] forState:UIControlStateNormal];
+    [btnLayAnhChuKy setTitle:[@"lay_anh" localizableString] forState:UIControlStateNormal];
     [self.mbtnChupAnhDaiDien setTitle:[@"chup_anh" localizableString] forState:UIControlStateNormal];
-    [self.mbtnLayAnhDaiDien setTitle:[@"@lay_anh" localizableString] forState:UIControlStateNormal];
+    [self.mbtnLayAnhDaiDien setTitle:[@"lay_anh" localizableString] forState:UIControlStateNormal];
     
     
 }
@@ -1122,7 +1122,7 @@ const int DINH_DANH_THONG_BAO_THANH_CONG = 100;
     }
     else
     {
-        [UIAlertView alert:[@"@thiet_bi_khong_ho_tro_chuc_nang_nay" localizableString] withTitle:nil block:nil];
+        [UIAlertView alert:[@"thiet_bi_khong_ho_tro_chuc_nang_nay" localizableString] withTitle:nil block:nil];
     }
 }
 
@@ -1185,7 +1185,7 @@ const int DINH_DANH_THONG_BAO_THANH_CONG = 100;
         }
         
         NSString *sDiaChi = @"";
-        if(![tvDiaChiNha.text isEqualToString:[@"@dia_chi_nha" localizableString]])
+        if(![tvDiaChiNha.text isEqualToString:[@"dia_chi_nha" localizableString]])
             sDiaChi = tvDiaChiNha.text;
         
         NSString *sID = [DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_ID_TEMP];
@@ -1406,13 +1406,13 @@ const int DINH_DANH_THONG_BAO_THANH_CONG = 100;
         if(nCode == 1)
         {
             [self luuThongTinTaiKhoanSauKhiThucHienThanhCong];
-            UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:[@"@thong_bao" localizableString]  message:sThongBao delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease];
+            UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:[@"thong_bao" localizableString]  message:sThongBao delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease];
             alert.tag = HOP_THOAI_XAC_NHAN_CHUYEN_TIEN_THANH_CONG;
             [alert show];
         }
         else
         {
-            [[[[UIAlertView alloc] initWithTitle:[@"@thong_bao" localizableString]  message:sThongBao delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
+            [[[[UIAlertView alloc] initWithTitle:[@"thong_bao" localizableString]  message:sThongBao delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
         }
         
     }
@@ -1442,7 +1442,7 @@ const int DINH_DANH_THONG_BAO_THANH_CONG = 100;
 -(void)luuThongTinTaiKhoanSauKhiThucHienThanhCong
 {
     NSString *sDiaChi = @"";
-    if(![tvDiaChiNha.text isEqualToString:[@"@dia_chi_nha" localizableString]])
+    if(![tvDiaChiNha.text isEqualToString:[@"dia_chi_nha" localizableString]])
         sDiaChi = tvDiaChiNha.text;
     DucNT_TaiKhoanViObject *newThongTin = [[DucNT_TaiKhoanViObject alloc] init];
     newThongTin.sID = self.mThongTinTaiKhoanVi.sID;

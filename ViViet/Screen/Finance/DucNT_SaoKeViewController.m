@@ -82,7 +82,7 @@ static NSString *DINH_DANH_LAY_CHI_TIET_SAO_KE_QUA_TANG = @"DINH_DANH_LAY_CHI_TI
     [super viewDidLoad];
     indexSaoKe = 0;
     [[DichVuNotification shareService] xacNhanDaDocTinTrongChucNang:TIN_TAI_CHINH];
-    [self addTitleView:@"Sao kê"];
+    [self addTitleView:[@"saoke_giao_dich" localizableString]];
     [self addButtonBack];
 //    [self addButton:@"ic_action_email" selector:@selector(suKienBamNutGuiMail) atSide:1];
     [self datTrangThaiChoButtonKhiLuaChon];
@@ -115,13 +115,15 @@ static NSString *DINH_DANH_LAY_CHI_TIET_SAO_KE_QUA_TANG = @"DINH_DANH_LAY_CHI_TI
 
     [self.lvHistory registerNib:[UINib nibWithNibName:@"DucNT_SaoKeCell" bundle:nil] forCellReuseIdentifier:simpleTableIdentifier];
     
-    [_mbtnVi setTitle:[@"@vi_vimass" localizableString] forState:UIControlStateNormal];
-    [_mbtnNhanQua setTitle:[@"@qua_tang_nhan" localizableString] forState:UIControlStateNormal];
+    [_mbtnVi setTitle:[@"vi_vimass" localizableString] forState:UIControlStateNormal];
+    [_mbtnNhanQua setTitle:[@"qua_tang_nhan" localizableString] forState:UIControlStateNormal];
     [_mbtnTangQua setTitle:[@"qua_tang_tang" localizableString] forState:UIControlStateNormal];
-    [_mbtnKhuyenMai setTitle:[@"@TKKM" localizableString] forState:UIControlStateNormal];
+    [_mbtnKhuyenMai setTitle:[@"TKKM" localizableString] forState:UIControlStateNormal];
     
-    [lbFromTime setText:[@"@tu" localizableString]];
-    [lbToTime setText:[@"@den" localizableString]];
+    [lbFromTime setText:[@"tu" localizableString]];
+    [lbToTime setText:[@"den" localizableString]];
+    _lblTitleSoDu.text = [NSString stringWithFormat:@"%@:", [@"inquiry_balance_value" localizableString]];
+    [self.btnSearch setTitle:[@"inquiry_search" localizableString] forState:UIControlStateNormal];
     [self khoiTaoViewDatePickerTuNgay];
     [self khoiTaoViewDatePickerToiNgay];
 
@@ -251,7 +253,7 @@ static NSString *DINH_DANH_LAY_CHI_TIET_SAO_KE_QUA_TANG = @"DINH_DANH_LAY_CHI_TI
             }
             else
             {
-                [blockSELF hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:[@"@ngay_bat_dau_phai_nho_hon_hoac_bang_ngay_ket_thuc" localizableString]];
+                [blockSELF hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:[@"ngay_bat_dau_phai_nho_hon_hoac_bang_ngay_ket_thuc" localizableString]];
             }
         }
         else
@@ -280,7 +282,7 @@ static NSString *DINH_DANH_LAY_CHI_TIET_SAO_KE_QUA_TANG = @"DINH_DANH_LAY_CHI_TI
             }
             else
             {
-                [blockSELF hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:[@"@ngay_bat_dau_phai_nho_hon_hoac_bang_ngay_ket_thuc" localizableString]];
+                [blockSELF hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:[@"ngay_bat_dau_phai_nho_hon_hoac_bang_ngay_ket_thuc" localizableString]];
             }
         }
         else
@@ -1052,6 +1054,8 @@ static NSString *DINH_DANH_LAY_CHI_TIET_SAO_KE_QUA_TANG = @"DINH_DANH_LAY_CHI_TI
         [_mDanhSachGiaoDichTangQua release];
     if(_mDanhSachHienThi)
         [_mDanhSachHienThi release];
+    [_lblTitleSoDu release];
+    [_lblTitleKhuyenMai release];
     [super dealloc];
 }
 @end

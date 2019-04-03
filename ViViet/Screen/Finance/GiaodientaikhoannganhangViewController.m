@@ -17,6 +17,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.edChuTK.placeholder = [@"register_account_link_account_holders" localizableString];
+    self.edSoTK.placeholder = [@"transfer_tobank_hint_bankaccount" localizableString];
+    self.edTenDangNhap.placeholder = [@"ten_dang_nhap_ibanking" localizableString];
+    self.edMatKhau.placeholder = [@"matkhau_dang_nhap_ibanking" localizableString];
+    self.lblUuTien.text = [@"uu_tien_su_dung" localizableString];
+    self.lbl6KyTu1.text = [@"6_ky_tu" localizableString];
+    self.lbl6KyTu.text = [@"6_ky_tu" localizableString];
+    self.lblMacDinh.text = [@"mac_dinh" localizableString];
+    [self.btnThucHien setTitle:[@"button_thuc_hien" localizableString] forState:UIControlStateNormal];
     [self.edTenDangNhap addTarget:self action:@selector(tenDangNhapDidChange:) forControlEvents:UIControlEventEditingChanged];
     [self.edMatKhau addTarget:self action:@selector(matKhauDidChange:) forControlEvents:UIControlEventEditingChanged];
 
@@ -83,7 +92,7 @@
     NSString *sToken = [DucNT_Token OTPFromPIN:sMatKhau seed:sSeed];
     if([CommonUtils isEmptyOrNull:sToken])
     {
-        [[[[UIAlertView alloc] initWithTitle:[@"@thong_bao" localizableString]  message:[@"@can_tao_token" localizableString] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
+        [[[[UIAlertView alloc] initWithTitle:[@"thong_bao" localizableString]  message:[@"can_tao_token" localizableString] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
         return;
     }
 
@@ -106,6 +115,9 @@
 }
 - (void)dealloc {
     [vMain release];
+    [_lblUuTien release];
+    [_lblMacDinh release];
+    [_lbl6KyTu release];
     [super dealloc];
 }
 @end

@@ -23,7 +23,7 @@
 @property (retain, nonatomic) IBOutlet UIView *mViewSoLuong_Phi;
 @property (retain, nonatomic) IBOutlet ExTextField *mtfSoLuong;
 @property (retain, nonatomic) IBOutlet UIButton *mbtnChonSoLuong;
-@property (retain, nonatomic) IBOutlet UILabel *mlblPhi;
+//@property (retain, nonatomic) IBOutlet UILabel *mlblPhi;
 @property (retain, nonatomic) IBOutlet UIView *mViewSoLuong;
 @property (retain, nonatomic) IBOutlet NSLayoutConstraint *heightViewSoLuongPhi;
 

@@ -34,6 +34,8 @@ enum{
 @property (retain, nonatomic) IBOutlet UITextField *edtToTime;
 @property (retain, nonatomic) IBOutlet UITextField *edtFromTime;
 @property (retain, nonatomic) IBOutlet UILabel *mlblSoTienKhuyenMai;
+@property (retain, nonatomic) IBOutlet UILabel *lblTitleSoDu;
+@property (retain, nonatomic) IBOutlet UILabel *lblTitleKhuyenMai;
 
 - (IBAction)suKienChonVi:(id)sender;
 - (IBAction)suKienChonKhuyenMai:(id)sender;

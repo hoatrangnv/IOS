@@ -95,7 +95,7 @@ static ViToken * common_vitoken = nil;
     
     if (token_type == TOKEN_TYPE_HARD)
     {
-        [DDAlertPrompt prompt:@"@vitoken - enter 6 number" type:DDAlertPromptType_Login option:^(DDAlertPrompt *alert)
+        [DDAlertPrompt prompt:@"vitoken - enter 6 number" type:DDAlertPromptType_Login option:^(DDAlertPrompt *alert)
          {
              alert.textview.placeholder = @"mobile numbers".localizableString;
              alert.subtextview.placeholder = @"nhap_6_so_token".localizableString;
@@ -118,7 +118,7 @@ static ViToken * common_vitoken = nil;
          }];
     }else
     {
-        [DDAlertPrompt prompt:@"@vitoken - enter pin" type:DDAlertPromptType_SecureText option:^(DDAlertPrompt *alert)
+        [DDAlertPrompt prompt:@"vitoken - enter pin" type:DDAlertPromptType_SecureText option:^(DDAlertPrompt *alert)
          {
              alert.max_text_length = 6;
              alert.textview.keyboardType = UIKeyboardTypeDefault;

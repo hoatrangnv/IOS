@@ -46,10 +46,10 @@ static NSString *const DINH_DANH_KET_NOI_DOI_SO_DIEN_THOAI_TOKEN = @"DINH_DANH_K
     [self setBackgroundColor:[[UIColor blackColor] colorWithAlphaComponent:0.75]];
     [self.viewMain.layer setCornerRadius:4];
     [self.viewMain.layer setMasksToBounds:YES];
-    lbThongBao.text = [@"@title_xac_thuc_otp" localizableString];
-    [btnOK setTitle:[@"@button_dong_y" localizableString] forState:UIControlStateNormal];
-    [btnCancel setTitle:[@"@button_huy" localizableString] forState:UIControlStateNormal];
-    [edtOTPConfirm setTextError:[@"@otp_khong_dc_de_trong" localizableString] forType:ExTextFieldTypeEmpty];
+    lbThongBao.text = [@"title_xac_thuc_otp" localizableString];
+    [btnOK setTitle:[@"button_dong_y" localizableString] forState:UIControlStateNormal];
+    [btnCancel setTitle:[@"button_huy" localizableString] forState:UIControlStateNormal];
+    [edtOTPConfirm setTextError:[@"otp_khong_dc_de_trong" localizableString] forType:ExTextFieldTypeEmpty];
     edtOTPConfirm.inputAccessoryView = nil;
     [self batDauDemThoiGian];
     [viewScroll setContentSize:CGSizeMake(320, viewScroll.frame.size.height)];
@@ -266,7 +266,7 @@ static NSString *const DINH_DANH_KET_NOI_DOI_SO_DIEN_THOAI_TOKEN = @"DINH_DANH_K
 {
     [edtOTPConfirm setBackgroundImage:[Common stretchImage:@"login_txt_bg"] forState:UIControlStateNormal];
     [edtOTPConfirm setBackgroundImage:[Common stretchImage:@"login_txt_bg"] forState:UIControlStateHighlighted];
-    [edtOTPConfirm setTextError:[@"@otp_khong_dc_de_trong" localizableString] forType:ExTextFieldTypeEmpty];
+    [edtOTPConfirm setTextError:[@"otp_khong_dc_de_trong" localizableString] forType:ExTextFieldTypeEmpty];
 }
 
 #pragma mark - xuLyTimer
@@ -344,7 +344,7 @@ static NSString *const DINH_DANH_KET_NOI_DOI_SO_DIEN_THOAI_TOKEN = @"DINH_DANH_K
     }
     else
     {
-        [[[[UIAlertView alloc] initWithTitle:[@"@thong_bao" localizableString]  message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
+        [[[[UIAlertView alloc] initWithTitle:[@"thong_bao" localizableString]  message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
     }
 }
 
@@ -369,7 +369,7 @@ static NSString *const DINH_DANH_KET_NOI_DOI_SO_DIEN_THOAI_TOKEN = @"DINH_DANH_K
     }
     else
     {
-        [[[[UIAlertView alloc] initWithTitle:[@"@thong_bao" localizableString]  message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
+        [[[[UIAlertView alloc] initWithTitle:[@"thong_bao" localizableString]  message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
     }
     
 }
@@ -387,7 +387,7 @@ static NSString *const DINH_DANH_KET_NOI_DOI_SO_DIEN_THOAI_TOKEN = @"DINH_DANH_K
     }
     else
     {
-        [[[[UIAlertView alloc] initWithTitle:[@"@thong_bao" localizableString]  message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
+        [[[[UIAlertView alloc] initWithTitle:[@"thong_bao" localizableString]  message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             isClickOk = NO;
         });
@@ -429,7 +429,7 @@ static NSString *const DINH_DANH_KET_NOI_DOI_SO_DIEN_THOAI_TOKEN = @"DINH_DANH_K
     }
     else
     {
-        [[[[UIAlertView alloc] initWithTitle:[@"@thong_bao" localizableString]  message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
+        [[[[UIAlertView alloc] initWithTitle:[@"thong_bao" localizableString]  message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
     }
 }
 

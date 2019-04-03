@@ -106,7 +106,7 @@
     self.mtfTenTKCanMuonTien.inputAccessoryView = nil;
     
     [self.mtfSoTien setTextError:[@"so_tien_khong_duoc_de_trong" localizableString] forType:ExTextFieldTypeEmpty];
-    [self.mtfSoTien setTextError:[@"@so_tien_khong_hop_le" localizableString]forType:ExTextFieldTypeMoney];
+    [self.mtfSoTien setTextError:[@"so_tien_khong_hop_le" localizableString]forType:ExTextFieldTypeMoney];
     [self.mtfSoTien setText:@""];
     self.mtfSoTien.inputAccessoryView = nil;
     

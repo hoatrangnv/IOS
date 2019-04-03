@@ -23,6 +23,12 @@
 
 @property (retain, nonatomic) IBOutlet UICollectionView *collectionMain;
 
+@property (retain, nonatomic) IBOutlet UIButton *lblTheVID;
+@property (retain, nonatomic) IBOutlet UIButton *lblSoTayGD;
+@property (retain, nonatomic) IBOutlet UIButton *lblHuongDan;
+@property (retain, nonatomic) IBOutlet UIButton *lblTinTuc;
+
+
 - (IBAction)doBack:(id)sender;
 - (void)xuLySuKienDangNhapThanhCong:(NSNotification *)notification;
 - (IBAction)suKienBamChuyenTienDenViNoiBo:(id)sender;

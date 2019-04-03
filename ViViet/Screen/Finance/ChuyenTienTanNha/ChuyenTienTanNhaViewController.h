@@ -23,6 +23,7 @@
 @property (retain, nonatomic) IBOutlet ExTextField *mtfHoTenNguoiNhan;
 @property (retain, nonatomic) IBOutlet ExTextField *mtfCMNDNguoiNhan;
 @property (retain, nonatomic) IBOutlet UIView *mViewTenDuongSonha;
+@property (retain, nonatomic) IBOutlet ExTextField *tvNoiDung;
 @property (retain, nonatomic) IBOutlet UmiTextView *mtvNoiDung;
 @property (retain, nonatomic) IBOutlet UmiTextView *mtvTenDuong;
 @property (retain, nonatomic) DucNT_TaiKhoanThuongDungObject *mTaiKhoanThuongDung;

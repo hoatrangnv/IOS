@@ -12,6 +12,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeCenterViewController">
             <connections>
+                <outlet property="btnNganHang" destination="ki1-ea-UEr" id="eeW-af-f7W"/>
+                <outlet property="btnQR" destination="cXu-cz-Dn1" id="TqI-sE-aMT"/>
+                <outlet property="btnViCuaToi" destination="IMr-dD-PHG" id="2aq-Yn-9rH"/>
+                <outlet property="btnViDienTu" destination="6bk-nF-1uj" id="hvY-vc-n1a"/>
                 <outlet property="vCenter" destination="5Xd-xt-33U" id="xYM-Lw-hRK"/>
                 <outlet property="vNganHang" destination="HZ2-9r-g5X" id="1ci-Qp-OJo"/>
                 <outlet property="vQR" destination="Wg2-wg-xBX" id="hro-0V-oHh"/>

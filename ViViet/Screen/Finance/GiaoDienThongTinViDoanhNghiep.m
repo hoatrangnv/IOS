@@ -42,7 +42,7 @@
     [self.scrView addSubview:self.viewMain];
     
     [self addButtonBack];
-    [self addTitleView:[@"@title_thay_doi_thong_tin_tai_khoan" localizableString]];
+    [self addTitleView:[@"thay_doi_thong_tin_vi" localizableString]];
     if (!self.mThongTinTaiKhoanVi) {
         self.mThongTinTaiKhoanVi = [DucNT_LuuRMS layThongTinTaiKhoanVi];
     }
@@ -187,7 +187,7 @@
     }
     else
     {
-        [UIAlertView alert:[@"@thiet_bi_khong_ho_tro_chuc_nang_nay" localizableString] withTitle:nil block:nil];
+        [UIAlertView alert:[@"thiet_bi_khong_ho_tro_chuc_nang_nay" localizableString] withTitle:nil block:nil];
     }
 }
 

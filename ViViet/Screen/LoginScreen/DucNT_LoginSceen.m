@@ -93,12 +93,17 @@ static int const KIEU_KET_NOI_GOOGLE = 2;
     self.imgVimass.layer.cornerRadius = 7;
     self.imgVimass.clipsToBounds = true;
     
+    int ngonNgu = [DucNT_LuuRMS layNgonNgu];
+    NSLog(@"%s - ngonNgu : %d", __FUNCTION__, ngonNgu);
+    [Localization strSelectLanguage:ngonNgu];
+    [self updateLanguage];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     [self.txtGiayPhep setText:[NSString stringWithFormat:@"Giấy phép Ví điện tử số 41/GP-NHNN\nNgân hàng nhà nước VN cấp 12/3/2018"]];
+    [self updateLanguage];
 }
  
 - (void)viewDidAppear:(BOOL)animated
@@ -112,6 +117,25 @@ static int const KIEU_KET_NOI_GOOGLE = 2;
         self.mbtnDangNhapBangVanTay.hidden = YES;
     }
 }
+
+- (void)updateLanguage {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self addTitleView:[Localization languageSelectedStringForKey:@"dialog_login_financer_signIn"]];
+        self.edtPass.placeholder = [Localization languageSelectedStringForKey:@"place_holde_password"];
+        self.edtMainInfo.placeholder = [Localization languageSelectedStringForKey:@"so_dien_thoai"];
+        [self.btnDangNhap setTitle:[Localization languageSelectedStringForKey:@"dialog_login_financer_signIn"] forState:UIControlStateNormal];
+        [self.btnQuenMatKhau setTitle:[Localization languageSelectedStringForKey:@"dialog_login_financer_fogotPassword"] forState:UIControlStateNormal];
+        [self.btnDangKy setTitle:[Localization languageSelectedStringForKey:@"dang_ky"] forState:UIControlStateNormal];
+        
+        NSDictionary *info = [[NSBundle mainBundle] infoDictionary];
+        NSString *version = [info objectForKey:@"CFBundleShortVersionString"];
+        self.lblPhienBan.text = [NSString stringWithFormat:@"%@ %@", [Localization languageSelectedStringForKey:@"phien_ban"], version];
+        
+        [self.mbtnViCaNhan setTitle:[Localization languageSelectedStringForKey:@"financer_viewer_For_individuals"] forState:UIControlStateNormal];
+        [self.mbtnViDoanhNghiep setTitle:[Localization languageSelectedStringForKey:@"financer_viewer_bussiness_wallet"] forState:UIControlStateNormal];
+    });
+}
+
 - (BOOL)kiemTraCoChucNangQuetVanTay1
 {
     LAContext *laContext = [[[LAContext alloc] init] autorelease];
@@ -184,7 +208,6 @@ static int const KIEU_KET_NOI_GOOGLE = 2;
 
 - (void)khoiTaoGiaoDien
 {
-    [self addTitleView:[@"title_dang_nhap" localizableString]];
     [self addButtonHuongDan];
     UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
     button.frame = CGRectMake(0, 0, 30, 30);
@@ -393,7 +416,7 @@ static int const KIEU_KET_NOI_GOOGLE = 2;
     int nKieuDangNhap = [[DucNT_LuuRMS layThongTinDangNhap:KEY_HIEN_THI_VI] intValue];
     if(nKieuDangNhap == KIEU_DOANH_NGHIEP)
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Thông báo" message:@"Chức năng đang được phát triển" delegate:nil cancelButtonTitle:@"Đóng" otherButtonTitles: nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Thông báo" message:@"Chức năng đang được phát triển" delegate:nil cancelButtonTitle:[Localization languageSelectedStringForKey:@"dong"] otherButtonTitles: nil];
         [alert show];
     }
     else
@@ -463,6 +486,18 @@ static int const KIEU_KET_NOI_GOOGLE = 2;
 
 - (IBAction)suKienChonXemGiayPhep:(id)sender {
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://www.sbv.gov.vn/webcenter/portal/vi/menu/trangchu/ttsk/ttsk_chitiet?centerWidth=80%25&dDocName=SBV331391&leftWidth=20%25&rightWidth=0%25&showFooter=false&showHeader=false&_adf.ctrl-state=1c7kax1f62_4&_afrLoop=1291034936391000"]];
+}
+
+- (IBAction)suKienChonLanguageViet:(id)sender {
+    [Localization strSelectLanguage:VIET];
+    [DucNT_LuuRMS luuNgonNgu:VIET];
+    [self updateLanguage];
+}
+
+- (IBAction)suKienChonLanguageEnglish:(id)sender {
+    [Localization strSelectLanguage:ENGLISH];
+    [DucNT_LuuRMS luuNgonNgu:ENGLISH];
+    [self updateLanguage];
 }
 
 #pragma mark - GPPSignInDelegate
@@ -829,12 +864,11 @@ static int const KIEU_KET_NOI_GOOGLE = 2;
 
 -(void)khoiTaoTextField
 {
-    edtPass.placeholder = [@"lg - pwd" localizableString];
     edtPass.max_length = 20;
-    [edtPass setTextError:[@"@lg - TRUONG_MAT_KHAU_KHONG_DUOC_DE_TRONG" localizableString]
+    [edtPass setTextError:[@"TRUONG_MAT_KHAU_KHONG_DUOC_DE_TRONG" localizableString]
                   forType:ExTextFieldTypeEmpty];
     
-    [edtPass setTextError:[@"@lg - MAT_KHAU_O_HOP_LE" localizableString]
+    [edtPass setTextError:[@"MAT_KHAU_O_HOP_LE" localizableString]
                   forType:ExTextFieldTypePassword];
     edtPass.inputAccessoryView = nil;
     
@@ -846,12 +880,11 @@ static int const KIEU_KET_NOI_GOOGLE = 2;
 
 //    edtMainInfo.placeholder = [@"so_vi" localizableString];
     edtMainInfo.placeholder = @" Số điện thoại";
-    [edtMainInfo setTextError:[@"@lg - SO_VI_KHONG_DUOC_DE_TRONG" localizableString]
+    [edtMainInfo setTextError:[@"SO_VI_KHONG_DUOC_DE_TRONG" localizableString]
                       forType:ExTextFieldTypeEmpty];
     edtMainInfo.delegate = self;
     edtMainInfo.inputAccessoryView = nil;
     
-    _mtfMaDoanhNghiep.placeholder = [@"ma_doan_nghiep" localizableString];
     [_mtfMaDoanhNghiep setTextError:[@"ma_doanh_nghiep_khong_duoc_de_trong" localizableString]
                       forType:ExTextFieldTypeEmpty];
     _mtfMaDoanhNghiep.inputAccessoryView = nil;
@@ -975,6 +1008,7 @@ NSInteger static compareViewsByOrigin(id sp1, id sp2, void *context)
     [_viewDangNhap release];
     [_viewChuaButton release];
     [_imgVimass release];
+    [_lblPhienBan release];
     [super dealloc];
 }
 - (void)viewDidUnload {

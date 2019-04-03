@@ -20,6 +20,10 @@
 @property (retain, nonatomic) IBOutlet UIView *vViDienTu;
 @property (retain, nonatomic) IBOutlet UIView *vQR;
 @property (retain, nonatomic) IBOutlet UIView *vVicuatoi;
+@property (retain, nonatomic) IBOutlet UIButton *btnNganHang;
+@property (retain, nonatomic) IBOutlet UIButton *btnViDienTu;
+@property (retain, nonatomic) IBOutlet UIButton *btnQR;
+@property (retain, nonatomic) IBOutlet UIButton *btnViCuaToi;
 
 
 - (IBAction)onNext:(id)sender;

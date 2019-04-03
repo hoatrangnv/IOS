@@ -375,10 +375,15 @@
     self.mViewMain.layer.borderColor = [UIColor whiteColor].CGColor;
     mBuocKhoiTao = 1;
 //    self.navigationItem.title = [@"nap_vi_tu_the_ngan_hang" localizableString];
-    [self addTitleView:@"Nạp tiền vào ví"];
+    [self addTitleView:[@"nap_tien_tu_the_bank2" localizableString]];
     [self hienThiSoPhiCuaSoTien:0];
     [self khoiTaoViewThongTinBuoc1];
     [self khoiTaoViewThongTinBuoc2];
+    [self.btnTheLienKet setTitle:[@"financer_viewer_bussiness_link_accounts" localizableString] forState:UIControlStateNormal];
+    [self.btnTheLuu setTitle:[@"financer_viewer_ordinary_account" localizableString] forState:UIControlStateNormal];
+    [self.btnTheQuocTe setTitle:[@"the_quoc_te" localizableString] forState:UIControlStateNormal];
+    [self.mbtnTiepTuc setTitle:[@"label_next" localizableString] forState:UIControlStateNormal];
+    [self.btnTiepTucTKLK setTitle:[@"label_next" localizableString] forState:UIControlStateNormal];
 }
 
 - (void)didSelectBackButton{
@@ -393,12 +398,12 @@
     _mtfSoViCanNapTien.inputAccessoryView = nil;
     [_mtfSoViCanNapTien setTextError:[@"lg - SO_VI_KHONG_DUOC_DE_TRONG" localizableString] forType:ExTextFieldTypeEmpty];
 
-    [_mtfSoTien setPlaceholder:[@"so_tien_dong" localizableString]];
+    [_mtfSoTien setPlaceholder:[@"place_holder_so_tien" localizableString]];
     _mtfSoTien.inputAccessoryView = nil;
     [_mtfSoTien setType:ExTextFieldTypeMoney];
     [_mtfSoTien setTextError:[@"so_tien_khong_duoc_de_trong" localizableString] forType:ExTextFieldTypeEmpty];
     
-    [_mtfNoiDung setPlaceholder:[NSString stringWithFormat:@"%@ (%@)", [@"noi_dung" localizableString], [@"co_the_bo_qua" localizableString]]];
+    [_mtfNoiDung setPlaceholder:[@"place_holder_noi_dung" localizableString]];
     _mtfNoiDung.inputAccessoryView = nil;
     _mtvNoiDung.inputAccessoryView = nil;
     
@@ -417,7 +422,7 @@
 - (void)khoiTaoViewThongTinBuoc2
 {
     [_mtfSoThe setPlaceholder:[@"so_the_ngan_hang_16" localizableString]];
-    [_mtfSoThe setTextError:[@"so_the_khong_duoc_de_trong" localizableString] forType:ExTextFieldTypeEmpty];
+    [_mtfSoThe setTextError:[@"so_the_ngan_hang_khong_de_trong" localizableString] forType:ExTextFieldTypeEmpty];
     [_mtfSoThe setType:ExTextFieldTypeCardPaymentNumber];
     [_mtfSoThe setMax_length:16];
     _mtfSoThe.inputAccessoryView = nil;
@@ -432,7 +437,7 @@
     _mtfThangMoThe.textAlignment = NSTextAlignmentCenter;
     
     _mtfNamMoThe.inputAccessoryView = nil;
-    [_mtfNamMoThe setTextError:[@"the_ngan_hang_nam_mo_the" localizableString] forType:ExTextFieldTypeEmpty];
+    [_mtfNamMoThe setTextError:[@"tu_nam" localizableString] forType:ExTextFieldTypeEmpty];
     [_mtfNamMoThe setMax_length:2];
     _mtfNamMoThe.textAlignment = NSTextAlignmentCenter;
     
@@ -1256,7 +1261,7 @@
         if(fSoTien > 0)
         {
             double fSoPhi = [Common layPhiChuyenTienCuaSoTien:fSoTien kieuChuyenTien:KIEU_NAP_VI_TU_THE_NGAN_HANG maNganHang:@""];
-            sSoPhi = [NSString stringWithFormat:@"Phí %@ đ", [Common hienThiTienTe:fSoPhi]];
+            sSoPhi = [NSString stringWithFormat:@"%@ %@ đ", [@"phi_chuyen_tien" localizableString], [Common hienThiTienTe:fSoPhi]];
         }
         else
         {
@@ -1274,7 +1279,7 @@
 //            double fSoPhi = ceil((fSoTien + 3200) / 0.976 - fSoTien);
 //            double fSoPhi = 3200 + (fSoTien * 2.4) / 100;
             double fSoPhi = (fSoTien * 1.02669405) - fSoTien;
-            sSoPhi = [NSString stringWithFormat:@"Phí %@ đ", [Common hienThiTienTe:fSoPhi]];
+            sSoPhi = [NSString stringWithFormat:@"%@ %@ đ", [@"phi_chuyen_tien" localizableString], [Common hienThiTienTe:fSoPhi]];
         }
         else
         {
@@ -1298,17 +1303,17 @@
         }
         else
         {
-            sSoPhi = @"Phí 19.5%";
+            sSoPhi = @"%@ 19.5%";
             if (nLoaiTheCao == 3 || nLoaiTheCao == 2) {
                 sSoPhi = @"Phí 19%";
             }
             else if (nLoaiTheCao == 1) {
-                sSoPhi = @"Phí 19.5%";
+                sSoPhi = @"%@ 19.5%";
             }
 //            else
 //                sSoPhi = @"Phí 18%";
         }
-        self.lblPhiTheCao.text = sSoPhi;
+        self.lblPhiTheCao.text = [NSString stringWithFormat:sSoPhi, [@"phi_chuyen_tien" localizableString]];
     }
     else if (nHinhThucNap == 3){
         if (mTaiKhoanSoTay) {
@@ -1317,52 +1322,27 @@
                 NSLog(@"%s - obj.nType : %d", __FUNCTION__, mTaiKhoanSoTay.nType);
                 NSString *temp = @"";
                 if (mTaiKhoanSoTay.nType == TAI_KHOAN_THE_DIRECT) {
-                    temp = @"Phí 1.1% + 1.100 đ";
-                    self.mtfSoPhi.text = temp;
+                    temp = @"%@ 1.1% + 1.100 đ";
+                    self.mtfSoPhi.text = [NSString stringWithFormat:temp, [@"phi_chuyen_tien" localizableString]];
                 }
                 else{
                     temp = @"Phí 2.67%";
-                    self.lblPhiQT.text = temp;
+                    self.lblPhiQT.text = [NSString stringWithFormat:temp, [@"phi_chuyen_tien" localizableString]];
                 }
             }
             else{
                 if (mTaiKhoanSoTay.nType == TAI_KHOAN_THE_DIRECT) {
                     fSoPhi = 1100 + (fSoTien * 1.1) / 100;
-                    NSString *sSoPhi  = [NSString stringWithFormat:@"Phí %@ đ", [Common hienThiTienTe:fSoPhi]];
+                    NSString *sSoPhi  = [NSString stringWithFormat:@"%@ %@ đ", [@"phi_chuyen_tien" localizableString], [Common hienThiTienTe:fSoPhi]];
                     self.mtfSoPhi.text = sSoPhi;
                 }
                 else{
                     fSoPhi = (fSoTien * 1.02669405) - fSoTien;
-                    NSString *sSoPhi  = [NSString stringWithFormat:@"Phí %@ đ", [Common hienThiTienTe:fSoPhi]];
+                    NSString *sSoPhi  = [NSString stringWithFormat:@"%@ %@ đ", [@"phi_chuyen_tien" localizableString], [Common hienThiTienTe:fSoPhi]];
                     self.lblPhiQT.text = sSoPhi;
                 }
             }
         }
-//        if (dsTaiKhoanThuongDung && dsTaiKhoanThuongDung.count > 0) {
-//            double fSoPhi = 0.0;
-//            DucNT_TaiKhoanThuongDungObject *obj = [dsTaiKhoanThuongDung objectAtIndex:nIndexTheLuu];
-//            if (fSoTien == 0) {
-//                NSLog(@"%s - obj.nType : %d", __FUNCTION__, obj.nType);
-//                NSString *temp = @"";
-//                if (obj.nType == 8) {
-//                    temp = @"Phí 1.1% + 1.100 đ";
-//                }
-//                else{
-//                    temp = @"Phí 2.4% + 3.200 đ";
-//                }
-//                self.lblPhiTheLuu.text = temp;
-//            }
-//            else{
-//                if (obj.nType == 8) {
-//                    fSoPhi = 1100 + (fSoTien * 1.1) / 100;
-//                }
-//                else{
-//                    fSoPhi = 3200 + (fSoTien * 2.4) / 100;
-//                }
-//                NSString *sSoPhi  = [NSString stringWithFormat:@"Phí %@ đ", [Common hienThiTienTe:fSoPhi]];
-//                self.lblPhiTheLuu.text = sSoPhi;
-//            }
-//        }
     }
 }
 
@@ -1401,7 +1381,7 @@
     [self.btnGuiXacNhan setHidden:NO];
     [self.mtfXacNhan becomeFirstResponder];
     if (viewXacThuc) {
-        viewXacThuc.lblTitle.text = @"Xác thực";
+        viewXacThuc.lblTitle.text = [@"xac_thuc" localizableString];
     }
     if (nHinhThucNap == 0) {
         if ([self.mNganHangNapTienDaChon.tenBank hasPrefix:@"NAB"]) {
@@ -2674,11 +2654,11 @@
 - (void)countDownMaXacThucTaiKhoanLienKet:(NSTimer *)time {
     NSLog(@"%s - tick", __FUNCTION__);
     nTimeDemGiay --;
-    self.lblXacThucTKLK.text = [NSString stringWithFormat:@"Thời gian còn %d s", nTimeDemGiay];
+    self.lblXacThucTKLK.text = [NSString stringWithFormat:@"%@ %d s", [@"thoi_gian_cho" localizableString], nTimeDemGiay];
     if (nTimeDemGiay <= 0) {
         nTimeDemGiay = 0;
         [self dungDemTime];
-        self.lblXacThucTKLK.text = @"Thời gian còn 300s";
+        self.lblXacThucTKLK.text = [NSString stringWithFormat:@"%@ 300s", [@"thoi_gian_cho" localizableString]];
         self.viewXacThucTKLK.hidden = YES;
         self.btnTiepTucTKLK.hidden = NO;
         CGRect rViewMain = self.mViewMain.frame;
@@ -2686,20 +2666,20 @@
         rViewMain.size.height = rectBtnTiepTuc.origin.y + rectBtnTiepTuc.size.height - 30;
         self.mViewMain.frame = rViewMain;
         [self.mScrv setContentOffset:CGPointMake(0, 0) animated:YES];
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Thông báo" message:@"Hết thời hạn giao dịch" delegate:nil cancelButtonTitle:@"Đóng" otherButtonTitles: nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[@"thong_bao" localizableString] message:@"Hết thời hạn giao dịch" delegate:nil cancelButtonTitle:[@"close" localizableString] otherButtonTitles: nil];
         [alert show];
     }
 }
 
 - (void)hienThiThongBaoNapTienTaiKhoanLienKet:(NSString *)thongBao {
     if (!alertTaiKhoanLienKet) {
-        alertTaiKhoanLienKet = [[UIAlertView alloc] initWithTitle:@"Thông báo" message:thongBao delegate:self cancelButtonTitle:@"HUỶ GIAO DỊCH" otherButtonTitles: nil];
+        alertTaiKhoanLienKet = [[UIAlertView alloc] initWithTitle:[@"thong_bao" localizableString] message:thongBao delegate:self cancelButtonTitle:[@"huy_giao_dich" lowercaseString] otherButtonTitles: nil];
         alertTaiKhoanLienKet.tag = 1101988;
         alertTaiKhoanLienKet.delegate = self;
     }
     [alertTaiKhoanLienKet show];
     dispatch_async(dispatch_get_main_queue(), ^{
-        [alertTaiKhoanLienKet setMessage:[NSString stringWithFormat:@"Thời gian chờ còn: %@ s", thongBao]];
+        [alertTaiKhoanLienKet setMessage:[NSString stringWithFormat:@"%@: %@ s", [@"thoi_gian_cho" localizableString], thongBao]];
     });
 }
 

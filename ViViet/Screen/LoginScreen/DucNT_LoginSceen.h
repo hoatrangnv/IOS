@@ -42,6 +42,7 @@
 @property (retain, nonatomic) IBOutlet UIButton *btnTaoDoanhNghiep;
 @property (retain, nonatomic) IBOutlet UIView *viewChuaButton;
 @property (retain, nonatomic) IBOutlet UIButton *mbtnDangNhapBangVanTay;
+@property (retain, nonatomic) IBOutlet UILabel *lblPhienBan;
 
 - (IBAction)suKienLuuMatKhau:(id)sender;
 - (IBAction)suKienDangNhap:(id)sender;
@@ -53,6 +54,8 @@
 - (IBAction)suKienChonTaoDoanhNghep:(id)sender;
 - (IBAction)suKienBamNutHuongDan:(id)sender;
 - (IBAction)suKienChonXemGiayPhep:(id)sender;
+- (IBAction)suKienChonLanguageViet:(id)sender;
+- (IBAction)suKienChonLanguageEnglish:(id)sender;
 
 
 @property (retain, nonatomic) NSString *sTenViewController;

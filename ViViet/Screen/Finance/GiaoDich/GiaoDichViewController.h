@@ -12,7 +12,7 @@
 #import "DucNT_ServicePost.h"
 #import "MBProgressHUD.h"
 #import "ViewQuangCao.h"
-
+#import "Localization.h"
 @interface GiaoDichViewController : BaseScreen <DucNT_ServicePostDelegate, ViewQuangCaoDelegate>
 
 @property (assign, nonatomic) BOOL bChuyenGiaoDienQuangCao;
@@ -36,6 +36,9 @@
 @property (retain, nonatomic) IBOutlet UIButton *mbtnEmailView;
 @property (retain, nonatomic) IBOutlet UIButton *mbtnThucHienView;
 
+@property (retain, nonatomic) IBOutlet UILabel *mlblPhi;
+@property (retain, nonatomic) IBOutlet UILabel *mlblXacThuc;
+
 @property (retain, nonatomic) IBOutlet UIButton *mbtnVanTay;
 @property (retain, nonatomic) IBOutlet UILabel *mlblSoDu;
 @property (retain, nonatomic) IBOutlet UILabel *mlblSoDuKhuyenMai;
@@ -51,6 +54,7 @@
 @property (retain, nonatomic) IBOutlet UIButton *btnTabTop3;
 @property (retain, nonatomic) IBOutlet UIWebView *webGioiThieuTaiKhoan;
 @property (retain, nonatomic) IBOutlet NSLayoutConstraint *heightViewNhapXacThuc;
+
 - (void)khoiTaoButtonXacThucBanDau;
 - (void)hienThiLoading;
 - (void)hienThiLoadingLayDanhBa;

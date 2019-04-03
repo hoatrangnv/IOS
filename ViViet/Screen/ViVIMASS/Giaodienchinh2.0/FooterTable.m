@@ -55,6 +55,9 @@
     [super awakeFromNib];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(reloadCount:) name:@"CountMoney" object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(ReloadFooter:) name:@"ReloadFooter" object:nil];
+    _lblTitleTongTien.text = [@"tong_tien" localizableString];
+    _lblTitlePhi.text = [@"title_phi" localizableString];
+    [_btnThucHien setTitle:[@"button_thuc_hien" localizableString] forState:UIControlStateNormal];
 }
 -(void)reloadCount:(NSNotification*)notification{
     NSDictionary *dict = (NSDictionary*)[notification object];
@@ -93,6 +96,8 @@
     [_btnThucHien release];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [_contraintLeading release];
+    [_lblTitleTongTien release];
+    [_lblTitlePhi release];
     [super dealloc];
 }
 -(void)setupView{
