@@ -188,7 +188,7 @@
     }
     else
     {
-        sAmount = [NSString stringWithFormat:@"%@: +%@ đ", [@"@so_tien_giao_dich" localizableString], [Common hienThiTienTe:[item.amount doubleValue]]];
+        sAmount = [NSString stringWithFormat:@"%@: +%@ đ", [@"so_tien_giao_dich" localizableString], [Common hienThiTienTe:[item.amount doubleValue]]];
         if([item.type intValue] != 4)
         {
             // so du vi

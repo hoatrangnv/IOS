@@ -340,16 +340,7 @@
             if (self.bHienViewXacThuc) {
                 sMatKhau = self.mtfMatKhauTokenView.text;
             }
-            NSString *sSeed = [DucNT_Token laySeedTokenHienTai];
-            if(sSeed != nil && sSeed.length > 0)
-            {
-                token = [DucNT_Token OTPFromPIN:sMatKhau seed:sSeed];
-            }
-            else
-            {
-                [[[[UIAlertView alloc] initWithTitle:[@"thong_bao" localizableString]  message:[@"can_tao_token" localizableString] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
-                return;
-            }
+            token = [self xuLyKhiBamThucHienToken:sMatKhau];
         }
         else
         {
@@ -362,6 +353,20 @@
         }
         [self xuLyThucHienKhiKiemTraThanhCongTraVeToken:token otp:otp];
     }
+}
+
+- (NSString *)xuLyKhiBamThucHienToken:(NSString *)sMatKhau {
+    NSString *token = @"";
+    NSString *sSeed = [DucNT_Token laySeedTokenHienTai];
+    if(sSeed != nil && sSeed.length > 0)
+    {
+        token = [DucNT_Token OTPFromPIN:sMatKhau seed:sSeed];
+    }
+    else
+    {
+        [[[[UIAlertView alloc] initWithTitle:[@"thong_bao" localizableString]  message:[@"can_tao_token" localizableString] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
+    }
+    return token;
 }
 
 - (void)xuLySuKienXacThucVanTayThanhCong

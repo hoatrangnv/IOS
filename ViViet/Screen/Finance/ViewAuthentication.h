@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)suKienChonXacThucVanTay;
 - (void)suKienChonXacThucToken;
 - (void)suKienChonXacThucSDSecure;
+- (void)suKienBamNutThucHienAuthentication:(NSString *)sToken nType:(int)nType;
 @end
 
 @interface ViewAuthentication : UIView

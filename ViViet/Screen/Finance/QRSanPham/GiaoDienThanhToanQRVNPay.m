@@ -38,6 +38,17 @@
     
     [self.tableView setHidden:YES];
     [self ketNoiLayThongTinQR];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+    
+    // Register notification when the keyboard will be hide
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
 }
 
 - (void)khoiTaoButtonXacThucBanDau {
@@ -129,6 +140,22 @@
     return YES;
 }
 
+-(void) keyboardWillShow:(NSNotification *)note
+{
+    CGRect keyboardBounds;
+    [[note.userInfo valueForKey:UIKeyboardFrameBeginUserInfoKey] getValue: &keyboardBounds];
+    UIEdgeInsets contentInserts =  UIEdgeInsetsMake(0, 0, keyboardBounds.size.height + 20, 0);
+    self.tableView.contentInset = contentInserts;
+    self.tableView.scrollIndicatorInsets = contentInserts;
+}
+
+-(void) keyboardWillHide:(NSNotification *)note
+{
+//    UIEdgeInsets contentInserts =  UIEdgeInsetsMake(0, 0, 0, 0);
+//    self.tableView.contentInset = contentInserts;
+//    self.tableView.scrollIndicatorInsets = contentInserts;
+}
+
 //MARK: ViewAuthenticationDelegate
 
 - (void)updateXacThucKhac {
@@ -152,6 +179,14 @@
 - (void)suKienChonXacThucSDSecure {
     
 }
+
+- (void)suKienBamNutThucHienAuthentication:(NSString *)sToken nType:(int)nType {
+    NSLog(@"%s - sToken ; %@", __FUNCTION__, sToken);
+    if (nType == TYPE_AUTHENTICATE_TOKEN) {
+        
+    }
+}
+
 //MARK: UITableViewDelegate
 - (void)configCellViewType1:(VNPayQRTableViewCell *)cell indexPath:(NSIndexPath *)indexPath {
     cell.lblTitle.text = arrTitleType1[indexPath.row];

@@ -6,8 +6,10 @@
 //
 
 #import "ViewAuthentication.h"
-
-@implementation ViewAuthentication
+#import "Common.h"
+@implementation ViewAuthentication {
+    int nType;
+}
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -18,6 +20,8 @@
     [self.btnFinger.imageView setContentMode:UIViewContentModeScaleAspectFit];
     [self.btnToken.imageView setContentMode:UIViewContentModeScaleAspectFit];
     [self.btnSDSecure.imageView setContentMode:UIViewContentModeScaleAspectFit];
+    nType = -1;
+    _tfToken.max_length = 6;
 }
 
 - (void)dealloc {
@@ -37,6 +41,7 @@
 }
 
 - (IBAction)suKienChonSDSecure:(id)sender {
+    nType = TYPE_AUTHENTICATE_PKI;
     [self.viewNhapToken setHidden:NO];
     [self.btnToken setImage:[UIImage imageNamed:@"token"] forState:UIControlStateNormal];
     [self.btnToken setTitleColor:nil forState:UIControlStateNormal];
@@ -57,6 +62,7 @@
 }
 
 - (IBAction)suKienChonToken:(id)sender {
+    nType = TYPE_AUTHENTICATE_TOKEN;
     [self.viewNhapToken setHidden:NO];
     if (self.enableFaceID) {
         [self.btnFinger setImage:[UIImage imageNamed:@"face-id"] forState:UIControlStateNormal];
@@ -97,5 +103,13 @@
 }
 
 - (IBAction)suKienChonThucHien:(id)sender {
+    NSString *sMatKhau = self.tfToken.text;
+    if ([sMatKhau isEmpty]) {
+        
+    } else {
+        if (self.delegate) {
+            [self.delegate suKienBamNutThucHienAuthentication:self.tfToken.text nType:nType];
+        }
+    }
 }
 @end

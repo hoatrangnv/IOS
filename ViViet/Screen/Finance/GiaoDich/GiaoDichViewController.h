@@ -93,4 +93,5 @@
 - (IBAction)suKienBamNutTaiKhoan:(UIButton *)sender;
 - (void)showViewNhapToken:(int)type;
 - (void)hideViewNhapToken;
+- (NSString *)xuLyKhiBamThucHienToken:(NSString *)sMatKhau;
 @end
