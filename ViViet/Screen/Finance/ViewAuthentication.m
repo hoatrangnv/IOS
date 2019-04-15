@@ -22,6 +22,7 @@
     [self.btnSDSecure.imageView setContentMode:UIViewContentModeScaleAspectFit];
     nType = -1;
     _tfToken.max_length = 6;
+    _tfToken.secureTextEntry = YES;
 }
 
 - (void)dealloc {

@@ -581,6 +581,7 @@ typedef enum : NSUInteger {
                                                    otp:sOtp
                                       typeAuthenticate:self.mTypeAuthenticate
                                          noiNhanKetQua:self];
+        
     });
 }
 

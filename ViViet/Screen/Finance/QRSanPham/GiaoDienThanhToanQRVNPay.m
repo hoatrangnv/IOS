@@ -11,9 +11,11 @@
 #import "VNPayQRInputContentTableViewCell.h"
 #import "ViewAuthentication.h"
 #import "VNPayQRSoLuongTableViewCell.h"
-@interface GiaoDienThanhToanQRVNPay () <UITableViewDelegate, UITableViewDataSource, ViewAuthenticationDelegate> {
+@interface GiaoDienThanhToanQRVNPay () <UITableViewDelegate, UITableViewDataSource, ViewAuthenticationDelegate, VNPayQRSoLuongTableViewCellDelegate> {
     int rowTable;
     NSArray *arrTitleType1;
+    NSString *sMaGiaoDich;
+    double soTienType3;
 }
 
 @end
@@ -28,12 +30,14 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"VNPayQRInputMoneyViewCell" bundle:nil] forCellReuseIdentifier:@"VNPayQRInputMoneyViewCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"VNPayQRInputContentTableViewCell" bundle:nil] forCellReuseIdentifier:@"VNPayQRInputContentTableViewCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"VNPayQRSoLuongTableViewCell" bundle:nil] forCellReuseIdentifier:@"VNPayQRSoLuongTableViewCell"];
+    
     ViewAuthentication *footerView = [[[NSBundle mainBundle] loadNibNamed:@"ViewAuthentication" owner:self options:nil] objectAtIndex:0];
     footerView.delegate = self;
     footerView.frame = CGRectMake(0, 0, self.tableView.frame.size.width, 110);
     [footerView.btnToken addTarget:self action:@selector(suKienBamNutToken:) forControlEvents:UIControlEventTouchUpInside];
     footerView.enableFaceID = self.enableFaceID;
     [self.tableView setTableFooterView:footerView];
+    
     [self khoiTaoButtonXacThucBanDau];
     
     [self.tableView setHidden:YES];
@@ -85,8 +89,16 @@
         NSDictionary *dict = [[NSDictionary alloc] initWithDictionary:dictChiTiet];
         _itemQR = [[ItemVNPayQR alloc] initWithDict:dict];
         [_itemQR setData:dictChiTiet];
-        NSString *temp =  _itemQR.merchantName;
-        NSLog(@"%s - temp : %@", __FUNCTION__, temp);
+        sMaGiaoDich = [[NSString alloc] initWithString:(NSString *)[dictResult valueForKey:@"maGiaoDich"]];
+        NSLog(@"%s - sMaGiaoDich : %@", __FUNCTION__, sMaGiaoDich);
+        soTienType3 = [_itemQR.amount doubleValue];
+        
+//        _itemQR.typeQRShow = 4;
+//        rowTable = 8;
+//        arrTitleType1 = [[NSArray alloc] initWithObjects:@"Thanh toán cho", @"Điểm bán dịch vụ", @"Số hoá đơn", @"Thời hạn thanh toán", @"Mô tả", nil];
+        
+//        NSString *temp =  _itemQR.merchantName;
+        
         if (_itemQR.typeQRShow == 1) {
             rowTable = 7;
             arrTitleType1 = [[NSArray alloc] initWithObjects:@"Thanh toán cho", @"Điểm bán dịch vụ", @"Mã điểm bán", @"Số hoá đơn", nil];
@@ -111,12 +123,12 @@
                 }
             }
         } else if (_itemQR.typeQRShow == 3){
-            rowTable = 7;
+            rowTable = 8;
             arrTitleType1 = [[NSArray alloc] initWithObjects:@"Thanh toán cho", @"Điểm bán dịch vụ", @"Tên sản phẩm", @"Mã sản phẩm", nil];
         } else if (_itemQR.typeQRShow == 4) {
             if (_itemQR.consumerData != nil && ![_itemQR.consumerData isEmpty]) {
                 _itemQR.typeQRShow = 3;
-                rowTable = 7;
+                rowTable = 8;
                 arrTitleType1 = [[NSArray alloc] initWithObjects:@"Thanh toán cho", @"Điểm bán dịch vụ", @"Tên sản phẩm", @"Mã sản phẩm", nil];
             } else {
                 rowTable = 8;
@@ -126,7 +138,14 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.tableView setHidden:NO];
             [self.tableView reloadData];
+            self.tableView.contentSize = CGSizeMake(self.tableView.frame.size.width, self.tableView.contentSize.height + 150);
         });
+    }
+    else if ([sDinhDanhKetNoi isEqualToString:@"THANH_TOAN_VNPAY_QR"]) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self anLoading];
+        });
+        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:sThongBao];
     }
 }
 
@@ -173,21 +192,103 @@
 }
 
 - (void)suKienChonXacThucToken {
-    
+    if([self.mThongTinTaiKhoanVi.nIsToken intValue] > 0)
+    {
+        self.mTypeAuthenticate = TYPE_AUTHENTICATE_TOKEN;
+    }
+    else
+    {
+        [UIAlertView alert:[@"thong_bao_loi_chua_dang_ky_token" localizableString] withTitle:[@"thong_bao" localizableString] block:nil];
+    }
 }
 
 - (void)suKienChonXacThucSDSecure {
-    
+    self.mTypeAuthenticate = TYPE_AUTHENTICATE_PKI;
 }
 
 - (void)suKienBamNutThucHienAuthentication:(NSString *)sToken nType:(int)nType {
     NSLog(@"%s - sToken ; %@", __FUNCTION__, sToken);
     if (nType == TYPE_AUTHENTICATE_TOKEN) {
-        
+        NSString *token = [self xuLyKhiBamThucHienToken:sToken];
+        [self xuLyThucHienKhiKiemTraThanhCongTraVeToken:token otp:@""];
+    } else {
+        [self xuLyThucHienKhiKiemTraThanhCongTraVeToken:@"" otp:sToken];
     }
 }
 
+- (void)xuLyThucHienKhiKiemTraThanhCongTraVeToken:(NSString *)sToken otp:(NSString *)sOtp {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self hienThiLoadingChuyenTien];
+    
+        self.mDinhDanhKetNoi = @"THANH_TOAN_VNPAY_QR";
+        NSString *sSoTien = @"";
+        NSString *sPromotionCode = @"";
+        NSString *sNoiDung = @"";
+        if (_itemQR.typeQRShow == 1) {
+            int indexSplit = 4;
+            if (_itemQR.billNumber == nil || [_itemQR.billNumber isEmpty]) {
+                indexSplit = 3;
+            }
+            VNPayQRInputMoneyViewCell *cell = (VNPayQRInputMoneyViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:indexSplit inSection:0]];
+            sSoTien = cell.tfSoTien.text;
+            
+            VNPayQRInputContentTableViewCell *cellPromotion = (VNPayQRInputContentTableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:(indexSplit + 1) inSection:0]];
+            sPromotionCode = cellPromotion.lblContent.text;
+            
+            VNPayQRInputContentTableViewCell *cellNoiDung = (VNPayQRInputContentTableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:(indexSplit + 2) inSection:0]];
+            sNoiDung = cellNoiDung.lblContent.text;
+        } else if (_itemQR.typeQRShow == 2) {
+            VNPayQRInputMoneyViewCell *cell = (VNPayQRInputMoneyViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:3 inSection:0]];
+            sSoTien = cell.tfSoTien.text;
+            
+            VNPayQRInputContentTableViewCell *cellPromotion = (VNPayQRInputContentTableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:4 inSection:0]];
+            sPromotionCode = cellPromotion.lblContent.text;
+            
+            VNPayQRInputContentTableViewCell *cellNoiDung = (VNPayQRInputContentTableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:5 inSection:0]];
+            sNoiDung = cellNoiDung.lblContent.text;
+        } else {
+            VNPayQRInputMoneyViewCell *cell = (VNPayQRInputMoneyViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:5 inSection:0]];
+            sSoTien = cell.tfSoTien.text;
+            
+            VNPayQRInputContentTableViewCell *cellPromotion = (VNPayQRInputContentTableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:6 inSection:0]];
+            sPromotionCode = cellPromotion.lblContent.text;
+            
+            VNPayQRInputContentTableViewCell *cellNoiDung = (VNPayQRInputContentTableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:7 inSection:0]];
+            sNoiDung = cellNoiDung.lblContent.text;
+        }
+        
+        double fSoTien = [[[sSoTien componentsSeparatedByCharactersInSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]] componentsJoinedByString:@""] doubleValue];
+        
+        NSDictionary *dictPost = @{
+                                   @"token" : sToken,
+                                   @"otpConfirm" : sOtp,
+                                   @"typeAuthenticate" : [NSNumber numberWithInt:self.mTypeAuthenticate],
+                                   @"user" : [DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_ID_TEMP],
+                                   @"appId" : [NSNumber numberWithInt:APP_ID],
+                                   @"VMApp" : [NSNumber numberWithInt:VM_APP],
+                                   @"maGiaoDich" : sMaGiaoDich,
+                                   @"soTienThanhToan" : [NSNumber numberWithDouble:fSoTien],
+                                   @"promotionCode" : sPromotionCode,
+                                   @"noiDung" : sNoiDung
+                                   };
+        NSLog(@"%s - dictPost : %@", __FUNCTION__, [dictPost JSONString]);
+        [GiaoDichMang ketNoiThanhToanVNPayQR:[dictPost JSONString] noiNhanKetQua:self];
+    });
+}
+
+
 //MARK: UITableViewDelegate
+- (void)suKienGiamSoLuong:(int)nSoLuong {
+    
+}
+
+- (void)suKienTangSoLuong:(int)nSoLuong {
+    soTienType3 = nSoLuong * [_itemQR.amount doubleValue];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:5 inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
+    });
+}
+
 - (void)configCellViewType1:(VNPayQRTableViewCell *)cell indexPath:(NSIndexPath *)indexPath {
     cell.lblTitle.text = arrTitleType1[indexPath.row];
     if (indexPath.row == 0) {
@@ -263,6 +364,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    int nSoLuong = 1;
     if (_itemQR.typeQRShow == 1) {
         int indexSplit = 4;
         if (_itemQR.billNumber == nil || [_itemQR.billNumber isEmpty]) {
@@ -301,9 +403,9 @@
             [self configCellViewType3:cell indexPath:indexPath];
             return cell;
         }
-        else if (indexPath.row == 5 || indexPath.row == 6) {
+        else if (indexPath.row == 6 || indexPath.row == 7) {
             VNPayQRInputContentTableViewCell *cell = (VNPayQRInputContentTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"VNPayQRInputContentTableViewCell" forIndexPath:indexPath];
-            if (indexPath.row == 5) {
+            if (indexPath.row == 6) {
                 cell.lblContent.placeholder = @"Mã giảm giá";
             } else {
                 cell.lblContent.placeholder = @"Lời nhắn (có thể bỏ qua)";
@@ -313,6 +415,9 @@
         else if (indexPath.row == 4) {
             VNPayQRSoLuongTableViewCell *cell = (VNPayQRSoLuongTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"VNPayQRSoLuongTableViewCell" forIndexPath:indexPath];
             cell.lblDonGia.text = [NSString stringWithFormat:@"%@ %@", [@"don_gia_qr" localizableString], [Common hienThiTienTeFromString:_itemQR.amount]];
+            [cell setSoTien:_itemQR.amount];
+            cell.delegate = self;
+            nSoLuong = [cell getSoLuong];
             return cell;
         }
     } else if (_itemQR.typeQRShow == 4) {
@@ -338,6 +443,9 @@
     } else {
         [cell.tfSoTien setEnabled:NO];
         cell.tfSoTien.text = [Common hienThiTienTeFromString:_itemQR.amount];
+    }
+    if (_itemQR.typeQRShow == 3) {
+        cell.tfSoTien.text = [Common hienThiTienTe:soTienType3];
     }
 //    if (_itemQR.typeQRShow == 1) {
 //        if (indexPath.row == 4) {

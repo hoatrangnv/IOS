@@ -31,16 +31,28 @@
     _lblDonGia.text = [NSString stringWithFormat:@"%@ %@", [@"don_gia_qr" localizableString], [Common hienThiTienTeFromString:amount]];
 }
 
+- (int)getSoLuong {
+    return soLuong;
+}
+
 - (IBAction)suKienChonTru:(id)sender {
     if (soLuong > 1) {
         soLuong--;
-        _lblDonGia.text = [NSString stringWithFormat:@"%@ %@", [@"don_gia_qr" localizableString], [Common hienThiTienTe_1:(soLuong * dAmount)]];
+//        _lblDonGia.text = [NSString stringWithFormat:@"%@ %@", [@"don_gia_qr" localizableString], [Common hienThiTienTe_1:(soLuong * dAmount)]];
+        _lblSoLuong.text = [NSString stringWithFormat:@"%d", soLuong];
+        if (self.delegate) {
+            [self.delegate suKienGiamSoLuong:soLuong];
+        }
     }
 }
 
 - (IBAction)suKienChonCong:(id)sender {
     soLuong++;
-    _lblDonGia.text = [NSString stringWithFormat:@"%@ %@", [@"don_gia_qr" localizableString], [Common hienThiTienTe_1:(soLuong * dAmount)]];
+//    _lblDonGia.text = [NSString stringWithFormat:@"%@ %@", [@"don_gia_qr" localizableString], [Common hienThiTienTe_1:(soLuong * dAmount)]];
+    _lblSoLuong.text = [NSString stringWithFormat:@"%d", soLuong];
+    if (self.delegate) {
+        [self.delegate suKienTangSoLuong:soLuong];
+    }
 }
 
 - (void)dealloc {
