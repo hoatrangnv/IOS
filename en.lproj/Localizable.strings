@@ -1096,7 +1096,7 @@
 "button_thuc_hien" = "Active";
 "thong_bao_the_khong_thuoc_24_ngan_hang_lien_ket" = "Thẻ của bạn không do 24 ngân hàng liên kết phát hành!";
 "thong_bao_email_chua_co_tk_vimass" = "Email %@ chưa đăng ký Ví. Vimass sẽ gửi email hướng dẫn đăng ký và nhận %@ đồng. Nếu không nhận được trong 48 tiếng, số tiền sẽ được hoàn lại.";
-"so_tien_min_den_the_ngan_hang" = "The minimum transfer amount is 50,000 VND";
+"so_tien_min_den_the_ngan_hang" = "The minimum transfer amount is 10,000 VND";
 "so_du_khong_du" = "The balance in the account is not enough";
 "vuot_han_muc" = "The transfer amount exceeds the limit. You can change the limit at Change";
 "the_agribank" = "Chức năng không thể thực hiện với số thẻ ngân hàng Agribank";

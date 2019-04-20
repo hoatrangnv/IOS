@@ -434,7 +434,7 @@
 
     double fSoTien = [[_edtSoTien.text stringByReplacingOccurrencesOfString:@"." withString:@""] doubleValue];
 //    && fSoTien > 1000000000
-    if(fSoTien < 50000)
+    if(fSoTien < 10000)
     {
         [UIAlertView alert:[@"so_tien_min_den_the_ngan_hang" localizableString] withTitle:[@"thong_bao" localizableString] block:nil];
         return NO;

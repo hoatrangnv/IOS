@@ -212,7 +212,7 @@
 
     double fSoTien = [[_mtfSoTien.text stringByReplacingOccurrencesOfString:@"." withString:@""] doubleValue];
     NSLog(@"%s - nHanMucDenThe : %f", __FUNCTION__, [self.mThongTinTaiKhoanVi.nHanMucDenThe doubleValue]);
-    if(fSoTien < 50000)
+    if(fSoTien < 10000)
     {
         [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:[@"so_tien_min_den_the_ngan_hang" localizableString]];
         return NO;

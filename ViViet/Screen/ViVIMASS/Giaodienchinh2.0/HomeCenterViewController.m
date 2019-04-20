@@ -518,23 +518,23 @@
 }
 
 - (void)xuLySuKienBamNutQR{
-    GiaoDienThanhToanQRVNPay *vc = [[GiaoDienThanhToanQRVNPay alloc] initWithNibName:@"GiaoDienThanhToanQRVNPay" bundle:nil];
-    vc.sDataQR = @"00020101021226240006908405011001021822925204481453037045405100005802VN5904VBAN6005HANOI62790318Vban Hoadon didong0520011904131703126612750708VBANHDDD0817Thanh toan QRCode63048B11";
-    self.navigationController.navigationBar.hidden = NO;
-    [self.navigationController pushViewController:vc animated:YES];
-    [vc release];
-//    if ([QRCodeReader supportsMetadataObjectTypes:@[AVMetadataObjectTypeQRCode]]) {
-//        QRCodeReader *reader = [QRCodeReader readerWithMetadataObjectTypes:@[AVMetadataObjectTypeQRCode]];
-//        QRSearchViewController *vcQRCodeTemp = [[QRSearchViewController alloc]initWithNibName:@"QRSearchViewController" bundle:nil];
-//        vcQRCodeTemp.codeReader = reader;
-//        vcQRCodeTemp.modalPresentationStyle = UIModalPresentationFormSheet;
-//        vcQRCodeTemp.delegate = self;
-//        [self presentViewController:vcQRCodeTemp animated:YES completion:NULL];
-//    }
-//    else {
-//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Thông báo" message:@"Thiết bị không hỗ trợ chức năng này." delegate:nil cancelButtonTitle:@"Đóng" otherButtonTitles:nil];
-//        [alert show];
-//    }
+//    GiaoDienThanhToanQRVNPay *vc = [[GiaoDienThanhToanQRVNPay alloc] initWithNibName:@"GiaoDienThanhToanQRVNPay" bundle:nil];
+//    vc.sDataQR = @"00020101021226240006908405011001021822925204481453037045405100005802VN5904VBAN6005HANOI62790318Vban Hoadon didong0520011904131703126612750708VBANHDDD0817Thanh toan QRCode63048B11";
+//    self.navigationController.navigationBar.hidden = NO;
+//    [self.navigationController pushViewController:vc animated:YES];
+//    [vc release];
+    if ([QRCodeReader supportsMetadataObjectTypes:@[AVMetadataObjectTypeQRCode]]) {
+        QRCodeReader *reader = [QRCodeReader readerWithMetadataObjectTypes:@[AVMetadataObjectTypeQRCode]];
+        QRSearchViewController *vcQRCodeTemp = [[QRSearchViewController alloc]initWithNibName:@"QRSearchViewController" bundle:nil];
+        vcQRCodeTemp.codeReader = reader;
+        vcQRCodeTemp.modalPresentationStyle = UIModalPresentationFormSheet;
+        vcQRCodeTemp.delegate = self;
+        [self presentViewController:vcQRCodeTemp animated:YES completion:NULL];
+    }
+    else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Thông báo" message:@"Thiết bị không hỗ trợ chức năng này." delegate:nil cancelButtonTitle:@"Đóng" otherButtonTitles:nil];
+        [alert show];
+    }
 }
 
 - (void)xuLySuKienBamNutSaoKe {
