@@ -984,6 +984,13 @@
 		C6178F921C1AC2A0009BD255 /* GiaoDienDatChoXemPhim.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6178F901C1AC2A0009BD255 /* GiaoDienDatChoXemPhim.xib */; };
 		C618FC5A205A63EB0095ECC3 /* MenuThongBaoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C618FC58205A63EB0095ECC3 /* MenuThongBaoCell.m */; };
 		C618FC5B205A63EB0095ECC3 /* MenuThongBaoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C618FC59205A63EB0095ECC3 /* MenuThongBaoCell.xib */; };
+		C6207751227ADB36002BD40D /* GiaoDienMaGiamGiaVNPay.m in Sources */ = {isa = PBXBuildFile; fileRef = C620774F227ADB36002BD40D /* GiaoDienMaGiamGiaVNPay.m */; };
+		C6207752227ADB36002BD40D /* GiaoDienMaGiamGiaVNPay.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6207750227ADB36002BD40D /* GiaoDienMaGiamGiaVNPay.xib */; };
+		C6207756227ADBBC002BD40D /* MaGiamGiaTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C6207754227ADBBC002BD40D /* MaGiamGiaTableViewCell.m */; };
+		C6207757227ADBBC002BD40D /* MaGiamGiaTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6207755227ADBBC002BD40D /* MaGiamGiaTableViewCell.xib */; };
+		C620775B227AE13B002BD40D /* MaKhuyenMaiTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C6207759227AE13B002BD40D /* MaKhuyenMaiTableViewCell.m */; };
+		C620775C227AE13B002BD40D /* MaKhuyenMaiTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C620775A227AE13B002BD40D /* MaKhuyenMaiTableViewCell.xib */; };
+		C620775E227AE341002BD40D /* json_ma_km_vnpay.txt in Resources */ = {isa = PBXBuildFile; fileRef = C620775D227AE340002BD40D /* json_ma_km_vnpay.txt */; };
 		C623FCA51D9A23640027A40C /* lienketnganhang64.png in Resources */ = {isa = PBXBuildFile; fileRef = C623FCA41D9A23630027A40C /* lienketnganhang64.png */; };
 		C623FCA91D9A2A270027A40C /* DucNT_LoginSceen.m in Sources */ = {isa = PBXBuildFile; fileRef = C623FCA71D9A2A270027A40C /* DucNT_LoginSceen.m */; };
 		C623FCAA1D9A2A270027A40C /* DucNT_LoginSceen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C623FCA81D9A2A270027A40C /* DucNT_LoginSceen.xib */; };
@@ -1461,6 +1468,10 @@
 		C672A8631CC4C2C000B400D2 /* vantaymau-ngang.png in Resources */ = {isa = PBXBuildFile; fileRef = C672A8621CC4C2C000B400D2 /* vantaymau-ngang.png */; };
 		C673C1CF1CB4B2D800A613DA /* GiaoDienChiTietSaoKe.m in Sources */ = {isa = PBXBuildFile; fileRef = C673C1CD1CB4B2D800A613DA /* GiaoDienChiTietSaoKe.m */; };
 		C673C1D01CB4B2D800A613DA /* GiaoDienChiTietSaoKe.xib in Resources */ = {isa = PBXBuildFile; fileRef = C673C1CE1CB4B2D800A613DA /* GiaoDienChiTietSaoKe.xib */; };
+		C676444922808093000C6FB9 /* GiaoDienDiemThanhToanVNPAY.m in Sources */ = {isa = PBXBuildFile; fileRef = C676444722808093000C6FB9 /* GiaoDienDiemThanhToanVNPAY.m */; };
+		C676444A22808093000C6FB9 /* GiaoDienDiemThanhToanVNPAY.xib in Resources */ = {isa = PBXBuildFile; fileRef = C676444822808093000C6FB9 /* GiaoDienDiemThanhToanVNPAY.xib */; };
+		C676444E2280818F000C6FB9 /* VNPAYDienDiemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C676444C2280818F000C6FB9 /* VNPAYDienDiemCell.m */; };
+		C676444F2280818F000C6FB9 /* VNPAYDienDiemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C676444D2280818F000C6FB9 /* VNPAYDienDiemCell.xib */; };
 		C67708C21D741BC500CF2D0A /* hd_dang_nhap_vi.html in Resources */ = {isa = PBXBuildFile; fileRef = C67708C11D741BC500CF2D0A /* hd_dang_nhap_vi.html */; };
 		C6786DE11D1D2BED0064509A /* ItemGiaVeCGV.m in Sources */ = {isa = PBXBuildFile; fileRef = C6786DE01D1D2BED0064509A /* ItemGiaVeCGV.m */; };
 		C679EA5F1CCA1BBE0098D540 /* micro-header.png in Resources */ = {isa = PBXBuildFile; fileRef = C679EA5E1CCA1BBE0098D540 /* micro-header.png */; };
@@ -3018,6 +3029,16 @@
 		C618FC57205A63EB0095ECC3 /* MenuThongBaoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenuThongBaoCell.h; sourceTree = "<group>"; };
 		C618FC58205A63EB0095ECC3 /* MenuThongBaoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MenuThongBaoCell.m; sourceTree = "<group>"; };
 		C618FC59205A63EB0095ECC3 /* MenuThongBaoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuThongBaoCell.xib; sourceTree = "<group>"; };
+		C620774E227ADB36002BD40D /* GiaoDienMaGiamGiaVNPay.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GiaoDienMaGiamGiaVNPay.h; sourceTree = "<group>"; };
+		C620774F227ADB36002BD40D /* GiaoDienMaGiamGiaVNPay.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GiaoDienMaGiamGiaVNPay.m; sourceTree = "<group>"; };
+		C6207750227ADB36002BD40D /* GiaoDienMaGiamGiaVNPay.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GiaoDienMaGiamGiaVNPay.xib; sourceTree = "<group>"; };
+		C6207753227ADBBC002BD40D /* MaGiamGiaTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MaGiamGiaTableViewCell.h; sourceTree = "<group>"; };
+		C6207754227ADBBC002BD40D /* MaGiamGiaTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MaGiamGiaTableViewCell.m; sourceTree = "<group>"; };
+		C6207755227ADBBC002BD40D /* MaGiamGiaTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MaGiamGiaTableViewCell.xib; sourceTree = "<group>"; };
+		C6207758227AE13B002BD40D /* MaKhuyenMaiTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MaKhuyenMaiTableViewCell.h; sourceTree = "<group>"; };
+		C6207759227AE13B002BD40D /* MaKhuyenMaiTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MaKhuyenMaiTableViewCell.m; sourceTree = "<group>"; };
+		C620775A227AE13B002BD40D /* MaKhuyenMaiTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MaKhuyenMaiTableViewCell.xib; sourceTree = "<group>"; };
+		C620775D227AE340002BD40D /* json_ma_km_vnpay.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = json_ma_km_vnpay.txt; sourceTree = "<group>"; };
 		C623FCA41D9A23630027A40C /* lienketnganhang64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lienketnganhang64.png; sourceTree = "<group>"; };
 		C623FCA61D9A2A270027A40C /* DucNT_LoginSceen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DucNT_LoginSceen.h; sourceTree = "<group>"; };
 		C623FCA71D9A2A270027A40C /* DucNT_LoginSceen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DucNT_LoginSceen.m; sourceTree = "<group>"; };
@@ -3559,6 +3580,12 @@
 		C673C1CC1CB4B2D800A613DA /* GiaoDienChiTietSaoKe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GiaoDienChiTietSaoKe.h; sourceTree = "<group>"; };
 		C673C1CD1CB4B2D800A613DA /* GiaoDienChiTietSaoKe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GiaoDienChiTietSaoKe.m; sourceTree = "<group>"; };
 		C673C1CE1CB4B2D800A613DA /* GiaoDienChiTietSaoKe.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GiaoDienChiTietSaoKe.xib; sourceTree = "<group>"; };
+		C676444622808093000C6FB9 /* GiaoDienDiemThanhToanVNPAY.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GiaoDienDiemThanhToanVNPAY.h; sourceTree = "<group>"; };
+		C676444722808093000C6FB9 /* GiaoDienDiemThanhToanVNPAY.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GiaoDienDiemThanhToanVNPAY.m; sourceTree = "<group>"; };
+		C676444822808093000C6FB9 /* GiaoDienDiemThanhToanVNPAY.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GiaoDienDiemThanhToanVNPAY.xib; sourceTree = "<group>"; };
+		C676444B2280818F000C6FB9 /* VNPAYDienDiemCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VNPAYDienDiemCell.h; sourceTree = "<group>"; };
+		C676444C2280818F000C6FB9 /* VNPAYDienDiemCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VNPAYDienDiemCell.m; sourceTree = "<group>"; };
+		C676444D2280818F000C6FB9 /* VNPAYDienDiemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VNPAYDienDiemCell.xib; sourceTree = "<group>"; };
 		C67708C11D741BC500CF2D0A /* hd_dang_nhap_vi.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = hd_dang_nhap_vi.html; sourceTree = "<group>"; };
 		C6786DDF1D1D2BED0064509A /* ItemGiaVeCGV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ItemGiaVeCGV.h; path = DatVePhim/ItemGiaVeCGV.h; sourceTree = "<group>"; };
 		C6786DE01D1D2BED0064509A /* ItemGiaVeCGV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ItemGiaVeCGV.m; path = DatVePhim/ItemGiaVeCGV.m; sourceTree = "<group>"; };
@@ -6534,6 +6561,7 @@
 		C635A8FC224A8597003619DE /* VNPayQR */ = {
 			isa = PBXGroup;
 			children = (
+				C620775D227AE340002BD40D /* json_ma_km_vnpay.txt */,
 				C635A8FD224A85DC003619DE /* GiaoDienThanhToanQRVNPay.h */,
 				C635A8FE224A85DC003619DE /* GiaoDienThanhToanQRVNPay.m */,
 				C635A8FF224A85DC003619DE /* GiaoDienThanhToanQRVNPay.xib */,
@@ -6554,6 +6582,21 @@
 				E7BA9F6E22521A2700E29123 /* VNPayQRSoLuongTableViewCell.h */,
 				E7BA9F6F22521A2700E29123 /* VNPayQRSoLuongTableViewCell.m */,
 				E7BA9F7022521A2700E29123 /* VNPayQRSoLuongTableViewCell.xib */,
+				C620774E227ADB36002BD40D /* GiaoDienMaGiamGiaVNPay.h */,
+				C620774F227ADB36002BD40D /* GiaoDienMaGiamGiaVNPay.m */,
+				C6207750227ADB36002BD40D /* GiaoDienMaGiamGiaVNPay.xib */,
+				C6207753227ADBBC002BD40D /* MaGiamGiaTableViewCell.h */,
+				C6207754227ADBBC002BD40D /* MaGiamGiaTableViewCell.m */,
+				C6207755227ADBBC002BD40D /* MaGiamGiaTableViewCell.xib */,
+				C6207758227AE13B002BD40D /* MaKhuyenMaiTableViewCell.h */,
+				C6207759227AE13B002BD40D /* MaKhuyenMaiTableViewCell.m */,
+				C620775A227AE13B002BD40D /* MaKhuyenMaiTableViewCell.xib */,
+				C676444622808093000C6FB9 /* GiaoDienDiemThanhToanVNPAY.h */,
+				C676444722808093000C6FB9 /* GiaoDienDiemThanhToanVNPAY.m */,
+				C676444822808093000C6FB9 /* GiaoDienDiemThanhToanVNPAY.xib */,
+				C676444B2280818F000C6FB9 /* VNPAYDienDiemCell.h */,
+				C676444C2280818F000C6FB9 /* VNPAYDienDiemCell.m */,
+				C676444D2280818F000C6FB9 /* VNPAYDienDiemCell.xib */,
 			);
 			name = VNPayQR;
 			sourceTree = "<group>";
@@ -7427,6 +7470,7 @@
 				0B4FBE3B219F184C00010A70 /* OJB-THE.png in Resources */,
 				C664B08C1D125C60003B9976 /* phong4_GoVap.txt in Resources */,
 				C68828A11C196E8B000C7934 /* phong4_royal.txt in Resources */,
+				C676444F2280818F000C6FB9 /* VNPAYDienDiemCell.xib in Resources */,
 				57D0E36715B5DA280039F1BA /* zbar-samples.png in Resources */,
 				C664B0CC1D125C60003B9976 /* phong6_ThaoDienPearl.txt in Resources */,
 				180E08A31A80B5E8001BED54 /* ChuyenTienViewController.xib in Resources */,
@@ -7457,6 +7501,7 @@
 				A38475211AE8930C00FA2793 /* NapViTuTheKieuRedirectViewController.xib in Resources */,
 				C664B0851D125C60003B9976 /* phong4_CGVThuyDuongPlaza.txt in Resources */,
 				8579EBDF166DE23C004CBD25 /* RowDivider.png in Resources */,
+				C620775C227AE13B002BD40D /* MaKhuyenMaiTableViewCell.xib in Resources */,
 				C664B0D91D125C60003B9976 /* phong7_MipecTower.txt in Resources */,
 				8579EBE0166DE23C004CBD25 /* RowDivider@2x.png in Resources */,
 				0B4FBDE5219F184C00010A70 /* BIDC-NH.png in Resources */,
@@ -7482,6 +7527,7 @@
 				C664B0791D125C60003B9976 /* phong3_ThaoDienPearl.txt in Resources */,
 				C6644ED11BE219FB005EFFF3 /* bg_home4.png in Resources */,
 				A37E554C1B0B40EA00051AB3 /* TraCuuSoTietKiemView.xib in Resources */,
+				C620775E227AE341002BD40D /* json_ma_km_vnpay.txt in Resources */,
 				0B4FBDF4219F184C00010A70 /* CCB-THE.png in Resources */,
 				C6178F921C1AC2A0009BD255 /* GiaoDienDatChoXemPhim.xib in Resources */,
 				0B4FBE1C219F184C00010A70 /* JPMC-THE.png in Resources */,
@@ -7736,6 +7782,7 @@
 				0B4FBE48219F184C00010A70 /* SEAB-NH.png in Resources */,
 				C664B0C51D125C60003B9976 /* phong6_LibertyCitypoint.txt in Resources */,
 				C6644ED31BE219FB005EFFF3 /* bg_home6.png in Resources */,
+				C6207752227ADB36002BD40D /* GiaoDienMaGiamGiaVNPay.xib in Resources */,
 				C664B0901D125C60003B9976 /* phong4_LibertyCitypoint.txt in Resources */,
 				C61489901C2D42A200343770 /* tim-tran.png in Resources */,
 				0BCC8EE417471C4400C47970 /* distance-icon.png in Resources */,
@@ -8180,6 +8227,7 @@
 				C664B0291D125C60003B9976 /* phong1_CGVSenseCity.txt in Resources */,
 				CDB789F2219B2BD30094D040 /* ChonAnSauDienThoaiViewController.xib in Resources */,
 				A38479A61ADE669D00DCF2B6 /* huongdannaptien.txt in Resources */,
+				C6207757227ADBBC002BD40D /* MaGiamGiaTableViewCell.xib in Resources */,
 				C664B03C1D125C60003B9976 /* phong1_VincomBaTrieu.txt in Resources */,
 				C664B0561D125C60003B9976 /* phong2_PaksonParagon.txt in Resources */,
 				3EE19699196E41E000DA5B5D /* DucNT_ViewQuenMatKhauToken.xib in Resources */,
@@ -8235,6 +8283,7 @@
 				CDB789F7219B2CB10094D040 /* ChonAnSauDtTableViewCell.xib in Resources */,
 				03587E831B9411C800C62734 /* flag_cateid_601_select.png in Resources */,
 				0B4FBE42219F184C00010A70 /* SC-NH.png in Resources */,
+				C676444A22808093000C6FB9 /* GiaoDienDiemThanhToanVNPAY.xib in Resources */,
 				A32171BC1AE11CEA008570AB /* refresh64.png in Resources */,
 				C664B0971D125C60003B9976 /* phong4_ThaoDienPearl.txt in Resources */,
 				186D68351A6FB1580026972E /* ViewThuongDungChuyenTienDenTaiKhoan.xib in Resources */,
@@ -8560,6 +8609,7 @@
 				572167D615B40C49009780F4 /* BaseScreen.m in Sources */,
 				8568EE3B18ACB5BA0001952B /* DemoImageSource.m in Sources */,
 				5721683A15B412DE009780F4 /* AppDelegate.m in Sources */,
+				C676444E2280818F000C6FB9 /* VNPAYDienDiemCell.m in Sources */,
 				5721683B15B412DE009780F4 /* main.m in Sources */,
 				C66993931D2A097D007C5EDA /* ItemChonGheCGV.m in Sources */,
 				5721685415B418C9009780F4 /* Globals.m in Sources */,
@@ -8604,6 +8654,7 @@
 				853EE78F183E1431002B7370 /* KxMenu.m in Sources */,
 				578C008215C17E650049702D /* BPTWRoundTextField.m in Sources */,
 				578C008515C180300049702D /* BPButton.m in Sources */,
+				C676444922808093000C6FB9 /* GiaoDienDiemThanhToanVNPAY.m in Sources */,
 				180610A419D914D30066FFFE /* ChatTableViewCell.m in Sources */,
 				578C00A115C195F60049702D /* ContactScreen.m in Sources */,
 				A3BB76311AEDFAFD00028280 /* HFImageEditorViewController.m in Sources */,
@@ -8664,6 +8715,7 @@
 				1893435119ECE1EE009E91F2 /* DoiTuongNotification.m in Sources */,
 				A349CF531B4F6E60000CBC30 /* DoiTuongChiTietGiaoDichGuiTietKiem.m in Sources */,
 				850D7CAF1678592900A54A3F /* KazeCheckBox.m in Sources */,
+				C6207756227ADBBC002BD40D /* MaGiamGiaTableViewCell.m in Sources */,
 				CD30A17921A84F36004030E3 /* GiaodientaikhoantheViewController.m in Sources */,
 				C636DE98219E7DA0000B85D0 /* HanMucMoiViewController.m in Sources */,
 				C64520F81BE326E100E8091C /* ItemChinhFlowLayout.m in Sources */,
@@ -8746,6 +8798,7 @@
 				853A9FC116F806DD00F3C3B0 /* CacheManager.m in Sources */,
 				0BDD4CEA16FAF06400C67526 /* DateTextField.m in Sources */,
 				0BC5064B17028A420027C1F2 /* ExTextField.m in Sources */,
+				C6207751227ADB36002BD40D /* GiaoDienMaGiamGiaVNPay.m in Sources */,
 				0BC5065917028ABE0027C1F2 /* CNVCheckBox.m in Sources */,
 				182976D81A02247D003207C9 /* HienThiChatTongTableViewCell.m in Sources */,
 				0BC5065A17028ABE0027C1F2 /* CNVRadioBox.m in Sources */,
@@ -8907,6 +8960,7 @@
 				C65EFCE721E8F4BC00240658 /* GiaoDienChiTietTinTuc.m in Sources */,
 				A357992D1B33D5B700B38098 /* CheckNetworkStatus.m in Sources */,
 				0B7BDD6618290693009E78EE /* NSData+Base64.m in Sources */,
+				C620775B227AE13B002BD40D /* MaKhuyenMaiTableViewCell.m in Sources */,
 				85FDE3E9184DC2210073DD51 /* TTTAttributedLabel.m in Sources */,
 				CDB789F6219B2CB10094D040 /* ChonAnSauDtTableViewCell.m in Sources */,
 				3EDD8D87196BE2F700E21326 /* DucNT_Token.m in Sources */,

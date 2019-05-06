@@ -14,6 +14,7 @@
 #define URL_KIEM_TRA_TAI_KHOAN_CO_VI [NSString stringWithFormat:@"%@%@", ROOT_URL, @"account/checkAccount"]
 
 @interface GiaoDichMang : NSObject
++ (void)ketNoiLayDanhSachDiaDiemVNPAY:(NSString *)dictJSON noiNhanKetQua:(id<DucNT_ServicePostDelegate>)noiNhanKetQua;
 + (void)ketNoiThanhToanVNPayQR:(NSString *)dictJSON noiNhanKetQua:(id<DucNT_ServicePostDelegate>)noiNhanKetQua;
 + (void)ketNoiLayThongTinQR:(NSString *)dictJSON noiNhanKetQua:(id<DucNT_ServicePostDelegate>)noiNhanKetQua;
 + (void)ketNoiLayTinTuc:(int)langID idInput:(NSString *)idInput noiNhanKetQua:(id<DucNT_ServicePostDelegate>)noiNhanKetQua;

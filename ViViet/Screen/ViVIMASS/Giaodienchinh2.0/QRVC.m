@@ -21,8 +21,10 @@
     
     [self.tableView registerNib:[UINib nibWithNibName:@"ItemListCell" bundle:nil] forCellReuseIdentifier:@"ItemListCell"];
     [self.tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
-    self.arrDanhSach =@[@{@"name":@"Vimass QR",@"image":@"vimass-qr"},
-                        @{@"name":@"VNPAY QR", @"image":@"Logo_VNPAYQR"}];
+    self.arrDanhSach =@[@{@"name":@"VNPAY QR", @"image":@"Logo_VNPAYQR"},
+                        @{@"name":[@"diem_giao_dich_vnpay" localizableString], @"image":@"ic_diem_giao_dich"},
+                        @{@"name":@"Vimass QR",@"image":@"vimass-qr"}
+                        ];
 //    self.arrDanhSach =@[@{@"name":@"Vimass QR",@"image":@"vimass-qr"},
 //                        @{@"name":@"VNPAY QR", @"image":@"vnpt-qr"},
 //                        @{@"name":@"Momo QR", @"image":@"momo-qr"},
@@ -49,7 +51,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return self.view.frame.size.height / 7.0;
+    return self.view.frame.size.height / 10.0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

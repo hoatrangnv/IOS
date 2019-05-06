@@ -185,6 +185,14 @@
 #define URL_LAY_CHI_TIET_TIN_TUC [NSString stringWithFormat:@"%@%@", ROOT_URL, @"quangCaoUuDai/getDetail"]
 #define URL_LAY_THONG_TIN_QR [NSString stringWithFormat:@"%@%@", ROOT_URL, @"QRVietNam/traCuuThongTinQR"]
 #define URL_THANH_TOAN_VNPAY_QR [NSString stringWithFormat:@"%@%@", ROOT_URL, @"QRVietNam/thanhToanVNPayQR"]
+#define URL_TIM_DIA_DIEM_VNPAY_QR [NSString stringWithFormat:@"%@%@", ROOT_URL, @"QRVietNam/traCuuDiemGiaoDichVNPAY"]
+
++ (void)ketNoiLayDanhSachDiaDiemVNPAY:(NSString *)dictJSON noiNhanKetQua:(id<DucNT_ServicePostDelegate>)noiNhanKetQua {
+    DucNT_ServicePost *connectPost = [[DucNT_ServicePost alloc] init];
+    [connectPost setDucnt_connectDelegate:noiNhanKetQua];
+    [connectPost connect:URL_TIM_DIA_DIEM_VNPAY_QR withContent:dictJSON];
+    [connectPost release];
+}
 
 + (void)ketNoiThanhToanVNPayQR:(NSString *)dictJSON noiNhanKetQua:(id<DucNT_ServicePostDelegate>)noiNhanKetQua {
     DucNT_ServicePost *connectPost = [[DucNT_ServicePost alloc] init];

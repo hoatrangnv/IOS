@@ -769,7 +769,7 @@
 "label_lan" = "/ Lần";
 "label_ngay" = "/ Ngày";
 "label_thang" = "/ Tháng";
-"han_muc_soft_token" = "Khi sử dụng Soft Token";
+"han_muc_soft_token" = "Khi sử dụng Token";
 "han_muc_van_tay" = "Khi sử dụng Vân tay, Nhận diện";
 "han_muc_mki" = "Khi sử dụng mPKI: SIM-CA, SDSecure, MicroSD";
 "han_muc_soft_token2" = "Tối đa 100 triệu/giao dịch và 500 triệu/ngày";
@@ -966,7 +966,7 @@
 "thoi_gian_tang" = "<b>Thời gian tặng:</b>";
 "thoi_diem" = "<b>Thời điểm:</b> ";
 "vi_tang" = "<b>Ví tặng:</b> ";
-"ung_dung" = "<b>Ứng dụng:</b>";
+"ung_dung" = "Ứng dụng";
 "loi_lay_du_lieu" = "Lỗi lấy dữ liệu";
 "chuc_nag_dang_phat_trien" = "Chức năng đang phát triển";
 "so_tien_phai_la_boi_so" = "Số tiền chuyển đi phải là bội số của";
@@ -1236,7 +1236,7 @@
 "ngay_bat_dau_phai_nho_hon_hoac_bang_ngay_ket_thuc" = "Ngày bắt đầu phải nhỏ hơn hoặc bằng ngày kết thúc";
 "tu" = "Từ";
 "so_tien_giao_dich" = "Số tiền";
-"thoi_diem_giao_dich" = "Thời điểm";
+"thoi_diem_giao_dich" = "TG";
 
 "sk noi dung" = "Nội dung:";
 "tang_qua_vi_nhan" = "Ví nhận";
@@ -1407,3 +1407,8 @@
 
 "so_luong_type3_qr" = "Số lượng";
 "so_tien_giao_dich" = "Số tiền";
+"title_noi_dung_viet_tat" = "ND";
+"vi_con" = "Ví còn";
+"du_km" = "Dư KM";
+"ma_khuyen_mai_vnpay" = "Mã khuyến mãi VNPAY";
+"diem_giao_dich_vnpay" = "Điểm giao dịch VNPAY";

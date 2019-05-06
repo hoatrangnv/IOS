@@ -11,6 +11,8 @@
 #import "VNPayQRInputContentTableViewCell.h"
 #import "ViewAuthentication.h"
 #import "VNPayQRSoLuongTableViewCell.h"
+#import "MaGiamGiaTableViewCell.h"
+#import "GiaoDienMaGiamGiaVNPay.h"
 @interface GiaoDienThanhToanQRVNPay () <UITableViewDelegate, UITableViewDataSource, ViewAuthenticationDelegate, VNPayQRSoLuongTableViewCellDelegate> {
     int rowTable;
     NSArray *arrTitleType1;
@@ -30,6 +32,7 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"VNPayQRInputMoneyViewCell" bundle:nil] forCellReuseIdentifier:@"VNPayQRInputMoneyViewCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"VNPayQRInputContentTableViewCell" bundle:nil] forCellReuseIdentifier:@"VNPayQRInputContentTableViewCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"VNPayQRSoLuongTableViewCell" bundle:nil] forCellReuseIdentifier:@"VNPayQRSoLuongTableViewCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"MaGiamGiaTableViewCell" bundle:nil] forCellReuseIdentifier:@"MaGiamGiaTableViewCell"];
     
     ViewAuthentication *footerView = [[[NSBundle mainBundle] loadNibNamed:@"ViewAuthentication" owner:self options:nil] objectAtIndex:0];
     footerView.delegate = self;
@@ -388,13 +391,15 @@
             VNPayQRTableViewCell *cell = (VNPayQRTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"VNPayQRTableViewCell" forIndexPath:indexPath];
             [self configCellViewType2:cell indexPath:indexPath];
             return cell;
-        } else if (indexPath.row == 4 || indexPath.row == 5) {
+        }
+        else if (indexPath.row == 4) {
+            MaGiamGiaTableViewCell *cell = (MaGiamGiaTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"MaGiamGiaTableViewCell" forIndexPath:indexPath];
+            [cell.btnXemKM addTarget:self action:@selector(suKienChonKMDangCo:) forControlEvents:UIControlEventTouchUpInside];
+            return cell;
+        }
+        else if (indexPath.row == 5) {
             VNPayQRInputContentTableViewCell *cell = (VNPayQRInputContentTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"VNPayQRInputContentTableViewCell" forIndexPath:indexPath];
-            if (indexPath.row == 4) {
-                cell.lblContent.placeholder = @"Mã giảm giá";
-            } else {
-                cell.lblContent.placeholder = @"Lời nhắn (có thể bỏ qua)";
-            }
+            cell.lblContent.placeholder = @"Lời nhắn (có thể bỏ qua)";
             return cell;
         }
     } else if (_itemQR.typeQRShow == 3) {
@@ -403,13 +408,14 @@
             [self configCellViewType3:cell indexPath:indexPath];
             return cell;
         }
+        else if (indexPath.row == 6) {
+            MaGiamGiaTableViewCell *cell = (MaGiamGiaTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"MaGiamGiaTableViewCell" forIndexPath:indexPath];
+            [cell.btnXemKM addTarget:self action:@selector(suKienChonKMDangCo:) forControlEvents:UIControlEventTouchUpInside];
+            return cell;
+        }
         else if (indexPath.row == 6 || indexPath.row == 7) {
             VNPayQRInputContentTableViewCell *cell = (VNPayQRInputContentTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"VNPayQRInputContentTableViewCell" forIndexPath:indexPath];
-            if (indexPath.row == 6) {
-                cell.lblContent.placeholder = @"Mã giảm giá";
-            } else {
-                cell.lblContent.placeholder = @"Lời nhắn (có thể bỏ qua)";
-            }
+            cell.lblContent.placeholder = @"Lời nhắn (có thể bỏ qua)";
             return cell;
         }
         else if (indexPath.row == 4) {
@@ -426,13 +432,14 @@
             [self configCellViewType4:cell indexPath:indexPath];
             return cell;
         }
-        else if (indexPath.row == 6 || indexPath.row == 7) {
+        else if (indexPath.row == 6) {
+            MaGiamGiaTableViewCell *cell = (MaGiamGiaTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"MaGiamGiaTableViewCell" forIndexPath:indexPath];
+            [cell.btnXemKM addTarget:self action:@selector(suKienChonKMDangCo:) forControlEvents:UIControlEventTouchUpInside];
+            return cell;
+        }
+        else if (indexPath.row == 7) {
             VNPayQRInputContentTableViewCell *cell = (VNPayQRInputContentTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"VNPayQRInputContentTableViewCell" forIndexPath:indexPath];
-            if (indexPath.row == 6) {
-                cell.lblContent.placeholder = @"Mã giảm giá";
-            } else {
-                cell.lblContent.placeholder = @"Lời nhắn (có thể bỏ qua)";
-            }
+            cell.lblContent.placeholder = @"Lời nhắn (có thể bỏ qua)";
             return cell;
         }
     }
@@ -447,16 +454,13 @@
     if (_itemQR.typeQRShow == 3) {
         cell.tfSoTien.text = [Common hienThiTienTe:soTienType3];
     }
-//    if (_itemQR.typeQRShow == 1) {
-//        if (indexPath.row == 4) {
-//            [cell setIsNhapTien:YES];
-//        } else {
-//            [cell setIsNhapTien:NO];
-//        }
-//    } else if (_itemQR.typeQRShow == 3 || _itemQR.typeQRShow == 4) {
-//        cell.tfSoTien.text = [Common hienThiTienTeFromString:_itemQR.amount];
-//    }
     return cell;
+}
+
+- (void)suKienChonKMDangCo:(UIButton *)btn {
+    GiaoDienMaGiamGiaVNPay *vc = [[GiaoDienMaGiamGiaVNPay alloc] initWithNibName:@"GiaoDienMaGiamGiaVNPay" bundle:nil];
+    [self.navigationController pushViewController:vc animated:YES];
+    [vc release];
 }
 
 - (void)dealloc {

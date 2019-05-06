@@ -102,12 +102,12 @@
     double fSoTien1Token = [[self.tfTimeSoftToken.text stringByReplacingOccurrencesOfString:@"." withString:@""] doubleValue];
     double fSoTien2Token = [[self.tfDaySoftToken.text stringByReplacingOccurrencesOfString:@"." withString:@""] doubleValue];
     if (fSoTien1Token > fSoTien2Token) {
-        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Hạn mức Soft Token mỗi giao dịch phải nhỏ hơn hạn mức 1 ngày"];
+        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Hạn mức Token mỗi giao dịch phải nhỏ hơn hạn mức 1 ngày"];
         return NO;
     } else if (fSoTien1Token > [self.mThongTinTaiKhoanVi.hanMucTimeSoftTokenMax doubleValue]) {
         NSString *sTien = [NSString stringWithFormat:@"%f", [self.mThongTinTaiKhoanVi.hanMucTimeSoftTokenMax doubleValue]];
         NSString *sTien2 = [Common hienThiTienTeFromString:sTien];
-        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:[NSString stringWithFormat:@"Hạn mức tối đa chuyển tiền xác thực bằng Soft Token là %@ đồng mỗi giao dịch.", sTien2]];
+        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:[NSString stringWithFormat:@"Hạn mức tối đa chuyển tiền xác thực bằng Token là %@ đồng mỗi giao dịch.", sTien2]];
         return NO;
     }
     

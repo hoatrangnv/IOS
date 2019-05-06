@@ -52,6 +52,7 @@
 #import "HanMucMoiViewController.h"
 #import "Giaodienlienket1ViewController.h"
 #import "GiaoDienThanhToanQRVNPay.h"
+#import "GiaoDienDiemThanhToanVNPAY.h"
 @interface HomeCenterViewController ()<UIActionSheetDelegate, QRCodeReaderDelegate,RowSelectDelegate,ViewNavigationGiaoDienChinhDelegate>{
     ViewNavigationGiaoDienChinh *mViewNavigationGiaoDienChinh;
     NSString *keyPin;
@@ -937,6 +938,12 @@
                 break;
             }
             case 1:{
+                GiaoDienDiemThanhToanVNPAY *vc = [[GiaoDienDiemThanhToanVNPAY alloc] initWithNibName:@"GiaoDienDiemThanhToanVNPAY" bundle:nil];
+                [self.navigationController pushViewController:vc animated:YES];
+                [vc release];
+                break;
+            }
+            case 2:{
                 [self xuLySuKienBamNutQR];
                 break;
             }

@@ -32,7 +32,7 @@
                         @{@"name":[Localization languageSelectedStringForKey:@"muon_tien"], @"image":@"icon_chuyen_tien_tan_nha_64x64"},
                         @{@"name":[Localization languageSelectedStringForKey:@"tang_qua"], @"image":@"icon_grid_tangqua"},
                         @{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_bussiness_update_information"], @"image":@"icon_edit_the_luu"},
-                        @{@"name":@"Soft Token", @"image":@"ic_vicuatoi_soft_token"},
+                        @{@"name":@"Token", @"image":@"ic_vicuatoi_soft_token"},
                         @{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_transaction_limit_xacthuc"], @"image":@"ic_vicuatoi_hanmuc"}
                         ];
 }

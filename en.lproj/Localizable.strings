@@ -160,7 +160,7 @@
 "financer_viewer_Cancellation_hardToken" = "Unbind HardToken";
 "financer_viewer_Registration_softToken" = "Registration SoftToken";
 "financer_viewer_Cancellation_softToken" = "Unbind SoftToken";
-"financer_viewer_Token" = "Soft Token";
+"financer_viewer_Token" = "Token";
 "financer_viewer_change_ui" = "Change UI";
 "financer_viewer_changepasswordwallet" = "Change password";
 "financer_viewer_Payment_orders" = "Payment orders";
@@ -263,8 +263,8 @@
 "financer_viewer_wallet_to_qr_tracuu" = "Tra cứu Vimass QR";
 "financer_viewer_wallet_to_qr_hoa_don" = "Bill";
 //<!-- // -->
-"settings_change_password_hint_change_pass_type" = "Change wallet\'s password/Change Soft token\'s password ";
-"settings_change_password_token" = "Change Soft token\'s password";
+"settings_change_password_hint_change_pass_type" = "Change wallet\'s password/Change token\'s password ";
+"settings_change_password_token" = "Change token\'s password";
 "settings_change_password_wallet" = "Change wallet\'s password";
 //<!-- Deposit -->
 "deposit_inquiry" = "Inquiry";
@@ -768,7 +768,7 @@
 "label_lan" = "/ time";
 "label_ngay" = "/ day";
 "label_thang" = "/ month";
-"han_muc_soft_token" = "When using Soft Token";
+"han_muc_soft_token" = "When using Token";
 "han_muc_van_tay" = "When using touch ID, face ID";
 "han_muc_mki" = "When using mPKI: SIM-CA, SDSecure, MicroSD";
 "han_muc_soft_token2" = "Maximum 100 million/transaction and 500 million/day";
@@ -1415,3 +1415,8 @@
 
 "so_luong_type3_qr" = "Amount";
 "so_tien_giao_dich" = "Amount";
+"title_noi_dung_viet_tat" = "ND";
+"vi_con" = "Balance";
+"du_km" = "Dư KM";
+"ma_khuyen_mai_vnpay" = "Mã khuyến mãi VNPAY";
+"diem_giao_dich_vnpay" = "Điểm giao dịch VNPAY";
