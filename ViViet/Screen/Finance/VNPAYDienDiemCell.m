@@ -11,7 +11,9 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+    _lblTitle.text = @"";
+    _lblDiaChi.text = @"";
+    _lblKhoangCach.text = @"";
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -20,4 +22,10 @@
     // Configure the view for the selected state
 }
 
+- (void)dealloc {
+    [_lblTitle release];
+    [_lblDiaChi release];
+    [_lblKhoangCach release];
+    [super dealloc];
+}
 @end

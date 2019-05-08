@@ -192,7 +192,9 @@ typedef NS_ENUM(NSInteger, KASlideShowSlideMode) {
     for(NSString * name in array){
 //
         NSString *sURL = [NSString stringWithFormat:@"https://vimass.vn/vmbank/services/media/getImage?id=%@", name];
-//        NSLog(@"%s - sURL : %@", __FUNCTION__, sURL);
+        SDImageCache *imageCache = [SDImageCache sharedImageCache];
+        [imageCache removeImageForKey:sURL fromDisk:YES withCompletion:^{
+        }];
         [self addImageOnline:sURL];
     }
     if (_currentIndex < self.images.count) {
@@ -308,13 +310,14 @@ typedef NS_ENUM(NSInteger, KASlideShowSlideMode) {
             NSString *sURL1 = self.images[_currentIndex];
             NSString *sURL2 = self.images[nextIndex];
             NSLog(@"%s - sURL1 : %@", __FUNCTION__, sURL1);
+            NSLog(@"%s - sURL2 : %@", __FUNCTION__, sURL2);
             [self luuIndexQuangCao];
-
-            [_topImageView sd_setImageWithURL:[NSURL URLWithString:sURL1] placeholderImage:[UIImage imageNamed:@"bg_home1.png"]completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-
-            }];
-            [_bottomImageView sd_setImageWithURL:[NSURL URLWithString:sURL2] placeholderImage:[UIImage imageNamed:@"bg_home1.png"]];
-//            _bottomImageView.image = self.images[nextIndex];
+            [_topImageView sd_setImageWithURL:[NSURL URLWithString:sURL1]];
+            [_bottomImageView sd_setImageWithURL:[NSURL URLWithString:sURL2]];
+//            [_topImageView sd_setImageWithURL:[NSURL URLWithString:sURL1] placeholderImage:[UIImage imageNamed:@"bg_home1.png"]completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+//
+//            }];
+//            [_bottomImageView sd_setImageWithURL:[NSURL URLWithString:sURL2] placeholderImage:[UIImage imageNamed:@"bg_home1.png"]];
             _currentIndex = nextIndex;
         }
 
@@ -327,17 +330,6 @@ typedef NS_ENUM(NSInteger, KASlideShowSlideMode) {
                 [self animateSlideOnline:KASlideShowSlideModeForward];
                 break;
         }
-
-        // Call delegate
-
-//        if (self.delegate) {
-//            if([self.delegate respondsToSelector:@selector(kaSlideShowDidShowNext:)]){
-//                dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, self.transitionDuration * NSEC_PER_SEC);
-//                dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-//                    [self.delegate kaSlideShowDidShowNext:self];
-//                });
-//            }
-//        }
     }
 }
 

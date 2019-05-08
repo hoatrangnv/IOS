@@ -1,0 +1,56 @@
+[
+  {
+    "maKM": "QR10",
+    "donviApDung": "FPT Play, PlayTV",
+    "uuDai": "Giảm 10% tổng hóa đơn, tối đa không quá 200.000đ",
+    "soluot": "01 lượt khuyến mãi/ ngày/ đơn vị"
+  },
+  {
+    "maKM": "VNPAY10",
+    "donviApDung": "An Phước, Canifa, Kowil (Owen, Winny, O.Jeán), John Henry T.M.G, Anamai Bonjour, Vietmank, Chef Mama's, Sườn cây, Chang Kang Kung, Mr. Park, Gemini coffee, Trung Nguyên Legend, Taxi Mai Linh.",
+    "uuDai": "Giảm 10% tổng hóa đơn, tối đa không quá 200.000đ",
+    "soluot": "01 lượt khuyến mãi/tuần/ đơn vị"
+  },
+  {
+    "maKM": "VNPAYLIXI",
+    "donviApDung": "GenViet, Yody, Ngân Hà (Owen, Ojeans, Winny), Bata, JM Dress Design, Tokyolife, Format, Eva De Eva, Lamer Fashion, Son Kim Mode, 20 Again, Swiss Watch, Torano Fashion, Twentyfive, Shop & Go, AeonÉhop, Kudos, Mattana. Và rất nhiều đơn vị khác. Xem file đính kèm dưới đây.",
+    "uuDai": "Giảm 10% tổng hóa đơn, tối đa không quá 200.000đ",
+    "soluot": "01 lượt khuyến mãi/tuần/ đơn vị"
+  },
+  {
+    "maKM": "VNPAYQR5",
+    "donviApDung": "Phong Vũ, FPT Shop, Top & Top, PDS365",
+    "uuDai": "Giảm 5% tổng hóa đơn, tối đa không quá 500.000đ",
+    "soluot": "01 lượt khuyến mãi/tháng/ đơn vị"
+  },
+  {
+    "maKM": "VNPAY300",
+    "donviApDung": "CellphoneS, Di Động Việt",
+    "uuDai": "Giảm 300.000đ/ tổng hóa đơn có giá trị từ 5.000.000đ trở lên",
+    "soluot": "01 lượt khuyến mãi/đơn vị/chương trình đến hết 30/04/2019"
+  },
+  {
+    "maKM": "VNPAYP30",
+    "donviApDung": "CellphoneS",
+    "uuDai": "Giảm 500.000đ/ tổng hóa đơn có giá trị từ 15.000.000đ trở lên. Áp dụng cho dòng sản phầm điện thoại Huawei P30.",
+    "soluot": "01 lượt khuyến mãi/chương trình đến hết 30/04/2019"
+  },
+  {
+    "maKM": "VNPAYCF",
+    "donviApDung": "Phúc Long Coffee & Tea, Món Huế, Feeling tea",
+    "uuDai": "Giảm 20% tổng hóa đơn, tối đa không quá 20.000đ",
+    "soluot": "01 lượt khuyến mãi/ ngày/ đơn vị"
+  },
+  {
+    "maKM": "VNPAY20",
+    "donviApDung": "Trà sữa Alley Và rất nhiều đơn vị khác, Xem chi tiết dưới đây",
+    "uuDai": "Giảm 20% tổng hóa đơn, tối đa không quá 20.000đ",
+    "soluot": "01 lượt khuyến mãi/ tuần/ đơn vị"
+  },
+  {
+    "maKM": "VNPAYSOYA",
+    "donviApDung": "Soya Gaden",
+    "uuDai": "Giảm 30% tổng hóa đơn, tối đa không quá 30.000đ",
+    "soluot": "01 lượt khuyến mãi/ ngày/ đơn vị"
+  }
+]

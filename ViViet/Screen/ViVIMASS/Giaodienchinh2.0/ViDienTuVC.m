@@ -27,13 +27,13 @@
                          @{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_wallet_to_momo"], @"image":@"momo"},
                           @{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_wallet_to_nganluong"], @"image":@"nganluong"},
                           @{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_wallet_to_payoo"], @"image":@"payoo"},
-                          @{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_wallet_to_viettel_pay"], @"image":@"viettel"},
                           @{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_wallet_to_vimo"], @"image":@"vimo"},
                          @{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_wallet_to_viviet"], @"image":@"viviet"},
                           @{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_wallet_to_vnpt_pay"], @"image":@"vnpt"},
                          @{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_wallet_to_vtc_pay"], @"image":@"vtc"},
                          @{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_wallet_to_zalo_pay"], @"image":@"zalo"}
                         ];
+//    @{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_wallet_to_viettel_pay"], @"image":@"viettel"},
 }
 
 - (void)didReceiveMemoryWarning {
@@ -52,7 +52,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return self.view.frame.size.height/ 11.0;
+    return self.view.frame.size.height/ 10.0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

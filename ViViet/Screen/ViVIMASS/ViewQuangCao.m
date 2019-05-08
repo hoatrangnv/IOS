@@ -32,13 +32,13 @@
     NSString *sQC = [user stringForKey:@"QUANG_CAO_VI_VIMASS"];
 //    NSLog(@"%s - sQC : %@", __FUNCTION__, sQC);
     NSArray *dict = [sQC objectFromJSONString];
-    arrQC = [[NSMutableArray alloc] init];
-    BOOL isWifi = [user boolForKey:@"QUANG_CAO_WIFI"];
+//    arrQC = [[NSMutableArray alloc] init];
+//    BOOL isWifi = [user boolForKey:@"QUANG_CAO_WIFI"];
     NSString *keyQC = @"nameSave";
-    if (!isWifi) {
-        keyQC = @"nameSave3g";
-    }
-    NSLog(@"%s - keyQC : %@", __FUNCTION__, keyQC);
+//    if (!isWifi) {
+//        keyQC = @"nameSave3g";
+//    }
+//    NSLog(@"%s - keyQC : %@", __FUNCTION__, keyQC);
 
     for (NSDictionary *dicTemp in dict) {
         int nVMApp = [[dicTemp objectForKey:@"VMApp"] intValue];
@@ -57,14 +57,17 @@
         }
         [arrLinkAnh addObject:sName];
     }
-    if (arrLinkAnh.count > 0) {
-        NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
-        NSInteger *nIndex = [user integerForKey:@"KEY_INDEX_CLICK_QC"];
-        NSLog(@"%s - nIndex : %d", __FUNCTION__, (int)nIndex);
-        viewQuangCao.currentIndex = nIndex;
-        [viewQuangCao setImagesDataSourceOnline:arrLinkAnh];
-        [self performSelector:@selector(chaySlideQuangCao1) withObject:nil afterDelay:10];
-    }
+    viewQuangCao.currentIndex = 0;
+    [viewQuangCao setImagesDataSourceOnline:arrLinkAnh];
+//    if (arrLinkAnh.count > 0) {
+//        NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+//        NSInteger *nIndex = [user integerForKey:@"KEY_INDEX_CLICK_QC"];
+//        NSLog(@"%s - nIndex : %d", __FUNCTION__, (int)nIndex);
+//        viewQuangCao.currentIndex = nIndex;
+//        [viewQuangCao setImagesDataSourceOnline:arrLinkAnh];
+//        [self performSelector:@selector(chaySlideQuangCao1) withObject:nil afterDelay:10];
+//    }
+    
 }
 
 - (void)updateSizeQuangCao {

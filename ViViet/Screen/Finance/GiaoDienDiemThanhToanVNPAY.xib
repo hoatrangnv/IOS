@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GiaoDienDiemThanhToanVNPAY">
             <connections>
+                <outlet property="lblTitle" destination="LYL-ig-5lP" id="rhT-gU-c2U"/>
                 <outlet property="tableView" destination="AdY-JI-T8T" id="Jlm-Zk-D3R"/>
                 <outlet property="tfKhoangCach" destination="X4M-S4-mB1" id="NkM-sG-493"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -72,7 +73,7 @@
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gần bạn" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LYL-ig-5lP">
-                            <rect key="frame" x="8" y="11.666666666666664" width="202" height="21"/>
+                            <rect key="frame" x="8" y="0.0" width="202" height="44"/>
                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -80,6 +81,7 @@
                     </subviews>
                     <color key="backgroundColor" red="0.82352941180000006" green="0.82352941180000006" blue="0.82352941180000006" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
+                        <constraint firstAttribute="bottom" secondItem="LYL-ig-5lP" secondAttribute="bottom" id="2Xz-2B-mdE"/>
                         <constraint firstItem="ans-ip-2hB" firstAttribute="leading" secondItem="X4M-S4-mB1" secondAttribute="trailing" constant="5" id="4Oi-BV-wC4"/>
                         <constraint firstItem="Ogh-go-bvm" firstAttribute="top" secondItem="KYm-9H-P1J" secondAttribute="top" constant="5" id="FFK-HB-qlJ"/>
                         <constraint firstItem="X4M-S4-mB1" firstAttribute="leading" secondItem="87Y-p6-HXC" secondAttribute="trailing" constant="5" id="GDZ-fr-8tU"/>
@@ -95,6 +97,7 @@
                         <constraint firstItem="87Y-p6-HXC" firstAttribute="leading" secondItem="LYL-ig-5lP" secondAttribute="trailing" constant="8" id="qfE-rc-fZ1"/>
                         <constraint firstItem="87Y-p6-HXC" firstAttribute="centerY" secondItem="KYm-9H-P1J" secondAttribute="centerY" id="r0N-No-aqR"/>
                         <constraint firstItem="LYL-ig-5lP" firstAttribute="centerY" secondItem="KYm-9H-P1J" secondAttribute="centerY" id="vTi-f4-8Co"/>
+                        <constraint firstItem="LYL-ig-5lP" firstAttribute="top" secondItem="KYm-9H-P1J" secondAttribute="top" id="xeb-jd-0rZ"/>
                     </constraints>
                 </view>
             </subviews>

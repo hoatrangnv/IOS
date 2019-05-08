@@ -20,13 +20,13 @@
     // Do any additional setup after loading the view from its nib.
     self.navigationItem.title = @"Chữ ký số PKI";
     // HOANHNV FIX
-    self.edMatkhauPKI.attributedPlaceholder =[[NSAttributedString alloc] initWithString:[@"edMatkhauPKI" localizableString] attributes:@{NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
-    self.edOTPXacNhan.attributedPlaceholder =[[NSAttributedString alloc] initWithString:[@"edOTPXacNhan" localizableString] attributes:@{NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
-    self.edHanMuc.attributedPlaceholder =[[NSAttributedString alloc] initWithString:[@"edHanMuc" localizableString] attributes:@{NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
-    self.edMatKhauHanMuc.attributedPlaceholder =[[NSAttributedString alloc] initWithString:[@"edMatKhauHanMuc" localizableString] attributes:@{NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
-    self.edDoiMatKhau1.attributedPlaceholder =[[NSAttributedString alloc] initWithString:[@"edDoiMatKhau1" localizableString] attributes:@{NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
-    self.edDoiMatKhau2.attributedPlaceholder =[[NSAttributedString alloc] initWithString:[@"edDoiMatKhau2" localizableString] attributes:@{NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
-    self.edDoiMatKhau3.attributedPlaceholder =[[NSAttributedString alloc] initWithString:[@"edDoiMatKhau3" localizableString] attributes:@{NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
+//    self.edMatkhauPKI.attributedPlaceholder =[[NSAttributedString alloc] initWithString:[@"edMatkhauPKI" localizableString] attributes:@{NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
+//    self.edOTPXacNhan.attributedPlaceholder =[[NSAttributedString alloc] initWithString:[@"edOTPXacNhan" localizableString] attributes:@{NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
+//    self.edHanMuc.attributedPlaceholder =[[NSAttributedString alloc] initWithString:[@"edHanMuc" localizableString] attributes:@{NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
+//    self.edMatKhauHanMuc.attributedPlaceholder =[[NSAttributedString alloc] initWithString:[@"edMatKhauHanMuc" localizableString] attributes:@{NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
+//    self.edDoiMatKhau1.attributedPlaceholder =[[NSAttributedString alloc] initWithString:[@"edDoiMatKhau1" localizableString] attributes:@{NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
+//    self.edDoiMatKhau2.attributedPlaceholder =[[NSAttributedString alloc] initWithString:[@"edDoiMatKhau2" localizableString] attributes:@{NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
+//    self.edDoiMatKhau3.attributedPlaceholder =[[NSAttributedString alloc] initWithString:[@"edDoiMatKhau3" localizableString] attributes:@{NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
 }
 
 - (void)didReceiveMemoryWarning {

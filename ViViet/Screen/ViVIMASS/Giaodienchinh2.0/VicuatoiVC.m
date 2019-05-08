@@ -24,15 +24,14 @@
     [self.tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
 //    @{@"name":@"Chuyển tiền đến điện thoại", @"image":@"ic_chuyentien_dienthoai"},
     self.arrDanhSach =@[@{@"name":[Localization languageSelectedStringForKey:@"sao_ke"],@"image":@"ic_vicuatoi_saoke"},
+                        @{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_wallet_to_wallet"],@"image":@"vimass"},
                         @{@"name":[Localization languageSelectedStringForKey:@"tai_khoan_lien_ket"], @"image":@"ic_vicuatoi_lienket"},
                         @{@"name":[Localization languageSelectedStringForKey:@"chuyen_tien_den_vi_tk_an_sau_dien_thoai"], @"image":@"icon_vicuatoi_vi_an"},
-                        @{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_wallet_to_dienthoai"], @"image":@"ic_chuyentien_dienthoai"},
                         @{@"name":[Localization languageSelectedStringForKey:@"nap_tien_tu_the_bank2"], @"image":@"icon_grid_cachnapvi"},
                         @{@"name":[Localization languageSelectedStringForKey:@"rut_tien"], @"image":@"ic_vicuatoi_ruttien"},
                         @{@"name":[Localization languageSelectedStringForKey:@"muon_tien"], @"image":@"icon_chuyen_tien_tan_nha_64x64"},
-                        @{@"name":[Localization languageSelectedStringForKey:@"tang_qua"], @"image":@"icon_grid_tangqua"},
                         @{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_bussiness_update_information"], @"image":@"icon_edit_the_luu"},
-                        @{@"name":@"Token", @"image":@"ic_vicuatoi_soft_token"},
+                        @{@"name":[Localization languageSelectedStringForKey:@"dangki_pki"], @"image":@"pki"},
                         @{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_transaction_limit_xacthuc"], @"image":@"ic_vicuatoi_hanmuc"}
                         ];
 }
@@ -53,7 +52,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return self.view.frame.size.height / 11.0;
+    return self.view.frame.size.height / 10.0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -63,6 +62,10 @@
     NSString *image = (NSString *)[dict valueForKey:@"image"];
     [cell.imgTitle setImage:[UIImage imageNamed:image]];
     cell.lblName.text = name;
+    if (indexPath.row == 8) {
+        cell.imgTitle.backgroundColor = [UIColor colorWithRed:0 green:0 blue:1 alpha:1];
+        cell.imgTitle.layer.cornerRadius = 8.0;
+    }
     return cell;
 }
 

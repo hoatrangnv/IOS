@@ -131,8 +131,9 @@ static int const KIEU_KET_NOI_GOOGLE = 2;
         NSString *version = [info objectForKey:@"CFBundleShortVersionString"];
         self.lblPhienBan.text = [NSString stringWithFormat:@"%@ %@", [Localization languageSelectedStringForKey:@"phien_ban"], version];
         
-        [self.mbtnViCaNhan setTitle:[Localization languageSelectedStringForKey:@"financer_viewer_For_individuals"] forState:UIControlStateNormal];
-        [self.mbtnViDoanhNghiep setTitle:[Localization languageSelectedStringForKey:@"financer_viewer_bussiness_wallet"] forState:UIControlStateNormal];
+        [self.mbtnViCaNhan setTitle:[Localization languageSelectedStringForKey:@"dang_nhap_dien_thoai"] forState:UIControlStateNormal];
+        [self.mbtnViDoanhNghiep setTitle:[Localization languageSelectedStringForKey:@"dang_nhap_doanh_nghiep"] forState:UIControlStateNormal];
+        [self.btnTaiKhoanTheDaNang setTitle:[Localization languageSelectedStringForKey:@"dang_nhap_the_da_nang"] forState:UIControlStateNormal];
     });
 }
 
@@ -199,10 +200,12 @@ static int const KIEU_KET_NOI_GOOGLE = 2;
         {
             _mtfMaDoanhNghiep.text = sMaDoanhNghiepCu;
         }
+        [_mtfMaDoanhNghiep setHidden:NO];
     }
     else
     {
         _mtfMaDoanhNghiep.text = @"";
+        [_mtfMaDoanhNghiep setHidden:YES];
     }
 }
 
@@ -215,15 +218,20 @@ static int const KIEU_KET_NOI_GOOGLE = 2;
     
     _mViewChuaNutLuaChonVi.layer.masksToBounds = YES;
     _mViewChuaNutLuaChonVi.layer.cornerRadius = 4.0f;
-    [_mbtnViCaNhan setBackgroundImage:[UIImage imageNamed:@"login_tabactive"] forState:UIControlStateSelected];
-    [_mbtnViCaNhan setBackgroundImage:[UIImage imageNamed:@"login_tabthuong"] forState:UIControlStateNormal];
-    [_mbtnViCaNhan setTitleColor:[UIColor blueColor] forState:UIControlStateSelected];
-    [_mbtnViCaNhan setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-
-    [_mbtnViDoanhNghiep setBackgroundImage:[UIImage imageNamed:@"login_tabactive"] forState:UIControlStateSelected];
-    [_mbtnViDoanhNghiep setBackgroundImage:[UIImage imageNamed:@"login_tabthuong"] forState:UIControlStateNormal];
-    [_mbtnViDoanhNghiep setTitleColor:[UIColor blueColor] forState:UIControlStateSelected];
-    [_mbtnViDoanhNghiep setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    
+    [_mbtnViCaNhan.titleLabel setTextAlignment:NSTextAlignmentCenter];
+    [_mbtnViDoanhNghiep.titleLabel setTextAlignment:NSTextAlignmentCenter];
+    [_btnTaiKhoanTheDaNang.titleLabel setTextAlignment:NSTextAlignmentCenter];
+    
+//    [_mbtnViCaNhan setBackgroundImage:[UIImage imageNamed:@"login_tabactive"] forState:UIControlStateSelected];
+//    [_mbtnViCaNhan setBackgroundImage:[UIImage imageNamed:@"login_tabthuong"] forState:UIControlStateNormal];
+//    [_mbtnViCaNhan setTitleColor:[UIColor blueColor] forState:UIControlStateSelected];
+//    [_mbtnViCaNhan setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+//
+//    [_mbtnViDoanhNghiep setBackgroundImage:[UIImage imageNamed:@"login_tabactive"] forState:UIControlStateSelected];
+//    [_mbtnViDoanhNghiep setBackgroundImage:[UIImage imageNamed:@"login_tabthuong"] forState:UIControlStateNormal];
+//    [_mbtnViDoanhNghiep setTitleColor:[UIColor blueColor] forState:UIControlStateSelected];
+//    [_mbtnViDoanhNghiep setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
 
     [self khoiTaoTextField];
     NSString *sIDcu = [DucNT_LuuRMS layThongTinDangNhap:KEY_LAST_PHONE_LOGIN_ID];
@@ -235,6 +243,9 @@ static int const KIEU_KET_NOI_GOOGLE = 2;
     if(nKieuDangNhap == KIEU_DOANH_NGHIEP)
     {
         [self suKienChonViDoanhNghiep:_mbtnViDoanhNghiep];
+    }
+    else if (nKieuDangNhap == KIEU_THE_DA_NANG) {
+        [self suKienChonTaiKhoanTheDaNang:_btnTaiKhoanTheDaNang];
     }
     else
     {
@@ -295,29 +306,9 @@ static int const KIEU_KET_NOI_GOOGLE = 2;
 - (IBAction)suKienChonViCaNhan:(id)sender {
     if(!_mbtnViCaNhan.selected)
     {
-        [self.mViewChuaNutLuaChonVi bringSubviewToFront:_mbtnViCaNhan];
-        _mtfMaDoanhNghiep.hidden = YES; 
-        _btnTaoDoanhNghiep.hidden = YES;
-        _mbtnViCaNhan.selected = YES;
-        _mbtnViDoanhNghiep.selected = NO;
-
-        CGRect rectSoVi = self.edtMainInfo.frame;
-        CGRect rectPass = self.edtPass.frame;
-        CGRect rectMaDoanhNghiep = self.mtfMaDoanhNghiep.frame;
-        CGRect rectViewDN = self.viewDangNhap.frame;
-        CGRect rectViewButton = self.viewChuaButton.frame;
-
-        rectSoVi.origin.y = rectMaDoanhNghiep.origin.y;
-        rectPass.origin.y = rectSoVi.origin.y + rectSoVi.size.height + 8;
-        rectViewDN.size.height = rectPass.origin.y + rectPass.size.height
-        + 10;
-        rectViewButton.origin.y = rectViewDN.origin.y + rectViewDN.size.height + 8;
-
-        self.edtMainInfo.frame = rectSoVi;
-        self.edtPass.frame = rectPass;
-        self.viewDangNhap.frame = rectViewDN;
-        self.viewChuaButton.frame = rectViewButton;
-
+        [_mbtnViCaNhan setBackgroundColor:[UIColor colorWithRed:32.0/255.0 green:201.0/255.0 blue:147.0/255.0 alpha:1]];
+        [_mbtnViDoanhNghiep setBackgroundColor:[UIColor lightGrayColor]];
+        [_btnTaiKhoanTheDaNang setBackgroundColor:[UIColor lightGrayColor]];
         [DucNT_LuuRMS luuThongTinDangNhap:KEY_HIEN_THI_VI value:[NSString stringWithFormat:@"%d", KIEU_CA_NHAN]];
         [self khoiTaoGiaoDienDangNhap];
     }
@@ -326,32 +317,24 @@ static int const KIEU_KET_NOI_GOOGLE = 2;
 - (IBAction)suKienChonViDoanhNghiep:(id)sender {
     if(!_mbtnViDoanhNghiep.selected)
     {
-        [self.mViewChuaNutLuaChonVi bringSubviewToFront:_mbtnViDoanhNghiep];
-        _mtfMaDoanhNghiep.hidden = NO;
-        _btnTaoDoanhNghiep.hidden = NO;
-        _mbtnViDoanhNghiep.selected = YES;
-        _mbtnViCaNhan.selected = NO;
-        CGRect rectSoVi = self.edtMainInfo.frame;
-        CGRect rectPass = self.edtPass.frame;
-        CGRect rectMaDoanhNghiep = self.mtfMaDoanhNghiep.frame;
-        CGRect rectViewDN = self.viewDangNhap.frame;
-        CGRect rectViewButton = self.viewChuaButton.frame;
-
-        rectSoVi.origin.y = rectMaDoanhNghiep.origin.y + rectMaDoanhNghiep.size.height + 8;
-        rectPass.origin.y = rectSoVi.origin.y + rectSoVi.size.height + 8;
-        rectViewDN.size.height = rectPass.origin.y + rectPass.size.height
-        + 10;
-        rectViewButton.origin.y = rectViewDN.origin.y + rectViewDN.size.height + 8;
-
-        self.edtMainInfo.frame = rectSoVi;
-        self.edtPass.frame = rectPass;
-        self.viewDangNhap.frame = rectViewDN;
-        self.viewChuaButton.frame = rectViewButton;
-
+        [_mbtnViDoanhNghiep setBackgroundColor:[UIColor colorWithRed:32.0/255.0 green:201.0/255.0 blue:147.0/255.0 alpha:1]];
+        [_mbtnViCaNhan setBackgroundColor:[UIColor lightGrayColor]];
+        [_btnTaiKhoanTheDaNang setBackgroundColor:[UIColor lightGrayColor]];
         [DucNT_LuuRMS luuThongTinDangNhap:KEY_HIEN_THI_VI value:[NSString stringWithFormat:@"%d", KIEU_DOANH_NGHIEP]];
         [self khoiTaoGiaoDienDangNhap];
     }
 }
+
+- (IBAction)suKienChonTaiKhoanTheDaNang:(id)sender {
+    if (!_btnTaiKhoanTheDaNang.selected) {
+        [_btnTaiKhoanTheDaNang setBackgroundColor:[UIColor colorWithRed:32.0/255.0 green:201.0/255.0 blue:147.0/255.0 alpha:1]];
+        [_mbtnViCaNhan setBackgroundColor:[UIColor lightGrayColor]];
+        [_mbtnViDoanhNghiep setBackgroundColor:[UIColor lightGrayColor]];
+        [DucNT_LuuRMS luuThongTinDangNhap:KEY_HIEN_THI_VI value:[NSString stringWithFormat:@"%d", KIEU_THE_DA_NANG]];
+        [self khoiTaoGiaoDienDangNhap];
+    }
+}
+
 
 - (void)hienThiThongBaoDienMatKhau
 {
@@ -864,6 +847,10 @@ static int const KIEU_KET_NOI_GOOGLE = 2;
 
 -(void)khoiTaoTextField
 {
+    [edtPass setBackgroundImage:[Common stretchImage:@"text-field-bg-white"] forState:UIControlStateNormal];
+    [edtMainInfo setBackgroundImage:[Common stretchImage:@"text-field-bg-white"] forState:UIControlStateNormal];
+    [_mtfMaDoanhNghiep setBackgroundImage:[Common stretchImage:@"text-field-bg-white"] forState:UIControlStateNormal];
+    
     edtPass.max_length = 20;
     [edtPass setTextError:[@"TRUONG_MAT_KHAU_KHONG_DUOC_DE_TRONG" localizableString]
                   forType:ExTextFieldTypeEmpty];
@@ -878,7 +865,6 @@ static int const KIEU_KET_NOI_GOOGLE = 2;
     
     [self setupTextField:_mtfMaDoanhNghiep icon:@"dnicon"];
 
-//    edtMainInfo.placeholder = [@"so_vi" localizableString];
     edtMainInfo.placeholder = @" Số điện thoại";
     [edtMainInfo setTextError:[@"SO_VI_KHONG_DUOC_DE_TRONG" localizableString]
                       forType:ExTextFieldTypeEmpty];
@@ -907,8 +893,8 @@ static int const KIEU_KET_NOI_GOOGLE = 2;
     tf.leftView = imgv;
     tf.leftViewMode = UITextFieldViewModeAlways;
     tf.edgeInsets = UIEdgeInsetsMake(0, 20, 0, 0);
-    [tf setBackgroundImage:[Common stretchImage:@"login_txt_bg"] forState:UIControlStateNormal];
-    [tf setBackgroundImage:[Common stretchImage:@"login_txt_bg"] forState:UIControlStateHighlighted];
+//    [tf setBackgroundImage:[Common stretchImage:@"login_txt_bg"] forState:UIControlStateNormal];
+//    [tf setBackgroundImage:[Common stretchImage:@"login_txt_bg"] forState:UIControlStateHighlighted];
 }
 
 #pragma mark - xu ly su kien
@@ -1009,8 +995,10 @@ NSInteger static compareViewsByOrigin(id sp1, id sp2, void *context)
     [_viewChuaButton release];
     [_imgVimass release];
     [_lblPhienBan release];
+    [_btnTaiKhoanTheDaNang release];
     [super dealloc];
 }
+
 - (void)viewDidUnload {
     [self setEdtMainInfo:nil];
     [self setEdtPass:nil];

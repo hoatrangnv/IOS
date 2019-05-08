@@ -1420,3 +1420,6 @@
 "du_km" = "Dư KM";
 "ma_khuyen_mai_vnpay" = "Mã khuyến mãi VNPAY";
 "diem_giao_dich_vnpay" = "Điểm giao dịch VNPAY";
+"dang_nhap_doanh_nghiep" = "Tài khoản doanh nghiệp";
+"dang_nhap_dien_thoai" = "Tài khoản điện thoại";
+"dang_nhap_the_da_nang" = "Tài khoản thẻ đa năng";

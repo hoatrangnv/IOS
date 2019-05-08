@@ -211,21 +211,21 @@
     NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
     BOOL isWifi = YES;
     NetworkStatus status = [reachability currentReachabilityStatus];
-
-    if(status == NotReachable)
-    {
-        //No internet
-    }
-    else if (status == ReachableViaWiFi)
-    {
-        isWifi = YES;
-        [GiaoDichMang layDanhSachQuangCao:self];
-    }
-    else if (status == ReachableViaWWAN)
-    {
-        isWifi = NO;
-        [GiaoDichMang layDanhSachQuangCao3G:self];
-    }
+    [GiaoDichMang layDanhSachQuangCao:self];
+//    if(status == NotReachable)
+//    {
+//        //No internet
+//    }
+//    else if (status == ReachableViaWiFi)
+//    {
+//        isWifi = YES;
+//        [GiaoDichMang layDanhSachQuangCao:self];
+//    }
+//    else if (status == ReachableViaWWAN)
+//    {
+//        isWifi = NO;
+//        [GiaoDichMang layDanhSachQuangCao3G:self];
+//    }
     [user setBool:isWifi forKey:@"QUANG_CAO_WIFI"];
     [user synchronize];
 }
@@ -279,6 +279,14 @@
         [self ketNoiQuangCao];
     }
 }
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    if (headerView) {
+        [headerView tamDungQuangCao];
+    }
+}
+
 -(void)tapVicuatoi:(UITapGestureRecognizer*)gesture{
 //    [self doBack:nil];
 //    [[NSNotificationCenter defaultCenter] postNotificationName:@"ClickVicuatoi" object:nil];
@@ -412,10 +420,9 @@
         }
     }
     else if ([sDinhDanhKetNoi isEqualToString:DINH_DANH_KET_NOI_LAY_QUANG_CAO]) {
-        NSString *value = [[NSUserDefaults standardUserDefaults] objectForKey:@"tamnv_hienthi"];
-        NSLog(@"%s - %s : ==========> value : %@", __FILE__, __FUNCTION__, value);
-        NSLog(@"%s - %s : ==========> value : %@", __FILE__, __FUNCTION__, ketQua);
-
+//        NSString *value = [[NSUserDefaults standardUserDefaults] objectForKey:@"tamnv_hienthi"];
+//        NSLog(@"%s - %s : ==========> value : %@", __FILE__, __FUNCTION__, value);
+//        NSLog(@"%s - %s : ==========> value : %@", __FILE__, __FUNCTION__, ketQua);
         NSArray *dictResult = (NSArray *)ketQua;
         NSString *sQC = [dictResult JSONString];
         NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
@@ -425,10 +432,10 @@
 
         NSMutableArray *arrQC = [[NSMutableArray alloc] init];
         for (NSDictionary *dicTemp in dictResult) {
-
             int nVMApp = [[dicTemp objectForKey:@"VMApp"] intValue];
             NSString *nameImage = (NSString *)[dicTemp objectForKey:@"nameImage"];
             if (nVMApp == 1 && ![nameImage containsString:@"mua mã thẻ"] && ![nameImage containsString:@"FPT"]) {
+                NSLog(@"%s : ====> nameImage : %@",__FUNCTION__, (NSString *)[dicTemp objectForKey:@"nameSave"]);
                 [arrQC addObject:dicTemp];
             }
         }

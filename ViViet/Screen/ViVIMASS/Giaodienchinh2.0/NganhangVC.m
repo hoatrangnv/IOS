@@ -43,9 +43,8 @@
       @{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_cmnd"], @"image":@"icon_grid_den_cmnd"},
       @{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_wallet_saving"], @"image":@"icon_grid_guitietkiem"},
       @{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_tra_tien_vay"], @"image":@"icon_grid_naptientuthe"},
-      @{@"name":[Localization languageSelectedStringForKey:@"diem_giao_dich"], @"image":@"ic_diem_giao_dich"},
-      @{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_bussiness_transaction_limit"], @"image":@"ic_vicuatoi_hanmuc"}
-      ];
+      @{@"name":[Localization languageSelectedStringForKey:@"diem_giao_dich"], @"image":@"ic_diem_giao_dich"}, @{@"name":[@"register_token_hint_token" localizableString], @"image":@"ic_vicuatoi_soft_token"}];
+//    @{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_bussiness_transaction_limit"], @"image":@"ic_vicuatoi_hanmuc"}
 }
 
 - (void)didReceiveMemoryWarning {

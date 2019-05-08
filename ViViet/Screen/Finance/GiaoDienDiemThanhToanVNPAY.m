@@ -9,15 +9,18 @@
 #import "VNPAYDienDiemCell.h"
 #import "ItemInfoDiaDiem.h"
 #import <CoreLocation/CoreLocation.h>
+#import "SVPullToRefresh.h"
 
 @interface GiaoDienDiemThanhToanVNPAY () <UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate> {
     CLLocationManager *locationManager;
     NSMutableArray *arrInfoDiaDiem;
+    NSMutableArray *arrDiaDiemQR;
     int nOption;
     int rowSelectedTinhThanh;
     int offset;
     int limit;
     CLLocation *mCurrentLocation;
+    bool bPullToRefresh;
 }
 
 @end
@@ -26,6 +29,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.title = [@"diem_giao_dich_vnpay" localizableString];
     nOption = 0;
     rowSelectedTinhThanh = 0;
     offset = 0;
@@ -33,6 +37,31 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"VNPAYDienDiemCell" bundle:nil] forCellReuseIdentifier:@"VNPAYDienDiemCell"];
     [self layDanhSachTinhThanh];
     [self layDiaDiemHienTai];
+    
+    [self.tableView addInfiniteScrollingWithActionHandler:^{
+        if (!bPullToRefresh) {
+            bPullToRefresh = YES;
+            [self pullToRefresh];
+            
+        }
+    }];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(suKienChonTitleDiaDiem:)];
+    [tap setNumberOfTapsRequired:1];
+    [self.lblTitle addGestureRecognizer:tap];
+    self.lblTitle.userInteractionEnabled = YES;
+}
+
+- (void)suKienChonTitleDiaDiem:(UITapGestureRecognizer *)tapGesture {
+    nOption = 0;
+    [arrDiaDiemQR removeAllObjects];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.tableView reloadData];
+    });
+}
+
+- (void)pullToRefresh{
+    offset += (int)arrDiaDiemQR.count;
+    [self timDiaDiem];
 }
 
 - (void) layDiaDiemHienTai{
@@ -94,6 +123,10 @@
 }
 
 - (IBAction)suKienChonTimDiaDiem:(id)sender {
+    nOption = 1;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.tableView reloadData];
+    });
     [self timDiaDiem];
 }
 
@@ -103,6 +136,7 @@
         itemGanDay.latude = mCurrentLocation.coordinate.latitude;
         itemGanDay.longtude = mCurrentLocation.coordinate.longitude;
     }
+    self.lblTitle.text = itemGanDay.ten;
     NSDictionary *dictPost = @{
                                @"km":[NSNumber numberWithDouble:[self.tfKhoangCach.text doubleValue]],
                                @"lat":[NSNumber numberWithDouble:itemGanDay.latude],
@@ -119,14 +153,23 @@
 }
 
 - (void)xuLyKetNoiThanhCong:(NSString *)sDinhDanhKetNoi thongBao:(NSString *)sThongBao ketQua:(id)ketQua {
+    bPullToRefresh = NO;
     if ([sDinhDanhKetNoi isEqualToString:@"LAY_DIA_DIEM_VNPAY"]) {
         [self anLoading];
-    
+        NSArray *arrTemp = (NSArray *)ketQua;
+        if (!arrDiaDiemQR) {
+            arrDiaDiemQR = [[NSMutableArray alloc] init];
+        }
+        [arrDiaDiemQR addObjectsFromArray:arrTemp];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView reloadData];
+        });
     }
 }
 
 - (void)xuLyKetNoiThatBai:(NSString*)sDinhDanhKetNoi thongBao:(NSString*)sThongBao ketQua:(id)ketQua
 {
+    bPullToRefresh = NO;
     [self anLoading];
     [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:sThongBao];
 }
@@ -135,7 +178,7 @@
     if (nOption == 0) {
         return arrInfoDiaDiem != nil ? arrInfoDiaDiem.count : 0;
     }
-    return 10;
+    return arrDiaDiemQR != nil ? arrDiaDiemQR.count : 0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -157,13 +200,28 @@
         return cell;
     } else {
         VNPAYDienDiemCell *cell = (VNPAYDienDiemCell *)[tableView dequeueReusableCellWithIdentifier:@"VNPAYDienDiemCell" forIndexPath:indexPath];
+        NSDictionary *item = [arrDiaDiemQR objectAtIndex:indexPath.row];
+        cell.lblTitle.text = [item valueForKey:@"diemGiaoDich"];
+        cell.lblDiaChi.text = [item valueForKey:@"diaChi"];
+        cell.lblKhoangCach.text = [NSString stringWithFormat:@"%.2f km", [[item valueForKey:@"distance"] doubleValue]];
         return cell;
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (nOption == 0) {
+        nOption = 1;
+        [tableView reloadData];
+        rowSelectedTinhThanh = (int)indexPath.row;
+        [arrDiaDiemQR removeAllObjects];
+        [self timDiaDiem];
     }
 }
 
 - (void)dealloc {
     [_tableView release];
     [_tfKhoangCach release];
+    [_lblTitle release];
     [super dealloc];
 }
 

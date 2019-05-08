@@ -53,6 +53,8 @@
 #import "Giaodienlienket1ViewController.h"
 #import "GiaoDienThanhToanQRVNPay.h"
 #import "GiaoDienDiemThanhToanVNPAY.h"
+#import "PKIViewController.h"
+
 @interface HomeCenterViewController ()<UIActionSheetDelegate, QRCodeReaderDelegate,RowSelectDelegate,ViewNavigationGiaoDienChinhDelegate>{
     ViewNavigationGiaoDienChinh *mViewNavigationGiaoDienChinh;
     NSString *keyPin;
@@ -149,15 +151,20 @@
         }
     }
     
-    [self.btnNganHang setTitle:[Localization languageSelectedStringForKey:@"label_bank"] forState:UIControlStateNormal];
-    [self.btnViDienTu setTitle:[Localization languageSelectedStringForKey:@"vi_dien_tu"] forState:UIControlStateNormal];
-    [self.btnViCuaToi setTitle:[Localization languageSelectedStringForKey:@"vi_cua_toi"] forState:UIControlStateNormal];
+//    [self.btnNganHang setTitle:[Localization languageSelectedStringForKey:@"label_bank"] forState:UIControlStateNormal];
+//    [self.btnViDienTu setTitle:[Localization languageSelectedStringForKey:@"vi_dien_tu"] forState:UIControlStateNormal];
+//    [self.btnViCuaToi setTitle:[Localization languageSelectedStringForKey:@"vi_cua_toi"] forState:UIControlStateNormal];
 }
 - (void)viewDidAppear:(BOOL)animated{
     
     [self xuLyGiaoDienKhiVaoApp];
 }
+
 -(void)tapNganHang:(UITapGestureRecognizer*)gesture{
+    [self xuLyChonTabNganHang];
+}
+
+- (void)xuLyChonTabNganHang {
     [self resetTab];
     app.selectedTab = 0;
     app.selectedDienThoaiVC = 0;
@@ -167,6 +174,7 @@
     self.vQR.backgroundColor = [UIColor colorWithRed:59/255.0 green:164/255.0 blue:168/255.0 alpha:1.0];
     [self displayContentController:self.nganhangVC];
 }
+
 -(void)tapViDienTu:(UITapGestureRecognizer*)gesture{
     NSLog(@"%s - click vi dien tu : %d", __FUNCTION__, app.selectedTab);
     [self resetTab];
@@ -514,8 +522,9 @@
 
 - (IBAction)suKienBamNutHome:(UIButton *)sender
 {
-    [self resetTab];
-    [self displayContentController:self.dienthoaiVC];
+    [self xuLyChonTabNganHang];
+//    [self resetTab];
+//    [self displayContentController:self.dienthoaiVC];
 }
 
 - (void)xuLySuKienBamNutQR{
@@ -863,22 +872,17 @@
                 break;
             case 9:
             {
-//                HanMucGiaoDichViewController *vc = [[HanMucGiaoDichViewController alloc] initWithNibName:@"HanMucGiaoDichViewController" bundle:nil];
-//                [self.navigationController pushViewController:vc animated:YES];
-//                [vc release];
-                if([[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_STATE] boolValue])
+                if([self.mThongTinTaiKhoanVi.nIsToken intValue] != 0)
                 {
-                    HanMucMoiViewController *vc = [[HanMucMoiViewController alloc] initWithNibName:@"HanMucMoiViewController" bundle:nil];
-                    [self.navigationController pushViewController:vc animated:YES];
-                    [vc release];
+                    DucNT_HienThiTokenViewController *hienThiTokenViewController = [[DucNT_HienThiTokenViewController alloc] initWithNibName:@"DucNT_HienThiTokenViewController" bundle:nil];
+                    [self.navigationController pushViewController:hienThiTokenViewController animated:YES];
+                    [hienThiTokenViewController release];
                 }
                 else
                 {
-                    DucNT_LoginSceen *loginSceen = [[DucNT_LoginSceen alloc] initWithNibName:@"DucNT_LoginSceen" bundle:nil];
-                    loginSceen.sTenViewController = @"DucNT_HienThiTokenViewController";
-                    loginSceen.sKieuChuyenGiaoDien = @"push";
-                    [self.navigationController pushViewController:loginSceen animated:YES];
-                    [loginSceen release];
+                    DucNT_DangKyToken *vc = [[DucNT_DangKyToken alloc] init];
+                    [self.navigationController pushViewController:vc animated:YES];
+                    [vc release];
                 }
             }
                 break;
@@ -895,11 +899,6 @@
             [vc release];
             return;
         }
-        if (row == 5) {
-            // ZALO PAY
-            [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Chức năng đang được phát triển"];
-            return;
-        }
         ChuyenTienDenViMomoViewController *vc = [[ChuyenTienDenViMomoViewController alloc] initWithNibName:@"ChuyenTienDenViMomoViewController" bundle:nil];
         if (row == 1) {
             //air pay
@@ -914,18 +913,18 @@
         else if (row == 4) {
             vc.nType = 3;//Paypoo
         }
-        else if (row == 6) {
+        else if (row == 5) {
             vc.nType = 4;//vimo
-        }else if (row == 7) {
+        }else if (row == 6) {
             vc.nType = 6;//vi viet
-        }else if (row == 8) {
+        }else if (row == 7) {
             vc.nType = 7;//vnpt pay
         }
-        else if (row == 9) {
+        else if (row == 8) {
             // VTC PAY
             vc.nType = 5;
         }
-        else if (row == 10) {
+        else if (row == 9) {
             vc.nType = 9;
         }
         [self.navigationController pushViewController:vc animated:YES];
@@ -964,26 +963,24 @@
             }
                 break;
             case 1:{
-                // lien ket vi
-//                GiaoDienTaiKhoanLienKet *vc = [[GiaoDienTaiKhoanLienKet alloc] initWithNibName:@"GiaoDienTaiKhoanLienKet" bundle:nil];
-//                [self.navigationController pushViewController:vc animated:YES];
-//                [vc release];
-                Giaodienlienket1ViewController * vc = [[Giaodienlienket1ViewController alloc] initWithNibName:@"Giaodienlienket1ViewController" bundle:nil];
+                // chuyen tien den vi vimass
+                DucNT_ChuyenTienViDenViViewController *vc = [[DucNT_ChuyenTienViDenViViewController alloc]initWithNibName:@"DucNT_ChuyenTienViDenViViewController" bundle:nil];
                 [self.navigationController pushViewController:vc animated:YES];
                 [vc release];
             }
                 break;
             case 2:{
-                // chon vi tk an sau dt
-                ChonAnSauDienThoaiViewController * vc = [[ChonAnSauDienThoaiViewController alloc] initWithNibName:@"ChonAnSauDienThoaiViewController" bundle:nil];
+                Giaodienlienket1ViewController * vc = [[Giaodienlienket1ViewController alloc] initWithNibName:@"Giaodienlienket1ViewController" bundle:nil];
                 [self.navigationController pushViewController:vc animated:YES];
                 [vc release];
             }
                 break;
             case 3:{
-                // chuyen tien dt
-                [self resetTab];
-                [self displayContentController:self.dienthoaiVC];
+                ChonAnSauDienThoaiViewController * vc = [[ChonAnSauDienThoaiViewController alloc] initWithNibName:@"ChonAnSauDienThoaiViewController" bundle:nil];
+                [self.navigationController pushViewController:vc animated:YES];
+                [vc release];
+//                [self resetTab];
+//                [self displayContentController:self.dienthoaiVC];
             }
                 break;
             case 4:{
@@ -1009,13 +1006,6 @@
             }
                 break;
             case 7:{
-                // tang qua
-                DanhSachQuaTangViewController *danhSachQuaTangViewController = [[DanhSachQuaTangViewController alloc] initWithNibName:@"DanhSachQuaTangViewController" bundle:nil];
-                [self.navigationController pushViewController:danhSachQuaTangViewController animated:YES];
-                [danhSachQuaTangViewController release];
-            }
-                break;
-            case 8:{
                 // thay doi thogn tin
                 int nKieuDangNhap = [[DucNT_LuuRMS layThongTinDangNhap:KEY_HIEN_THI_VI] intValue];
                 NSLog(@"%s - %s : nKieuDangNhap : %d", __FILE__, __FUNCTION__,nKieuDangNhap);
@@ -1033,22 +1023,6 @@
             }
                 break;
             case 9:{
-                // softonken
-                if([self.mThongTinTaiKhoanVi.nIsToken intValue] != 0)
-                {
-                    DucNT_HienThiTokenViewController *hienThiTokenViewController = [[DucNT_HienThiTokenViewController alloc] initWithNibName:@"DucNT_HienThiTokenViewController" bundle:nil];
-                    [self.navigationController pushViewController:hienThiTokenViewController animated:YES];
-                    [hienThiTokenViewController release];
-                }
-                else
-                {
-                    DucNT_DangKyToken *vc = [[DucNT_DangKyToken alloc] init];
-                    [self.navigationController pushViewController:vc animated:YES];
-                    [vc release];
-                }
-            }
-                break;
-            case 10:{
                 // han muc
                 if([[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_STATE] boolValue])
                 {
@@ -1064,7 +1038,13 @@
                     [self.navigationController pushViewController:loginSceen animated:YES];
                     [loginSceen release];
                 }
+            }
+                break;
+            case 8:{
                 
+                PKIViewController *vc = [[PKIViewController alloc] initWithNibName:@"PKIViewController" bundle:nil];
+                [self.navigationController pushViewController:vc animated:YES];
+                [vc release];
 //                UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"Thông báo" message:@"Chức năng đang phát triển" preferredStyle:UIAlertControllerStyleAlert];
 //                [self presentViewController:alertVC animated:YES completion:nil];
             }

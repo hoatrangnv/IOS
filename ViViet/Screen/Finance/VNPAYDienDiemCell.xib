@@ -19,15 +19,15 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="69.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nOz-JS-8dh">
-                        <rect key="frame" x="8" y="19" width="32" height="32"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_dia_diem_vnpay" translatesAutoresizingMaskIntoConstraints="NO" id="nOz-JS-8dh">
+                        <rect key="frame" x="8" y="21" width="28" height="28"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="nOz-JS-8dh" secondAttribute="height" id="dcv-0m-CXV"/>
-                            <constraint firstAttribute="width" constant="32" id="hc3-iE-S8i"/>
+                            <constraint firstAttribute="width" constant="28" id="hc3-iE-S8i"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1H1-Lh-K1R">
-                        <rect key="frame" x="48" y="5" width="214" height="21"/>
+                        <rect key="frame" x="44" y="5" width="218" height="21"/>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                         <color key="textColor" red="0.18431372549019609" green="0.5725490196078431" blue="0.78823529411764703" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -42,7 +42,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lKO-uC-PmU">
-                        <rect key="frame" x="48" y="31" width="214" height="35.5"/>
+                        <rect key="frame" x="44" y="31" width="218" height="35.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -63,7 +63,15 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="lblDiaChi" destination="lKO-uC-PmU" id="uCg-rv-f44"/>
+                <outlet property="lblKhoangCach" destination="PLi-fT-kJm" id="x9C-wd-1gU"/>
+                <outlet property="lblTitle" destination="1H1-Lh-K1R" id="eCf-4c-kJb"/>
+            </connections>
             <point key="canvasLocation" x="-143.47826086956522" y="117.85714285714285"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="ic_dia_diem_vnpay" width="80" height="103"/>
+    </resources>
 </document>
