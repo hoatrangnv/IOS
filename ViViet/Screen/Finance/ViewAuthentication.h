@@ -25,6 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (retain, nonatomic) IBOutlet UIView *viewNhapToken;
 @property (retain, nonatomic) IBOutlet UIButton *btnThucHien;
 @property (retain, nonatomic) IBOutlet ExTextField *tfToken;
+@property (retain, nonatomic) IBOutlet UILabel *lblXacThuc;
 
 - (IBAction)suKienChonSDSecure:(id)sender;
 - (IBAction)suKienChonToken:(id)sender;

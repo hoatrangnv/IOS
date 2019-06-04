@@ -7,7 +7,7 @@
 
 #import "QRSearchViewController.h"
 #import "CommonUtils.h"
-@interface QRSearchViewController ()<UITextFieldDelegate>
+@interface QRSearchViewController ()<UITextFieldDelegate, UIImagePickerControllerDelegate>
 
 @end
 
@@ -41,6 +41,12 @@
                                                                           action:@selector(dismissKeyboard)];
     
     [self.view addGestureRecognizer:tap];
+    
+    if (_nType == 0) {
+        [_txtSearch setHidden:YES];
+        [_btnTraCuu setHidden:YES];
+        [_lblTitle setHidden:NO];
+    }
 
 }
 
@@ -109,6 +115,8 @@
     
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 
+    [_btnTraCuu release];
+    [_lblTitle release];
     [super dealloc];
 }
 - (IBAction)doSearch:(id)sender {
@@ -121,6 +129,14 @@
 
 - (IBAction)doChooseLibrary:(id)sender {
 }
+
+- (IBAction)suKienChonLayAnh:(id)sender {
+    UIImagePickerController *vc = [[UIImagePickerController alloc] init];
+    vc.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    vc.delegate = self;
+    [self presentViewController:vc animated:YES completion:nil];
+}
+
 - (IBAction)doClose:(id)sender {
     [_codeReader stopScanning];
     
@@ -132,6 +148,53 @@
         [_delegate readerDidCancel:self];
     }
 }
+
+#pragma mark - UIImagePickerController delegate
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<UIImagePickerControllerInfoKey,id> *)info {
+    UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
+    //Or you can get the image url from AssetsLibrary
+//    NSURL *path = [info valueForKey:UIImagePickerControllerReferenceURL];
+    NSLog(@"%s - lay anh qr thanh cong", __FUNCTION__);
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    
+    NSArray *features = [self detectQRCode:image];
+    if (features != nil && features.count > 0) {
+        for (CIQRCodeFeature* qrFeature in features) {
+            NSLog(@"QRFeature.messageString : %@ ", qrFeature.messageString);
+            if (self.delegate != nil) {
+                [self.delegate reader:self didScanResultSearch:qrFeature.messageString];
+            }
+            break;
+        }
+    }
+}
+
+-(NSArray *)detectQRCode:(UIImage *) image
+{
+    CIImage* ciImage = [[CIImage alloc] initWithImage:image]; // assuming underlying data is a CIImage
+    //CIImage* ciImage = [CIImage initWithCGImage: UIImage.CGImage]; // to use if the underlying data is a CGImage
+    
+    NSDictionary* options;
+    CIContext* context = [CIContext context];
+    options = @{ CIDetectorAccuracy : CIDetectorAccuracyHigh }; // Slow but thorough
+    //options = @{ CIDetectorAccuracy : CIDetectorAccuracyLow}; // Fast but superficial
+    
+    CIDetector* qrDetector = [CIDetector detectorOfType:CIDetectorTypeQRCode
+                                                context:context
+                                                options:options];
+    if ([[ciImage properties] valueForKey:(NSString*) kCGImagePropertyOrientation] == nil) {
+        options = @{ CIDetectorImageOrientation : @1};
+    } else {
+        options = @{ CIDetectorImageOrientation : [[ciImage properties] valueForKey:(NSString*) kCGImagePropertyOrientation]};
+    }
+    
+    NSArray * features = [qrDetector featuresInImage:ciImage
+                                             options:options];
+    
+    return features;
+}
+
 #pragma mark - Controlling the Reader
 
 - (void)startScanning {

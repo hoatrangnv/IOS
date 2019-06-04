@@ -79,8 +79,11 @@
 #define URL_XAC_NHAN_OTP_SAU_KHI_NAP_TIEN_KIEU_DIRECT [NSString stringWithFormat:@"%@%@", ROOT_URL, @"banknet/directAddMoneyVerifyOTP"]
 
 //URL dang nhap, dang ky
+#define URL_DANG_KY_TAI_KHOAN_THE_VID [NSString stringWithFormat:@"%@%@", ROOT_URL, @"vIdService/dangKy"]
+#define URL_XAC_THUC_TAI_KHOAN_THE_VID [NSString stringWithFormat:@"%@%@", ROOT_URL, @"vIdService/xacThucDangKy"]
 #define URL_DANG_KY_TAI_KHOAN_VI_VIMASS [NSString stringWithFormat:@"%@%@", ROOT_URL, @"account/createNewAcc1"]
 #define URL_DANG_NHAP_TAI_KHOAN_VI_VIMASS [NSString stringWithFormat:@"%@%@", ROOT_URL, @"account/login1"]
+#define URL_DANG_NHAP_THE_DA_NANG [NSString stringWithFormat:@"%@%@", ROOT_URL, @"vIdService/dangNhap"]
 
 //URL mua the tro choi dien tu
 #define URL_MUA_THE_TRO_CHOI_DIEN_TU [NSString stringWithFormat:@"%@%@", ROOT_URL, @"game/buyCard"]
@@ -186,6 +189,20 @@
 #define URL_LAY_THONG_TIN_QR [NSString stringWithFormat:@"%@%@", ROOT_URL, @"QRVietNam/traCuuThongTinQR"]
 #define URL_THANH_TOAN_VNPAY_QR [NSString stringWithFormat:@"%@%@", ROOT_URL, @"QRVietNam/thanhToanVNPayQR"]
 #define URL_TIM_DIA_DIEM_VNPAY_QR [NSString stringWithFormat:@"%@%@", ROOT_URL, @"QRVietNam/traCuuDiemGiaoDichVNPAY"]
+
++ (void)ketNoiConfirmDangKyTheDaNang:(NSString *)dictJSON noiNhanKetQua:(id<DucNT_ServicePostDelegate>)noiNhanKetQua {
+    DucNT_ServicePost *connectPost = [[DucNT_ServicePost alloc] init];
+    [connectPost setDucnt_connectDelegate:noiNhanKetQua];
+    [connectPost connect:URL_XAC_THUC_TAI_KHOAN_THE_VID withContent:dictJSON];
+    [connectPost release];
+}
+
++ (void)ketNoiDangKyTheDaNang:(NSString *)dictJSON noiNhanKetQua:(id<DucNT_ServicePostDelegate>)noiNhanKetQua {
+    DucNT_ServicePost *connectPost = [[DucNT_ServicePost alloc] init];
+    [connectPost setDucnt_connectDelegate:noiNhanKetQua];
+    [connectPost connect:URL_DANG_KY_TAI_KHOAN_THE_VID withContent:dictJSON];
+    [connectPost release];
+}
 
 + (void)ketNoiLayDanhSachDiaDiemVNPAY:(NSString *)dictJSON noiNhanKetQua:(id<DucNT_ServicePostDelegate>)noiNhanKetQua {
     DucNT_ServicePost *connectPost = [[DucNT_ServicePost alloc] init];
@@ -1974,6 +1991,17 @@
     [connect release];
 }
 
++ (void)ketNoiDangNhapTheDaNang:(NSString *)idVID matKhau:(NSString*)sMatKhau noiNhanKetQua:(id<DucNT_ServicePostDelegate>)noiNhanKetQua {
+    NSDictionary *dictPost = @{
+                               @"idVid":idVID,
+                               @"pass":sMatKhau,
+                               @"VMApp" : [NSNumber numberWithInt:VM_APP]
+                               };
+    DucNT_ServicePost *connect = [[DucNT_ServicePost alloc] init];
+    [connect setDucnt_connectDelegate:noiNhanKetQua];
+    [connect connect:URL_DANG_NHAP_THE_DA_NANG withContent:[dictPost JSONString]];
+    [connect release];
+}
 
 + (void)ketNoiXacNhanOTPSauKhiNapTienKieuDirect:(NSString*)sIdOtp
                                             otp:(NSString*)sOtp

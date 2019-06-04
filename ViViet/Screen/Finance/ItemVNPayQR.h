@@ -30,6 +30,8 @@
 @property (nonatomic, strong) NSString *referenceID;
 @property (nonatomic, strong) NSString *expDate;
 @property (nonatomic, assign) int typeQRShow;
+@property (nonatomic, assign) double tyGiaUSD;
+@property (nonatomic, assign) double tyGiaEUR;
 - (id)initWithDict:(NSDictionary*)dict;
 - (void)setData:(NSDictionary *)dict;
 @end

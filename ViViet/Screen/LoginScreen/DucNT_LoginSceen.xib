@@ -46,11 +46,11 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3uj-rD-mF9">
                                     <rect key="frame" x="8" y="8" width="304" height="50"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="2Fx-6a-fax">
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="2Fx-6a-fax">
                                             <rect key="frame" x="0.0" y="0.0" width="304" height="50"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Hw8-qG-AOY">
-                                                    <rect key="frame" x="0.0" y="0.0" width="98" height="50"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="100.5" height="50"/>
                                                     <color key="backgroundColor" red="0.12549019607843137" green="0.78823529411764703" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                     <state key="normal" title="Tài khoản điện thoại">
@@ -62,7 +62,7 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="KvI-KO-x5R">
-                                                    <rect key="frame" x="103" y="0.0" width="98" height="50"/>
+                                                    <rect key="frame" x="101.5" y="0.0" width="101" height="50"/>
                                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                     <state key="normal" title="Tài khoản thẻ đa năng">
@@ -73,7 +73,7 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="ota-RP-dku">
-                                                    <rect key="frame" x="206" y="0.0" width="98" height="50"/>
+                                                    <rect key="frame" x="203.5" y="0.0" width="100.5" height="50"/>
                                                     <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                     <state key="normal" title="Tài khoản doanh nghiệp">
@@ -96,10 +96,10 @@
                                     </constraints>
                                 </view>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="T7t-GQ-eRS">
-                                    <rect key="frame" x="8" y="74" width="224" height="126"/>
+                                    <rect key="frame" x="8" y="74" width="240" height="126"/>
                                     <subviews>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Mã doanh nghiệp" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ucq-jG-fzU" customClass="ExTextField">
-                                            <rect key="frame" x="0.0" y="0.0" width="224" height="40"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="40"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="3hg-uc-8mM"/>
                                             </constraints>
@@ -116,7 +116,7 @@
                                             </connections>
                                         </textField>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="@so_dien_thoai_dd" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jc6-h6-7ge" customClass="ExTextField">
-                                            <rect key="frame" x="0.0" y="43" width="224" height="40"/>
+                                            <rect key="frame" x="0.0" y="43" width="240" height="40"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                             <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="next"/>
@@ -130,7 +130,7 @@
                                             </connections>
                                         </textField>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="@lg - password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HCL-Vg-YVl" customClass="ExTextField">
-                                            <rect key="frame" x="0.0" y="86" width="224" height="40"/>
+                                            <rect key="frame" x="0.0" y="86" width="240" height="40"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                             <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
@@ -150,7 +150,7 @@
                                     </constraints>
                                 </stackView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d17-1K-Qzz">
-                                    <rect key="frame" x="244" y="105" width="64" height="64"/>
+                                    <rect key="frame" x="260" y="113" width="48" height="48"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="d17-1K-Qzz" secondAttribute="height" id="vk5-zK-OiN"/>
@@ -164,7 +164,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ooi-Gb-Sol">
-                                    <rect key="frame" x="8" y="208" width="224" height="48"/>
+                                    <rect key="frame" x="8" y="208" width="240" height="48"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="48" id="b8a-46-pXJ"/>
@@ -254,7 +254,7 @@
                             <constraints>
                                 <constraint firstItem="d17-1K-Qzz" firstAttribute="centerY" secondItem="T7t-GQ-eRS" secondAttribute="centerY" id="0zm-kQ-xbQ"/>
                                 <constraint firstItem="Eg3-jf-N28" firstAttribute="centerX" secondItem="fyu-aI-vz1" secondAttribute="centerX" constant="-32" id="669-Bx-QpP"/>
-                                <constraint firstItem="T7t-GQ-eRS" firstAttribute="width" secondItem="fyu-aI-vz1" secondAttribute="width" multiplier="0.7" id="9rh-yO-UIu"/>
+                                <constraint firstItem="T7t-GQ-eRS" firstAttribute="width" secondItem="fyu-aI-vz1" secondAttribute="width" multiplier="0.75" id="9rh-yO-UIu"/>
                                 <constraint firstItem="T7t-GQ-eRS" firstAttribute="leading" secondItem="fyu-aI-vz1" secondAttribute="leading" constant="8" id="ExQ-WE-mer"/>
                                 <constraint firstItem="3uj-rD-mF9" firstAttribute="leading" secondItem="fyu-aI-vz1" secondAttribute="leading" constant="8" id="HWs-a2-hpN"/>
                                 <constraint firstItem="BuB-oJ-w5F" firstAttribute="centerX" secondItem="fyu-aI-vz1" secondAttribute="centerX" id="JHt-E2-QIq"/>

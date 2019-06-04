@@ -14,6 +14,8 @@
 #define URL_KIEM_TRA_TAI_KHOAN_CO_VI [NSString stringWithFormat:@"%@%@", ROOT_URL, @"account/checkAccount"]
 
 @interface GiaoDichMang : NSObject
++ (void)ketNoiConfirmDangKyTheDaNang:(NSString *)dictJSON noiNhanKetQua:(id<DucNT_ServicePostDelegate>)noiNhanKetQua;
++ (void)ketNoiDangKyTheDaNang:(NSString *)dictJSON noiNhanKetQua:(id<DucNT_ServicePostDelegate>)noiNhanKetQua;
 + (void)ketNoiLayDanhSachDiaDiemVNPAY:(NSString *)dictJSON noiNhanKetQua:(id<DucNT_ServicePostDelegate>)noiNhanKetQua;
 + (void)ketNoiThanhToanVNPayQR:(NSString *)dictJSON noiNhanKetQua:(id<DucNT_ServicePostDelegate>)noiNhanKetQua;
 + (void)ketNoiLayThongTinQR:(NSString *)dictJSON noiNhanKetQua:(id<DucNT_ServicePostDelegate>)noiNhanKetQua;
@@ -444,6 +446,7 @@
                          maDoanhNghiep:(NSString*)sMaDoanhNghiep
                          noiNhanKetQua:(id<DucNT_ServicePostDelegate>)noiNhanKetQua;
 
++ (void)ketNoiDangNhapTheDaNang:(NSString *)idVID matKhau:(NSString*)sMatKhau noiNhanKetQua:(id<DucNT_ServicePostDelegate>)noiNhanKetQua;
 #pragma mark - Mua the tro choi dien tu
 + (void)ketNoiMuaTheTroChoiDienTu:(NSNumber*)nhaCungCap
                            soTien:(double)fSoTien

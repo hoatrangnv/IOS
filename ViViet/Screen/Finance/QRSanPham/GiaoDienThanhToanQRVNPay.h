@@ -13,6 +13,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property (retain, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, retain) ItemVNPayQR *itemQR;
 @property (nonatomic, retain) NSString *sDataQR;
+
+- (IBAction)suKienChonLangViet:(id)sender;
+- (IBAction)suKienChonLangEng:(id)sender;
+- (IBAction)suKienChonLangChina:(id)sender;
+- (IBAction)suKienChonLangRussia:(id)sender;
+- (IBAction)suKienChonLangKorea:(id)sender;
+- (IBAction)suKienChonLangJapan:(id)sender;
+- (IBAction)suKienChonLangGerman:(id)sender;
+
+
+
+
 @end
 
 NS_ASSUME_NONNULL_END

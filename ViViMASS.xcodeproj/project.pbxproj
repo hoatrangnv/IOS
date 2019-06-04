@@ -1607,6 +1607,8 @@
 		C6DCBC401C927FC8002C7801 /* hd_muon_tien.html in Resources */ = {isa = PBXBuildFile; fileRef = C6DCBC3E1C927FC8002C7801 /* hd_muon_tien.html */; };
 		C6DCBC411C927FC8002C7801 /* hd_tang_qua.html in Resources */ = {isa = PBXBuildFile; fileRef = C6DCBC3F1C927FC8002C7801 /* hd_tang_qua.html */; };
 		C6DCBC431C928474002C7801 /* icon_setting_phone_token.png in Resources */ = {isa = PBXBuildFile; fileRef = C6DCBC421C928474002C7801 /* icon_setting_phone_token.png */; };
+		C6EF4AE82296E95E00030D13 /* DangKyTheDaNangViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6EF4AE62296E95E00030D13 /* DangKyTheDaNangViewController.m */; };
+		C6EF4AE92296E95E00030D13 /* DangKyTheDaNangViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6EF4AE72296E95E00030D13 /* DangKyTheDaNangViewController.xib */; };
 		C6F5472B1D179F9C009278CB /* raphimcgvtam.css in Resources */ = {isa = PBXBuildFile; fileRef = C6F5472A1D179F9B009278CB /* raphimcgvtam.css */; };
 		C6F83B201F4A8BEF00B3526E /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6F83B1F1F4A8BEF00B3526E /* FacebookSDK.framework */; };
 		C6F83B221F4A8E1100B3526E /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C6F83B211F4A8E1100B3526E /* libz.tbd */; };
@@ -3751,6 +3753,9 @@
 		C6DCBC3E1C927FC8002C7801 /* hd_muon_tien.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = hd_muon_tien.html; sourceTree = "<group>"; };
 		C6DCBC3F1C927FC8002C7801 /* hd_tang_qua.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = hd_tang_qua.html; sourceTree = "<group>"; };
 		C6DCBC421C928474002C7801 /* icon_setting_phone_token.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_setting_phone_token.png; sourceTree = "<group>"; };
+		C6EF4AE52296E95E00030D13 /* DangKyTheDaNangViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DangKyTheDaNangViewController.h; sourceTree = "<group>"; };
+		C6EF4AE62296E95E00030D13 /* DangKyTheDaNangViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DangKyTheDaNangViewController.m; sourceTree = "<group>"; };
+		C6EF4AE72296E95E00030D13 /* DangKyTheDaNangViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DangKyTheDaNangViewController.xib; sourceTree = "<group>"; };
 		C6F5472A1D179F9B009278CB /* raphimcgvtam.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = raphimcgvtam.css; path = RapPhim/raphimcgvtam.css; sourceTree = "<group>"; };
 		C6F83B1F1F4A8BEF00B3526E /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = libs/FacebookSDK.framework; sourceTree = "<group>"; };
 		C6F83B211F4A8E1100B3526E /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
@@ -5266,6 +5271,9 @@
 				C66368DD1D78398900DC3C54 /* GiaoDienHuongDanDangNhap.h */,
 				C66368DE1D78398900DC3C54 /* GiaoDienHuongDanDangNhap.m */,
 				C66368DF1D78398900DC3C54 /* GiaoDienHuongDanDangNhap.xib */,
+				C6EF4AE52296E95E00030D13 /* DangKyTheDaNangViewController.h */,
+				C6EF4AE62296E95E00030D13 /* DangKyTheDaNangViewController.m */,
+				C6EF4AE72296E95E00030D13 /* DangKyTheDaNangViewController.xib */,
 			);
 			path = LoginScreen;
 			sourceTree = "<group>";
@@ -8320,6 +8328,7 @@
 				0B5F685E216EE50700A0B15A /* ViDienTuVC.xib in Resources */,
 				C6316FC41DB4E9DC0042AEF4 /* baokim.png in Resources */,
 				0BDB5A3A17C3288E00F775AE /* ExWebviewArticle.xib in Resources */,
+				C6EF4AE92296E95E00030D13 /* DangKyTheDaNangViewController.xib in Resources */,
 				C6804E771CE0A5CA004CAEA1 /* Tim32_2@2x.png in Resources */,
 				C6D80F6F1CDB395700BB9DA6 /* ViewThuongDungTietKiem.xib in Resources */,
 				C664B0A21D125C60003B9976 /* phong5_CGVLamSonSquare.txt in Resources */,
@@ -8625,6 +8634,7 @@
 				3EACFC82196C5B48009A0B08 /* DucNT_HienThiTokenViewController.m in Sources */,
 				575B77C415B58392006B30B3 /* RoundAlert.m in Sources */,
 				C68C05181CD9AB5E00BF1A62 /* ViewThuongDungViKhac.m in Sources */,
+				C6EF4AE82296E95E00030D13 /* DangKyTheDaNangViewController.m in Sources */,
 				A39D394D1B297956006861BB /* DoiTuongChiTietGiaoDichChuyenTienDenVi.m in Sources */,
 				A3E2F74D1B53B693003C9A3D /* DoiTuongPhuongXa.m in Sources */,
 				C69DBE501FB0128400232E7A /* QRCodeReader.m in Sources */,

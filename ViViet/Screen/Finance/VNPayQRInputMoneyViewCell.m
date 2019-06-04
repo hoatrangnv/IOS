@@ -15,7 +15,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     isNhapTien = YES;
-    // Initialization code
+    self.accessoryType = UITableViewCellAccessoryNone;
 }
 
 - (void)setIsNhapTien:(BOOL)isNhap {
@@ -36,6 +36,7 @@
 
 - (void)dealloc {
     [_tfSoTien release];
+    [_lblPhi release];
     [super dealloc];
 }
 @end

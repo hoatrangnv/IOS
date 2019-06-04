@@ -18,8 +18,7 @@
 #import "GiaoDienThongTinPhim.h"
 #import "GiaoDienHuongDanDangNhap.h"
 #import "HiNavigationBar.h"
-//#import <FBSDKCoreKit/FBSDKCoreKit.h>
-//#import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import "DangKyTheDaNangViewController.h"
 #import "CommonUtils.h"
 @interface DucNT_LoginSceen () <GPPSignInDelegate>
 {
@@ -27,6 +26,7 @@
     BOOL mDangNhapBangTaiKhoanViMASS;
     LAContext *mLAContext;
     BOOL isFaceId;
+    int nKieuDangNhap;
 }
 
 @property (nonatomic, copy) NSString *mID;
@@ -239,7 +239,8 @@ static int const KIEU_KET_NOI_GOOGLE = 2;
     NSString *sXauHienThi = [Common giauSoTaiKhoanDienThoai:sIDcu];
     edtMainInfo.text = sXauHienThi;
     edtPass.text = @"";
-    int nKieuDangNhap = [[DucNT_LuuRMS layThongTinDangNhap:KEY_HIEN_THI_VI] intValue];
+    int nKieuDangNhapTemp = [[DucNT_LuuRMS layThongTinDangNhap:KEY_HIEN_THI_VI] intValue];
+    nKieuDangNhap = nKieuDangNhapTemp;
     if(nKieuDangNhap == KIEU_DOANH_NGHIEP)
     {
         [self suKienChonViDoanhNghiep:_mbtnViDoanhNghiep];
@@ -306,6 +307,8 @@ static int const KIEU_KET_NOI_GOOGLE = 2;
 - (IBAction)suKienChonViCaNhan:(id)sender {
     if(!_mbtnViCaNhan.selected)
     {
+        [self setupTextField:edtMainInfo icon:@"icon-mobile-login"];
+        nKieuDangNhap = KIEU_CA_NHAN;
         [_mbtnViCaNhan setBackgroundColor:[UIColor colorWithRed:32.0/255.0 green:201.0/255.0 blue:147.0/255.0 alpha:1]];
         [_mbtnViDoanhNghiep setBackgroundColor:[UIColor lightGrayColor]];
         [_btnTaiKhoanTheDaNang setBackgroundColor:[UIColor lightGrayColor]];
@@ -317,6 +320,8 @@ static int const KIEU_KET_NOI_GOOGLE = 2;
 - (IBAction)suKienChonViDoanhNghiep:(id)sender {
     if(!_mbtnViDoanhNghiep.selected)
     {
+        [self setupTextField:edtMainInfo icon:@"icon-mobile-login"];
+        nKieuDangNhap = KIEU_DOANH_NGHIEP;
         [_mbtnViDoanhNghiep setBackgroundColor:[UIColor colorWithRed:32.0/255.0 green:201.0/255.0 blue:147.0/255.0 alpha:1]];
         [_mbtnViCaNhan setBackgroundColor:[UIColor lightGrayColor]];
         [_btnTaiKhoanTheDaNang setBackgroundColor:[UIColor lightGrayColor]];
@@ -327,6 +332,8 @@ static int const KIEU_KET_NOI_GOOGLE = 2;
 
 - (IBAction)suKienChonTaiKhoanTheDaNang:(id)sender {
     if (!_btnTaiKhoanTheDaNang.selected) {
+        [self setupTextField:edtMainInfo icon:@"icon-v-login"];
+        nKieuDangNhap = KIEU_THE_DA_NANG;
         [_btnTaiKhoanTheDaNang setBackgroundColor:[UIColor colorWithRed:32.0/255.0 green:201.0/255.0 blue:147.0/255.0 alpha:1]];
         [_mbtnViCaNhan setBackgroundColor:[UIColor lightGrayColor]];
         [_mbtnViDoanhNghiep setBackgroundColor:[UIColor lightGrayColor]];
@@ -373,10 +380,15 @@ static int const KIEU_KET_NOI_GOOGLE = 2;
         [self hienThiLoading];
         mDangNhapBangTaiKhoanViMASS = YES;
         sDinhDanhKetNoi = DINH_DANH_KET_NOI_DANG_NHAP;
-        [GiaoDichMang ketNoiDangNhapTaiKhoanViViMASS:self.mID
+        if (nKieuDangNhap == KIEU_THE_DA_NANG) {
+            NSLog(@"%s - self.mID : %@", __FUNCTION__, self.mID);
+            [GiaoDichMang ketNoiDangNhapTheDaNang:self.mID matKhau:edtPass.text noiNhanKetQua:self];
+        } else {
+            [GiaoDichMang ketNoiDangNhapTaiKhoanViViMASS:self.mID
                                              matKhau:edtPass.text
                                        maDoanhNghiep:_mtfMaDoanhNghiep.text
                                        noiNhanKetQua:self];
+        }
     }
 }
 
@@ -401,6 +413,12 @@ static int const KIEU_KET_NOI_GOOGLE = 2;
     {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Thông báo" message:@"Chức năng đang được phát triển" delegate:nil cancelButtonTitle:[Localization languageSelectedStringForKey:@"dong"] otherButtonTitles: nil];
         [alert show];
+    }
+    else if (nKieuDangNhap == KIEU_THE_DA_NANG)
+    {
+        DangKyTheDaNangViewController *vc = [[DangKyTheDaNangViewController alloc] initWithNibName:@"DangKyTheDaNangViewController" bundle:nil];
+        [self.navigationController pushViewController:vc animated:YES];
+        [vc release];
     }
     else
     {
@@ -859,11 +877,12 @@ static int const KIEU_KET_NOI_GOOGLE = 2;
                   forType:ExTextFieldTypePassword];
     edtPass.inputAccessoryView = nil;
     
-    [self setupTextField:edtMainInfo icon:@"login_acc_ic"];
+    [self setupTextField:edtMainInfo icon:@"icon-mobile-login"];
     
-    [self setupTextField:edtPass icon:@"login_pwd_ic"];
+//    login_pwd_ic
+    [self setupTextField:edtPass icon:@"icon-lock"];
     
-    [self setupTextField:_mtfMaDoanhNghiep icon:@"dnicon"];
+    [self setupTextField:_mtfMaDoanhNghiep icon:@"icon-d-login"];
 
     edtMainInfo.placeholder = @" Số điện thoại";
     [edtMainInfo setTextError:[@"SO_VI_KHONG_DUOC_DE_TRONG" localizableString]
@@ -889,10 +908,10 @@ static int const KIEU_KET_NOI_GOOGLE = 2;
     UIImage *img = [UIImage imageNamed:icon];
     UIImageView *imgv = [[[UIImageView alloc] initWithImage:img] autorelease];
     imgv.contentMode = UIViewContentModeCenter;
-    imgv.frame = CGRectMake(0, 0, 20, img.size.height);
+    imgv.frame = CGRectMake(9, 0, 16, 16);
     tf.leftView = imgv;
     tf.leftViewMode = UITextFieldViewModeAlways;
-    tf.edgeInsets = UIEdgeInsetsMake(0, 20, 0, 0);
+    tf.edgeInsets = UIEdgeInsetsMake(0, 25, 0, 0);
 //    [tf setBackgroundImage:[Common stretchImage:@"login_txt_bg"] forState:UIControlStateNormal];
 //    [tf setBackgroundImage:[Common stretchImage:@"login_txt_bg"] forState:UIControlStateHighlighted];
 }

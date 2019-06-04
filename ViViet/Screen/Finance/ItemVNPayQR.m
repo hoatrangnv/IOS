@@ -163,6 +163,8 @@
             }
             
             _typeQRShow = [[dict valueForKey:@"typeQRShow"] intValue];
+            _tyGiaUSD = [[dict valueForKey:@"tyGiaUSD"] doubleValue];
+            _tyGiaEUR = [[dict valueForKey:@"tyGiaEUR"] doubleValue];
         } else {
             _typeQRShow = 0;
         }
@@ -341,6 +343,8 @@
             _expDate = expDateTemp;
         }
         _typeQRShow = [[dict valueForKey:@"typeQRShow"] intValue];
+        _tyGiaUSD = [[dict valueForKey:@"tyGiaUSD"] doubleValue];
+        _tyGiaEUR = [[dict valueForKey:@"tyGiaEUR"] doubleValue];
     } else {
         _payLoad = @"";
         _pointOIMethod = @"";
@@ -364,6 +368,8 @@
         _customerID = @"";
         _referenceID = @"";
         _expDate = @"";
+        _tyGiaUSD = 0;
+        _tyGiaEUR = 0;
     }
 }
 

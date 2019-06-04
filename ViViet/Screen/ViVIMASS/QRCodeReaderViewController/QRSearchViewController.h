@@ -22,7 +22,9 @@
 @property (nonatomic,assign) id<QRCodeReaderDelegate> __nullable delegate;
 @property (copy, nonatomic) void (^ _Nullable completionBlock) (NSString * __nullable);
 @property (strong, nonatomic) QRCodeReader * _Nullable codeReader;
-
+@property (retain, nonatomic) IBOutlet UIButton *btnTraCuu;
+@property (retain, nonatomic) IBOutlet UILabel *lblTitle;
+@property (nonatomic, assign) int nType;
 - (void)startScanning;
 - (void)stopScanning;
 - (void)setCompletionWithBlock:(nullable void (^) (NSString * __nullable resultAsString))completionBlock;
@@ -30,6 +32,7 @@
 - (IBAction)doClose:(id _Nullable )sender;
 - (IBAction)doSearch:(id _Nullable )sender;
 - (IBAction)doChooseLibrary:(id _Nullable )sender;
+- (IBAction)suKienChonLayAnh:(id)sender;
 
 
 @end

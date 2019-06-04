@@ -11,7 +11,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+    self.accessoryType = UITableViewCellAccessoryNone;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

@@ -32,6 +32,7 @@
     [_viewNhapToken release];
     [_btnThucHien release];
     [_tfToken release];
+    [_lblXacThuc release];
     [super dealloc];
 }
 

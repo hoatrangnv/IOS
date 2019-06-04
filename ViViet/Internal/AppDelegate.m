@@ -161,6 +161,7 @@ void uncaughtExceptionHandler(NSException *exception) {
     [self getTypeShowNotification];
     return YES;
 }
+
 -(void)showLogin{
     DucNT_LoginSceen *loginVC = [[DucNT_LoginSceen alloc]initWithNibName:@"DucNT_LoginSceen" bundle:nil];
     UINavigationController *navHome =  [HiNavigationBar navigationControllerWithRootViewController: loginVC];;

@@ -71,6 +71,7 @@
 
 - (NSString*)layNgayThangChuyenTien
 {
+    NSLog(@"%s - _transTime : %@", __FUNCTION__, _transTime);
     NSString *sThoiGianChuyenTien = @"";
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:[_transTime longLongValue] / 1000];
     sThoiGianChuyenTien = [Common date:date toStringWithFormat:@"dd-MM-yyyy"];
