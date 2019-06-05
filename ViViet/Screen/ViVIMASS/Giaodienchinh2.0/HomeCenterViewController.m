@@ -102,9 +102,17 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onBackVicuatoi) name:@"ClickVicuatoi" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onBackSoTay) name:@"ClickBackSoTay" object:nil];
     
+    [self updateLangBottomBar];
+    
 //    [Localization strSelectLanguage:ENGLISH];
-
 }
+
+- (void)updateLangBottomBar {
+    _lblNganHang.text = [@"ngan_hang" localizableString];
+    _lblViDienTu.text = [@"vi_dien_tu" localizableString];
+    _lblHoaDon.text = [@"payment_card_bill" localizableString];
+}
+
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = false;
@@ -573,7 +581,7 @@
 
 - (IBAction)suKienBamNutMore:(UIButton *)sender
 {
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Đóng" destructiveButtonTitle:nil otherButtonTitles:@"Đăng xuất", @"Chia sẻ", @"Góp ý", @"Hướng dẫn", nil];
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Đóng" destructiveButtonTitle:nil otherButtonTitles:[@"Logout" localizableString], [@"share" localizableString], [@"gop_y" localizableString], [@"huong_dan" localizableString], nil];
     [actionSheet showInView:self.view];
     [actionSheet release];
 }
@@ -1100,6 +1108,10 @@
     [_btnViDienTu release];
     [_btnQR release];
     [_btnViCuaToi release];
+    [_lblNganHang release];
+    [_lblViDienTu release];
+    [_lblHoaDon release];
+    [_lblViVimass release];
     [super dealloc];
 }
 

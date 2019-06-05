@@ -306,7 +306,7 @@
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <viewLayoutGuide key="safeArea" id="UjN-Ns-2A8"/>
-            <point key="canvasLocation" x="-309.375" y="-24.295774647887324"/>
+            <point key="canvasLocation" x="-268" y="-30"/>
         </view>
     </objects>
     <resources>

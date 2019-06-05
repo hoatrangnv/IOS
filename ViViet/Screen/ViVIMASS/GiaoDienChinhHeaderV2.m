@@ -9,6 +9,7 @@
 #import "GiaoDienChinhHeaderV2.h"
 #import "Common.h"
 #import "DucNT_LuuRMS.h"
+#import "LocalizationHeader.h"
 @implementation GiaoDienChinhHeaderV2{
     int nDem;
     KASlideShow *temp;
@@ -115,11 +116,14 @@
     self.arrImageQC = arrQC;
     NSMutableArray *arrLinkAnh = [[NSMutableArray alloc] init];
     NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
-    BOOL isWifi = [user boolForKey:@"QUANG_CAO_WIFI"];
+//    BOOL isWifi = [user boolForKey:@"QUANG_CAO_WIFI"];
     NSString *keyQC = @"nameSave";
-    if (!isWifi) {
-        keyQC = @"nameSave3g";
+    if ([DucNT_LuuRMS layNgonNgu] == ENGLISH) {
+        keyQC = @"nameSaveEn";
     }
+//    if (!isWifi) {
+//        keyQC = @"nameSave3g";
+//    }
     NSLog(@"%s - keyQC : %@", __FUNCTION__, keyQC);
     for (NSDictionary *dicTemp in arrQC) {
 

@@ -22,8 +22,8 @@
 @property (retain, nonatomic) IBOutlet ExTextField *tfMaXacThuc;
 @property (retain, nonatomic) IBOutlet ExTextField *tfTimeSoftToken;
 @property (retain, nonatomic) IBOutlet ExTextField *tfDaySoftToken;
-@property (retain, nonatomic) IBOutlet ExTextField *tfTimeVanTay;
-@property (retain, nonatomic) IBOutlet ExTextField *tfDayVanTay;
+//@property (retain, nonatomic) IBOutlet ExTextField *tfTimeVanTay;
+//@property (retain, nonatomic) IBOutlet ExTextField *tfDayVanTay;
 @property (retain, nonatomic) IBOutlet ExTextField *tfTimeMPKI;
 @property (retain, nonatomic) IBOutlet ExTextField *tfDayMPKI;
 @property (retain, nonatomic) IBOutlet UIView *viewSMS;

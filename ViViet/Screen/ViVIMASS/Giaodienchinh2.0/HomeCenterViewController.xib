@@ -16,6 +16,10 @@
                 <outlet property="btnQR" destination="cXu-cz-Dn1" id="TqI-sE-aMT"/>
                 <outlet property="btnViCuaToi" destination="IMr-dD-PHG" id="2aq-Yn-9rH"/>
                 <outlet property="btnViDienTu" destination="6bk-nF-1uj" id="hvY-vc-n1a"/>
+                <outlet property="lblHoaDon" destination="5nB-er-JTm" id="ODQ-Lx-4JM"/>
+                <outlet property="lblNganHang" destination="aT2-bl-lHy" id="uh3-hj-7YQ"/>
+                <outlet property="lblViDienTu" destination="sFM-Lr-6aU" id="3Wn-tc-BYn"/>
+                <outlet property="lblViVimass" destination="Gkg-hl-ERp" id="RMf-V5-i7q"/>
                 <outlet property="vCenter" destination="5Xd-xt-33U" id="xYM-Lw-hRK"/>
                 <outlet property="vNganHang" destination="HZ2-9r-g5X" id="1ci-Qp-OJo"/>
                 <outlet property="vQR" destination="Wg2-wg-xBX" id="hro-0V-oHh"/>
@@ -277,7 +281,7 @@
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
-            <point key="canvasLocation" x="-319.19999999999999" y="-54.422788605697157"/>
+            <point key="canvasLocation" x="-646" y="-161"/>
         </view>
     </objects>
     <resources>

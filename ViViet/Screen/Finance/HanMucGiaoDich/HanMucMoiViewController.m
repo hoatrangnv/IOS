@@ -30,8 +30,8 @@
     
     _tfTimeSoftToken.placeholder = [@"place_holder_so_tien" localizableString];
     _tfDaySoftToken.placeholder = [@"place_holder_so_tien" localizableString];
-    _tfTimeVanTay.placeholder = [@"place_holder_so_tien" localizableString];
-    _tfDayVanTay.placeholder = [@"place_holder_so_tien" localizableString];
+//    _tfTimeVanTay.placeholder = [@"place_holder_so_tien" localizableString];
+//    _tfDayVanTay.placeholder = [@"place_holder_so_tien" localizableString];
     _tfTimeMPKI.placeholder = [@"place_holder_so_tien" localizableString];
     _tfDayMPKI.placeholder = [@"place_holder_so_tien" localizableString];
     _tfMaXacThuc.placeholder = [@"mat_khau_token" localizableString];
@@ -58,8 +58,8 @@
         self.tfTimeSoftToken.text = [Common hienThiTienTe:[DucNT_LuuRMS layHanMuc:KEY_TIME_SOFT_TOKEN]];
         self.tfDaySoftToken.text = [Common hienThiTienTe:[DucNT_LuuRMS layHanMuc:KEY_DAY_SOFT_TOKEN]];
 
-        self.tfTimeVanTay.text = [Common hienThiTienTe:[DucNT_LuuRMS layHanMuc:KEY_TIME_VAN_TAY]];
-        self.tfDayVanTay.text = [Common hienThiTienTe:[DucNT_LuuRMS layHanMuc:KEY_DAY_VAN_TAY]];
+//        self.tfTimeVanTay.text = [Common hienThiTienTe:[DucNT_LuuRMS layHanMuc:KEY_TIME_VAN_TAY]];
+//        self.tfDayVanTay.text = [Common hienThiTienTe:[DucNT_LuuRMS layHanMuc:KEY_DAY_VAN_TAY]];
 
         double timeMpki = [DucNT_LuuRMS layHanMuc:KEY_TIME_MPKI];
         double dayMpki = [DucNT_LuuRMS layHanMuc:KEY_DAY_MPKI];
@@ -111,17 +111,17 @@
         return NO;
     }
     
-    double fSoTien1VanTay = [[self.tfTimeVanTay.text stringByReplacingOccurrencesOfString:@"." withString:@""] doubleValue];
-    double fSoTien2VanTay = [[self.tfDayVanTay.text stringByReplacingOccurrencesOfString:@"." withString:@""] doubleValue];
-    if (fSoTien1VanTay > fSoTien2VanTay) {
-        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Hạn mức Vân tay mỗi giao dịch phải nhỏ hơn hạn mức 1 ngày"];
-        return NO;
-    } else if (fSoTien1VanTay > [self.mThongTinTaiKhoanVi.hanMucTimeVanTayMax doubleValue]) {
-        NSString *sTien = [NSString stringWithFormat:@"%f", [self.mThongTinTaiKhoanVi.hanMucTimeVanTayMax doubleValue]];
-        NSString *sTien2 = [Common hienThiTienTeFromString:sTien];
-        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:[NSString stringWithFormat:@"Hạn mức tối đa chuyển tiền xác thực bằng Vân tay là %@ đồng mỗi giao dịch.", sTien2]];
-        return NO;
-    }
+//    double fSoTien1VanTay = [[self.tfTimeVanTay.text stringByReplacingOccurrencesOfString:@"." withString:@""] doubleValue];
+//    double fSoTien2VanTay = [[self.tfDayVanTay.text stringByReplacingOccurrencesOfString:@"." withString:@""] doubleValue];
+//    if (fSoTien1VanTay > fSoTien2VanTay) {
+//        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Hạn mức Vân tay mỗi giao dịch phải nhỏ hơn hạn mức 1 ngày"];
+//        return NO;
+//    } else if (fSoTien1VanTay > [self.mThongTinTaiKhoanVi.hanMucTimeVanTayMax doubleValue]) {
+//        NSString *sTien = [NSString stringWithFormat:@"%f", [self.mThongTinTaiKhoanVi.hanMucTimeVanTayMax doubleValue]];
+//        NSString *sTien2 = [Common hienThiTienTeFromString:sTien];
+//        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:[NSString stringWithFormat:@"Hạn mức tối đa chuyển tiền xác thực bằng Vân tay là %@ đồng mỗi giao dịch.", sTien2]];
+//        return NO;
+//    }
     
     if (!self.tfDayMPKI.text.isEmpty && !self.tfTimeMPKI.text.isEmpty) {
         double fSoTien1MPKI = [[self.tfTimeMPKI.text stringByReplacingOccurrencesOfString:@"." withString:@""] doubleValue];
@@ -130,7 +130,7 @@
             [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Hạn mức mPKI mỗi giao dịch phải nhỏ hơn hạn mức 1 ngày"];
             return NO;
         }
-        else if (fSoTien1VanTay > [self.mThongTinTaiKhoanVi.hanMucTimeMPKIMax doubleValue]) {
+        else if (fSoTien1MPKI > [self.mThongTinTaiKhoanVi.hanMucTimeMPKIMax doubleValue]) {
             NSString *sTien = [NSString stringWithFormat:@"%f", [self.mThongTinTaiKhoanVi.hanMucTimeMPKIMax doubleValue]];
             NSString *sTien2 = [Common hienThiTienTeFromString:sTien];
             [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:[NSString stringWithFormat:@"Hạn mức tối đa chuyển tiền xác thực bằng mPKI là %@ đồng mỗi giao dịch.", sTien2]];
@@ -203,8 +203,8 @@
         double fSoTien1Token = [[self.tfTimeSoftToken.text stringByReplacingOccurrencesOfString:@"." withString:@""] doubleValue];
         double fSoTien2Token = [[self.tfDaySoftToken.text stringByReplacingOccurrencesOfString:@"." withString:@""] doubleValue];
         
-        double fSoTien1VanTay = [[self.tfTimeVanTay.text stringByReplacingOccurrencesOfString:@"." withString:@""] doubleValue];
-        double fSoTien2VanTay = [[self.tfDayVanTay.text stringByReplacingOccurrencesOfString:@"." withString:@""] doubleValue];
+//        double fSoTien1VanTay = [[self.tfTimeVanTay.text stringByReplacingOccurrencesOfString:@"." withString:@""] doubleValue];
+//        double fSoTien2VanTay = [[self.tfDayVanTay.text stringByReplacingOccurrencesOfString:@"." withString:@""] doubleValue];
         
         double fSoTien1MPKI = [[self.tfTimeMPKI.text stringByReplacingOccurrencesOfString:@"." withString:@""] doubleValue];
         double fSoTien2MPKI = [[self.tfDayMPKI.text stringByReplacingOccurrencesOfString:@"." withString:@""] doubleValue];
@@ -217,8 +217,8 @@
         
         self.mThongTinTaiKhoanVi.hanMucTimeSoftToken = [NSNumber numberWithDouble:fSoTien1Token];
         self.mThongTinTaiKhoanVi.hanMucDaySoftToken = [NSNumber numberWithDouble:fSoTien2Token];
-        self.mThongTinTaiKhoanVi.hanMucTimeVanTay = [NSNumber numberWithDouble:fSoTien1VanTay];
-        self.mThongTinTaiKhoanVi.hanMucDayVanTay = [NSNumber numberWithDouble:fSoTien2VanTay];
+//        self.mThongTinTaiKhoanVi.hanMucTimeVanTay = [NSNumber numberWithDouble:fSoTien1VanTay];
+//        self.mThongTinTaiKhoanVi.hanMucDayVanTay = [NSNumber numberWithDouble:fSoTien2VanTay];
         self.mThongTinTaiKhoanVi.hanMucTimeMPKI = [NSNumber numberWithDouble:fSoTien1MPKI];
         self.mThongTinTaiKhoanVi.hanMucDayMPKI = [NSNumber numberWithDouble:fSoTien2MPKI];
         NSMutableArray *arrDict = [[NSMutableArray alloc] init];
@@ -231,15 +231,15 @@
                                     @"maxAmountTime":self.mThongTinTaiKhoanVi.hanMucTimeSoftTokenMax,
                                     @"maxAmountDay":self.mThongTinTaiKhoanVi.hanMucDaySoftTokenMax
                                     };
-        NSDictionary *dictVantay = @{
-                                     @"id":self.mThongTinTaiKhoanVi.idVantay,
-                                     @"user":[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_ID_TEMP],
-                                     @"level":[NSNumber numberWithInt:3],
-                                     @"amountTime":[NSNumber numberWithInt:fSoTien1VanTay],
-                                     @"amountDay":[NSNumber numberWithInt:fSoTien2VanTay],
-                                     @"maxAmountTime":self.mThongTinTaiKhoanVi.hanMucTimeVanTayMax,
-                                     @"maxAmountDay":self.mThongTinTaiKhoanVi.hanMucDayVanTayMax
-                                     };
+//        NSDictionary *dictVantay = @{
+//                                     @"id":self.mThongTinTaiKhoanVi.idVantay,
+//                                     @"user":[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_ID_TEMP],
+//                                     @"level":[NSNumber numberWithInt:3],
+//                                     @"amountTime":[NSNumber numberWithInt:fSoTien1VanTay],
+//                                     @"amountDay":[NSNumber numberWithInt:fSoTien2VanTay],
+//                                     @"maxAmountTime":self.mThongTinTaiKhoanVi.hanMucTimeVanTayMax,
+//                                     @"maxAmountDay":self.mThongTinTaiKhoanVi.hanMucDayVanTayMax
+//                                     };
         NSDictionary *dictMPKI = @{
                                    @"id":self.mThongTinTaiKhoanVi.idMPKI,
                                    @"user":[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_ID_TEMP],
@@ -250,7 +250,7 @@
                                    @"maxAmountDay":self.mThongTinTaiKhoanVi.hanMucDayMPKIMax
                                    };
         [arrDict addObject:dictToken];
-        [arrDict addObject:dictVantay];
+//        [arrDict addObject:dictVantay];
         [arrDict addObject:dictMPKI];
         
         NSDictionary *dicPost = @{
@@ -405,8 +405,8 @@
     [_tfMaXacThuc release];
     [_tfTimeSoftToken release];
     [_tfDaySoftToken release];
-    [_tfTimeVanTay release];
-    [_tfDayVanTay release];
+//    [_tfTimeVanTay release];
+//    [_tfDayVanTay release];
     [_tfTimeMPKI release];
     [_tfDayMPKI release];
     [_viewSMS release];

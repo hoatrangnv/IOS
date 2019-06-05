@@ -371,7 +371,7 @@
 }
 
 - (void)xuLyKetNoiThanhCong:(NSString *)sDinhDanhKetNoi thongBao:(NSString *)sThongBao ketQua:(id)ketQua {
-    NSLog(@"%s - nhan ket qua thanh cong : %@", __FUNCTION__, sDinhDanhKetNoi);
+//    NSLog(@"%s - nhan ket qua thanh cong : %@", __FUNCTION__, sDinhDanhKetNoi);
     if ([sDinhDanhKetNoi isEqualToString:DINH_DANH_KET_NOI_LAY_SO_DU_TAI_KHOAN])
     {
         NSDictionary *dictResult = (NSDictionary *)ketQua;
@@ -435,7 +435,7 @@
             int nVMApp = [[dicTemp objectForKey:@"VMApp"] intValue];
             NSString *nameImage = (NSString *)[dicTemp objectForKey:@"nameImage"];
             if (nVMApp == 1 && ![nameImage containsString:@"mua mã thẻ"] && ![nameImage containsString:@"FPT"]) {
-                NSLog(@"%s : ====> nameImage : %@",__FUNCTION__, (NSString *)[dicTemp objectForKey:@"nameSave"]);
+//                NSLog(@"%s : ====> nameImage : %@",__FUNCTION__, (NSString *)[dicTemp objectForKey:@"nameSave"]);
                 [arrQC addObject:dicTemp];
             }
         }

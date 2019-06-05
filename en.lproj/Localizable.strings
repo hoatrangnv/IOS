@@ -636,7 +636,7 @@
 "tong_tien" = "Total amount:";
 "title_phi" = "Fee:";
 "hien_so_dien_thoai_thanh_toan" = "Show payment phone number";
-"so_tay_giao_dich" = "Sổ tay GD";
+"so_tay_giao_dich" = "Notebook";
 "chi_tiet_uu_dai" = "Chi tiết ưu đãi";
 "qr_chu_vi" = "QR chủ ví";
 "thong_tin_tk_chuyen_tien" = "THÔNG TIN TÀI KHOẢN CHUYỂN TIỀN";
@@ -770,7 +770,7 @@
 "label_thang" = "/ month";
 "han_muc_soft_token" = "When using Token";
 "han_muc_van_tay" = "When using touch ID, face ID";
-"han_muc_mki" = "When using mPKI: SIM-CA, SDSecure, MicroSD";
+"han_muc_mki" = "When using digital signatures";
 "han_muc_soft_token2" = "Maximum 100 million/transaction and 500 million/day";
 "han_muc_van_tay2" = "Maximum 500 million/transaction and 1.5 billion/day";
 "han_muc_mki2" = "No limit on the amount of transactions and during the day";
@@ -779,7 +779,7 @@
 "han_muc_toi_da_thong_bao_nhnn" = "Hạn mức tối đa được quy định bởi Thống đốc NHNN theo quyết định 630/QĐ-NHNN ngày 31/3/2017";
 "loai_giao_dich" = "Loại giao dịch";
 "thanh_toan_hoc_phi" = "Thanh toán học phí";
-"muon_tien" = "Mượn tiền";
+"muon_tien" = "Borrow money";
 "vi_muon_tien" = "Ví mượn";
 "don_vi_thanh_toan" = "Đơn vị thanh toán";
 "ten_khach_hang" = "Tên khách hàng";
@@ -794,7 +794,7 @@
 "quet_anh_qr_tu_bo_nho" = "Scan QR from gallery";
 "dang_ky_tao_sua_qr" = "Register, create and edit QR";
 "vi_nhan_qua" = "Ví nhận quà";
-"rut_tien" = "Rút tiền về tk liên kết";
+"rut_tien" = "Withdrawal to account link";
 "chua_co_tk_rut_tien" = "Hiện bạn chưa có tài khoản rút tiền. Bấm nút + để tạo tài khoản.";
 "so_tay_chuyen_tien_dt" = "Sổ tay chuyển tiền đến điện thoại";
 "thay_doi_thong_tin_vi" = "Update Information";
@@ -1027,7 +1027,7 @@
 "title_lienket" = "Liên kết";
 "vitk_an_sau_dt" = "Chọn ví, tk, thẻ ẩn sau ĐT";
 "duyet_giao_dich_2" = "Duyệt gd";
-"dangki_pki" = "Chữ ký số mPKI";
+"dangki_pki" = "Digital signatures mPKI";
 "thong_bao_exit" = "Press Back Again To Exit";
 "tang_qua" = "Gift";
 "loi_lay_thong_tin_qr" = "Error getting QR information";
@@ -1340,8 +1340,8 @@
 "Cancel" = "Huỷ bỏ";
 "OK" = "Đồng Ý";
 "Enter Password" = "Nhập mật khẩu ViMASS";
-"Logout" = "Đăng Xuất";
-"Sign Up" = "Đăng Ký";
+"Logout" = "Logout";
+"Sign Up" = "Sign Up";
 "lg - TRUONG_MAT_KHAU_KHONG_DUOC_DE_TRONG" = "Vui lòng nhập mật khẩu";
 "lg - SAI_MAT_KHAU" = "Gồm 8 ký tự chữ và số, phân biệt HOA/thường";
 "lg - BAN_CHUA_CO_VI, BAM" = "Bấm";
@@ -1418,8 +1418,10 @@
 "title_noi_dung_viet_tat" = "ND";
 "vi_con" = "Balance";
 "du_km" = "Dư KM";
-"ma_khuyen_mai_vnpay" = "Mã khuyến mãi VNPAY";
-"diem_giao_dich_vnpay" = "Điểm giao dịch VNPAY";
-"dang_nhap_doanh_nghiep" = "Tài khoản doanh nghiệp";
-"dang_nhap_dien_thoai" = "Tài khoản điện thoại";
-"dang_nhap_the_da_nang" = "Tài khoản thẻ đa năng";
+"ma_khuyen_mai_vnpay" = "Promotion code VNPAY";
+"diem_giao_dich_vnpay" = "Transaction point VNPAY";
+"dang_nhap_doanh_nghiep" = "Business account";
+"dang_nhap_dien_thoai" = "Phone number account";
+"dang_nhap_the_da_nang" = "Multi-purpose card account";
+"share" = "Share";
+"gop_y" = "Feedback";

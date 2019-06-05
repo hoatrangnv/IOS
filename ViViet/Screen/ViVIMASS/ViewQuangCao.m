@@ -8,7 +8,8 @@
 
 #import "ViewQuangCao.h"
 #import "JSONKit.h"
-
+#import "DucNT_LuuRMS.h"
+#import "LocalizationHeader.h"
 @implementation ViewQuangCao {
     NSMutableArray *arrQC;
 //    NSTimer *timeQC;
@@ -17,7 +18,6 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    NSLog(@"%s - ===================> START : %f - %f", __FUNCTION__, self.frame.size.width, self.frame.size.height);
 
     viewQuangCao = [[KASlideShow alloc] initWithFrame:self.frame];
     [viewQuangCao setImageMode:UIViewContentModeScaleToFill];
@@ -35,6 +35,10 @@
 //    arrQC = [[NSMutableArray alloc] init];
 //    BOOL isWifi = [user boolForKey:@"QUANG_CAO_WIFI"];
     NSString *keyQC = @"nameSave";
+    
+    if ([DucNT_LuuRMS layNgonNgu] == ENGLISH) {
+        keyQC = @"nameSaveEn";
+    }
 //    if (!isWifi) {
 //        keyQC = @"nameSave3g";
 //    }
