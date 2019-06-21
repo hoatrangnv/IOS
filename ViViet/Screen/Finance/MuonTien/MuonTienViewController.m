@@ -31,6 +31,10 @@
     [self addButtonHuongDan];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateThongTinMuonTien:) name:KEY_TAI_KHOAN_THUONG_DUNG object:nil];
+    
+    _tfNoiDung.placeholder = [@"place_holder_noi_dung" localizableString];
+    _mtfSoTien.placeholder = [@"place_holder_so_tien" localizableString];
+    _mtfTenTKCanMuonTien.placeholder = [@"ten_tai_khoan_muon_tien" localizableString];
 }
 
 - (void)khoiTaoQuangCao {
@@ -235,6 +239,7 @@
     [_mtfTenTKCanMuonTien release];
     [_mtvNoiDung release];
     [_scrMain release];
+    [_tfNoiDung release];
     [super dealloc];
 }
 

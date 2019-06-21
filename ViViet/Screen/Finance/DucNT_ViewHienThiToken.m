@@ -72,6 +72,8 @@
     {
         [self xuLyKhiKhongCoChucNangQuetVanTay];
     }
+    
+    [_btnDoiToken setTitle:[@"doi_mat_khau_token" localizableString] forState:UIControlStateNormal];
 }
 
 - (void)dealloc {
@@ -94,6 +96,7 @@
     if(viewKhung)
         [viewKhung release];
     [mbtnVanTay release];
+    [_btnDoiToken release];
     [super dealloc];
 }
 

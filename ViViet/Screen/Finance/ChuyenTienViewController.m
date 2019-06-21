@@ -68,6 +68,9 @@
         self.mDinhDanhKetNoi = @"LAY_DANH_SACH_LIEN_KET";
         [GiaoDichMang layDanhSachTaiKhoanLienKet:self];
     }
+    
+    _mtfSoTien.placeholder = [@"place_holder_so_tien" localizableString];
+    _tfNoiDung.placeholder = [@"place_holder_noi_dung" localizableString];
 }
 
 - (void)khoiTaoQuangCao {
@@ -439,6 +442,7 @@
     [_mtfTenVietTatNganHang release];
     [_scrMain release];
     [_heightViewMain release];
+    [_tfNoiDung release];
     [super dealloc];
 }
 @end

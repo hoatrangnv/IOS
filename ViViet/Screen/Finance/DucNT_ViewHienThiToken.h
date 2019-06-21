@@ -27,6 +27,7 @@
 @property (retain, nonatomic) IBOutlet ExTextField *edtTimer;
 @property (retain, nonatomic) IBOutlet UIButton *btnTestOTP;
 @property (retain, nonatomic) IBOutlet UIButton *mbtnVanTay;
+@property (retain, nonatomic) IBOutlet UIButton *btnDoiToken;
 
 - (IBAction)suKienKetThucBanPhim:(id)sender;
 - (IBAction)testOTPConfirm:(id)sender;

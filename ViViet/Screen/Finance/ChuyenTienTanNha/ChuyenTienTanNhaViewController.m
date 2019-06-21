@@ -134,6 +134,8 @@
     CGRect frame = self.mViewMain.frame;
     frame.size.width = self.viewOptionTop.frame.size.width;
     self.mViewMain.frame = frame;
+    
+    self.mbtnToken.hidden = NO;
 }
 
 - (void)khoiTaoQuangCao {

@@ -2574,11 +2574,11 @@
             break;
         }
     }
-    self.lblChuTKLienKet.text = [NSString stringWithFormat:@"Chủ tài khoản: %@", tkLienKetHienTai.tenChuTaiKhoan];
-    self.lblSoTKLienKet.text = [NSString stringWithFormat:@"Số tài khoản: %@", tkLienKetHienTai.soTaiKhoan];
-    self.lblUserTKLK.text = [NSString stringWithFormat:@"Tên đăng nhập: %d ký tự", tkLienKetHienTai.lengthU];
-    self.lblMKTKLK.text = [NSString stringWithFormat:@"Mật khẩu: %d ký tự", tkLienKetHienTai.lengthP];
-    self.lblViCanNapTKLK.text = [NSString stringWithFormat:@"Ví cần nạp: %@", [DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_ID_TEMP]];
+    self.lblChuTKLienKet.text = [NSString stringWithFormat:@"%@: %@", [@"chu_tai_khoan" localizableString], tkLienKetHienTai.tenChuTaiKhoan];
+    self.lblSoTKLienKet.text = [NSString stringWithFormat:@"%@: %@", [@"register_account_link_acc_no" localizableString], tkLienKetHienTai.soTaiKhoan];
+    self.lblUserTKLK.text = [NSString stringWithFormat:@"%@: %d %@", [@"ten_dang_nhap_ibanking" localizableString], tkLienKetHienTai.lengthU, [@"ky_tu" localizableString]];
+    self.lblMKTKLK.text = [NSString stringWithFormat:@"%@: %d %@", [@"matkhau_dang_nhap_ibanking" localizableString], tkLienKetHienTai.lengthP, [@"ky_tu" localizableString]];
+    self.lblViCanNapTKLK.text = [NSString stringWithFormat:@"%@: %@", [@"vi_can_nap" localizableString], [DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_ID_TEMP]];
 }
 
 - (IBAction)suKienChonTiepTucTaiKhoanLienKet:(id)sender {

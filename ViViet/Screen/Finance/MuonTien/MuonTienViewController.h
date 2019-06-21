@@ -16,6 +16,7 @@
 @property (retain, nonatomic) IBOutlet TPKeyboardAvoidAcessory *scrMain;
 @property (retain, nonatomic) IBOutlet ExTextField *mtfSoTien;
 @property (retain, nonatomic) IBOutlet ExTextField *mtfTenTKCanMuonTien;
+@property (retain, nonatomic) IBOutlet ExTextField *tfNoiDung;
 @property (retain, nonatomic) IBOutlet UmiTextView *mtvNoiDung;
 - (IBAction)suKienClickSoTayMuonTien:(id)sender;
 

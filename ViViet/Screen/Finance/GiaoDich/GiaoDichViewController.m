@@ -460,48 +460,49 @@
 - (IBAction)suKienBamNutPKI:(UIButton *)sender
 {
     NSLog(@"%s - %s : click lick click", __FILE__, __FUNCTION__);
-    [self showViewNhapToken:2];
-    if(!self.mbtnPKI.selected)
-    {
-        [self.mtfMatKhauToken setKeyboardType:UIKeyboardTypeDefault];
-        self.mtfMatKhauToken.secureTextEntry = YES;
-        self.mTypeAuthenticate = TYPE_AUTHENTICATE_PKI;
-        [self.mbtnPKI setSelected:YES];
-        [self.mbtnPKI setImage:[UIImage imageNamed:@"pkiv"] forState:UIControlStateNormal];
-        if(self.mbtnToken.enabled)
-        {
-            [self.mbtnToken setImage:[UIImage imageNamed:@"token"] forState:UIControlStateNormal];
-            [self.mbtnToken setTitleColor:nil forState:UIControlStateNormal];
-            [self.mbtnToken setSelected:NO];
-        }
-        if (self.btnVanTayMini.enabled) {
-            if (self.enableFaceID) {
-                [self.btnVanTayMini setImage:[UIImage imageNamed:@"face-id"] forState:UIControlStateNormal];
-            } else {
-                [self.btnVanTayMini setImage:[UIImage imageNamed:@"finger"] forState:UIControlStateNormal];
-            }
-            [self.btnVanTayMini setTitleColor:nil forState:UIControlStateNormal];
-            [self.btnVanTayMini setSelected:NO];
-        }
-        if(self.mbtnSMS.enabled)
-        {
-            [self.mbtnSMS setBackgroundImage:[UIImage imageNamed:@"bg-nuttrang"] forState:UIControlStateNormal];
-            [self.mbtnSMS setTitleColor:nil forState:UIControlStateNormal];
-            [self.mbtnSMS setSelected:NO];
-        }
-        if(self.mbtnEmail.enabled)
-        {
-            [self.mbtnEmail setSelected:NO];
-            [self.mbtnEmail setBackgroundImage:[UIImage imageNamed:@"bg-nuttrang"] forState:UIControlStateNormal];
-            [self.mbtnEmail setTitleColor:nil forState:UIControlStateNormal];
-        }
-        self.mtfMatKhauToken.placeholder = [@"mat_khau_token" localizableString];
-        self.mtfMatKhauTokenView.placeholder = [@"mat_khau_token" localizableString];
-        [self.mtfMatKhauToken setTextError:[@"mat_khau_token_khong_dc_de_trong" localizableString]
-                                   forType:ExTextFieldTypeEmpty];
-        [self.mtfMatKhauTokenView setTextError:[@"mat_khau_token_khong_dc_de_trong" localizableString]
-                                       forType:ExTextFieldTypeEmpty];
-    }
+    [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Thiết bị chưa hỗ trợ ký số"];
+//    [self showViewNhapToken:2];
+//    if(!self.mbtnPKI.selected)
+//    {
+//        [self.mtfMatKhauToken setKeyboardType:UIKeyboardTypeDefault];
+//        self.mtfMatKhauToken.secureTextEntry = YES;
+//        self.mTypeAuthenticate = TYPE_AUTHENTICATE_PKI;
+//        [self.mbtnPKI setSelected:YES];
+//        [self.mbtnPKI setImage:[UIImage imageNamed:@"pkiv"] forState:UIControlStateNormal];
+//        if(self.mbtnToken.enabled)
+//        {
+//            [self.mbtnToken setImage:[UIImage imageNamed:@"token"] forState:UIControlStateNormal];
+//            [self.mbtnToken setTitleColor:nil forState:UIControlStateNormal];
+//            [self.mbtnToken setSelected:NO];
+//        }
+//        if (self.btnVanTayMini.enabled) {
+//            if (self.enableFaceID) {
+//                [self.btnVanTayMini setImage:[UIImage imageNamed:@"face-id"] forState:UIControlStateNormal];
+//            } else {
+//                [self.btnVanTayMini setImage:[UIImage imageNamed:@"finger"] forState:UIControlStateNormal];
+//            }
+//            [self.btnVanTayMini setTitleColor:nil forState:UIControlStateNormal];
+//            [self.btnVanTayMini setSelected:NO];
+//        }
+//        if(self.mbtnSMS.enabled)
+//        {
+//            [self.mbtnSMS setBackgroundImage:[UIImage imageNamed:@"bg-nuttrang"] forState:UIControlStateNormal];
+//            [self.mbtnSMS setTitleColor:nil forState:UIControlStateNormal];
+//            [self.mbtnSMS setSelected:NO];
+//        }
+//        if(self.mbtnEmail.enabled)
+//        {
+//            [self.mbtnEmail setSelected:NO];
+//            [self.mbtnEmail setBackgroundImage:[UIImage imageNamed:@"bg-nuttrang"] forState:UIControlStateNormal];
+//            [self.mbtnEmail setTitleColor:nil forState:UIControlStateNormal];
+//        }
+//        self.mtfMatKhauToken.placeholder = [@"mat_khau_token" localizableString];
+//        self.mtfMatKhauTokenView.placeholder = [@"mat_khau_token" localizableString];
+//        [self.mtfMatKhauToken setTextError:[@"mat_khau_token_khong_dc_de_trong" localizableString]
+//                                   forType:ExTextFieldTypeEmpty];
+//        [self.mtfMatKhauTokenView setTextError:[@"mat_khau_token_khong_dc_de_trong" localizableString]
+//                                       forType:ExTextFieldTypeEmpty];
+//    }
 }
 - (IBAction)suKienBamNutSMS:(UIButton *)sender
 {

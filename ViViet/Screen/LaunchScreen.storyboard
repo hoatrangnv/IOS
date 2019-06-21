@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina4_7" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -14,7 +15,7 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="axP-gG-Ah4">
@@ -31,7 +32,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dịch vụ nền di động Việt Nam" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3fy-r5-aaU">
-                                        <rect key="frame" x="60" y="51" width="254" height="21"/>
+                                        <rect key="frame" x="60.666666666666657" y="51" width="253.99999999999997" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="GZn-IX-Ozf"/>
                                             <constraint firstAttribute="width" constant="254" id="oe3-Rb-pdu"/>
@@ -41,7 +42,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vimass JSC" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d6s-pn-obi">
-                                        <rect key="frame" x="60" y="72" width="254" height="21"/>
+                                        <rect key="frame" x="60.666666666666657" y="72" width="253.99999999999997" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="254" id="Hb3-a7-KQT"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="IH7-bP-Llx"/>
@@ -52,7 +53,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ĐKKD 0105906169" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tkC-No-7i0">
-                                        <rect key="frame" x="60" y="93" width="254" height="21"/>
+                                        <rect key="frame" x="60.666666666666657" y="93" width="253.99999999999997" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="254" id="lcq-Q9-RVA"/>
                                             <constraint firstAttribute="height" constant="21" id="zKl-ml-X7E"/>
@@ -77,10 +78,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mJk-JI-ctp">
-                                <rect key="frame" x="0.0" y="614" width="375" height="53"/>
+                                <rect key="frame" x="0.0" y="725" width="375" height="53"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Giấy phép Ví điện tử số 41/GP-NHNN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ro3-xc-yNx">
-                                        <rect key="frame" x="61" y="5" width="254" height="21"/>
+                                        <rect key="frame" x="60.666666666666657" y="5" width="253.99999999999997" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="k5K-2z-fgA"/>
                                         </constraints>
@@ -99,7 +100,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-giayphep" translatesAutoresizingMaskIntoConstraints="NO" id="lPF-4N-E2x">
-                                        <rect key="frame" x="30" y="15.5" width="22" height="22"/>
+                                        <rect key="frame" x="30" y="15.666666666666629" width="22" height="22"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.1647058824" green="0.72941176470000002" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -114,7 +115,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ví Vimass" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wjn-CF-Pch">
-                                <rect key="frame" x="124" y="405" width="127" height="31.5"/>
+                                <rect key="frame" x="124" y="477.66666666666669" width="127" height="31.333333333333314"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="127" id="JGA-P2-3Rr"/>
                                 </constraints>
@@ -123,7 +124,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_launcher" translatesAutoresizingMaskIntoConstraints="NO" id="CF4-RA-WLr">
-                                <rect key="frame" x="124.5" y="270.5" width="126" height="126"/>
+                                <rect key="frame" x="124.66666666666669" y="343" width="126" height="126"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="126" id="A4W-GK-rIe"/>
                                     <constraint firstAttribute="height" constant="126" id="Mz4-qA-XyO"/>
@@ -153,7 +154,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-329.5" y="332"/>
+            <point key="canvasLocation" x="-477.536231884058" y="222.32142857142856"/>
         </scene>
     </scenes>
     <resources>

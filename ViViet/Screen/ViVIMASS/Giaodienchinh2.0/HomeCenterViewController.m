@@ -640,7 +640,7 @@
     [reader stopScanning];
     NSLog(@"%s - -->result : %@", __FUNCTION__, result);
     [reader dismissViewControllerAnimated:YES completion:^{
-        if (![result containsString:@"http"] && ![result containsString:@"vimass.vn"] && result.length > 20) {
+        if (![[result lowercaseString] containsString:@"http"] && ![[result lowercaseString] containsString:@"vimass"] && result.length > 20) {
             NSLog(@"%s - chuyen huong vnpay QR", __FUNCTION__);
             GiaoDienThanhToanQRVNPay *vc = [[GiaoDienThanhToanQRVNPay alloc] initWithNibName:@"GiaoDienThanhToanQRVNPay" bundle:nil];
             vc.sDataQR = result;
@@ -684,7 +684,7 @@
     NSLog(@"%s - -->result : %@", __FUNCTION__, result);
     [reader dismissViewControllerAnimated:YES completion:^{
         if (result.length > 0) {
-            if (![result containsString:@"http"] && ![result containsString:@"vimass.vn"] && result.length > 20) {
+            if (![[result lowercaseString] containsString:@"http"] && ![[result lowercaseString] containsString:@"vimass"] && result.length > 20) {
                 NSLog(@"%s - chuyen huong vnpay QR", __FUNCTION__);
                 GiaoDienThanhToanQRVNPay *vc = [[GiaoDienThanhToanQRVNPay alloc] initWithNibName:@"GiaoDienThanhToanQRVNPay" bundle:nil];
                 vc.sDataQR = result;
@@ -694,12 +694,21 @@
             } else {
                 if (![result hasPrefix:@"http"] || [result hasSuffix:@"/transfers"]) {
                     GiaoDienThanhToanQRCodeDonVi *vc = [[GiaoDienThanhToanQRCodeDonVi alloc] initWithNibName:@"GiaoDienThanhToanQRCodeDonVi" bundle:nil];
-                    if ([result containsString:@"/transfers"]) {
-                        NSString *qrcode = [result stringByReplacingOccurrencesOfString:@"/transfers" withString:@""];
-                        vc.sIdQRCode = qrcode;
-                    }
-                    else {
-                        vc.sIdQRCode = result;
+                    if ([result containsString:@"*"]) {
+                        NSArray *arrQuery = [result componentsSeparatedByString:@"*"];
+                        if (arrQuery.count > 2) {
+                            vc.sIdQRCode = [arrQuery objectAtIndex:1];
+                        } else {
+                            return;
+                        }
+                    } else {
+                        if ([result containsString:@"/transfers"]) {
+                            NSString *qrcode = [result stringByReplacingOccurrencesOfString:@"/transfers" withString:@""];
+                            vc.sIdQRCode = qrcode;
+                        }
+                        else {
+                            vc.sIdQRCode = result;
+                        }
                     }
                     vc.typeQRCode = 1;
                     self.navigationController.navigationBar.hidden = NO;

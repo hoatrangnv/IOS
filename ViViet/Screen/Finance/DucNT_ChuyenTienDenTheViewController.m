@@ -45,6 +45,7 @@
         [self xuLyHienThiSoTienPhiCuaSoTien:@"0"];
     [self addButtonHuongDan];
 
+    self.mbtnToken.hidden = NO;
 }
 
 - (void)khoiTaoQuangCao {
@@ -282,29 +283,27 @@
 {
     NSString *sSoTien = [self.mtfSoTien.text stringByReplacingOccurrencesOfString:@"." withString:@""];
     self.mtfSoTien.text = [Common hienThiTienTeFromString:sSoTien];
-//    if(![CommonUtils isEmptyOrNull:self.mThongTinTaiKhoanVi.pki3] && [self.mThongTinTaiKhoanVi.hanMucPki3 doubleValue] >0 ){
-//        if([sSoTien doubleValue] > [self.mThongTinTaiKhoanVi.hanMucPki3 doubleValue]){
-//            self.mbtnSMS.hidden = YES;
-//            self.mbtnToken.hidden = YES;
-//            self.mbtnEmail.hidden = YES;
-//            self.mbtnPKI.hidden = NO;
-//        }
-//        else{
-//            self.mbtnSMS.hidden = NO;
-//            
-//            self.mbtnToken.hidden = NO;
-//            
-//            self.mbtnEmail.hidden = NO;
-//            
-//            self.mbtnPKI.hidden = NO;
-//        }
-//    }
-//    else{
-//        self.mbtnPKI.hidden = YES;
-//        self.mbtnToken.hidden = NO;
-//        self.mbtnSMS.hidden = NO;
-//        self.mbtnEmail.hidden = NO;
-//    }
+    
+    double fSoTien = [sSoTien doubleValue];
+    double fHanMucToken = [self.mThongTinTaiKhoanVi.hanMucTimeSoftToken doubleValue];
+    if (fSoTien > fHanMucToken) {
+        double fHanMucPKI = [self.mThongTinTaiKhoanVi.hanMucTimeMPKI doubleValue];
+        NSLog(@"%s - sSoTien : %@ - fHanMucPKI : %f", __FUNCTION__, sSoTien, fHanMucPKI);
+        if (fSoTien <= fHanMucPKI) {
+            self.mbtnPKI.hidden = NO;
+            self.btnVanTayMini.hidden = YES;
+            self.mbtnToken.hidden = YES;
+        } else {
+            self.mbtnPKI.hidden = YES;
+            self.btnVanTayMini.hidden = YES;
+            self.mbtnToken.hidden = YES;
+        }
+    } else {
+        self.mbtnPKI.hidden = YES;
+        self.btnVanTayMini.hidden = NO;
+        self.mbtnToken.hidden = NO;
+    }
+    
     [self xuLyHienThiSoTienPhiCuaSoTien:sSoTien];
     
 }

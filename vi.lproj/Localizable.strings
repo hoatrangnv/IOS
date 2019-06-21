@@ -769,7 +769,7 @@
 "label_lan" = "/ Lần";
 "label_ngay" = "/ Ngày";
 "label_thang" = "/ Tháng";
-"han_muc_soft_token" = "Khi sử dụng Token";
+"han_muc_soft_token" = "Khi sử dụng Token, Vân tay, Nhận diện";
 "han_muc_van_tay" = "Khi sử dụng Vân tay, Nhận diện";
 "han_muc_mki" = "Khi sử dụng mPKI: SIM-CA, SDSecure, MicroSD";
 "han_muc_soft_token2" = "Tối đa 100 triệu/giao dịch và 500 triệu/ngày";
@@ -1417,3 +1417,6 @@
 "dang_nhap_the_da_nang" = "Tài khoản thẻ đa năng";
 "share" = "Chia sẻ";
 "gop_y" = "Góp ý";
+"doi_mat_khau_token" = "Đổi/Quên mật khẩu";
+"chu_tai_khoan" = "Chủ tài khoản";
+"ten_tai_khoan_muon_tien" = "Tên tài khoản mượn tiền";

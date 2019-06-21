@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -19,8 +19,10 @@
                 <outlet property="mbtnPKI" destination="2fU-yY-XN3" id="e1o-VT-a2C"/>
                 <outlet property="mbtnThucHien" destination="VvQ-Sx-T9u" id="UUy-op-14c"/>
                 <outlet property="mbtnToken" destination="5CV-3G-mqk" id="cme-nH-0PH"/>
+                <outlet property="mlblPhi" destination="Hd2-bG-mLM" id="naI-3p-Jfh"/>
                 <outlet property="mlblSoDu" destination="LcT-Vg-6uH" id="5OW-k6-A5A"/>
                 <outlet property="mlblSoDuKhuyenMai" destination="Tvh-v9-Wnk" id="Chc-Br-0Zk"/>
+                <outlet property="mlblXacThuc" destination="Gor-mV-Ilp" id="xh2-WH-ngT"/>
                 <outlet property="mswtKhuyenMai" destination="zxy-hr-qN2" id="yuz-lT-4AJ"/>
                 <outlet property="mtfMatKhauToken" destination="xp1-IN-R0g" id="98K-Br-blp"/>
                 <outlet property="mtfSoPhi" destination="GKM-kQ-rvl" id="NcX-cd-heh"/>
@@ -30,6 +32,7 @@
                 <outlet property="mtfTenVietTatNganHang" destination="j39-6q-Ksa" id="g8v-Pz-SGK"/>
                 <outlet property="mtvNoiDungGiaoDich" destination="1f3-Ii-GkF" id="dpk-F8-WKT"/>
                 <outlet property="scrMain" destination="eBj-yO-mWk" id="qJR-Bp-Btf"/>
+                <outlet property="tfNoiDung" destination="QEj-fS-5Ta" id="dFC-xi-70e"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -321,7 +324,7 @@
                 <constraint firstAttribute="trailing" secondItem="eBj-yO-mWk" secondAttribute="trailing" id="wL4-nY-AcM"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-1024" y="318"/>
+            <point key="canvasLocation" x="-1697" y="269"/>
         </view>
     </objects>
     <resources>
