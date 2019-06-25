@@ -134,6 +134,8 @@ const int DINH_DANH_THONG_BAO_THANH_CONG = 100;
     [self.imgvQRCode addGestureRecognizer:longHander];
     
     [self khoiTaoView];
+    
+    self.mbtnToken.hidden = NO;
 }
 
 - (void)viewDidAppear:(BOOL)animated {

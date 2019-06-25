@@ -445,7 +445,8 @@
         [UIAlertView alert:[@"so_du_khong_du" localizableString] withTitle:[@"thong_bao" localizableString] block:nil];
         return NO;
     }
-    else if (fSoTien > [self.mThongTinTaiKhoanVi.nHanMucDenTaiKhoan doubleValue]) {
+    else if (fSoTien > [self.mThongTinTaiKhoanVi.hanMucTimeSoftToken doubleValue]) {
+//        [self.mThongTinTaiKhoanVi.nHanMucDenTaiKhoan doubleValue]
         [UIAlertView alert:[@"vuot_han_muc" localizableString] withTitle:[@"thong_bao" localizableString] block:nil];
         return NO;
     }
@@ -526,7 +527,7 @@
             self.mbtnToken.hidden = YES;
         }
     } else {
-        self.mbtnPKI.hidden = YES;
+        self.mbtnPKI.hidden = NO;
         self.btnVanTayMini.hidden = NO;
         self.mbtnToken.hidden = NO;
     }

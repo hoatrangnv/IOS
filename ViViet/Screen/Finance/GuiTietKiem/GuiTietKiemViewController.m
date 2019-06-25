@@ -101,7 +101,8 @@ typedef enum : NSUInteger {
     [self khoiTaoGiaoDien];
     currentHeightMain = 510;
     self.heightViewMain.constant = currentHeightMain;
-    NSLog(@"%s - currentHeightMain : %f", __FUNCTION__, currentHeightMain);
+    
+    self.mbtnToken.hidden = NO;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -122,12 +123,12 @@ typedef enum : NSUInteger {
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    if(![CommonUtils isEmptyOrNull:self.mThongTinTaiKhoanVi.pki3] && [self.mThongTinTaiKhoanVi.hanMucPki3 doubleValue] >0 ){
-        self.mbtnPKI.hidden = NO;
-    }
-    else{
-        self.mbtnPKI.hidden = YES;
-    }
+//    if(![CommonUtils isEmptyOrNull:self.mThongTinTaiKhoanVi.pki3] && [self.mThongTinTaiKhoanVi.hanMucPki3 doubleValue] >0 ){
+//        self.mbtnPKI.hidden = NO;
+//    }
+//    else{
+//        self.mbtnPKI.hidden = YES;
+//    }
 //    [self khoiTaoQuangCao];
     [self.mtfSoTien resignFirstResponder];
     [_mtfNganHangGui resignFirstResponder];
@@ -500,7 +501,6 @@ typedef enum : NSUInteger {
 
 - (BOOL)validateVanTay
 {
-    return YES;
     if (![[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_STATE] boolValue]) {
         DucNT_LoginSceen *loginSceen = [[DucNT_LoginSceen alloc] initWithNibName:@"DucNT_LoginSceen" bundle:nil];
         [self presentViewController:loginSceen animated:YES completion:^{}];
@@ -701,33 +701,29 @@ typedef enum : NSUInteger {
     [self xuLyHienThiSoPhi];
     [self xuLyHienThiSoTienLai];
     double fSoTien = [[[self.mtfSoTien.text componentsSeparatedByCharactersInSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]] componentsJoinedByString:@""] doubleValue];
-//    if(![CommonUtils isEmptyOrNull:self.mThongTinTaiKhoanVi.pki3] && [self.mThongTinTaiKhoanVi.hanMucPki3 doubleValue] >0 ){
-//        if(fSoTien > [self.mThongTinTaiKhoanVi.hanMucPki3 doubleValue]){
-//            self.mbtnSMS.hidden = YES;
-//            self.mbtnToken.hidden = YES;
-//            self.mbtnEmail.hidden = YES;
-//            self.mbtnPKI.hidden = NO;
-//        }
-//        else{
-//            self.mbtnSMS.hidden = NO;
-//            
-//            self.mbtnToken.hidden = NO;
-//            
-//            self.mbtnEmail.hidden = NO;
-//            
-//            self.mbtnPKI.hidden = NO;
-//        }
-//    }
-//    else{
-//        self.mbtnPKI.hidden = YES;
-//        self.mbtnToken.hidden = NO;
-//        self.mbtnSMS.hidden = NO;
-//        self.mbtnEmail.hidden = NO;
-//    }
+
     if(fSoTien > 0)
         _mtfSoTien.text = [Common hienThiTienTe:fSoTien];
     else
         _mtfSoTien.text = @"";
+    
+    double fHanMucToken = [self.mThongTinTaiKhoanVi.hanMucTimeSoftToken doubleValue];
+    if (fSoTien > fHanMucToken) {
+        double fHanMucPKI = [self.mThongTinTaiKhoanVi.hanMucTimeMPKI doubleValue];
+        if (fSoTien <= fHanMucPKI) {
+            self.mbtnPKI.hidden = NO;
+            self.btnVanTayMini.hidden = YES;
+            self.mbtnToken.hidden = YES;
+        } else {
+            self.mbtnPKI.hidden = YES;
+            self.btnVanTayMini.hidden = YES;
+            self.mbtnToken.hidden = YES;
+        }
+    } else {
+        self.mbtnPKI.hidden = NO;
+        self.btnVanTayMini.hidden = NO;
+        self.mbtnToken.hidden = NO;
+    }
 }
 
 #pragma mark - xuLy

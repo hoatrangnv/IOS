@@ -69,23 +69,23 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="YHY-fo-45V">
                                             <rect key="frame" x="73" y="28" width="164.5" height="47"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2fU-yY-XN3">
-                                                    <rect key="frame" x="0.0" y="0.0" width="48" height="47"/>
-                                                    <state key="normal" title="SMS" image="pki"/>
-                                                </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5CV-3G-mqk">
-                                                    <rect key="frame" x="58" y="0.0" width="48" height="47"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="48" height="47"/>
                                                     <state key="normal" image="tokenv"/>
                                                     <connections>
                                                         <action selector="suKienBamNutToken:" destination="-1" eventType="touchUpInside" id="gdM-ta-cpt"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a7s-9y-ybz">
-                                                    <rect key="frame" x="116" y="0.0" width="48.5" height="47"/>
+                                                    <rect key="frame" x="58" y="0.0" width="48" height="47"/>
                                                     <state key="normal" image="vantay"/>
                                                     <connections>
                                                         <action selector="suKienBamNutMatKhauVanTay:" destination="-1" eventType="touchUpInside" id="PGR-OU-00z"/>
                                                     </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2fU-yY-XN3">
+                                                    <rect key="frame" x="116" y="0.0" width="48.5" height="47"/>
+                                                    <state key="normal" title="SMS" image="pki"/>
                                                 </button>
                                             </subviews>
                                             <constraints>

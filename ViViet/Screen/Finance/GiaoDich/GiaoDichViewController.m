@@ -68,6 +68,8 @@
     
     self.mlblPhi.text = [Localization languageSelectedStringForKey:@"title_phi"];
     self.mlblXacThuc.text = [Localization languageSelectedStringForKey:@"xac_thuc_boi"];
+    
+    self.mbtnPKI.hidden = false;
 }
 
 - (void)khoiTaoButtonXacThucBanDau {

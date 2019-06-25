@@ -66,6 +66,7 @@
 //    self.mtfSoTien.delegate = self;
     
     self.mbtnToken.hidden = NO;
+    self.mbtnPKI.hidden = NO;
 }
 
 - (void) handleHoldGesture:(UILongPressGestureRecognizer *)gestureRecognizer
@@ -143,12 +144,12 @@
     NSLog(@"%s - sDuongDanAnhDaiDien : %@", __FUNCTION__, sDuongDanAnhDaiDien);
     [self.imgvAvatar sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://vimass.vn/vmbank/services/media/getImage?id=%@", sDuongDanAnhDaiDien]] placeholderImage:[UIImage imageNamed:@"icon_danhba"]];
     [self.scrMain setContentSize:CGSizeMake(_scrMain.frame.size.width, _scrMain.frame.origin.y + _scrMain.frame.size.height + 80)];
-    if(![CommonUtils isEmptyOrNull:self.mThongTinTaiKhoanVi.pki3] && [self.mThongTinTaiKhoanVi.hanMucPki3 doubleValue] >0 ){
-        self.mbtnPKI.hidden = NO;
-    }
-    else{
-        self.mbtnPKI.hidden = YES;
-    }
+//    if(![CommonUtils isEmptyOrNull:self.mThongTinTaiKhoanVi.pki3] && [self.mThongTinTaiKhoanVi.hanMucPki3 doubleValue] >0 ){
+//        self.mbtnPKI.hidden = NO;
+//    }
+//    else{
+//        self.mbtnPKI.hidden = YES;
+//    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
@@ -280,7 +281,7 @@
         [UIAlertView alert:[Localization languageSelectedStringForKey:@"so_tien_chuyen_di_phai_nho_hon_sodu_tk"] withTitle:[@"thong_bao" localizableString] block:nil];
         return NO;
     }
-    else if (fSoTien > [self.mThongTinTaiKhoanVi.nHanMucDenVi doubleValue]) {
+    else if (fSoTien > [self.mThongTinTaiKhoanVi.hanMucTimeSoftToken doubleValue]) {
         [UIAlertView alert:[Localization languageSelectedStringForKey:@"so_tien_chuyen_di_phai_nho_hon_han_muc_gd"] withTitle:[@"thong_bao" localizableString] block:nil];
         return NO;
     }
@@ -370,11 +371,11 @@
 {
     NSString *sSoTien = [_mtfSoTien.text stringByReplacingOccurrencesOfString:@"." withString:@""];
     _mtfSoTien.text = [Common hienThiTienTeFromString:sSoTien];
+    
     double fSoTien = [sSoTien doubleValue];
     double fHanMucToken = [self.mThongTinTaiKhoanVi.hanMucTimeSoftToken doubleValue];
     if (fSoTien > fHanMucToken) {
         double fHanMucPKI = [self.mThongTinTaiKhoanVi.hanMucTimeMPKI doubleValue];
-         NSLog(@"%s - sSoTien : %@ - fHanMucPKI : %f", __FUNCTION__, sSoTien, fHanMucPKI);
         if (fSoTien <= fHanMucPKI) {
             self.mbtnPKI.hidden = NO;
             self.btnVanTayMini.hidden = YES;
@@ -385,33 +386,11 @@
             self.mbtnToken.hidden = YES;
         }
     } else {
-        self.mbtnPKI.hidden = YES;
+        self.mbtnPKI.hidden = NO;
         self.btnVanTayMini.hidden = NO;
         self.mbtnToken.hidden = NO;
     }
-//    if(![CommonUtils isEmptyOrNull:self.mThongTinTaiKhoanVi.pki3] && [self.mThongTinTaiKhoanVi.hanMucPki3 doubleValue] >0 ){
-//        if([sSoTien doubleValue] > [self.mThongTinTaiKhoanVi.hanMucPki3 doubleValue]){
-//            self.mbtnSMS.hidden = YES;
-//            self.mbtnToken.hidden = YES;
-//            self.mbtnEmail.hidden = YES;
-//            self.mbtnPKI.hidden = NO;
-//        }
-//        else{
-//            self.mbtnSMS.hidden = NO;
-//
-//            self.mbtnToken.hidden = NO;
-//
-//            self.mbtnEmail.hidden = NO;
-//
-//            self.mbtnPKI.hidden = NO;
-//        }
-//    }
-//    else{
-//        self.mbtnPKI.hidden = YES;
-//        self.mbtnToken.hidden = NO;
-//        self.mbtnSMS.hidden = NO;
-//        self.mbtnEmail.hidden = NO;
-//    }
+
     [self xuLyHienThiSoTienPhiCuaSoTien:sSoTien];
 }
 

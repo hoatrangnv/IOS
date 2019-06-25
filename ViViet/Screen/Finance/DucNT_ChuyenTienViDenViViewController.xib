@@ -193,20 +193,20 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="O43-Np-Oed">
                                                             <rect key="frame" x="61" y="23" width="182" height="52"/>
                                                             <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hLl-8s-7Ot">
-                                                                    <rect key="frame" x="0.0" y="15" width="54" height="22"/>
-                                                                    <state key="normal" title="PKI" image="pki"/>
-                                                                </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k8s-32-8wO">
-                                                                    <rect key="frame" x="64" y="15" width="54" height="22"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="54" height="52"/>
                                                                     <state key="normal" title="Token" image="tokenv"/>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U8W-R2-If2">
-                                                                    <rect key="frame" x="128" y="15" width="54" height="22"/>
+                                                                    <rect key="frame" x="64" y="0.0" width="54" height="52"/>
                                                                     <state key="normal" image="vantay"/>
                                                                     <connections>
                                                                         <action selector="suKienBamNutMatKhauVanTay:" destination="-1" eventType="touchUpInside" id="EV2-eI-jYo"/>
                                                                     </connections>
+                                                                </button>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hLl-8s-7Ot">
+                                                                    <rect key="frame" x="128" y="0.0" width="54" height="52"/>
+                                                                    <state key="normal" title="PKI" image="pki"/>
                                                                 </button>
                                                             </subviews>
                                                             <constraints>

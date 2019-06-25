@@ -35,6 +35,8 @@
     _tfNoiDung.placeholder = [@"place_holder_noi_dung" localizableString];
     _mtfSoTien.placeholder = [@"place_holder_so_tien" localizableString];
     _mtfTenTKCanMuonTien.placeholder = [@"ten_tai_khoan_muon_tien" localizableString];
+    
+    self.mbtnToken.hidden = NO;
 }
 
 - (void)khoiTaoQuangCao {

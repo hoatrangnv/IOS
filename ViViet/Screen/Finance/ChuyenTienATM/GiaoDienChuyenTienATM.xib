@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -156,25 +156,25 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="4ho-ai-3Bd">
                                             <rect key="frame" x="48.5" y="23" width="182" height="52"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nd8-lq-A3j">
-                                                    <rect key="frame" x="0.0" y="0.0" width="54" height="52"/>
-                                                    <state key="normal" title="PKI" image="pki"/>
-                                                    <connections>
-                                                        <action selector="suKienBamNutPKI:" destination="-1" eventType="touchUpInside" id="HXc-3g-TWa"/>
-                                                    </connections>
-                                                </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kBn-aE-a9u">
-                                                    <rect key="frame" x="64" y="0.0" width="54" height="52"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="54" height="52"/>
                                                     <state key="normal" title="TOKEN" image="tokenv"/>
                                                     <connections>
                                                         <action selector="suKienBamNutToken:" destination="-1" eventType="touchUpInside" id="ybD-YM-bUr"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Reu-xj-lyc">
-                                                    <rect key="frame" x="128" y="0.0" width="54" height="52"/>
+                                                    <rect key="frame" x="64" y="0.0" width="54" height="52"/>
                                                     <state key="normal" image="vantay"/>
                                                     <connections>
                                                         <action selector="suKienBamNutMatKhauVanTay:" destination="-1" eventType="touchUpInside" id="V0F-31-jYa"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nd8-lq-A3j">
+                                                    <rect key="frame" x="128" y="0.0" width="54" height="52"/>
+                                                    <state key="normal" title="PKI" image="pki"/>
+                                                    <connections>
+                                                        <action selector="suKienBamNutPKI:" destination="-1" eventType="touchUpInside" id="HXc-3g-TWa"/>
                                                     </connections>
                                                 </button>
                                             </subviews>

@@ -36,6 +36,7 @@
     _tfDayMPKI.placeholder = [@"place_holder_so_tien" localizableString];
     _tfMaXacThuc.placeholder = [@"mat_khau_token" localizableString];
     
+    self.mbtnToken.hidden = NO;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -64,12 +65,12 @@
         double timeMpki = [DucNT_LuuRMS layHanMuc:KEY_TIME_MPKI];
         double dayMpki = [DucNT_LuuRMS layHanMuc:KEY_DAY_MPKI];
 //        NSLog(@"%s - timeMpki : %f - DBL_MAX : %f", __FUNCTION__, timeMpki, DBL_MAX);
-        if (timeMpki == 0 || timeMpki == DBL_MAX) {
+        if (timeMpki == 0 || timeMpki == DBL_MAX || timeMpki == 2147483647) {
             self.tfTimeMPKI.text = @"";
         } else {
             self.tfTimeMPKI.text = [Common hienThiTienTe:timeMpki];
         }
-        if (dayMpki == 0 || dayMpki == DBL_MAX) {
+        if (dayMpki == 0 || dayMpki == DBL_MAX || dayMpki == 2147483647) {
             self.tfDayMPKI.text = @"";
         } else {
             self.tfDayMPKI.text = [Common hienThiTienTe:dayMpki];
@@ -92,6 +93,17 @@
 {
     NSString *sSoTien = [sender.text stringByReplacingOccurrencesOfString:@"." withString:@""];
     [sender setText:[Common hienThiTienTeFromString:sSoTien]];
+    if ([sender isEqual:_tfTimeMPKI] || [sender isEqual:_tfDayMPKI]) {
+        if ([sSoTien isEmpty]) {
+            self.btnVanTayMini.hidden = NO;
+            self.mbtnToken.hidden = NO;
+            self.mbtnPKI.hidden = NO;
+        } else {
+            self.btnVanTayMini.hidden = YES;
+            self.mbtnToken.hidden = YES;
+            self.mbtnPKI.hidden = NO;
+        }
+    }
 }
 
 - (void)hideViewNhapToken {

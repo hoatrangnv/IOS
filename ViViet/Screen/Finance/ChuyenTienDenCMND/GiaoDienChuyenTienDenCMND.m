@@ -56,7 +56,7 @@
     [self themButtonHuongDanSuDung:@selector(suKienBamNutHuongDanCMND:)];
 
     [self khoiTaoBanDau];
-    
+    self.mbtnToken.hidden = NO;
 }
 
 - (void)suKienBamNutHuongDanCMND:(UIButton *)sender {
@@ -226,7 +226,7 @@
     indexKhuVuc = 0;
     [self capNhatGiaoDienKhiChonKhuVuc];
     
-    self.mlblPhi.text = [NSString stringWithFormat:@"%@: 6.600 đ", [@"fee" localizableString]];
+    self.mlblPhi.text = [NSString stringWithFormat:@"%@: 6.600 đ", [@"phi_chuyen_tien" localizableString]];
     self.edTenCN.placeholder = [@"ten_chi_nhanh_pgd" localizableString];
     [self.btnSearch setTitle:[@"tim_chi_nhanh_pgd" localizableString] forState:UIControlStateNormal];
     self.edDiaChiCN.placeholder = [@"dia_chi_cn_pgd_nhan_tien" localizableString];
@@ -436,7 +436,26 @@
 - (IBAction)suKienThayDoiSoTien:(id)sender {
     NSString *sSoTien = [_edSoTien.text stringByReplacingOccurrencesOfString:@"." withString:@""];
     _edSoTien.text = [Common hienThiTienTeFromString:sSoTien];
-//    GiaoDichMang
+
+    double fSoTien = [sSoTien doubleValue];
+    double fHanMucToken = [self.mThongTinTaiKhoanVi.hanMucTimeSoftToken doubleValue];
+    if (fSoTien > fHanMucToken) {
+        double fHanMucPKI = [self.mThongTinTaiKhoanVi.hanMucTimeMPKI doubleValue];
+        NSLog(@"%s - sSoTien : %@ - fHanMucPKI : %f", __FUNCTION__, sSoTien, fHanMucPKI);
+        if (fSoTien <= fHanMucPKI) {
+            self.mbtnPKI.hidden = NO;
+            self.btnVanTayMini.hidden = YES;
+            self.mbtnToken.hidden = YES;
+        } else {
+            self.mbtnPKI.hidden = YES;
+            self.btnVanTayMini.hidden = YES;
+            self.mbtnToken.hidden = YES;
+        }
+    } else {
+        self.mbtnPKI.hidden = NO;
+        self.btnVanTayMini.hidden = NO;
+        self.mbtnToken.hidden = NO;
+    }
 }
 
 - (IBAction)suKienBamNutSoTay:(id)sender {
@@ -554,7 +573,6 @@
 }
 
 - (BOOL)validateVanTay {
-    return YES;
     if (![[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_STATE] boolValue]) {
         DucNT_LoginSceen *loginSceen = [[DucNT_LoginSceen alloc] initWithNibName:@"DucNT_LoginSceen" bundle:nil];
         [self presentViewController:loginSceen animated:YES completion:^{}];
@@ -607,7 +625,7 @@
             [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:[@"so_du_khong_du" localizableString]];
             return NO;
         }
-        else if (fSoTien > [self.mThongTinTaiKhoanVi.nHanMucDenTaiKhoan doubleValue]) {
+        else if (fSoTien > [self.mThongTinTaiKhoanVi.hanMucTimeSoftToken doubleValue]) {
             [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:[@"so_tien_chuyen_di_phai_nho_hon_han_muc_gd" localizableString]];
             return NO;
         }

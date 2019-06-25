@@ -222,7 +222,8 @@
         [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:[@"so_tien_chuyen_di_phai_nho_hon_sodu_tk" localizableString]];
         return NO;
     }
-    else if (fSoTien > [self.mThongTinTaiKhoanVi.nHanMucDenThe doubleValue]) {
+    else if (fSoTien > [self.mThongTinTaiKhoanVi.hanMucTimeSoftToken doubleValue]) {
+//        [self.mThongTinTaiKhoanVi.nHanMucDenThe doubleValue]
         [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:[@"vuot_han_muc" lowercaseString]];
         return NO;
     }
@@ -299,7 +300,7 @@
             self.mbtnToken.hidden = YES;
         }
     } else {
-        self.mbtnPKI.hidden = YES;
+        self.mbtnPKI.hidden = NO;
         self.btnVanTayMini.hidden = NO;
         self.mbtnToken.hidden = NO;
     }

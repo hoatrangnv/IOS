@@ -506,8 +506,6 @@ typedef enum : NSUInteger {
 #pragma mark - dealloc
 
 - (void)dealloc {
-    [super dealloc];
-    [_delegate release];
     [_mtfNhanGocVaLaiVe release];
     [_mDanhSachNganHangGuiTietKiem release];
     [_edNameAlias release];
@@ -537,6 +535,7 @@ typedef enum : NSUInteger {
     [mDanhSachKyLinhLai release];
     [mDanhSachCachThucQuayVong release];
     [mDanhSachNganHangRutTienVe release];
+    [super dealloc];
 }
 
 @end

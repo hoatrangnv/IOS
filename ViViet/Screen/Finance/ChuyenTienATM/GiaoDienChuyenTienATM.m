@@ -315,7 +315,7 @@
             self.mbtnToken.hidden = YES;
         }
     } else {
-        self.mbtnPKI.hidden = YES;
+        self.mbtnPKI.hidden = NO;
         self.btnVanTayMini.hidden = NO;
         self.mbtnToken.hidden = NO;
     }

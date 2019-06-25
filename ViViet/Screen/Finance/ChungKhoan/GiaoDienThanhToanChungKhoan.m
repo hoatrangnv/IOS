@@ -33,7 +33,8 @@
     _edMaKhachHang.inputAccessoryView = nil;
     _edSoTien.inputAccessoryView = nil;
     _tvNoiDung.inputAccessoryView = nil;
-
+    
+    self.mbtnToken.hidden = NO;
 }
 
 -(void)updateThongTinATM:(NSNotification *)notification {
@@ -224,8 +225,28 @@
 }
 
 - (IBAction)suKienNhapSoTienChungKhoan:(id)sender {
-    NSString *sText = [Common hienThiTienTeFromString:[_edSoTien.text stringByReplacingOccurrencesOfString:@"." withString:@""]];
+    NSString *sSoTien = [_edSoTien.text stringByReplacingOccurrencesOfString:@"." withString:@""];
+    NSString *sText = [Common hienThiTienTeFromString:sSoTien];
     _edSoTien.text = sText;
+    
+    double fSoTien = [sSoTien doubleValue];
+    double fHanMucToken = [self.mThongTinTaiKhoanVi.hanMucTimeSoftToken doubleValue];
+    if (fSoTien > fHanMucToken) {
+        double fHanMucPKI = [self.mThongTinTaiKhoanVi.hanMucTimeMPKI doubleValue];
+        if (fSoTien <= fHanMucPKI) {
+            self.mbtnPKI.hidden = NO;
+            self.btnVanTayMini.hidden = YES;
+            self.mbtnToken.hidden = YES;
+        } else {
+            self.mbtnPKI.hidden = YES;
+            self.btnVanTayMini.hidden = YES;
+            self.mbtnToken.hidden = YES;
+        }
+    } else {
+        self.mbtnPKI.hidden = YES;
+        self.btnVanTayMini.hidden = NO;
+        self.mbtnToken.hidden = NO;
+    }
 }
 
 - (IBAction)suKienBamNutSoTayChungKhoan:(id)sender {

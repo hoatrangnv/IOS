@@ -383,21 +383,28 @@ ContactFullNameOrder fullNameOrder = ContactFullNameOrder_FirstLast;
                     NSString *sEmail = [(NSString*)email stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
                     if(sEmail.length > 0)
                     {
-                        Contact *contact = [tempDict valueForKey:sEmail];
-                        if(!contact)
-                        {
-                            Contact *newContact = [[Contact alloc] initWithPhone:sEmail
-                                                                       firstName:firstName
-                                                                        lastName:lastName
-                                                                        recordID:recordID];
-                            [tempDict setValue:newContact forKey:sEmail];
+                        @try {
+                            Contact *contact = [tempDict valueForKey:sEmail];
+                            if(!contact)
+                            {
+                                Contact *newContact = [[Contact alloc] initWithPhone:sEmail
+                                                                           firstName:firstName
+                                                                            lastName:lastName
+                                                                            recordID:recordID];
+                                [tempDict setValue:newContact forKey:sEmail];
+                            }
+                            else
+                            {
+                                contact.firstName = firstName;
+                                contact.lastName = lastName;
+                                contact.recordID = recordID;
+                            }
+                        } @catch (NSException *exception) {
+                            NSLog(@"%s - %@", __FUNCTION__, exception.reason);
+                        } @finally {
+                            NSLog(@"%s - Finally condition", __FUNCTION__);
                         }
-                        else
-                        {
-                            contact.firstName = firstName;
-                            contact.lastName = lastName;
-                            contact.recordID = recordID;
-                        }
+                        
                     }
                     CFRelease(email);
                 }

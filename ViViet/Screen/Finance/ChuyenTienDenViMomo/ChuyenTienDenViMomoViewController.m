@@ -39,6 +39,7 @@
     [self addButtonHuongDan];
     
     _tfNoiDung.placeholder = [@"place_holder_noi_dung" localizableString];
+    self.mbtnToken.hidden = NO;
 }
 
 - (void)updateXacThucKhac {
@@ -133,12 +134,12 @@
 //
 //    });
     
-    if(![CommonUtils isEmptyOrNull:self.mThongTinTaiKhoanVi.pki3] && [self.mThongTinTaiKhoanVi.hanMucPki3 doubleValue] >0 ){
-        self.mbtnPKI.hidden = NO;
-    }
-    else{
-        self.mbtnPKI.hidden = YES;
-    }
+//    if(![CommonUtils isEmptyOrNull:self.mThongTinTaiKhoanVi.pki3] && [self.mThongTinTaiKhoanVi.hanMucPki3 doubleValue] >0 ){
+//        self.mbtnPKI.hidden = NO;
+//    }
+//    else{
+//        self.mbtnPKI.hidden = YES;
+//    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
@@ -246,7 +247,6 @@
 
 - (BOOL)validateVanTay
 {
-    return YES;
     if (![[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_STATE] boolValue]) {
         DucNT_LoginSceen *loginSceen = [[DucNT_LoginSceen alloc] initWithNibName:@"DucNT_LoginSceen" bundle:nil];
         [self presentViewController:loginSceen animated:YES completion:^{}];
@@ -283,7 +283,8 @@
         [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:[@"max_chuyen_tien_vi_khac" localizableString]];
         return NO;
     }
-    else if (fSoTien > [self.mThongTinTaiKhoanVi.nHanMucDenViKhac doubleValue]) {
+    else if (fSoTien > [self.mThongTinTaiKhoanVi.hanMucTimeSoftToken doubleValue]) {
+//        [self.mThongTinTaiKhoanVi.nHanMucDenViKhac doubleValue]
         [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:[@"so_tien_chuyen_di_phai_nho_hon_han_muc_gd" localizableString]];
         return NO;
     }
@@ -363,6 +364,25 @@
         _mtfSoTien.text = [Common hienThiTienTe:fSoTien];
     else
         _mtfSoTien.text = @"";
+    
+    double fHanMucToken = [self.mThongTinTaiKhoanVi.hanMucTimeSoftToken doubleValue];
+    if (fSoTien > fHanMucToken) {
+        double fHanMucPKI = [self.mThongTinTaiKhoanVi.hanMucTimeMPKI doubleValue];
+        if (fSoTien <= fHanMucPKI) {
+            self.mbtnPKI.hidden = NO;
+            self.btnVanTayMini.hidden = YES;
+            self.mbtnToken.hidden = YES;
+        } else {
+            self.mbtnPKI.hidden = YES;
+            self.btnVanTayMini.hidden = YES;
+            self.mbtnToken.hidden = YES;
+        }
+    } else {
+        self.mbtnPKI.hidden = NO;
+        self.btnVanTayMini.hidden = NO;
+        self.mbtnToken.hidden = NO;
+    }
+    
     [self hienThiSoPhiCuaSoTien:fSoTien];
 }
 

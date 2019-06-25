@@ -129,6 +129,8 @@
     self.viewToken.hidden = YES;
     
     self.heightMain.constant = 210;
+    
+    self.mbtnToken.hidden = NO;
 }
 
 - (void)updateThongTinHoaDonMayBay:(NSNotification *)notification {
@@ -145,12 +147,12 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    if(![CommonUtils isEmptyOrNull:self.mThongTinTaiKhoanVi.pki3] && [self.mThongTinTaiKhoanVi.hanMucPki3 doubleValue] >0 ){
-        self.mbtnPKI.hidden = NO;
-    }
-    else{
-        self.mbtnPKI.hidden = YES;
-    }
+//    if(![CommonUtils isEmptyOrNull:self.mThongTinTaiKhoanVi.pki3] && [self.mThongTinTaiKhoanVi.hanMucPki3 doubleValue] >0 ){
+//        self.mbtnPKI.hidden = NO;
+//    }
+//    else{
+//        self.mbtnPKI.hidden = YES;
+//    }
 //    [self khoiTaoQuangCao];
     [self setAnimationChoSoTay:self.btnSoTay];
     

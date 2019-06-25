@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -417,22 +417,22 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Cql-Gv-nmv">
                                             <rect key="frame" x="55.5" y="18" width="199.5" height="57"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AmA-yv-dhs">
-                                                    <rect key="frame" x="0.0" y="0.0" width="59.5" height="57"/>
-                                                    <state key="normal" title="PKI" image="pki"/>
-                                                    <connections>
-                                                        <action selector="suKienBamNutPKI:" destination="-1" eventType="touchUpInside" id="RhK-nw-9hj"/>
-                                                    </connections>
-                                                </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2u7-iU-Nh8">
-                                                    <rect key="frame" x="69.5" y="0.0" width="60" height="57"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="59.5" height="57"/>
                                                     <state key="normal" title="TOKEN" image="tokenv"/>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x8X-wJ-gqM">
-                                                    <rect key="frame" x="139.5" y="0.0" width="60" height="57"/>
+                                                    <rect key="frame" x="69.5" y="0.0" width="60" height="57"/>
                                                     <state key="normal" image="vantay"/>
                                                     <connections>
                                                         <action selector="suKienBamNutMatKhauVanTay:" destination="-1" eventType="touchUpInside" id="aYf-0n-nl3"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AmA-yv-dhs">
+                                                    <rect key="frame" x="139.5" y="0.0" width="60" height="57"/>
+                                                    <state key="normal" title="PKI" image="pki"/>
+                                                    <connections>
+                                                        <action selector="suKienBamNutPKI:" destination="-1" eventType="touchUpInside" id="RhK-nw-9hj"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -804,10 +804,10 @@
         <image name="back" width="22" height="22"/>
         <image name="bg_nen.png" width="720" height="1280"/>
         <image name="bg_top.png" width="5" height="84"/>
-        <image name="gioithieu64.png" width="64" height="64"/>
+        <image name="gioithieu64.png" width="10.194690704345703" height="10.194690704345703"/>
         <image name="iconSoTay.png" width="32" height="28"/>
         <image name="icon_btn_tai_khoan_thuong_dung.png" width="64" height="64"/>
-        <image name="icon_vantay_khongmau.png" width="90" height="120"/>
+        <image name="icon_vantay_khongmau.png" width="10.800000190734863" height="14.399999618530273"/>
         <image name="pki" width="225" height="225"/>
         <image name="tokenv" width="120" height="120"/>
         <image name="vantay" width="225" height="225"/>

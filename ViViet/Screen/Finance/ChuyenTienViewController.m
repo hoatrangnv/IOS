@@ -71,6 +71,8 @@
     
     _mtfSoTien.placeholder = [@"place_holder_so_tien" localizableString];
     _tfNoiDung.placeholder = [@"place_holder_noi_dung" localizableString];
+    
+    self.mbtnToken.hidden = NO;
 }
 
 - (void)khoiTaoQuangCao {
@@ -331,6 +333,25 @@
         self.mtfSoTien.text = @"";
     double fPhi = [Common layPhiChuyenTienCuaSoTien:[sSoTien doubleValue] kieuChuyenTien:KIEU_CHUYEN_TIEN_DEN_TAI_KHOAN_NGAN_HANG maNganHang:self.mBankSMS];
     self.mtfSoPhi.text = [NSString stringWithFormat:@"%@ đ", [Common hienThiTienTe:fPhi]];
+    
+    double fSoTien = [sSoTien doubleValue];
+    double fHanMucToken = [self.mThongTinTaiKhoanVi.hanMucTimeSoftToken doubleValue];
+    if (fSoTien > fHanMucToken) {
+        double fHanMucPKI = [self.mThongTinTaiKhoanVi.hanMucTimeMPKI doubleValue];
+        if (fSoTien <= fHanMucPKI) {
+            self.mbtnPKI.hidden = NO;
+            self.btnVanTayMini.hidden = YES;
+            self.mbtnToken.hidden = YES;
+        } else {
+            self.mbtnPKI.hidden = YES;
+            self.btnVanTayMini.hidden = YES;
+            self.mbtnToken.hidden = YES;
+        }
+    } else {
+        self.mbtnPKI.hidden = NO;
+        self.btnVanTayMini.hidden = NO;
+        self.mbtnToken.hidden = NO;
+    }
 }
 
 - (void)xuLyLayDanhSachTaiKhoanThuongDungThanhCong:(NSArray*)dsTaiKhoan

@@ -27,7 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self khoiTaoBanDau];
-    
+    self.mbtnToken.hidden = NO;
 }
 
 #pragma mark - khoiTao

@@ -145,7 +145,11 @@
         if(!flg)
             [_mtfSoDienThoaiLienHe show_error];
     }
-
+    double fSoTien = [_mMoTaChiTietKhachHang.total doubleValue];
+    if (fSoTien > [self.mThongTinTaiKhoanVi.hanMucTimeSoftToken doubleValue]) {
+        [UIAlertView alert:[Localization languageSelectedStringForKey:@"so_tien_chuyen_di_phai_nho_hon_han_muc_gd"] withTitle:[@"thong_bao" localizableString] block:nil];
+        flg = NO;
+    }
     return flg;
 }
 
