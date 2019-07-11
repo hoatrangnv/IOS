@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="60" id="KGk-i7-Jjw" customClass="ListImageSanPhamQRCell" customModule="ViVimass" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="60" height="59.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UXv-7d-CHZ">
+                        <rect key="frame" x="3" y="3" width="54" height="53.5"/>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Msx-a4-EHU">
+                        <rect key="frame" x="31" y="5" width="24" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="24" id="8Yc-fn-GhR"/>
+                            <constraint firstAttribute="width" secondItem="Msx-a4-EHU" secondAttribute="height" id="98B-zC-BQG"/>
+                        </constraints>
+                        <inset key="imageEdgeInsets" minX="3" minY="3" maxX="3" maxY="3"/>
+                        <state key="normal" image="deldv"/>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="UXv-7d-CHZ" secondAttribute="trailing" constant="3" id="66r-RI-kbT"/>
+                    <constraint firstAttribute="trailing" secondItem="Msx-a4-EHU" secondAttribute="trailing" constant="5" id="EGU-fT-fGD"/>
+                    <constraint firstAttribute="bottom" secondItem="UXv-7d-CHZ" secondAttribute="bottom" constant="3" id="J7J-nW-3eb"/>
+                    <constraint firstItem="UXv-7d-CHZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="3" id="Mjz-9B-jOS"/>
+                    <constraint firstItem="UXv-7d-CHZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="3" id="WMk-GT-bz8"/>
+                    <constraint firstItem="Msx-a4-EHU" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="hoD-Sc-5pZ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="btnDelete" destination="Msx-a4-EHU" id="UDE-xk-RyF"/>
+                <outlet property="imgvPreview" destination="UXv-7d-CHZ" id="PGL-8F-6gb"/>
+            </connections>
+            <point key="canvasLocation" x="-591" y="42"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="deldv" width="22" height="22"/>
+    </resources>
+</document>

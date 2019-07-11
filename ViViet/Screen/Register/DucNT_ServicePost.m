@@ -61,7 +61,7 @@ NSString *const LINK_XAC_THUC_QUEN_MAT_KHAU_TOKEN;
     NSURL * url = [NSURL URLWithString:sUrl];
     NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[sContent length]];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[url standardizedURL]];
-    request.timeoutInterval = 120;
+    request.timeoutInterval = 90;
     [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
     [request setHTTPMethod:@"POST"];
     [request setValue:@"application/x-www-form-urlencoded; charset=utf-8" forHTTPHeaderField:@"Content-Type"];

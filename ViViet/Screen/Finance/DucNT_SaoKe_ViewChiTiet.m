@@ -120,35 +120,19 @@
     if(_mThongTinTaiKhoan)
         [_mThongTinTaiKhoan release];
     _mThongTinTaiKhoan = [mThongTinTaiKhoan retain];
-//    CGRect rtfSoDuVi = _mlblSoDu.frame;
-//    CGRect rViewThoiDiem = _mViewThoiDiemVaSoDuVi.frame;
-//    CGRect rViewThoiGian = _mViewThoiGian.frame;
-//    CGRect rViewMain = viewMain.frame;
-//    CGRect rbtnGuiMail = _mbtnGuiMailVeThuDienTu.frame;
+
 
     if([_mThongTinTaiKhoan kiemTraCoThuDienTu])
     {
         //Co mail
         [_mbtnGuiMailVeThuDienTu setHidden:NO];
-//        rbtnGuiMail.origin.y = rtfSoDuVi.size.height + rtfSoDuVi.origin.y;
-//        rViewThoiDiem.size.height = rbtnGuiMail.origin.y + rbtnGuiMail.size.height;
         [_mbtnGuiMailVeThuDienTu setTitle:[NSString stringWithFormat:@"Gửi mail về %@", [_mThongTinTaiKhoan layThuDienTu]] forState:UIControlStateNormal];
     }
     else
     {
         //Khong co mail
         [_mbtnGuiMailVeThuDienTu setHidden:YES];
-//        rViewThoiDiem.size.height = rtfSoDuVi.origin.y + rtfSoDuVi.size.height;
     }
-    
-//    rViewThoiGian.size.height = rViewThoiDiem.origin.y + rViewThoiDiem.size.height;
-//    rViewMain.size.height = rViewThoiGian.size.height + rViewThoiGian.origin.y;
-//    
-//    _mlblSoDu.frame = rtfSoDuVi;
-//    _mViewThoiDiemVaSoDuVi.frame = rViewThoiDiem;
-//    _mViewThoiGian.frame = rViewThoiGian;
-//    viewMain.frame = rViewMain;
-//    _mbtnGuiMailVeThuDienTu.frame = rbtnGuiMail;
 }
 
 #pragma mark - update info view

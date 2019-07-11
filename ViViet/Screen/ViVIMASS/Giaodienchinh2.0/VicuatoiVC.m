@@ -30,10 +30,11 @@
                         @{@"name":[Localization languageSelectedStringForKey:@"nap_tien_tu_the_bank2"], @"image":@"icon_grid_cachnapvi"},
                         @{@"name":[Localization languageSelectedStringForKey:@"rut_tien"], @"image":@"ic_vicuatoi_ruttien"},
                         @{@"name":[Localization languageSelectedStringForKey:@"muon_tien"], @"image":@"icon_chuyen_tien_tan_nha_64x64"},
-                        @{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_bussiness_update_information"], @"image":@"icon_edit_the_luu"},
-                        @{@"name":[Localization languageSelectedStringForKey:@"dangki_pki"], @"image":@"pki"},
-                        @{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_transaction_limit_xacthuc"], @"image":@"ic_vicuatoi_hanmuc"}
+                        @{@"name":[@"financer_viewer_tra_tien_vay" localizableString], @"image":@"icon_grid_naptientuthe"},
+                        @{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_bussiness_update_information"], @"image":@"icon_edit_the_luu"}
                         ];
+//    @{@"name":[Localization languageSelectedStringForKey:@"dangki_pki"], @"image":@"pki"},
+//    @{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_transaction_limit_xacthuc"], @"image":@"ic_vicuatoi_hanmuc"}
 }
 
 - (void)didReceiveMemoryWarning {
@@ -52,7 +53,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return self.view.frame.size.height / 10.0;
+    return self.view.frame.size.height / self.arrDanhSach.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -72,50 +73,6 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"%s - indexPath : %d", __FUNCTION__, (int)indexPath.row);
     [self.delegate didSelectRow:(int)indexPath.row withTab:3];
-
-    //    if (indexPath.row == 0) {
-    //        ChuyenTienTanNhaViewController *chuyenTienTanNhaViewController = [[ChuyenTienTanNhaViewController alloc] initWithNibName:@"ChuyenTienTanNhaViewController" bundle:nil];
-    //        [self.navigationController pushViewController:chuyenTienTanNhaViewController animated:YES];
-    //        [chuyenTienTanNhaViewController release];
-    //    }
-    //    else if (indexPath.row == 1) {
-    //        GiaoDienChuyenTienDenCMND *internet = [[GiaoDienChuyenTienDenCMND alloc] initWithNibName:@"GiaoDienChuyenTienDenCMND" bundle:nil];
-    //        [self.navigationController pushViewController:internet animated:YES];
-    //        [internet release];
-    //    }
-    //    else if (indexPath.row == 4) {
-    //        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Chức năng đang được phát triển"];
-    //        return;
-    //    }
-    //    else {
-    //        ChuyenTienDenViMomoViewController *vc = [[ChuyenTienDenViMomoViewController alloc] initWithNibName:@"ChuyenTienDenViMomoViewController" bundle:nil];
-    //        if (indexPath.row == 2) {
-    //            vc.nType = 1;
-    //        }
-    //        else if (indexPath.row == 5) {
-    //            vc.nType = 2;
-    //        }
-    //        else if (indexPath.row == 6) {
-    //            vc.nType = 3;
-    //        }
-    //        else if (indexPath.row == 7) {
-    //            vc.nType = 4;
-    //        }
-    //        else if (indexPath.row == 8) {
-    //            vc.nType = 5;
-    //        }
-    //        else if (indexPath.row == 3) {
-    //            vc.nType = 6;
-    //        }
-    //        else if (indexPath.row == 9) {
-    //            vc.nType = 7;
-    //        }
-    //        else if (indexPath.row == 10) {
-    //            vc.nType = 8;
-    //        }
-    //        [self.navigationController pushViewController:vc animated:YES];
-    //        [vc release];
-    //    }
 }
 
 - (void)dealloc {

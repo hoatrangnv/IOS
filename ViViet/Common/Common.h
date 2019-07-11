@@ -718,7 +718,7 @@ enum
 + (NSString *) convertLongToString:(long long)nLongDate;
 + (NSString *) convertLongToStringWithFormatter:(long long)nLongDate formatter:(NSString *)formatter;
 + (NSArray*)job_work_locations;
-
++ (NSString *)convertImageToBase64:(UIImage *)viewImage;
 
 
 + (BOOL)kiemTraTheDaDuocKetNoiDeChuyenTien:(NSString*)sSoThe;

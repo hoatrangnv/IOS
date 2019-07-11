@@ -14,7 +14,7 @@
 #import "UIDevice+IdentifierAddition.h"
 #import "JSONKit.h"
 #import <objc/runtime.h>
-
+#import "Base64.h"
 
 #define kJOB_WODK_LOCATION_JSON @"[{\"title\":\"TP.Hồ Chí Minh\",\"value\":5},{\"title\":\"Hà Nội\",\"value\":3},{\"title\":\"An Giang\",\"value\":6},{\"title\":\"Bạc Liêu\",\"value\":10},{\"title\":\"Bà Rịa-Vũng Tàu\",\"value\":7},{\"title\":\"Bắc Cạn\",\"value\":64},{\"title\":\"Bắc Giang\",\"value\":8},{\"title\":\"Bắc Ninh\",\"value\":11},{\"title\":\"Bến Tre\",\"value\":12},{\"title\":\"Bình Dương\",\"value\":14},{\"title\":\"Bình Định\",\"value\":13},{\"title\":\"Bình Phước\",\"value\":15},{\"title\":\"Bình Thuận\",\"value\":16},{\"title\":\"Cao Bằng\",\"value\":18},{\"title\":\"Cà Mau\",\"value\":17},{\"title\":\"Cần Thơ\",\"value\":1},{\"title\":\"Đà Nẵng\",\"value\":2},{\"title\":\"Đắk Lắk\",\"value\":19},{\"title\":\"Đắk Nông\",\"value\":20},{\"title\":\"Điện Biên\",\"value\":21},{\"title\":\"Đồng Nai\",\"value\":22},{\"title\":\"Đồng Tháp\",\"value\":23},{\"title\":\"Gia Lai\",\"value\":24},{\"title\":\"Hà Giang\",\"value\":25},{\"title\":\"Hà Nam\",\"value\":26},{\"title\":\"Hà Tây\",\"value\":3},{\"title\":\"Hà Tĩnh\",\"value\":27},{\"title\":\"Hải Dương\",\"value\":28},{\"title\":\"Hải Phòng\",\"value\":4},{\"title\":\"Hậu Giang\",\"value\":29},{\"title\":\"Hòa Bình\",\"value\":30},{\"title\":\"Hưng Yên\",\"value\":31},{\"title\":\"Khánh Hòa\",\"value\":32},{\"title\":\"Kiên Giang\",\"value\":33},{\"title\":\"Kon Tum\",\"value\":34},{\"title\":\"Lai Châu\",\"value\":35},{\"title\":\"Lạng Sơn\",\"value\":37},{\"title\":\"Lào Cai\",\"value\":38},{\"title\":\"Lâm Đồng\",\"value\":36},{\"title\":\"Long An\",\"value\":39},{\"title\":\"Nam Định\",\"value\":40},{\"title\":\"Nghệ An\",\"value\":41},{\"title\":\"Ninh Bình\",\"value\":42},{\"title\":\"Ninh Thuận\",\"value\":43},{\"title\":\"Phú Thọ\",\"value\":44},{\"title\":\"Phú Yên\",\"value\":45},{\"title\":\"Quảng Bình\",\"value\":46},{\"title\":\"Quảng Nam\",\"value\":47},{\"title\":\"Quảng Ngãi\",\"value\":48},{\"title\":\"Quảng Ninh\",\"value\":49},{\"title\":\"Quảng Trị\",\"value\":50},{\"title\":\"Sóc Trăng\",\"value\":51},{\"title\":\"Sơn La\",\"value\":52},{\"title\":\"Tây Ninh\",\"value\":53},{\"title\":\"Thái Bình\",\"value\":54},{\"title\":\"Thái Nguyên\",\"value\":55},{\"title\":\"Thanh Hóa\",\"value\":56},{\"title\":\"Thừa Thiên-Huế\",\"value\":57},{\"title\":\"Tiền Giang\",\"value\":58},{\"title\":\"Trà Vinh\",\"value\":59},{\"title\":\"Tuyên Quang\",\"value\":60},{\"title\":\"Vĩnh Long\",\"value\":61},{\"title\":\"Vĩnh Phúc\",\"value\":62},{\"title\":\"Yên Bái\",\"value\":63},{\"title\":\"Toàn quốc\",\"value\":64},{\"title\":\"Nước ngoài\",\"value\":65}]"
 
@@ -1892,6 +1892,10 @@ CLLocationManager *shared_location_manager = nil;
     [controller dismissViewControllerAnimated:YES completion:^{}];
 }
 
-
++ (NSString *)convertImageToBase64:(UIImage *)viewImage {
+    NSData *imageData = UIImagePNGRepresentation(viewImage);
+    NSString *b64EncStr = [Base64 encode: imageData];
+    return b64EncStr;
+}
 
 @end

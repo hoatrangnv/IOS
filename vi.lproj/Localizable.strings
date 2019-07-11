@@ -199,8 +199,8 @@
 "financer_viewer_tu_thien" = "Từ thiện";
 
 "financer_viewer_wallet_saving" = "Gửi & rút tiết kiệm";
-"financer_viewer_wallet_to_home" = "Chuyển tiền tận nhà";
-"financer_viewer_wallet_to_ATM" = "Chuyển tiền đến ATM";
+"financer_viewer_wallet_to_home" = "Đến tận nhà";
+"financer_viewer_wallet_to_ATM" = "Đến ATM";
 "financer_viewer_wallet_to_id" = "Ví đến người nhận có CMND";
 "financer_viewer_wallet_to_viid" = "Ví đến Thẻ đa năng";
 "financer_viewer_bankcard_link_wallet" = "Thẻ liên kết đến Ví";
@@ -614,14 +614,14 @@
 "ma_so_thue_cty_xuat_hoa_don" = "Mã số thuế cty xuất hóa đơn";
 "dia_chi_cty_nhan_hoa_don" = "Địa chỉ nhận hóa đơn";
 
-"financer_viewer_wallet_to_dienthoai" = "Chuyển tiền đến điện thoại";
-"financer_viewer_wallet_to_wallet" = "Chuyển tiền đến Ví Vimass";
+"financer_viewer_wallet_to_dienthoai" = "Đến điện thoại";
+"financer_viewer_wallet_to_wallet" = "Đến Ví Vimass";
 "financer_viewer_wallet_to_wallet_title" = "Chuyển tiền đến Ví";
-"financer_viewer_wallet_to_bank" = "Chuyển tiền đến tài khoản";
-"financer_viewer_atm" = "Chuyển tiền đến ATM";
+"financer_viewer_wallet_to_bank" = "Đến tài khoản";
+"financer_viewer_atm" = "Đến ATM";
 "financer_viewer_lixi" = "Lì xì";
-"financer_viewer_cmnd" = "Chuyển tiền đến CMND";
-"financer_viewer_chuyen_tien_tan_nha" = "Chuyển tiền đến tận nhà";
+"financer_viewer_cmnd" = "Đến CMND";
+"financer_viewer_chuyen_tien_tan_nha" = "Đến tận nhà";
 "financer_viewer_chuyen_tien_tiet_kiem" = "Gửi &amp; rút tiết kiệm";
 "financer_viewer_chuyen_tien_vi_khac" = "Chuyển tiền đến Ví khác";
 "diem_giao_dich" = "Điểm giao dịch";
@@ -650,7 +650,7 @@
 "financer_viewer_wallet_to_qr_momo" = "Momo QR";
 "financer_viewer_wallet_to_qr_tracuu" = "Tra cứu Vimass QR";
 "financer_viewer_wallet_to_qr_hoa_don" = "Hóa đơn";
-"financer_viewer_wallet_to_BankCard" = "Chuyển tiền đến thẻ";
+"financer_viewer_wallet_to_BankCard" = "Đến thẻ";
 "financer_viewer_tra_tien_vay" = "Vay & trả tiền vay";
 
 "choose_active_option" = "Xác thực bằng";
@@ -1032,7 +1032,7 @@
 "so_tien_thanh_toan_phai_lon_hon" = "Số tiền thoanh toán phải lớn hơn";
 "so_tien_thanh_toan_phai_nho_hon_so_du" = "Số tiền thoanh toán phải nhỏ hơn số dư tài khoản.";
 
-"chuyen_tien_den_vi_tk_an_sau_dien_thoai" = "Chọn ví,thẻ,tk ẩn sau điện thoại";
+"chuyen_tien_den_vi_tk_an_sau_dien_thoai" = "Chọn ví,tk ẩn sau ĐT";
 "dien_thoai" = "Đ. thoại";
 "tra_vay" = "Trả vay";
 "nap_vi" = "Nạp ví";
@@ -1047,7 +1047,7 @@
 "MAT_KHAU_O_HOP_LE" = "Mật khẩu không hợp lệ";
 "SO_VI_KHONG_DUOC_DE_TRONG" = "Số ví không được để trống";
 "ma_doanh_nghiep_khong_duoc_de_trong" = "Mã doanh nghiệp không được để trống";
-"den" = "đến";
+"den" = "Đến";
 "dang_lay_du_lieu" = "Đang lấy dữ liệu...";
 "dang_lay_danh_ba" = "Đang lấy danh bạ...";
 "dang_xu_ly" = "Đang xử lý...";
@@ -1259,7 +1259,7 @@
 "btf - issue place" = "Nơi cấp";
 "btf - select issue place" = "Chọn nơi cấp";
 "btf - descripton" = "Nội dung";
-"btf - transfer btn" = "Chuyển Tiền";
+"btf - transfer btn" = "Chuyển tiền";
 "btf - noti list" = "Các số điện thoại nhận tin";
 "btf - amount is required" = "Vui lòng nhập Số tiền";
 "btf - amount is invalid" = "Số tiền không hợp lệ";
@@ -1409,7 +1409,7 @@
 "so_tien_giao_dich" = "Số tiền";
 "title_noi_dung_viet_tat" = "ND";
 "vi_con" = "Ví còn";
-"du_km" = "Dư KM";
+"du_km" = "KM còn";
 "ma_khuyen_mai_vnpay" = "Mã khuyến mãi VNPAY";
 "diem_giao_dich_vnpay" = "Điểm giao dịch VNPAY";
 "dang_nhap_doanh_nghiep" = "Tài khoản doanh nghiệp";
@@ -1420,3 +1420,4 @@
 "doi_mat_khau_token" = "Đổi/Quên mật khẩu";
 "chu_tai_khoan" = "Chủ tài khoản";
 "ten_tai_khoan_muon_tien" = "Tên tài khoản mượn tiền";
+"ky_so" = "Ký số";

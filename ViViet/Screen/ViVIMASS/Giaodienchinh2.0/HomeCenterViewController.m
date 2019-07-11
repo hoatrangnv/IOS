@@ -108,9 +108,9 @@
 }
 
 - (void)updateLangBottomBar {
-    _lblNganHang.text = [@"ngan_hang" localizableString];
+    _lblNganHang.text = [@"btf - transfer btn" localizableString];
     _lblViDienTu.text = [@"vi_dien_tu" localizableString];
-    _lblHoaDon.text = [@"payment_card_bill" localizableString];
+    _lblHoaDon.text = [@"ky_so" localizableString];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -648,33 +648,66 @@
             [self.navigationController pushViewController:vc animated:YES];
             [vc release];
         } else {
-            NSString *str = [[result substringToIndex:1]uppercaseString] ;
-            if ([str isEqualToString:@"V"]) {
-                NSLog(@"%s - line : %d", __FUNCTION__, __LINE__);
-                GiaoDienThanhToanQRCodeDonVi *vc = [[GiaoDienThanhToanQRCodeDonVi alloc] initWithNibName:@"GiaoDienThanhToanQRCodeDonVi" bundle:nil];
-                vc.sIdQRCode = result;
-                vc.typeQRCode = 1;
-                self.navigationController.navigationBar.hidden = NO;
-                [self.navigationController pushViewController:vc animated:YES];
-                [vc release];
+            NSArray *arrResult = [result componentsSeparatedByString:@"*"];
+            NSLog(@"%s - arrResult : %lu", __FUNCTION__, (unsigned long)arrResult.count);
+            if (arrResult.count > 2) {
+                NSString *str = arrResult[1];
+                NSLog(@"%s ----> str : %@", __FUNCTION__, str);
+                if ([str hasPrefix:@"V"]) {
+                    NSLog(@"%s - line : %d", __FUNCTION__, __LINE__);
+                    GiaoDienThanhToanQRCodeDonVi *vc = [[GiaoDienThanhToanQRCodeDonVi alloc] initWithNibName:@"GiaoDienThanhToanQRCodeDonVi" bundle:nil];
+                    vc.sIdQRCode = str;
+                    vc.typeQRCode = 1;
+                    self.navigationController.navigationBar.hidden = NO;
+                    [self.navigationController pushViewController:vc animated:YES];
+                    [vc release];
+                }
+                else if ([str hasPrefix:@"M"]){
+                    NSLog(@"%s - line : %d", __FUNCTION__, __LINE__);
+                    GiaoDienThanhToanQRCodeDonVi *vc = [[GiaoDienThanhToanQRCodeDonVi alloc] initWithNibName:@"GiaoDienThanhToanQRCodeDonVi" bundle:nil];
+                    vc.sIdQRCode = str ;
+                    vc.typeQRCode = 0;
+                    self.navigationController.navigationBar.hidden = NO;
+                    [self.navigationController pushViewController:vc animated:YES];
+                    [vc release];
+                }
+                else{
+//                    NSLog(@"%s - line : %d", __FUNCTION__, __LINE__);
+//                    GiaoDienThanhToanQRCode *vc = [[GiaoDienThanhToanQRCode alloc] initWithNibName:@"GiaoDienThanhToanQRCode" bundle:nil];
+//                    vc.sIdQRCode = result;
+//                    self.navigationController.navigationBar.hidden = NO;
+//                    [self.navigationController pushViewController:vc animated:YES];
+//                    [vc release];
+                }
             }
-            else if ([str isEqualToString:@"M"]){
-                NSLog(@"%s - line : %d", __FUNCTION__, __LINE__);
-                GiaoDienThanhToanQRCodeDonVi *vc = [[GiaoDienThanhToanQRCodeDonVi alloc] initWithNibName:@"GiaoDienThanhToanQRCodeDonVi" bundle:nil];
-                vc.sIdQRCode = result;
-                vc.typeQRCode = 0;
-                self.navigationController.navigationBar.hidden = NO;
-                [self.navigationController pushViewController:vc animated:YES];
-                [vc release];
-            }
-            else{
-                NSLog(@"%s - line : %d", __FUNCTION__, __LINE__);
-                GiaoDienThanhToanQRCode *vc = [[GiaoDienThanhToanQRCode alloc] initWithNibName:@"GiaoDienThanhToanQRCode" bundle:nil];
-                vc.sIdQRCode = result;
-                self.navigationController.navigationBar.hidden = NO;
-                [self.navigationController pushViewController:vc animated:YES];
-                [vc release];
-            }
+            
+//            NSString *str = [[result substringToIndex:1]uppercaseString] ;
+//            if ([str isEqualToString:@"V"]) {
+//                NSLog(@"%s - line : %d", __FUNCTION__, __LINE__);
+//                GiaoDienThanhToanQRCodeDonVi *vc = [[GiaoDienThanhToanQRCodeDonVi alloc] initWithNibName:@"GiaoDienThanhToanQRCodeDonVi" bundle:nil];
+//                vc.sIdQRCode = result;
+//                vc.typeQRCode = 1;
+//                self.navigationController.navigationBar.hidden = NO;
+//                [self.navigationController pushViewController:vc animated:YES];
+//                [vc release];
+//            }
+//            else if ([str isEqualToString:@"M"]){
+//                NSLog(@"%s - line : %d", __FUNCTION__, __LINE__);
+//                GiaoDienThanhToanQRCodeDonVi *vc = [[GiaoDienThanhToanQRCodeDonVi alloc] initWithNibName:@"GiaoDienThanhToanQRCodeDonVi" bundle:nil];
+//                vc.sIdQRCode = result;
+//                vc.typeQRCode = 0;
+//                self.navigationController.navigationBar.hidden = NO;
+//                [self.navigationController pushViewController:vc animated:YES];
+//                [vc release];
+//            }
+//            else{
+//                NSLog(@"%s - line : %d", __FUNCTION__, __LINE__);
+//                GiaoDienThanhToanQRCode *vc = [[GiaoDienThanhToanQRCode alloc] initWithNibName:@"GiaoDienThanhToanQRCode" bundle:nil];
+//                vc.sIdQRCode = result;
+//                self.navigationController.navigationBar.hidden = NO;
+//                [self.navigationController pushViewController:vc animated:YES];
+//                [vc release];
+//            }
         }
     }];
 }
@@ -827,11 +860,18 @@
         switch (row) {
             case 0:
             {
-                [self resetTab];
-                [self displayContentController:self.dienthoaiVC];
+                DucNT_ChuyenTienViDenViViewController *vc = [[DucNT_ChuyenTienViDenViViewController alloc]initWithNibName:@"DucNT_ChuyenTienViDenViViewController" bundle:nil];
+                [self.navigationController pushViewController:vc animated:YES];
+                [vc release];
             }
                 break;
             case 1:{
+                [self resetTab];
+                [self displayContentController:self.dienthoaiVC];
+            }
+                
+                break;
+            case 2:{
                 self.navigationController.navigationBar.hidden = false;
                 DucNT_ChuyenTienDenTaiKhoanViewController *vc = [[DucNT_ChuyenTienDenTaiKhoanViewController alloc] initWithNibName:@"DucNT_ChuyenTienDenTaiKhoanViewController" bundle:nil];
                 [self.navigationController pushViewController:vc animated:YES];
@@ -839,53 +879,62 @@
             }
                 
                 break;
-            case 2:{
-                DucNT_ChuyenTienDenTheViewController *vc = [[DucNT_ChuyenTienDenTheViewController alloc] initWithNibName:@"DucNT_ChuyenTienDenTheViewController" bundle:nil];
-                [self.navigationController pushViewController:vc animated:YES];
-                [vc release];
-            }
-                
-                break;
             case 3:
             {
-                GiaoDienChuyenTienATM *vc = [[GiaoDienChuyenTienATM alloc] initWithNibName:@"GiaoDienChuyenTienATM" bundle:nil];
+                DucNT_ChuyenTienDenTheViewController *vc = [[DucNT_ChuyenTienDenTheViewController alloc] initWithNibName:@"DucNT_ChuyenTienDenTheViewController" bundle:nil];
                 [self.navigationController pushViewController:vc animated:YES];
                 [vc release];
             }
                 break;
             case 4:
             {
-                ChuyenTienTanNhaViewController *vc = [[ChuyenTienTanNhaViewController alloc] initWithNibName:@"ChuyenTienTanNhaViewController" bundle:nil];
+                GiaoDienChuyenTienATM *vc = [[GiaoDienChuyenTienATM alloc] initWithNibName:@"GiaoDienChuyenTienATM" bundle:nil];
                 [self.navigationController pushViewController:vc animated:YES];
                 [vc release];
             }
                 break;
             case 5:{
-                    GiaoDienChuyenTienDenCMND *vc = [[GiaoDienChuyenTienDenCMND alloc] initWithNibName:@"GiaoDienChuyenTienDenCMND" bundle:nil];
-                    [self.navigationController pushViewController:vc animated:YES];
-                    [vc release];
+                ChuyenTienTanNhaViewController *vc = [[ChuyenTienTanNhaViewController alloc] initWithNibName:@"ChuyenTienTanNhaViewController" bundle:nil];
+                [self.navigationController pushViewController:vc animated:YES];
+                [vc release];
                 }
                 break;
             case 6:
             {
-                GuiTietKiemViewController *vc = [[GuiTietKiemViewController alloc] initWithNibName:@"GuiTietKiemViewController" bundle:nil];
+                GiaoDienChuyenTienDenCMND *vc = [[GiaoDienChuyenTienDenCMND alloc] initWithNibName:@"GiaoDienChuyenTienDenCMND" bundle:nil];
                 [self.navigationController pushViewController:vc animated:YES];
                 [vc release];
-                
             }
                 break;
             case 7:
             {
-                GiaoDienTraCuuTienVay *vc = [[GiaoDienTraCuuTienVay alloc] initWithNibName:@"GiaoDienTraCuuTienVay" bundle:nil];
+                GuiTietKiemViewController *vc = [[GuiTietKiemViewController alloc] initWithNibName:@"GuiTietKiemViewController" bundle:nil];
                 [self.navigationController pushViewController:vc animated:YES];
                 [vc release];
+//                GiaoDienTraCuuTienVay *vc = [[GiaoDienTraCuuTienVay alloc] initWithNibName:@"GiaoDienTraCuuTienVay" bundle:nil];
+//                [self.navigationController pushViewController:vc animated:YES];
+//                [vc release];
             }
                 break;
             case 8:
             {
-                GiaoDienDiemGiaoDichV2 *vc = [[GiaoDienDiemGiaoDichV2 alloc] initWithNibName:@"GiaoDienDiemGiaoDichV2" bundle:nil];
-                [self.navigationController pushViewController:vc animated:YES];
-                [vc release];
+//                GiaoDienDiemGiaoDichV2 *vc = [[GiaoDienDiemGiaoDichV2 alloc] initWithNibName:@"GiaoDienDiemGiaoDichV2" bundle:nil];
+//                [self.navigationController pushViewController:vc animated:YES];
+//                [vc release];
+                if([[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_STATE] boolValue])
+                {
+                    HanMucMoiViewController *vc = [[HanMucMoiViewController alloc] initWithNibName:@"HanMucMoiViewController" bundle:nil];
+                    [self.navigationController pushViewController:vc animated:YES];
+                    [vc release];
+                }
+                else
+                {
+                    DucNT_LoginSceen *loginSceen = [[DucNT_LoginSceen alloc] initWithNibName:@"DucNT_LoginSceen" bundle:nil];
+                    loginSceen.sTenViewController = @"DucNT_HienThiTokenViewController";
+                    loginSceen.sKieuChuyenGiaoDien = @"push";
+                    [self.navigationController pushViewController:loginSceen animated:YES];
+                    [loginSceen release];
+                }
             }
                 break;
             case 9:
@@ -910,39 +959,39 @@
     }
     else if(tab == 1){
         self.navigationController.navigationBar.hidden = false;
-        if (row == 0) {
-            // Ví vimass
-            DucNT_ChuyenTienViDenViViewController *vc = [[DucNT_ChuyenTienViDenViViewController alloc]initWithNibName:@"DucNT_ChuyenTienViDenViViewController" bundle:nil];
-            [self.navigationController pushViewController:vc animated:YES];
-            [vc release];
-            return;
-        }
+//        if (row == 0) {
+//            // Ví vimass
+//            DucNT_ChuyenTienViDenViViewController *vc = [[DucNT_ChuyenTienViDenViViewController alloc]initWithNibName:@"DucNT_ChuyenTienViDenViViewController" bundle:nil];
+//            [self.navigationController pushViewController:vc animated:YES];
+//            [vc release];
+//            return;
+//        }
         ChuyenTienDenViMomoViewController *vc = [[ChuyenTienDenViMomoViewController alloc] initWithNibName:@"ChuyenTienDenViMomoViewController" bundle:nil];
-        if (row == 1) {
+        if (row == 0) {
             //air pay
             vc.nType = 8;
-        } else if (row == 2) {
+        } else if (row == 1) {
             //momo
             vc.nType = 1;
-        }else if (row == 3) {
+        }else if (row == 2) {
             //ngan luong
             vc.nType = 2;
         }
-        else if (row == 4) {
+        else if (row == 3) {
             vc.nType = 3;//Paypoo
         }
-        else if (row == 5) {
+        else if (row == 4) {
             vc.nType = 4;//vimo
-        }else if (row == 6) {
+        }else if (row == 5) {
             vc.nType = 6;//vi viet
-        }else if (row == 7) {
+        }else if (row == 6) {
             vc.nType = 7;//vnpt pay
         }
-        else if (row == 8) {
+        else if (row == 7) {
             // VTC PAY
             vc.nType = 5;
         }
-        else if (row == 9) {
+        else if (row == 8) {
             vc.nType = 9;
         }
         [self.navigationController pushViewController:vc animated:YES];
@@ -1025,19 +1074,10 @@
                 break;
             case 7:{
                 // thay doi thogn tin
-                int nKieuDangNhap = [[DucNT_LuuRMS layThongTinDangNhap:KEY_HIEN_THI_VI] intValue];
-                NSLog(@"%s - %s : nKieuDangNhap : %d", __FILE__, __FUNCTION__,nKieuDangNhap);
-                if(nKieuDangNhap == KIEU_DOANH_NGHIEP)
-                {
-                    GiaoDienThongTinViDoanhNghiep *info = [[GiaoDienThongTinViDoanhNghiep alloc] initWithNibName:@"GiaoDienThongTinViDoanhNghiep" bundle:nil];
-                    [self.navigationController pushViewController:info animated:YES];
-                    [info release];
-                }
-                else{
-                    DucNT_ChangPrivateInformationViewController *thayDoiThongTinCaNhan = [[DucNT_ChangPrivateInformationViewController alloc] initWithNibName:@"DucNT_ChangPrivateInformationViewController" bundle:nil];
-                    [self.navigationController pushViewController:thayDoiThongTinCaNhan animated:YES];
-                    [thayDoiThongTinCaNhan release];
-                }
+                GiaoDienTraCuuTienVay *vc = [[GiaoDienTraCuuTienVay alloc] initWithNibName:@"GiaoDienTraCuuTienVay" bundle:nil];
+                [self.navigationController pushViewController:vc animated:YES];
+                [vc release];
+
             }
                 break;
             case 9:{
@@ -1059,12 +1099,22 @@
             }
                 break;
             case 8:{
-                
-                PKIViewController *vc = [[PKIViewController alloc] initWithNibName:@"PKIViewController" bundle:nil];
-                [self.navigationController pushViewController:vc animated:YES];
-                [vc release];
-//                UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"Thông báo" message:@"Chức năng đang phát triển" preferredStyle:UIAlertControllerStyleAlert];
-//                [self presentViewController:alertVC animated:YES completion:nil];
+                int nKieuDangNhap = [[DucNT_LuuRMS layThongTinDangNhap:KEY_HIEN_THI_VI] intValue];
+                NSLog(@"%s - %s : nKieuDangNhap : %d", __FILE__, __FUNCTION__,nKieuDangNhap);
+                if(nKieuDangNhap == KIEU_DOANH_NGHIEP)
+                {
+                    GiaoDienThongTinViDoanhNghiep *info = [[GiaoDienThongTinViDoanhNghiep alloc] initWithNibName:@"GiaoDienThongTinViDoanhNghiep" bundle:nil];
+                    [self.navigationController pushViewController:info animated:YES];
+                    [info release];
+                }
+                else{
+                    DucNT_ChangPrivateInformationViewController *thayDoiThongTinCaNhan = [[DucNT_ChangPrivateInformationViewController alloc] initWithNibName:@"DucNT_ChangPrivateInformationViewController" bundle:nil];
+                    [self.navigationController pushViewController:thayDoiThongTinCaNhan animated:YES];
+                    [thayDoiThongTinCaNhan release];
+                }
+//                PKIViewController *vc = [[PKIViewController alloc] initWithNibName:@"PKIViewController" bundle:nil];
+//                [self.navigationController pushViewController:vc animated:YES];
+//                [vc release];
             }
                 break;
             default:
@@ -1072,6 +1122,7 @@
         }
     }
 }
+
 -(void)resetTab{
     if (app.selectedTab == -1) {
         [self hideContentController:self.dienthoaiVC];

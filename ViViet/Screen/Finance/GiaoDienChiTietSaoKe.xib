@@ -37,17 +37,17 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
                         <view contentMode="scaleToFill" id="Bhq-Mv-pRK">
-                            <rect key="frame" x="8" y="8" width="304" height="488"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <rect key="frame" x="8" y="8" width="304" height="362"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                             <subviews>
                                 <webView contentMode="scaleToFill" id="iTp-xU-eIi">
-                                    <rect key="frame" x="-1" y="-1" width="304" height="347"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="304" height="200"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <dataDetectorType key="dataDetectorTypes"/>
                                 </webView>
                                 <view contentMode="scaleToFill" id="rVJ-on-n9T">
-                                    <rect key="frame" x="0.0" y="350" width="304" height="139"/>
+                                    <rect key="frame" x="0.0" y="210" width="304" height="139"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="GTc-NE-9yG">
@@ -90,7 +90,7 @@
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </view>
                                 <view contentMode="scaleToFill" id="bz3-mG-S10">
-                                    <rect key="frame" x="0.0" y="394" width="304" height="92"/>
+                                    <rect key="frame" x="0.0" y="210" width="304" height="90"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Fob-nU-TJN">
@@ -118,7 +118,7 @@
                                             </connections>
                                         </button>
                                     </subviews>
-                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
                             </subviews>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

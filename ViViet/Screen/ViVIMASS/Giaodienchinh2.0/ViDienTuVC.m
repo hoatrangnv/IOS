@@ -22,8 +22,8 @@
     
     [self.tableView registerNib:[UINib nibWithNibName:@"ItemListCell" bundle:nil] forCellReuseIdentifier:@"ItemListCell"];
     [self.tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
-    self.arrDanhSach = @[@{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_wallet_to_wallet"],@"image":@"vimass"},
-                         @{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_wallet_to_airpay"], @"image":@"air"},
+//    @{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_wallet_to_wallet"],@"image":@"vimass"},
+    self.arrDanhSach = @[@{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_wallet_to_airpay"], @"image":@"air"},
                          @{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_wallet_to_momo"], @"image":@"momo"},
                           @{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_wallet_to_nganluong"], @"image":@"nganluong"},
                           @{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_wallet_to_payoo"], @"image":@"payoo"},
@@ -52,7 +52,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return self.view.frame.size.height/ 10.0;
+    return self.view.frame.size.height/ self.arrDanhSach.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

@@ -82,6 +82,7 @@
 - (IBAction)suKienBamNutEmail:(UIButton *)sender;
 - (IBAction)suKienBamNutToken:(UIButton *)sender;
 - (IBAction)suKienBamNutPKI:(UIButton *)sender;
+- (IBAction)suKienBamNutMatKhauVanTay:(id)sender;
 
 - (void)xuLySuKienXacThucBangSMS;
 - (void)xuLySuKienXacThucBangEmail;

@@ -18,6 +18,7 @@
 @property (strong, nonatomic) UIButton             *cancelButton;
 @property (retain, nonatomic) IBOutlet QRCameraSwitchButton *switchCameraButton;
 @property (retain, nonatomic) IBOutlet QRToggleTorchButton *toggleTorchButton;
+@property (retain, nonatomic) IBOutlet UIButton *btnDangKyQR;
 
 @property (nonatomic,assign) id<QRCodeReaderDelegate> __nullable delegate;
 @property (copy, nonatomic) void (^ _Nullable completionBlock) (NSString * __nullable);
@@ -33,6 +34,7 @@
 - (IBAction)doSearch:(id _Nullable )sender;
 - (IBAction)doChooseLibrary:(id _Nullable )sender;
 - (IBAction)suKienChonLayAnh:(id)sender;
+- (IBAction)suKienChonDangKyQR:(id)sender;
 
 
 @end

@@ -36,6 +36,10 @@
 @property(nonatomic, retain) NSNumber *timeAction;
 @property(nonatomic, retain) NSNumber *VMApp;
 
+
+@property(nonatomic, retain) NSNumber *kieuXacThuc;
+@property(nonatomic, retain) NSNumber *donViXacThuc;
+
 - (id)initWithDictionary:(NSDictionary*)dict;
 
 - (NSString*)layThoiGianChuyenTien;

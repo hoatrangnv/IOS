@@ -297,7 +297,7 @@ static NSString *DINH_DANH_LAY_CHI_TIET_SAO_KE_QUA_TANG = @"DINH_DANH_LAY_CHI_TI
 #pragma mark - connect delegate
 -(void)ketNoiThanhCong:(NSString *)sKetQua
 {
-
+    NSLog(@"%s - sKetQua : %@", __FUNCTION__, sKetQua);
     mTrangThaiDuocPhepKetNoi = YES;
     NSDictionary *dict = [sKetQua objectFromJSONString];
     int nCode = [[dict objectForKey:@"msgCode"] intValue];

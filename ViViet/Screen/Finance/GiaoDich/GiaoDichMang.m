@@ -323,6 +323,13 @@
     [connect release];
 }
 
++ (void)upAnhQRSanPham:(NSString *)sURL imageBase64:(NSString *)imageBase64 noiNhanKetQua:(id<DucNT_ServicePostDelegate>)noiNhanKetQua {
+    DucNT_ServicePost *connectPost = [[DucNT_ServicePost alloc] init];
+    [connectPost setDucnt_connectDelegate:noiNhanKetQua];
+    [connectPost connect:sURL withContent:imageBase64];
+    [connectPost release];
+}
+
 + (void)layThongTinSanPhamQRCode:(NSString *)sIdQRCode noiNhanKetQua:(id<DucNT_ServicePostDelegate>)noiNhanKetQua {
     NSString *sURL = [URL_TRA_CUU_SAN_PHAM_QRCODE stringByAppendingString:sIdQRCode];
     NSLog(@"%s - sURL : %@", __FUNCTION__, sURL);

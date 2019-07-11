@@ -146,6 +146,8 @@ typedef enum : NSUInteger {
     [_mtfNganHangRutTienVe resignFirstResponder];
     [_mtfSoThe resignFirstResponder];
     [self.mtfMatKhauToken resignFirstResponder];
+    
+    [self.view endEditing:YES];
 }
 
 - (void)khoiTaoQuangCao {

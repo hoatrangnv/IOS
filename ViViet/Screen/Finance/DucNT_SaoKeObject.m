@@ -37,6 +37,10 @@
         NSNumber *type = [dict objectForKey:@"type"];
         NSNumber *timeAction = [dict objectForKey:@"timeAction"];
         NSNumber *nVMApp = [dict objectForKey:@"VMApp"];
+        
+        NSNumber *nKieuXacThuc = [dict objectForKey:@"kieuXacThuc"];
+        NSNumber *nDonViXacThuc = [dict objectForKey:@"donViXacThuc"];
+        
         self.sId = sId;
         self.amount = amount;
         self.bankAcc = bankAcc;
@@ -57,6 +61,8 @@
         self.type = type;
         self.timeAction = timeAction;
         self.VMApp = nVMApp;
+        self.kieuXacThuc = nKieuXacThuc;
+        self.donViXacThuc = nDonViXacThuc;
     }
     return self;
 }
@@ -65,13 +71,13 @@
 {
     NSString *sThoiGianChuyenTien = @"";
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:[_transTime longLongValue] / 1000];
-    sThoiGianChuyenTien = [Common date:date toStringWithFormat:@"dd/MM/yyyy HH:mm"];
+    sThoiGianChuyenTien = [Common date:date toStringWithFormat:@"dd.MM.yy HH:mm"];
     return sThoiGianChuyenTien;
 }
 
 - (NSString*)layNgayThangChuyenTien
 {
-    NSLog(@"%s - _transTime : %@", __FUNCTION__, _transTime);
+//    NSLog(@"%s - _transTime : %@", __FUNCTION__, _transTime);
     NSString *sThoiGianChuyenTien = @"";
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:[_transTime longLongValue] / 1000];
     sThoiGianChuyenTien = [Common date:date toStringWithFormat:@"dd-MM-yyyy"];

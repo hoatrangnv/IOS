@@ -24,27 +24,26 @@
     
     [self.tableView registerNib:[UINib nibWithNibName:@"ItemListCell" bundle:nil] forCellReuseIdentifier:@"ItemListCell"];
     [self.tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
-//    self.arrDanhSach =@[@{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_wallet_to_dienthoai"]@"Chuyển tiền đến điện thoại",@"image":@"ic_chuyentien_dienthoai"},
-//                        @{@"name":@"Chuyển tiền đến tài khoản", @"image":@"icon_grid_dentaikhoan"},
-//                        @{@"name":@"Chuyển tiền đến thẻ", @"image":@"icon_grid_denthe"},
-//                        @{@"name":@"Chuyển tiền đến ATM", @"image":@"icon_grid_den_atm"},
-//                        @{@"name":@"Chuyển tiền đến tận nhà", @"image":@"icon_grid_dentannha"},
-//                        @{@"name":@"Chuyển tiền đến CMND", @"image":@"icon_grid_den_cmnd"},
-//                        @{@"name":@"Gửi & rút tiết kiệm", @"image":@"icon_grid_guitietkiem"},
-//                        @{@"name":@"Vay & trả tiền vay", @"image":@"icon_grid_naptientuthe"},
-//                        @{@"name":@"Điểm giao dịch", @"image":@"ic_diem_giao_dich"},
-//                        @{@"name":@"Hạn mức giao dịch", @"image":@"ic_vicuatoi_hanmuc"}
-//                        ];
-    self.arrDanhSach =@[@{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_wallet_to_dienthoai"],@"image":@"ic_chuyentien_dienthoai"},
-      @{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_wallet_to_bank"], @"image":@"icon_grid_dentaikhoan"},
-      @{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_wallet_to_BankCard"], @"image":@"icon_grid_denthe"},
-      @{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_wallet_to_ATM"], @"image":@"icon_grid_den_atm"},
-      @{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_wallet_to_home"], @"image":@"icon_grid_dentannha"},
-      @{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_cmnd"], @"image":@"icon_grid_den_cmnd"},
-      @{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_wallet_saving"], @"image":@"icon_grid_guitietkiem"},
-      @{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_tra_tien_vay"], @"image":@"icon_grid_naptientuthe"},
-      @{@"name":[Localization languageSelectedStringForKey:@"diem_giao_dich"], @"image":@"ic_diem_giao_dich"}, @{@"name":[@"register_token_hint_token" localizableString], @"image":@"ic_vicuatoi_soft_token"}];
-//    @{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_bussiness_transaction_limit"], @"image":@"ic_vicuatoi_hanmuc"}
+
+//    self.arrDanhSach =@[@{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_wallet_to_dienthoai"],@"image":@"ic_chuyentien_dienthoai"},
+//      @{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_wallet_to_bank"], @"image":@"icon_grid_dentaikhoan"},
+//      @{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_wallet_to_BankCard"], @"image":@"icon_grid_denthe"},
+//      @{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_wallet_to_ATM"], @"image":@"icon_grid_den_atm"},
+//      @{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_wallet_to_home"], @"image":@"icon_grid_dentannha"},
+//      @{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_cmnd"], @"image":@"icon_grid_den_cmnd"},
+//      @{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_wallet_saving"], @"image":@"icon_grid_guitietkiem"},
+//      @{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_tra_tien_vay"], @"image":@"icon_grid_naptientuthe"},
+//      @{@"name":[Localization languageSelectedStringForKey:@"diem_giao_dich"], @"image":@"ic_diem_giao_dich"}, @{@"name":[@"register_token_hint_token" localizableString], @"image":@"ic_vicuatoi_soft_token"}];
+    self.arrDanhSach = @[@{@"name":[@"financer_viewer_wallet_to_wallet" localizableString], @"image":@"vimass"},
+                         @{@"name":[@"financer_viewer_wallet_to_dienthoai" localizableString], @"image":@"ic_chuyentien_dienthoai"},
+                         @{@"name":[@"financer_viewer_wallet_to_bank" localizableString], @"image":@"icon_grid_dentaikhoan"},
+                         @{@"name":[@"financer_viewer_wallet_to_BankCard" localizableString], @"image":@"icon_grid_denthe"},
+                         @{@"name":[@"financer_viewer_wallet_to_ATM" localizableString], @"image":@"icon_grid_den_atm"},
+                         @{@"name":[@"financer_viewer_wallet_to_home" localizableString], @"image":@"icon_grid_dentannha"},
+                         @{@"name":[@"financer_viewer_cmnd" localizableString], @"image":@"icon_grid_den_cmnd"},
+                         @{@"name":[@"financer_viewer_wallet_saving" localizableString], @"image":@"icon_grid_guitietkiem"},
+                         @{@"name":[@"financer_viewer_transaction_limit_xacthuc" localizableString], @"image":@"ic_vicuatoi_hanmuc"},
+                         @{@"name":[@"register_token_hint_token" localizableString], @"image":@"ic_vicuatoi_soft_token"}];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -82,21 +81,21 @@
     NSLog(@"%s - indexPath : %d", __FUNCTION__, (int)indexPath.row);
     [self.delegate didSelectRow:(int)indexPath.row withTab:0];
     return;
-    if (indexPath.row == 0) {
-        ChuyenTienTanNhaViewController *chuyenTienTanNhaViewController = [[ChuyenTienTanNhaViewController alloc] initWithNibName:@"ChuyenTienTanNhaViewController" bundle:nil];
-        [self.navigationController pushViewController:chuyenTienTanNhaViewController animated:YES];
-        [chuyenTienTanNhaViewController release];
-    }
-    else if (indexPath.row == 1) {
-        GiaoDienChuyenTienDenCMND *internet = [[GiaoDienChuyenTienDenCMND alloc] initWithNibName:@"GiaoDienChuyenTienDenCMND" bundle:nil];
-        self.navigationController.navigationBar.hidden = NO;
-        [self.navigationController pushViewController:internet animated:YES];
-        [internet release];
-    }
-    else if (indexPath.row == 4) {
-        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Chức năng đang được phát triển"];
-        return;
-    }
+//    if (indexPath.row == 0) {
+//        ChuyenTienTanNhaViewController *chuyenTienTanNhaViewController = [[ChuyenTienTanNhaViewController alloc] initWithNibName:@"ChuyenTienTanNhaViewController" bundle:nil];
+//        [self.navigationController pushViewController:chuyenTienTanNhaViewController animated:YES];
+//        [chuyenTienTanNhaViewController release];
+//    }
+//    else if (indexPath.row == 1) {
+//        GiaoDienChuyenTienDenCMND *internet = [[GiaoDienChuyenTienDenCMND alloc] initWithNibName:@"GiaoDienChuyenTienDenCMND" bundle:nil];
+//        self.navigationController.navigationBar.hidden = NO;
+//        [self.navigationController pushViewController:internet animated:YES];
+//        [internet release];
+//    }
+//    else if (indexPath.row == 4) {
+//        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Chức năng đang được phát triển"];
+//        return;
+//    }
 }
 
 - (void)dealloc {

@@ -971,6 +971,18 @@
 		ADDCD84515F6E4F4000025F1 /* LocalizationSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = ADDCD84415F6E4F4000025F1 /* LocalizationSystem.m */; };
 		C6003F601C8E77150030F176 /* GiaoDienThanhToanHocPhi.m in Sources */ = {isa = PBXBuildFile; fileRef = C6003F5E1C8E77150030F176 /* GiaoDienThanhToanHocPhi.m */; };
 		C6003F611C8E77150030F176 /* GiaoDienThanhToanHocPhi.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6003F5F1C8E77150030F176 /* GiaoDienThanhToanHocPhi.xib */; };
+		C60FCA6722D395AC00229FCC /* TaoQRSanPhamVer2Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60FCA6522D395AC00229FCC /* TaoQRSanPhamVer2Controller.swift */; };
+		C60FCA6822D395AC00229FCC /* TaoQRSanPhamVer2Controller.xib in Resources */ = {isa = PBXBuildFile; fileRef = C60FCA6622D395AC00229FCC /* TaoQRSanPhamVer2Controller.xib */; };
+		C60FCA6C22D3977F00229FCC /* TaoQRNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60FCA6A22D3977F00229FCC /* TaoQRNameCell.swift */; };
+		C60FCA6D22D3977F00229FCC /* TaoQRNameCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C60FCA6B22D3977F00229FCC /* TaoQRNameCell.xib */; };
+		C60FCA7022D399A200229FCC /* DonGiaQRCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60FCA6E22D399A200229FCC /* DonGiaQRCell.swift */; };
+		C60FCA7122D399A200229FCC /* DonGiaQRCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C60FCA6F22D399A200229FCC /* DonGiaQRCell.xib */; };
+		C60FCA7422D39DD100229FCC /* TaoQROptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60FCA7222D39DD100229FCC /* TaoQROptionCell.swift */; };
+		C60FCA7522D39DD100229FCC /* TaoQROptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C60FCA7322D39DD100229FCC /* TaoQROptionCell.xib */; };
+		C60FCA7822D3A1DA00229FCC /* ThemAnhSanPhamQRCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60FCA7622D3A1DA00229FCC /* ThemAnhSanPhamQRCell.swift */; };
+		C60FCA7922D3A1DA00229FCC /* ThemAnhSanPhamQRCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C60FCA7722D3A1DA00229FCC /* ThemAnhSanPhamQRCell.xib */; };
+		C60FCA7C22D3A9BF00229FCC /* ListImageSanPhamQRCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60FCA7A22D3A9BF00229FCC /* ListImageSanPhamQRCell.swift */; };
+		C60FCA7D22D3A9BF00229FCC /* ListImageSanPhamQRCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C60FCA7B22D3A9BF00229FCC /* ListImageSanPhamQRCell.xib */; };
 		C610805D1C3E04620073B8B4 /* CellChuyenBay.m in Sources */ = {isa = PBXBuildFile; fileRef = C610805B1C3E04620073B8B4 /* CellChuyenBay.m */; };
 		C610805E1C3E04620073B8B4 /* CellChuyenBay.xib in Resources */ = {isa = PBXBuildFile; fileRef = C610805C1C3E04620073B8B4 /* CellChuyenBay.xib */; };
 		C61080611C3E16DA0073B8B4 /* ItemChuyenBay.m in Sources */ = {isa = PBXBuildFile; fileRef = C61080601C3E16DA0073B8B4 /* ItemChuyenBay.m */; };
@@ -1047,6 +1059,8 @@
 		C635A906224A865F003619DE /* VNPayQRTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C635A904224A865F003619DE /* VNPayQRTableViewCell.xib */; };
 		C636DE98219E7DA0000B85D0 /* HanMucMoiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C636DE96219E7DA0000B85D0 /* HanMucMoiViewController.m */; };
 		C636DE99219E7DA0000B85D0 /* HanMucMoiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C636DE97219E7DA0000B85D0 /* HanMucMoiViewController.xib */; };
+		C63C2BC122D78D9100BF8525 /* AuthenQRCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63C2BBF22D78D9100BF8525 /* AuthenQRCell.swift */; };
+		C63C2BC222D78D9100BF8525 /* AuthenQRCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C63C2BC022D78D9100BF8525 /* AuthenQRCell.xib */; };
 		C63CE4701BDF32DE00C548FE /* GiaoDienDatVeXemPhim.m in Sources */ = {isa = PBXBuildFile; fileRef = C63CE4681BDF32DE00C548FE /* GiaoDienDatVeXemPhim.m */; };
 		C63CE4711BDF32DE00C548FE /* GiaoDienDatVeXemPhim.xib in Resources */ = {isa = PBXBuildFile; fileRef = C63CE4691BDF32DE00C548FE /* GiaoDienDatVeXemPhim.xib */; };
 		C63CE4721BDF32DE00C548FE /* ItemGheXemFilm.m in Sources */ = {isa = PBXBuildFile; fileRef = C63CE46B1BDF32DE00C548FE /* ItemGheXemFilm.m */; };
@@ -3012,6 +3026,19 @@
 		C6003F5D1C8E77150030F176 /* GiaoDienThanhToanHocPhi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GiaoDienThanhToanHocPhi.h; path = ThanhToanHocPhi/GiaoDienThanhToanHocPhi.h; sourceTree = "<group>"; };
 		C6003F5E1C8E77150030F176 /* GiaoDienThanhToanHocPhi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GiaoDienThanhToanHocPhi.m; path = ThanhToanHocPhi/GiaoDienThanhToanHocPhi.m; sourceTree = "<group>"; };
 		C6003F5F1C8E77150030F176 /* GiaoDienThanhToanHocPhi.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GiaoDienThanhToanHocPhi.xib; path = ThanhToanHocPhi/GiaoDienThanhToanHocPhi.xib; sourceTree = "<group>"; };
+		C60FCA6422D395AB00229FCC /* ViViMASS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ViViMASS-Bridging-Header.h"; sourceTree = "<group>"; };
+		C60FCA6522D395AC00229FCC /* TaoQRSanPhamVer2Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaoQRSanPhamVer2Controller.swift; sourceTree = "<group>"; };
+		C60FCA6622D395AC00229FCC /* TaoQRSanPhamVer2Controller.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaoQRSanPhamVer2Controller.xib; sourceTree = "<group>"; };
+		C60FCA6A22D3977F00229FCC /* TaoQRNameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaoQRNameCell.swift; sourceTree = "<group>"; };
+		C60FCA6B22D3977F00229FCC /* TaoQRNameCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaoQRNameCell.xib; sourceTree = "<group>"; };
+		C60FCA6E22D399A200229FCC /* DonGiaQRCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonGiaQRCell.swift; sourceTree = "<group>"; };
+		C60FCA6F22D399A200229FCC /* DonGiaQRCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DonGiaQRCell.xib; sourceTree = "<group>"; };
+		C60FCA7222D39DD100229FCC /* TaoQROptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaoQROptionCell.swift; sourceTree = "<group>"; };
+		C60FCA7322D39DD100229FCC /* TaoQROptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaoQROptionCell.xib; sourceTree = "<group>"; };
+		C60FCA7622D3A1DA00229FCC /* ThemAnhSanPhamQRCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemAnhSanPhamQRCell.swift; sourceTree = "<group>"; };
+		C60FCA7722D3A1DA00229FCC /* ThemAnhSanPhamQRCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ThemAnhSanPhamQRCell.xib; sourceTree = "<group>"; };
+		C60FCA7A22D3A9BF00229FCC /* ListImageSanPhamQRCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListImageSanPhamQRCell.swift; sourceTree = "<group>"; };
+		C60FCA7B22D3A9BF00229FCC /* ListImageSanPhamQRCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListImageSanPhamQRCell.xib; sourceTree = "<group>"; };
 		C610805A1C3E04620073B8B4 /* CellChuyenBay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellChuyenBay.h; sourceTree = "<group>"; };
 		C610805B1C3E04620073B8B4 /* CellChuyenBay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellChuyenBay.m; sourceTree = "<group>"; };
 		C610805C1C3E04620073B8B4 /* CellChuyenBay.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellChuyenBay.xib; sourceTree = "<group>"; };
@@ -3103,6 +3130,8 @@
 		C636DE95219E7DA0000B85D0 /* HanMucMoiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HanMucMoiViewController.h; sourceTree = "<group>"; };
 		C636DE96219E7DA0000B85D0 /* HanMucMoiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HanMucMoiViewController.m; sourceTree = "<group>"; };
 		C636DE97219E7DA0000B85D0 /* HanMucMoiViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HanMucMoiViewController.xib; sourceTree = "<group>"; };
+		C63C2BBF22D78D9100BF8525 /* AuthenQRCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenQRCell.swift; sourceTree = "<group>"; };
+		C63C2BC022D78D9100BF8525 /* AuthenQRCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AuthenQRCell.xib; sourceTree = "<group>"; };
 		C63CE4671BDF32DE00C548FE /* GiaoDienDatVeXemPhim.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GiaoDienDatVeXemPhim.h; path = DatVePhim/GiaoDienDatVeXemPhim.h; sourceTree = "<group>"; };
 		C63CE4681BDF32DE00C548FE /* GiaoDienDatVeXemPhim.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GiaoDienDatVeXemPhim.m; path = DatVePhim/GiaoDienDatVeXemPhim.m; sourceTree = "<group>"; };
 		C63CE4691BDF32DE00C548FE /* GiaoDienDatVeXemPhim.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GiaoDienDatVeXemPhim.xib; path = DatVePhim/GiaoDienDatVeXemPhim.xib; sourceTree = "<group>"; };
@@ -5110,6 +5139,7 @@
 				5721679915B40B13009780F4 /* ViMASS */,
 				5721679215B40B13009780F4 /* Frameworks */,
 				5721679015B40B13009780F4 /* Products */,
+				C60FCA6422D395AB00229FCC /* ViViMASS-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -6471,6 +6501,27 @@
 			name = ThanhToanHocPhi;
 			sourceTree = "<group>";
 		};
+		C60FCA6922D395C700229FCC /* TaoQRVer2 */ = {
+			isa = PBXGroup;
+			children = (
+				C60FCA6522D395AC00229FCC /* TaoQRSanPhamVer2Controller.swift */,
+				C60FCA6622D395AC00229FCC /* TaoQRSanPhamVer2Controller.xib */,
+				C60FCA6A22D3977F00229FCC /* TaoQRNameCell.swift */,
+				C60FCA6B22D3977F00229FCC /* TaoQRNameCell.xib */,
+				C60FCA6E22D399A200229FCC /* DonGiaQRCell.swift */,
+				C60FCA6F22D399A200229FCC /* DonGiaQRCell.xib */,
+				C60FCA7222D39DD100229FCC /* TaoQROptionCell.swift */,
+				C60FCA7322D39DD100229FCC /* TaoQROptionCell.xib */,
+				C60FCA7622D3A1DA00229FCC /* ThemAnhSanPhamQRCell.swift */,
+				C60FCA7722D3A1DA00229FCC /* ThemAnhSanPhamQRCell.xib */,
+				C60FCA7A22D3A9BF00229FCC /* ListImageSanPhamQRCell.swift */,
+				C60FCA7B22D3A9BF00229FCC /* ListImageSanPhamQRCell.xib */,
+				C63C2BBF22D78D9100BF8525 /* AuthenQRCell.swift */,
+				C63C2BC022D78D9100BF8525 /* AuthenQRCell.xib */,
+			);
+			name = TaoQRVer2;
+			sourceTree = "<group>";
+		};
 		C6154DE61DA35B09005E13B5 /* GiaoDienLienKet */ = {
 			isa = PBXGroup;
 			children = (
@@ -7203,6 +7254,7 @@
 		C6928C1C1FD0FD3700EB30D5 /* QRSanPham */ = {
 			isa = PBXGroup;
 			children = (
+				C60FCA6922D395C700229FCC /* TaoQRVer2 */,
 				C6928C221FD1003E00EB30D5 /* QRDonViViewController.h */,
 				C6928C231FD1003E00EB30D5 /* QRDonViViewController.m */,
 				C6928C241FD1003E00EB30D5 /* QRDonViViewController.xib */,
@@ -7407,6 +7459,7 @@
 				TargetAttributes = {
 					5721678E15B40B13009780F4 = {
 						DevelopmentTeam = SLR686RAJ6;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -7463,6 +7516,7 @@
 				C664B0911D125C60003B9976 /* phong4_MipecTower.txt in Resources */,
 				C65B5A731C645DCA00DA1C22 /* GiaoDienChuyenTienATM.xib in Resources */,
 				0B4FBE0A219F184C00010A70 /* FUBON-THE.png in Resources */,
+				C60FCA7122D399A200229FCC /* DonGiaQRCell.xib in Resources */,
 				0B4FBE13219F184C00010A70 /* HSBC-NH.png in Resources */,
 				C65E58011C2E531900CA407F /* ghedachon.png in Resources */,
 				C6316FC11DB4E9DC0042AEF4 /* abb.png in Resources */,
@@ -7601,6 +7655,7 @@
 				C66368E11D78398900DC3C54 /* GiaoDienHuongDanDangNhap.xib in Resources */,
 				C661B1DD1C911DC4003821BE /* gioi_thieu_chuyen_tien_den_vi_khac.html in Resources */,
 				C67D8B321D39DD3B0030D5C4 /* iconSoTay5.png in Resources */,
+				C60FCA7D22D3A9BF00229FCC /* ListImageSanPhamQRCell.xib in Resources */,
 				0B4FBE3D219F184C00010A70 /* PGB-THE.png in Resources */,
 				0B4FBDEA219F184C00010A70 /* BOC-THE.png in Resources */,
 				034EAE111B8DCC5500016662 /* cancel_50.png in Resources */,
@@ -7819,6 +7874,7 @@
 				3EF0700A196D8B0F00E03DA4 /* DucNT_ViewHienThiToken.xib in Resources */,
 				CD30A17021A84E48004030E3 /* Giaodienlienket1ViewController.xib in Resources */,
 				C6405FB31E71123100BABF05 /* phong4_RapchieuphimQG.txt in Resources */,
+				C60FCA7922D3A1DA00229FCC /* ThemAnhSanPhamQRCell.xib in Resources */,
 				C661B1E21C911DC4003821BE /* hd_chuyen_tien_tan_nha.html in Resources */,
 				0BCC8EEB17471C4400C47970 /* ngon-ngu-tick@2x.png in Resources */,
 				0BCC8EEC17471C4400C47970 /* ngon-ngu-untick.png in Resources */,
@@ -7859,6 +7915,7 @@
 				C664B02F1D125C60003B9976 /* phong1_CrescentMall.txt in Resources */,
 				C664B0A91D125C60003B9976 /* phong5_CTPlaza.txt in Resources */,
 				0BCBB7C72163BE1100FB8832 /* TblHomeFooterView.xib in Resources */,
+				C63C2BC222D78D9100BF8525 /* AuthenQRCell.xib in Resources */,
 				C67D8B2C1D39DD3B0030D5C4 /* iconSoTay3.png in Resources */,
 				C656B09B1C2BDAD900C9AE56 /* GiaoDienDieuKhoanCongTy.xib in Resources */,
 				C664B0841D125C60003B9976 /* phong4_CGVSenseCity.txt in Resources */,
@@ -8154,6 +8211,7 @@
 				C664B0EB1D125C60003B9976 /* phong9_VincomBaTrieu.txt in Resources */,
 				85D75B06182A019C0072E085 /* nav_vitoken@2x.png in Resources */,
 				C664B0241D125C60003B9976 /* phong1_CGVBinhDuongSquare.txt in Resources */,
+				C60FCA7522D39DD100229FCC /* TaoQROptionCell.xib in Resources */,
 				C67D8B2D1D39DD3B0030D5C4 /* iconSoTay3@2x.png in Resources */,
 				1806109519D909DC0066FFFE /* icon_chat_user.png in Resources */,
 				183B962719DE997900B4FECD /* icon_back_right.png in Resources */,
@@ -8264,6 +8322,7 @@
 				0B4FBE31219F184C00010A70 /* NATEXIS-NH.png in Resources */,
 				C67D8B421D39DD7E0030D5C4 /* icon-taikhoanrutien64x64.png in Resources */,
 				850A91E417F57DE300623637 /* login-btn-back-white.png in Resources */,
+				C60FCA6822D395AC00229FCC /* TaoQRSanPhamVer2Controller.xib in Resources */,
 				85296CED17AF96D000714BB2 /* login-vertical-divider.png in Resources */,
 				1872F29C1A7F64B400FB5843 /* ViewNhapTenDaiDienXacThucThemTaiKhoanThuongDung.xib in Resources */,
 				C68828921C196E8B000C7934 /* phong1_nhatrang.txt in Resources */,
@@ -8294,6 +8353,7 @@
 				C676444A22808093000C6FB9 /* GiaoDienDiemThanhToanVNPAY.xib in Resources */,
 				A32171BC1AE11CEA008570AB /* refresh64.png in Resources */,
 				C664B0971D125C60003B9976 /* phong4_ThaoDienPearl.txt in Resources */,
+				C60FCA6D22D3977F00229FCC /* TaoQRNameCell.xib in Resources */,
 				186D68351A6FB1580026972E /* ViewThuongDungChuyenTienDenTaiKhoan.xib in Resources */,
 				1810550C19E7955000E8D8CE /* ic_share_message.png in Resources */,
 				CDC299BE21A053AD00BBAB0C /* face.png in Resources */,
@@ -8683,6 +8743,7 @@
 				CDE2429121AC625C008EB515 /* DialogXoaTKLienketViewController.m in Sources */,
 				A38479B81ADE669D00DCF2B6 /* ThoiDiemTangQuaViewController.m in Sources */,
 				C68C82FF1C15828900628E76 /* ObjectFilm.m in Sources */,
+				C60FCA7822D3A1DA00229FCC /* ThemAnhSanPhamQRCell.swift in Sources */,
 				C6928C341FD1656A00EB30D5 /* QRSanPhamViewController.m in Sources */,
 				C66DD3A31C44BF41000E9BB5 /* CellChuyenDi.m in Sources */,
 				C66010F31CFFE0D100C7152B /* ViewThuongDungInternet.m in Sources */,
@@ -8724,6 +8785,7 @@
 				C63D020E21E4F2FD00FD0086 /* GiaoDienTinTuc.m in Sources */,
 				1893435119ECE1EE009E91F2 /* DoiTuongNotification.m in Sources */,
 				A349CF531B4F6E60000CBC30 /* DoiTuongChiTietGiaoDichGuiTietKiem.m in Sources */,
+				C60FCA6722D395AC00229FCC /* TaoQRSanPhamVer2Controller.swift in Sources */,
 				850D7CAF1678592900A54A3F /* KazeCheckBox.m in Sources */,
 				C6207756227ADBBC002BD40D /* MaGiamGiaTableViewCell.m in Sources */,
 				CD30A17921A84F36004030E3 /* GiaodientaikhoantheViewController.m in Sources */,
@@ -8752,6 +8814,7 @@
 				0B2691562162FF49001824FC /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				851B5C6C1683F996001BA846 /* TransactionList.m in Sources */,
 				A3CAF0881AE506450029486B /* TheNapTien.m in Sources */,
+				C60FCA7422D39DD100229FCC /* TaoQROptionCell.swift in Sources */,
 				85FF5FD4184059210053B644 /* VSelectItemViewCell.m in Sources */,
 				C648CE311BF4507E00217D71 /* GiaoDienBangMaZipCode.m in Sources */,
 				C69DBE4F1FB0128400232E7A /* QRCameraSwitchButton.m in Sources */,
@@ -8771,6 +8834,7 @@
 				0BEA4FC8218B84D400478D74 /* UITextView+Placeholder.m in Sources */,
 				C66368DB1D77DEC000DC3C54 /* GiaoDienDangNhapMoi.m in Sources */,
 				8558125D1687F17A00EFE8B3 /* ProvinceInfo.m in Sources */,
+				C60FCA7C22D3A9BF00229FCC /* ListImageSanPhamQRCell.swift in Sources */,
 				855812641687F18F00EFE8B3 /* ViVietPlace.m in Sources */,
 				855812651687F18F00EFE8B3 /* VVMenuItem.m in Sources */,
 				A37F1FCA1B312D940028E519 /* DoiTuongChiTietGiaoDichThanhToanDienThoai.m in Sources */,
@@ -8878,6 +8942,7 @@
 				C66D4B711C4C9ACB002D5B65 /* CellChuyenVe.m in Sources */,
 				A35799291B33D5B700B38098 /* ASIFormDataRequest.m in Sources */,
 				A3C344661B29E5C8004B2880 /* DoiTuongChiTietGiaoDichRutTietKiem.m in Sources */,
+				C63C2BC122D78D9100BF8525 /* AuthenQRCell.swift in Sources */,
 				186D682E1A6FB0E20026972E /* ViewThuongDungChuyenTienViDenVi.m in Sources */,
 				C64F85001BD4ECAD009D39EF /* GiaoDienThanhToanSauTraCuuInternet.m in Sources */,
 				0B06C1471752F64900D7A9FF /* ProvinceCoreData.m in Sources */,
@@ -8902,6 +8967,7 @@
 				C6786DE11D1D2BED0064509A /* ItemGiaVeCGV.m in Sources */,
 				0B146B8C1765E0A300E9C80F /* TableLoadMoreCell.m in Sources */,
 				0B2DB95517697CC4001A0E68 /* TreeTableCategory.m in Sources */,
+				C60FCA6C22D3977F00229FCC /* TaoQRNameCell.swift in Sources */,
 				0B2DB95817697D34001A0E68 /* SVCategory.m in Sources */,
 				C63CE4741BDF32DE00C548FE /* ItemPhongXemFilm.m in Sources */,
 				C664591D1C97C304006753D0 /* GiaoDienChuyenTienDenCMND.m in Sources */,
@@ -8926,6 +8992,7 @@
 				0B22A17E177D3D980043C7EB /* TableCategoryCell.m in Sources */,
 				8558355217818A38007CCB9B /* SSPhotoCropperViewController.m in Sources */,
 				A37E554A1B0B403F00051AB3 /* TraCuuSoTietKiemView.m in Sources */,
+				C60FCA7022D399A200229FCC /* DonGiaQRCell.swift in Sources */,
 				858D02CA1783C4A500A4CC4E /* UIImage+Resize.m in Sources */,
 				0BEA4FC5218B76A600478D74 /* UIImage+GKContact.m in Sources */,
 				85FF5FC21840577F0053B644 /* SideViewController.m in Sources */,
@@ -9150,6 +9217,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = SLR686RAJ6;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -9181,6 +9249,8 @@
 				PROVISIONING_PROFILE = "e24ddeff-81de-4c5f-958e-96be3bb5749e";
 				PROVISIONING_PROFILE_SPECIFIER = TamNV_Dis;
 				SEPARATE_SYMBOL_EDIT = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "ViViMASS-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
 				VALID_ARCHS = "armv7 armv6 armv7s arm64";
@@ -9255,6 +9325,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = SLR686RAJ6;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -9285,7 +9356,9 @@
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "28bbfcc4-06b9-461b-8b10-dac98b12bd6e";
 				PROVISIONING_PROFILE_SPECIFIER = Vimass_Dev_25022019;
 				SEPARATE_SYMBOL_EDIT = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "ViViMASS-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
 				VALID_ARCHS = "armv7 armv6 armv7s arm64";
@@ -9305,6 +9378,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = SLR686RAJ6;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -9336,6 +9410,8 @@
 				PROVISIONING_PROFILE = "e24ddeff-81de-4c5f-958e-96be3bb5749e";
 				PROVISIONING_PROFILE_SPECIFIER = TamNV_Dis;
 				SEPARATE_SYMBOL_EDIT = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "ViViMASS-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
 				VALID_ARCHS = "armv7 armv6 armv7s arm64";

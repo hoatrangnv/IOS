@@ -7,6 +7,8 @@
 
 #import "QRSearchViewController.h"
 #import "CommonUtils.h"
+#import "QRDonViViewController.h"
+#import "HiNavigationBar.h"
 @interface QRSearchViewController ()<UITextFieldDelegate, UIImagePickerControllerDelegate>
 
 @end
@@ -46,6 +48,9 @@
         [_txtSearch setHidden:YES];
         [_btnTraCuu setHidden:YES];
         [_lblTitle setHidden:NO];
+        [_btnDangKyQR setHidden:YES];
+    } else {
+        [_btnDangKyQR setHidden:NO];
     }
 
 }
@@ -99,15 +104,6 @@
     }
     return true;
 }
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 - (void)dealloc {
     [_txtSearch release];
@@ -117,6 +113,7 @@
 
     [_btnTraCuu release];
     [_lblTitle release];
+    [_btnDangKyQR release];
     [super dealloc];
 }
 - (IBAction)doSearch:(id)sender {
@@ -135,6 +132,13 @@
     vc.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     vc.delegate = self;
     [self presentViewController:vc animated:YES completion:nil];
+}
+
+- (IBAction)suKienChonDangKyQR:(id)sender {
+    QRDonViViewController *vc = [[QRDonViViewController alloc] initWithNibName:@"QRDonViViewController" bundle:nil];
+    UINavigationController *navHome = [HiNavigationBar navigationControllerWithRootViewController: vc];
+    [self presentViewController:navHome animated:YES completion:nil];
+    [vc release];
 }
 
 - (IBAction)doClose:(id)sender {

@@ -61,6 +61,7 @@
     [super viewDidAppear:animated];
     [self.view endEditing:YES];
 }
+
 -(NSString*)dsNhanThongBao{
     NSMutableString *strFormat = [NSMutableString string];
     [strFormat appendString:@""];

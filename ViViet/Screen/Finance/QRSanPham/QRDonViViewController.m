@@ -13,6 +13,7 @@
 #import "TaoQRSanPhamViewController.h"
 #import "QRDonViSanPhamTableViewCell.h"
 #import "CommonUtils.h"
+#import "ViVimass-Swift.h"
 
 @interface QRDonViViewController () <UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate> {
     NSMutableArray *arrQRDonVi;
@@ -58,11 +59,14 @@
     longHander.delegate = self;
     longHander.minimumPressDuration = 1;
     [self.imgvQRPhongTo addGestureRecognizer:longHander];
+    
+    UIBarButtonItem *btnLeft = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style:UIBarButtonItemStyleDone target:self action:@selector(suKienChonBack)];
+    self.navigationItem.leftBarButtonItem = btnLeft;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.navigationItem.title = @"Mã QR";
+    self.navigationItem.title = @"Vimass QR";
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -75,6 +79,10 @@
     }
     [self ketNoiLayDanhSachSanPham];
     [self ketNoiLayDanhSach];
+}
+
+- (void)suKienChonBack {
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void) handleHoldGesture:(UILongPressGestureRecognizer *)gestureRecognizer
@@ -245,8 +253,8 @@
         [self suKienChonThemQRDonVi:sender];
     }
     else if (sender.tag == 0) {
-        TaoQRSanPhamViewController *vc = [[TaoQRSanPhamViewController alloc] initWithNibName:@"TaoQRSanPhamViewController" bundle:nil];
-        vc.maDaiLy = [DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_ID_TEMP];
+        [DucNT_LuuRMS luuThongTinTrongRMSTheoKey:@"VIMASS_MA_GIAO_DICH" value:@""];
+        TaoQRSanPhamVer2Controller *vc = [[TaoQRSanPhamVer2Controller alloc] initWithNibName:@"TaoQRSanPhamVer2Controller" bundle:nil];
         [self.navigationController pushViewController:vc animated:YES];
         [vc release];
     }
@@ -258,7 +266,7 @@
 
 //pragma mark: UITableViewDelegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -272,7 +280,7 @@
     if (section == 0) {
         return 165;
     }
-    return 40;
+    return 50;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
@@ -281,7 +289,6 @@
         [CommonUtils displayImage:[NSURL URLWithString:self.mThongTinTaiKhoanVi.linkQR] toImageView:view.imgvQR placeHolder:nil];
         view.lblName.text = self.mThongTinTaiKhoanVi.sNameAlias;
         NSString *sDuongDanAnhDaiDien = self.mThongTinTaiKhoanVi.sLinkAnhDaiDien;
-        NSLog(@"%s - sDuongDanAnhDaiDien : %@", __FUNCTION__, sDuongDanAnhDaiDien);
         [view.imgvAvatar sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://vimass.vn/vmbank/services/media/getImage?id=%@", sDuongDanAnhDaiDien]] placeholderImage:[UIImage imageNamed:@"icon_danhba"]];
         [view.btnThemSanPham addTarget:self action:@selector(suKienChonThemSanPham:) forControlEvents:UIControlEventTouchUpInside];
         [view.btnPhongToQR addTarget:self action:@selector(suKienPhongToQRCuaToi:) forControlEvents:UIControlEventTouchUpInside];
@@ -290,13 +297,13 @@
     }
     else {
         UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 40)];
-        view.backgroundColor = [UIColor colorWithRed:224.0/255.0 green:227.0/255.0 blue:227.0/255.0 alpha:1];
+        view.backgroundColor = [UIColor colorWithRed:67.0/255.0 green:156.0/255.0 blue:61.0/255.0 alpha:1];
         UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, view.frame.size.width, view.frame.size.height)];
         btn.titleLabel.textAlignment = NSTextAlignmentCenter;
         btn.titleLabel.font = [UIFont systemFontOfSize:17.0];
         [btn setBackgroundColor:[UIColor clearColor]];
-        [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [btn setTitle:@"Thêm QR đơn vị" forState:UIControlStateNormal];
+        [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [btn setTitle:@"Thêm sản phẩm QR" forState:UIControlStateNormal];
         [btn setTag:section];
         [btn addTarget:self action:@selector(suKienChonThemSanPham:) forControlEvents:UIControlEventTouchUpInside];
         [view addSubview:btn];
@@ -347,12 +354,17 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         NSDictionary *dict = [arrQRSanPham objectAtIndex:indexPath.row];
-        TaoQRSanPhamViewController *vc = [[TaoQRSanPhamViewController alloc] initWithNibName:@"TaoQRSanPhamViewController" bundle:nil];
-        vc.maDaiLy = [DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_ID_TEMP];
-        vc.nType = 1;
-        vc.dictSanPham = dict;
+        NSString *maGiaoDich = [dict objectForKey:@"maGiaoDich"];
+        TaoQRSanPhamVer2Controller *vc = [[TaoQRSanPhamVer2Controller alloc] initWithNibName:@"TaoQRSanPhamVer2Controller" bundle:nil];
+        [DucNT_LuuRMS luuThongTinTrongRMSTheoKey:@"VIMASS_MA_GIAO_DICH" value:maGiaoDich];
         [self.navigationController pushViewController:vc animated:YES];
         [vc release];
+//        TaoQRSanPhamViewController *vc = [[TaoQRSanPhamViewController alloc] initWithNibName:@"TaoQRSanPhamViewController" bundle:nil];
+//        vc.maDaiLy = [DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_ID_TEMP];
+//        vc.nType = 1;
+//        vc.dictSanPham = dict;
+//        [self.navigationController pushViewController:vc animated:YES];
+//        [vc release];
     }
     else {
         NSDictionary *dict = [arrQRDonVi objectAtIndex:indexPath.row];

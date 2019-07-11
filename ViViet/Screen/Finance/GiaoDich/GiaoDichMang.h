@@ -56,6 +56,8 @@
 
 + (void)layThongTinDonViQRCode:(NSString *)sIdQRCode noiNhanKetQua:(id<DucNT_ServicePostDelegate>)noiNhanKetQua;
 
++ (void)upAnhQRSanPham:(NSString *)sURL imageBase64:(NSString *)imageBase64 noiNhanKetQua:(id<DucNT_ServicePostDelegate>)noiNhanKetQua;
+
 + (void)layThongTinSanPhamQRCode:(NSString *)sIdQRCode noiNhanKetQua:(id<DucNT_ServicePostDelegate>)noiNhanKetQua;
 
 + (void)layThongTinViQRCode:(NSString *)sIdQRCode noiNhanKetQua:(id<DucNT_ServicePostDelegate>)noiNhanKetQua;

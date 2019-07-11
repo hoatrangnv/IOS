@@ -42,10 +42,19 @@
     else
         negativeSeperator.width = -10;
     self.navigationItem.rightBarButtonItems = @[negativeSeperator, leftItem];
+    
+    [self khoiTaoSaoKe];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    
+}
+
+- (void)khoiTaoSaoKe {
+    if ([[DucNT_LuuRMS layThongTinTrongRMSTheoKey:KEY_LOGIN_STATE] boolValue] && !self.mThongTinTaiKhoanVi) {
+        self.mThongTinTaiKhoanVi = [DucNT_LuuRMS layThongTinTaiKhoanVi];
+    }
     if (_saoKe) {
         NSString *sHTML = [self updateView:_saoKe];
         NSLog(@"%s - line : %d - sHTML : %@", __FUNCTION__, __LINE__, sHTML);
@@ -58,13 +67,11 @@
     _webChiTiet.scrollView.bounces = NO;
     _webChiTiet.backgroundColor = [UIColor redColor];
 }
+
 -(void)webViewDidFinishLoad:(UIWebView *)webView{
-//    NSString *fontSize=@"143";
-//    NSString *jsString = [[NSString alloc]      initWithFormat:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '%d%%'",[fontSize intValue]];
-//    [_webChiTiet stringByEvaluatingJavaScriptFromString:jsString];
-    
     CGFloat height = webView.scrollView.contentSize.height;
-    
+//    height = 300;
+    NSLog(@"%s - height : %f", __FUNCTION__, height);
     dispatch_async(dispatch_get_main_queue(), ^{
         CGRect rectWeb = webView.frame;
         rectWeb.size.height = height;
@@ -167,6 +174,30 @@
     {
         sFromAcc = [NSString stringWithFormat:@"%@: %@", [@"tu" localizableString], item.fromAcc];
     }
+    
+    if (item.VMApp != nil) {
+        int nVM_APP = [item.VMApp intValue];
+        switch (nVM_APP) {
+            case 1:
+                sFromAcc = [NSString stringWithFormat:@"%@ - %@", sFromAcc, @"ĐT Android"];
+                break;
+            case 2:
+                sFromAcc = [NSString stringWithFormat:@"%@ - %@", sFromAcc, @"iPhone"];
+                break;
+            case 3:
+                sFromAcc = [NSString stringWithFormat:@"%@ - %@", sFromAcc, @"ĐT Window Phone"];
+                break;
+            case 4:
+                sFromAcc = [NSString stringWithFormat:@"%@ - %@", sFromAcc, @"Website"];
+                break;
+            case 5:
+                sFromAcc = [NSString stringWithFormat:@"%@ - %@", sFromAcc, @"ĐT iPhone"];
+                break;
+            default:
+                break;
+        }
+        
+    }
 
     NSString *sAmount = @"";
     NSString *sSoDu = @"";
@@ -203,10 +234,16 @@
 
     NSString *sNoiDung = @"";
     NSString *sDes = @"";
-    if([item.type intValue] != 3 && [item.type intValue] != 4)
-        sDes = [NSString stringWithFormat:@"%@: %@", [@"title_noi_dung_viet_tat" localizableString], [item layNoiDung]];
-    else
-        sDes = [NSString stringWithFormat:@"%@ %@ : %@", [@"title_noi_dung_viet_tat" localizableString], [item layNoiDung], [item layGiftName]];
+    if([item.type intValue] != 3 && [item.type intValue] != 4) {
+        if (![[item layNoiDung] isEmpty]) {
+            sDes = [NSString stringWithFormat:@"%@: %@", [@"title_noi_dung_viet_tat" localizableString], [item layNoiDung]];
+        }
+    }
+    else {
+        if (![[item layGiftName] isEmpty]) {
+            sDes = [NSString stringWithFormat:@"%@ %@ : %@", [@"title_noi_dung_viet_tat" localizableString], [item layNoiDung], [item layGiftName]];
+        }
+    }
     //Tu
     sNoiDung = [NSString stringWithFormat:@"%@ <br/>", sFromAcc];
     //Den
@@ -220,44 +257,30 @@
     //soTien
     sNoiDung = [sNoiDung stringByAppendingFormat:@"%@ <br/>", sAmount];
     //sophi
-    sNoiDung = [sNoiDung stringByAppendingFormat:@"%@ <br/>", [NSString stringWithFormat:@"%@: %@ đ", [@"phi_chuyen_tien" localizableString], [Common hienThiTienTe:[item.feeAmount doubleValue]]]];
+    NSLog(@"%s - item.feeAmount : %@", __FUNCTION__, item.feeAmount);
+    NSLog(@"%s - [item.feeAmount doubleValue] : % ", __FUNCTION__, [item.feeAmount doubleValue]);
+    if ([item.feeAmount doubleValue] > 0) {
+        sNoiDung = [sNoiDung stringByAppendingFormat:@"%@ <br/>", [NSString stringWithFormat:@"%@: %@ đ", [@"phi_chuyen_tien" localizableString], [Common hienThiTienTe:[item.feeAmount doubleValue]]]];
+    }
     //noidung
-    sNoiDung = [sNoiDung stringByAppendingFormat:@"%@ <br/>", sDes];
+    if (![sDes isEmpty] ) {
+        sNoiDung = [sNoiDung stringByAppendingFormat:@"%@ <br/>", sDes];
+    }
 
     //thoiDiem
     sNoiDung = [sNoiDung stringByAppendingFormat:@"%@ <br/>", [NSString stringWithFormat:@"%@: %@", [@"thoi_diem_giao_dich" localizableString],  [item layThoiGianChuyenTien]]];
+    //======Đây là nơi xử lý mã CA======
+    if ([item.donViXacThuc intValue] == 1) {
+        sNoiDung = [sNoiDung stringByAppendingString:@"CA: Vina-CA<br/>"];
+    }
     
     //soDu
     sNoiDung = [sNoiDung stringByAppendingFormat:@"%@ <br/>", sSoDu];
-    sNoiDung = [sNoiDung stringByAppendingFormat:@"%@: %@ đ<br/>", [@"du_km" localizableString], [Common hienThiTienTe:[self.mThongTinTaiKhoanVi.nPromotionTotal doubleValue]]];
-    
-    if (item.VMApp != nil) {
-        int nVM_APP = [item.VMApp intValue];
-        switch (nVM_APP) {
-            case 1:
-                sNoiDung = [sNoiDung stringByAppendingFormat:@"%@", [NSString stringWithFormat:@"%@ Ví Vimass Android<br/>", [@"ung_dung" localizableString]]];
-                break;
-            case 2:
-                sNoiDung = [sNoiDung stringByAppendingFormat:@"%@", [NSString stringWithFormat:@"%@ Ví Vimass iOS<br/>", [@"ung_dung" localizableString]]];
-//                sNoiDung = [sNoiDung stringByAppendingFormat:@"Ứng dụng: Ví Vimass iOS<br/>"];
-                break;
-            case 3:
-                sNoiDung = [sNoiDung stringByAppendingFormat:@"%@", [NSString stringWithFormat:@"%@ Ví Vimass WP<br/>", [@"ung_dung" localizableString]]];
-//                sNoiDung = [sNoiDung stringByAppendingFormat:@"Ứng dụng: Ví Vimass WP<br/>"];
-                break;
-            case 4:
-                sNoiDung = [sNoiDung stringByAppendingFormat:@"%@", [NSString stringWithFormat:@"%@ VĐT Vimass<br/>", [@"ung_dung" localizableString]]];
-//                sNoiDung = [sNoiDung stringByAppendingFormat:@"Ứng dụng: VĐT Vimass <br/>"];
-                break;
-            case 5:
-                sNoiDung = [sNoiDung stringByAppendingFormat:@"%@", [NSString stringWithFormat:@"%@ Ví Vimass iOS<br/>", [@"ung_dung" localizableString]]];
-//                sNoiDung = [sNoiDung stringByAppendingFormat:@"Ứng dụng: Ví Vimass iOS<br/>"];
-                break;
-            default:
-                break;
-        }
-
+    if ([self.mThongTinTaiKhoanVi.nPromotionTotal doubleValue] > 0) {
+        sNoiDung = [sNoiDung stringByAppendingFormat:@"%@: %@ đ<br/>", [@"du_km" localizableString], [Common hienThiTienTe:[self.mThongTinTaiKhoanVi.nPromotionTotal doubleValue]]];
     }
+    
+    
     
     return sNoiDung;
 }

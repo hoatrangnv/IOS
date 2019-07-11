@@ -56,8 +56,8 @@
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="BaI-tn-Jbz" customClass="TPKeyboardAvoidAcessory">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="536"/>
                     <subviews>
-                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5kS-qL-bte" userLabel="ContentView">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="326"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5kS-qL-bte" userLabel="ContentView">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="563"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dRZ-AN-5Si" userLabel="ViewMain">
                                     <rect key="frame" x="8" y="5" width="304" height="500"/>
@@ -348,8 +348,8 @@
                                                 <constraint firstItem="xRc-Dx-b9P" firstAttribute="top" secondItem="6e9-2u-4AR" secondAttribute="bottom" constant="8" id="z89-va-owN"/>
                                             </constraints>
                                         </view>
-                                        <webView hidden="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1pS-0p-rMF">
-                                            <rect key="frame" x="0.0" y="5" width="304" height="0.0"/>
+                                        <webView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1pS-0p-rMF">
+                                            <rect key="frame" x="0.0" y="5" width="304" height="487"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </webView>
                                     </subviews>
@@ -398,7 +398,7 @@
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-998" y="-19"/>
+            <point key="canvasLocation" x="-999.375" y="-19.014084507042252"/>
         </view>
         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="J7Y-F3-pPS">
             <rect key="frame" x="0.0" y="0.0" width="36" height="36"/>
@@ -459,7 +459,7 @@
         <image name="ic_save_acc.png" width="64" height="64"/>
         <image name="iconSoTay.png" width="32" height="28"/>
         <image name="icon_trans_money_add.png" width="64" height="64"/>
-        <image name="pki" width="225" height="225"/>
+        <image name="pki" width="128" height="128"/>
         <image name="tokenv" width="120" height="120"/>
         <image name="vantay" width="225" height="225"/>
     </resources>

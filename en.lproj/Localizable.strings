@@ -1267,7 +1267,7 @@
 "btf - issue place" = "Nơi cấp";
 "btf - select issue place" = "Chọn nơi cấp";
 "btf - descripton" = "Nội dung";
-"btf - transfer btn" = "Chuyển Tiền";
+"btf - transfer btn" = "Transfer";
 "btf - noti list" = "Các số điện thoại nhận tin";
 "btf - amount is required" = "Vui lòng nhập Số tiền";
 "btf - amount is invalid" = "Số tiền không hợp lệ";
@@ -1428,3 +1428,4 @@
 "doi_mat_khau_token" = "Change/Forgot password";
 "chu_tai_khoan" = "Account";
 "ten_tai_khoan_muon_tien" = "Loan account name";
+"ky_so" = "Digital sign";

@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QRSearchViewController">
             <connections>
+                <outlet property="btnDangKyQR" destination="TKM-8I-3Bn" id="ixV-2G-8DF"/>
                 <outlet property="btnTraCuu" destination="L5Y-nY-sN7" id="ogT-3u-AC8"/>
                 <outlet property="cameraView" destination="K5I-93-QVg" id="zWk-wt-QPo"/>
                 <outlet property="lblTitle" destination="AYi-eJ-Ljd" id="FQb-4z-w74"/>
@@ -199,14 +200,31 @@
                         <constraint firstItem="9NK-xQ-9nX" firstAttribute="centerX" secondItem="1Z9-cW-h7Q" secondAttribute="centerX" id="Kqv-ZQ-NAY"/>
                     </constraints>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TKM-8I-3Bn">
+                    <rect key="frame" x="0.0" y="528" width="320" height="40"/>
+                    <color key="backgroundColor" red="0.0" green="0.44705882349999998" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="QK0-Lo-eDJ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                    <state key="normal" title="Đăng ký, tạo và sửa QR">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="suKienChonDangKyQR:" destination="-1" eventType="touchUpInside" id="Smu-ag-K9q"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="XKn-3L-jDi" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="4tx-02-rbI"/>
                 <constraint firstItem="K5I-93-QVg" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="5QQ-ld-ncg"/>
+                <constraint firstItem="TKM-8I-3Bn" firstAttribute="bottom" secondItem="Q5M-cg-NOt" secondAttribute="bottom" id="BB3-mw-aSx"/>
+                <constraint firstItem="TKM-8I-3Bn" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="CeW-it-Ohe"/>
                 <constraint firstItem="XKn-3L-jDi" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="CoP-w2-diZ"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="K5I-93-QVg" secondAttribute="trailing" constant="10" id="H1P-od-piF"/>
                 <constraint firstItem="K5I-93-QVg" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="10" id="PaC-SI-hqw"/>
+                <constraint firstItem="TKM-8I-3Bn" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="QgG-Of-vTV"/>
                 <constraint firstItem="1Z9-cW-h7Q" firstAttribute="top" secondItem="XKn-3L-jDi" secondAttribute="bottom" constant="8" id="Som-2U-z7C"/>
                 <constraint firstItem="XKn-3L-jDi" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="ol3-J6-9nk"/>
                 <constraint firstItem="K5I-93-QVg" firstAttribute="top" secondItem="1Z9-cW-h7Q" secondAttribute="bottom" constant="8" id="p8G-ER-dj7"/>
