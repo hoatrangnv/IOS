@@ -1,0 +1,622 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>dsTinhThanh</key>
+	<array>
+		<dict>
+			<key>dsQuanHuyen</key>
+			<array>
+				<dict>
+					<key>dsPhuongXa</key>
+					<array>
+						<string>An Phú</string>
+						<string>Khánh An</string>
+						<string>Khánh Bình</string>
+						<string>Long Bình</string>
+						<string>Nhơn Hội</string>
+						<string>Phú Hội</string>
+						<string>Phú Hữu</string>
+						<string>Phước Hưng</string>
+						<string>Quốc Thái</string>
+						<string>Vĩnh Hậu</string>
+						<string>Vĩnh Hội Đông</string>
+						<string>Vĩnh Lộc</string>
+						<string>Vĩnh Trường</string>
+						<string>Đa Phước</string>
+					</array>
+					<key>tenQuanHuyen</key>
+					<string>An Phú</string>
+				</dict>
+				<dict>
+					<key>dsPhuongXa</key>
+					<array>
+						<string>Bình Chánh</string>
+						<string>Bình Long</string>
+						<string>Bình Mỹ</string>
+						<string>Bình Phú</string>
+						<string>Bình Thuỷ</string>
+						<string>Cái Dầu</string>
+						<string>Khánh Hoà</string>
+						<string>Mỹ Phú</string>
+						<string>Mỹ Đức</string>
+						<string>Ô Long Vĩ</string>
+						<string>Thạch Mỹ Tây</string>
+						<string>Vĩnh Thạch Trung</string>
+						<string>X.Đào Hữu Cảnh</string>
+					</array>
+					<key>tenQuanHuyen</key>
+					<string>Châu Phú</string>
+				</dict>
+				<dict>
+					<key>dsPhuongXa</key>
+					<array>
+						<string>An Châu</string>
+						<string>An Hoà</string>
+						<string>Bình Hoà</string>
+						<string>Bình Thạnh</string>
+						<string>Cần Đăng</string>
+						<string>Hoà Bình Thạnh</string>
+						<string>Tân Phú</string>
+						<string>Vĩnh An</string>
+						<string>Vĩnh Bình</string>
+						<string>Vĩnh Hanh</string>
+						<string>Vĩnh Lợi</string>
+						<string>Vĩnh Nhuận</string>
+						<string>Vĩnh Thành</string>
+					</array>
+					<key>tenQuanHuyen</key>
+					<string>Châu Thành</string>
+				</dict>
+				<dict>
+					<key>tenQuanHuyen</key>
+					<string>Chợ Mới</string>
+					<key>dsPhuongXa</key>
+					<array>
+						<string>An Thạch Trung</string>
+						<string>Bình Phước Xuân</string>
+						<string>Chợ Mới</string>
+						<string>Hoà An</string>
+						<string>Hoà Bình</string>
+						<string>Hội An</string>
+						<string>Kiến An</string>
+						<string>Kiến Thành</string>
+						<string>Long Kiến</string>
+						<string>Long Điền A</string>
+						<string>Long Điền B</string>
+						<string>Mỹ An</string>
+						<string>Mỹ Hiệp</string>
+						<string>Mỹ Hội Đông</string>
+						<string>Mỹ Luông</string>
+						<string>Nhơn Mỹ</string>
+						<string>Tấn Mỹ</string>
+						<string>X.Long Giang</string>
+					</array>
+				</dict>
+				<dict>
+					<key>New item</key>
+					<array>
+						<string>Bình Thạnh Đông</string>
+						<string>Chợ Vàm</string>
+						<string>Hiệp Xương</string>
+						<string>Hoà Lạc</string>
+						<string>Long Sơn</string>
+						<string>Phú An</string>
+						<string>Phú Bình</string>
+						<string>Phú Hiệp</string>
+						<string>Phú Hưng</string>
+						<string>Phú Lâm</string>
+						<string>Phú Long</string>
+						<string>Phú Mỹ</string>
+						<string>Phú Tạch</string>
+						<string>Phú Thọ</string>
+						<string>Phú Xuân</string>
+						<string>Tân Hoà</string>
+						<string>Tân Trung</string>
+						<string>x.Long Hoà</string>
+					</array>
+					<key>tenQuanHuyen</key>
+					<string>Phú Tân</string>
+				</dict>
+				<dict>
+					<key>dsPhuongXa</key>
+					<array>
+						<string>Châu Phong</string>
+						<string>Lê Chánh</string>
+						<string>Long An</string>
+						<string>Long Châu</string>
+						<string>Long Hưng</string>
+						<string>Long Phú</string>
+						<string>Long Sơn</string>
+						<string>Long Thạnh</string>
+						<string>Phú Lộc</string>
+						<string>Phú Vĩnh</string>
+						<string>Tân An</string>
+						<string>Tân Châu</string>
+						<string>Vĩnh Hoà</string>
+						<string>Vĩnh Xương</string>
+					</array>
+					<key>tenQuanHuyen</key>
+					<string>Tân Châu</string>
+				</dict>
+				<dict>
+					<key>tenQuanHuyen</key>
+					<string>Thành Phố Long Xuyên</string>
+					<key>dsPhuongXa</key>
+					<array>
+						<string>Bình Khánh</string>
+						<string>Bình Đức</string>
+						<string>Mỹ Bình</string>
+						<string>Mỹ Hoà</string>
+						<string>Mỹ Hoà Hưng</string>
+						<string>Mỹ Khánh</string>
+						<string>Mỹ Long</string>
+						<string>Mỹ Phước</string>
+						<string>Mỹ Quý</string>
+						<string>Mỹ Thạnh</string>
+						<string>Mỹ Thới</string>
+						<string>Mỹ Xuyên</string>
+						<string>Đông Xuyên</string>
+					</array>
+				</dict>
+				<dict>
+					<key>tenQuanHuyen</key>
+					<string>Thị Xã Châu Đốc</string>
+					<key>dsPhuongXa</key>
+					<array>
+						<string>Châu Phú A</string>
+						<string>Châu Phú B</string>
+						<string>Núi Sam</string>
+						<string>Vĩnh Châu</string>
+						<string>Vĩnh Mỹ</string>
+						<string>Vĩnh Ngươn</string>
+						<string>Vĩnh Tế</string>
+					</array>
+				</dict>
+				<dict>
+					<key>tenQuanHuyen</key>
+					<string>Thoại Sơn</string>
+					<key>dsPhuongXa</key>
+					<array>
+						<string>An Bình</string>
+						<string>Bình Thành</string>
+						<string>Mỹ Phú Đông</string>
+						<string>Núi Sập</string>
+						<string>Óc Eo</string>
+						<string>Phú Hoà</string>
+						<string>Phú Thuận</string>
+						<string>Tây Phú</string>
+						<string>Thoại Giang</string>
+						<string>Vĩnh Chánh</string>
+						<string>Vĩnh Khánh</string>
+						<string>Vĩnh Phú</string>
+						<string>Vĩnh Trạch</string>
+						<string>Vọng Thê</string>
+						<string>Vọng Đông</string>
+						<string>Định Mỹ</string>
+						<string>Định Thành</string>
+					</array>
+				</dict>
+				<dict>
+					<key>dsPhuongXa</key>
+					<array>
+						<string>An Cư</string>
+						<string>An Hảo</string>
+						<string>An Nông</string>
+						<string>An Phú</string>
+						<string>Chi Lăng</string>
+						<string>Nhà Bàng</string>
+						<string>Nhơn Hưng</string>
+						<string>Núi Voi</string>
+						<string>Tân Lập</string>
+						<string>Tân Lợi</string>
+						<string>Thị trấn Tịnh Biên</string>
+						<string>Thới Sơn</string>
+						<string>Văn Giáo</string>
+						<string>Vĩnh Trung</string>
+						<string>Xuân Tô</string>
+					</array>
+					<key>tenQuanHuyen</key>
+					<string>Tịnh Biên</string>
+				</dict>
+				<dict>
+					<key>tenQuanHuyen</key>
+					<string>Tri Tôn</string>
+					<key>dsPhuongXa</key>
+					<array>
+						<string>An Tức</string>
+						<string>Ba Chúc</string>
+						<string>Châu Lăng</string>
+						<string>Cô Tô</string>
+						<string>Lạc Quới</string>
+						<string>Lê Trí</string>
+						<string>Lương An Trà</string>
+						<string>Lương Phi</string>
+						<string>Núi Tô</string>
+						<string>Ô Lâm</string>
+						<string>Tà Đảnh</string>
+						<string>Tân Tuyến</string>
+						<string>Tri Tôn</string>
+						<string>Vĩnh Gia</string>
+						<string>Vĩnh Phước</string>
+					</array>
+				</dict>
+			</array>
+			<key>ten</key>
+			<string>An Giang</string>
+		</dict>
+		<dict>
+			<key>ten</key>
+			<string>Bà Rịa Vũng Tàu</string>
+			<key>dsQuanHuyen</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>ten</key>
+			<string>Bắc Giang</string>
+			<key>dsQuanHuyen</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>ten</key>
+			<string>Bắc Kạn</string>
+			<key>dsQuanHuyen</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>ten</key>
+			<string>Bạc Liêu</string>
+			<key>dsQuanHuyen</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>ten</key>
+			<string>Bắc Ninh</string>
+			<key>dsQuanHuyen</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>ten</key>
+			<string>Bến Tre</string>
+			<key>dsQuanHuyen</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>ten</key>
+			<string>Bình Dương</string>
+			<key>dsQuanHuyen</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>ten</key>
+			<string>Bình Phước</string>
+			<key>dsQuanHuyen</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>ten</key>
+			<string>Bình Thuận</string>
+			<key>dsQuanHuyen</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>ten</key>
+			<string>Bình Định</string>
+			<key>dsQuanHuyen</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>ten</key>
+			<string>Cà Mau</string>
+			<key>dsQuanHuyen</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>ten</key>
+			<string>Cần Thơ</string>
+			<key>dsQuanHuyen</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>ten</key>
+			<string>Cao Bằng</string>
+			<key>dsQuanHuyen</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>ten</key>
+			<string>Gia Lai</string>
+			<key>dsQuanHuyen</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>ten</key>
+			<string>Hà Giang</string>
+			<key>dsQuanHuyen</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>ten</key>
+			<string>Hà Nam</string>
+			<key>dsQuanHuyen</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>ten</key>
+			<string>Hà Nội</string>
+			<key>dsQuanHuyen</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>ten</key>
+			<string>Hà Tĩnh</string>
+			<key>dsQuanHuyen</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>ten</key>
+			<string>Hải Dương</string>
+			<key>dsQuanHuyen</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>ten</key>
+			<string>Hải Phòng</string>
+			<key>dsQuanHuyen</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>ten</key>
+			<string>Hậu Giang</string>
+			<key>dsQuanHuyen</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>ten</key>
+			<string>Hồ Chí Minh</string>
+			<key>dsQuanHuyen</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>ten</key>
+			<string>Hoà Bình</string>
+			<key>dsQuanHuyen</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>ten</key>
+			<string>Huế</string>
+			<key>dsQuanHuyen</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>ten</key>
+			<string>Hưng Yên</string>
+			<key>dsQuanHuyen</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>ten</key>
+			<string>Khánh Hoà</string>
+			<key>dsQuanHuyen</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>ten</key>
+			<string>Kiên Giang</string>
+			<key>dsQuanHuyen</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>ten</key>
+			<string>Kon Tum</string>
+			<key>dsQuanHuyen</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>ten</key>
+			<string>Lai Châu</string>
+			<key>dsQuanHuyen</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>ten</key>
+			<string>Lâm Đồng</string>
+			<key>dsQuanHuyen</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>ten</key>
+			<string>Lạng Sơn</string>
+			<key>dsQuanHuyen</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>ten</key>
+			<string>Lào Cai</string>
+			<key>dsQuanHuyen</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>ten</key>
+			<string>Long An</string>
+			<key>dsQuanHuyen</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>ten</key>
+			<string>Nam Định</string>
+			<key>dsQuanHuyen</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>ten</key>
+			<string>Nghệ An</string>
+			<key>dsQuanHuyen</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>ten</key>
+			<string>Ninh Bình</string>
+			<key>dsQuanHuyen</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>ten</key>
+			<string>Ninh Thuận</string>
+			<key>dsQuanHuyen</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>ten</key>
+			<string>Phú Thọ</string>
+			<key>dsQuanHuyen</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>ten</key>
+			<string>Phú Yên</string>
+			<key>dsQuanHuyen</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>ten</key>
+			<string>Quảng Bình</string>
+			<key>dsQuanHuyen</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>ten</key>
+			<string>Quảng Nam</string>
+			<key>dsQuanHuyen</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>ten</key>
+			<string>Quảng Ngãi</string>
+			<key>dsQuanHuyen</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>ten</key>
+			<string>Quảng Ninh</string>
+			<key>dsQuanHuyen</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>ten</key>
+			<string>Quảng Trị</string>
+			<key>dsQuanHuyen</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>ten</key>
+			<string>Sóc Trăng</string>
+			<key>dsQuanHuyen</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>ten</key>
+			<string>Sơn La</string>
+			<key>dsQuanHuyen</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>ten</key>
+			<string>Tây Ninh</string>
+			<key>dsQuanHuyen</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>ten</key>
+			<string>Thái Bình</string>
+			<key>dsQuanHuyen</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>ten</key>
+			<string>Thái Nguyên</string>
+			<key>dsQuanHuyen</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>ten</key>
+			<string>Thanh Hoá</string>
+			<key>dsQuanHuyen</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>ten</key>
+			<string>Tiền Giang</string>
+			<key>dsQuanHuyen</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>ten</key>
+			<string>Trà Vinh</string>
+			<key>dsQuanHuyen</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>ten</key>
+			<string>Tuyên Quang</string>
+			<key>dsQuanHuyen</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>ten</key>
+			<string>Vĩnh Long</string>
+			<key>dsQuanHuyen</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>ten</key>
+			<string>Vĩnh Phúc</string>
+			<key>dsQuanHuyen</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>ten</key>
+			<string>Yên Bái</string>
+			<key>dsQuanHuyen</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>ten</key>
+			<string>Đà Nẵng</string>
+			<key>dsQuanHuyen</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>ten</key>
+			<string>Đắc Lắc</string>
+			<key>dsQuanHuyen</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>ten</key>
+			<string>Đắk Nông</string>
+			<key>dsQuanHuyen</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>ten</key>
+			<string>Đồng Nai</string>
+			<key>dsQuanHuyen</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>ten</key>
+			<string>Đồng Tháp</string>
+			<key>dsQuanHuyen</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>ten</key>
+			<string>Điện Biên</string>
+			<key>dsQuanHuyen</key>
+			<array/>
+		</dict>
+	</array>
+</dict>
+</plist>

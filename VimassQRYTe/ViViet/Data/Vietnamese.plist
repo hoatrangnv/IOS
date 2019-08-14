@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>messTitle</key>
+	<string>Thông báo</string>
+	<key>messContentOPT</key>
+	<string>Nhập mật khẩu nhận được từ sms hệ thống Ví Việt gửi về</string>
+	<key>messContentOPTSuccess</key>
+	<string>Thành công</string>
+	<key>messContentOPTFail</key>
+	<string>Mật khẩu không chính xác</string>
+	<key>messTitleButtonComfirm</key>
+	<string>Đồng ý</string>
+	<key>messTitleButtonCancel</key>
+	<string>Huỷ</string>
+	<key>messContentOfSignIn</key>
+	<string>Đăng ký tài khoản</string>
+	<key>messPlaceHolderUsername</key>
+	<string>Tên đăng nhập</string>
+	<key>messPlaceHolderPasswords</key>
+	<string>Mật khẩu</string>
+</dict>
+</plist>

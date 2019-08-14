@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="axP-gG-Ah4">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="124"/>
+                                <color key="backgroundColor" red="0.1647058824" green="0.72941176470000002" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="124" id="r1T-Yw-lgq"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mJk-JI-ctp">
+                                <rect key="frame" x="0.0" y="725" width="375" height="53"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ứng dụng của Trung tâm ứng dụng CNTT y tế" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ro3-xc-yNx">
+                                        <rect key="frame" x="31" y="5" width="313" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="k5K-2z-fgA"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&amp; CTCP dịch vụ nền di độn Việt Nam (Vimass)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mve-qM-FXQ">
+                                        <rect key="frame" x="30.666666666666657" y="26" width="314" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="HiJ-ur-tck"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.1647058824" green="0.72941176470000002" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="mve-qM-FXQ" firstAttribute="centerX" secondItem="mJk-JI-ctp" secondAttribute="centerX" id="Dh6-DK-jGp"/>
+                                    <constraint firstItem="mve-qM-FXQ" firstAttribute="top" secondItem="ro3-xc-yNx" secondAttribute="bottom" id="Hva-fs-nnr"/>
+                                    <constraint firstItem="ro3-xc-yNx" firstAttribute="centerX" secondItem="mJk-JI-ctp" secondAttribute="centerX" id="UO0-v3-BWN"/>
+                                    <constraint firstAttribute="height" constant="53" id="g7N-Op-anL"/>
+                                    <constraint firstItem="ro3-xc-yNx" firstAttribute="top" secondItem="mJk-JI-ctp" secondAttribute="top" constant="5" id="pM8-ba-CZt"/>
+                                </constraints>
+                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_launcher" translatesAutoresizingMaskIntoConstraints="NO" id="CF4-RA-WLr">
+                                <rect key="frame" x="124.66666666666669" y="343" width="126" height="126"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="126" id="A4W-GK-rIe"/>
+                                    <constraint firstAttribute="height" constant="126" id="Mz4-qA-XyO"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="mJk-JI-ctp" firstAttribute="leading" secondItem="rom-cO-Juc" secondAttribute="leading" id="0LH-kS-fnj"/>
+                            <constraint firstItem="CF4-RA-WLr" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="5YV-lr-z8y"/>
+                            <constraint firstItem="mJk-JI-ctp" firstAttribute="leading" secondItem="axP-gG-Ah4" secondAttribute="leading" id="7aB-50-UFE"/>
+                            <constraint firstItem="CF4-RA-WLr" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="8It-3W-sLd"/>
+                            <constraint firstItem="axP-gG-Ah4" firstAttribute="trailing" secondItem="rom-cO-Juc" secondAttribute="trailing" id="9eV-mJ-63Y"/>
+                            <constraint firstItem="mJk-JI-ctp" firstAttribute="bottom" secondItem="rom-cO-Juc" secondAttribute="bottom" id="FXp-Ia-oO4"/>
+                            <constraint firstItem="mJk-JI-ctp" firstAttribute="trailing" secondItem="axP-gG-Ah4" secondAttribute="trailing" id="QvQ-zk-Vyc"/>
+                            <constraint firstItem="rom-cO-Juc" firstAttribute="bottom" secondItem="mJk-JI-ctp" secondAttribute="bottom" id="aL2-yw-hP7"/>
+                            <constraint firstItem="mJk-JI-ctp" firstAttribute="leading" secondItem="rom-cO-Juc" secondAttribute="leading" id="cEQ-B1-QDs"/>
+                            <constraint firstItem="rom-cO-Juc" firstAttribute="trailing" secondItem="mJk-JI-ctp" secondAttribute="trailing" id="czi-nR-dRy"/>
+                            <constraint firstItem="axP-gG-Ah4" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="dT3-Cy-sR3"/>
+                            <constraint firstItem="rom-cO-Juc" firstAttribute="trailing" secondItem="mJk-JI-ctp" secondAttribute="trailing" id="enV-IQ-RQ7"/>
+                            <constraint firstItem="axP-gG-Ah4" firstAttribute="leading" secondItem="rom-cO-Juc" secondAttribute="leading" id="pzp-oL-mrE"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="rom-cO-Juc"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-477.536231884058" y="222.32142857142856"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ic_launcher" width="180" height="180"/>
+    </resources>
+</document>

@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="DucNT_SaoKe_ViewChiTiet">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" id="Vn8-Sh-Qe6" customClass="TPKeyboardAvoidAcessory">
+                    <rect key="frame" x="20" y="20" width="280" height="338"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <subviews>
+                        <view opaque="NO" contentMode="scaleToFill" id="TDm-yY-SDi">
+                            <rect key="frame" x="0.0" y="0.0" width="280" height="338"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <view hidden="YES" contentMode="scaleToFill" id="31B-NI-PKq" userLabel="ViewSoPhi">
+                                    <rect key="frame" x="5" y="63" width="270" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" id="UfQ-Dh-YYD">
+                                            <rect key="frame" x="0.0" y="29" width="270" height="1"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.7456212043762207" green="0.7456212043762207" blue="0.7456212043762207" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </view>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.000.000 d" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xxm-eL-AUt">
+                                            <rect key="frame" x="5" y="-2" width="260" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <color key="textColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </view>
+                                <view hidden="YES" contentMode="scaleToFill" id="i8h-3q-NEC" userLabel="ViewSoTien">
+                                    <rect key="frame" x="5" y="-87" width="270" height="151"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" id="xLf-t7-E6q" userLabel="ViewTu">
+                                            <rect key="frame" x="0.0" y="0.0" width="270" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tu: 09333333" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="N9i-iN-bew">
+                                                    <rect key="frame" x="5" y="0.0" width="260" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" id="q3V-wC-scD">
+                                                    <rect key="frame" x="0.0" y="29" width="270" height="1"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="0.75" green="0.75" blue="0.75" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </view>
+                                        <view contentMode="scaleToFill" id="QHj-Ie-qOA" userLabel="ViewDen">
+                                            <rect key="frame" x="0.0" y="30" width="270" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Den: 000000000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yVT-mW-pDx">
+                                                    <rect key="frame" x="5" y="0.0" width="260" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" id="YXT-rF-Nmw">
+                                                    <rect key="frame" x="0.0" y="29" width="270" height="1"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="0.75" green="0.75" blue="0.75" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </view>
+                                        <view contentMode="scaleToFill" id="l0F-9M-eB6" userLabel="ViewNguoiThuHuong">
+                                            <rect key="frame" x="0.0" y="61" width="270" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" id="4dI-ek-Q0p">
+                                                    <rect key="frame" x="0.0" y="29" width="280" height="1"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="0.75" green="0.75" blue="0.75" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </view>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="So tien: 10000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rJN-Dc-8B6">
+                                                    <rect key="frame" x="37" y="0.0" width="225" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </view>
+                                        <view contentMode="scaleToFill" id="3lo-Vc-lqf" userLabel="ViewTenVietTat">
+                                            <rect key="frame" x="0.0" y="91" width="270" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" id="fFn-cG-weK">
+                                                    <rect key="frame" x="0.0" y="29" width="280" height="1"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="0.75" green="0.75" blue="0.75" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </view>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="So tien: 10000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="icw-E6-VnF">
+                                                    <rect key="frame" x="36" y="0.0" width="226" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </view>
+                                        <view contentMode="scaleToFill" id="w0x-Mz-b77" userLabel="ViewSoTien_">
+                                            <rect key="frame" x="0.0" y="121" width="270" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="So tien: 10000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Yu7-9J-ck1">
+                                                    <rect key="frame" x="5" y="0.0" width="260" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" id="trF-BT-D2K">
+                                                    <rect key="frame" x="0.0" y="29" width="270" height="1"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="0.75" green="0.75" blue="0.75" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </view>
+                                    </subviews>
+                                </view>
+                                <view contentMode="scaleToFill" id="J03-w3-kon" userLabel="ViewThoiGian">
+                                    <rect key="frame" x="5" y="-87" width="270" height="370"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" id="o2T-Bc-5l0" userLabel="ViewThoiDiem">
+                                            <rect key="frame" x="0.0" y="340" width="270" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thoi diem" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="m1Z-Vr-Qkq">
+                                                    <rect key="frame" x="5" y="-60" width="260" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" id="rWU-0u-Cns">
+                                                    <rect key="frame" x="5" y="-60" width="260" height="1"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                                    <color key="backgroundColor" red="0.7456212043762207" green="0.7456212043762207" blue="0.7456212043762207" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </view>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="So du vi" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="17i-Jy-B5z">
+                                                    <rect key="frame" x="5" y="-30" width="260" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" id="MtO-xx-qT1">
+                                                    <rect key="frame" x="5" y="-30" width="260" height="1"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                                    <color key="backgroundColor" red="0.7456212043762207" green="0.7456212043762207" blue="0.7456212043762207" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </view>
+                                                <view contentMode="scaleToFill" id="UyH-0x-nat">
+                                                    <rect key="frame" x="2" y="0.0" width="260" height="1"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                                    <color key="backgroundColor" red="0.7456212043762207" green="0.7456212043762207" blue="0.7456212043762207" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </view>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="uUN-eX-SBr">
+                                                    <rect key="frame" x="5" y="0.0" width="257" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <state key="normal" title="Gửi mail về tranviettrung57@gmail.com">
+                                                        <color key="titleColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="suKienBamNutGuiMailVeThuDienTu:" destination="iN0-l3-epB" eventType="touchUpInside" id="hf3-Vk-397"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </view>
+                                        <webView contentMode="scaleToFill" id="MH7-TH-lvc">
+                                            <rect key="frame" x="0.0" y="120" width="270" height="220"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <dataDetectorType key="dataDetectorTypes"/>
+                                        </webView>
+                                        <view contentMode="scaleToFill" id="TJY-b5-8xK" userLabel="ViewTieuDe">
+                                            <rect key="frame" x="-5" y="85" width="280" height="35"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CHI TIẾT GIAO DỊCH" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="daP-77-L3S">
+                                                    <rect key="frame" x="0.0" y="0.0" width="280" height="35"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" id="2n6-nK-299">
+                                                    <rect key="frame" x="0.0" y="34" width="280" height="1"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="0.045056134462356567" green="0.3764621913433075" blue="0.71320122480392456" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </view>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="KZn-LE-ihx">
+                                                    <rect key="frame" x="251" y="4" width="27" height="27"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="cancel_50.png">
+                                                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="suKienBamNutClose:" destination="iN0-l3-epB" eventType="touchUpInside" id="AyW-qf-bZN"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </view>
+                                    </subviews>
+                                </view>
+                                <view contentMode="scaleToFill" id="B9j-9X-2DB">
+                                    <rect key="frame" x="0.0" y="284" width="280" height="38"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" id="nXd-4G-qVy">
+                                            <rect key="frame" x="8" y="5" width="260" height="1"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.75" green="0.75" blue="0.75" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </view>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="tOV-e0-9dX">
+                                            <rect key="frame" x="74" y="8" width="132" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <state key="normal" title="Gửi khiếu nại">
+                                                <color key="titleColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="suKienBamGuiKhieuNai:" destination="iN0-l3-epB" eventType="touchUpInside" id="Sg3-ku-7RY"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </view>
+                                <view contentMode="scaleToFill" id="KzR-68-53o">
+                                    <rect key="frame" x="0.0" y="0.0" width="280" height="338"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" id="up5-8S-0Nu">
+                                            <rect key="frame" x="122" y="150" width="37" height="37"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </activityIndicatorView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Đang gửi khiếu nại" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Cgi-AS-61s">
+                                            <rect key="frame" x="56" y="195" width="169" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.68635471204188481" green="0.68635471204188481" blue="0.68635471204188481" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </view>
+                    </subviews>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" red="0.3333333432674408" green="0.3333333432674408" blue="0.3333333432674408" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="ViewDen" destination="QHj-Ie-qOA" id="Vtl-hc-bEr"/>
+                <outlet property="lbAmount" destination="Yu7-9J-ck1" id="YCx-KO-JBr"/>
+                <outlet property="lbFromAcc" destination="N9i-iN-bew" id="ZRv-2p-TwY"/>
+                <outlet property="lbTime" destination="m1Z-Vr-Qkq" id="QXs-KM-kkv"/>
+                <outlet property="lbToAcc" destination="yVT-mW-pDx" id="aYh-Dw-Si8"/>
+                <outlet property="mViewGuiKhieuNai" destination="B9j-9X-2DB" id="d3w-UM-tzC"/>
+                <outlet property="mViewSoPhi" destination="31B-NI-PKq" id="AcN-AH-ZqW"/>
+                <outlet property="mViewSoTien" destination="i8h-3q-NEC" id="U0m-gY-WX2"/>
+                <outlet property="mViewSoTien_" destination="w0x-Mz-b77" id="bCJ-CG-O94"/>
+                <outlet property="mViewTenNHVietTat" destination="3lo-Vc-lqf" id="01P-2A-J5I"/>
+                <outlet property="mViewTenNguoiThuHuong" destination="l0F-9M-eB6" id="k0k-9g-tbQ"/>
+                <outlet property="mViewThoiDiemVaSoDuVi" destination="o2T-Bc-5l0" id="cSY-HL-qvs"/>
+                <outlet property="mViewThoiGian" destination="J03-w3-kon" id="MV0-Ir-DOY"/>
+                <outlet property="mViewTieuDe" destination="TJY-b5-8xK" id="cnn-9x-eBQ"/>
+                <outlet property="mbtnGuiMailVeThuDienTu" destination="uUN-eX-SBr" id="Il4-Wu-oLA"/>
+                <outlet property="mlblSoDu" destination="17i-Jy-B5z" id="yOI-Bt-jPw"/>
+                <outlet property="mlblSoPhi" destination="xxm-eL-AUt" id="h7f-qm-eje"/>
+                <outlet property="mtfTenNguoiThuHuong" destination="rJN-Dc-8B6" id="6Aj-cw-Azk"/>
+                <outlet property="mtfTenVietTatNganHang" destination="icw-E6-VnF" id="SEo-rl-2kH"/>
+                <outlet property="scrMain" destination="Vn8-Sh-Qe6" id="nKp-ld-6YL"/>
+                <outlet property="viewLoading" destination="KzR-68-53o" id="QXq-WA-hcb"/>
+                <outlet property="viewMain" destination="TDm-yY-SDi" id="V8N-yR-HEh"/>
+                <outlet property="webNoiDung" destination="MH7-TH-lvc" id="Iir-aT-0Lh"/>
+            </connections>
+            <point key="canvasLocation" x="319" y="256"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="cancel_50.png" width="50" height="50"/>
+    </resources>
+</document>

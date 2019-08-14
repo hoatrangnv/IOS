@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GiaoDienThanhToanQRVNPay">
+            <connections>
+                <outlet property="tableView" destination="iwI-Kw-e9S" id="rQk-Pg-zEV"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="onDrag" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iwI-Kw-e9S">
+                    <rect key="frame" x="0.0" y="40" width="375" height="627"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="f92-Pl-3jb"/>
+                        <outlet property="delegate" destination="-1" id="Jrd-dl-mSX"/>
+                    </connections>
+                </tableView>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="XkP-rX-4uF">
+                    <rect key="frame" x="3" y="0.0" width="369" height="40"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EIt-GQ-eId">
+                            <rect key="frame" x="0.0" y="0.0" width="52" height="40"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="3" maxX="0.0" maxY="3"/>
+                            <state key="normal" image="ic_lan_vietnam"/>
+                            <connections>
+                                <action selector="suKienChonLangViet:" destination="-1" eventType="touchUpInside" id="S8j-JP-PbY"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mah-at-JUM">
+                            <rect key="frame" x="53" y="0.0" width="51.5" height="40"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="3" maxX="0.0" maxY="3"/>
+                            <state key="normal" image="ic_lan_uk"/>
+                            <connections>
+                                <action selector="suKienChonLangEng:" destination="-1" eventType="touchUpInside" id="eBe-Mb-5Q2"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WvB-ne-IT1">
+                            <rect key="frame" x="105.5" y="0.0" width="52" height="40"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="3" maxX="0.0" maxY="3"/>
+                            <state key="normal" image="ic_lan_china"/>
+                            <connections>
+                                <action selector="suKienChonLangChina:" destination="-1" eventType="touchUpInside" id="N8i-w1-XJq"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Uc-hd-Y7L">
+                            <rect key="frame" x="158.5" y="0.0" width="52" height="40"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="3" maxX="0.0" maxY="3"/>
+                            <state key="normal" image="ic_lan_russia"/>
+                            <connections>
+                                <action selector="suKienChonLangRussia:" destination="-1" eventType="touchUpInside" id="Ncx-fp-NQr"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J3o-Pf-4zH">
+                            <rect key="frame" x="211.5" y="0.0" width="52" height="40"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="3" maxX="0.0" maxY="3"/>
+                            <state key="normal" image="ic_lan_korea"/>
+                            <connections>
+                                <action selector="suKienChonLangKorea:" destination="-1" eventType="touchUpInside" id="Fym-J9-8eO"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HHZ-ve-GLF">
+                            <rect key="frame" x="264.5" y="0.0" width="51.5" height="40"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="3" maxX="0.0" maxY="3"/>
+                            <state key="normal" image="ic_lan_japan"/>
+                            <connections>
+                                <action selector="suKienChonLangJapan:" destination="-1" eventType="touchUpInside" id="JeU-WH-crx"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2f4-4I-Nkg">
+                            <rect key="frame" x="317" y="0.0" width="52" height="40"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="3" maxX="0.0" maxY="3"/>
+                            <state key="normal" image="ic_lan_germany"/>
+                            <connections>
+                                <action selector="suKienChonLangGerman:" destination="-1" eventType="touchUpInside" id="HDN-cs-l16"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="Tau-wV-xYu"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="iwI-Kw-e9S" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="FLE-ve-Skm"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="XkP-rX-4uF" secondAttribute="trailing" constant="3" id="K9E-Um-Fj1"/>
+                <constraint firstItem="iwI-Kw-e9S" firstAttribute="top" secondItem="XkP-rX-4uF" secondAttribute="bottom" id="RMd-nn-1du"/>
+                <constraint firstItem="XkP-rX-4uF" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="3" id="htk-jp-jhA"/>
+                <constraint firstItem="iwI-Kw-e9S" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="jUg-Wn-DVg"/>
+                <constraint firstItem="XkP-rX-4uF" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="lKg-aa-10W"/>
+                <constraint firstItem="iwI-Kw-e9S" firstAttribute="bottom" secondItem="Q5M-cg-NOt" secondAttribute="bottom" id="pVI-cT-7ha"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <point key="canvasLocation" x="132" y="115.59220389805098"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ic_lan_china" width="64" height="44"/>
+        <image name="ic_lan_germany" width="64" height="44"/>
+        <image name="ic_lan_japan" width="64" height="42"/>
+        <image name="ic_lan_korea" width="64" height="42"/>
+        <image name="ic_lan_russia" width="64" height="42"/>
+        <image name="ic_lan_uk" width="64" height="42"/>
+        <image name="ic_lan_vietnam" width="64" height="42"/>
+    </resources>
+</document>

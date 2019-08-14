@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13A603" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Banks" representedClassName="Banks" isAbstract="YES" syncable="YES">
+        <attribute name="bank_code" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="bank_id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="bank_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="bank_name_en" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="bank_order" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="bank_sms" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Branches" representedClassName="Branches" isAbstract="YES" syncable="YES">
+        <attribute name="bank_id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="branch_code" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="branch_id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="branch_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="branch_name_en" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="branch_sms" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="city_id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="Cities" representedClassName="Cities" isAbstract="YES" syncable="YES">
+        <attribute name="city_code" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="city_id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="city_lat" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="city_lng" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="city_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="city_name_en" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="city_sms" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="city_tag" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="hasSubs" optional="YES" attributeType="Boolean" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="parent_id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Banks" positionX="16" positionY="-315" width="128" height="135"/>
+        <element name="Branches" positionX="169" positionY="-207" width="128" height="150"/>
+        <element name="Cities" positionX="367" positionY="-117" width="128" height="195"/>
+    </elements>
+</model>

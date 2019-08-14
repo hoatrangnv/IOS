@@ -1,0 +1,11 @@
+{
+  "loaiThe": [
+{"ID":401,"PARENT_ID":4,"NAME_VI":"Lingo"},
+{"ID":402,"PARENT_ID":4,"NAME_VI":"ManU-Debit"},
+{"ID":403,"PARENT_ID":4,"NAME_VI":"ETrans"},
+{"ID":404,"PARENT_ID":4,"NAME_VI":"Flexit-Debit"},
+{"ID":405,"PARENT_ID":4,"NAME_VI":"Harmony-Debit"},
+{"ID":406,"PARENT_ID":4,"NAME_VI":"Power-Debit"},
+{"ID":407,"PARENT_ID":4,"NAME_VI":"VanDam-Debit"}
+  ]
+}

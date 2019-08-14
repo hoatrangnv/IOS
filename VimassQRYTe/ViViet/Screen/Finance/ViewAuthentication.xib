@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ViewAuthentication">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="130"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ohg-Hy-dLv" userLabel="ViewThoiGianConLai">
+                    <rect key="frame" x="8" y="8" width="398" height="71"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Xác thực" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fwk-Mt-ee8">
+                            <rect key="frame" x="8" y="5" width="65" height="18"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="18" id="5nj-Ih-bxx"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <stackView autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="d4n-kF-e3o">
+                            <rect key="frame" x="108" y="23" width="182" height="52"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qsu-xZ-8BX">
+                                    <rect key="frame" x="0.0" y="0.0" width="54" height="52"/>
+                                    <state key="normal" title="PKI" image="pki"/>
+                                    <connections>
+                                        <action selector="suKienChonSDSecure:" destination="iN0-l3-epB" eventType="touchUpInside" id="kJm-eQ-D8L"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x1L-74-VB8">
+                                    <rect key="frame" x="64" y="0.0" width="54" height="52"/>
+                                    <state key="normal" title="Token" image="tokenv"/>
+                                    <connections>
+                                        <action selector="suKienChonToken:" destination="iN0-l3-epB" eventType="touchUpInside" id="If2-TX-y3Q"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JY0-3k-WBm">
+                                    <rect key="frame" x="128" y="0.0" width="54" height="52"/>
+                                    <state key="normal" image="vantay"/>
+                                    <connections>
+                                        <action selector="suKienChonFinger:" destination="iN0-l3-epB" eventType="touchUpInside" id="RGd-6k-uB7"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="52" id="3Hx-0b-eQ4"/>
+                                <constraint firstAttribute="width" secondItem="d4n-kF-e3o" secondAttribute="height" multiplier="3.5" id="QSH-5l-m9T"/>
+                            </constraints>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="d4n-kF-e3o" firstAttribute="top" secondItem="fwk-Mt-ee8" secondAttribute="bottom" id="3X0-YZ-ubM"/>
+                        <constraint firstItem="d4n-kF-e3o" firstAttribute="centerX" secondItem="ohg-Hy-dLv" secondAttribute="centerX" id="7zo-Jo-LM0"/>
+                        <constraint firstItem="fwk-Mt-ee8" firstAttribute="leading" secondItem="ohg-Hy-dLv" secondAttribute="leading" constant="8" id="LVO-vM-FVJ"/>
+                        <constraint firstItem="fwk-Mt-ee8" firstAttribute="top" secondItem="ohg-Hy-dLv" secondAttribute="top" constant="5" id="mSc-cU-ajP"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ku9-WX-oXS" userLabel="ViewNhapToKen">
+                    <rect key="frame" x="8" y="95" width="398" height="35"/>
+                    <subviews>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="70Q-2I-Ehp" customClass="ExTextField">
+                            <rect key="frame" x="5" y="0.0" width="219" height="35"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
+                        </textField>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rRX-Ch-LYJ">
+                            <rect key="frame" x="229" y="0.0" width="164" height="35"/>
+                            <color key="backgroundColor" red="0.0039215686269999999" green="0.31372549020000001" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                            <state key="normal" title="@thuc_hien">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="suKienChonThucHien:" destination="iN0-l3-epB" eventType="touchUpInside" id="Bpj-1d-6Sa"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="rRX-Ch-LYJ" secondAttribute="bottom" id="3pE-cu-5Vg"/>
+                        <constraint firstItem="rRX-Ch-LYJ" firstAttribute="leading" secondItem="70Q-2I-Ehp" secondAttribute="trailing" constant="5" id="5Aj-SA-IFb"/>
+                        <constraint firstAttribute="trailing" secondItem="rRX-Ch-LYJ" secondAttribute="trailing" constant="5" id="MTb-kt-cqD"/>
+                        <constraint firstAttribute="height" constant="35" id="amw-DN-2wS"/>
+                        <constraint firstItem="70Q-2I-Ehp" firstAttribute="leading" secondItem="Ku9-WX-oXS" secondAttribute="leading" constant="5" id="iuC-sV-p0w"/>
+                        <constraint firstItem="70Q-2I-Ehp" firstAttribute="width" secondItem="Ku9-WX-oXS" secondAttribute="width" multiplier="0.55" id="k6r-2J-fzA"/>
+                        <constraint firstAttribute="bottom" secondItem="70Q-2I-Ehp" secondAttribute="bottom" id="lAa-Sf-QWC"/>
+                        <constraint firstItem="70Q-2I-Ehp" firstAttribute="top" secondItem="Ku9-WX-oXS" secondAttribute="top" id="nqp-x2-8MQ"/>
+                        <constraint firstItem="rRX-Ch-LYJ" firstAttribute="top" secondItem="Ku9-WX-oXS" secondAttribute="top" id="ofV-7a-4Bk"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="Ku9-WX-oXS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="771-3F-k8d"/>
+                <constraint firstAttribute="bottom" secondItem="Ku9-WX-oXS" secondAttribute="bottom" id="JXl-4Z-9Ox"/>
+                <constraint firstItem="ohg-Hy-dLv" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="VO7-Tj-NTF"/>
+                <constraint firstItem="ohg-Hy-dLv" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="XJr-kJ-nre"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ohg-Hy-dLv" secondAttribute="trailing" constant="8" id="cFx-9V-Zab"/>
+                <constraint firstAttribute="trailing" secondItem="Ku9-WX-oXS" secondAttribute="trailing" constant="8" id="fuL-R7-fSN"/>
+                <constraint firstItem="Ku9-WX-oXS" firstAttribute="top" secondItem="ohg-Hy-dLv" secondAttribute="bottom" constant="16" id="iwB-tV-AEb"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="btnFinger" destination="JY0-3k-WBm" id="RZ0-Hz-J6D"/>
+                <outlet property="btnSDSecure" destination="Qsu-xZ-8BX" id="KMt-bq-KpA"/>
+                <outlet property="btnThucHien" destination="rRX-Ch-LYJ" id="gMY-0O-51D"/>
+                <outlet property="btnToken" destination="x1L-74-VB8" id="1kO-1D-nUE"/>
+                <outlet property="lblXacThuc" destination="fwk-Mt-ee8" id="HWN-80-BEZ"/>
+                <outlet property="tfToken" destination="70Q-2I-Ehp" id="is5-X2-BNV"/>
+                <outlet property="viewNhapToken" destination="Ku9-WX-oXS" id="imK-76-ut1"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="-103.79464285714285"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="pki" width="225" height="225"/>
+        <image name="tokenv" width="120" height="120"/>
+        <image name="vantay" width="225" height="225"/>
+    </resources>
+</document>

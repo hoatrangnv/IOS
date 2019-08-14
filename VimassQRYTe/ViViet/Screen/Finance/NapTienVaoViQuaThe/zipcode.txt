@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<table><tbody><tr valign="top"><td><b>STT</b></td>
+<td><b>Tên Tỉnh / Thành phố</b></td>
+<td><b>Mã Bưu Chính ZIP/CODE</b></td>
+</tr>
+<tr valign="top"><td>1</td>
+<td>An Giang</td>
+<td align="right">880000</td>
+</tr>
+<tr valign="top"><td>2</td>
+<td>Bà Rịa Vũng Tàu</td>
+<td align="right">790000</td>
+</tr>
+<tr valign="top"><td>3</td>
+<td>Bạc Liêu</td>
+<td align="right">260000</td>
+</tr>
+<tr valign="top"><td>4</td>
+<td>Bắc Kạn</td>
+<td align="right">960000</td>
+</tr>
+<tr valign="top"><td>5</td>
+<td>Bắc Giang</td>
+<td align="right">220000</td>
+</tr>
+<tr valign="top"><td>6</td>
+<td>Bắc Ninh</td>
+<td align="right">790000</td>
+</tr>
+<tr valign="top"><td>7</td>
+<td>Bến Tre</td>
+<td align="right">930000</td>
+</tr>
+<tr valign="top"><td>8</td>
+<td>Bình Dương</td>
+<td align="right">590000</td>
+</tr>
+<tr valign="top"><td>9</td>
+<td>Bình Định</td>
+<td align="right">820000</td>
+</tr>
+<tr valign="top"><td>10</td>
+<td>Bình Phước</td>
+<td align="right">830000</td>
+</tr>
+<tr valign="top"><td>11</td>
+<td>Bình Thuận</td>
+<td align="right">800000</td>
+</tr>
+<tr valign="top"><td>12</td>
+<td>Cà Mau</td>
+<td align="right">970000</td>
+</tr>
+<tr valign="top"><td>13</td>
+<td>Cao Bằng</td>
+<td align="right">900000</td>
+</tr>
+<tr valign="top"><td>14</td>
+<td>Cần Thơ  </td>
+<td align="right">270000 </td>
+</tr>
+<tr valign="top"><td>15</td>
+<td>TP. Đà Nẵng</td>
+<td align="right">550000</td>
+</tr>
+<tr valign="top"><td>16</td>
+<td>ĐắkLắk</td>
+<td align="right">630000 </td>
+</tr>
+<tr valign="top"><td>17</td>
+<td>Đắc Nông</td>
+<td align="right">640000</td>
+</tr>
+<tr valign="top">
+<td>18</td>
+<td>Đồng Nai</td>
+<td align="right">810000</td>
+</tr>
+<tr valign="top">
+<td>19</td>
+<td>Đồng Tháp</td>
+<td align="right">870000</td>
+</tr>
+<tr valign="top">
+<td>20</td>
+<td> Điện Biên</td>
+<td align="right">380000</td>
+</tr>
+
+<tr valign="top">
+<td>21</td>
+<td>Gia Lai</td>
+<td align="right">600000</td>
+</tr>
+<tr valign="top">
+<td>22</td>
+<td>Hà Giang</td>
+<td align="right">310000</td>
+</tr>
+<tr valign="top">
+<td>23</td>
+<td>Hà Nam</td>
+<td align="right">400000</td>
+</tr>
+<tr valign="top">
+<td>24</td>
+<td>TP. Hà Nội</td>
+<td align="right">100000</td>
+</tr>
+<tr valign="top"><td>25</td>
+<td>Hà Tĩnh</td>
+<td align="right">480000</td>
+</tr>
+<tr valign="top"><td>26</td>
+<td>Hải Dương</td>
+<td align="right">170000</td>
+</tr>
+<tr valign="top"><td>27</td>
+<td>TP. Hải Phòng</td>
+<td align="right">180000</td>
+</tr>
+<tr valign="top">
+<td>28</td>
+<td>Hậu Giang</td>
+<td align="right">910000</td>
+</tr>
+
+<tr valign="top">
+<td>29</td>
+<td>Hoà Bình</td>
+<td align="right">350000</td>
+</tr>
+<tr valign="top">
+<td>30</td>
+<td>Hưng Yên</td>
+<td align="right">160000</td>
+</tr>
+<tr valign="top">
+<td>31</td>
+<td>TP. Hồ Chí Minh</td>
+<td align="right">700000 hoặc 760000</td>
+</tr>
+<tr valign="top"></tr>
+<tr valign="top">
+<td>32</td>
+<td>Khánh Hoà</td>
+<td align="right">650000</td>
+</tr>
+<tr valign="top">
+<td>33</td>
+<td>Kiên Giang</td>
+<td align="right">920000</td>
+</tr>
+<tr valign="top">
+<td>34</td>
+<td>Kon Tum</td>
+<td align="right">580000</td>
+</tr>
+<tr valign="top">
+<td>35</td>
+<td>Lai Châu</td>
+<td align="right">390000</td>
+</tr>
+<tr valign="top">
+<td>36</td>
+<td>Lạng Sơn</td>
+<td align="right">240000</td>
+</tr>
+<tr valign="top">
+<td>37</td>
+<td>Lao Cai</td>
+<td align="right">330000</td>
+</tr>
+<tr valign="top">
+<td>38</td>
+<td>Lâm Đồng</td>
+<td align="right">670000</td>
+</tr>
+<tr valign="top">
+<td>39</td>
+<td>Long An</td>
+<td align="right">850000</td>
+</tr>
+<tr valign="top">
+<td>40</td>
+<td>Nam Định</td>
+<td align="right">420000</td>
+</tr>
+<tr valign="top">
+<td>41</td>
+<td>Nghệ An</td>
+<td align="right">460000   hoặc 470000</td>
+</tr>
+<tr valign="top"></tr>
+<tr valign="top">
+<td>42</td>
+<td>Ninh Bình</td>
+<td align="right">430000</td>
+</tr>
+<tr valign="top">
+<td>43</td>
+<td>Ninh Thuận</td>
+<td align="right">660000</td>
+</tr>
+<tr valign="top">
+<td>44</td>
+<td>Phú Thọ</td>
+<td align="right">290000</td>
+</tr>
+<tr valign="top">
+<td>45</td>
+<td>Phú Yên</td>
+<td align="right">620000</td>
+</tr>
+<tr valign="top">
+<td>46</td>
+<td>Quảng Bình</td>
+<td align="right">510000</td>
+</tr>
+<tr valign="top">
+<td>47</td>
+<td>Quảng Nam</td>
+<td align="right">560000</td>
+</tr>
+<tr valign="top"></tr>
+<tr valign="top">
+<td>48</td>
+<td>Quảng Ngãi</td>
+<td align="right">570000</td>
+</tr>
+<tr valign="top">
+<td>49</td>
+<td>Quảng Ninh</td>
+<td align="right">200000</td>
+</tr>
+<tr valign="top"></tr>
+<tr valign="top">
+<td>50</td>
+<td>Quảng Trị</td>
+<td align="right">520000</td>
+</tr>
+<tr valign="top">
+<td>51</td>
+<td>Sóc Trăng</td>
+<td align="right">950000</td>
+</tr>
+<tr valign="top">
+<td>52</td>
+<td>Sơn La</td>
+<td align="right">360000</td>
+</tr>
+<tr valign="top">
+<td>53</td>
+<td>Tây Ninh</td>
+<td align="right">840000</td>
+</tr>
+<tr valign="top">
+<td>54</td>
+<td>Thái Bình</td>
+<td align="right">410000</td>
+</tr>
+<tr valign="top">
+<td>55</td>
+<td>Thái Nguyên</td>
+<td align="right">250000</td>
+</tr>
+<tr valign="top">
+<td>56</td>
+<td>Thanh Hoá</td>
+<td align="right">440000  hoặc 450000</td>
+</tr>
+<tr valign="top"></tr>
+<tr valign="top">
+<td>57</td>
+<td>Thừa Thiên Huế</td>
+<td align="right">530000</td>
+</tr>
+<tr valign="top">
+<td>58</td>
+<td>Tiền Giang</td>
+<td align="right">860000</td>
+</tr>
+<tr valign="top">
+<td>59</td>
+<td>Trà Vinh</td>
+<td align="right">940000</td>
+</tr>
+<tr valign="top">
+<td>60</td>
+<td>Tuyên Quang</td>
+<td align="right">300000</td>
+</tr>
+<tr valign="top">
+<td>61</td>
+<td>Vĩnh Long</td>
+<td align="right">890000</td>
+</tr>
+<tr valign="top">
+<td>62</td>
+<td>Vĩnh Phúc</td>
+<td align="right">280000</td>
+</tr>
+<tr valign="top"></tr>
+<tr valign="top">
+<td>63</td>
+<td>Yên Bái</td>
+<td align="right">320000</td>
+</tr>
+</tbody></table>
+</body></html>

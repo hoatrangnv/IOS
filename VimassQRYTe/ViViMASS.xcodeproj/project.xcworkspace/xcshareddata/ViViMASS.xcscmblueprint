@@ -1,0 +1,32 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "84877efd-a030-d043-b841-da916a01153a",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "84877efd-a030-d043-b841-da916a01153a" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "84877efd-a030-d043-b841-da916a01153a" : 9223372036854775807,
+    "85add87d-7d26-0245-95aa-691fa1412a01" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "22764D28-505B-4788-BAD5-DE9B7A88F10D",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "84877efd-a030-d043-b841-da916a01153a" : "ViVimassBanChuan\/",
+    "85add87d-7d26-0245-95aa-691fa1412a01" : "iOS_Work"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "ViViMASS",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "ViViMass\/ViViMASS.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "http:\/\/192.168.100.253:8080\/svn\/tamnv",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "84877efd-a030-d043-b841-da916a01153a"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/10.254.1.150\/svn\/ducnt",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "85add87d-7d26-0245-95aa-691fa1412a01"
+    }
+  ]
+}

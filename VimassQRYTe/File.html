@@ -1,0 +1,32 @@
+<html>
+<body>
+    <div id="abc1">
+		<img src="a"/>
+        <img src="b"/>
+        <img src="c"/>
+	</div>
+	<div id="abc">
+        <div>
+            <a>
+                <img src="src1"/>
+            </a>
+            <img src="test src2"/>
+            <img src="test src3"/>
+        </div>
+        <iframe id ="iframe_id" class="irc_ifr" src="abc.html" frameborder="0" marginheight="0" marginwidth="0" scrolling="no" style="height: 433px; width: 1018px; ">
+        </iframe>
+        <button onclick='f()'>Click</button>
+	</div>
+<script type="text/javascript">
+    function f(){
+    //alert(document.getElementsByTagName('img')[0].src);
+    var iframe = document.getElementById('iframe_id');
+    var doc = iframe.contentDocument || iframe.contentWindow.document;
+    alert(doc);
+	var a = doc.getElementsByTagName("img")[0].src;
+    alert(a);
+    A;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TaoQRYTeViewController" customModule="ViVimass" customModuleProvider="target">
+            <connections>
+                <outlet property="heightTopMenu" destination="01r-sg-403" id="C7f-2t-ohC"/>
+                <outlet property="tableView" destination="bn7-Wp-XSt" id="5bG-h6-Era"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bn7-Wp-XSt">
+                    <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="noM-gC-WRA">
+                    <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="JHG-eZ-4cS">
+                            <rect key="frame" x="8" y="0.0" width="398" height="44"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2NX-2h-zNY">
+                                    <rect key="frame" x="0.0" y="0.0" width="196.5" height="44"/>
+                                    <inset key="titleEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <state key="normal" title="Danh sách QR Y tế" image="icon_search"/>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ct-3c-ghk">
+                                    <rect key="frame" x="201.5" y="0.0" width="196.5" height="44"/>
+                                    <inset key="titleEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <state key="normal" title="Xoá sản phẩm" image="deldv"/>
+                                    <connections>
+                                        <action selector="suKienChonXoaSanPham:" destination="-1" eventType="touchUpInside" id="KPB-hS-HZ4"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" red="0.22889690930000001" green="0.50975550520000001" blue="0.35066557599999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="01r-sg-403"/>
+                        <constraint firstAttribute="bottom" secondItem="JHG-eZ-4cS" secondAttribute="bottom" id="2fu-2M-Vu0"/>
+                        <constraint firstAttribute="trailing" secondItem="JHG-eZ-4cS" secondAttribute="trailing" constant="8" id="DZW-1W-WK4"/>
+                        <constraint firstItem="JHG-eZ-4cS" firstAttribute="leading" secondItem="noM-gC-WRA" secondAttribute="leading" constant="8" id="YLr-eS-cCQ"/>
+                        <constraint firstItem="JHG-eZ-4cS" firstAttribute="top" secondItem="noM-gC-WRA" secondAttribute="top" id="rwN-Z3-eqF"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="noM-gC-WRA" secondAttribute="trailing" id="A1a-9E-u2j"/>
+                <constraint firstItem="bn7-Wp-XSt" firstAttribute="top" secondItem="noM-gC-WRA" secondAttribute="bottom" id="Fwk-Mh-0If"/>
+                <constraint firstItem="noM-gC-WRA" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Ihl-bu-onS"/>
+                <constraint firstItem="bn7-Wp-XSt" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="OkM-PG-pj3"/>
+                <constraint firstItem="noM-gC-WRA" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="YiT-Zo-s1g"/>
+                <constraint firstItem="bn7-Wp-XSt" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="vlh-2A-ZhH"/>
+                <constraint firstAttribute="bottom" secondItem="bn7-Wp-XSt" secondAttribute="bottom" id="ysP-wr-8RU"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="-899" y="-142"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="deldv" width="22" height="22"/>
+        <image name="icon_search" width="22" height="22"/>
+    </resources>
+</document>

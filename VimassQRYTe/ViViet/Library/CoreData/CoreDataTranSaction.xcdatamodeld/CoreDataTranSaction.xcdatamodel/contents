@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1810" systemVersion="11G56" minimumToolsVersion="Xcode 4.1" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Contacts" representedClassName="Contacts" syncable="YES">
+        <attribute name="accountName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="accountNo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isFavourite" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isMobileApp" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isVivietAcc" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Transactionlog" representedClassName="Transactionlog" syncable="YES">
+        <attribute name="vv_action" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="vv_bussiness_name" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="vv_mess" optional="YES" attributeType="Binary" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Contacts" positionX="-324" positionY="135" width="128" height="120"/>
+        <element name="Transactionlog" positionX="160" positionY="192" width="128" height="90"/>
+    </elements>
+</model>

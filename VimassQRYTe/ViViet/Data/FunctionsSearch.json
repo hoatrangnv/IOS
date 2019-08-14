@@ -1,0 +1,42 @@
+[
+ {
+     "name": "Transfer money",
+     "tag": "ct, transfer, chuyen tien",
+     "viewcontroller": "TransferViewController"
+ },
+ {
+     "name": "Map search",
+     "tag": "map, place, places",
+     "viewcontroller": "ViVietPlacesViewController"
+ },
+ {
+     "name": "Inquiry",
+     "tag": "sao ke, saoke, sk, inquiry, history",
+     "viewcontroller": "AccountInfoViewController"
+ },
+ {
+     "name": "Transfer to bank",
+     "tag": "bank, transfer",
+     "viewcontroller": ""
+ },
+ {
+     "name": "Transfer to ID",
+     "tag": "bank, transfer",
+     "viewcontroller": ""
+ },
+ {
+     "name": "Scan QR",
+     "tag": "scan, qr, qrcode, code",
+     "viewcontroller": "QRCodeScannerViewController"
+ },
+ {
+     "name": "wMarket",
+     "tag": "wmarket,market",
+     "viewcontroller": "MarketController"
+ },
+ {
+     "name": "cached",
+     "tag": "test,cached",
+     "viewcontroller": "TestCached"
+ }
+ ]

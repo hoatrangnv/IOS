@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HienThiChiTietNotificationViewController">
+            <connections>
+                <outlet property="btnVanTayMini" destination="D5j-l7-Yzp" id="gIH-mI-pR4"/>
+                <outlet property="mViewLuaChon" destination="1Qg-EG-V8o" id="0fv-nb-VGQ"/>
+                <outlet property="mbtnDongY" destination="70w-cu-yL6" id="2c0-sG-PEi"/>
+                <outlet property="mbtnEmail" destination="67b-t4-EBs" id="5v2-aq-W5P"/>
+                <outlet property="mbtnSMS" destination="dl6-8E-jCi" id="qq4-vn-KXC"/>
+                <outlet property="mbtnThucHien" destination="TFH-Xl-0HL" id="1Br-cx-jUU"/>
+                <outlet property="mbtnToken" destination="q4j-Kw-6dg" id="hQL-pe-ulZ"/>
+                <outlet property="mbtnTuChoi" destination="g72-Dp-LN6" id="Gxz-zs-Gnh"/>
+                <outlet property="mtfMatKhauToken" destination="0xe-yK-ave" id="IJr-0Y-HyN"/>
+                <outlet property="mwvHienThi" destination="chg-hW-bCB" id="EiJ-eZ-pgu"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="viewXacThuc" destination="Ztr-l7-O8z" id="D6K-zZ-PnQ"/>
+                <outlet property="webThanhToan" destination="wR2-gh-GTK" id="v3E-BV-BSH"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" id="1Qg-EG-V8o">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="70w-cu-yL6">
+                            <rect key="frame" x="23" y="5" width="120" height="40"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Đồng ý" backgroundImage="bg-nuttrang.png">
+                                <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="suKienBamNutDongY:" destination="-1" eventType="touchUpInside" id="omD-EY-j0U"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="g72-Dp-LN6">
+                            <rect key="frame" x="178" y="5" width="120" height="40"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Từ chối" backgroundImage="bg-nuttrang.png">
+                                <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="suKienBamNutTuChoi:" destination="-1" eventType="touchUpInside" id="rOt-gz-uk9"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <webView contentMode="scaleToFill" id="chg-hW-bCB">
+                    <rect key="frame" x="0.0" y="50" width="320" height="518"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </webView>
+                <view hidden="YES" contentMode="scaleToFill" misplaced="YES" id="Ztr-l7-O8z">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" misplaced="YES" id="CYG-hM-A3E">
+                            <rect key="frame" x="-1" y="154" width="322" height="172"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" misplaced="YES" id="ZPA-lz-3ev" userLabel="ViewThoiGianConLai">
+                                    <rect key="frame" x="0.0" y="74" width="322" height="35"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Xác thực" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pcE-YX-qKf">
+                                            <rect key="frame" x="5" y="0.0" width="67" height="35"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="q4j-Kw-6dg">
+                                            <rect key="frame" x="77" y="3" width="58" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES"/>
+                                            <state key="normal" title="TOKEN" backgroundImage="bg-nuttrang.png"/>
+                                            <connections>
+                                                <action selector="suKienBamNutToken:" destination="-1" eventType="touchUpInside" id="x8U-7s-Qfn"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="dl6-8E-jCi">
+                                            <rect key="frame" x="139" y="3" width="57" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES"/>
+                                            <state key="normal" title="SMS" backgroundImage="bg-nuttrang.png"/>
+                                            <connections>
+                                                <action selector="suKienBamNutSMS:" destination="-1" eventType="touchUpInside" id="jqZ-j2-HlO"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="67b-t4-EBs">
+                                            <rect key="frame" x="198" y="3" width="60" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES"/>
+                                            <state key="normal" title="EMAIL" backgroundImage="bg-nuttrang.png"/>
+                                            <connections>
+                                                <action selector="suKienBamNutEmail:" destination="-1" eventType="touchUpInside" id="CQy-On-dDt"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="D5j-l7-Yzp">
+                                            <rect key="frame" x="260" y="3" width="60" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES"/>
+                                            <state key="normal" image="vantaymau-ngang.png" backgroundImage="bg-nuttrang.png"/>
+                                            <connections>
+                                                <action selector="suKienBamNutMatKhauVanTay:" destination="-1" eventType="touchUpInside" id="mcF-Ao-I3H"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <view contentMode="scaleToFill" misplaced="YES" id="xGV-pX-aTW" userLabel="ViewNhapToKen">
+                                    <rect key="frame" x="0.0" y="117" width="319" height="35"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                    <subviews>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="17" id="0xe-yK-ave" customClass="ExTextField">
+                                            <rect key="frame" x="10" y="0.0" width="159" height="35"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
+                                        </textField>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="TFH-Xl-0HL">
+                                            <rect key="frame" x="181" y="2" width="130" height="35"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.0039215686269999999" green="0.31372549020000001" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                            <state key="normal" title="@thuc_hien">
+                                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="suKienBamNutThucHien:" destination="-1" eventType="touchUpInside" id="HZT-ag-S9d"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <webView contentMode="scaleToFill" misplaced="YES" id="wR2-gh-GTK">
+                                    <rect key="frame" x="0.0" y="0.0" width="322" height="66"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </webView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="pC5-pw-J7N">
+                            <rect key="frame" x="282" y="0.0" width="30" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" backgroundImage="icon_close.png"/>
+                            <connections>
+                                <action selector="suKienChonCloseViewXacThuc:" destination="-1" eventType="touchUpInside" id="WS1-j6-phw"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.24836387434554974" green="0.24836387434554974" blue="0.24836387434554974" alpha="0.64973958333333337" colorSpace="calibratedRGB"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-834" y="224"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="bg-nuttrang.png" width="128" height="52"/>
+        <image name="icon_close.png" width="256" height="256"/>
+        <image name="vantaymau-ngang.png" width="107" height="59"/>
+    </resources>
+</document>

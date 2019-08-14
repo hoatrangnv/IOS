@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ViewXacThuc">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="a1d-qz-zNj">
+                    <rect key="frame" x="130" y="490" width="60" height="70"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <animations/>
+                    <state key="normal" image="icon_vantay_khongmau.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="suKienBamNutMatKhauVanTay:" destination="iN0-l3-epB" eventType="touchUpInside" id="SfR-yg-BJm"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" id="LFI-ZX-yzq" userLabel="ViewMain">
+                    <rect key="frame" x="10" y="121" width="300" height="148"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" id="96U-RS-orh" userLabel="ViewThoiGianConLai">
+                            <rect key="frame" x="0.0" y="50" width="300" height="35"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Xác thực bởi" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dfB-JE-LRI">
+                                    <rect key="frame" x="10" y="0.0" width="100" height="35"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
+                                    <animations/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="aE2-ed-az0">
+                                    <rect key="frame" x="115" y="3" width="55" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES"/>
+                                    <animations/>
+                                    <state key="normal" title="TOKEN" backgroundImage="bg-nuttrang.png"/>
+                                    <connections>
+                                        <action selector="suKienBamNutToken:" destination="iN0-l3-epB" eventType="touchUpInside" id="tGb-vg-sdW"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="cxK-Uo-HOL">
+                                    <rect key="frame" x="175" y="3" width="55" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES"/>
+                                    <animations/>
+                                    <state key="normal" title="SMS" backgroundImage="bg-nuttrang.png"/>
+                                    <connections>
+                                        <action selector="suKienBamNutSMS:" destination="iN0-l3-epB" eventType="touchUpInside" id="1bI-Uh-wVQ"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bts-ov-kTR">
+                                    <rect key="frame" x="235" y="3" width="55" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES"/>
+                                    <animations/>
+                                    <state key="normal" title="EMAIL" backgroundImage="bg-nuttrang.png"/>
+                                    <connections>
+                                        <action selector="suKienBamNutEmail:" destination="iN0-l3-epB" eventType="touchUpInside" id="cjt-rN-yl3"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <animations/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
+                        <view contentMode="scaleToFill" id="yT3-dw-rne" userLabel="ViewNhapToKen">
+                            <rect key="frame" x="0.0" y="93" width="300" height="35"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="@mat_khau_token" minimumFontSize="17" id="jqB-B5-vyP" customClass="ExTextField">
+                                    <rect key="frame" x="10" y="0.0" width="150" height="35"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES"/>
+                                    <animations/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                    <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
+                                </textField>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="8Ws-9G-kwK">
+                                    <rect key="frame" x="170" y="2" width="122" height="35"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES"/>
+                                    <animations/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                    <state key="normal" title="@thuc_hien" backgroundImage="bg_button.png">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="suKienBamNutThucHien:" destination="iN0-l3-epB" eventType="touchUpInside" id="bpo-fW-7R7"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <animations/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
+                        <view contentMode="scaleToFill" id="YmM-Qt-a8w">
+                            <rect key="frame" x="0.0" y="41" width="300" height="2"/>
+                            <autoresizingMask key="autoresizingMask" heightSizable="YES" flexibleMaxY="YES"/>
+                            <animations/>
+                            <color key="backgroundColor" red="0.0039215686269999999" green="0.31372549020000001" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Xác thực" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LH0-C1-qfc">
+                            <rect key="frame" x="8" y="5" width="284" height="37"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <animations/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <animations/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+            </subviews>
+            <animations/>
+            <color key="backgroundColor" white="0.0" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="lblTitle" destination="LH0-C1-qfc" id="iCx-is-gFx"/>
+                <outlet property="mViewMain" destination="LFI-ZX-yzq" id="VEn-Jc-jRz"/>
+                <outlet property="mbtnEmail" destination="bts-ov-kTR" id="oNs-jO-OqM"/>
+                <outlet property="mbtnSMS" destination="cxK-Uo-HOL" id="V5c-yk-cOD"/>
+                <outlet property="mbtnThucHien" destination="8Ws-9G-kwK" id="6pd-Ck-Sdv"/>
+                <outlet property="mbtnToken" destination="aE2-ed-az0" id="rxo-ja-hMM"/>
+                <outlet property="mbtnVanTay" destination="a1d-qz-zNj" id="mZo-0Q-Kom"/>
+                <outlet property="mtfMaXacThuc" destination="jqB-B5-vyP" id="4mY-ww-gEz"/>
+            </connections>
+            <point key="canvasLocation" x="659" y="405"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="bg-nuttrang.png" width="128" height="52"/>
+        <image name="bg_button.png" width="215" height="56"/>
+        <image name="icon_vantay_khongmau.png" width="90" height="120"/>
+    </resources>
+</document>

@@ -1,0 +1,14 @@
+[
+{
+"sTenLoai" : "Chat",
+"nKieu" : 3
+},
+{
+"sTenLoai" : "TaiChinh",
+"nKieu" : 1
+},
+{
+"sTenLoai" : "QuangBa",
+"nKieu" : 2
+}
+]

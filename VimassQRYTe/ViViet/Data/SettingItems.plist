@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>title</key>
+		<string>Quản lý dịch vụ</string>
+		<key>appear</key>
+		<integer>1</integer>
+		<key>childs</key>
+		<array>
+			<dict>
+				<key>title</key>
+				<string>Địa điểm</string>
+				<key>selector</key>
+				<string>did_select_dia_diem:</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Định vị</string>
+				<key>selector</key>
+				<string>did_select_dinh_vi:</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Bất động sản</string>
+				<key>selector</key>
+				<string>did_select_bat_dong_san:</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Việc làm</string>
+				<key>selector</key>
+				<string>did_select_viec_lam:</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Rao vặt</string>
+				<key>selector</key>
+				<string>did_select_rao_vat:</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Tìm việc</string>
+				<key>selector</key>
+				<string>did_select_tim_viec:</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Danh mục chính</string>
+		<key>selector</key>
+		<string>did_select_danh_muc_chinh:</string>
+		<key>appear</key>
+		<integer>2</integer>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Cài đặt</string>
+		<key>appear</key>
+		<integer>2</integer>
+		<key>childs</key>
+		<array>
+			<dict>
+				<key>title</key>
+				<string>Empty</string>
+			</dict>
+		</array>
+	</dict>
+</array>
+</plist>

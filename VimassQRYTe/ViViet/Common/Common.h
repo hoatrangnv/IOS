@@ -1,0 +1,727 @@
+//
+//  Common.h
+//  ViMASSApp
+//
+//  Created by QUANGHIEP on 7/2/12.
+//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//
+
+#import <CommonCrypto/CommonDigest.h>
+#import <Foundation/Foundation.h>
+#import <MessageUI/MessageUI.h>
+#import <MapKit/MapKit.h>
+
+#define DATE_FORMAT_DEFAULT @"dd/MM/yyyy"
+//#define XAU_HTML_COT_DOI_TUONG_GIAO_DICH @"<tr><td width=\"30%%\" align=\"left\">%@</td><td width=\"58%%\"><strong style=\"color:#126596; padding-left:3px;\">%@</strong></td></tr>"
+#define XAU_HTML_COT_DOI_TUONG_GIAO_DICH @"<p>%@<strong style=\"color:#126596; padding-left:3px;\">%@</strong></p>"
+#define XAU_HTML_TITLE @"<p style=\"text-align:center; font-size:18px\"><strong style=\"color:#126596; padding-left:3px;\">%@</strong></p>"
+#pragma mark - Common macro
+
+#define UIScreenSize [UIScreen mainScreen].bounds.size
+#define UIScreenWidth [UIScreen mainScreen].bounds.size.width
+#define UIScreenHeight [UIScreen mainScreen].bounds.size.height
+#define PATTERN_PHONE @"^[0-9]{10,11}$"
+#define PATTERN_MAIL @"^(\\s)*[0-9a-zA-Z._]+@[a-zA-Z0-9]+(\\.[a-zA-Z]{2,4}){1,2}(\\s)*$"
+#define PATTERN_DN @"^(dn|DN)_[0-9]{10,13}$"
+//DN_ | dn_ 
+
+#define THOI_GIAN_MILISECOND_MOT_NGAY 86400000
+
+#define KIEU_CA_NHAN 110
+#define KIEU_DOANH_NGHIEP 111
+#define KIEU_THE_DA_NANG 112
+
+#define  TYPE_AUTHENTICATE_PKI 3
+#define  TYPE_AUTHENTICATE_TOKEN 0
+#define  TYPE_AUTHENTICATE_SMS 1
+#define  TYPE_AUTHENTICATE_EMAIL 2
+
+#define  TYPE_kieuXacThuc_khac 2
+#define  TYPE_kieuXacThuc_token 0
+
+
+#define FUNC_ID_CHUYEN_TIEN 1
+#define FUNC_ID_THAY_DOI_THONG_TIN_TAI_KHOAN 3
+#define FUNC_XOA_TAI_KHOAN_THUONG_DUNG 400
+#define FUNC_THEM_CAP_NHAT_TAI_KHOAN_THUONG_DUNG 401
+#define FUNC_TRANSACTION_TO_BANK 403
+#define FUNC_EDIT_HAN_MUC_GIAO_DICH 402
+#define FUNC_TRANSACTION_VIA_CARD_NUMBER 406
+#define FUNC_ID_TAO_QUA_TANG 409
+#define FUNC_MUON_TIEN 410
+#define FUNC_CREATE_PROMOTION 412
+#define FUNC_BILLING_CELLPHONE 414
+#define FUNC_DAT_LICH_NAP_TIEN_DIEN_THOAI  433
+#define FUNC_BUY_CARD 415
+#define FUNC_THANH_TOAN_DIEN_LUC 416
+#define FUNC_BUY_CARD_GAME 417
+#define FUNC_CHUYEN_TIEN_DEN_VI_MOMO 418
+#define FUNC_GUI_TIEN_TIET_KIEM 420
+#define FUNC_RUT_TIEN_TIET_KIEM 421
+#define FUNC_THANH_TOAN_TIEN_VAY  440
+#define FUNC_CHUYEN_TIEN_AN_DANH  467
+#define FUNC_XOA_SO_TAY_CHUYEN_TIEN_AN_DANH  470
+#define FUNC_SUA_SO_TAY_CHUYEN_TIEN_AN_DANH  471
+
+#define FUNC_DUYET_GIAO_DICH_DOANH_NGHIEP 422
+#define FUNC_DOANH_NGHIEP_LAP_LENH_THEO_LO 430
+#define FUNC_BANKPLUS_CHUYEN_TIEN_MAT 431
+#define FUNC_THANH_TOAN_INTERNET 434
+#define FUNC_DAT_VE_MAY_BAY 438
+#define FUNC_THANH_TOAN_DT_CO_DINH 439
+#define FUNC_THANH_TOAN_TRUYEN_HINH_CAP 436
+#define FUNC_THANH_TOAN_TRUYEN_HINH_K_PLUS 461
+
+#define TYPE_SHOW_TRA_CUU_HOA_DON_INTERNET 18
+#define TYPE_SHOW_TRA_CUU_HOA_DON_DIEN 13
+#define TYPE_SHOW_HIEN_THI_THONG_BAO_DOANH_NGHIEP 16
+#define TYPE_SHOW_TRA_CUU_TRA_TIEN_VAY 23
+
+#define KIEU_CHUYEN_TIEN_DEN_VI 10
+#define KIEU_CHUYEN_TIEN_DEN_THE 11
+#define KIEU_CHUYEN_TIEN_DEN_TAI_KHOAN_NGAN_HANG 12
+#define KIEU_CHUYEN_TIEN_NAP_THE_DIEN_THOAI 13
+#define KIEU_NAP_VI_TU_THE_NGAN_HANG 14
+#define KIEU_CHUYEN_TIEN_DEN_VI_MOMO 15
+#define KIEU_CHUYEN_TIEN_DEN_TAN_NHA 16
+#define FUNC_DAT_VE_XEM_PHIM 432
+
+#define GET_ALL_INQUIRY 0 //lay tat ca qua tang va tang qua
+#define GET_ALL_INCOMMING_INQUIRY 1 //Lay Qua tang
+#define GET_ALL_OUTCOMMING_INQUIRY 2 //Lay tang qua
+
+//#define TAI_KHOAN_TONG_HOP 0
+//#define TAI_KHOAN_VI 1
+//#define TAI_KHOAN_NGAN_HANG 2
+//#define TAI_KHOAN_THE 3
+//#define TAI_KHOAN_NGAN_HANG_RUT_TIEN 4
+//#define TAI_KHOAN_THE_RUT_TIEN 5
+
+typedef enum : NSUInteger {
+    TAI_KHOAN_TONG_HOP = 0,
+    TAI_KHOAN_VI = 1,
+    TAI_KHOAN_NGAN_HANG = 2,
+    TAI_KHOAN_THE = 3,
+    TAI_KHOAN_NGAN_HANG_RUT_TIEN = 4,
+    TAI_KHOAN_THE_RUT_TIEN = 5,
+    TAI_KHOAN_MOMO = 6,
+    TAI_KHOAN_TAN_NHA = 7,
+    TAI_KHOAN_THE_DIRECT = 8,
+    TAI_KHOAN_VISA = 9,
+    TAI_KHOAN_JCB = 10,
+    TAI_KHOAN_MASTER_CARD = 11,
+    TAI_KHOAN_DIEN_THOAI = 12,
+    TAI_KHOAN_NAP_TIEN_GAME = 14,
+    TAI_KHOAN_NAP_TIEN_TU_THIEN = 15,
+    TAI_KHOAN_NAP_TIEN_DIEN = 16,
+    TAI_KHOAN_NAP_TIEN_TRUYEN_HINH = 17,
+    TAI_KHOAN_NAP_TIEN_INTERNET = 18,
+    TAI_KHOAN_VI_KHAC = 19,
+    TAI_KHOAN_CHUNG_KHOAN = 21,
+    TAI_KHOAN_HOC_PHI = 22,
+    TAI_KHOAN_GUI_TIET_KIEM = 23,
+    TAI_KHOAN_TIEN_VAY = 24,
+    TAI_KHOAN_QUA_TANG = 25,
+    TAI_KHOAN_CHUYEN_TIEN_ATM = 26,
+    TAI_KHOAN_CHUYEN_TIEN_CMND = 27,
+    TAI_KHOAN_MUON_TIEN = 28,
+    TAI_KHOAN_HOA_DON_NUOC = 29,
+    TAI_KHOAN_HOA_DON_MAY_BAY = 30,
+
+} TAI_KHOAN_THUONG_DUNG;
+
+#define TRANSACTION_LIMIT_TO_WALLET 0
+#define TRANSACTION_LIMIT_TO_ACCOUNT 1
+#define TRANSACTION_LIMIT_TO_CARD 2
+#define TRANSACTION_LIMIT_TO_VI_KHAC 3
+
+#define HOP_THOAI_XAC_NHAN_XAC_THUC_SMS 100
+#define HOP_THOAI_XAC_NHAN_XAC_THUC_EMAIL 101
+#define HOP_THOAI_XAC_NHAN_CHUYEN_TIEN_THANH_CONG 102
+#define HOP_THOAI_XAC_NHAN_KHONG_THANH_CONG 103
+#define HOP_THOAI_XAC_NHAN_VIEC_XOA 104
+#define HOP_THOAI_XAC_NHAN_CHUYEN_TIEN_DEN_TAI_KHOAN_CHUA_DANG_KI_VI 105
+#define HOP_THOAI_XAC_NHAN_CHUYEN_SAO_KE_DEN_THU_DIEN_TU 106
+
+#define THOI_GIAN_CHO_XAC_THUC_SMS 120
+#define THOI_GIAN_CHO_XAC_THUC_EMAIL 300
+
+
+#define DINH_DANH_KET_NOI_LAY_MA_XAC_THUC @"DINH_DANH_KET_NOI_LAY_MA_XAC_THUC"
+#define DINH_DANH_KET_NOI_LAY_MA_XAC_THUC_TAO_SAN_PHAM @"DINH_DANH_KET_NOI_LAY_MA_XAC_THUC_TAO_SAN_PHAM"
+#define DINH_DANH_KET_NOI_LAY_MA_XAC_THUC_TAO_DON_VI @"DINH_DANH_KET_NOI_LAY_MA_XAC_THUC_TAO_DON_VI"
+//Thuong dung
+#define DINH_DANH_KET_NOI_THAY_DOI_THONG_TIN_THUONG_DUNG @"DINH_DANH_KET_NOI_THAY_DOI_THONG_TIN_THUONG_DUNG"
+#define DINH_DANH_KET_NOI_LAY_TAI_KHOAN_THUONG_DUNG @"DINH_DANH_KET_NOI_LAY_TAI_KHOAN_THUONG_DUNG"
+#define DINH_DANH_KET_NOI_XOA_TAI_KHOAN_THUONG_DUNG @"DINH_DANH_KET_NOI_XOA_TAI_KHOAN_THUONG_DUNG"
+#define DINH_DANH_KET_NOI_THEM_CAP_NHAT_TAI_KHOAN_THUONG_DUNG @"DINH_DANH_KET_NOI_THEM_CAP_NHAT_TAI_KHOAN_THUONG_DUNG"
+
+//Chuyen tien
+#define DINH_DANH_KET_NOI_CHUYEN_TIEN_DEN_VI @"DINH_DANH_KET_NOI_CHUYEN_TIEN_DEN_VI"
+#define DINH_DANH_KET_NOI_CHUYEN_TIEN_DEN_SO_DIEN_THOAI_CHUA_CO_VI @"DINH_DANH_KET_NOI_CHUYEN_TIEN_DEN_SO_DIEN_THOAI_CHUA_CO_VI"
+#define DINH_DANH_KET_NOI_CHUYEN_TIEN_VE_TAI_KHOAN_NGAN_HANG @"DINH_DANH_KET_NOI_CHUYEN_TIEN_VE_TAI_KHOAN_NGAN_HANG"
+#define DINH_DANH_KET_NOI_CHUYEN_TIEN_VE_THE @"DINH_DANH_KET_NOI_CHUYEN_TIEN_VE_THE"
+
+//Muon tien
+#define DINH_DANH_KET_NOI_MUON_TIEN @"DINH_DANH_KET_NOI_MUON_TIEN"
+#define DINH_DANH_KET_NOI_XAC_NHAN_TIN_MUON_TIEN @"DINH_DANH_KET_NOI_XAC_NHAN_TIN_MUON_TIEN"
+#define DINH_DANH_LAY_CHI_TIET_TIN_MUON_TIEN @"DINH_DANH_LAY_CHI_TIET_TIN_MUON_TIEN"
+
+//Thanh toan dien thoai
+#define DINH_DANH_LAY_CHI_TIET_TIN_MUA_THE_CAO @"DINH_DANH_LAY_CHI_TIET_TIN_MUA_THE_CAO"
+#define DINH_DANH_KET_NOI_THANH_TOAN_CUOC @"DINH_DANH_KET_NOI_THANH_TOAN_CUOC"
+#define DINH_DANH_KET_NOI_MUA_THE_CAO @"DINH_DANH_KET_NOI_MUA_THE_CAO"
+#define DINH_DANH_KET_NOI_TRA_CUU_THANH_TOAN_DIEN_THOAI_VIETTEL @"DINH_DANH_KET_NOI_TRA_CUU_THANH_TOAN_DIEN_THOAI_VIETTEL"
+#define DINH_DANH_KET_NOI_LAY_THONG_TIN_NGAY_VANG_VIETTEL @"DINH_DANH_KET_NOI_LAY_THONG_TIN_NGAY_VANG_VIETTEL"
+#define DINH_DANH_KET_NOI_LAY_THONG_TIN_NGAY_VANG_VINA @"DINH_DANH_KET_NOI_LAY_THONG_TIN_NGAY_VANG_VINA"
+#define DINH_DANH_KET_NOI_LAY_THONG_TIN_NGAY_VANG_MOBI @"DINH_DANH_KET_NOI_LAY_THONG_TIN_NGAY_VANG_MOBI"
+//Qua tang_ tang qua
+#define DINH_DANH_KET_NOI_TAO_QUA_TANG @"DINH_DANH_KET_NOI_TAO_QUA_TANG"
+#define DINH_DANH_KET_NOI_LAY_DANH_SACH_QUA_TANG @"DINH_DANH_KET_NOI_LAY_DANH_SACH_QUA_TANG"
+
+//Han muc giao dich
+#define DINH_DANH_KET_NOI_LAY_HAN_MUC_GIAO_DICH @"DINH_DANH_KET_NOI_LAY_HAN_MUC_GIAO_DICH"
+#define DINH_DANH_KET_NOI_THAY_DOI_HAN_MUC_GIAO_DICH @"DINH_DANH_KET_NOI_THAY_DOI_HAN_MUC_GIAO_DICH"
+
+//Tra cuu tien dien
+#define DINH_DANH_KET_NOI_LAY_CHI_TIET_HOA_DON_DIEN_KHACH_HANG @"DINH_DANH_KET_NOI_LAY_CHI_TIET_HOA_DON_DIEN_KHACH_HANG"
+#define DINH_DANH_KET_NOI_TRA_CUU_HOA_DON_DIEN_KHACH_HANG @"DINH_DANH_KET_NOI_TRA_CUU_HOA_DON_DIEN_KHACH_HANG"
+#define DINH_DANH_KET_NOI_THANH_TOAN_HOA_DON_DIEN_KHACH_HANG @"DINH_DANH_KET_NOI_THANH_TOAN_HOA_DON_DIEN_KHACH_HANG"
+
+//Nap tien tu the
+#define DINH_DANH_KET_NOI_NAP_VI_TU_THE_KIEU_REDIRECT @"DINH_DANH_KET_NOI_NAP_VI_TU_THE_KIEU_REDIRECT"
+#define DINH_DANH_KET_NOI_NAP_VI_TU_THE_KIEU_DIRECT @"DINH_DANH_KET_NOI_NAP_VI_TU_THE_KIEU_DIRECT"
+#define DINH_DANH_KET_NOI_XAC_NHAN_OTP_SAU_KHI_NAP_VI_TU_THE_KIEU_DIRECT @"DINH_DANH_KET_NOI_XAC_NHAN_OTP_SAU_KHI_NAP_VI_TU_THE_KIEU_DIRECT"
+
+//Nap tien tu the quoc te
+#define DINH_DANH_KET_NOI_NAP_TIEN_TU_THE_QUOC_TE @"DINH_DANH_KET_NOI_NAP_TIEN_TU_THE_QUOC_TE"
+#define DINH_DANH_KET_NOI_NAP_TIEN_TU_THE_QUOC_TE_CONFIRM @"DINH_DANH_KET_NOI_NAP_TIEN_TU_THE_QUOC_TE_CONFIRM"
+#define DINH_DANH_KET_NOI_NAP_TIEN_TU_THE_QUOC_TE_BUOC_2 @"DINH_DANH_KET_NOI_NAP_TIEN_TU_THE_QUOC_TE_BUOC_2"
+#define DINH_DANH_KET_NOI_NAP_TIEN_TU_THE_CAO @"DINH_DANH_KET_NOI_NAP_TIEN_TU_THE_CAO"
+#define DINH_DANH_KET_NOI_KIEM_TRA_NAP_QUOC_TE @"DINH_DANH_KET_NOI_KIEM_TRA_NAP_QUOC_TE"
+//Mua ma the game
+#define DINH_DANH_KET_NOI_MUA_MA_THE_GAME @"DINH_DANH_KET_NOI_MUA_MA_THE_GAME"
+#define DINH_DANH_KET_NOI_NAP_TIEN_GAME @"DINH_DANH_KET_NOI_NAP_TIEN_GAME"
+//Gui tiet kiem
+#define DINH_DANH_GUI_TIET_KIEM @"DINH_DANH_GUI_TIET_KIEM"
+#define DINH_DANH_LAY_DANH_SACH_SO_TIET_KIEM @"DINH_DANH_LAY_DANH_SACH_SO_TIET_KIEM"
+#define DINH_DANH_RUT_SO_TIET_KIEM @"DINH_DANH_RUT_SO_TIET_KIEM"
+#define DINH_DANH_LAY_DANH_SACH_NGAN_HANG_GUI_TIET_KIEM @"DINH_DANH_LAY_DANH_SACH_NGAN_HANG_GUI_TIET_KIEM"
+#define DINH_DANH_TRA_CUU_INTERNET @"DINH_DANH_TRA_CUU_INTERNET"
+#define DINH_DANH_CHI_TIET_INTERNET @"DINH_DANH_CHI_TIET_INTERNET"
+#define DINH_DANH_THANH_TOAN_TIEN_INTERNET @"DINH_DANH_THANH_TOAN_TIEN_INTERNET"
+//Khac
+#define DINH_DANH_KET_NOI_LAY_QUANG_CAO @"DINH_DANH_KET_NOI_LAY_QUANG_CAO"
+#define DINH_DANH_KET_NOI_LAY_SO_DU_TAI_KHOAN @"DINH_DANH_KET_NOI_LAY_SO_DU_TAI_KHOAN"
+#define DINH_DANH_KET_NOI_THAY_DOI_TRANG_THAI_KHUYEN_MAI @"DINH_DANH_KET_NOI_THAY_DOI_TRANG_THAI_KHUYEN_MAI"
+#define DINH_DANH_KET_NOI_DANH_SACH_DIA_DIEM @"DANH_SACH_DIA_DIEM_GIAO_DICH"
+#define NOTIFICATION_LAY_TAI_KHOAN_THUONG_DUNG @"NOTIFICATION_LAY_TAI_KHOAN_THUONG_DUNG"
+
+//rap phim
+#define DINH_DANH_LAY_RAP_PHIM @"DINH_DANH_LAY_RAP_PHIM"
+#define DINH_DANH_LAY_DANH_SACH_PHIM @"DINH_DANH_LAY_DANH_SACH_PHIM"
+#define DINH_DANH_LAY_THOI_DIEM_CHIEU_PHIM @"DINH_DANH_LAY_THOI_DIEM_CHIEU_PHIM"
+#define DINH_DANH_LAY_THOI_DIEM_CHIEU_PHIM_BHD @"DINH_DANH_LAY_THOI_DIEM_CHIEU_PHIM_BHD"
+#define DINH_DANH_LAY_THONG_TIN_GHE_NGOI @"DINH_DANH_LAY_THONG_TIN_GHE_NGOI"
+#define DINH_DANH_LAY_THONG_TIN_GHE_NGOI_BHD @"DINH_DANH_LAY_THONG_TIN_GHE_NGOI_BHD"
+#define DINH_DANH_LAY_THONG_TIN_GHE_NGOI_GALAXY @"DINH_DANH_LAY_THONG_TIN_GHE_NGOI_GALAXY"
+#define DINH_DANH_LAY_DANH_SACH_TINH_THANH_PHIM @"DINH_DANH_LAY_DANH_SACH_TINH_THANH_PHIM"
+//ve may bay
+#define DINH_DANH_TRA_CUU_SAN_BAY_DI_DEN @"DINH_DANH_TRA_CUU_SAN_BAY_DI_DEN"
+#define DINH_DANH_TRA_CUU_CHUYEN_BAY @"DINH_DANH_TRA_CUU_CHUYEN_BAY"
+#define DINH_DANH_THANH_TOAN_MAY_BAY @"DINH_DANH_THANH_TOAN_MAY_BAY"
+#define DINH_DANH_TRA_CUU_MAY_BAY_GIA_CAO @"DINH_DANH_TRA_CUU_MAY_BAY_GIA_CAO"
+//truyen hinh
+#define DINH_DANH_TRA_CUU_TRUYEN_HINH @"DINH_DANH_TRA_CUU_TRUYEN_HINH"
+#define DINH_DANH_THANH_TOAN_TRUYEN_HINH @"DINH_DANH_THANH_TOAN_TRUYEN_HINH"
+
+//chuyen tien cmnd
+#define DINH_DANH_CHUYEN_TIEN_CMND @"DINH_DANH_CHUYEN_TIEN_CMND"
+
+//hoc phi
+#define DINH_DANH_THANH_TOAN_HOC_PHI @"DINH_DANH_THANH_TOAN_HOC_PHI"
+#define KEY_THONG_TIN_CHI_NHANH = @"KEY_THONG_TIN_CHI_NHANH";
+
+//tu thien
+#define DINH_DANH_CHUYEN_TIEN_TU_THIEN @"DINH_DANH_CHUYEN_TIEN_TU_THIEN"
+
+//tien vay
+#define DINH_DANH_TRA_CUU_TIEN_VAY @"DINH_DANH_TRA_CUU_TIEN_VAY"
+#define DINH_DANH_LAY_CHI_TIET_TIEN_VAY @"DINH_DANH_LAY_CHI_TIET_TIEN_VAY"
+#define DINH_DANH_THANH_TOAN_TIEN_VAY @"DINH_DANH_THANH_TOAN_TIEN_VAY"
+//may bay
+#define DINH_DANH_TRA_CUU_TANG_GIA_VE_MAY_BAY @"DINH_DANH_TRA_CUU_TANG_GIA_VE_MAY_BAY"
+
+//chuyentiendien thoai
+#define DINH_DANH_CHUYEN_TIEN_DIEN_THOAI @"DINH_DANH_CHUYEN_TIEN_DIEN_THOAI"
+//Xac nhan chuyen tien dien thoai
+#define DINH_DANH_XAC_NHANH_CHUYEN_TIEN_DIEN_THOAI @"DINH_DANH_XAC_NHANH_CHUYEN_TIEN_DIEN_THOAI"
+
+// ten anh
+#define BANNER_CHUYEN_TIEN_DEN_VI @"1 chuyentiendenvi.png"
+#define BANNER_CHUYEN_TIEN_DEN_TAI_KHOAN_NGAN_HANG @"2 taikhoannganhang3"
+#define BANNER_CHUYEN_TIEN_DEN_THE_NGAN_HANG @"3 a thenganhang.png"
+#define BANNER_CHUYEN_TIEN_DEN_TAN_NHA @"chuyentientannha.png"
+#define BANNER_CHUYEN_TIEN_DEN_ATM @"denatm-ngang.png"
+#define BANNER_CHUYEN_TIEN_DEN_CMND @"denCMND-ngang.png"
+//#define BANNER_CHUYEN_TIEN_DEN_MOMO @"3 b chuyentiendenmomo.png"
+#define BANNER_CHUYEN_TIEN_DEN_MOMO @"chuyentiendenmomo.png"
+#define BANNER_GUI_TIET_KIEM @"3 c guitietkiem.png"
+#define BANNER_CHUYEN_TIEN_TAN_NHA @"chuyentientannha.png"
+#define BANNER_THANH_TOAN_TIEN_DIEN @"4tiendien.png"
+#define BANNER_THANH_TOAN_TIEN_NUOC @"thanhtoannuoc.png"
+#define BANNER_THANH_TOAN_TIEN_TIVI @"thanhtoantruyenhinh.png"
+#define BANNER_THANH_TOAN_TIEN_VAY @"tratienvay.png"
+#define BANNER_THANH_TOAN_TIEN_CHUNG_KHOAN @"thanhtoanchungkhoang.png"
+#define BANNER_THANH_TOAN_INTERNET @"thanhtoaninternet.png"
+#define BANNER_THANH_TOAN_HOC_PHI @"hocphi.png"
+#define BANNER_THANH_TOAN_BAO_HIEM @"baohiem.png"
+#define BANNER_THANH_TOAN_DT_MANG_VIETTEL @"5 a viettel.png"
+#define BANNER_DAP_VE_XEM_FILM @"vexemphim.png"
+#define BANNER_THANH_TOAN_DIEN_THOAI @"Thanhtoandienthoai.png"
+#define BANNER_THANH_TOAN_DT_MANG_MOBI @"5 b mobi.png"
+#define BANNER_THANH_TOAN_DT_MANG_VINA @"5 c vinaphone.png"
+#define BANNER_THANH_TOAN_DT_MANG_VIETNAMOBLIE @"5 d vietnamobile.png"
+#define BANNER_THANH_TOAN_DT_MANG_GMOBILE @"5 e gmobile.png"
+#define BANNER_MUA_MA_THE_GAME @"5 f muamathe.png"
+#define BANNER_NAP_TIEN_DIEN_TU @"5 g naptiendientu.png"
+
+#define BANNER_HUONG_DAN_NAP_TIEN @"6 huongdannaptien2.png"
+#define BANNER_PHONE_TOKEN @"10 phonetoken.png"
+#define BANNER_TANG_QUA @"11 tangqua.png"
+#define BANNER_TU_THIEN @"tuthien.png"
+
+#define BANNER_NAP_TIEN_TU_THE @"7 naptientuthe.png"
+#define BANNER_VE_MAY_BAY @"8 vemaybay.png"
+#define BANNER_VE_TAU_HOA @"9 vetauhoa.png"
+#define BANNER_NOP_THUE @"12 nopthue.png"
+
+
+#define otpGetTypeSMS @"SMS"
+#define otpGetTypeToken @"TOKEN"
+
+typedef enum : NSInteger {
+    CHUNG_KHOAN_VCBS = 2,
+    CHUNG_KHOAN_SSI = 9,
+    CHUNG_KHOAN_VN_DIRECT = 11,
+    CHUNG_KHOAN_BAN_VIET = 15,
+    CHUNG_KHOAN_FPT = 16,
+    CHUNG_KHOAN_MARITIME = 21,
+    CHUNG_KHOAN_ABS = 31,
+    CHUNG_KHOAN_AGRISECO = 3,
+    CHUNG_KHOAN_TVSI = 4,
+    CHUNG_KHOAN_HSC = 7,
+    CHUNG_KHOAN_PRUDENTIAL = 1,
+
+}CONG_TY_CHUNG_KHOAN;
+
+typedef enum : NSInteger {
+    DICH_VU_CHUNG_KHOAN_VCBS_NOP_TIEN_VAO_TK_CHUNG_KHOAN = 3,
+    DICH_VU_CHUNG_KHOAN_SSI_NOP_TIEN_VAO_TK_CHUNG_KHOAN_HOI_SO_CHINH = 22,
+    DICH_VU_CHUNG_KHOAN_SSI_NOP_TIEN_VAO_TK_CHUNG_KHOAN_CHI_NHANH_HA_NOI = 23,
+    DICH_VU_CHUNG_KHOAN_VN_DIRECT_NOP_TIEN_VAO_TK_CHUNG_KHOAN_HOI_SO_CHINH = 25,
+    DICH_VU_CHUNG_KHOAN_VN_DIRECT_NOP_TIEN_VAO_TK_CHUNG_KHOAN_CHI_NHANH_HO_CHI_MINH = 26,
+    DICH_VU_CHUNG_KHOAN_BAN_VIET_NOP_TIEN_VAO_TK_CHUNG_KHOAN = 37,
+    DICH_VU_CHUNG_KHOAN_FPT_NOP_TIEN_VAO_TK_CHUNG_KHOAN = 38,
+    DICH_VU_CHUNG_KHOAN_MARITIME_NOP_TIEN_VAO_TK_CHUNG_KHOAN_TAI_VCB_HOAN_KIEM = 61,
+    DICH_VU_CHUNG_KHOAN_MARITIME_NOP_TIEN_VAO_TK_CHUNG_KHOAN_TAI_VCB_HO_CHI_MINH = 62,
+    DICH_VU_CHUNG_KHOAN_ABS_NOP_TIEN_GIAO_DICH_CHUNG_KHOAN = 75,
+    DICH_VU_CHUNG_KHOAN_AGRISECO_NOP_TIEN_VAO_TK_CHUNG_KHOAN = 8,
+    DICH_VU_CHUNG_KHOAN_TVSI_NOP_TIEN_VAO_TK_CHUNG_KHOAN = 9,
+    DICH_VU_CHUNG_KHOAN_HSC_NOP_TIEN_VAO_TK_CHUNG_KHOAN = 18,
+    DICH_VU_CHUNG_KHOAN_PRUDENTIAL_THANH_TOAN_KHOAN_VAY = 1,
+    DICH_VU_CHUNG_KHOAN_PRUDENTIAL_TAT_TOAN_KHOAN_VAY_TRUOC_HAN = 2,
+}DICH_VU_CONG_TY_CHUNG_KHOAN;
+
+typedef enum : NSInteger {
+    NHA_CUNG_CAP_TIEN_VAY_ACS = 47,
+    NHA_CUNG_CAP_TIEN_VAY_FE_CREDIT = 54,
+    NHA_CUNG_CAP_TIEN_VAY_HD_FINANCE = 58,
+    NHA_CUNG_CAP_TIEN_VAY_HOME_CREDIT = 56,
+    NHA_CUNG_CAP_TIEN_VAY_PRUDENTIAL_FINANCE = 49,
+    NHA_CUNG_CAP_TIEN_VAY_ATM_ONLINE = 149,
+    NHA_CUNG_CAP_TIEN_VAY_Cashwagon = 150,
+    NHA_CUNG_CAP_TIEN_VAY_MCredit = 151,
+    NHA_CUNG_CAP_TIEN_VAY_Doctor_Dong = 152,
+    NHA_CUNG_CAP_TIEN_VAY_EAsy_credit = 153,
+    NHA_CUNG_CAP_TIEN_VAY_JACCS = 154,
+    NHA_CUNG_CAP_TIEN_VAY_Mirae_asset = 155,
+    NHA_CUNG_CAP_TIEN_VAY_NCB = 156,
+    NHA_CUNG_CAP_TIEN_VAY_OCB = 157,
+    NHA_CUNG_CAP_TIEN_VAY_TOyota_finance = 158
+}NHA_CUNG_CAP_TRA_TIEN_VAY;
+
+typedef enum : NSInteger {
+    HOC_PHI_DH_HAI_DUONG_THANH_TOAN_HOC_PHI = 64,
+    HOC_PHI_PHO_THONG_LIEN_CAP_WELLSPRING_THANH_TOAN_HOC_PHI = 39,
+    HOC_PHI_TIEU_HOC_BAN_MAI_THANH_TOAN_HOC_PHI = 103,
+    HOC_PHI_VIEN_DAI_HOC_MO_CT_EHOU_THANH_TOAN_HOC_PHI = 51,
+    HOC_PHI_VIEN_DAI_HOC_MO_CT_EHOU_THANH_TOAN_HOC_PHI_HOC_LAI_THI_LAI = 52,
+    HOC_PHI_VIEN_DAI_HOC_MO_CT_EHOU_THANH_TOAN_HOC_PHI_MIEN_MON = 53,
+    HOC_PHI_VIEN_DAI_HOC_MO_CT_EHOU_THANH_TOAN_HOC_PHI_HOC_LAI_MON_THUC_TAP_TOT_NGHIEP = 54,
+    HOC_PHI_VIEN_DAI_HOC_MO_CT_HOU_TOPICA_THANH_TOAN_HOC_PHI = 51,
+    HOC_PHI_VIEN_DAI_HOC_MO_CT_HOU_TOPICA_THANH_TOAN_HOC_PHI_HOC_LAI_THI_LAI = 52,
+    HOC_PHI_VIEN_DAI_HOC_MO_CT_HOU_TOPICA_THANH_TOAN_HOC_PHI_MIEN_MON = 53,
+    HOC_PHI_VIEN_DAI_HOC_MO_CT_HOU_TOPICA_THANH_TOAN_HOC_PHI_HOC_LAI_MON_THUC_TAP_TOT_NGHIEP = 54,
+    HOC_PHI_VIEN_DAI_HOC_MO_KHOA_CNTT_THANH_TOAN_HOC_PHI = 63,
+    HOC_PHI_VIEN_DAI_HOC_MO_KHOA_DU_LICH_THANH_TOAN_HOC_PHI = 67,
+    HOC_PHI_VIEN_DAI_HOC_MO_KHOA_KINH_TE_THANH_TOAN_HOC_PHI = 66,
+    HOC_PHI_VIEN_DAI_HOC_MO_KHOA_SAU_DAI_HOC_THANH_TOAN_HOC_PHI = 102,
+    HOC_PHI_VIEN_DAI_HOC_MO_KHOA_TIENG_ANH_THANH_TOAN_HOC_PHI = 65,
+    HOC_PHI_VIEN_DAI_HOC_MO_KHOA_TAO_DANG_CONG_NGHIEP_THANH_TOAN_HOC_PHI = 76,
+}LOAI_DICH_VU_HOC_PHI;
+
+typedef enum : NSInteger {
+    DU_AN_TU_THIEN_CAP_LA_YEU_THUONG = -1111,
+    DU_AN_TU_THIEN_NHA_CHONG_LU = 12,
+    DU_AN_TU_THIEN_HOI_NAN_NHAN_CHAT_DOC_DA_CAM_DIOXIN_VIET_NAM = 7,
+    DU_AN_TU_THIEN_LANG_TRE_EM_SOS_VIET_NAM = 8,
+    DU_AN_TU_THIEN_QUY_BAO_TRO_TRE_EM_VIET_NAM = 4,
+    DU_AN_TU_THIEN_QUY_HIEU_VE_TRAI_TIM = 10,
+    DU_AN_TU_THIEN_QUY_NHAN_AI_BAO_KHUYEN_HOC_VA_DAN_TRI = 1,
+    DU_AN_TU_THIEN_QUY_TRO_NGHEO_VUNG_CAO_TIEN_THAN_QUY_COM_CO_THIT = 9,
+    DU_AN_TU_THIEN_QUY_TU_THIEN_BAO_PHU_NU_TP_HO_CHI_MINH = 3,
+    DU_AN_TU_THIEN_QUY_TU_THIEN_BAO_VIETNAMNET = 2,
+    DU_AN_TU_THIEN_QUY_VI_TRE_EM_KHUYET_TAT = 5,
+    DU_AN_TU_THIEN_QUY_XA_HOI_TU_THIEN_TAM_LONG_VANG = 11,
+    DU_AN_TU_THIEN_TO_CHUC_OPERATION_SMILE_VIET_NAM = 6,
+}LOAI_DICH_VU_TU_THIEN;
+
+typedef enum : NSInteger {
+    NHA_CUNG_CAP_TRUYEN_HINH_CAP_VTC = 1,
+    NHA_CUNG_CAP_TRUYEN_HINH_CAP_VTV = 2,
+    NHA_CUNG_CAP_TRUYEN_HINH_CAP_MY_TV = 3,
+    NHA_CUNG_CAP_TRUYEN_HINH_K_PLUS = 4
+} MA_NHA_CUNG_CAP_TRUYEN_HINH;
+
+typedef enum : NSInteger {
+    MOMO = 22,
+    NGAN_LUONG = 23,
+    VTC_PAY = 24,
+    PAYOO = 25,
+    VIMO = 35,
+    BAO_KIM = 36,
+    NHA_CUNG_CAP_VIVIET = 90,
+    ZALO_PAY = 91,
+    VNPT_PAY = 92,
+    AIR_PAY = 93,
+} MA_NHA_CUNG_CAP_DICH_VU;
+
+typedef enum : NSInteger {
+    HUONG_DAN_XEM_FILM = 1,
+    HUONG_DAN_SACOMBANK = 3,
+    HUONG_DAN_TECHCOMBANK = 4,
+    HUONG_DAN_VIETINBANK = 5,
+    HUONG_DAN_NAP_RUT_TIEN = 6,
+    HUONG_DAN_NAP_TIEN_BANG_THE = 7,
+    HUONG_DAN_NAP_TIEN_BANG_QUOC_TE = 8,
+    HUONG_DAN_NAP_TIEN_BANG_THE_CAO = 9,
+    HUONG_DAN_NAP_TIEN_HOC_PHI = 10,
+    HUONG_DAN_CHUYEN_TIEN_VI_VIMASS = 11,
+    HUONG_DAN_CHUYEN_TIEN_TAI_KHOAN = 12,
+    HUONG_DAN_CHUYEN_TIEN_THE = 13,
+    HUONG_DAN_CHUYEN_TIEN_TAN_NHA = 14,
+    HUONG_DAN_CHUYEN_TIEN_ATM = 15,
+    HUONG_DAN_CHUYEN_TIEN_CMND = 16,
+    HUONG_DAN_CHUYEN_TIEN_VI_KHAC = 17,
+    HUONG_DAN_GUI_TIET_KIEM = 18,
+    HUONG_DAN_TU_THIEN = 19,
+    HUONG_DAN_XEM_PHIM = 20,
+    HUONG_DAN_VE_MAY_BAY = 21,
+    HUONG_DAN_XE_KHACH = 22,
+    HUONG_DAN_THANH_TOAN_DIEN_THOAI_VINA = 23,
+    HUONG_DAN_THANH_TOAN_DIEN_THOAI_MOBI = 123,
+    HUONG_DAN_THANH_TOAN_DIEN_THOAI_VIETEL = 223,
+    HUONG_DAN_THANH_TOAN_DIEN_THOAI_VIETNAMOBILE = 224,
+    HUONG_DAN_THANH_TOAN_DIEN_THOAI_GMOBILE = 225,
+    HUONG_DAN_THANH_TOAN_DIEN_THOAI_CO_DINH = 226,
+    HUONG_DAN_THANH_TOAN_TIEN_DIEN_TU = 24,
+    HUONG_DAN_THANH_TOAN_MUA_MA_THE = 25,
+    HUONG_DAN_THANH_TOAN_DIEN = 26,
+    HUONG_DAN_THANH_TOAN_NUOC = 27,
+    HUONG_DAN_THANH_TOAN_INTERNET = 28,
+    HUONG_DAN_THANH_TOAN_TRUYEN_HINH = 29,
+    HUONG_DAN_TRA_TIEN_VAY = 30,
+    HUONG_DAN_CHUNG_KHOAN = 31,
+    HUONG_DAN_HOC_PHI = 32,
+    HUONG_DAN_TANG_QUA = 33,
+    HUONG_DAN_BAO_HIEM = 34,
+    HUONG_DAN_MUA_SAM = 35,
+    HUONG_DAN_PHONE_TOKEN = 36,
+    HUONG_DAN_MUON_TIEN = 37,
+    HUONG_DAN_THAY_DOI_THONG_TIN_VI = 38,
+    HUONG_DAN_SAO_KE = 39,
+    HUONG_DAN_DOI_HAN_MUC = 40,
+    HUONG_DAN_CAP_LA_YEU_THUONG = 41,
+    HUONG_DAN_NHA_CHONG_LU = 42,
+    HUONG_DAN_CHAT_DOC_DA_CAM = 43,
+    HUONG_DAN_LANG_SOS = 44,
+    HUONG_DAN_BAO_TRO_TRE_EM = 45,
+    HUONG_DAN_HIEU_VE_TRAI_TIM = 46,
+    HUONG_DAN_NHAN_AI = 47,
+    HUONG_DAN_TRO_NGHEO_VUNG_CAO = 48,
+    HUONG_DAN_BAO_PHU_NU = 49,
+    HUONG_DAN_TU_THIEN_VIETNAMNET = 50,
+    HUONG_DAN_TRE_EM_KHUYET_TAT = 51,
+    HUONG_DAN_TAM_LONG_VANG = 52,
+    HUONG_DAN_OPERATION_SMILE = 53,
+    HUONG_DAN_SU_DUNG = 54
+} MA_HUONG_DAN_SU_DUNG;
+
+typedef enum : NSInteger {
+    TRANG_THAI_SHOW_NOTIFICATION_CHUA_XU_LY = -1,
+    TRANG_THAI_SHOW_NOTIFICATION_DA_TU_CHOI = 0,
+    TRANG_THAI_SHOW_NOTIFICATION_DA_DONG_Y = 1,
+} TRANG_THAI_SHOW_NOTIFICATION;
+
+typedef enum : NSUInteger {
+    KIEU_NOTIFICATION_THONG_BAO = 0,
+    KIEU_NOTIFICATION_MUON_TIEN = 1,
+    KIEU_NOTIFICATION_TIEN_DIEN = 2,
+    KIEU_NOTIFICATION_TANG_QUA = 3,
+    KIEU_NOTIFICATION_TRA_CUU_HOA_DON_VIETTEL = 4,
+    TYPE_TRA_CUU_VE_DUONG_SAT_VN = 5,
+    TYPE_TRA_CUU_VE_MAY_BAY_VIETNAM_AIR_LINE = 6,
+    TYPE_TRA_CUU_VE_MAY_BAY_VIET_JET_AIR = 7,
+    TYPE_TRA_CUU_VE_MAY_BAY_JET_STAR = 8,
+    TYPE_TRA_CUU_VE_MAY_BAY_AIR_ASIA = 9,
+    TYPE_THANH_TOAN_VE_DUONG_SAT_VIET_NAM = 10,
+    TYPE_THANH_TOAN_VE_MAY_BAY_VIETNAM_AIR_LINE = 11,
+    TYPE_THANH_TOAN_VE_MAY_BAY_VIET_JET_AIR = 12,
+    TYPE_THANH_TOAN_VE_MAY_BAY_JET_STAR = 13,
+    TYPE_THANH_TOAN_VE_MAY_BAY_AIR_ASIA = 14,
+    TYPE_THONG_BAO_GIAO_DICH_GUI_TIET_KIEM = 15,
+    TYPE_THONG_BAO_YEU_CAU_DUYET_GIAO_DICH = 16,
+    TYPE_THONG_BAO_CHUYEN_TIEN_MAT = 17,
+    TYPE_THONG_BAO_TRA_CUU_INTERNET = 18,
+    KIEU_NOTIFICATION_TIEN_NUOC = 19,
+    KIEU_NOTIFICATION_TIEN_TRUYEN_HINH = 20,
+    TYPE_THONG_BAO_TRA_CUU_DIEN_THOAI_CO_DINH = 21,
+    TYPE_THONG_BAO_DAT_VE_MAY_BAY = 22,
+    KIEU_NOTIFICATION_TIEN_VAY = 23,
+    TYPE_THONG_BAO_NHAN_TIEN_ATM = 24,
+    TYPE_THONG_BAO_TRA_CUU_TEN_CHU_TK_NGAN_HANG = 25,
+    TYPE_THONG_BAO_TRA_CUU_TEN_CMND = 26,
+    TYPE_THONG_BAO_XAC_THUC_TK_LIEN_KET = 27,
+    KIEU_NOTIFICATION_VE_MAY_BAY = 30,
+    TYPE_THONG_BAO_MUA_SAM = 31,
+} KIEU_NOTIFICATION;
+
+typedef enum : NSUInteger {
+    TRA_TRUOC = 2,
+    TRA_SAU_HOAC_TRA_TRUOC_VIETNAMMOBILE_GMOBILE = 1
+} KIEU_THANH_TOAN;
+
+typedef enum : NSUInteger {
+    NHA_MANG_VIETTEL = 1,
+    NHA_MANG_VINA = 2,
+    NHA_MANG_MOBI = 3,
+    NHA_MANG_GMOBILE = 4,
+    NHA_MANG_VIETNAMMOBILE = 5
+} NHA_MANG;
+
+typedef enum : NSUInteger {
+    THANH_TOAN_TRA_CUU_DIEN_LUC_HN = 0,
+    THANH_TOAN_TRA_CUU_DIEN_LUC_MIEN_TRUNG = 1,
+    THANH_TOAN_TRA_CUU_DIEN_LUC_HCM = 2,
+    THANH_TOAN_TRA_CUU_DIEN_LUC_TINH_KHAC = 3,
+    THANH_TOAN_TRA_CUU_DIEN_LUC_VINH_PHUC = 8,
+    
+    THANH_TOAN_DIEN_LUC_HA_NOI = 4,
+    THANH_TOAN_DIEN_LUC_MIEN_TRUNG = 5,
+    THANH_TOAN_DIEN_LUC_HCM = 6,
+    THANH_TOAN_DIEN_LUC_VINH_PHUC = 9,
+} THANH_TOAN_TRA_CUU;
+
+typedef enum : NSUInteger {
+    NHA_CUNG_CAP_ZING = 1,
+    NHA_CUNG_CAP_VTC = 2,
+    NHA_CUNG_CAP_GARENA = 3,
+} NHA_CUNG_CAP_THE_GAME;
+
+typedef enum : NSUInteger {
+    NHA_CUNG_CAP_PLATINUM = 0,
+    NHA_CUNG_CAP_CGV = 1,
+} NHA_CUNG_CAP_PHIM;
+
+
+@interface MFMessageComposeViewController (Umi)
+
++ (MFMessageComposeViewController *)text:(NSString *)text
+                                      to:(NSArray *)guys
+                                callback:(void (^)(MFMessageComposeViewController *composer, MessageComposeResult result))callback;
+
+@end
+
+@interface MFMailComposeViewController (Umi)
+
++ (MFMailComposeViewController *)mail:(NSString *)receiver
+                              subject:(NSString *)subject
+                                 body:(NSString *)body
+                             callback:(void(^)(MFMailComposeViewController *controller, MFMailComposeResult* result, NSError *error))mail_callback;
+
+@end
+
+#pragma mark - UIColor
+
+@interface UIColor (Umi)
+
++ (UIColor *) colorWithHexString: (NSString *) str;
+
+@end
+
+#pragma mark - UIImage
+
+@interface UIImage (Umi)
+
++ (UIImage *)initWithSize:(CGSize)size drawing:(void (^)(CGContextRef ctx, CGSize size))drawing;
+
+@end
+
+#pragma mark - NSDate
+
+@interface NSDate (Umi)
+
+@property (nonatomic, readonly) int year;
+@property (nonatomic, readonly) int month;
+@property (nonatomic, readonly) int day;
+@property (nonatomic, readonly) int hour;
+@property (nonatomic, readonly) int minute;
+@property (nonatomic, readonly) int second;
+
+- (NSString *)format:(NSString *)pattern;
+
+@end
+
+#pragma mark - NSMutableArray
+
+@interface NSMutableArray (Umi)
+
+- (NSMutableArray *)shuffle;
+
+@end
+
+#pragma mark - NSString
+
+@interface NSString (Umi)
+- (NSDate *)parseDateWithFormat:(NSString *)format;
+@end
+
+#pragma mark - CLLocationManager
+
+@interface CLLocationManager (Umi)<CLLocationManagerDelegate>
+
++ (CLLocationManager *)update_user_location:(void (^)(CLLocationCoordinate2D coordinate))callback
+                                    timeout:(NSTimeInterval)timeout;
+
+@end
+
+
+enum
+{
+    LARGER_THAN = 0,
+    EQUAL,
+    SMALLER_THAN,
+    UNDEFINED,
+};
+
+
+@interface Common : NSObject
+
++(NSString *) date:(NSDate *)date toStringWithFormat:(NSString *) format;
++(NSDate *)dateFromString:(NSString *)dateStr withFormat:(NSString *)format;
++ (NSString*)milisecondsToMonAndDayString:(NSNumber*)miliseconds;
+
++ (BOOL)isRetina;
++ (BOOL)kiemTraSoDienThoaiThuocVietNam:(NSString *)sXau;
++(NSString *) mkGetFlagID:(int) flagId;
+
++ (double)layPhiChuyenTienTanNha:(double)fSoTien nKhuVuc:(int)nKhuVuc;
++ (double)layPhiChuyenTienCuaSoTien:(double)fSoTien kieuChuyenTien:(int)nKieuChuyenTien maNganHang:(NSString*)sMaNganHang;
++ (double)layPhiRutTienCuaSoTien:(double)fSoTien;
+
++ (UIViewController *)top_view_controller;
+
++(NSDate *) unixTimeToDate:(NSTimeInterval ) unixTime;
++(NSString *) unixGetTimeRemaining:(NSTimeInterval) unixTime;
+
+// return path for resource in main bundle (I.E "folder/abc.png")
++(NSString *)pathForResource:(NSString *)file;
++(NSString *)pathForCachedFile:(NSString *)file;
++ (BOOL)kiemTraLaSoDienThoai:(NSString*)sXau;
++ (BOOL)kiemTraLaMail:(NSString*)sXau;
++ (BOOL)kiemTraLaDN:(NSString*)sXau;
++ (BOOL)kiemTraSoTienMotLanChuyenHopLe:(double)fSoTien;
++ (int)layKieuTraCuuHoaDonDienTheoMaKhachHang:(NSString*)sMaKhachHang;
++ (int)layKieuThanhToanHoaDonDienTheoMaKhachHang:(NSString*)sMaKhachHang;
+
++ (BOOL)kiemTralaSoDienThoaiViettel:(NSString*)sSoDienThoaiCanKiemTra;
++ (BOOL)kiemTralaSoDienThoaiVina:(NSString*)sSoDienThoaiCanKiemTra;
++ (BOOL)kiemTralaSoDienThoaiMobiphone:(NSString*)sSoDienThoaiCanKiemTra;
++ (BOOL)kiemTralaSoDienThoaiVietNamobile:(NSString*)sSoDienThoaiCanKiemTra;
++ (BOOL)kiemTralaSoDienThoaiGMobile:(NSString*)sSoDienThoaiCanKiemTra;
+
++ (NSString*)giauSoTaiKhoanDienThoai:(NSString*)sTaiKhoan;
+
+
+#pragma mark - Validation helpers
++ (NSString *)quicklz_decrypt:(NSData *)data;
+
++(BOOL)isToken:(NSString *)str;
++(BOOL)isOTP:(NSString *)str;
++(BOOL)isEmptyString:(NSString *)str;
+
+
++(UIImage *) stretchImage:(NSString *)image;
+
++ (int) getAppLanguage;
++ (NSString *)URLDecode:(NSString *)sTring;
+
+
++ (BOOL)validateBirthday:(NSString *)str;
++ (NSString*) dateToString1:(NSDate*) _date;
++ (int) compareDate1:(NSString * )_date1 andDate2:(NSString * ) _date2 withFormat:(NSString *) format;
++ (NSString *) getMessContentWithMessCode:(NSString *) messCode;
++ (BOOL) isEmail:(NSString *) email;
++ (NSDictionary * ) getLaguages:(NSString *) _lagName;
++ (NSString *) giaiMaDataToString:(NSData *) data;
++ (NSData *) maHoaStringToData:(NSString *) string;
++ (NSString *) getKeyMaHoa;
++ (NSString *)toMD5:(NSString *)source;
++ (NSString *)getUTCFormateDate:(NSDate *)localDate;
++ (NSString *)getUTCFormateFromString:(NSString *)localDate;
++ (NSString *)getDateFromDate:(NSDate *)localDate;
++ (BOOL)isNumericString:(NSString*)str;
+
++ (NSDateComponents *) getDateComponentsFromDate:(NSDate *) _date;
++ (NSString*) dateToString:(NSDate*) _date;
++ (NSString*) convertStringToUnsign:(NSString*)_char;
++ (NSMutableArray*) contactNames:(NSArray*) names startWith:(NSString*) _alphabet;
+
++ (NSString *) getErrorDescription:(NSString *) msgCode, ...;
++ (NSString *) getcErrorDescription:(NSString *) msgCode, ...;
++ (NSString *)trim:(NSString *)str;
+
++ (NSString *)getVersion;
+
++ (UIColor *) colorWithHex:(NSString *)hexColor;
++ (NSString *) getUniqueDeviceIdentifier;
+
++ (double)laySoTienLaiTheoNgay:(double)laiSuat soNgayGui:(NSInteger)nSoNgay soTien:(double)fSoTien;
++ (double)laySoTienLaiTheoThang:(double)laiSuat soThangGui:(NSInteger)nSoThang soTien:(double)fSoTien;
++ (NSString *)chuyenKhongDau:(NSString *)sInput;
++ (NSString *)hienThiTienTe_1:(double)fAmount;
++ (NSString *)hienThiTienTe:(double)sAmount;
++ (NSString*)hienThiSoThe:(NSString*)sSoThe;
++ (NSString *)hienThiTienTeFromString:(NSString *)sAmount;
++ (long long) convertDateToLong:(NSString *)sDate;
++ (NSString *) convertLongToString:(long long)nLongDate;
++ (NSString *) convertLongToStringWithFormatter:(long long)nLongDate formatter:(NSString *)formatter;
++ (NSArray*)job_work_locations;
++ (NSString *)convertImageToBase64:(UIImage *)viewImage;
+
+
++ (BOOL)kiemTraTheDaDuocKetNoiDeChuyenTien:(NSString*)sSoThe;
+
+
+@end

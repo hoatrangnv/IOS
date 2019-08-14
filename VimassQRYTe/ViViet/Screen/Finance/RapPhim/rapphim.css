@@ -1,0 +1,188 @@
+body{
+    min-width: 720px; height:auto;
+}
+
+ul {
+    list-style: outside none none;
+    margin: 0;
+    padding: 0;
+}
+.rap {
+    float: left;
+    padding: 0 1%;
+    width: 98%;
+}
+p.chonrap { width:35%; float:left}
+p.chonphim { width:49%; float:left; margin-left: 1%}
+p.quote { width:15%; float:left}
+.screen {
+    background-color: #F83D3D;
+    border: 1px solid #e5e5e5;
+    font-weight: bold;
+    height: 20px;
+    line-height: 20px;
+    margin: 3px auto 20px;
+    text-align: center;
+    width: 60%;
+    color:#fff;
+}
+.row {
+    float: left;
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+.row ul {
+    font-family: arial;
+    font-size: 10px;
+    margin: 5px auto;
+    width: -moz-fit-content;
+}
+.row ul li {
+    background-color: #013283;
+    border-radius: 2px 2px 8px 8px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    line-height: 18px;
+    margin: 1px;
+    text-align: center;
+    width: 22px;
+    height: 18px;
+}
+
+.row ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.row ul.duong {
+    margin-top: 15px;
+}
+.row ul li.anpha {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    color: #111 !important;
+    font-weight: bold;
+    width: 18px !important;
+    left: 0;
+    position: absolute;
+    border: 1px solid #333;
+    -webkit-border-radius: 18px;
+    -moz-border-radius: 18px;
+    border-radius: 18px;
+}
+.row ul li.anpha2 {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    color: #111 !important;
+    font-weight: bold;
+    position: absolute;
+    width: 18px !important;
+    right: 0;
+    border: 1px solid #333;
+    -webkit-border-radius: 18px;
+    -moz-border-radius: 18px;
+    border-radius: 18px;
+}
+.row ul li.trang {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    cursor: default;
+}
+.row ul li.vip {
+    background-color: #c69612;
+}
+.row ul li.book {
+    background: url(nguoi.png) center center no-repeat #002768 !important;
+    color: #ffa200;
+    cursor: not-allowed;
+}
+.row ul li.love {
+    background: url(icon-heart.png) center center no-repeat #002768;
+    color: #fff;
+}
+
+.row ul li.lovebook {
+    background: url(nguoi-tran.png) center center no-repeat #002768;
+    color: #fa9a02 !important;
+}
+
+.row ul li.select {
+    background: #84c52a;
+    color: #fff;
+}
+.hdphim {
+    width: 98%;
+    float: left;
+    padding: 1%;
+    padding-top: 10px;
+    border-top: 1px solid #e5e5e5;
+    margin-top: 10px;
+}
+.hdphim ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.hdphim ul li {
+    float: left;
+    margin-bottom: 5px;
+    width: 100%;
+}
+.hdphim ul li span {
+    float: left;
+    margin-left: 5px;
+}
+.freehd {
+    background-color: #013283;
+    border-radius: 2px 2px 8px 8px;
+    color: #fff;
+    cursor: pointer;
+    line-height: 18px;
+    margin: 1px;
+    text-align: center;
+    width: 22px;
+    height: 18px;
+    float: left;
+}
+.viphd {
+    background-color: #c69612;
+    border-radius: 2px 2px 8px 8px;
+    color: #fff;
+    cursor: pointer;
+    line-height: 18px;
+    margin: 1px;
+    text-align: center;
+    width: 22px;
+    height: 18px;
+    float: left;
+}
+.bookhd {
+    background: url(icon-book.png) center center no-repeat #002768;
+    color: #ffa200;
+    border-radius: 2px 2px 8px 8px;
+    cursor: not-allowed;
+    margin: 1px;
+    text-align: center;
+    width: 22px;
+    height: 18px;
+    float: left;
+}
+.lovehd {
+    background: url(icon-heart.png) center center no-repeat #002768;
+    color: #fff;
+    cursor: pointer;
+    margin: 1px;
+    text-align: center;
+    width: 22px;
+    height: 18px;
+    float: left;
+    border-radius: 2px 2px 8px 8px;
+}
+.selecthd {
+    background: #84c52a;
+    cursor: pointer;
+    color: #fff;
+    width: 22px;
+    height: 18px;
+    float: left;
+    border-radius: 2px 2px 8px 8px;
+}

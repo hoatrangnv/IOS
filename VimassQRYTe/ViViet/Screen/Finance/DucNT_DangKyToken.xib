@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DucNT_DangKyToken">
+            <connections>
+                <outlet property="btnDangKyToken" destination="w4i-HH-qc2" id="VsS-CX-LV4"/>
+                <outlet property="edtMatKhauToken" destination="rhE-ku-quT" id="ZH3-ta-M8s"/>
+                <outlet property="edtMatKhauTokenConfirm" destination="e2Z-kI-o6d" id="nxh-M7-K1j"/>
+                <outlet property="edtSoDienThoai" destination="6Mb-y0-ieH" id="bVU-2i-bT0"/>
+                <outlet property="mtfTenTaiKhoan" destination="e39-3e-Blr" id="mDj-rX-bL6"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="468"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_nen.png" translatesAutoresizingMaskIntoConstraints="NO" id="0MG-BD-L9I">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="468"/>
+                </imageView>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c28-oJ-XDk" customClass="TPKeyboardAvoidAcessory">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="468"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yBY-KC-BOs">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="468"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Số điện thoại" minimumFontSize="17" background="login_txt_bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="6Mb-y0-ieH" customClass="ExTextField">
+                            <rect key="frame" x="20" y="56" width="280" height="40"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="next"/>
+                            <connections>
+                                <action selector="suKienKetThucBanPhim:" destination="-1" eventType="editingDidEndOnExit" id="LGM-iE-ivO"/>
+                            </connections>
+                        </textField>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Mật khẩu Phần mềm token" minimumFontSize="17" background="login_txt_bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="rhE-ku-quT" customClass="ExTextField">
+                            <rect key="frame" x="20" y="104" width="280" height="40"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <textInputTraits key="textInputTraits" returnKeyType="next" secureTextEntry="YES"/>
+                            <connections>
+                                <action selector="suKienKetThucBanPhim:" destination="-1" eventType="editingDidEndOnExit" id="9lD-aT-tTz"/>
+                            </connections>
+                        </textField>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Nhập lại mật khẩu phần mềm token" minimumFontSize="17" background="login_txt_bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="e2Z-kI-o6d" customClass="ExTextField">
+                            <rect key="frame" x="20" y="152" width="280" height="40"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
+                            <connections>
+                                <action selector="suKienKetThucBanPhim:" destination="-1" eventType="editingDidEndOnExit" id="y6S-b4-tpO"/>
+                            </connections>
+                        </textField>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w4i-HH-qc2">
+                            <rect key="frame" x="20" y="212" width="280" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="D5S-kR-I50"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                            <state key="normal" title="ĐĂNG KÝ TOKEN" backgroundImage="bg_button_dangnhap.png">
+                                <color key="titleColor" red="0.0" green="0.2196078431372549" blue="0.32941176470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="suKienDangKyToken:" destination="-1" eventType="touchUpInside" id="ZQN-7n-yjl"/>
+                            </connections>
+                        </button>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Tài khoản: 111111111111111" borderStyle="line" minimumFontSize="17" background="login_txt_bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="e39-3e-Blr" customClass="ExTextField">
+                            <rect key="frame" x="20" y="8" width="280" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="L7p-TF-wgX"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="next"/>
+                            <connections>
+                                <action selector="suKienKetThucBanPhim:" destination="-1" eventType="editingDidEndOnExit" id="X9k-e4-0e8"/>
+                            </connections>
+                        </textField>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="rhE-ku-quT" firstAttribute="top" secondItem="6Mb-y0-ieH" secondAttribute="bottom" constant="8" id="36V-ZM-sxC"/>
+                        <constraint firstAttribute="trailing" secondItem="yBY-KC-BOs" secondAttribute="trailing" id="5sX-BB-xOc"/>
+                        <constraint firstItem="rhE-ku-quT" firstAttribute="height" secondItem="6Mb-y0-ieH" secondAttribute="height" id="6IJ-NX-k5W"/>
+                        <constraint firstItem="e39-3e-Blr" firstAttribute="leading" secondItem="c28-oJ-XDk" secondAttribute="leading" constant="20" id="7ag-gY-2e2"/>
+                        <constraint firstItem="e39-3e-Blr" firstAttribute="top" secondItem="c28-oJ-XDk" secondAttribute="top" constant="8" id="FXU-sz-zXl"/>
+                        <constraint firstItem="yBY-KC-BOs" firstAttribute="width" secondItem="c28-oJ-XDk" secondAttribute="width" id="Kyq-r2-I0R"/>
+                        <constraint firstAttribute="trailing" secondItem="e39-3e-Blr" secondAttribute="trailing" constant="20" id="NPH-3h-34m"/>
+                        <constraint firstItem="6Mb-y0-ieH" firstAttribute="height" secondItem="e39-3e-Blr" secondAttribute="height" id="QI0-W4-grB"/>
+                        <constraint firstItem="6Mb-y0-ieH" firstAttribute="top" secondItem="e39-3e-Blr" secondAttribute="bottom" constant="8" id="Rhx-T0-oDt"/>
+                        <constraint firstAttribute="bottom" secondItem="yBY-KC-BOs" secondAttribute="bottom" id="ZX4-Ku-8Vc"/>
+                        <constraint firstItem="rhE-ku-quT" firstAttribute="leading" secondItem="c28-oJ-XDk" secondAttribute="leading" constant="20" id="a4f-3q-Qcb"/>
+                        <constraint firstAttribute="trailing" secondItem="rhE-ku-quT" secondAttribute="trailing" constant="20" id="biv-2l-aOL"/>
+                        <constraint firstItem="w4i-HH-qc2" firstAttribute="leading" secondItem="c28-oJ-XDk" secondAttribute="leading" constant="20" id="eLf-kY-PAv"/>
+                        <constraint firstItem="6Mb-y0-ieH" firstAttribute="leading" secondItem="c28-oJ-XDk" secondAttribute="leading" constant="20" id="iVp-YF-caU"/>
+                        <constraint firstItem="e2Z-kI-o6d" firstAttribute="top" secondItem="rhE-ku-quT" secondAttribute="bottom" constant="8" id="lQK-Rj-cp3"/>
+                        <constraint firstAttribute="trailing" secondItem="w4i-HH-qc2" secondAttribute="trailing" constant="20" id="lR4-hP-Z0Y"/>
+                        <constraint firstItem="yBY-KC-BOs" firstAttribute="top" secondItem="c28-oJ-XDk" secondAttribute="top" id="o55-D4-N6Y"/>
+                        <constraint firstItem="yBY-KC-BOs" firstAttribute="height" secondItem="c28-oJ-XDk" secondAttribute="height" id="oKy-nx-aih"/>
+                        <constraint firstItem="w4i-HH-qc2" firstAttribute="top" secondItem="e2Z-kI-o6d" secondAttribute="bottom" constant="20" id="sxS-2N-Okq"/>
+                        <constraint firstAttribute="trailing" secondItem="e2Z-kI-o6d" secondAttribute="trailing" constant="20" id="u6M-aC-dGg"/>
+                        <constraint firstAttribute="trailing" secondItem="6Mb-y0-ieH" secondAttribute="trailing" constant="20" id="w3A-cc-nbD"/>
+                        <constraint firstItem="e2Z-kI-o6d" firstAttribute="height" secondItem="e39-3e-Blr" secondAttribute="height" id="wyq-Xo-AcD"/>
+                        <constraint firstItem="yBY-KC-BOs" firstAttribute="leading" secondItem="c28-oJ-XDk" secondAttribute="leading" id="yOS-zO-nDs"/>
+                        <constraint firstItem="e2Z-kI-o6d" firstAttribute="leading" secondItem="c28-oJ-XDk" secondAttribute="leading" constant="20" id="zJI-As-yhp"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="0MG-BD-L9I" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="0Zk-bz-3Ld"/>
+                <constraint firstAttribute="trailing" secondItem="0MG-BD-L9I" secondAttribute="trailing" id="4aX-Ur-HMU"/>
+                <constraint firstAttribute="bottom" secondItem="c28-oJ-XDk" secondAttribute="bottom" id="5Mt-Gu-EXy"/>
+                <constraint firstItem="0MG-BD-L9I" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="DZD-Xu-a8l"/>
+                <constraint firstItem="c28-oJ-XDk" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="WYa-qd-OmF"/>
+                <constraint firstItem="c28-oJ-XDk" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="kKd-0Z-1R5"/>
+                <constraint firstAttribute="bottom" secondItem="0MG-BD-L9I" secondAttribute="bottom" id="p4V-or-rrA"/>
+                <constraint firstAttribute="trailing" secondItem="c28-oJ-XDk" secondAttribute="trailing" id="xZy-BB-FdZ"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-651.20000000000005" y="84.557721139430285"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="bg_button_dangnhap.png" width="552" height="90"/>
+        <image name="bg_nen.png" width="720" height="1280"/>
+        <image name="login_txt_bg.png" width="16" height="16"/>
+    </resources>
+</document>
