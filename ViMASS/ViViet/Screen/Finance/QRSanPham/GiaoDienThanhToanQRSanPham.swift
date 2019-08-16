@@ -339,8 +339,10 @@ extension GiaoDienThanhToanQRSanPham : UITableViewDelegate, UITableViewDataSourc
                     }
                 }
                 let cell = tableView.dequeueReusableCell(withIdentifier: "QRSanPhamTenSPDVCell", for: indexPath) as! QRSanPhamTenSPDVCell
+                cell.lblContent.text = dictSanPham?["maSoThanhToan"] as? String
                 return cell
-            } else {
+            }
+            else {
                 if indexPath.row == 2 {
                     let cell = tableView.dequeueReusableCell(withIdentifier: "QRSanPhamDiaChiCell", for: indexPath) as! QRSanPhamDiaChiCell
                     cell.lblTitle.text = "SP/DV:"
@@ -365,6 +367,7 @@ extension GiaoDienThanhToanQRSanPham : UITableViewDelegate, UITableViewDataSourc
                 else if indexPath.row == 5 {
                     if isExistsDC {
                         let cell = tableView.dequeueReusableCell(withIdentifier: "DonGiaQRCell", for: indexPath) as! DonGiaQRCell
+                        cell.tfGia.removeTarget(self, action: #selector(suKienThayDoiGia(_:)), for: .editingChanged)
                         if let dict = dictSanPham, let numberGia = dict["gia"] as? NSNumber {
                             let dGia = numberGia.doubleValue
                             if dGia > 0 {
@@ -381,6 +384,7 @@ extension GiaoDienThanhToanQRSanPham : UITableViewDelegate, UITableViewDataSourc
                         return cell
                     } else {
                         let cell = tableView.dequeueReusableCell(withIdentifier: "TaoQRNameCell", for: indexPath) as! TaoQRNameCell
+                        cell.tfName.removeTarget(self, action: #selector(suKienThayDoiNoiDung(_:)), for: .editingChanged)
                         cell.tfName.placeholder = "Nội dung (Có thể bỏ qua)"
                         cell.tfName.addTarget(self, action: #selector(suKienThayDoiNoiDung(_:)), for: .editingChanged)
                         return cell
@@ -388,6 +392,7 @@ extension GiaoDienThanhToanQRSanPham : UITableViewDelegate, UITableViewDataSourc
                 }
                 else if indexPath.row == 6 {
                     let cell = tableView.dequeueReusableCell(withIdentifier: "TaoQRNameCell", for: indexPath) as! TaoQRNameCell
+                    cell.tfName.removeTarget(self, action: #selector(suKienThayDoiNoiDung(_:)), for: .editingChanged)
                     cell.tfName.placeholder = "Nội dung (Có thể bỏ qua)"
                     cell.tfName.addTarget(self, action: #selector(suKienThayDoiNoiDung(_:)), for: .editingChanged)
                     return cell

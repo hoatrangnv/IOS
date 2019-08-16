@@ -137,7 +137,7 @@
         cell.btnRemove.tag = indexPath.row;
         [cell.btnRemove setTag:indexPath.row];
         if(money.fromSotay){
-            cell.lbName.text = [CommonUtils isEmptyOrNull:money.contact.firstName] == YES?@"":money.contact.firstName;
+            cell.lbName.text = [CommonUtils isEmptyOrNull:money.contact.firstName] == YES ? @"":money.contact.firstName;
         }
         else{
             cell.lbName.text = [CommonUtils isEmptyOrNull:money.contact.fullName] == YES?money.contact.phone:money.contact.fullName;
@@ -208,6 +208,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return [self.arrPhone count];
 }
+
 - (IBAction)onAddNewPhone:(id)sender {
     ContactScreenMultiSelect *danhBa = [[[ContactScreenMultiSelect alloc] initWithNibName:@"ContactScreenMultiSelect" bundle:nil] autorelease];
     danhBa.mKieuHienThiLienHe = KIEU_HIEN_THI_LIEN_HE_THUONG;
@@ -223,7 +224,7 @@
                 money.money = @"0";
                 [self.arrPhone addObject: money];
             }
-            
+
             dispatch_async(dispatch_get_main_queue(), ^{
                 MoneyContact *footer = [MoneyContact new];
                 footer.money = @"0";

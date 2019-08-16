@@ -68,7 +68,7 @@
     int type = (int)[notification object];
     if(type == 1){
         self.txtOtp.hidden = false;
-        self.btnToken.hidden = false;
+//        self.btnToken.hidden = false;
         self.lbTime.hidden = false;
         self.lbCountTime.hidden = false;
         self.btnThucHien.hidden = false;
@@ -76,7 +76,7 @@
     }
     else{
         self.txtOtp.hidden = false;
-        self.btnToken.hidden = false;
+//        self.btnToken.hidden = false;
         self.lbTime.hidden = true;
         self.lbCountTime.hidden = true;
         self.btnThucHien.hidden = false;
@@ -103,7 +103,7 @@
 -(void)setupView{
     
     if ([self kiemTraCoChucNangQuetVanTay]){
-        self.btnToken.hidden = true;
+//        self.btnToken.hidden = true;
         self.lbTime.hidden = true;
         self.lbCountTime.hidden = true;
         self.btnThucHien.hidden = true;
@@ -112,7 +112,7 @@
 //        [self layoutIfNeeded];
     }
     else{
-        self.btnToken.hidden = false;
+//        self.btnToken.hidden = false;
         self.btnVanTay.hidden = false;
         self.txtOtp.hidden = true;
         self.lbTime.hidden = true;
@@ -124,7 +124,7 @@
     [self.btnToken setSelected:YES];
     [self.btnToken setBackgroundImage:[UIImage imageNamed:@"tokenv"] forState:UIControlStateSelected];
      [self.btnVanTay setSelected:NO];
-    self.btnToken.hidden = false;
+//    self.btnToken.hidden = false;
     [self.delegate doToken];
 }
 

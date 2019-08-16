@@ -49,11 +49,11 @@
     viewTop.placeholder = @"Thêm số điện thoại";
     viewTop.layer.cornerRadius = 5;
     viewTop.keyboardType = UIKeyboardTypePhonePad;
-        [viewTop setBackgroundColor:[UIColor whiteColor]];
-        self.navigationItem.titleView = viewTop;
-        
-        UIBarButtonItem *rightBtn = [[UIBarButtonItem alloc] initWithTitle:@"Xong" style:UIBarButtonItemStyleDone target:self action:@selector(suKienChonAddSDT)];
-        self.navigationItem.rightBarButtonItem = rightBtn;
+    [viewTop setBackgroundColor:[UIColor whiteColor]];
+    self.navigationItem.titleView = viewTop;
+    
+    UIBarButtonItem *rightBtn = [[UIBarButtonItem alloc] initWithTitle:@"Xong" style:UIBarButtonItemStyleDone target:self action:@selector(suKienChonAddSDT)];
+    self.navigationItem.rightBarButtonItem = rightBtn;
 //    }
 
     UITextField *tfSearch = [_searchBar valueForKey:@"_searchField"];

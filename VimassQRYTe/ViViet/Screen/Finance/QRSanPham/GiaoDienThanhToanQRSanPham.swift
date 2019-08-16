@@ -338,6 +338,7 @@ extension GiaoDienThanhToanQRSanPham : UITableViewDelegate, UITableViewDataSourc
                     }
                 }
                 let cell = tableView.dequeueReusableCell(withIdentifier: "QRSanPhamTenSPDVCell", for: indexPath) as! QRSanPhamTenSPDVCell
+                cell.lblContent.text = dictSanPham?["maSoThanhToan"] as? String
                 return cell
             } else {
                 if indexPath.row == 2 {

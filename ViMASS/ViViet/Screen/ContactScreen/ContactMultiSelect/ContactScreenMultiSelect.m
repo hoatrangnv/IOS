@@ -16,13 +16,14 @@
 #import "LocalizationSystem.h"
 #import "CustomNavigationTitleView.h"
 #import "CustomViewSearch.h"
+#import <Contacts/Contacts.h>
 @interface ContactScreenMultiSelect ()<CustomNavigationTitleViewDelegate>
 {
     IBOutlet CustomViewSearch *SearchView;
     CustomNavigationTitleView * titleCustom;
     MBProgressHUD *hud;
 }
-@property (nonatomic, retain) NSArray *mDanhSachLienHe;
+@property (nonatomic, retain) NSMutableArray *mDanhSachLienHe;
 @property (nonatomic, retain) NSArray *firstChars;
 @property (nonatomic, strong) NSMutableArray * multiSelectContact;
 @end
@@ -119,35 +120,137 @@
     [super viewDidLoad];
 //    [self hienThiLoadingLayDanhBa];
     NSLog(@"%s -------------------> START", __FUNCTION__);
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self hienThiLoadingLayDanhBa];
-    });
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//        [self hienThiLoadingLayDanhBa];
+//    });
+    
+    UITextField *tfSearch = [_searchBar valueForKey:@"_searchField"];
+    tfSearch.leftView = nil;
+    
     _multiSelectContact = [[NSMutableArray alloc] init];
     [self khoiTaoBanDau];
-    if (app.global.loadContactSuccess == NO)
-    {
-        self.isLoading = YES;
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(thread_loadContact_success:) name:@"thread_loadContact" object:nil];
+    [self loadDanhBa];
+//    if (app.global.loadContactSuccess == NO)
+//    {
+//        self.isLoading = YES;
+//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(thread_loadContact_success:) name:@"thread_loadContact" object:nil];
+//    }
+//    else
+//    {
+//        NSLog(@"%s - line : %d - loadContactSuccess == YES", __FUNCTION__, __LINE__);
+//        self.isLoading = NO;
+//        if(_mKieuHienThiLienHe == KIEU_HIEN_THI_LIEN_HE_THUONG)
+//        {
+//            self.mDanhSachLienHe = app.global.contacts;
+//        }
+//        else if(_mKieuHienThiLienHe == KIEU_HIEN_THI_LIEN_HE_MUON_TIEN)
+//        {
+//            self.mDanhSachLienHe = app.global.mDanhSachLienHeDaCoVi;
+//        }
+//        NSLog(@"%s - line : %d - self.mDanhSachLienHe.count : %ld", __FUNCTION__, __LINE__, self.mDanhSachLienHe.count);
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            [self anLoading];
+//            [self classifyFromContacts:self.mDanhSachLienHe withKeyword:nil];
+//            [self.tableView reloadData];
+//        });
+//    }
+}
+
+- (void)hienThiLoadingLayDanhBaNew {
+    hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDModeIndeterminate;
+    hud.labelText = [Localization languageSelectedStringForKey:@"dang_lay_danh_ba"];
+}
+
+- (void)anLoadingNew {
+    [hud hideUsingAnimation:YES];
+}
+
+- (void)loadDanhBa {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self hienThiLoadingLayDanhBaNew];
+    });
+    CNAuthorizationStatus status = [CNContactStore authorizationStatusForEntityType:CNEntityTypeContacts];
+    if (status == CNAuthorizationStatusDenied || status == CNAuthorizationStatusDenied) {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"Để lấy danh bạ, vui lòng cho phép ứng dụng được quyền truy cập vào danh bạ của bạn." preferredStyle:UIAlertControllerStyleAlert];
+        
+        [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+        [self presentViewController:alert animated:TRUE completion:nil];
+        return;
     }
-    else
-    {
-        NSLog(@"%s - line : %d - loadContactSuccess == YES", __FUNCTION__, __LINE__);
-        self.isLoading = NO;
-        if(_mKieuHienThiLienHe == KIEU_HIEN_THI_LIEN_HE_THUONG)
-        {
-            self.mDanhSachLienHe = app.global.contacts;
-        }
-        else if(_mKieuHienThiLienHe == KIEU_HIEN_THI_LIEN_HE_MUON_TIEN)
-        {
-            self.mDanhSachLienHe = app.global.mDanhSachLienHeDaCoVi;
-        }
-        NSLog(@"%s - line : %d - self.mDanhSachLienHe.count : %ld", __FUNCTION__, __LINE__, self.mDanhSachLienHe.count);
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self anLoading];
-            [self classifyFromContacts:self.mDanhSachLienHe withKeyword:nil];
-            [self.tableView reloadData];
-        });
-    }
+    
+    
+    __block ContactScreenMultiSelect *weak = self;
+    weak.isLoading = YES;
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        CNContactStore *store = [[CNContactStore alloc] init];
+        [store requestAccessForEntityType:CNEntityTypeContacts completionHandler:^(BOOL granted, NSError * _Nullable error) {
+            if (!granted) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    // user didn't grant access;
+                    // so, again, tell user here why app needs permissions in order  to do it's job;
+                    // this is dispatched to the main queue because this request could be running on background thread
+                });
+                return;
+            }
+            
+            // build array of contacts
+            
+            NSMutableArray *contacts = [NSMutableArray array];
+            
+            NSError *fetchError;
+            CNContactFetchRequest *request = [[CNContactFetchRequest alloc] initWithKeysToFetch:@[CNContactIdentifierKey, [CNContactFormatter descriptorForRequiredKeysForStyle:CNContactFormatterStyleFullName], CNContactPhoneNumbersKey]];
+            
+            BOOL success = [store enumerateContactsWithFetchRequest:request error:&fetchError usingBlock:^(CNContact *contact, BOOL *stop) {
+                [contacts addObject:contact];
+            }];
+            
+            
+            
+            if (!success) {
+                NSLog(@"HomeCenterViewController - %s - fetchError : %@", __FUNCTION__, fetchError);
+                [weak anLoadingNew];
+                weak.isLoading = NO;
+                return;
+            }
+            
+            NSLog(@"HomeCenterViewController - %s - contacts : %ld", __FUNCTION__, (long)contacts.count);
+            
+            // you can now do something with the list of contacts, for example, to show the names
+            
+            CNContactFormatter *formatter = [[CNContactFormatter alloc] init];
+            
+            for (CNContact *contact in contacts) {
+                NSString *sName = [formatter stringFromContact:contact];
+                NSArray <CNLabeledValue<CNPhoneNumber *> *> *phoneNumbers = contact.phoneNumbers;
+                for (CNLabeledValue<CNPhoneNumber *> *firstPhone in phoneNumbers) {
+                    CNPhoneNumber *number = firstPhone.value;
+                    NSString *digits = number.stringValue;
+                    if (digits.length > 0) {
+                        Contact *newContact = [[Contact alloc] initWithPhone:digits
+                                                                   firstName:sName
+                                                                    lastName:@""
+                                                                    recordID:@""];
+                        if (!self.mDanhSachLienHe) {
+                            self.mDanhSachLienHe = [[NSMutableArray alloc] init];
+                        }
+                        [self.mDanhSachLienHe addObject:newContact];
+                    }
+                }
+            }
+            NSLog(@"HomeCenterViewController - %s - self.mDanhSachLienHe : %ld", __FUNCTION__, (long)self.mDanhSachLienHe.count);
+            [weak classifyFromContacts:weak.mDanhSachLienHe withKeyword:nil];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [weak anLoadingNew];
+                [weak->tableView.pullToRefreshView performSelector:@selector(stopAnimating) withObject:nil afterDelay:0];
+                weak.isLoading = NO;
+                [self classifyFromContacts:self.mDanhSachLienHe withKeyword:nil];
+                [self.tableView reloadData];
+                [weak.tableView reloadData];
+                
+            });
+        }];
+    });
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -191,7 +294,7 @@
     btnLeft.imageInsets = UIEdgeInsetsMake(0, -10, 0, 0);
     self.navigationItem.leftBarButtonItem = btnLeft;
     
-    [self addButtonRight];
+//    [self addButtonRight];
     [self initTitleViewNavigationbar];
     SearchView.delegate = self;
 //    [self addButton:@"refresh64" selector:@selector(suKienBamNutRefresh:) atSide:1];
@@ -227,29 +330,52 @@
 }
 
 - (void)initTitleViewNavigationbar {
-    titleCustom = [[CustomNavigationTitleView alloc] initWithFrame:self.navigationController.navigationBar.bounds];
-    titleCustom.delegate = self;
-    self.navigationItem.titleView = titleCustom;
+//    titleCustom = [[CustomNavigationTitleView alloc] initWithFrame:self.navigationController.navigationBar.bounds];
+//    titleCustom.delegate = self;
+//    self.navigationItem.titleView = titleCustom;
+    
+    UITextField *viewTop = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, 250, 40)];
+    viewTop.placeholder = @"Thêm số điện thoại";
+    viewTop.layer.cornerRadius = 5;
+    viewTop.keyboardType = UIKeyboardTypePhonePad;
+    [viewTop setBackgroundColor:[UIColor whiteColor]];
+    self.navigationItem.titleView = viewTop;
+    
+    UIBarButtonItem *rightBtn = [[UIBarButtonItem alloc] initWithTitle:@"Xong" style:UIBarButtonItemStyleDone target:self action:@selector(suKienChonAddSDT)];
+    self.navigationItem.rightBarButtonItem = rightBtn;
 }
+
+- (void)suKienChonAddSDT {
+    UITextField *tfSDT = (UITextField *)self.navigationItem.titleView;
+    if (![tfSDT.text isEmpty]) {
+        Contact *newContact = [[Contact alloc] initWithPhone:tfSDT.text firstName:@"" lastName:@"" recordID:@""];
+        [_multiSelectContact addObject:newContact];
+    }
+    if (_multiSelect)
+    {
+        _multiSelect(_multiSelectContact);
+    }
+}
+
 - (void)addButtonRight {
     UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
     [button setTitle:@"Xong" forState:UIControlStateNormal];
     button.frame = CGRectMake(0, 0, 60, 30);
     button.backgroundColor = [UIColor clearColor];
     [button addTarget:self action:@selector(buttonRightClick) forControlEvents:UIControlEventTouchUpInside];
-    
+
     UIBarButtonItem *rightItem = [[[UIBarButtonItem alloc] initWithCustomView:button] autorelease];
-    
-//    UIBarButtonItem *negativeSeperator = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil] autorelease];
-//
-//    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"11")) {
-//        negativeSeperator.width = -15;
-//        [button.widthAnchor constraintEqualToConstant:30].active = YES;
-//        [button.heightAnchor constraintEqualToConstant:30].active = YES;
-//    }
-//    else
-//        negativeSeperator.width = -10;
-    
+
+    UIBarButtonItem *negativeSeperator = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil] autorelease];
+
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"11")) {
+        negativeSeperator.width = -15;
+        [button.widthAnchor constraintEqualToConstant:30].active = YES;
+        [button.heightAnchor constraintEqualToConstant:30].active = YES;
+    }
+    else
+        negativeSeperator.width = -10;
+
     self.navigationItem.rightBarButtonItems = @[rightItem];
 
 }
@@ -294,9 +420,20 @@
 
 #pragma mark - Search delegate
 
-- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
-{
+//- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+//{
+//    [self classifyFromContacts:self.mDanhSachLienHe withKeyword:[searchText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//        [self.tableView reloadData];
+//    });
+//}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    NSString *searchText = searchBar.text;
     [self classifyFromContacts:self.mDanhSachLienHe withKeyword:[searchText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.tableView reloadData];
+    });
 }
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
