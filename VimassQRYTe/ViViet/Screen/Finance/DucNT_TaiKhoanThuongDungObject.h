@@ -23,6 +23,7 @@
 @property (nonatomic, assign) int nProvinceCode;
 @property (nonatomic, assign) int nProvinceID;
 @property (nonatomic, retain) NSString *sBankName;
+@property (nonatomic, retain) NSString *sBankCode;
 @property (nonatomic, assign) int nBankCode;
 @property (nonatomic, assign) int nBankId;
 @property (nonatomic, assign) int nBranchId;

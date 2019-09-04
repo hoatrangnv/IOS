@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -14,7 +14,7 @@
                 <outlet property="btnSearch" destination="IEh-22-qVc" id="4lw-3I-Ye8"/>
                 <outlet property="edtFromTime" destination="5Ah-pI-Hd1" id="U6v-r7-USq"/>
                 <outlet property="edtToTime" destination="50G-XJ-uil" id="7pS-xy-b3Q"/>
-                <outlet property="lbToTime" destination="ZFO-1Y-cen" id="qDv-rH-oe8"/>
+                <outlet property="lbToTime" destination="ZFO-1Y-cen" id="bTl-AM-b5D"/>
                 <outlet property="lbUserBalance" destination="10g-fa-kM6" id="eiT-rO-1WF"/>
                 <outlet property="lblTitleKhuyenMai" destination="RhS-Jv-trI" id="RAr-9t-MzL"/>
                 <outlet property="lblTitleSoDu" destination="tsb-Lf-lPd" id="4ih-3v-tZe"/>

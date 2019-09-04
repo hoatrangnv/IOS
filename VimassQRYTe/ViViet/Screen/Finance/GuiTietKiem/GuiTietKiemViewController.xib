@@ -349,7 +349,7 @@
                                                 <constraint firstAttribute="width" constant="32" id="Aq0-1N-y4a"/>
                                                 <constraint firstAttribute="height" constant="28" id="WhH-y4-dp0"/>
                                             </constraints>
-                                            <state key="normal" image="iconSoTay.png">
+                                            <state key="normal" image="iconSoTay">
                                                 <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
                                             <connections>
@@ -805,10 +805,10 @@
         <image name="bg_nen.png" width="720" height="1280"/>
         <image name="bg_top.png" width="5" height="84"/>
         <image name="gioithieu64.png" width="10.194690704345703" height="10.194690704345703"/>
-        <image name="iconSoTay.png" width="32" height="28"/>
+        <image name="iconSoTay" width="32" height="28"/>
         <image name="icon_btn_tai_khoan_thuong_dung.png" width="64" height="64"/>
         <image name="icon_vantay_khongmau.png" width="10.800000190734863" height="14.399999618530273"/>
-        <image name="pki" width="225" height="225"/>
+        <image name="pki" width="128" height="128"/>
         <image name="tokenv" width="120" height="120"/>
         <image name="vantay" width="225" height="225"/>
     </resources>

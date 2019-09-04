@@ -15,6 +15,7 @@
     CLLocationManager *locationManager;
     NSMutableArray *arrInfoDiaDiem;
     NSMutableArray *arrDiaDiemQR;
+    NSMutableArray *arrInfoDiaDiemChild;
     int nOption;
     int rowSelectedTinhThanh;
     int offset;
@@ -29,7 +30,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = [@"diem_giao_dich_vnpay" localizableString];
+//    self.navigationItem.title = [@"diem_giao_dich_vnpay" localizableString];
+    if (_nType == 0) {
+        [self addTitleView: [@"diem_giao_dich_vnpay" localizableString]];
+    } else {
+        [self addTitleView: @"Điểm giao dịch QR y tế"];
+    }
     nOption = 0;
     rowSelectedTinhThanh = 0;
     offset = 0;
@@ -130,8 +136,8 @@
     [self timDiaDiem];
 }
 
-- (void)timDiaDiem {
-    ItemInfoDiaDiem *itemGanDay = [arrInfoDiaDiem objectAtIndex:rowSelectedTinhThanh];
+- (void)timDiaDiem:(ItemInfoDiaDiem *)itemGanDay {
+//    ItemInfoDiaDiem *itemGanDay = [arrInfoDiaDiem objectAtIndex:rowSelectedTinhThanh];
     if ([itemGanDay.ten isEqualToString:@"Gần đây"]) {
         itemGanDay.latude = mCurrentLocation.coordinate.latitude;
         itemGanDay.longtude = mCurrentLocation.coordinate.longitude;
@@ -175,6 +181,10 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (tableView == _tableViewChild && rowSelectedTinhThanh >= 0) {
+        ItemInfoDiaDiem *itemParent = [arrInfoDiaDiem objectAtIndex:rowSelectedTinhThanh];
+        return itemParent.dsCon.count;
+    }
     if (nOption == 0) {
         return arrInfoDiaDiem != nil ? arrInfoDiaDiem.count : 0;
     }
@@ -182,6 +192,9 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (tableView == _tableViewChild) {
+        return 50.0;
+    }
     if (nOption == 0) {
         return 50.0;
     }
@@ -189,39 +202,74 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (nOption == 0) {
-        static NSString *cellIdentifier = @"cellIdentifier";
+    if (tableView == _tableViewChild) {
+        static NSString *cellIdentifier = @"cellIdentifierChild";
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
         if(!cell)
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        [cell setBackgroundColor:[UIColor colorWithRed:3.0/255.0 green:132.0/255.0 blue:252.0/255.0 alpha:1]];
         [cell.textLabel setFont:[UIFont systemFontOfSize:17.0f]];
-        ItemInfoDiaDiem *item = [arrInfoDiaDiem objectAtIndex:indexPath.row];
-        cell.textLabel.text = item.ten;
+        [cell.textLabel setTextColor:[UIColor whiteColor]];
+        ItemInfoDiaDiem *itemParent = [arrInfoDiaDiem objectAtIndex:rowSelectedTinhThanh];
+        ItemInfoDiaDiem *itemChild = [itemParent.dsCon objectAtIndex:indexPath.row];
+        cell.textLabel.text = itemChild.ten;
         return cell;
     } else {
-        VNPAYDienDiemCell *cell = (VNPAYDienDiemCell *)[tableView dequeueReusableCellWithIdentifier:@"VNPAYDienDiemCell" forIndexPath:indexPath];
-        NSDictionary *item = [arrDiaDiemQR objectAtIndex:indexPath.row];
-        cell.lblTitle.text = [item valueForKey:@"diemGiaoDich"];
-        cell.lblDiaChi.text = [item valueForKey:@"diaChi"];
-        cell.lblKhoangCach.text = [NSString stringWithFormat:@"%.2f km", [[item valueForKey:@"distance"] doubleValue]];
-        return cell;
+        if (nOption == 0) {
+            static NSString *cellIdentifier = @"cellIdentifier";
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+            if(!cell)
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+            [cell.textLabel setFont:[UIFont systemFontOfSize:17.0f]];
+            ItemInfoDiaDiem *item = [arrInfoDiaDiem objectAtIndex:indexPath.row];
+            cell.textLabel.text = item.ten;
+            return cell;
+        } else {
+            VNPAYDienDiemCell *cell = (VNPAYDienDiemCell *)[tableView dequeueReusableCellWithIdentifier:@"VNPAYDienDiemCell" forIndexPath:indexPath];
+            NSDictionary *item = [arrDiaDiemQR objectAtIndex:indexPath.row];
+            cell.lblTitle.text = [item valueForKey:@"diemGiaoDich"];
+            cell.lblDiaChi.text = [item valueForKey:@"diaChi"];
+            cell.lblKhoangCach.text = [NSString stringWithFormat:@"%.2f km", [[item valueForKey:@"distance"] doubleValue]];
+            return cell;
+        }
     }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (nOption == 0) {
+    if (tableView == _tableViewChild) {
         nOption = 1;
-        [tableView reloadData];
-        rowSelectedTinhThanh = (int)indexPath.row;
         [arrDiaDiemQR removeAllObjects];
-        [self timDiaDiem];
+        [_tableViewChild setHidden:YES];
+        ItemInfoDiaDiem *itemParent = [arrInfoDiaDiem objectAtIndex:rowSelectedTinhThanh];
+        ItemInfoDiaDiem *itemChild = [itemParent.dsCon objectAtIndex:indexPath.row];
+        [self timDiaDiem:itemChild];
+    } else {
+        if (nOption == 0) {
+            rowSelectedTinhThanh = (int)indexPath.row;
+            ItemInfoDiaDiem *item = [arrInfoDiaDiem objectAtIndex:rowSelectedTinhThanh];
+            if (item.dsCon.count > 0) {
+                [_tableViewChild setHidden:NO];
+                [_tableViewChild reloadData];
+            } else {
+                [_tableViewChild setHidden:YES];
+                nOption = 1;
+                [tableView reloadData];
+                [arrDiaDiemQR removeAllObjects];
+                [self timDiaDiem:item];
+            }
+        }
     }
+}
+
+- (void)xuLyQuanHuyenHaNoi {
+    
 }
 
 - (void)dealloc {
     [_tableView release];
     [_tfKhoangCach release];
     [_lblTitle release];
+    [_tableViewChild release];
     [super dealloc];
 }
 

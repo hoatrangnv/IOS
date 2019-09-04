@@ -11,9 +11,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface GiaoDienDiemThanhToanVNPAY : GiaoDichViewController
 
+
 @property (retain, nonatomic) IBOutlet UILabel *lblTitle;
 @property (retain, nonatomic) IBOutlet UITableView *tableView;
+@property (retain, nonatomic) IBOutlet UITableView *tableViewChild;
 @property (retain, nonatomic) IBOutlet UITextField *tfKhoangCach;
+
+@property (nonatomic, assign) int nType;
+
 - (IBAction)suKienChonTimDiaDiem:(id)sender;
 
 @end

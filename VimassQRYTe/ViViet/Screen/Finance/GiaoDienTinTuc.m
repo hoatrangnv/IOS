@@ -74,9 +74,10 @@
 }
 
 - (IBAction)suKienChonBack:(id)sender {
-    if (self.delegate) {
-        [self.delegate suKienChonBackTinTuc];
-    }
+//    if (self.delegate) {
+//        [self.delegate suKienChonBackTinTuc];
+//    }
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction)suKienChonVietNam:(id)sender {

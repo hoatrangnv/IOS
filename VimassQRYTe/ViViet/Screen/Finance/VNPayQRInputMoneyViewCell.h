@@ -13,7 +13,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (retain, nonatomic) IBOutlet UITextField *tfSoTien;
 @property (retain, nonatomic) IBOutlet UILabel *lblPhi;
+@property (nonatomic, assign) BOOL isQRNganHang;
 - (void)setIsNhapTien:(BOOL)isNhap;
+- (IBAction)suKienThayDoiSoTien:(id)sender;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -57,6 +57,7 @@
 #import "ViVimass-Swift.h"
 #import "QRDonViViewController.h"
 #import <Contacts/Contacts.h>
+#import "GiaoDienTinTuc.h"
 @interface HomeCenterViewController ()<UIActionSheetDelegate, QRCodeReaderDelegate,RowSelectDelegate,ViewNavigationGiaoDienChinhDelegate>{
     ViewNavigationGiaoDienChinh *mViewNavigationGiaoDienChinh;
     NSString *keyPin;
@@ -84,6 +85,9 @@
     app = (AppDelegate*)[UIApplication sharedApplication].delegate;
     keyPin = @"111111";
     
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.btnQuetQR.layer.cornerRadius = self.btnQuetQR.frame.size.height / 2;
+    });
 //    [self fetchContacts];
 }
 
@@ -151,6 +155,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = NO;
     self.navigationController.navigationBar.tintColor = UIColor.whiteColor;
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
 }
@@ -220,10 +225,16 @@
     [imgAvatar addGestureRecognizer:tapRightBtn];
     
     UIBarButtonItem *btnRight = [[UIBarButtonItem alloc] initWithCustomView:imgAvatar];
-    self.navigationItem.rightBarButtonItem = btnRight;
+    
+    UIBarButtonItem *btnQuestion = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ic_question_32"] style:UIBarButtonItemStyleDone target:self action:@selector(suKienCHonQuestion)];
+    self.navigationItem.rightBarButtonItems = @[btnRight, btnQuestion];
     
     [self.navigationItem.rightBarButtonItem.customView.widthAnchor constraintEqualToConstant:40].active = YES;
     [self.navigationItem.rightBarButtonItem.customView.heightAnchor constraintEqualToConstant:40].active = YES;
+}
+
+- (void)suKienCHonQuestion {
+    [self onNext:nil];
 }
 
 - (IBAction)suKienBamNutMore:(UITapGestureRecognizer *)sender
@@ -320,7 +331,18 @@
         [notificationBtn addSubview:badgeLbl];
     }
     UIBarButtonItem *notificationBarBtn = [[UIBarButtonItem alloc]initWithCustomView:notificationBtn];
-    self.navigationItem.leftBarButtonItem = notificationBarBtn;
+    
+
+    UIBarButtonItem *btnCuc = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"icon_cuc_yte"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStyleDone target:self action:@selector(suKienChonCuc)];
+
+    self.navigationItem.leftBarButtonItems = @[notificationBarBtn, btnCuc];
+}
+
+- (void)suKienChonCuc {
+    GiaoDienTinTuc *vc = [[GiaoDienTinTuc alloc] initWithNibName:@"GiaoDienTinTuc" bundle:nil];
+    self.navigationController.navigationBarHidden = YES;
+    [self.navigationController pushViewController:vc animated:YES];
+    [vc release];
 }
 
 - (void)onClickAction:(UIButton *)sender {
@@ -347,6 +369,7 @@
     [_btnQR release];
     [_lblNganHang release];
     [_lblHoaDon release];
+    [_btnQuetQR release];
     [super dealloc];
 }
 
@@ -357,25 +380,29 @@
 }
 
 - (IBAction)suKienChonQRYTe:(id)sender {
-    DanhSachQRYTeViewController *vc = [[DanhSachQRYTeViewController alloc] initWithNibName:@"DanhSachQRYTeViewController" bundle:nil];
+    GiaoDienQRYTeViewController *vc = [[GiaoDienQRYTeViewController alloc] initWithNibName:@"GiaoDienQRYTeViewController" bundle:nil];
+//    DanhSachQRYTeViewController *vc = [[DanhSachQRYTeViewController alloc] initWithNibName:@"DanhSachQRYTeViewController" bundle:nil];
     [self.navigationController pushViewController:vc animated:YES];
     [vc release];
-//    TaoQRYTeViewController * vc = [[TaoQRYTeViewController alloc] initWithNibName:@"TaoQRYTeViewController" bundle:nil];
+}
+
+- (IBAction)suKienChonVNPay:(id)sender {
+    GiaoDienTraCuQRViewController *vc = [[GiaoDienTraCuQRViewController alloc] initWithNibName:@"GiaoDienTraCuQRViewController" bundle:nil];
+    [self.navigationController pushViewController:vc animated:YES];
+    [vc release];
+//    GiaoDienDiemThanhToanVNPAY *vc = [[GiaoDienDiemThanhToanVNPAY alloc] initWithNibName:@"GiaoDienDiemThanhToanVNPAY" bundle:nil];
 //    [self.navigationController pushViewController:vc animated:YES];
 //    [vc release];
 }
 
-- (IBAction)suKienChonVNPay:(id)sender {
-    GiaoDienDiemThanhToanVNPAY *vc = [[GiaoDienDiemThanhToanVNPAY alloc] initWithNibName:@"GiaoDienDiemThanhToanVNPAY" bundle:nil];
+- (IBAction)suKienChonGiaoDich:(id)sender {
+    GiaoDienViVimass *vc = [[GiaoDienViVimass alloc] initWithNibName:@"GiaoDienViVimass" bundle:nil];
     [self.navigationController pushViewController:vc animated:YES];
     [vc release];
-}
-
-- (IBAction)suKienChonGiaoDich:(id)sender {
-    DucNT_SaoKeViewController *saoKeViewController = [[DucNT_SaoKeViewController alloc] initWithNibName:@"DucNT_SaoKeViewController" bundle:nil];
-    saoKeViewController.nTrangThaiXem = SAO_KE_VI;
-    [self.navigationController pushViewController:saoKeViewController animated:YES];
-    [saoKeViewController release];
+//    DucNT_SaoKeViewController *saoKeViewController = [[DucNT_SaoKeViewController alloc] initWithNibName:@"DucNT_SaoKeViewController" bundle:nil];
+//    saoKeViewController.nTrangThaiXem = SAO_KE_VI;
+//    [self.navigationController pushViewController:saoKeViewController animated:YES];
+//    [saoKeViewController release];
 }
 
 - (IBAction)suKienChonQuetQR:(id)sender {
@@ -404,6 +431,12 @@
     DucNT_ChangPrivateInformationViewController *thayDoiThongTinCaNhan = [[DucNT_ChangPrivateInformationViewController alloc] initWithNibName:@"DucNT_ChangPrivateInformationViewController" bundle:nil];
     [self.navigationController pushViewController:thayDoiThongTinCaNhan animated:YES];
     [thayDoiThongTinCaNhan release];
+}
+
+- (IBAction)suKienChonTheVID:(id)sender {
+    GiaoDienTheVIDViewController *vc = [[GiaoDienTheVIDViewController alloc] initWithNibName:@"GiaoDienTheVIDViewController" bundle:nil];
+    [self.navigationController pushViewController:vc animated:YES];
+    [vc release];
 }
 
 - (IBAction)onNext:(id)sender {
@@ -466,7 +499,7 @@
 - (void)reader:(QRSearchViewController *)reader didScanResult:(NSString *)result
 {
     [reader stopScanning];
-    NSLog(@"HomeCenterViewController - %s - -->result : %@", __FUNCTION__, result);
+    NSLog(@"HomeCenterViewController - %s - line : %d- -->result : %@", __FUNCTION__, __LINE__, result);
     [reader dismissViewControllerAnimated:YES completion:^{
         
         if (result.length > 0) {
@@ -508,7 +541,7 @@
                         //                        [vc release];
                     }
                     else {
-                        //NSLog(@"%s - -->queryQRCode : %@", __FUNCTION__, queryQRCode);
+                        NSLog(@"%s - line : %d ->queryQRCode : %@", __FUNCTION__, __LINE__, queryQRCode);
                         NSArray *arrQuery = [queryQRCode componentsSeparatedByString:@"="];
                         if (arrQuery.count == 2) {
                             NSString *idQRCode = [arrQuery lastObject];

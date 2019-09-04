@@ -14,6 +14,7 @@
             <connections>
                 <outlet property="lblTitle" destination="LYL-ig-5lP" id="rhT-gU-c2U"/>
                 <outlet property="tableView" destination="AdY-JI-T8T" id="Jlm-Zk-D3R"/>
+                <outlet property="tableViewChild" destination="g6u-Fh-ijA" id="kne-Mj-dzt"/>
                 <outlet property="tfKhoangCach" destination="X4M-S4-mB1" id="NkM-sG-493"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -100,19 +101,34 @@
                         <constraint firstItem="LYL-ig-5lP" firstAttribute="top" secondItem="KYm-9H-P1J" secondAttribute="top" id="xeb-jd-0rZ"/>
                     </constraints>
                 </view>
+                <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="g6u-Fh-ijA">
+                    <rect key="frame" x="155" y="141" width="220" height="671"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="220" id="EEM-lJ-Dd6"/>
+                    </constraints>
+                    <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="hq3-oy-tyj"/>
+                        <outlet property="delegate" destination="-1" id="R4W-UZ-lUM"/>
+                    </connections>
+                </tableView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="AdY-JI-T8T" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="6Fs-eI-pJp"/>
                 <constraint firstItem="AdY-JI-T8T" firstAttribute="top" secondItem="KYm-9H-P1J" secondAttribute="bottom" constant="3" id="9xU-MM-14j"/>
                 <constraint firstItem="AdY-JI-T8T" firstAttribute="bottom" secondItem="Q5M-cg-NOt" secondAttribute="bottom" id="Fk6-Jz-FwO"/>
+                <constraint firstAttribute="bottom" secondItem="g6u-Fh-ijA" secondAttribute="bottom" id="i0o-Qs-vHM"/>
                 <constraint firstItem="KYm-9H-P1J" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="iP0-0X-Ct1"/>
                 <constraint firstItem="KYm-9H-P1J" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="lae-oc-Ysi"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="KYm-9H-P1J" secondAttribute="trailing" id="thn-hA-TMP"/>
                 <constraint firstAttribute="trailing" secondItem="AdY-JI-T8T" secondAttribute="trailing" id="vIU-Fc-VwV"/>
+                <constraint firstItem="g6u-Fh-ijA" firstAttribute="top" secondItem="KYm-9H-P1J" secondAttribute="bottom" constant="53" id="w6b-Ah-dfx"/>
+                <constraint firstItem="g6u-Fh-ijA" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="x7o-fA-PI8"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
-            <point key="canvasLocation" x="-60" y="148"/>
+            <point key="canvasLocation" x="-60" y="147.78325123152709"/>
         </view>
     </objects>
 </document>

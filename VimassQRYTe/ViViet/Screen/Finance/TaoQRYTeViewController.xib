@@ -35,7 +35,10 @@
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2NX-2h-zNY">
                                     <rect key="frame" x="0.0" y="0.0" width="196.5" height="44"/>
                                     <inset key="titleEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                    <state key="normal" title="Danh sách QR Y tế" image="icon_search"/>
+                                    <state key="normal" title="Danh sách QR Y tế"/>
+                                    <connections>
+                                        <action selector="suKienChonDanhSachQRYTe:" destination="-1" eventType="touchUpInside" id="rgT-qX-QuA"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ct-3c-ghk">
                                     <rect key="frame" x="201.5" y="0.0" width="196.5" height="44"/>
@@ -74,6 +77,5 @@
     </objects>
     <resources>
         <image name="deldv" width="22" height="22"/>
-        <image name="icon_search" width="22" height="22"/>
     </resources>
 </document>

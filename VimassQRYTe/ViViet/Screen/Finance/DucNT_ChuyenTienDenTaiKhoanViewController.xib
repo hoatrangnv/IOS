@@ -155,7 +155,7 @@
                                                         <constraint firstAttribute="width" constant="32" id="hg0-1n-jia"/>
                                                         <constraint firstAttribute="height" constant="28" id="xpR-VN-DaK"/>
                                                     </constraints>
-                                                    <state key="normal" image="iconSoTay.png">
+                                                    <state key="normal" image="iconSoTay">
                                                         <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                     <connections>
@@ -379,7 +379,7 @@
                         <constraint firstAttribute="width" constant="32" id="aCp-SU-qj3"/>
                         <constraint firstAttribute="height" constant="28" id="ak8-OX-vuD"/>
                     </constraints>
-                    <state key="normal" image="iconSoTay.png">
+                    <state key="normal" image="iconSoTay">
                         <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                 </button>
@@ -631,7 +631,7 @@
     <resources>
         <image name="bg_nen.png" width="720" height="1280"/>
         <image name="ic_save_acc.png" width="64" height="64"/>
-        <image name="iconSoTay.png" width="32" height="28"/>
+        <image name="iconSoTay" width="32" height="28"/>
         <image name="pki" width="128" height="128"/>
         <image name="tab-cat1.png" width="688" height="80"/>
         <image name="tokenv" width="120" height="120"/>

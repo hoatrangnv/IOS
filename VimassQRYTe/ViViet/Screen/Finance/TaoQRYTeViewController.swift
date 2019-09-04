@@ -83,10 +83,10 @@ class TaoQRYTeViewController: GiaoDichViewController {
     }
     
     override func xuLyKetNoiThanhCong(_ sDinhDanhKetNoi: String!, thongBao sThongBao: String!, ketQua: Any!) {
-        debugPrint("\(TAG) - \(#function) - line : \(#line) - sDinhDanhKetNoi : \(String(describing: sDinhDanhKetNoi))")
         if sDinhDanhKetNoi == "KET_NOI_LAY_SAN_PHAM_QR" {
             if let dict = ketQua as? [String:Any] {
                 dictGiaoDich = dict
+                debugPrint("\(TAG) - \(#function) - line : \(#line) - ketQua : \(dictGiaoDich.description)")
                 if var sImage = dictGiaoDich["image"] as? String {
                     sImage = sImage.replacingOccurrences(of: "[", with: "")
                     sImage = sImage.replacingOccurrences(of: "]", with: "")
@@ -121,7 +121,7 @@ class TaoQRYTeViewController: GiaoDichViewController {
                     
                 }
                 
-                if let maNganHang = dict["maNganHang"] as? String {
+                if let maNganHang = dictGiaoDich["maNganHang"] as? String {
                     if let path = Bundle.main.path(forResource: "getBanks", ofType: "txt") {
                         do {
                             let sContent = try String(contentsOfFile: path, encoding: String.Encoding.utf8)
@@ -299,11 +299,10 @@ class TaoQRYTeViewController: GiaoDichViewController {
         dictGiaoDich["hienThiChiTietThongTinNguoiNhan"] = "name;cmnd;sdt;email;makh;diachi"
         dictGiaoDich["dsThongTinNguoiDatHang"] = "namend;cmndnd;sdtnd;emailnd;diachind"
         dictGiaoDich["VMApp"] = NSNumber(value: 2)
-        dictGiaoDich["qrYTe"] = NSNumber(value: 1)
+        dictGiaoDich["qrYTe"] = 1
         dictGiaoDich["chiNhanh"] = ""
-        
         dictGiaoDich["soTheNhanThanhToan"] = ""
-        dictGiaoDich["soTheNhanThanhToan"] = "idViVimassNhanThanhToan"
+        dictGiaoDich["idViVimassNhanThanhToan"] = ""
         
         var sThongTin = dictGiaoDich["thongBaoSauKhiNhanTien"] as? String
         if sThongTin == nil {
@@ -349,12 +348,17 @@ class TaoQRYTeViewController: GiaoDichViewController {
         dict["dsThongTinNguoiDatHang"] = "namend;cmndnd;sdtnd;emailnd;diachind"
         dict["VMApp"] = NSNumber(value: 2)
         dict["diaChi1"] = dictGiaoDich["diaChi1"]
-        dict["diaChi2"] = dictGiaoDich["diaChi1"]
+        dict["diaChi2"] = dictGiaoDich["diaChi2"]
         dict["image"] = dictGiaoDich["image"]
         dict["ten"] = dictGiaoDich["ten"]
         dict["gia"] = dictGiaoDich["gia"]
         dict["noiDung"] = dictGiaoDich["noiDung"]
         dict["thongBaoSauKhiNhanTien"] = dictGiaoDich["thongBaoSauKhiNhanTien"]
+        dict["maNganHang"] = dictGiaoDich["maNganHang"]
+        dict["tenChuTaiKhoan"] = dictGiaoDich["tenChuTaiKhoan"]
+        dict["chiNhanh"] = dictGiaoDich["chiNhanh"]
+        dict["soTaiKhoan"] = dictGiaoDich["soTaiKhoan"]
+        dict["qrYTe"] = 1
         var sPhone = ""
         for item in arrPhone {
             sPhone.append("\(item.0)#\(item.1),")
@@ -438,7 +442,6 @@ class TaoQRYTeViewController: GiaoDichViewController {
         debugPrint("\(TAG) - \(#function) - line : \(#line) - sURL : \(sURL)")
         if let json = dict.jsonStringRepresentation {
             debugPrint("\(TAG) - \(#function) - line : \(#line) - json : \(json)")
-            
             let urlRequest = NSMutableURLRequest(url: URL(string: sURL)!)
             urlRequest.timeoutInterval = 90.0
             urlRequest.httpMethod = "POST"
@@ -646,6 +649,9 @@ class TaoQRYTeViewController: GiaoDichViewController {
         }
     }
     
+    @IBAction func suKienChonDanhSachQRYTe(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
     /*
     // MARK: - Navigation
 

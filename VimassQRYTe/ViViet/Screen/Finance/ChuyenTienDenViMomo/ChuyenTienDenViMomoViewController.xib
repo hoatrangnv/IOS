@@ -206,7 +206,7 @@
                                         <constraint firstAttribute="height" constant="28" id="eDG-hq-Skg"/>
                                         <constraint firstAttribute="width" constant="32" id="zhN-xt-ffW"/>
                                     </constraints>
-                                    <state key="normal" image="iconSoTay.png">
+                                    <state key="normal" image="iconSoTay">
                                         <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </state>
                                     <connections>
@@ -323,9 +323,9 @@
     </objects>
     <resources>
         <image name="bg_nen.png" width="720" height="1280"/>
-        <image name="iconSoTay.png" width="32" height="28"/>
+        <image name="iconSoTay" width="32" height="28"/>
         <image name="icon_trans_money_add.png" width="64" height="64"/>
-        <image name="pki" width="225" height="225"/>
+        <image name="pki" width="128" height="128"/>
         <image name="tokenv" width="120" height="120"/>
         <image name="vantay" width="225" height="225"/>
     </resources>

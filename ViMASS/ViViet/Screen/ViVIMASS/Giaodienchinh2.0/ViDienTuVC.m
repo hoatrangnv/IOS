@@ -27,6 +27,7 @@
                          @{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_wallet_to_momo"], @"image":@"momo"},
                           @{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_wallet_to_nganluong"], @"image":@"nganluong"},
                           @{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_wallet_to_payoo"], @"image":@"payoo"},
+                         @{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_wallet_to_viettel_pay"], @"image":@"viettel"},
                           @{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_wallet_to_vimo"], @"image":@"vimo"},
                          @{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_wallet_to_viviet"], @"image":@"viviet"},
                           @{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_wallet_to_vnpt_pay"], @"image":@"vnpt"},

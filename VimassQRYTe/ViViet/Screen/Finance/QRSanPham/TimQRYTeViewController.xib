@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TimQRYTeViewController" customModule="ViVimass" customModuleProvider="target">
+            <connections>
+                <outlet property="edTenCoSo" destination="Lfd-nr-Wjn" id="6hr-sk-edz"/>
+                <outlet property="edTenKH" destination="tzz-bw-MHG" id="CEY-aQ-m4Z"/>
+                <outlet property="heightOptions" destination="ykj-ZE-Mj4" id="uiJ-TW-LoN"/>
+                <outlet property="tableView" destination="5Bg-Vd-zzb" id="WUH-t6-d7X"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tên cơ sở y tế" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lfd-nr-Wjn" customClass="ExTextField">
+                    <rect key="frame" x="8" y="52" width="398" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="yxr-rV-1YP"/>
+                    </constraints>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tên khách hàng" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tzz-bw-MHG" customClass="ExTextField">
+                    <rect key="frame" x="8" y="100" width="398" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="2Ch-mj-eF2"/>
+                    </constraints>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3eP-Wt-FO3">
+                    <rect key="frame" x="8" y="148" width="398" height="40"/>
+                    <color key="backgroundColor" red="0.0039215686269999999" green="0.31372549020000001" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="bwq-vs-BjW"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                    <state key="normal" title="Tra cứu">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="3"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="suKienChonTraCuu:" destination="-1" eventType="touchUpInside" id="ZZs-rs-VDR"/>
+                    </connections>
+                </button>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5Bg-Vd-zzb">
+                    <rect key="frame" x="8" y="100" width="398" height="200"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="200" id="ykj-ZE-Mj4"/>
+                    </constraints>
+                    <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="40W-uJ-Snc"/>
+                        <outlet property="delegate" destination="-1" id="qm5-pu-4Sw"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="3eP-Wt-FO3" firstAttribute="width" secondItem="Lfd-nr-Wjn" secondAttribute="width" id="2iR-1Q-wLr"/>
+                <constraint firstItem="Lfd-nr-Wjn" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="DKr-4R-Lh6"/>
+                <constraint firstItem="3eP-Wt-FO3" firstAttribute="top" secondItem="tzz-bw-MHG" secondAttribute="bottom" constant="8" id="GWu-CB-vuL"/>
+                <constraint firstItem="5Bg-Vd-zzb" firstAttribute="top" secondItem="Lfd-nr-Wjn" secondAttribute="bottom" constant="8" id="LX8-66-WIH"/>
+                <constraint firstItem="3eP-Wt-FO3" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Sbb-By-EdS"/>
+                <constraint firstItem="Lfd-nr-Wjn" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="8" id="hMj-14-lrz"/>
+                <constraint firstItem="5Bg-Vd-zzb" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="kDo-NW-7Ui"/>
+                <constraint firstItem="tzz-bw-MHG" firstAttribute="width" secondItem="Lfd-nr-Wjn" secondAttribute="width" id="qUm-we-E1g"/>
+                <constraint firstItem="tzz-bw-MHG" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="uhD-Et-k9l"/>
+                <constraint firstItem="tzz-bw-MHG" firstAttribute="top" secondItem="Lfd-nr-Wjn" secondAttribute="bottom" constant="8" id="wSj-H3-IyZ"/>
+                <constraint firstItem="5Bg-Vd-zzb" firstAttribute="width" secondItem="Lfd-nr-Wjn" secondAttribute="width" id="xJi-JD-54j"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Lfd-nr-Wjn" secondAttribute="trailing" constant="8" id="z9n-fx-sgU"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="137.68115942028987" y="152.67857142857142"/>
+        </view>
+    </objects>
+</document>

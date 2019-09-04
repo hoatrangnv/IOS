@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -70,7 +70,7 @@
                                         <constraint firstAttribute="width" constant="32" id="MpA-b0-qXg"/>
                                         <constraint firstAttribute="height" constant="28" id="ggO-kr-acR"/>
                                     </constraints>
-                                    <state key="normal" image="iconSoTay.png">
+                                    <state key="normal" image="iconSoTay">
                                         <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </state>
                                     <connections>
@@ -141,25 +141,25 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="9ep-EC-stj">
                                                     <rect key="frame" x="64" y="23" width="182" height="52"/>
                                                     <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="coH-Em-gIr">
-                                                            <rect key="frame" x="0.0" y="0.0" width="54" height="52"/>
-                                                            <state key="normal" image="pki"/>
-                                                            <connections>
-                                                                <action selector="suKienBamNutPKI:" destination="-1" eventType="touchUpInside" id="UUF-Ja-ltC"/>
-                                                            </connections>
-                                                        </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jy5-ap-Ob0">
-                                                            <rect key="frame" x="64" y="0.0" width="54" height="52"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="54" height="52"/>
                                                             <state key="normal" image="token"/>
                                                             <connections>
                                                                 <action selector="suKienBamNutToken:" destination="-1" eventType="touchUpInside" id="Y40-Jb-QJT"/>
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P0U-6U-tcC">
-                                                            <rect key="frame" x="128" y="0.0" width="54" height="52"/>
+                                                            <rect key="frame" x="64" y="0.0" width="54" height="52"/>
                                                             <state key="normal" image="finger"/>
                                                             <connections>
                                                                 <action selector="suKienBamNutMatKhauVanTay:" destination="-1" eventType="touchUpInside" id="XBQ-a4-fMJ"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="coH-Em-gIr">
+                                                            <rect key="frame" x="128" y="0.0" width="54" height="52"/>
+                                                            <state key="normal" image="pki"/>
+                                                            <connections>
+                                                                <action selector="suKienBamNutPKI:" destination="-1" eventType="touchUpInside" id="UUF-Ja-ltC"/>
                                                             </connections>
                                                         </button>
                                                     </subviews>
@@ -297,8 +297,8 @@
     <resources>
         <image name="bg_nen.png" width="720" height="1280"/>
         <image name="finger" width="225" height="225"/>
-        <image name="iconSoTay.png" width="32" height="28"/>
-        <image name="pki" width="225" height="225"/>
+        <image name="iconSoTay" width="32" height="28"/>
+        <image name="pki" width="128" height="128"/>
         <image name="token" width="225" height="225"/>
     </resources>
 </document>

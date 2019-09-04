@@ -342,6 +342,11 @@ static int const KIEU_KET_NOI_GOOGLE = 2;
     }
 }
 
+- (IBAction)suKienChonDieuKhoanSuDung:(id)sender {
+    UIApplication *application = [UIApplication sharedApplication];
+    [application openURL:[NSURL URLWithString:@"https://vimass.vn/vidientu/dieu-khoan-su-dung.html"] options:@{} completionHandler:nil];
+}
+
 
 - (void)hienThiThongBaoDienMatKhau
 {

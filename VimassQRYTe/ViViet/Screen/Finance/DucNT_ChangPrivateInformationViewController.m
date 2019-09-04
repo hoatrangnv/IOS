@@ -385,33 +385,6 @@ const int DINH_DANH_THONG_BAO_THANH_CONG = 100;
     
 }
 
-//- (void)khoiTaoGiaoDienChuyenTien
-//{
-//    //Kiem tra co 1 trong 3 loai xac thuc token, sms, email
-//    //Xac thuc = dien thoai
-//    self.mPhoneAuthenticate = [DucNT_LuuRMS layThongTinDangNhap:KEY_PHONE_AUTHENTICATE];
-//    //Xac thuc = token
-//    self.mIsToken = [[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_TRANG_THAI_CO_TOKEN] intValue];
-//    //Xac thuc = email
-//    self.mEmailAuthenticate = [DucNT_LuuRMS layThongTinDangNhap:KEY_EMAIL_AUTHENTICATE];
-//
-//    [self.mbtnXacThucBoiToken setTitle:@"TOKEN" forState:UIControlStateNormal];
-//    [self.mbtnXacThucBoiToken setBackgroundImage:[UIImage imageNamed:@"bg-nuttrang"] forState:UIControlStateNormal];
-//    [self.mbtnXacThucBoiSMS setTitle:@"SMS" forState:UIControlStateNormal];
-//    [self.mbtnXacThucBoiSMS setBackgroundImage:[UIImage imageNamed:@"bg-nuttrang"] forState:UIControlStateNormal];
-//    [self.mbtnXacThucBoiEmail setTitle:@"EMAIL" forState:UIControlStateNormal];
-//    [self.mbtnXacThucBoiEmail setBackgroundImage:[UIImage imageNamed:@"bg-nuttrang"] forState:UIControlStateNormal];
-//
-//    self.mbtnXacThucBoiSMS.selected = NO;
-//    self.mbtnXacThucBoiToken.selected = NO;
-//    self.mbtnXacThucBoiEmail.selected = NO;
-//
-//    if(_mIsToken > 0)
-//    {
-//        [self suKienBamNutToken:self.mbtnXacThucBoiToken];
-//    }
-//}
-
 - (void)hideViewNhapToken {
     
 }
@@ -527,6 +500,7 @@ const int DINH_DANH_THONG_BAO_THANH_CONG = 100;
         bankRutTien.sCardTypeName = [dicTemp objectForKey:@"cardTypeName"];
         for (Banks *temp in arrBank) {
             if ([temp.bank_id intValue] == bankRutTien.nBankId) {
+                bankRutTien.sBankCode = temp.bank_sms;
                 self.edBank.text = temp.bank_name;
                 break;
             }
@@ -561,6 +535,7 @@ const int DINH_DANH_THONG_BAO_THANH_CONG = 100;
     }
     [self hienThiHinhAnhTuServer];
 }
+
 -(NSString*)dsNhanThongBao{
     NSMutableString *strFormat = [NSMutableString string];
     [strFormat appendString:@""];
@@ -627,25 +602,28 @@ const int DINH_DANH_THONG_BAO_THANH_CONG = 100;
 
 - (void)xuLySuKienXacThucVanTayThanhCong
 {
-    if([edtThuDienTu validate])
-    {
-        mTypeAuthenticate = TYPE_AUTHENTICATE_TOKEN;
-        mXacThucVanTay = YES;
-        nSoAnhDaUp = 0;
-        if (bTrangThaiCoAnhDaiDienMoi) {
-            NSLog(@"%s ++++++++++> bTrangThaiCoAnhDaiDienMoi = YES", __FUNCTION__);
-        }
-        [self khoiTaoDanhSachAnhUpLoad];
-        NSLog(@"%s - dsAnhCanUp.length : %ld", __FUNCTION__, (unsigned long)dsAnhCanUp.count);
-        if(dsAnhCanUp != nil && dsAnhCanUp.count > 0)
-            [self uploadAnh:[dsAnhCanUp objectAtIndex:nSoAnhDaUp]];
-        else
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if([edtThuDienTu validate])
         {
-            [self capNhatThongTin];
+            mTypeAuthenticate = TYPE_AUTHENTICATE_TOKEN;
+            mXacThucVanTay = YES;
+            nSoAnhDaUp = 0;
+            if (bTrangThaiCoAnhDaiDienMoi) {
+                NSLog(@"%s ++++++++++> bTrangThaiCoAnhDaiDienMoi = YES", __FUNCTION__);
+            }
+            [self khoiTaoDanhSachAnhUpLoad];
+            NSLog(@"%s - dsAnhCanUp.length : %ld", __FUNCTION__, (unsigned long)dsAnhCanUp.count);
+            if(dsAnhCanUp != nil && dsAnhCanUp.count > 0)
+                [self uploadAnh:[dsAnhCanUp objectAtIndex:nSoAnhDaUp]];
+            else
+            {
+                [self capNhatThongTin];
+            }
         }
-    }
-    else
-        [edtThuDienTu show_error];
+        else {
+            [edtThuDienTu show_error];
+        }
+    });
 }
 
 - (void)hienThiThongBaoDienMatKhau
@@ -1161,107 +1139,101 @@ const int DINH_DANH_THONG_BAO_THANH_CONG = 100;
  */
 -(void)capNhatThongTin
 {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        nTrangThaiXuLyKetNoi = TRANG_THAI_UP_DU_LIEU_THONG_TIN;
-        
-        NSString *sToken = @"";
-        NSString *sOtpConfirm = @"";
-        
-        if(mTypeAuthenticate == TYPE_AUTHENTICATE_TOKEN)
-        {
-            NSString *sMatKhau = edtMatKhauToken.text;
-            if(mXacThucVanTay)
-            {
-                mXacThucVanTay = NO;
-                mTypeAuthenticate = TYPE_AUTHENTICATE_TOKEN;
-                sMatKhau = [DucNT_Token layMatKhauVanTayToken];
-                
-            }
-            
-            NSString *sSeed = [DucNT_Token laySeedTokenHienTai];
-            sToken = [DucNT_Token OTPFromPIN:sMatKhau seed:sSeed];
-        }
-        else if(mTypeAuthenticate == TYPE_AUTHENTICATE_SMS || mTypeAuthenticate == TYPE_AUTHENTICATE_EMAIL)
-        {
-            sOtpConfirm = edtMatKhauToken.text;
-        }
-        
-        NSString *sDiaChi = @"";
-        if(![tvDiaChiNha.text isEqualToString:[@"dia_chi_nha" localizableString]])
-            sDiaChi = tvDiaChiNha.text;
-        
-        NSString *sID = [DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_ID_TEMP];
-        NSString *sSoCMND = edtSoCMND.text;
-        NSString *sTenCMND = self.mtfTenCMND.text;
-        NSString *sNgaySinh = [self doiDinhDangNgayThangDuLieuUpLen:edtNgaySinh.text];
-        NSString *sNoiCap = edtNoiCapCMND.text;
-        NSString *sNgayCap = [self doiDinhDangNgayThangDuLieuUpLen:edtNgayCapCMND.text];
-        NSString *sEmail = edtThuDienTu.text;
-        //HOANHNV FIX
-        NSString *sViLienKet = [self dsNhanThongBao];
-        
-        if (!bankRutTien) {
-            bankRutTien = [[DucNT_TaiKhoanThuongDungObject alloc] init];
-        }
-        if (nRowBank != -1) {
-            Banks *bank = [arrBank objectAtIndex:nRowBank];
-            NSLog(@"%s - bank : %@ - %@", __FUNCTION__, bank.bank_name, bank.bank_sms);
-            bankRutTien.nBankCode = [bank.bank_code intValue];
-            bankRutTien.nBankId = [bank.bank_id intValue];
-            //        bankRutTien.sBankName = bank.bank_name;
-            if (nRowChiNhanh != -1) {
-                bankRutTien.sBranchName = [arrChiNhanhBank objectAtIndex:nRowChiNhanh];
-                bankRutTien.sBranchCode = [arrChiNhanhBank objectAtIndex:(nRowChiNhanh + 1)];
-            }
-        }
-        //0491000025790
-        bankRutTien.sBankNumber = self.edSoTaiKhoanBank.text;
-        bankRutTien.sAccOwnerName = self.mtfTenCMND.text;
-        bankRutTien.nType = 4;
-        bankRutTien.sPhoneOwner = self.mtfSoDienThoaiNhanMaXacThuc.text;
-        int nHienThiQR = 0;
-        if (self.checkNoiDungQR.isOn) {
-            nHienThiQR = 1;
-        }
+    nTrangThaiXuLyKetNoi = TRANG_THAI_UP_DU_LIEU_THONG_TIN;
     
-    NSString *nameAlias = self.mtfTenGiaoDich.text;
-    NSString *phoneAuthenticate = self.mtfSoDienThoaiNhanMaXacThuc.text;
-    NSLog(@"%s - phoneAuthenticate : %@", __FUNCTION__, phoneAuthenticate);
-        NSDictionary *dicPost = @{
-                                  @"id":sID,
-                                  @"idCard": sSoCMND,
-                                  @"accBank":@"",
-                                  @"acc_name":sTenCMND,
-                                  @"birthday":sNgaySinh,
-                                  @"placeIdCard":sNoiCap,
-                                  @"home":sDiaChi,
-                                  @"dateIdCard": sNgayCap,
-                                  @"linkFrontIdCard":_sLinkIdAnhTruocCMND,
-                                  @"linkBackIdCard":_sLinkIdAnhSauCMND,
-                                  @"linkSignature":_sLinkIdAnhChuKy,
-                                  @"token":sToken,
-                                  @"nameAlias":nameAlias,
-                                  @"avatar" : _sLinkIdAnhDaiDien,
-                                  @"phoneAuthenticate" : sID,
-                                  @"otpConfirm" : sOtpConfirm,
-                                  @"typeAuthenticate" : [NSNumber numberWithInt:mTypeAuthenticate],
-                                  @"email": sEmail,
-                                  @"pass":@"",
-                                  @"appId":[NSNumber numberWithInt:APP_ID],
-                                  @"VMApp" : [NSNumber numberWithInt:VM_APP],
-                                  @"tKRutTien" : [bankRutTien toDict],
-                                  @"hienThiNoiDungThanhToanQR":[NSNumber numberWithInt:nHienThiQR],
-                                  @"dsTKNhanThongBaoBienDongSoDu":sViLienKet
-                                  };
+    NSString *sToken = @"";
+    NSString *sOtpConfirm = @"";
+    
+    if(mTypeAuthenticate == TYPE_AUTHENTICATE_TOKEN)
+    {
+        NSString *sMatKhau = edtMatKhauToken.text;
+        if(mXacThucVanTay)
+        {
+            mXacThucVanTay = NO;
+            mTypeAuthenticate = TYPE_AUTHENTICATE_TOKEN;
+            sMatKhau = [DucNT_Token layMatKhauVanTayToken];
+            
+        }
+        
+        NSString *sSeed = [DucNT_Token laySeedTokenHienTai];
+        sToken = [DucNT_Token OTPFromPIN:sMatKhau seed:sSeed];
+    }
+    else if(mTypeAuthenticate == TYPE_AUTHENTICATE_SMS || mTypeAuthenticate == TYPE_AUTHENTICATE_EMAIL)
+    {
+        sOtpConfirm = edtMatKhauToken.text;
+    }
+    
+    NSString *sDiaChi = @"";
+    if(![tvDiaChiNha.text isEqualToString:[@"dia_chi_nha" localizableString]])
+        sDiaChi = tvDiaChiNha.text;
+    
+    NSString *sID = [DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_ID_TEMP];
+    NSString *sSoCMND = edtSoCMND.text;
+    NSString *sTenCMND = self.mtfTenCMND.text;
+    NSString *sNgaySinh = [self doiDinhDangNgayThangDuLieuUpLen:edtNgaySinh.text];
+    NSString *sNoiCap = edtNoiCapCMND.text;
+    NSString *sNgayCap = [self doiDinhDangNgayThangDuLieuUpLen:edtNgayCapCMND.text];
+    NSString *sEmail = edtThuDienTu.text;
+    //HOANHNV FIX
+    NSString *sViLienKet = [self dsNhanThongBao];
+    
+    if (!bankRutTien) {
+        bankRutTien = [[DucNT_TaiKhoanThuongDungObject alloc] init];
+    }
+    if (nRowBank != -1) {
+        Banks *bank = [arrBank objectAtIndex:nRowBank];
+        NSLog(@"%s - bank : %@ - %@", __FUNCTION__, bank.bank_name, bank.bank_sms);
+        bankRutTien.nBankCode = [bank.bank_code intValue];
+        bankRutTien.nBankId = [bank.bank_id intValue];
+        //        bankRutTien.sBankName = bank.bank_name;
+        if (nRowChiNhanh != -1) {
+            bankRutTien.sBranchName = [arrChiNhanhBank objectAtIndex:nRowChiNhanh];
+            bankRutTien.sBranchCode = [arrChiNhanhBank objectAtIndex:(nRowChiNhanh + 1)];
+        }
+    }
+    //
+    bankRutTien.sBankNumber = self.edSoTaiKhoanBank.text;
+    bankRutTien.sAccOwnerName = self.mtfTenCMND.text;
+    bankRutTien.nType = 4;
+    bankRutTien.sPhoneOwner = self.mtfSoDienThoaiNhanMaXacThuc.text;
+    int nHienThiQR = 0;
+    if (self.checkNoiDungQR.isOn) {
+        nHienThiQR = 1;
+    }
+    NSDictionary *dicPost = @{
+                              @"id":sID,
+                              @"idCard": sSoCMND,
+                              @"accBank":[NSString stringWithFormat:@"%@-%@", bankRutTien.sBankCode, bankRutTien.sBankNumber],
+                              @"acc_name":sTenCMND,
+                              @"birthday":sNgaySinh,
+                              @"placeIdCard":sNoiCap,
+                              @"home":sDiaChi,
+                              @"dateIdCard": sNgayCap,
+                              @"linkFrontIdCard":_sLinkIdAnhTruocCMND,
+                              @"linkBackIdCard":_sLinkIdAnhSauCMND,
+                              @"linkSignature":_sLinkIdAnhChuKy,
+                              @"token":sToken,
+                              @"nameAlias":self.mtfTenGiaoDich.text,
+                              @"avatar" : _sLinkIdAnhDaiDien,
+                              @"phoneAuthenticate" : self.mtfSoDienThoaiNhanMaXacThuc.text,
+                              @"otpConfirm" : sOtpConfirm,
+                              @"typeAuthenticate" : [NSNumber numberWithInt:mTypeAuthenticate],
+                              @"email": sEmail,
+                              @"pass":@"",
+                              @"appId":[NSNumber numberWithInt:APP_ID],
+                              @"VMApp" : [NSNumber numberWithInt:VM_APP],
+                              @"tKRutTien" : [bankRutTien toDict],
+                              @"hienThiNoiDungThanhToanQR":[NSNumber numberWithInt:nHienThiQR],
+                              @"dsTKNhanThongBaoBienDongSoDu":sViLienKet
+                              };
+    [self hienThiLoadingChuyenTien];
+    NSString *sPost = [dicPost JSONString];
+    NSLog(@"%s - sPost : %@", __FUNCTION__, sPost);
+    DucNT_ServicePost *connect = [[DucNT_ServicePost alloc] init];
+    [connect setDucnt_connectDelegate:self];
+    [connect connect:@"https://vimass.vn/vmbank/services/account/editAcc1" withContent:sPost];
+    [connect release];
 
-        NSString *sPost = [dicPost JSONString];
-        NSLog(@"%s - sPost : %@", __FUNCTION__, sPost);
-        [self hienThiLoadingChuyenTien];
-        DucNT_ServicePost *connect = [[DucNT_ServicePost alloc] init];
-        [connect setDucnt_connectDelegate:self];
-        [connect connect:@"https://vimass.vn/vmbank/services/account/editAcc1" withContent:sPost];
-        [connect release];
-    });
 }
 
 -(void)uploadAnh:(NSString *)sDuLieuAnhBase64

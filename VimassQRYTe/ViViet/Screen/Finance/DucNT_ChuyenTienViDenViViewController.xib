@@ -62,8 +62,8 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dRZ-AN-5Si" userLabel="ViewMain">
                                     <rect key="frame" x="8" y="5" width="304" height="500"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eQf-nb-31m" userLabel="ViewKhongEdtDaiDien">
-                                            <rect key="frame" x="0.0" y="5" width="304" height="495"/>
+                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eQf-nb-31m" userLabel="ViewKhongEdtDaiDien">
+                                            <rect key="frame" x="0.0" y="5" width="304" height="191"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DN_" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="oYY-Si-jiU">
                                                     <rect key="frame" x="0.0" y="16" width="0.0" height="20"/>
@@ -111,7 +111,7 @@
                                                         <constraint firstAttribute="width" constant="35" id="Ew2-wA-zyB"/>
                                                         <constraint firstAttribute="width" secondItem="LFD-SP-Ipa" secondAttribute="height" id="HKW-of-x4h"/>
                                                     </constraints>
-                                                    <state key="normal" image="iconSoTay.png">
+                                                    <state key="normal" image="iconSoTay">
                                                         <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                     <connections>
@@ -348,8 +348,8 @@
                                                 <constraint firstItem="xRc-Dx-b9P" firstAttribute="top" secondItem="6e9-2u-4AR" secondAttribute="bottom" constant="8" id="z89-va-owN"/>
                                             </constraints>
                                         </view>
-                                        <webView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1pS-0p-rMF">
-                                            <rect key="frame" x="0.0" y="5" width="304" height="487"/>
+                                        <webView hidden="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1pS-0p-rMF">
+                                            <rect key="frame" x="0.0" y="5" width="304" height="208"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </webView>
                                     </subviews>
@@ -457,7 +457,7 @@
     <resources>
         <image name="bg_nen.png" width="720" height="1280"/>
         <image name="ic_save_acc.png" width="64" height="64"/>
-        <image name="iconSoTay.png" width="32" height="28"/>
+        <image name="iconSoTay" width="32" height="28"/>
         <image name="icon_trans_money_add.png" width="64" height="64"/>
         <image name="pki" width="128" height="128"/>
         <image name="tokenv" width="120" height="120"/>

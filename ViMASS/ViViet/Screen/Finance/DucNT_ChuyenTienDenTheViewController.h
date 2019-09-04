@@ -23,7 +23,7 @@
 @property (retain, nonatomic) IBOutlet ExTextField *mtfSoTien;
 @property (retain, nonatomic) IBOutlet UIButton *mbtnLuuTaiKhoanThuongDung;
 @property (retain, nonatomic) IBOutlet UIView *viewCenter;
-
+@property (nonatomic, assign) int nOption;
 - (IBAction)suKienLuuTaiKhoanThuongDung:(id)sender;
 - (IBAction)suKienLayDanhSachThuongDung:(id)sender;
 @property (retain, nonatomic) IBOutlet NSLayoutConstraint *heightMain;

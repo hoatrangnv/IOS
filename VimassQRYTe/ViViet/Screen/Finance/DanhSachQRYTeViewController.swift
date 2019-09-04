@@ -15,7 +15,7 @@ class DanhSachQRYTeViewController: GiaoDichViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationItem.title = "QR Y tế"
+        self.addTitleView("Danh sách QR đã tạo")
         
         let btnRight = UIBarButtonItem(image: UIImage(named: "icon_add-64"), style: .done, target: self, action: #selector(suKienChonAddNew(_:)))
         self.navigationItem.rightBarButtonItem = btnRight

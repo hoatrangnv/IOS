@@ -84,7 +84,7 @@
                                         <constraint firstAttribute="width" secondItem="wrL-uf-etv" secondAttribute="height" multiplier="8:7" id="3fv-rQ-fmJ"/>
                                         <constraint firstAttribute="width" constant="32" id="gi5-eL-YGG"/>
                                     </constraints>
-                                    <state key="normal" image="iconSoTay.png">
+                                    <state key="normal" image="iconSoTay">
                                         <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </state>
                                     <connections>
@@ -398,8 +398,8 @@
     <resources>
         <image name="bg_nen.png" width="720" height="1280"/>
         <image name="face-id" width="225" height="225"/>
-        <image name="iconSoTay.png" width="32" height="28"/>
-        <image name="pki" width="225" height="225"/>
+        <image name="iconSoTay" width="32" height="28"/>
+        <image name="pki" width="128" height="128"/>
         <image name="tokenv" width="120" height="120"/>
     </resources>
 </document>

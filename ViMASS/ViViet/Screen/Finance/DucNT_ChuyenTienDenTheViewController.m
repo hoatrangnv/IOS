@@ -48,29 +48,6 @@
     self.mbtnToken.hidden = NO;
 }
 
-- (void)khoiTaoQuangCao {
-    if (!viewQC) {
-        viewQC = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([ViewQuangCao class]) owner:self options:nil] objectAtIndex:0];
-        CGRect rectToken = self.viewCenter.frame;
-        CGRect rectQC = viewQC.frame;
-        CGRect rectMain = self.mViewMain.frame;
-        CGRect rectScreen = [UIScreen mainScreen].bounds;
-        NSLog(@"%s - rectMain : %f", __FUNCTION__, rectScreen.size.width);
-        CGFloat fW = rectMain.size.width;
-        CGFloat fH = fW * 0.46;
-        rectQC.origin.y = rectToken.origin.y + rectToken.size.height + 8;
-        viewQC.frame = CGRectMake(0, rectQC.origin.y, fW, fH);
-    //    viewQC.frame = rectQC;
-        viewQC.mDelegate = self;
-        [viewQC updateSizeQuangCao];
-//        rectMain.size.height = rectQC.origin.y + rectQC.size.height;
-        self.heightMain.constant = rectQC.origin.y + rectQC.size.height;
-        NSLog(@"%s - self.heightMain.constant : %f", __FUNCTION__, self.heightMain.constant);
-//        self.mViewMain.frame = rectMain;
-        [self.mViewMain addSubview:viewQC];
-        [self.mscrvHienThi setContentSize:CGSizeMake(_mscrvHienThi.frame.size.width, self.heightMain.constant)];
-    }
-}
 
 - (void)updateXacThucKhac {
     [super updateXacThucKhac];
@@ -156,13 +133,21 @@
 
 - (void)khoiTaoBanDau
 {
-    [self addButtonBack]; 
-    [self addTitleView:[@"financer_viewer_wallet_to_BankCard" localizableString]];
+    [self addButtonBack];
+    if (_nOption == 1) {
+        [self addTitleView:[@"financer_viewer_wallet_to_viettel_pay" localizableString]];
+    } else {
+        [self addTitleView:[@"financer_viewer_wallet_to_BankCard" localizableString]];
+    }
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateThongTin:) name:KEY_TAI_KHOAN_THUONG_DUNG object:nil];
     
     self.mFuncID = FUNC_TRANSACTION_VIA_CARD_NUMBER;
     
-    _mtfSoTheNganHang.placeholder = [@"card_number" localizableString];
+    if (_nOption == 1) {
+        _mtfSoTheNganHang.placeholder = [@"tai_khoan_viettel_pay" localizableString];
+    } else {
+        _mtfSoTheNganHang.placeholder = [@"card_number" localizableString];
+    }
     _mtfSoTien.placeholder = [@"amount" localizableString];
 }
 
@@ -227,10 +212,17 @@
         [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:[@"vuot_han_muc" lowercaseString]];
         return NO;
     }
-    if ([_mtfSoTheNganHang.text hasPrefix:@"272727"] || [_mtfSoTheNganHang.text hasPrefix:@"272728"] || [_mtfSoTheNganHang.text hasPrefix:@"272729"] || [_mtfSoTheNganHang.text hasPrefix:@"970405"]) {
-        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:[@"the_agribank" lowercaseString]];
+    else if (fSoTien > 50000000) {
+        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Số tiền chuyển đi tối đa là 50 triệu đồng"];
         return NO;
     }
+    if (_nOption != 1) {
+        if ([_mtfSoTheNganHang.text hasPrefix:@"272727"] || [_mtfSoTheNganHang.text hasPrefix:@"272728"] || [_mtfSoTheNganHang.text hasPrefix:@"272729"] || [_mtfSoTheNganHang.text hasPrefix:@"970405"]) {
+            [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:[@"the_agribank" lowercaseString]];
+            return NO;
+        }
+    }
+    
     return flg;
 }
 

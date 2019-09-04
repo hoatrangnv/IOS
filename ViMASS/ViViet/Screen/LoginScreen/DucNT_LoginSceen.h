@@ -58,6 +58,7 @@
 - (IBAction)suKienChonLanguageViet:(id)sender;
 - (IBAction)suKienChonLanguageEnglish:(id)sender;
 - (IBAction)suKienChonTaiKhoanTheDaNang:(id)sender;
+- (IBAction)suKienChonDieuKhoanSuDung:(id)sender;
 
 
 @property (retain, nonatomic) NSString *sTenViewController;

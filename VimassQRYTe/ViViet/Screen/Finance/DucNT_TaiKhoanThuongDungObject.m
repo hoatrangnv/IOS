@@ -24,6 +24,7 @@
         _sToAccWallet = @"";
         _sAccOwnerName = @"";
         _sBankName = @"";
+        _sBankCode = @"";
         _sBankNumber = @"";
         _sProvinceName = @"";
         _sBranchName = @"";
@@ -33,7 +34,7 @@
         _nBranchId = 0;
         _nProvinceCode = 0;
         _nProvinceID = 0;
-//        _nCardId = 0;
+        //        _nCardId = 0;
         _sCardTypeName = @"";
         _sCardNumber = @"";
         _sCardOwnerName = @"";
@@ -48,7 +49,7 @@
         _diaChi = @"";
         _noiDung = @"";
         _soTien = 0;
-
+        
         _cardMonth = 0;
         _cardYear = 0;
         _ten = @"";
@@ -71,7 +72,7 @@
         _maKhachHang = @"";
         _tenChiNhanh = @"";
         _maChiNhanh = @"";
-
+        
         _cachThucQuayVong = 0;
         _kyLinhLai = 0;
         _kieuNhanTien = 0;
@@ -137,7 +138,7 @@
     data.nBranchId = _nBranchId;
     data.nProvinceCode = _nProvinceCode;
     data.nProvinceID = _nProvinceID;
-//    data.nCardId = _nCardId;
+    //    data.nCardId = _nCardId;
     data.sCardTypeName = _sCardTypeName;
     data.sCardNumber = _sCardNumber;
     data.sCardOwnerName = _sCardOwnerName;
@@ -227,8 +228,8 @@
         }
         else if ([sKey isEqualToString:@"toAcc"])
         {
-//            NSString *sToAcc = [dict valueForKey:sKey];
-//            self.sToAccWallet = sToAcc;
+            //            NSString *sToAcc = [dict valueForKey:sKey];
+            //            self.sToAccWallet = sToAcc;
         }
         else if ([sKey isEqualToString:@"amount"])
         {
@@ -377,6 +378,7 @@
     [_sToAccWallet release];
     [_sAccOwnerName release];
     [_sBankName release];
+    [_sBankCode release];
     [_sBankNumber release];
     [_sProvinceName release];
     [_sBranchName release];

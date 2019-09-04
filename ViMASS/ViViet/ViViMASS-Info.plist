@@ -67,7 +67,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>3</string>
 	<key>FacebookAppID</key>
 	<string>1567434636808192</string>
 	<key>FacebookDisplayName</key>
@@ -86,7 +86,7 @@
 	<key>NSCameraUsageDescription</key>
 	<string>Using for scanner QRCode</string>
 	<key>NSContactsUsageDescription</key>
-	<string>Giúp chuyển tiền nhanh đến bạn bè trong danh bạ. Vimass sẽ lưu trữ danh bạ của khách, và đánh dấu khi bạn bè của bạn có sử dụng Ví Vimass</string>
+	<string>Giúp chuyển tiền nhanh đến bạn bè trong danh bạ. Ứng dụng không lưu trữ hoặc thu thập danh bạ của bạn trên bất kỳ máy chủ nào. Bạn có muốn cho phép Ví Vimass truy cập vào danh bạ?</string>
 	<key>NSFaceIDUsageDescription</key>
 	<string>Xác thực thanh toán bằng bảo mật nhận diện khuôn mặt</string>
 	<key>NSLocalizedDescription</key>

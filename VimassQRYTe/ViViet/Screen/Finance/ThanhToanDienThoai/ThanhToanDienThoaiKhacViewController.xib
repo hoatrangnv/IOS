@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -181,7 +181,7 @@
                                                 <constraint firstAttribute="width" secondItem="lVa-Z2-Roe" secondAttribute="height" multiplier="1:1" id="3BG-xY-k1H"/>
                                                 <constraint firstAttribute="width" constant="32" id="pBn-5U-T53"/>
                                             </constraints>
-                                            <state key="normal" image="iconSoTay.png">
+                                            <state key="normal" image="iconSoTay">
                                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
@@ -195,7 +195,7 @@
                                                 <constraint firstAttribute="width" constant="20" id="EYf-5J-eZI"/>
                                                 <constraint firstAttribute="height" constant="15" id="ufD-PC-cZl"/>
                                             </constraints>
-                                            <state key="normal" backgroundImage="muiten35x21.png">
+                                            <state key="normal" backgroundImage="muiten35x21">
                                                 <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
                                         </button>
@@ -463,22 +463,22 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="R7s-1g-JrD">
                                             <rect key="frame" x="64" y="23" width="182" height="52"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MtL-t4-ag3">
-                                                    <rect key="frame" x="0.0" y="0.0" width="54" height="52"/>
-                                                    <state key="normal" image="pki"/>
-                                                    <connections>
-                                                        <action selector="suKienBamNutPKI:" destination="-1" eventType="touchUpInside" id="Fh2-KU-TAn"/>
-                                                    </connections>
-                                                </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VLK-Xc-JPS">
-                                                    <rect key="frame" x="64" y="0.0" width="54" height="52"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="54" height="52"/>
                                                     <state key="normal" image="token"/>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v9j-A7-Eph">
-                                                    <rect key="frame" x="128" y="0.0" width="54" height="52"/>
+                                                    <rect key="frame" x="64" y="0.0" width="54" height="52"/>
                                                     <state key="normal" image="fingerv"/>
                                                     <connections>
                                                         <action selector="suKienBamNutMatKhauVanTay:" destination="-1" eventType="touchUpInside" id="4Z8-6a-5sG"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MtL-t4-ag3">
+                                                    <rect key="frame" x="128" y="0.0" width="54" height="52"/>
+                                                    <state key="normal" image="pki"/>
+                                                    <connections>
+                                                        <action selector="suKienBamNutPKI:" destination="-1" eventType="touchUpInside" id="Fh2-KU-TAn"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -713,10 +713,11 @@
         <image name="bg-nuttrang.png" width="128" height="52"/>
         <image name="bg_nen.png" width="720" height="1280"/>
         <image name="fingerv" width="120" height="120"/>
-        <image name="iconSoTay.png" width="32" height="28"/>
+        <image name="iconSoTay" width="32" height="28"/>
         <image name="icon_trans_money_add.png" width="64" height="64"/>
+        <image name="muiten35x21" width="35" height="21"/>
         <image name="muiten35x21.png" width="35" height="21"/>
-        <image name="pki" width="225" height="225"/>
+        <image name="pki" width="128" height="128"/>
         <image name="token" width="225" height="225"/>
     </resources>
 </document>

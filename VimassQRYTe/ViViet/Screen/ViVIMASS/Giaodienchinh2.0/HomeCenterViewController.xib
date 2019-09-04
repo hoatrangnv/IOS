@@ -14,6 +14,7 @@
             <connections>
                 <outlet property="btnNganHang" destination="ki1-ea-UEr" id="eeW-af-f7W"/>
                 <outlet property="btnQR" destination="cXu-cz-Dn1" id="TqI-sE-aMT"/>
+                <outlet property="btnQuetQR" destination="yKw-K8-WTY" id="bIJ-Yj-0Th"/>
                 <outlet property="lblHoaDon" destination="5nB-er-JTm" id="ODQ-Lx-4JM"/>
                 <outlet property="vNganHang" destination="HZ2-9r-g5X" id="1ci-Qp-OJo"/>
                 <outlet property="vQR" destination="Wg2-wg-xBX" id="hro-0V-oHh"/>
@@ -25,7 +26,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Or-cc-Xim">
+                <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Or-cc-Xim">
                     <rect key="frame" x="0.0" y="728" width="375" height="50"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="0py-lK-xxa">
@@ -140,11 +141,13 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="thp-lE-FWM">
                     <rect key="frame" x="0.0" y="44" width="375" height="684"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yKw-K8-WTY">
+                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yKw-K8-WTY">
                             <rect key="frame" x="137" y="291.33333333333331" width="101" height="101.33333333333331"/>
+                            <color key="backgroundColor" red="0.2274509804" green="0.50980392159999999" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="yKw-K8-WTY" secondAttribute="height" id="Dkw-VD-rfc"/>
                             </constraints>
+                            <inset key="imageEdgeInsets" minX="20" minY="20" maxX="20" maxY="20"/>
                             <state key="normal" image="Quet_QR"/>
                             <connections>
                                 <action selector="suKienChonQuetQR:" destination="-1" eventType="touchUpInside" id="cld-jX-fwB"/>
@@ -155,9 +158,9 @@
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="KB9-j3-yae" secondAttribute="height" id="aGO-gK-UYU"/>
                             </constraints>
-                            <state key="normal" image="vimass-qr"/>
+                            <state key="normal" image="ic_quet_qr_vm"/>
                             <connections>
-                                <action selector="suKienChonVimass:" destination="-1" eventType="touchUpInside" id="fNp-LA-vRS"/>
+                                <action selector="suKienChonVNPay:" destination="-1" eventType="touchUpInside" id="K4B-lf-WuH"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZDB-bt-8rN">
@@ -170,18 +173,28 @@
                                 <action selector="suKienChonQRYTe:" destination="-1" eventType="touchUpInside" id="Ed6-Jm-wKG"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M6d-sI-E7L">
+                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M6d-sI-E7L">
                             <rect key="frame" x="257" y="472.66666666666663" width="81" height="81"/>
-                            <state key="normal" image="ic_vicuatoi_saoke"/>
+                            <state key="normal" image="icon180"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="10"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="suKienChonGiaoDich:" destination="-1" eventType="touchUpInside" id="Uee-pc-7b8"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g4o-iB-MKQ">
+                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g4o-iB-MKQ">
                             <rect key="frame" x="37" y="472.66666666666663" width="81" height="81"/>
-                            <state key="normal" title="Button" image="Logo_VNPAYQR"/>
+                            <state key="normal" title="Button" image="ic_the_vid"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="10"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
                             <connections>
-                                <action selector="suKienChonVNPay:" destination="-1" eventType="touchUpInside" id="Lv8-FC-ch0"/>
+                                <action selector="suKienChonTheVID:" destination="-1" eventType="touchUpInside" id="bjj-Ft-lbm"/>
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quét QR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pWF-jv-fU5">
@@ -190,8 +203,8 @@
                             <color key="textColor" white="0.10000000000000001" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vimass" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="peh-aA-VZc">
-                            <rect key="frame" x="270" y="214.33333333333331" width="55.333333333333314" height="20.333333333333343"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VNPay" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="peh-aA-VZc">
+                            <rect key="frame" x="272" y="214.33333333333331" width="51" height="20.333333333333343"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" white="0.10000000000000001" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
@@ -202,14 +215,14 @@
                             <color key="textColor" white="0.10000000000000001" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VNPay" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t5s-E4-8Fd">
-                            <rect key="frame" x="52" y="556.66666666666663" width="51" height="20.333333333333371"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thẻ vID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t5s-E4-8Fd">
+                            <rect key="frame" x="48" y="556.66666666666663" width="59" height="20.333333333333371"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" white="0.10000000000000001" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Giao dịch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XPH-mN-yQM">
-                            <rect key="frame" x="261.66666666666669" y="556.66666666666663" width="72" height="20.333333333333371"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ví Vimass" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XPH-mN-yQM">
+                            <rect key="frame" x="260.33333333333331" y="556.66666666666663" width="74.666666666666686" height="20.333333333333371"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" white="0.10000000000000001" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
@@ -263,13 +276,13 @@
         </view>
     </objects>
     <resources>
-        <image name="Logo_VNPAYQR" width="150" height="150"/>
-        <image name="Quet_QR" width="300" height="300"/>
+        <image name="Quet_QR" width="200" height="200"/>
         <image name="ic_question_32" width="32" height="32"/>
-        <image name="ic_vicuatoi_saoke" width="300" height="300"/>
+        <image name="ic_quet_qr_vm" width="200" height="200"/>
+        <image name="ic_the_vid" width="200" height="200"/>
         <image name="ic_vicuatoi_soft_token" width="300" height="300"/>
+        <image name="icon180" width="180" height="180"/>
         <image name="icon_edit_the_luu" width="64" height="64"/>
         <image name="icon_qr_yte" width="360" height="360"/>
-        <image name="vimass-qr" width="141" height="141"/>
     </resources>
 </document>

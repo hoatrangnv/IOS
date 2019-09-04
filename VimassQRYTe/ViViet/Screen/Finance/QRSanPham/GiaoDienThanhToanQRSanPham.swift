@@ -399,8 +399,8 @@ extension GiaoDienThanhToanQRSanPham : UITableViewDelegate, UITableViewDataSourc
                     if indexPath.row == 0 {
                         cell.lblTitle.text = "Trả cho:"
                         if let dict = dictSanPham {
-                            let dictThongTin = dict["objectThongTinDonViThanhToan"] as! [String:Any]
-                            cell.lblInfo.text = dictThongTin["tenHienThi"] as? String
+//                            let dictThongTin = dict["objectThongTinDonViThanhToan"] as! [String:Any]
+                            cell.lblInfo.text = dict["tenChuTaiKhoan"] as? String
                         }
                         
                     } else if indexPath.row == 1 {

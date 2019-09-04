@@ -368,6 +368,7 @@ extension GiaoDienThanhToanQRSanPham : UITableViewDelegate, UITableViewDataSourc
                     if isExistsDC {
                         let cell = tableView.dequeueReusableCell(withIdentifier: "DonGiaQRCell", for: indexPath) as! DonGiaQRCell
                         cell.tfGia.removeTarget(self, action: #selector(suKienThayDoiGia(_:)), for: .editingChanged)
+                        cell.tfGia.removeTarget(self, action: #selector(suKienThayDoiNoiDung(_:)), for: .editingChanged)
                         if let dict = dictSanPham, let numberGia = dict["gia"] as? NSNumber {
                             let dGia = numberGia.doubleValue
                             if dGia > 0 {
@@ -385,6 +386,7 @@ extension GiaoDienThanhToanQRSanPham : UITableViewDelegate, UITableViewDataSourc
                     } else {
                         let cell = tableView.dequeueReusableCell(withIdentifier: "TaoQRNameCell", for: indexPath) as! TaoQRNameCell
                         cell.tfName.removeTarget(self, action: #selector(suKienThayDoiNoiDung(_:)), for: .editingChanged)
+                        cell.tfName.removeTarget(self, action: #selector(suKienThayDoiGia(_:)), for: .editingChanged)
                         cell.tfName.placeholder = "Nội dung (Có thể bỏ qua)"
                         cell.tfName.addTarget(self, action: #selector(suKienThayDoiNoiDung(_:)), for: .editingChanged)
                         return cell

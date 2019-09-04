@@ -30,8 +30,8 @@
 #define kPATTERN_CONTENT      @"^[^\\`\\~\\!\\@\\#\\$\\%\\^\\&\\*\\(\\)\\=\\+\\[\\{\\]\\}\\\\\\|\\'\\\"\\<\\>\\/\\?]+$"
 #define kPATTERN_MAIL         @"^(\\s)*[0-9a-zA-Z.]+@[a-zA-Z0-9]+(\\.[a-zA-Z]{2,4}){1,2}(\\s)*$"
 #define kPATTERN_TOKEN        @"^[0-9]{6,8}$"
-#define kPATTERN_PASSWORD     @"^[0-9a-zA-Z]{6,40}$"
-//#define kPATTERN_PASSWORD     @"^{6,40}$"
+#define kPATTERN_PASSWORD     @"^[0-9a-zA-Z$@$#!%*?&]{6,40}$"
+//#define kPATTERN_PASSWORD     @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[$@$#!%*?&])[A-Za-z\\d$@$#!%*?&]{6,40}$"
 #define kPATTERN_ID_CARD      @"^\\d{9,10}$|^\\d{12}$"
 // name not include following character: `~!@#$%^&*()-_=+[{]}\|'";:<,>./?0123456789
 #define kPATTERN_NAME         @"^[^\\`\\~\\!\\@\\#\\$\\%\\^\\&\\*\\(\\)\\-\\_\\=\\+\\[\\{\\]\\}\\\\\\|\\'\\\"\\;\\:\\<\\,\\>\\.\\/\\?0123456789]+$"

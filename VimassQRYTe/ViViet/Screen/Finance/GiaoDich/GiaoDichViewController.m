@@ -83,9 +83,9 @@
 }
 
 - (void)addTitleView:(NSString *)sTitle {
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44)];
-    label.autoresizingMask =
-    UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    UILabel *label = [[UILabel alloc] init];
+//    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44)];
+    label.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     label.textAlignment = NSTextAlignmentCenter;
     label.backgroundColor = [UIColor clearColor];
     label.numberOfLines = 2;
@@ -989,7 +989,7 @@
 
 - (void)setAnimationChoSoTay:(UIButton *)btn{
     UIImageView *imgSoTay = [btn imageView];
-    NSArray *arrSoTay = [NSArray arrayWithObjects:[UIImage imageNamed:@"iconSoTay5.png"], [UIImage imageNamed:@"iconSoTay4.png"], [UIImage imageNamed:@"iconSoTay3.png"], [UIImage imageNamed:@"iconSoTay2.png"], [UIImage imageNamed:@"iconSoTay.png"], [UIImage imageNamed:@"iconSoTay.png"], [UIImage imageNamed:@"iconSoTay.png"], nil];
+    NSArray *arrSoTay = [NSArray arrayWithObjects:[UIImage imageNamed:@"iconSoTay5"], [UIImage imageNamed:@"iconSoTay4"], [UIImage imageNamed:@"iconSoTay3"], [UIImage imageNamed:@"iconSoTay2"], [UIImage imageNamed:@"iconSoTay"], [UIImage imageNamed:@"iconSoTay"], [UIImage imageNamed:@"iconSoTay"], nil];
     [imgSoTay setAnimationDuration:2.0];
     [imgSoTay setAnimationImages:arrSoTay];
     [imgSoTay setAnimationRepeatCount:0];

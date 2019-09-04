@@ -15,8 +15,8 @@
     [super awakeFromNib];
     [self.viewNhapToken setHidden:YES];
     [self.btnThucHien setTitle:[@"button_thuc_hien" localizableString] forState:UIControlStateNormal];
-    [self.btnSDSecure setHidden:YES];
-    [self.btnToken setHidden:YES];
+//    [self.btnSDSecure setHidden:YES];
+//    [self.btnToken setHidden:YES];
     [self.btnFinger.imageView setContentMode:UIViewContentModeScaleAspectFit];
     [self.btnToken.imageView setContentMode:UIViewContentModeScaleAspectFit];
     [self.btnSDSecure.imageView setContentMode:UIViewContentModeScaleAspectFit];

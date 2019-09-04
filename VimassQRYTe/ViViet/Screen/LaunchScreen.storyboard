@@ -89,6 +89,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ic_launcher" width="180" height="180"/>
+        <image name="ic_launcher" width="60" height="60"/>
     </resources>
 </document>

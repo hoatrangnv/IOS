@@ -61,7 +61,7 @@
 
     UIButton * button2 = [UIButton buttonWithType:UIButtonTypeCustom];
     button2.frame = CGRectMake(0, 0, 34, 32);
-    [button2 setImage:[UIImage imageNamed:@"iconSoTay.png"]forState:UIControlStateNormal];
+    [button2 setImage:[UIImage imageNamed:@"iconSoTay"]forState:UIControlStateNormal];
 
     button2.backgroundColor = [UIColor clearColor];
     button2.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
