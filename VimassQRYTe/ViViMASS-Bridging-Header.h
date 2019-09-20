@@ -17,3 +17,7 @@
 #import "DucNT_ChangPrivateInformationViewController.h"
 #import "GiaoDienDiemThanhToanVNPAY.h"
 #import "DucNT_SaoKeViewController.h"
+#import "QRSearchViewController.h"
+#import "QRCodeReaderDelegate.h"
+#import "GiaoDienChuyenTienDenCMND.h"
+#import "TPKeyboardAvoidAcessory.h"

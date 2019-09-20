@@ -35,6 +35,19 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"TinTucTableViewCell" bundle:nil] forCellReuseIdentifier:@"TinTucTableViewCell"];
     [arrTinTuc removeAllObjects];
     [self ketNoiLayTinTuc];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(suKienChonTitle)];
+    [self.lblTitle setUserInteractionEnabled:YES];
+    [self.lblTitle addGestureRecognizer:tap];
+}
+
+- (void)suKienChonTitle {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = YES;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -129,7 +142,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSDictionary *item = (NSDictionary *)arrTinTuc[indexPath.row];
     NSString *sID = (NSString *)item[@"id"];
-    self.navigationController.navigationBar.hidden = false;
+    self.navigationController.navigationBar.hidden = NO;
     GiaoDienChiTietTinTuc *chiTiet = [[GiaoDienChiTietTinTuc alloc] initWithNibName:@"GiaoDienChiTietTinTuc" bundle:nil];
     chiTiet.langID = langID;
     chiTiet.sIDTinTuc = sID;
@@ -140,6 +153,7 @@
 
 - (void)dealloc {
     [_tableView release];
+    [_lblTitle release];
     [super dealloc];
 }
 @end

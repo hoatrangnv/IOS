@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (retain, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, retain) ItemVNPayQR *itemQR;
 @property (nonatomic, retain) NSString *sDataQR;
+@property (retain, nonatomic) IBOutlet NSLayoutConstraint *heightGlobal;
+@property (retain, nonatomic) IBOutlet UIStackView *stackGlobal;
 
 - (IBAction)suKienChonLangViet:(id)sender;
 - (IBAction)suKienChonLangEng:(id)sender;

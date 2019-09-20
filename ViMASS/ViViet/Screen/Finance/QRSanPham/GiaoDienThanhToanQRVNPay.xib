@@ -12,6 +12,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GiaoDienThanhToanQRVNPay">
             <connections>
+                <outlet property="heightGlobal" destination="Tau-wV-xYu" id="48I-mH-6CV"/>
+                <outlet property="stackGlobal" destination="XkP-rX-4uF" id="3J8-PU-Pyu"/>
                 <outlet property="tableView" destination="iwI-Kw-e9S" id="rQk-Pg-zEV"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -22,18 +24,18 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="onDrag" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iwI-Kw-e9S">
-                    <rect key="frame" x="0.0" y="40" width="375" height="627"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="f92-Pl-3jb"/>
                         <outlet property="delegate" destination="-1" id="Jrd-dl-mSX"/>
                     </connections>
                 </tableView>
-                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="XkP-rX-4uF">
-                    <rect key="frame" x="3" y="0.0" width="369" height="40"/>
+                <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="XkP-rX-4uF">
+                    <rect key="frame" x="3" y="0.0" width="369" height="0.0"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EIt-GQ-eId">
-                            <rect key="frame" x="0.0" y="0.0" width="52" height="40"/>
+                            <rect key="frame" x="0.0" y="0.0" width="52" height="0.0"/>
                             <inset key="imageEdgeInsets" minX="0.0" minY="3" maxX="0.0" maxY="3"/>
                             <state key="normal" image="ic_lan_vietnam"/>
                             <connections>
@@ -41,7 +43,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mah-at-JUM">
-                            <rect key="frame" x="53" y="0.0" width="51.5" height="40"/>
+                            <rect key="frame" x="53" y="0.0" width="51.5" height="0.0"/>
                             <inset key="imageEdgeInsets" minX="0.0" minY="3" maxX="0.0" maxY="3"/>
                             <state key="normal" image="ic_lan_uk"/>
                             <connections>
@@ -49,7 +51,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WvB-ne-IT1">
-                            <rect key="frame" x="105.5" y="0.0" width="52" height="40"/>
+                            <rect key="frame" x="105.5" y="0.0" width="52" height="0.0"/>
                             <inset key="imageEdgeInsets" minX="0.0" minY="3" maxX="0.0" maxY="3"/>
                             <state key="normal" image="ic_lan_china"/>
                             <connections>
@@ -57,7 +59,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Uc-hd-Y7L">
-                            <rect key="frame" x="158.5" y="0.0" width="52" height="40"/>
+                            <rect key="frame" x="158.5" y="0.0" width="52" height="0.0"/>
                             <inset key="imageEdgeInsets" minX="0.0" minY="3" maxX="0.0" maxY="3"/>
                             <state key="normal" image="ic_lan_russia"/>
                             <connections>
@@ -65,7 +67,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J3o-Pf-4zH">
-                            <rect key="frame" x="211.5" y="0.0" width="52" height="40"/>
+                            <rect key="frame" x="211.5" y="0.0" width="52" height="0.0"/>
                             <inset key="imageEdgeInsets" minX="0.0" minY="3" maxX="0.0" maxY="3"/>
                             <state key="normal" image="ic_lan_korea"/>
                             <connections>
@@ -73,7 +75,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HHZ-ve-GLF">
-                            <rect key="frame" x="264.5" y="0.0" width="51.5" height="40"/>
+                            <rect key="frame" x="264.5" y="0.0" width="51.5" height="0.0"/>
                             <inset key="imageEdgeInsets" minX="0.0" minY="3" maxX="0.0" maxY="3"/>
                             <state key="normal" image="ic_lan_japan"/>
                             <connections>
@@ -81,7 +83,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2f4-4I-Nkg">
-                            <rect key="frame" x="317" y="0.0" width="52" height="40"/>
+                            <rect key="frame" x="317" y="0.0" width="52" height="0.0"/>
                             <inset key="imageEdgeInsets" minX="0.0" minY="3" maxX="0.0" maxY="3"/>
                             <state key="normal" image="ic_lan_germany"/>
                             <connections>
@@ -90,7 +92,7 @@
                         </button>
                     </subviews>
                     <constraints>
-                        <constraint firstAttribute="height" constant="40" id="Tau-wV-xYu"/>
+                        <constraint firstAttribute="height" id="Tau-wV-xYu"/>
                     </constraints>
                 </stackView>
             </subviews>

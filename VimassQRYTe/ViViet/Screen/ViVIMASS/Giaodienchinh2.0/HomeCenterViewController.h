@@ -18,6 +18,7 @@
 @property (retain, nonatomic) IBOutlet UILabel *lblNganHang;
 @property (retain, nonatomic) IBOutlet UILabel *lblHoaDon;
 @property (retain, nonatomic) IBOutlet UIButton *btnQuetQR;
+@property (retain, nonatomic) IBOutlet UIButton *btnTheYTe;
 
 - (IBAction)suKienChonVimass:(id)sender;
 - (IBAction)suKienChonQRYTe:(id)sender;
@@ -27,6 +28,8 @@
 - (IBAction)suKienChonToken:(id)sender;
 - (IBAction)suKienChonCaNhan:(id)sender;
 - (IBAction)suKienChonTheVID:(id)sender;
+- (IBAction)suKienChonHoTroThanhToan:(id)sender;
+- (IBAction)suKienChonTheATM:(id)sender;
 
 - (IBAction)onNext:(id)sender;
 

@@ -14,6 +14,7 @@
 #define URL_KIEM_TRA_TAI_KHOAN_CO_VI [NSString stringWithFormat:@"%@%@", ROOT_URL, @"account/checkAccount"]
 
 @interface GiaoDichMang : NSObject
++ (void)ketNoiThanhToanQRNganHang:(NSString *)dictJSON noiNhanKetQua:(id<DucNT_ServicePostDelegate>)noiNhanKetQua;
 + (void)ketNoiConfirmDangKyTheDaNang:(NSString *)dictJSON noiNhanKetQua:(id<DucNT_ServicePostDelegate>)noiNhanKetQua;
 + (void)ketNoiDangKyTheDaNang:(NSString *)dictJSON noiNhanKetQua:(id<DucNT_ServicePostDelegate>)noiNhanKetQua;
 + (void)ketNoiLayDanhSachDiaDiemVNPAY:(NSString *)dictJSON noiNhanKetQua:(id<DucNT_ServicePostDelegate>)noiNhanKetQua;
@@ -269,6 +270,8 @@
                  gioiHan:(int)nGioiHan
                  kieuLay:(int)nKieu //tang qua hay nhan qua
            noiNhanKetQua:(id<DucNT_ServicePostDelegate>)noiNhanKetQua;
+
++ (void)ketNoiLaySaoKeVi:(long long)nThoiGianBatDau thoiGianKetThuc:(long long)nThoiGianKetThuc viTribatDau:(int)nViTriBatDau gioiHan:(int)nGioiHan kieuLay:(int)nKieu searchTextQR:(NSString *)searchTextQR noiNhanKetQua:(id<DucNT_ServicePostDelegate>)noiNhanKetQua;
 
 + (void)ketNoiGuiMailSaoKeDen:(NSString*)sTaiKhoan
                         email:(NSString*)sEmail

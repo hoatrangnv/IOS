@@ -129,7 +129,7 @@
         [self hienThiLoading];
     });
     
-    NSMutableURLRequest *urlRequest = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://vimass.vn/vmbank/services/paymentGateway/layThongTinDaiLy?maDaiLy=%@", [DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_ID_TEMP]]]];
+    NSMutableURLRequest *urlRequest = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://vimass.vn/vmbank/services/boYTe_SanPhamYTe/layThongTinDaiLy?maDaiLy=%@", [DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_MA_DAI_LY]]]];
     //create the Method "GET"
     [urlRequest setHTTPMethod:@"GET"];
     

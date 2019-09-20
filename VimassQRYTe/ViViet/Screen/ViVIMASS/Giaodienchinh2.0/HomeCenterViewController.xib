@@ -15,6 +15,7 @@
                 <outlet property="btnNganHang" destination="ki1-ea-UEr" id="eeW-af-f7W"/>
                 <outlet property="btnQR" destination="cXu-cz-Dn1" id="TqI-sE-aMT"/>
                 <outlet property="btnQuetQR" destination="yKw-K8-WTY" id="bIJ-Yj-0Th"/>
+                <outlet property="btnTheYTe" destination="g4o-iB-MKQ" id="6zI-z3-b6v"/>
                 <outlet property="lblHoaDon" destination="5nB-er-JTm" id="ODQ-Lx-4JM"/>
                 <outlet property="vNganHang" destination="HZ2-9r-g5X" id="1ci-Qp-OJo"/>
                 <outlet property="vQR" destination="Wg2-wg-xBX" id="hro-0V-oHh"/>
@@ -143,39 +144,38 @@
                     <subviews>
                         <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yKw-K8-WTY">
                             <rect key="frame" x="137" y="291.33333333333331" width="101" height="101.33333333333331"/>
-                            <color key="backgroundColor" red="0.2274509804" green="0.50980392159999999" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="yKw-K8-WTY" secondAttribute="height" id="Dkw-VD-rfc"/>
                             </constraints>
-                            <inset key="imageEdgeInsets" minX="20" minY="20" maxX="20" maxY="20"/>
-                            <state key="normal" image="Quet_QR"/>
+                            <state key="normal" image="ic_support"/>
                             <connections>
-                                <action selector="suKienChonQuetQR:" destination="-1" eventType="touchUpInside" id="cld-jX-fwB"/>
+                                <action selector="suKienChonHoTroThanhToan:" destination="-1" eventType="touchUpInside" id="iIM-l2-psp"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KB9-j3-yae">
-                            <rect key="frame" x="257" y="130.33333333333334" width="81" height="81"/>
+                            <rect key="frame" x="237" y="110" width="101" height="101.33333333333331"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="KB9-j3-yae" secondAttribute="height" id="aGO-gK-UYU"/>
                             </constraints>
-                            <state key="normal" image="ic_quet_qr_vm"/>
+                            <state key="normal" image="ic_qr_yte2"/>
                             <connections>
-                                <action selector="suKienChonVNPay:" destination="-1" eventType="touchUpInside" id="K4B-lf-WuH"/>
+                                <action selector="suKienChonQRYTe:" destination="-1" eventType="touchUpInside" id="mNq-Ue-eue"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZDB-bt-8rN">
-                            <rect key="frame" x="37" y="130.33333333333334" width="81" height="81"/>
+                            <rect key="frame" x="37" y="110" width="101" height="101.33333333333331"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="ZDB-bt-8rN" secondAttribute="height" id="76Z-VD-M4Q"/>
                             </constraints>
-                            <state key="normal" image="icon_qr_yte"/>
+                            <state key="normal" image="ic_the_atm_qr"/>
                             <connections>
-                                <action selector="suKienChonQRYTe:" destination="-1" eventType="touchUpInside" id="Ed6-Jm-wKG"/>
+                                <action selector="suKienChonTheATM:" destination="-1" eventType="touchUpInside" id="3Xh-1g-dJA"/>
                             </connections>
                         </button>
                         <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M6d-sI-E7L">
-                            <rect key="frame" x="257" y="472.66666666666663" width="81" height="81"/>
-                            <state key="normal" image="icon180"/>
+                            <rect key="frame" x="237" y="472.66666666666657" width="101" height="101.33333333333331"/>
+                            <state key="normal" image="ic_vi_dien_tu_qryte"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                     <integer key="value" value="10"/>
@@ -185,9 +185,11 @@
                                 <action selector="suKienChonGiaoDich:" destination="-1" eventType="touchUpInside" id="Uee-pc-7b8"/>
                             </connections>
                         </button>
-                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g4o-iB-MKQ">
-                            <rect key="frame" x="37" y="472.66666666666663" width="81" height="81"/>
-                            <state key="normal" title="Button" image="ic_the_vid"/>
+                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g4o-iB-MKQ">
+                            <rect key="frame" x="37" y="472.66666666666657" width="101" height="101.33333333333331"/>
+                            <color key="backgroundColor" red="0.2274509804" green="0.50980392159999999" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <inset key="imageEdgeInsets" minX="10" minY="25" maxX="10" maxY="25"/>
+                            <state key="normal" image="ic_the_vid-1"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                     <integer key="value" value="10"/>
@@ -197,32 +199,32 @@
                                 <action selector="suKienChonTheVID:" destination="-1" eventType="touchUpInside" id="bjj-Ft-lbm"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quét QR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pWF-jv-fU5">
-                            <rect key="frame" x="155" y="395.66666666666669" width="65.333333333333314" height="20.333333333333314"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hỗ trợ thanh toán" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pWF-jv-fU5">
+                            <rect key="frame" x="120.33333333333333" y="395.66666666666669" width="134.33333333333337" height="20.333333333333314"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" white="0.10000000000000001" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VNPay" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="peh-aA-VZc">
-                            <rect key="frame" x="272" y="214.33333333333331" width="51" height="20.333333333333343"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QR Y tế" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="peh-aA-VZc">
+                            <rect key="frame" x="258.66666666666669" y="214.33333333333331" width="58" height="20.333333333333343"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" white="0.10000000000000001" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QR y tế" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G0D-Fo-DmT">
-                            <rect key="frame" x="49.333333333333329" y="214.33333333333331" width="56.333333333333329" height="20.333333333333343"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thẻ ATM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G0D-Fo-DmT">
+                            <rect key="frame" x="53.333333333333336" y="214.33333333333331" width="68.333333333333314" height="20.333333333333343"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" white="0.10000000000000001" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thẻ vID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t5s-E4-8Fd">
-                            <rect key="frame" x="48" y="556.66666666666663" width="59" height="20.333333333333371"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thẻ y tế" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t5s-E4-8Fd">
+                            <rect key="frame" x="56.333333333333329" y="577" width="62.333333333333329" height="20.333333333333371"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" white="0.10000000000000001" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ví Vimass" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XPH-mN-yQM">
-                            <rect key="frame" x="260.33333333333331" y="556.66666666666663" width="74.666666666666686" height="20.333333333333371"/>
+                            <rect key="frame" x="250.33333333333334" y="577" width="74.666666666666657" height="20.333333333333371"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" white="0.10000000000000001" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
@@ -244,7 +246,7 @@
                         <constraint firstItem="M6d-sI-E7L" firstAttribute="width" secondItem="M6d-sI-E7L" secondAttribute="height" id="Qwz-ZC-tcI"/>
                         <constraint firstItem="KB9-j3-yae" firstAttribute="trailing" secondItem="yKw-K8-WTY" secondAttribute="trailing" constant="100" id="ScM-Bp-RBq"/>
                         <constraint firstItem="yKw-K8-WTY" firstAttribute="top" secondItem="KB9-j3-yae" secondAttribute="bottom" constant="80" id="YUZ-e3-ROx"/>
-                        <constraint firstItem="KB9-j3-yae" firstAttribute="width" secondItem="yKw-K8-WTY" secondAttribute="width" multiplier="0.8" id="ZIf-V3-gvb"/>
+                        <constraint firstItem="KB9-j3-yae" firstAttribute="width" secondItem="yKw-K8-WTY" secondAttribute="width" id="ZIf-V3-gvb"/>
                         <constraint firstItem="pWF-jv-fU5" firstAttribute="top" secondItem="yKw-K8-WTY" secondAttribute="bottom" constant="3" id="aJk-7L-Eov"/>
                         <constraint firstItem="M6d-sI-E7L" firstAttribute="width" secondItem="KB9-j3-yae" secondAttribute="width" id="brg-P0-Ipk"/>
                         <constraint firstItem="g4o-iB-MKQ" firstAttribute="top" secondItem="yKw-K8-WTY" secondAttribute="bottom" constant="80" id="ewd-JA-rdl"/>
@@ -276,13 +278,13 @@
         </view>
     </objects>
     <resources>
-        <image name="Quet_QR" width="200" height="200"/>
+        <image name="ic_qr_yte2" width="100" height="100"/>
         <image name="ic_question_32" width="32" height="32"/>
-        <image name="ic_quet_qr_vm" width="200" height="200"/>
-        <image name="ic_the_vid" width="200" height="200"/>
+        <image name="ic_support" width="100" height="100"/>
+        <image name="ic_the_atm_qr" width="128" height="128"/>
+        <image name="ic_the_vid-1" width="403.5" height="256"/>
+        <image name="ic_vi_dien_tu_qryte" width="100" height="100"/>
         <image name="ic_vicuatoi_soft_token" width="300" height="300"/>
-        <image name="icon180" width="180" height="180"/>
         <image name="icon_edit_the_luu" width="64" height="64"/>
-        <image name="icon_qr_yte" width="360" height="360"/>
     </resources>
 </document>

@@ -138,6 +138,8 @@ extern NSString *const KEY_EMAIL_NGUOI_DUYET;
 @property (nonatomic, retain) NSNumber *hanMucTimeMPKIMax;
 @property (nonatomic, retain) NSNumber *hanMucDayMPKIMax;
 
+@property (nonatomic, retain) NSString *maDaiLy;
+
 - (id)initWithDict:(NSDictionary*)dict;
 
 - (BOOL)layQuyenDuocDuyetGiaoDichTrongChucNang:(int)nFuncID;

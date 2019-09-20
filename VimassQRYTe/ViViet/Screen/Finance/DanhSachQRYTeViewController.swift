@@ -40,7 +40,7 @@ class DanhSachQRYTeViewController: GiaoDichViewController {
         DispatchQueue.main.async {
             self.hienThiLoading()
         }
-        let sUrl = "https://vimass.vn/vmbank/services/paymentGateway/layThongTinDaiLy?maDaiLy=\(DucNT_LuuRMS.layThongTinDangNhap(KEY_LOGIN_ID_TEMP) ?? "")"
+        let sUrl = "https://vimass.vn/vmbank/services/boYTe_SanPhamYTe/layThongTinDaiLy?maDaiLy=\(DucNT_LuuRMS.layThongTinDangNhap(KEY_LOGIN_MA_DAI_LY) ?? "")&user=\(DucNT_LuuRMS.layThongTinDangNhap(KEY_LOGIN_ID_TEMP) ?? "")"
         debugPrint("\(TAG) - \(#function) - line : \(#line) - sUrl : \(sUrl)")
         self.arrQRSanPham.removeAll()
         guard let url = URL(string: sUrl) else {
@@ -82,8 +82,9 @@ class DanhSachQRYTeViewController: GiaoDichViewController {
                         }
                         let msgCode = json["msgCode"] as? Int ?? 1
                         if msgCode == 1 {
-                            if let reuslt = json["result"] as? [String : Any], let dsSanPham = reuslt["dsSanPham"] as? [[String:Any]] {
-                                for item in dsSanPham {
+                            if let reuslt = json["result"] as? [[String : Any]] {
+//                                , let dsSanPham = reuslt["dsSanPham"] as? [[String:Any]]
+                                for item in reuslt {
                                     let qrYTe = item["qrYTe"] as? Int ?? 0
                                     if qrYTe == 1 {
                                         self.arrQRSanPham.append(item)

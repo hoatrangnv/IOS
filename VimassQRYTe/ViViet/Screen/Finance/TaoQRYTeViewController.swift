@@ -287,7 +287,8 @@ class TaoQRYTeViewController: GiaoDichViewController {
         if dictGiaoDich == nil {
             dictGiaoDich = [String : Any]()
         }
-        dictGiaoDich["maDaiLy"] = DucNT_LuuRMS.layThongTinDangNhap(KEY_LOGIN_ID_TEMP)
+        dictGiaoDich["user"] = DucNT_LuuRMS.layThongTinDangNhap(KEY_LOGIN_ID_TEMP)
+        dictGiaoDich["maDaiLy"] = DucNT_LuuRMS.layThongTinDangNhap(KEY_LOGIN_MA_DAI_LY)
         dictGiaoDich["video"] = ""
         dictGiaoDich["hienThiLoiNhan"] = NSNumber(value: 1)
         dictGiaoDich["hienThiSoLuong"] = NSNumber(value: nSoLuong)
@@ -328,12 +329,14 @@ class TaoQRYTeViewController: GiaoDichViewController {
             debugPrint("\(TAG) - \(#function) - line : \(#line) - json : \(json)")
         }
         
-        let sURL = "\(ROOT_URL)paymentGateway/themSanPham"
+//        let sURL = "\(ROOT_URL)paymentGateway/themSanPham"
+        let sURL = "\(ROOT_URL)boYTe_SanPhamYTe/themSanPham"
         connectUpQR(sURL, dict: dictGiaoDich)
     }
     
     func editQR() {
         var dict = [String:Any]()
+        dict["user"] = DucNT_LuuRMS.layThongTinDangNhap(KEY_LOGIN_ID_TEMP)
         dict["maGiaoDich"] = maGiaoDich
         dict["maDaiLy"] = dictGiaoDich["maDaiLy"]
         dict["video"] = ""
@@ -368,7 +371,8 @@ class TaoQRYTeViewController: GiaoDichViewController {
         }
         dict["dsTKNhanThongBaoBienDongSoDu"] = sPhone
         
-        let sURL = "\(ROOT_URL)paymentGateway/editSanPham"
+//        let sURL = "\(ROOT_URL)paymentGateway/editSanPham"
+        let sURL = "\(ROOT_URL)boYTe_SanPhamYTe/editSanPham"
         connectUpQR(sURL, dict: dict)
         //        testEdit(sToken)
     }
@@ -390,7 +394,8 @@ class TaoQRYTeViewController: GiaoDichViewController {
 
         if let dictDel = dict as? NSDictionary, let json = dictDel.jsonString() {
             debugPrint("\(TAG) - \(#function) - line : \(#line) - json : \(json)")
-            let sURL = "\(ROOT_URL)paymentGateway/xoaSanPham"
+//            let sURL = "\(ROOT_URL)paymentGateway/xoaSanPham"
+            let sURL = "\(ROOT_URL)boYTe_SanPhamYTe/xoaSanPham"
             let urlRequest = NSMutableURLRequest(url: URL(string: sURL)!)
             urlRequest.timeoutInterval = 90.0
             urlRequest.httpMethod = "POST"
@@ -399,6 +404,7 @@ class TaoQRYTeViewController: GiaoDichViewController {
             let task = session.dataTask(with: urlRequest as URLRequest) { (data, response, error) in
                 DispatchQueue.main.async {
                     self.anLoading()
+                    self.authenView?.isHidden = true
                 }
                 guard error == nil else {
                     debugPrint("\(self.TAG) - \(#function) - line : \(#line) - error : \(error.debugDescription)")
@@ -418,9 +424,25 @@ class TaoQRYTeViewController: GiaoDichViewController {
                 let statusCode = httpResponse.statusCode
                 debugPrint("\(self.TAG) - \(#function) - line : \(#line) - statusCode : \(statusCode)")
                 if statusCode == 200 {
-                    DispatchQueue.main.async {
-                        self.navigationController?.popToRootViewController(animated: true)
-                    }
+                    do {
+                        if let json = try JSONSerialization.jsonObject(with: responseData, options: .allowFragments) as? [String:Any] {
+                            let msgCode = json["msgCode"] as! NSNumber
+                            if msgCode.intValue == 1 {
+                                self.navigationController?.popViewController(animated: true)
+                            } else {
+                                var key = "msgContent"
+                                if Localization.getCurrentLang() == ENGLISH {
+                                    key = "msgContent_en"
+                                }
+                                if let sThongBao = json[key] as? String {
+                                    DispatchQueue.main.async {
+                                        self.hienThiHopThoaiMotNutBamKieu(-1, cauThongBao: sThongBao)
+                                    }
+                                }
+                            }
+                            
+                        }
+                    } catch{}
                 } else {
                     DispatchQueue.main.async {
                         self.hienThiHopThoaiMotNutBamKieu(-1, cauThongBao: "Có lỗi khi kết nối, vui lòng thử lại sau.")
@@ -562,20 +584,24 @@ class TaoQRYTeViewController: GiaoDichViewController {
     @objc func suKienChonTokenView() {
         isShowTokenView = !isShowTokenView
         DispatchQueue.main.async {
-            self.tableView.reloadSections(IndexSet(integer: 4), with: .automatic)
+            self.tableView.reloadSections(IndexSet(integer: 3), with: .automatic)
         }
     }
     
+    var authenView:ViewXacThucXoaQRSanPham?
     @IBAction func suKienChonXoaSanPham(_ sender: Any) {
         if maGiaoDich.isEmpty {
             return
         }
         isDelete = true
-        let authenView = ViewXacThucXoaQRSanPham.instanceFromNib()
-        authenView.isFace = self.enableFaceID
-        authenView.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
-        self.view.addSubview(authenView)
-        authenView.delegate = self
+        if authenView == nil {
+            authenView = ViewXacThucXoaQRSanPham.instanceFromNib()
+            authenView?.isFace = self.enableFaceID
+            authenView?.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
+            self.view.addSubview(authenView!)
+            authenView?.delegate = self
+        }
+        authenView?.isHidden = false
     }
     
     @objc func tapGio(_ sender:UIButton) {
@@ -836,6 +862,7 @@ extension TaoQRYTeViewController : UITableViewDelegate, UITableViewDataSource {
                 return cell
             } else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "TaoQRNameCell", for: indexPath) as! TaoQRNameCell
+                cell.tfName.removeTarget(self, action: #selector(suKienThayDoiNoiDung(_:)), for: .editingChanged)
                 cell.tfName.placeholder = "Mô tả (tối đa 200 ký tự)"
                 return cell
             }
@@ -858,6 +885,7 @@ extension TaoQRYTeViewController : UITableViewDelegate, UITableViewDataSource {
         }
         else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "TaoQRNameCell", for: indexPath) as! TaoQRNameCell
+            cell.tfName.removeTarget(self, action: #selector(suKienThayDoiNoiDung(_:)), for: .editingChanged)
             return cell
         }
 //        else if indexPath.section == 3 {

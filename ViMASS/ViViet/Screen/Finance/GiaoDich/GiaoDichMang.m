@@ -39,7 +39,8 @@
 //URL sao ke
 #define URL_LAY_DANH_SACH_SAO_KE_QUA_TANG [NSString stringWithFormat:@"%@%@", ROOT_URL, @"gift/getListGift"]
 #define URL_LAY_DANH_SACH_SAO_KE_KHUYEN_MAI [NSString stringWithFormat:@"%@%@", ROOT_URL, @"promotion/getListPromotion"]
-#define URL_LAY_DANH_SACH_SAO_KE_VI [NSString stringWithFormat:@"%@%@", ROOT_URL, @"account/inquiry1"]
+#define URL_LAY_DANH_SACH_SAO_KE_VI [NSString stringWithFormat:@"%@%@", ROOT_URL, @"account/saoKeGiaoDichQR"]
+#define URL_LAY_DANH_SACH_SAO_KE_VI_VIMASS [NSString stringWithFormat:@"%@%@", ROOT_URL, @"account/inquiry1"]
 #define URL_LAY_SO_DU_VI [NSString stringWithFormat:@"%@%@", ROOT_URL, @"account/getAmount"]
 #define URL_GUI_SAO_KE_VE_EMAIL [NSString stringWithFormat:@"%@%@", ROOT_URL, @"account/sendInquiryToEmail"]
 
@@ -189,6 +190,7 @@
 #define URL_LAY_THONG_TIN_QR [NSString stringWithFormat:@"%@%@", ROOT_URL, @"QRVietNam/traCuuThongTinQR"]
 #define URL_THANH_TOAN_VNPAY_QR [NSString stringWithFormat:@"%@%@", ROOT_URL, @"QRVietNam/thanhToanVNPayQR"]
 #define URL_TIM_DIA_DIEM_VNPAY_QR [NSString stringWithFormat:@"%@%@", ROOT_URL, @"QRVietNam/traCuuDiemGiaoDichVNPAY"]
+#define URL_THANH_TOAN_QR_NGAN_HANG [NSString stringWithFormat:@"%@%@", ROOT_URL, @"QRVietNam/thanhToanQRNganHang"]
 
 + (void)ketNoiConfirmDangKyTheDaNang:(NSString *)dictJSON noiNhanKetQua:(id<DucNT_ServicePostDelegate>)noiNhanKetQua {
     DucNT_ServicePost *connectPost = [[DucNT_ServicePost alloc] init];
@@ -208,6 +210,14 @@
     DucNT_ServicePost *connectPost = [[DucNT_ServicePost alloc] init];
     [connectPost setDucnt_connectDelegate:noiNhanKetQua];
     [connectPost connect:URL_TIM_DIA_DIEM_VNPAY_QR withContent:dictJSON];
+    [connectPost release];
+}
+
+
++ (void)ketNoiThanhToanQRNganHang:(NSString *)dictJSON noiNhanKetQua:(id<DucNT_ServicePostDelegate>)noiNhanKetQua {
+    DucNT_ServicePost *connectPost = [[DucNT_ServicePost alloc] init];
+    [connectPost setDucnt_connectDelegate:noiNhanKetQua];
+    [connectPost connect:URL_THANH_TOAN_QR_NGAN_HANG withContent:dictJSON];
     [connectPost release];
 }
 
@@ -1299,6 +1309,37 @@
     NSLog(@"%s - [dic JSONString] : %@", __FUNCTION__, [dic JSONString]);
     DucNT_ServicePost *connect = [[DucNT_ServicePost alloc] init];
     [connect setDucnt_connectDelegate:noiNhanKetQua];
+    [connect connect:URL_LAY_DANH_SACH_SAO_KE_VI_VIMASS withContent:[dic JSONString]];
+    [connect release];
+}
+
++ (void)ketNoiLaySaoKeVi:(long long)nThoiGianBatDau thoiGianKetThuc:(long long)nThoiGianKetThuc viTribatDau:(int)nViTriBatDau gioiHan:(int)nGioiHan kieuLay:(int)nKieu searchTextQR:(NSString *)searchTextQR noiNhanKetQua:(id<DucNT_ServicePostDelegate>)noiNhanKetQua
+{
+    NSString *sID = @"";
+    int nKieuDangNhap = [[DucNT_LuuRMS layThongTinDangNhap:KEY_HIEN_THI_VI] intValue];
+    if(nKieuDangNhap == KIEU_DOANH_NGHIEP)
+    {
+        sID = [DucNT_LuuRMS layThongTinDangNhap:KEY_DINH_DANH_DOANH_NGHIEP];
+    }
+    else if(nKieuDangNhap == KIEU_CA_NHAN)
+    {
+        sID = [DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_ID_TEMP];
+    }
+    NSDictionary *dic = @{
+                          @"phone": sID,
+                          @"session": [DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_SECSSION],
+                          @"limit": [NSNumber numberWithInt:nGioiHan],
+                          @"fromDate":[NSNumber numberWithLongLong:nThoiGianBatDau],
+                          @"toDate":[NSNumber numberWithLongLong:nThoiGianKetThuc],
+                          @"start": [NSNumber numberWithInt:nViTriBatDau],
+                          @"type": [NSNumber numberWithInt:nKieu],
+                          @"VMApp" : [NSNumber numberWithInt:VM_APP],
+                          @"typeTrans" : [NSNumber numberWithInt:0],
+                          @"searchTextQR" : searchTextQR,
+                          };
+    NSLog(@"%s - [dic JSONString] : %@", __FUNCTION__, [dic JSONString]);
+    DucNT_ServicePost *connect = [[DucNT_ServicePost alloc] init];
+    [connect setDucnt_connectDelegate:noiNhanKetQua];
     [connect connect:URL_LAY_DANH_SACH_SAO_KE_VI withContent:[dic JSONString]];
     [connect release];
 }
@@ -1553,20 +1594,7 @@
     {
         sMaDoanhNghiep = [DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_COMPANY_ID];
     }
-//    NSDictionary *dictPost = @{
-//                               @"token" : sToken,
-//                               @"otpConfirm" : sOtp,
-//                               @"typeAuthenticate" : [NSNumber numberWithInt:nTypeAuthenticate],
-//                               @"companyCode":sMaDoanhNghiep,
-//                               @"amount" : [NSNumber numberWithDouble:fSoTien],
-//                               @"bankCode" : sBankCode,
-//                               @"content" : sNoiDung,
-//                               @"bankNumber" : sSoTaiKhoan,
-//                               @"id" : [DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_ID_TEMP],
-//                               @"nameBenefit" : sTenChuTaiKhoan,
-//                               @"appId" : [NSNumber numberWithInt:APP_ID],
-//                               @"VMApp" : [NSNumber numberWithInt:VM_APP]
-//                               };
+
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
     [dict setValue:sToken forKey:@"token"];
     [dict setValue:sOtp forKey:@"otpConfirm"];

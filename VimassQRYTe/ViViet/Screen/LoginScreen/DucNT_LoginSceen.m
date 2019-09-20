@@ -761,6 +761,8 @@ static int const KIEU_KET_NOI_GOOGLE = 2;
                 self.mID = app.mThongTinTaiKhoanVi.walletLogin;
             }
             [DucNT_LuuRMS luuThongTinDangNhap:KEY_LOGIN_ID_TEMP value:self.mID];
+            [DucNT_LuuRMS luuThongTinDangNhap:KEY_LOGIN_MA_DAI_LY value:app.mThongTinTaiKhoanVi.maDaiLy];
+            
             sDinhDanhKetNoi = DINH_DANH_DANG_KI_THIET_BI;
 
             NSString *sDeviceToken = [DucNT_LuuRMS layThongTinDangNhap:KEY_DEVICE_TOKEN];

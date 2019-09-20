@@ -89,6 +89,8 @@ NSString *const KEY_HAN_MUC_AMOUNT_DAY_MPKI = @"KEY_HAN_MUC_AMOUNT_DAY_MPKI";
 NSString *const KEY_HAN_MUC_AMOUNT_TIME_MPKI = @"KEY_HAN_MUC_AMOUNT_TIME_MPKI";
 NSString *const KEY_HAN_MUC_AMOUNT_DAY_MPKI_MAX = @"KEY_HAN_MUC_AMOUNT_DAY_MPKI_MAX";
 NSString *const KEY_HAN_MUC_AMOUNT_TIME_MPKI_MAX = @"KEY_HAN_MUC_AMOUNT_TIME_MPKI_MAX";
+
+NSString *const KEY_MA_DAI_LY = @"KEY_MA_DAI_LY";
 //roles = "{\"list\":[{\"nguoiLapGiaoDich\":1,\"nguoiDuyetGiaoDich\":0,\"funcId\":1},{\"nguoiLapGiaoDich\":1,\"nguoiDuyetGiaoDich\":0,\"funcId\":420},{\"nguoiLapGiaoDich\":1,\"nguoiDuyetGiaoDich\":0,\"funcId\":421},{\"nguoiLapGiaoDich\":1,\"nguoiDuyetGiaoDich\":0,\"funcId\":403},{\"nguoiLapGiaoDich\":1,\"nguoiDuyetGiaoDich\":0,\"funcId\":406},{\"nguoiLapGiaoDich\":1,\"nguoiDuyetGiaoDich\":0,\"funcId\":414},{\"nguoiLapGiaoDich\":1,\"nguoiDuyetGiaoDich\":0,\"funcId\":415}],\"administrator\":0}";
 
 
@@ -173,6 +175,8 @@ NSString *const KEY_HAN_MUC_AMOUNT_TIME_MPKI_MAX = @"KEY_HAN_MUC_AMOUNT_TIME_MPK
         self.hanMucDayMPKI = [decoder decodeObjectForKey:KEY_HAN_MUC_AMOUNT_DAY_MPKI];
         self.hanMucTimeMPKIMax = [decoder decodeObjectForKey:KEY_HAN_MUC_AMOUNT_TIME_MPKI_MAX];
         self.hanMucDayMPKIMax = [decoder decodeObjectForKey:KEY_HAN_MUC_AMOUNT_DAY_MPKI_MAX];
+        
+        self.maDaiLy = [decoder decodeObjectForKey:KEY_MA_DAI_LY];
     }
     return self;
 }
@@ -254,6 +258,8 @@ NSString *const KEY_HAN_MUC_AMOUNT_TIME_MPKI_MAX = @"KEY_HAN_MUC_AMOUNT_TIME_MPK
     [encoder encodeObject:self.hanMucDayMPKI forKey:KEY_HAN_MUC_AMOUNT_DAY_MPKI];
     [encoder encodeObject:self.hanMucTimeMPKIMax forKey:KEY_HAN_MUC_AMOUNT_TIME_MPKI_MAX];
     [encoder encodeObject:self.hanMucDayMPKIMax forKey:KEY_HAN_MUC_AMOUNT_DAY_MPKI_MAX];
+    
+    [encoder encodeObject:self.maDaiLy forKey:KEY_MA_DAI_LY];
 }
 
 - (id)initWithDict:(NSDictionary *)dict
@@ -712,6 +718,9 @@ NSString *const KEY_HAN_MUC_AMOUNT_TIME_MPKI_MAX = @"KEY_HAN_MUC_AMOUNT_TIME_MPK
         NSString *pki3 = [dict objectForKey:@"pki3"];
         self.pki3 = pki3;
         self.hanMucPki3 = hanmucPKI;
+        
+        NSDictionary *objectPhanQuyenBenhVien = [dict objectForKey:@"objectPhanQuyenBenhVien"];
+        self.maDaiLy = [objectPhanQuyenBenhVien objectForKey:@"maDaiLy"];
     }
     return self;
 }
@@ -847,6 +856,8 @@ NSString *const KEY_HAN_MUC_AMOUNT_TIME_MPKI_MAX = @"KEY_HAN_MUC_AMOUNT_TIME_MPK
     [self.hanMucDayMPKI release];
     [self.hanMucTimeMPKIMax release];
     [self.hanMucDayMPKIMax release];
+    
+    [self.maDaiLy release];
     [super dealloc];
 }
 

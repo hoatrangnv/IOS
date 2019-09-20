@@ -425,7 +425,7 @@ extension Dictionary {
         if dictGiaoDich == nil {
             dictGiaoDich = [String : Any]()
         }
-        dictGiaoDich["maDaiLy"] = DucNT_LuuRMS.layThongTinDangNhap(KEY_LOGIN_ID_TEMP)
+        dictGiaoDich["maDaiLy"] = DucNT_LuuRMS.layThongTinDangNhap(KEY_LOGIN_MA_DAI_LY)
         dictGiaoDich["video"] = ""
         dictGiaoDich["hienThiLoiNhan"] = NSNumber(value: 1)
         dictGiaoDich["hienThiSoLuong"] = NSNumber(value: nSoLuong)

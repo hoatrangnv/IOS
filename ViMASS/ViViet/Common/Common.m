@@ -627,14 +627,15 @@ CLLocationManager *shared_location_manager = nil;
     }
     else if ( nKieuChuyenTien == KIEU_CHUYEN_TIEN_NAP_THE_DIEN_THOAI)
     {
-        fSoTienPhi = SO_TIEN_MOT_LAN_CHUYEN;
-        if (fSoTien > 1000000) {
-            fSoTienPhi = PHI_DUOI_20tr;
-        }
-        if(fSoTien >= SO_TIEN_MOC)
-        {
-            fSoTienPhi = PHI_TREN_20tr;
-        }
+        fSoTienPhi = 1100;
+//        fSoTienPhi = SO_TIEN_MOT_LAN_CHUYEN;
+//        if (fSoTien > 1000000) {
+//            fSoTienPhi = PHI_DUOI_20tr;
+//        }
+//        if(fSoTien >= SO_TIEN_MOC)
+//        {
+//            fSoTienPhi = PHI_TREN_20tr;
+//        }
     }
     else if ( nKieuChuyenTien == KIEU_NAP_VI_TU_THE_NGAN_HANG)
     {

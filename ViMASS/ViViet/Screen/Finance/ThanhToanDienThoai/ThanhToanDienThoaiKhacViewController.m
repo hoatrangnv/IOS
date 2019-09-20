@@ -1435,7 +1435,7 @@ NSString *sCauLuuY = @"<b>Lưu ý:</b> Số điện thoại nhận thanh toán c
 - (void)hienThiSoPhi
 {
     double fSoPhi = [Common layPhiChuyenTienCuaSoTien:mSoTienThanhToan kieuChuyenTien:KIEU_CHUYEN_TIEN_NAP_THE_DIEN_THOAI maNganHang:@""];
-    self.mlblPhi.text = [NSString stringWithFormat:@"%@: %@",[@"so_phi" localizableString], [Common hienThiTienTe_1:fSoPhi]];
+    self.mlblPhi.text = [NSString stringWithFormat:@"%@: %@ đ",[@"so_phi" localizableString], [Common hienThiTienTe:fSoPhi]];
     
 }
 

@@ -31,25 +31,25 @@
                         <stackView autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="d4n-kF-e3o">
                             <rect key="frame" x="108" y="23" width="182" height="52"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qsu-xZ-8BX">
-                                    <rect key="frame" x="0.0" y="0.0" width="54" height="52"/>
-                                    <state key="normal" title="PKI" image="pki"/>
-                                    <connections>
-                                        <action selector="suKienChonSDSecure:" destination="iN0-l3-epB" eventType="touchUpInside" id="kJm-eQ-D8L"/>
-                                    </connections>
-                                </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x1L-74-VB8">
-                                    <rect key="frame" x="64" y="0.0" width="54" height="52"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="54" height="52"/>
                                     <state key="normal" title="Token" image="tokenv"/>
                                     <connections>
                                         <action selector="suKienChonToken:" destination="iN0-l3-epB" eventType="touchUpInside" id="If2-TX-y3Q"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JY0-3k-WBm">
-                                    <rect key="frame" x="128" y="0.0" width="54" height="52"/>
+                                    <rect key="frame" x="64" y="0.0" width="54" height="52"/>
                                     <state key="normal" image="vantay"/>
                                     <connections>
                                         <action selector="suKienChonFinger:" destination="iN0-l3-epB" eventType="touchUpInside" id="RGd-6k-uB7"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qsu-xZ-8BX">
+                                    <rect key="frame" x="128" y="0.0" width="54" height="52"/>
+                                    <state key="normal" title="PKI" image="pki"/>
+                                    <connections>
+                                        <action selector="suKienChonSDSecure:" destination="iN0-l3-epB" eventType="touchUpInside" id="kJm-eQ-D8L"/>
                                     </connections>
                                 </button>
                             </subviews>
@@ -129,7 +129,7 @@
         </view>
     </objects>
     <resources>
-        <image name="pki" width="225" height="225"/>
+        <image name="pki" width="128" height="128"/>
         <image name="tokenv" width="120" height="120"/>
         <image name="vantay" width="225" height="225"/>
     </resources>

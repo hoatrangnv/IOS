@@ -31,6 +31,12 @@
     [self ketNoiLayChiTietTinTuc];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+//    self.navigationController.navigationBarHidden = YES;
+    self.navigationController.navigationBarHidden = NO;
+}
+
 - (void)ketNoiLayChiTietTinTuc {
     dispatch_async(dispatch_get_main_queue(), ^{
         [self hienThiLoading];
@@ -49,7 +55,8 @@
         NSDictionary *dict = (NSDictionary *)ketQua;
 //        NSLog(@"%s - dict : %@", __FUNCTION__, [dict JSONString]);
         NSString *sTile = (NSString *)[dict valueForKey:keyTitle];
-        self.navigationItem.title = [self decodeBase64:sTile];
+//        self.navigationItem.title = [self decodeBase64:sTile];
+        [self addTitleView:[self decodeBase64:sTile]];
         
         NSString *sContent = (NSString *)[dict valueForKey:keyContent];
         NSString *sContentDecode = [self decodeBase64:sContent];

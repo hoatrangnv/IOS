@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, assign) id<GiaoDienTinTucProtocol> delegate;
 @property (retain, nonatomic) IBOutlet UITableView *tableView;
+@property (retain, nonatomic) IBOutlet UILabel *lblTitle;
 
 - (IBAction)suKienChonBack:(id)sender;
 - (IBAction)suKienChonVietNam:(id)sender;

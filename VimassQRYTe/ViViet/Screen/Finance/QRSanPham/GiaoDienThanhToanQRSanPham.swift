@@ -75,7 +75,13 @@ class GiaoDienThanhToanQRSanPham: GiaoDichViewController {
             DispatchQueue.main.async {
                 self.hienThiLoading()
             }
-            guard let url = URL(string: "https://vimass.vn/vmbank/services/paymentGateway/layChiTietThongTinSanPhamDaiLy?maSo=\(maQRSanPham)") else {return}
+            guard let url = URL(string: "https://vimass.vn/vmbank/services/boYTe_SanPhamYTe/layChiTietThongTinSanPhamDaiLy?maSo=\(maQRSanPham)") else {
+                DispatchQueue.main.async {
+                    self.anLoading()
+                    self.hienThiHopThoaiMotNutBamKieu(-1, cauThongBao: "Sản phẩm không tồn tại!")
+                }
+                return
+            }
             debugPrint("\(TAG) - \(#function) - line : \(#line) - url : \(url.absoluteString)")
             let urlRequest = NSMutableURLRequest(url: url)
             urlRequest.timeoutInterval = 60.0
@@ -296,7 +302,7 @@ extension GiaoDienThanhToanQRSanPham : UITableViewDelegate, UITableViewDataSourc
         } else if section == 1 {
             return 1
         } else if section == 2 {
-            return 1
+            return 0
         }
         return 1
     }
@@ -368,9 +374,10 @@ extension GiaoDienThanhToanQRSanPham : UITableViewDelegate, UITableViewDataSourc
                         if let dict = dictSanPham, let numberGia = dict["gia"] as? NSNumber {
                             let dGia = numberGia.doubleValue
                             if dGia > 0 {
-                                cell.lblTitle.text = "Đơn giá"
+//                                cell.lblTitle.text = "Đơn giá"
+                                cell.lblTitle.text = ""
                                 cell.tfGia.text = Common.hienThiTienTe(dGia) ?? ""
-                                cell.lblPhi.text = "VNĐ"
+                                cell.lblPhi.text = "Phí: 3.300 đ"
                             } else {
                                 cell.lblTitle.text = ""
                                 cell.tfGia.text = ""
@@ -382,6 +389,9 @@ extension GiaoDienThanhToanQRSanPham : UITableViewDelegate, UITableViewDataSourc
                     } else {
                         let cell = tableView.dequeueReusableCell(withIdentifier: "TaoQRNameCell", for: indexPath) as! TaoQRNameCell
                         cell.tfName.placeholder = "Nội dung (Có thể bỏ qua)"
+                        if let dict = dictSanPham {
+                            cell.tfName.text = dict["noiDung"] as? String
+                        }
                         cell.tfName.addTarget(self, action: #selector(suKienThayDoiNoiDung(_:)), for: .editingChanged)
                         return cell
                     }
@@ -389,6 +399,9 @@ extension GiaoDienThanhToanQRSanPham : UITableViewDelegate, UITableViewDataSourc
                 else if indexPath.row == 6 {
                     let cell = tableView.dequeueReusableCell(withIdentifier: "TaoQRNameCell", for: indexPath) as! TaoQRNameCell
                     cell.tfName.placeholder = "Nội dung (Có thể bỏ qua)"
+                    if let dict = dictSanPham {
+                        cell.tfName.text = dict["noiDung"] as? String
+                    }
                     cell.tfName.addTarget(self, action: #selector(suKienThayDoiNoiDung(_:)), for: .editingChanged)
                     return cell
                 }

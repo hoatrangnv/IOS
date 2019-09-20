@@ -9,7 +9,7 @@ import UIKit
 
 class GiaoDienQRYTeViewController: GiaoDichViewController {
     private let TAG = "GiaoDienQRYTeViewController"
-    private let arrOptions = ["Tạo, sửa, xoá QR y tế tĩnh" , "Tạo, sửa, xoá QR y tế động" , "Giao dịch QR y tế", "Hướng dẫn QR y tế"]
+    private let arrOptions = ["Tạo, sửa, xoá QR y tế tĩnh" , "Tạo, sửa, xoá QR y tế động" , "Tra cứu giao dịch", "Đối soát", "Phát hành hoá đơn", "Thẩm quyền"]
     @IBOutlet var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()

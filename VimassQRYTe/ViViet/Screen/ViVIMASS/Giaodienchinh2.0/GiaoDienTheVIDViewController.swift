@@ -9,15 +9,23 @@ import UIKit
 
 class GiaoDienTheVIDViewController: GiaoDichViewController {
     private let TAG = "GiaoDienQRYTeViewController"
-    private let arrOptions = ["Liên kết thẻ vID" , "Nạp tiền thẻ" , "Rút tiền về ví", "Chuyển tiền", "Sao kê ví", "Giao dịch thẻ", "Hướng dẫn"]
+    private let arrOptions = ["Sao kê ví" , "Điểm mượn, trả thẻ y tế" , "Điểm nhận thanh toán thẻ y tế"]
     @IBOutlet var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.addTitleView("Tra cứu QR")
+        
+        let btnRight = UIBarButtonItem(title: "Hướng dẫn", style: .plain, target: self, action: #selector(suKienChonHuongDan))
+        self.navigationItem.rightBarButtonItem = btnRight
+        
+        self.tableView.tableFooterView = UIView(frame: .zero)
         self.tableView.register(UINib(nibName: "DanhSachViVimassCell", bundle: nil), forCellReuseIdentifier: "DanhSachViVimassCell")
     }
 
+    @objc func suKienChonHuongDan() {
+    
+    }
 
     /*
     // MARK: - Navigation
@@ -37,7 +45,7 @@ extension GiaoDienTheVIDViewController : UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return tableView.frame.height / CGFloat(arrOptions.count)
+        return tableView.frame.height / 6
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
