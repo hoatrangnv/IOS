@@ -14,8 +14,8 @@
 
 @interface QRSearchViewController : UIViewController
 @property (retain, nonatomic) IBOutlet UITextField * _Nullable txtSearch;
-@property (strong, nonatomic) IBOutlet QRCodeReaderView     *cameraView;
-@property (strong, nonatomic) UIButton             *cancelButton;
+@property (strong, nonatomic) IBOutlet QRCodeReaderView *cameraView;
+@property (strong, nonatomic) UIButton *cancelButton;
 @property (retain, nonatomic) IBOutlet QRCameraSwitchButton *switchCameraButton;
 @property (retain, nonatomic) IBOutlet QRToggleTorchButton *toggleTorchButton;
 @property (retain, nonatomic) IBOutlet UIButton *btnDangKyQR;

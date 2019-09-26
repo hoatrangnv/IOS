@@ -10,7 +10,13 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface GiaoDienHoTroThanhToan : GiaoDichViewController
-@property (retain, nonatomic) IBOutlet UITableView *tableView;
+@property (retain, nonatomic) IBOutlet UIButton *btnTraCuu;
+@property (retain, nonatomic) IBOutlet UIButton *btnHuongDan;
+
+@property (retain, nonatomic) IBOutlet UIView *viewShowMain;
+- (IBAction)suKienChonBack:(id)sender;
+- (IBAction)suKienChonTraCuu:(id)sender;
+- (IBAction)suKienChonHuongDan:(id)sender;
 
 @end
 

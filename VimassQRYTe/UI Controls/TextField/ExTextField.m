@@ -12,7 +12,7 @@
 #import "Common.h"
 #import "UIView+EmphasizeShaking.h"
 #import "Alert+Block.h"
-
+#import <objc/runtime.h>
 /**
  *
  * @author: Ngo Ba Thuong
@@ -36,6 +36,12 @@
     if (self = [super init])
     {
         self->txtfield = tf;
+        if (@available(iOS 13, *)) {
+            Ivar ivar =  class_getInstanceVariable([UITextField class], "_placeholderLabel");
+            UILabel *placeholderLabel = object_getIvar(self->txtfield, ivar);
+
+            placeholderLabel.textColor = [UIColor lightGrayColor];
+        }
 //        [self->txtfield.inputAccessoryView setHidden:YES];
 //        [self->txtfield.inputAccessoryView setUserInteractionEnabled:NO];
     }

@@ -22,6 +22,7 @@ class AuthenQRCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        btnPKI.isHidden = true
         tfToken.max_length = 6
         tfToken.placeholder = Localization.languageSelectedString(forKey: "register_token_hint_token")
     }

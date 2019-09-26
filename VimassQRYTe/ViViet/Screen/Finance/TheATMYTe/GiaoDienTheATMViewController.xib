@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina5_9" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -39,21 +37,21 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="834"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="zHQ-WW-raA">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                    <rect key="frame" x="8" y="0.0" width="359" height="50"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_tt_napas" translatesAutoresizingMaskIntoConstraints="NO" id="216-c0-L8T">
-                                            <rect key="frame" x="0.0" y="0.0" width="162.66666666666666" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="154.66666666666666" height="50"/>
                                         </imageView>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_banner_vimass" translatesAutoresizingMaskIntoConstraints="NO" id="YaA-HV-Hnh">
-                                            <rect key="frame" x="212.66666666666663" y="0.0" width="162.33333333333337" height="60"/>
+                                            <rect key="frame" x="204.66666666666663" y="0.0" width="154.33333333333337" height="50"/>
                                         </imageView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="60" id="yHp-a4-jpL"/>
+                                        <constraint firstAttribute="height" constant="50" id="yHp-a4-jpL"/>
                                     </constraints>
                                 </stackView>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y1S-bs-jBO">
-                                    <rect key="frame" x="0.0" y="60" width="375" height="404"/>
+                                    <rect key="frame" x="0.0" y="50" width="375" height="404"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Hnj-zF-4Zr">
                                             <rect key="frame" x="16" y="8" width="343" height="376"/>
@@ -63,31 +61,26 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="lcE-yl-Byd"/>
                                                     </constraints>
-                                                    <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Số thẻ" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Ly-St-Nky">
                                                     <rect key="frame" x="0.0" y="48" width="343" height="40"/>
-                                                    <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ngày mở thẻ (MMYY)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tim-yi-wGo">
                                                     <rect key="frame" x="0.0" y="96" width="343" height="40"/>
-                                                    <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 </textField>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Mã thanh toán" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Tn-8g-Lzg">
                                                     <rect key="frame" x="0.0" y="144" width="343" height="40"/>
-                                                    <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Số tiền" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RmQ-n5-dz2">
                                                     <rect key="frame" x="0.0" y="192" width="343" height="40"/>
-                                                    <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 </textField>
@@ -137,7 +130,6 @@
                                                 </view>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="OTP của ngân hàng gửi đến" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PJX-h8-KiB">
                                                     <rect key="frame" x="0.0" y="288" width="343" height="40"/>
-                                                    <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
@@ -197,9 +189,9 @@
                                 <constraint firstItem="Y1S-bs-jBO" firstAttribute="leading" secondItem="YBJ-XM-3G9" secondAttribute="leading" id="GSv-KL-Idr"/>
                                 <constraint firstItem="Y1S-bs-jBO" firstAttribute="top" secondItem="zHQ-WW-raA" secondAttribute="bottom" id="LZX-zm-86i"/>
                                 <constraint firstItem="zHQ-WW-raA" firstAttribute="top" secondItem="YBJ-XM-3G9" secondAttribute="top" id="bc6-3Q-mjY"/>
-                                <constraint firstItem="zHQ-WW-raA" firstAttribute="leading" secondItem="YBJ-XM-3G9" secondAttribute="leading" id="esj-Pu-axA"/>
+                                <constraint firstItem="zHQ-WW-raA" firstAttribute="leading" secondItem="YBJ-XM-3G9" secondAttribute="leading" constant="8" id="esj-Pu-axA"/>
                                 <constraint firstAttribute="trailing" secondItem="Y1S-bs-jBO" secondAttribute="trailing" id="j1q-1C-KQw"/>
-                                <constraint firstAttribute="trailing" secondItem="zHQ-WW-raA" secondAttribute="trailing" id="vI2-Fy-Lob"/>
+                                <constraint firstAttribute="trailing" secondItem="zHQ-WW-raA" secondAttribute="trailing" constant="8" id="vI2-Fy-Lob"/>
                             </constraints>
                         </view>
                     </subviews>

@@ -9,6 +9,7 @@
 #import "CommonUtils.h"
 #import "QRDonViViewController.h"
 #import "HiNavigationBar.h"
+#import <objc/runtime.h>
 @interface QRSearchViewController ()<UITextFieldDelegate, UIImagePickerControllerDelegate>
 
 @end
@@ -21,7 +22,13 @@
     _txtSearch.layer.borderColor=[[UIColor lightGrayColor]CGColor];
     _txtSearch.adjustsFontSizeToFitWidth = true;
     _txtSearch.layer.borderWidth=1.0;
-    [_txtSearch setValue:[UIColor lightGrayColor] forKeyPath:@"_placeholderLabel.textColor"];
+//    [_txtSearch setValue:[UIColor lightGrayColor] forKeyPath:@"_placeholderLabel.textColor"];
+    if (@available(iOS 13, *)) {
+        Ivar ivar =  class_getInstanceVariable([UITextField class], "_placeholderLabel");
+        UILabel *placeholderLabel = object_getIvar(_txtSearch, ivar);
+
+        placeholderLabel.textColor = [UIColor lightGrayColor];
+    }
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [_codeReader.previewLayer setFrame:CGRectMake(0, 0, _cameraView.frame.size.width, _cameraView.frame.size.height)];

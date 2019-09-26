@@ -291,7 +291,7 @@
         double fHanMucPKI = [self.mThongTinTaiKhoanVi.hanMucTimeMPKI doubleValue];
         NSLog(@"%s - sSoTien : %@ - fHanMucPKI : %f", __FUNCTION__, sSoTien, fHanMucPKI);
         if (fSoTien <= fHanMucPKI) {
-            self.mbtnPKI.hidden = NO;
+            self.mbtnPKI.hidden = YES;
             self.btnVanTayMini.hidden = YES;
             self.mbtnToken.hidden = YES;
         } else {
@@ -300,7 +300,7 @@
             self.mbtnToken.hidden = YES;
         }
     } else {
-        self.mbtnPKI.hidden = NO;
+        self.mbtnPKI.hidden = YES;
         self.btnVanTayMini.hidden = NO;
         self.mbtnToken.hidden = NO;
     }

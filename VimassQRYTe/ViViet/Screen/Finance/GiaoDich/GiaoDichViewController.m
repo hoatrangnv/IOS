@@ -43,6 +43,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:UITextAttributeTextColor]];
     _mViewMain.layer.masksToBounds = YES;
     _mViewMain.layer.cornerRadius = 4.0f;
@@ -69,7 +70,7 @@
     self.mlblPhi.text = [Localization languageSelectedStringForKey:@"title_phi"];
     self.mlblXacThuc.text = [Localization languageSelectedStringForKey:@"xac_thuc_boi"];
     
-    self.mbtnPKI.hidden = false;
+    self.mbtnPKI.hidden = true;
 }
 
 - (void)khoiTaoButtonXacThucBanDau {
@@ -116,7 +117,7 @@
 
 - (void)checkButtonPKI {
     if(![CommonUtils isEmptyOrNull:self.mThongTinTaiKhoanVi.pki3] && [self.mThongTinTaiKhoanVi.hanMucPki3 doubleValue] >0 ){
-        self.mbtnPKI.hidden = NO;
+        self.mbtnPKI.hidden = YES;
     }
     else{
         self.mbtnPKI.hidden = YES;
@@ -896,7 +897,7 @@
 #pragma mark - DucNT_ServicePostDelegate
 -(void)ketNoiThanhCong:(NSString *)sKetQua
 {
-    //NSLog(@"%s - mDinhDanhKetNoi : %@ - sKetQua : %@", __FUNCTION__, self.mDinhDanhKetNoi, sKetQua);
+    NSLog(@"%s - mDinhDanhKetNoi : %@ - sKetQua : %@", __FUNCTION__, self.mDinhDanhKetNoi, sKetQua);
     NSDictionary *dicKetQua = [sKetQua objectFromJSONString];
     int nCode = [[dicKetQua objectForKey:@"msgCode"] intValue];
     NSString *message = [dicKetQua objectForKey:@"msgContent"];
@@ -976,7 +977,7 @@
     {
         if(nCode == 1)
         {
-//            //NSLog(@"%s ============> vao day %@", __FUNCTION__, result);
+//            NSLog(@"%s ============> result %@", __FUNCTION__, result);
             [self xuLyKetNoiThanhCong:self.mDinhDanhKetNoi thongBao:message ketQua:result];
         }
         else

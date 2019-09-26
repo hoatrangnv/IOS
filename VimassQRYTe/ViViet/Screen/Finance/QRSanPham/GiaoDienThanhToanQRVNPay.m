@@ -17,7 +17,6 @@
     int rowTable;
     NSArray *arrTitleType1;
     NSArray *arrNgonNgu;
-    NSString *sMaGiaoDich;
     double soTienType3;
     int nIndexLang;
     BOOL isQRNganHang;
@@ -49,7 +48,7 @@
     [self khoiTaoButtonXacThucBanDau];
     
     [self.tableView setHidden:YES];
-    [self ketNoiLayThongTinQR];
+//    [self ketNoiLayThongTinQR];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillShow:)
@@ -62,6 +61,70 @@
                                                  name:UIKeyboardWillHideNotification
                                                object:nil];
     nIndexLang = 0;
+    
+    [self khoiTaoQR];
+}
+
+- (void)khoiTaoQR {
+    if (self.dictChiTiet) {
+        if (_maDonViCapQR == 3) {
+            [self addTitleView:@"Thanh toán QR code"];
+            isQRNganHang = YES;
+            rowTable = 4;
+            arrTitleType1 = [self chuyenNgonNguQRNganHang];
+            dictQRNganHang = [[NSDictionary alloc] initWithDictionary:self.dictChiTiet];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.tableView setHidden:NO];
+                [self.tableView reloadData];
+                self.tableView.contentSize = CGSizeMake(self.tableView.frame.size.width, self.tableView.contentSize.height + 150);
+            });
+            return;
+        }
+        [self addTitleView:@"VNPay QR"];
+        _itemQR = [[ItemVNPayQR alloc] initWithDict:self.dictChiTiet];
+        soTienType3 = [_itemQR.amount doubleValue];
+
+        if (_itemQR.typeQRShow == 1) {
+            rowTable = 7;
+            arrTitleType1 = [self chuyenNgonNguType1];
+        }
+        else if (_itemQR.typeQRShow == 2) {
+            if (_itemQR.purpose != nil && ![_itemQR.purpose isEmpty] && _itemQR.consumerData != nil && ![_itemQR.consumerData isEmpty]) {
+                _itemQR.typeQRShow = 3;
+                rowTable = 7;
+                arrTitleType1 = [self chuyenNgonNguType3];
+            } else if (_itemQR.purpose != nil && ![_itemQR.purpose isEmpty] && (_itemQR.billNumber == nil || [_itemQR.billNumber isEmpty]) && _itemQR.customerID != nil && ![_itemQR.customerID isEmpty]) {
+                _itemQR.typeQRShow = 2;
+                rowTable = 6;
+                arrTitleType1 = [self chuyenNgonNguType2];
+            } else {
+                _itemQR.typeQRShow = 1;
+                if (_itemQR.billNumber == nil || [_itemQR.billNumber isEmpty]) {
+                    rowTable = 6;
+                } else {
+                    rowTable = 7;
+                }
+                arrTitleType1 = [self chuyenNgonNguType1];
+            }
+        } else if (_itemQR.typeQRShow == 3){
+            rowTable = 8;
+            arrTitleType1 = [self chuyenNgonNguType3];
+        } else if (_itemQR.typeQRShow == 4) {
+            if (_itemQR.consumerData != nil && ![_itemQR.consumerData isEmpty]) {
+                _itemQR.typeQRShow = 3;
+                rowTable = 8;
+                arrTitleType1 = [self chuyenNgonNguType3];
+            } else {
+                rowTable = 8;
+                arrTitleType1 = [self chuyenNgonNguType4];
+            }
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView setHidden:NO];
+            [self.tableView reloadData];
+            self.tableView.contentSize = CGSizeMake(self.tableView.frame.size.width, self.tableView.contentSize.height + 150);
+        });
+    }
 }
 
 - (NSArray *)chuyenNgonNguQRNganHang {
@@ -182,18 +245,18 @@
 }
 
 - (void)ketNoiLayThongTinQR {
-    if (![self.sDataQR isEmpty]) {
-        NSDictionary *dic = @{
-                              @"dataQR": self.sDataQR,
-                              @"user" : [DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_ID_TEMP],
-                              @"appId" : [NSString stringWithFormat:@"%d", APP_ID],
-                              @"VMApp" : [NSNumber numberWithInt:VM_APP]
-                              };
-        NSLog(@"%s - dic : %@", __FUNCTION__, [dic JSONString]);
-        self.mDinhDanhKetNoi = @"LAY_THONG_TIN_QR";
-        [self hienThiLoading];
-        [GiaoDichMang ketNoiLayThongTinQR:[dic JSONString] noiNhanKetQua:self];
-    }
+//    if (![self.sDataQR isEmpty]) {
+//        NSDictionary *dic = @{
+//                              @"dataQR": self.sDataQR,
+//                              @"user" : [DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_ID_TEMP],
+//                              @"appId" : [NSString stringWithFormat:@"%d", APP_ID],
+//                              @"VMApp" : [NSNumber numberWithInt:VM_APP]
+//                              };
+//        NSLog(@"%s - dic : %@", __FUNCTION__, [dic JSONString]);
+//        self.mDinhDanhKetNoi = @"LAY_THONG_TIN_QR";
+//        [self hienThiLoading];
+//        [GiaoDichMang ketNoiLayThongTinQR:[dic JSONString] noiNhanKetQua:self];
+//    }
 }
 
 - (void)xuLyKetNoiThanhCong:(NSString *)sDinhDanhKetNoi thongBao:(NSString *)sThongBao ketQua:(id)ketQua {
@@ -223,8 +286,8 @@
         NSDictionary *dict = [[NSDictionary alloc] initWithDictionary:dictChiTiet];
         _itemQR = [[ItemVNPayQR alloc] initWithDict:dict];
         [_itemQR setData:dictChiTiet];
-        sMaGiaoDich = [[NSString alloc] initWithString:(NSString *)[dictResult valueForKey:@"maGiaoDich"]];
-        NSLog(@"%s - sMaGiaoDich : %@", __FUNCTION__, sMaGiaoDich);
+//        sMaGiaoDich = [[NSString alloc] initWithString:(NSString *)[dictResult valueForKey:@"maGiaoDich"]];
+//        NSLog(@"%s - sMaGiaoDich : %@", __FUNCTION__, sMaGiaoDich);
         soTienType3 = [_itemQR.amount doubleValue];
         
         if (_itemQR.typeQRShow == 1) {
@@ -445,7 +508,7 @@
                                        @"user" : [DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_ID_TEMP],
                                        @"appId" : [NSNumber numberWithInt:APP_ID],
                                        @"VMApp" : [NSNumber numberWithInt:VM_APP],
-                                       @"maGiaoDich" : sMaGiaoDich,
+                                       @"maGiaoDich" : _sMaGiaoDich,
                                        @"soTienThanhToan" : [NSNumber numberWithDouble:fSoTien],
                                        @"promotionCode" : sPromotionCode,
                                        @"noiDung" : sNoiDung
@@ -931,6 +994,7 @@
 
 - (void)dealloc {
     [_tableView release];
+    [_dictChiTiet release];
     [super dealloc];
 }
 

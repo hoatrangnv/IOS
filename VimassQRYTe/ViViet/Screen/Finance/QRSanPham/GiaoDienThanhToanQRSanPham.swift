@@ -51,8 +51,6 @@ class GiaoDienThanhToanQRSanPham: GiaoDichViewController {
         super.viewDidLoad()
         let nAmount = self.mThongTinTaiKhoanVi.nAmount.doubleValue
         self.navigationItem.setTwoLineTitle(lineOne: "Thanh toán QR code", lineTwo: "Số dư: \(Common.hienThiTienTe(nAmount) ?? "0")")
-        maQRSanPham = DucNT_LuuRMS.layThongTinTrongRMSTheoKey("KEY_QR_SAN_PHAM_VER_2") as! String
-        debugPrint("\(TAG) - \(#function) - line : \(#line) - maQRSanPham : \(maQRSanPham)")
         
         self.tableView.tableFooterView = UIView(frame: .zero)
         self.tableView.register(UINib(nibName: "QRSanPhamInfoCell", bundle: nil), forCellReuseIdentifier: "QRSanPhamInfoCell")
@@ -67,7 +65,26 @@ class GiaoDienThanhToanQRSanPham: GiaoDichViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
-        ketNoiLayThongTinSanPham()
+//        ketNoiLayThongTinSanPham()
+        khoiTaoDuLieu()
+    }
+    
+    func khoiTaoDuLieu() {
+        let sData = DucNT_LuuRMS.layThongTinTrongRMSTheoKey("KEY_QR_SAN_PHAM_VER_2") as! String
+        guard let data = sData.data(using: .utf8) else {
+            return
+        }
+        do {
+            if let json =  try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String:Any] {
+                debugPrint("\(TAG) - \(#function) - line : \(#line) - tao json thanh cong")
+                self.dictSanPham = json
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+        } catch {
+            
+        }
     }
 
     func ketNoiLayThongTinSanPham() {
@@ -265,7 +282,7 @@ class GiaoDienThanhToanQRSanPham: GiaoDichViewController {
                 dictSanPham = [String : Any]()
             }
             let dSoTien = Double(sSoTienTemp) ?? 0
-            dictSanPham?["gia"] = NSNumber(value: dSoTien)
+            dictSanPham?["soTienGiaoDich"] = NSNumber(value: dSoTien)
             tfGia.text = Common.hienThiTienTe(dSoTien)
         }
     }
@@ -288,160 +305,98 @@ class GiaoDienThanhToanQRSanPham: GiaoDichViewController {
 
 extension GiaoDienThanhToanQRSanPham : UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3 + (isExistsImage ? 1 : 0)
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
-            if dictSanPham != nil {
-                if isExistsDC {
-                    return 7
-                }
-                return 6
-            }
-        } else if section == 1 {
-            return 1
-        } else if section == 2 {
-            return 0
-        }
+//        return 3 + (isExistsImage ? 1 : 0)
         return 1
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return dictSanPham != nil ? 8 : 0
+//        if section == 0 {
+//            if dictSanPham != nil {
+//                if isExistsDC {
+//                    return 7
+//                }
+//                return 6
+//            }
+//        } else if section == 1 {
+//            return 1
+//        } else if section == 2 {
+//            return 0
+//        }
+//        return 1
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 0 {
-            if (!isExistsDC && indexPath.row == 4) || indexPath.row == 5 {
-                return 60
-            }
-            return UITableView.automaticDimension
-        } else if indexPath.section == 1 {
+        if indexPath.row == 7 {
             return isShowTokenView ? 120 : 100
-        } else if indexPath.section == 2 {
-            return UITableView.automaticDimension
         }
-        return 450
+        return 50
+//        if indexPath.section == 0 {
+//            if (!isExistsDC && indexPath.row == 4) || indexPath.row == 5 {
+//                return 60
+//            }
+//            return UITableView.automaticDimension
+//        } else if indexPath.section == 1 {
+//            return isShowTokenView ? 120 : 100
+//        } else if indexPath.section == 2 {
+//            return UITableView.automaticDimension
+//        }
+//        return 450
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 0 {
-            if indexPath.row == 3 {
-                if isExistsDC {
-                    let diaChi1 = (dictSanPham?["diaChi1"] as? String) ?? ""
-                    let diaChi2 = (dictSanPham?["diaChi2"] as? String) ?? ""
-                    if !diaChi1.isEmpty || !diaChi2.isEmpty {
-                        let cell = tableView.dequeueReusableCell(withIdentifier: "QRSanPhamDiaChiCell", for: indexPath) as! QRSanPhamDiaChiCell
-                        cell.lblTitle.text = "ĐC:"
-                        cell.lblDiaChi.text = diaChi1
-                        if let text = cell.lblDiaChi.text, !text.isEmpty {
-                            cell.lblDiaChi.text = "\(text), \(diaChi2)"
-                        } else {
-                            cell.lblDiaChi.text = diaChi2
-                        }
-                        return cell
-                    }
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if let cell = cell as? QRSanPhamDiaChiCell {
+            switch indexPath.row {
+            case 0:
+                cell.lblTitle.text = "Đơn vị:"
+                cell.lblDiaChi.text = dictSanPham?["tenDVCNTT"] as? String
+            case 1:
+                cell.lblTitle.text = "ĐC:"
+                cell.lblDiaChi.text = dictSanPham?["thanhPho"] as? String
+            case 2:
+                if let dictChiTiet = dictSanPham?["chiTiet"] as? [String : Any] {
+                    cell.lblDiaChi.text = dictChiTiet["tenDiemThu"] as? String
                 }
-                let cell = tableView.dequeueReusableCell(withIdentifier: "QRSanPhamTenSPDVCell", for: indexPath) as! QRSanPhamTenSPDVCell
-                cell.lblContent.text = dictSanPham?["maSoThanhToan"] as? String
-                return cell
-            } else {
-                if indexPath.row == 2 {
-                    let cell = tableView.dequeueReusableCell(withIdentifier: "QRSanPhamDiaChiCell", for: indexPath) as! QRSanPhamDiaChiCell
-                    cell.lblTitle.text = "SP/DV:"
-                    cell.lblDiaChi.text = dictSanPham?["ten"] as? String
-                    return cell
+                cell.lblTitle.text = "Điểm thu:"
+            case 3:
+                if let dictChiTiet = dictSanPham?["chiTiet"] as? [String : Any] {
+                    cell.lblDiaChi.text = dictChiTiet["soHoaDon"] as? String
                 }
-                else if indexPath.row == 4 {
-                    if isExistsDC {
-                        let cell = tableView.dequeueReusableCell(withIdentifier: "QRSanPhamTenSPDVCell", for: indexPath) as! QRSanPhamTenSPDVCell
-                        cell.lblContent.text = dictSanPham?["maSoThanhToan"] as? String
-                        return cell
-                    } else {
-                        let cell = tableView.dequeueReusableCell(withIdentifier: "QRSanPhamInfoCell", for: indexPath) as! QRSanPhamInfoCell
-                        if let dict = dictSanPham, let numberGia = dict["gia"] as? NSNumber {
-                            let dGia = numberGia.doubleValue
-                            cell.lblTitle.text = Common.hienThiTienTe(dGia)
-                        }
-                        cell.lblInfo.text = "Phí: 3.300 đ"
-                        return cell
-                    }
+                cell.lblTitle.text = "Số HĐ:"
+            case 4:
+                if let dictChiTiet = dictSanPham?["chiTiet"] as? [String : Any] {
+                    cell.lblDiaChi.text = dictChiTiet["maDiemThu"] as? String
                 }
-                else if indexPath.row == 5 {
-                    if isExistsDC {
-                        let cell = tableView.dequeueReusableCell(withIdentifier: "DonGiaQRCell", for: indexPath) as! DonGiaQRCell
-                        if let dict = dictSanPham, let numberGia = dict["gia"] as? NSNumber {
-                            let dGia = numberGia.doubleValue
-                            if dGia > 0 {
-//                                cell.lblTitle.text = "Đơn giá"
-                                cell.lblTitle.text = ""
-                                cell.tfGia.text = Common.hienThiTienTe(dGia) ?? ""
-                                cell.lblPhi.text = "Phí: 3.300 đ"
-                            } else {
-                                cell.lblTitle.text = ""
-                                cell.tfGia.text = ""
-                                cell.lblPhi.text = "Phí: 3.300 đ"
-                            }
-                        }
-                        cell.tfGia.addTarget(self, action: #selector(suKienThayDoiGia(_:)), for: .editingChanged)
-                        return cell
-                    } else {
-                        let cell = tableView.dequeueReusableCell(withIdentifier: "TaoQRNameCell", for: indexPath) as! TaoQRNameCell
-                        cell.tfName.placeholder = "Nội dung (Có thể bỏ qua)"
-                        if let dict = dictSanPham {
-                            cell.tfName.text = dict["noiDung"] as? String
-                        }
-                        cell.tfName.addTarget(self, action: #selector(suKienThayDoiNoiDung(_:)), for: .editingChanged)
-                        return cell
-                    }
-                }
-                else if indexPath.row == 6 {
-                    let cell = tableView.dequeueReusableCell(withIdentifier: "TaoQRNameCell", for: indexPath) as! TaoQRNameCell
-                    cell.tfName.placeholder = "Nội dung (Có thể bỏ qua)"
-                    if let dict = dictSanPham {
-                        cell.tfName.text = dict["noiDung"] as? String
-                    }
-                    cell.tfName.addTarget(self, action: #selector(suKienThayDoiNoiDung(_:)), for: .editingChanged)
-                    return cell
-                }
-                else {
-                    let cell = tableView.dequeueReusableCell(withIdentifier: "QRSanPhamInfoCell", for: indexPath) as! QRSanPhamInfoCell
-                    cell.lblInfo.text = ""
+                cell.lblTitle.text = "NDTT:"
+            default:
+                cell.lblTitle.text = ""
+            }
+            
+        } else if let cell = cell as? DonGiaQRCell {
+            if let dict = dictSanPham, let numberGia = dict["soTienGiaoDich"] as? NSNumber {
+                let dGia = numberGia.doubleValue
+                if dGia > 0 {
                     cell.lblTitle.text = ""
-                    if indexPath.row == 0 {
-                        cell.lblTitle.text = "Trả cho:"
-                        if let dict = dictSanPham {
-//                            let dictThongTin = dict["objectThongTinDonViThanhToan"] as! [String:Any]
-                            cell.lblInfo.text = dict["tenChuTaiKhoan"] as? String
-                        }
-                        
-                    } else if indexPath.row == 1 {
-                        cell.lblTitle.text = "TK:"
-                        if let dict = dictSanPham {
-                            var sTK = (dict["maNganHang"] as? String) ?? ""
-                            if let soTaiKhoan = dict["soTaiKhoan"] as? String {
-                                if soTaiKhoan.count > 5 {
-                                    let index1 = soTaiKhoan.index(soTaiKhoan.startIndex, offsetBy: 3)
-                                    let index2 = soTaiKhoan.index(soTaiKhoan.endIndex, offsetBy: -2)
-                                    var temp = ""
-                                    for _ in 3..<(soTaiKhoan.count - 2) {
-                                        temp.append(contentsOf: "*")
-                                    }
-                                    temp = "\(soTaiKhoan[..<index1])\(temp)\(soTaiKhoan[index2...])"
-                                    sTK = "\(sTK) - \(temp)"
-                                } else {
-                                    sTK = "\(sTK) - \(soTaiKhoan)"
-                                }
-                            }
-                            cell.lblInfo.text = sTK
-                        }
-                    }
-                    return cell
+                    cell.tfGia.text = Common.hienThiTienTe(dGia) ?? ""
+                } else {
+                    cell.lblTitle.text = ""
+                    cell.tfGia.text = "0"
                 }
             }
+            cell.tfGia.addTarget(self, action: #selector(suKienThayDoiGia(_:)), for: .editingChanged)
+            cell.lblPhi.text = ""
+        } else if let cell = cell as? TaoQRNameCell {
+            cell.tfName.placeholder = "Nội dung (Có thể bỏ qua)"
+            cell.tfName.addTarget(self, action: #selector(suKienThayDoiNoiDung(_:)), for: .editingChanged)
         }
-        else if indexPath.section == 1{
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.row == 7 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "AuthenQRCell", for: indexPath) as! AuthenQRCell
             cell.delegate = self
             cell.viewToken.isHidden = !isShowTokenView
@@ -455,73 +410,212 @@ extension GiaoDienThanhToanQRSanPham : UITableViewDelegate, UITableViewDataSourc
             cell.btnPKI.addTarget(self, action: #selector(suKienBamNutPKI(_:)), for: .touchUpInside)
             cell.btnPKI.isHidden = true
             return cell
-        } else if indexPath.section == 2{
-            if let qrYTe = dictSanPham?["qrYTe"] as? Int, qrYTe == 1 {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "QRSanPhamDanhSachThanhToanCell", for: indexPath) as! QRSanPhamDanhSachThanhToanCell
-                var sTemp = ""
-                if let dsThongTinNguoiDatHang = dictSanPham?["dsThongTinNguoiDatHang"] as? String {
-                    NSLog("\(TAG) - \(#function) - line : \(#line) - dsThongTinNguoiDatHang : \(dsThongTinNguoiDatHang)")
-                    let arrTemp = dsThongTinNguoiDatHang.components(separatedBy: ",")
-                    NSLog("\(TAG) - \(#function) - line : \(#line) - arrTemp : \(arrTemp.count)")
-                    for item in arrTemp {
-                        NSLog("\(TAG) - \(#function) - line : \(#line) - item : \(item)")
-                        let arrSDT = item.components(separatedBy: "#")
-                        if arrSDT.count >= 2 {
-                            var sSDT = arrSDT.first ?? ""
-                            if !sSDT.isEmpty && sSDT.count > 5 {
-                                let index1 = sSDT.index(sSDT.startIndex, offsetBy: 3)
-                                let index2 = sSDT.index(sSDT.endIndex, offsetBy: -2)
-                                var temp = ""
-                                for _ in 3..<(sSDT.count - 2) {
-                                    temp.append(contentsOf: "*")
-                                }
-                                sSDT = "\(sSDT[..<index1])\(temp)\(sSDT[index2...])"
-                            }
-                            if sTemp.isEmpty {
-                                sTemp = sSDT
-                            } else {
-                                sTemp.append(contentsOf: "\n\(sSDT)")
-                            }
-                        }
-                    }
-                }
-                NSLog("\(TAG) - \(#function) - line : \(#line) - sTemp : \(sTemp)")
-                cell.lblSDT.text = sTemp
-                return cell
-            } else {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "QRSanPhamDiaChiCell", for: indexPath) as! QRSanPhamDiaChiCell
-                cell.lblTitle.text = "Mô tả sản phẩm"
-                cell.lblDiaChi.text = dictSanPham?["noiDung"] as? String
-                return cell
-            }
+        } else if indexPath.row == 5 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "DonGiaQRCell", for: indexPath) as! DonGiaQRCell
+            return cell
+        } else if indexPath.row == 6 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "TaoQRNameCell", for: indexPath) as! TaoQRNameCell
+            return cell
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ShowImageSanPhamCell", for: indexPath) as! ShowImageSanPhamCell
-            cell.selectionStyle = .none
-            if var image = dictSanPham?["image"] as? String {
-                image = image.replacingOccurrences(of: "[", with: "")
-                image = image.replacingOccurrences(of: "]", with: "")
-                let arrImage = image.components(separatedBy: ";")
-                cell.arrImage.removeAll()
-                cell.arrImage.append(contentsOf: arrImage)
-                cell.showImage()
-            }
+            let cell = tableView.dequeueReusableCell(withIdentifier: "QRSanPhamDiaChiCell", for: indexPath) as! QRSanPhamDiaChiCell
             return cell
         }
+//        if indexPath.section == 0 {
+//            if indexPath.row == 3 {
+//                if isExistsDC {
+//                    let diaChi1 = (dictSanPham?["diaChi1"] as? String) ?? ""
+//                    let diaChi2 = (dictSanPham?["diaChi2"] as? String) ?? ""
+//                    if !diaChi1.isEmpty || !diaChi2.isEmpty {
+//                        let cell = tableView.dequeueReusableCell(withIdentifier: "QRSanPhamDiaChiCell", for: indexPath) as! QRSanPhamDiaChiCell
+//                        cell.lblTitle.text = "ĐC:"
+//                        cell.lblDiaChi.text = diaChi1
+//                        if let text = cell.lblDiaChi.text, !text.isEmpty {
+//                            cell.lblDiaChi.text = "\(text), \(diaChi2)"
+//                        } else {
+//                            cell.lblDiaChi.text = diaChi2
+//                        }
+//                        return cell
+//                    }
+//                }
+//                let cell = tableView.dequeueReusableCell(withIdentifier: "QRSanPhamTenSPDVCell", for: indexPath) as! QRSanPhamTenSPDVCell
+//                cell.lblContent.text = dictSanPham?["maSoThanhToan"] as? String
+//                return cell
+//            } else {
+//                if indexPath.row == 2 {
+//                    let cell = tableView.dequeueReusableCell(withIdentifier: "QRSanPhamDiaChiCell", for: indexPath) as! QRSanPhamDiaChiCell
+//                    cell.lblTitle.text = "SP/DV:"
+//                    cell.lblDiaChi.text = dictSanPham?["ten"] as? String
+//                    return cell
+//                }
+//                else if indexPath.row == 4 {
+//                    if isExistsDC {
+//                        let cell = tableView.dequeueReusableCell(withIdentifier: "QRSanPhamTenSPDVCell", for: indexPath) as! QRSanPhamTenSPDVCell
+//                        cell.lblContent.text = dictSanPham?["maSoThanhToan"] as? String
+//                        return cell
+//                    } else {
+//                        let cell = tableView.dequeueReusableCell(withIdentifier: "QRSanPhamInfoCell", for: indexPath) as! QRSanPhamInfoCell
+//                        if let dict = dictSanPham, let numberGia = dict["gia"] as? NSNumber {
+//                            let dGia = numberGia.doubleValue
+//                            cell.lblTitle.text = Common.hienThiTienTe(dGia)
+//                        }
+//                        cell.lblInfo.text = "Phí: 3.300 đ"
+//                        return cell
+//                    }
+//                }
+//                else if indexPath.row == 5 {
+//                    if isExistsDC {
+//                        let cell = tableView.dequeueReusableCell(withIdentifier: "DonGiaQRCell", for: indexPath) as! DonGiaQRCell
+//                        if let dict = dictSanPham, let numberGia = dict["gia"] as? NSNumber {
+//                            let dGia = numberGia.doubleValue
+//                            if dGia > 0 {
+////                                cell.lblTitle.text = "Đơn giá"
+//                                cell.lblTitle.text = ""
+//                                cell.tfGia.text = Common.hienThiTienTe(dGia) ?? ""
+//                                cell.lblPhi.text = "Phí: 3.300 đ"
+//                            } else {
+//                                cell.lblTitle.text = ""
+//                                cell.tfGia.text = ""
+//                                cell.lblPhi.text = "Phí: 3.300 đ"
+//                            }
+//                        }
+//                        cell.tfGia.addTarget(self, action: #selector(suKienThayDoiGia(_:)), for: .editingChanged)
+//                        return cell
+//                    } else {
+//                        let cell = tableView.dequeueReusableCell(withIdentifier: "TaoQRNameCell", for: indexPath) as! TaoQRNameCell
+//                        cell.tfName.placeholder = "Nội dung (Có thể bỏ qua)"
+//                        if let dict = dictSanPham {
+//                            cell.tfName.text = dict["noiDung"] as? String
+//                        }
+//                        cell.tfName.addTarget(self, action: #selector(suKienThayDoiNoiDung(_:)), for: .editingChanged)
+//                        return cell
+//                    }
+//                }
+//                else if indexPath.row == 6 {
+//                    let cell = tableView.dequeueReusableCell(withIdentifier: "TaoQRNameCell", for: indexPath) as! TaoQRNameCell
+//                    cell.tfName.placeholder = "Nội dung (Có thể bỏ qua)"
+//                    if let dict = dictSanPham {
+//                        cell.tfName.text = dict["noiDung"] as? String
+//                    }
+//                    cell.tfName.addTarget(self, action: #selector(suKienThayDoiNoiDung(_:)), for: .editingChanged)
+//                    return cell
+//                }
+//                else {
+//                    let cell = tableView.dequeueReusableCell(withIdentifier: "QRSanPhamInfoCell", for: indexPath) as! QRSanPhamInfoCell
+//                    cell.lblInfo.text = ""
+//                    cell.lblTitle.text = ""
+//                    if indexPath.row == 0 {
+//                        cell.lblTitle.text = "Trả cho:"
+//                        if let dict = dictSanPham {
+////                            let dictThongTin = dict["objectThongTinDonViThanhToan"] as! [String:Any]
+//                            cell.lblInfo.text = dict["tenChuTaiKhoan"] as? String
+//                        }
+//
+//                    } else if indexPath.row == 1 {
+//                        cell.lblTitle.text = "TK:"
+//                        if let dict = dictSanPham {
+//                            var sTK = (dict["maNganHang"] as? String) ?? ""
+//                            if let soTaiKhoan = dict["soTaiKhoan"] as? String {
+//                                if soTaiKhoan.count > 5 {
+//                                    let index1 = soTaiKhoan.index(soTaiKhoan.startIndex, offsetBy: 3)
+//                                    let index2 = soTaiKhoan.index(soTaiKhoan.endIndex, offsetBy: -2)
+//                                    var temp = ""
+//                                    for _ in 3..<(soTaiKhoan.count - 2) {
+//                                        temp.append(contentsOf: "*")
+//                                    }
+//                                    temp = "\(soTaiKhoan[..<index1])\(temp)\(soTaiKhoan[index2...])"
+//                                    sTK = "\(sTK) - \(temp)"
+//                                } else {
+//                                    sTK = "\(sTK) - \(soTaiKhoan)"
+//                                }
+//                            }
+//                            cell.lblInfo.text = sTK
+//                        }
+//                    }
+//                    return cell
+//                }
+//            }
+//        }
+//        else if indexPath.section == 1{
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "AuthenQRCell", for: indexPath) as! AuthenQRCell
+//            cell.delegate = self
+//            cell.viewToken.isHidden = !isShowTokenView
+//            if self.enableFaceID {
+//                cell.btnAuthen.setImage(UIImage(named: "face-id"), for: .normal)
+//            } else {
+//                cell.btnAuthen.setImage(UIImage(named: "finger"), for: .normal)
+//            }
+//            cell.btnToken.addTarget(self, action: #selector(suKienChonTokenView), for: .touchUpInside)
+//            cell.btnAuthen.addTarget(self, action: #selector(suKienBamNutMatKhauVanTay(_:)), for: .touchUpInside)
+//            cell.btnPKI.addTarget(self, action: #selector(suKienBamNutPKI(_:)), for: .touchUpInside)
+//            cell.btnPKI.isHidden = true
+//            return cell
+//        } else if indexPath.section == 2{
+//            if let qrYTe = dictSanPham?["qrYTe"] as? Int, qrYTe == 1 {
+//                let cell = tableView.dequeueReusableCell(withIdentifier: "QRSanPhamDanhSachThanhToanCell", for: indexPath) as! QRSanPhamDanhSachThanhToanCell
+//                var sTemp = ""
+//                if let dsThongTinNguoiDatHang = dictSanPham?["dsThongTinNguoiDatHang"] as? String {
+//                    NSLog("\(TAG) - \(#function) - line : \(#line) - dsThongTinNguoiDatHang : \(dsThongTinNguoiDatHang)")
+//                    let arrTemp = dsThongTinNguoiDatHang.components(separatedBy: ",")
+//                    NSLog("\(TAG) - \(#function) - line : \(#line) - arrTemp : \(arrTemp.count)")
+//                    for item in arrTemp {
+//                        NSLog("\(TAG) - \(#function) - line : \(#line) - item : \(item)")
+//                        let arrSDT = item.components(separatedBy: "#")
+//                        if arrSDT.count >= 2 {
+//                            var sSDT = arrSDT.first ?? ""
+//                            if !sSDT.isEmpty && sSDT.count > 5 {
+//                                let index1 = sSDT.index(sSDT.startIndex, offsetBy: 3)
+//                                let index2 = sSDT.index(sSDT.endIndex, offsetBy: -2)
+//                                var temp = ""
+//                                for _ in 3..<(sSDT.count - 2) {
+//                                    temp.append(contentsOf: "*")
+//                                }
+//                                sSDT = "\(sSDT[..<index1])\(temp)\(sSDT[index2...])"
+//                            }
+//                            if sTemp.isEmpty {
+//                                sTemp = sSDT
+//                            } else {
+//                                sTemp.append(contentsOf: "\n\(sSDT)")
+//                            }
+//                        }
+//                    }
+//                }
+//                NSLog("\(TAG) - \(#function) - line : \(#line) - sTemp : \(sTemp)")
+//                cell.lblSDT.text = sTemp
+//                return cell
+//            } else {
+//                let cell = tableView.dequeueReusableCell(withIdentifier: "QRSanPhamDiaChiCell", for: indexPath) as! QRSanPhamDiaChiCell
+//                cell.lblTitle.text = "Mô tả sản phẩm"
+//                cell.lblDiaChi.text = dictSanPham?["noiDung"] as? String
+//                return cell
+//            }
+//        } else {
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "ShowImageSanPhamCell", for: indexPath) as! ShowImageSanPhamCell
+//            cell.selectionStyle = .none
+//            if var image = dictSanPham?["image"] as? String {
+//                image = image.replacingOccurrences(of: "[", with: "")
+//                image = image.replacingOccurrences(of: "]", with: "")
+//                let arrImage = image.components(separatedBy: ";")
+//                cell.arrImage.removeAll()
+//                cell.arrImage.append(contentsOf: arrImage)
+//                cell.showImage()
+//            }
+//            return cell
+//        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let _ = tableView.cellForRow(at: indexPath) as? QRSanPhamTenSPDVCell, let linkQR = dictSanPham?["linkQR"] as? String {
-            let showQR = ShowQRSanPhamView.instanceFromNib()
-            showQR.frame = self.view.bounds
-            showQR.imgvPreview.sd_setImage(with: URL(string: linkQR))
-            self.view.addSubview(showQR)
-        }
+//        if let _ = tableView.cellForRow(at: indexPath) as? QRSanPhamTenSPDVCell, let linkQR = dictSanPham?["linkQR"] as? String {
+//            let showQR = ShowQRSanPhamView.instanceFromNib()
+//            showQR.frame = self.view.bounds
+//            showQR.imgvPreview.sd_setImage(with: URL(string: linkQR))
+//            self.view.addSubview(showQR)
+//        }
     }
     
     @objc func suKienChonTokenView() {
         isShowTokenView = !isShowTokenView
         DispatchQueue.main.async {
-            self.tableView.reloadSections(IndexSet(integer: 1), with: .automatic)
+            self.tableView.reloadRows(at: [IndexPath(row: 7, section: 0)], with: .automatic)
         }
     }
 }

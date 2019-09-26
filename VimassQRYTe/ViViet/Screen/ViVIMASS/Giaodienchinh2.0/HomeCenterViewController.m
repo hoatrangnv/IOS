@@ -425,7 +425,7 @@
         QRCodeReader *reader = [QRCodeReader readerWithMetadataObjectTypes:@[AVMetadataObjectTypeQRCode]];
         QRSearchViewController *vcQRCodeTemp = [[QRSearchViewController alloc]initWithNibName:@"QRSearchViewController" bundle:nil];
         vcQRCodeTemp.codeReader = reader;
-        vcQRCodeTemp.modalPresentationStyle = UIModalPresentationFormSheet;
+        vcQRCodeTemp.modalPresentationStyle = UIModalPresentationOverFullScreen;
         vcQRCodeTemp.delegate = self;
         vcQRCodeTemp.nType = 1;
         [self presentViewController:vcQRCodeTemp animated:YES completion:NULL];
@@ -455,13 +455,24 @@
 }
 
 - (IBAction)suKienChonHoTroThanhToan:(id)sender {
+    [self.navigationController.navigationBar setHidden:YES];
     GiaoDienHoTroThanhToan *vc = [[GiaoDienHoTroThanhToan alloc] initWithNibName:@"GiaoDienHoTroThanhToan" bundle:nil];
     [self.navigationController pushViewController:vc animated:YES];
     [vc release];
 }
 
 - (IBAction)suKienChonTheATM:(id)sender {
-    TheATMViewController *vc = [[TheATMViewController alloc] initWithNibName:@"TheATMViewController" bundle:nil];
+//    NSDictionary *dic = @{
+//                          @"dataQR": @"0002010102120405QRYTE2605BVXYZ5204806253037045405654005802VN5924Benh Vien TW Thai Nguyen6010ThaiNguyen61051000062530106HAIQ3H0305DT0010710Diem thu 10816Phieu thu HAIQ3H6304c65680322f6efc93f542e5748bcbbc15ed3ddb62",
+//                          @"user" : [DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_ID_TEMP],
+//                          @"appId" : [NSString stringWithFormat:@"%d", APP_ID],
+//                          @"VMApp" : [NSNumber numberWithInt:VM_APP]
+//                          };
+//    NSLog(@"%s - dic : %@", __FUNCTION__, [dic JSONString]);
+//    self.mDinhDanhKetNoi = @"LAY_THONG_TIN_QR";
+//    [self hienThiLoading];
+//    [GiaoDichMang ketNoiLayThongTinQR:[dic JSONString] noiNhanKetQua:self];
+    GiaoDienTheATMViewController *vc = [[GiaoDienTheATMViewController alloc] initWithNibName:@"GiaoDienTheATMViewController" bundle:nil];
     [self.navigationController pushViewController:vc animated:YES];
     [vc release];
 }
@@ -480,56 +491,61 @@
     [reader stopScanning];
     NSLog(@"%s - -->result : %@", __FUNCTION__, result);
     [reader dismissViewControllerAnimated:YES completion:^{
-        if (![[result lowercaseString] containsString:@"http"] && ![[result lowercaseString] containsString:@"vimass"] && result.length > 20) {
-            //NSLog(@"%s - chuyen huong vnpay QR", __FUNCTION__);
-            GiaoDienThanhToanQRVNPay *vc = [[GiaoDienThanhToanQRVNPay alloc] initWithNibName:@"GiaoDienThanhToanQRVNPay" bundle:nil];
-            vc.sDataQR = result;
-            self.navigationController.navigationBar.hidden = NO;
-            [self.navigationController pushViewController:vc animated:YES];
-            [vc release];
-        } else {
-            NSArray *arrResult = [result componentsSeparatedByString:@"*"];
-            //NSLog(@"%s - arrResult : %lu", __FUNCTION__, (unsigned long)arrResult.count);
-            if (arrResult.count > 2) {
-                NSString *str = arrResult[1];
-                NSLog(@"%s ----> str : %@", __FUNCTION__, str);
-                if ([str hasPrefix:@"V"] || [str hasPrefix:@"S"]) {
-                    NSLog(@"%s - line : %d", __FUNCTION__, __LINE__);
-                    [DucNT_LuuRMS luuThongTinTrongRMSTheoKey:@"KEY_QR_SAN_PHAM_VER_2" value:str];
-                    GiaoDienThanhToanQRSanPham *vc = [[GiaoDienThanhToanQRSanPham alloc] initWithNibName:@"GiaoDienThanhToanQRSanPham" bundle:nil];
-                    self.navigationController.navigationBar.hidden = NO;
-                    [self.navigationController pushViewController:vc animated:YES];
-                    [vc release];
-                }
-                else if ([str hasPrefix:@"M"]){
-                    NSLog(@"%s - line : %d", __FUNCTION__, __LINE__);
-                    //                    GiaoDienThanhToanQRCodeDonVi *vc = [[GiaoDienThanhToanQRCodeDonVi alloc] initWithNibName:@"GiaoDienThanhToanQRCodeDonVi" bundle:nil];
-                    //                    vc.sIdQRCode = str ;
-                    //                    vc.typeQRCode = 0;
-                    //                    self.navigationController.navigationBar.hidden = NO;
-                    //                    [self.navigationController pushViewController:vc animated:YES];
-                    //                    [vc release];
-                }
-                else{
-                }
-            } else {
-                NSDictionary *dic = @{
-                                      @"dataQR": result,
-                                      @"user" : [DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_ID_TEMP],
-                                      @"appId" : [NSString stringWithFormat:@"%d", APP_ID],
-                                      @"VMApp" : [NSNumber numberWithInt:VM_APP]
-                                      };
-                NSLog(@"%s - dic : %@", __FUNCTION__, [dic JSONString]);
-                self.mDinhDanhKetNoi = @"LAY_THONG_TIN_QR";
-                [self hienThiLoading];
-                [GiaoDichMang ketNoiLayThongTinQR:[dic JSONString] noiNhanKetQua:self];
-//                [DucNT_LuuRMS luuThongTinTrongRMSTheoKey:@"KEY_QR_SAN_PHAM_VER_2" value:result];
-//                GiaoDienThanhToanQRSanPham *vc = [[GiaoDienThanhToanQRSanPham alloc] initWithNibName:@"GiaoDienThanhToanQRSanPham" bundle:nil];
-//                self.navigationController.navigationBar.hidden = NO;
-//                [self.navigationController pushViewController:vc animated:YES];
-//                [vc release];
-            }
-        }
+        NSDictionary *dic = @{
+                              @"dataQR": result,
+                              @"user" : [DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_ID_TEMP],
+                              @"appId" : [NSString stringWithFormat:@"%d", APP_ID],
+                              @"VMApp" : [NSNumber numberWithInt:VM_APP]
+                              };
+        NSLog(@"%s - dic : %@", __FUNCTION__, [dic JSONString]);
+        self.mDinhDanhKetNoi = @"LAY_THONG_TIN_QR";
+        [self hienThiLoading];
+        [GiaoDichMang ketNoiLayThongTinQR:[dic JSONString] noiNhanKetQua:self];
+//        if (![[result lowercaseString] containsString:@"http"] && ![[result lowercaseString] containsString:@"vimass"] && result.length > 20) {
+//            //NSLog(@"%s - chuyen huong vnpay QR", __FUNCTION__);
+//            GiaoDienThanhToanQRVNPay *vc = [[GiaoDienThanhToanQRVNPay alloc] initWithNibName:@"GiaoDienThanhToanQRVNPay" bundle:nil];
+//            vc.sDataQR = result;
+//            self.navigationController.navigationBar.hidden = NO;
+//            [self.navigationController pushViewController:vc animated:YES];
+//            [vc release];
+//        } else {
+//            NSArray *arrResult = [result componentsSeparatedByString:@"*"];
+//            //NSLog(@"%s - arrResult : %lu", __FUNCTION__, (unsigned long)arrResult.count);
+//            if (arrResult.count > 2) {
+//                NSString *str = arrResult[1];
+//                NSLog(@"%s ----> str : %@", __FUNCTION__, str);
+//                if ([str hasPrefix:@"V"] || [str hasPrefix:@"S"]) {
+//                    NSLog(@"%s - line : %d", __FUNCTION__, __LINE__);
+//                    [DucNT_LuuRMS luuThongTinTrongRMSTheoKey:@"KEY_QR_SAN_PHAM_VER_2" value:str];
+//                    GiaoDienThanhToanQRSanPham *vc = [[GiaoDienThanhToanQRSanPham alloc] initWithNibName:@"GiaoDienThanhToanQRSanPham" bundle:nil];
+//                    self.navigationController.navigationBar.hidden = NO;
+//                    [self.navigationController pushViewController:vc animated:YES];
+//                    [vc release];
+//                }
+//                else if ([str hasPrefix:@"M"]){
+//                    NSLog(@"%s - line : %d", __FUNCTION__, __LINE__);
+//                    //                    GiaoDienThanhToanQRCodeDonVi *vc = [[GiaoDienThanhToanQRCodeDonVi alloc] initWithNibName:@"GiaoDienThanhToanQRCodeDonVi" bundle:nil];
+//                    //                    vc.sIdQRCode = str ;
+//                    //                    vc.typeQRCode = 0;
+//                    //                    self.navigationController.navigationBar.hidden = NO;
+//                    //                    [self.navigationController pushViewController:vc animated:YES];
+//                    //                    [vc release];
+//                }
+//                else{
+//                }
+//            } else {
+//                NSDictionary *dic = @{
+//                                      @"dataQR": result,
+//                                      @"user" : [DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_ID_TEMP],
+//                                      @"appId" : [NSString stringWithFormat:@"%d", APP_ID],
+//                                      @"VMApp" : [NSNumber numberWithInt:VM_APP]
+//                                      };
+//                NSLog(@"%s - dic : %@", __FUNCTION__, [dic JSONString]);
+//                self.mDinhDanhKetNoi = @"LAY_THONG_TIN_QR";
+//                [self hienThiLoading];
+//                [GiaoDichMang ketNoiLayThongTinQR:[dic JSONString] noiNhanKetQua:self];
+//            }
+//        }
     }];
 }
 
@@ -538,56 +554,61 @@
     [reader stopScanning];
     NSLog(@"HomeCenterViewController - %s - line : %d- -->result : %@", __FUNCTION__, __LINE__, result);
     [reader dismissViewControllerAnimated:YES completion:^{
-        if (![[result lowercaseString] containsString:@"http"] && ![[result lowercaseString] containsString:@"vimass"] && result.length > 20) {
-            //NSLog(@"%s - chuyen huong vnpay QR", __FUNCTION__);
-            GiaoDienThanhToanQRVNPay *vc = [[GiaoDienThanhToanQRVNPay alloc] initWithNibName:@"GiaoDienThanhToanQRVNPay" bundle:nil];
-            vc.sDataQR = result;
-            self.navigationController.navigationBar.hidden = NO;
-            [self.navigationController pushViewController:vc animated:YES];
-            [vc release];
-        } else {
-            NSArray *arrResult = [result componentsSeparatedByString:@"*"];
-            //NSLog(@"%s - arrResult : %lu", __FUNCTION__, (unsigned long)arrResult.count);
-            if (arrResult.count > 2) {
-                NSString *str = arrResult[1];
-                NSLog(@"%s ----> str : %@", __FUNCTION__, str);
-                if ([str hasPrefix:@"V"] || [str hasPrefix:@"S"]) {
-                    NSLog(@"%s - line : %d", __FUNCTION__, __LINE__);
-                    [DucNT_LuuRMS luuThongTinTrongRMSTheoKey:@"KEY_QR_SAN_PHAM_VER_2" value:str];
-                    GiaoDienThanhToanQRSanPham *vc = [[GiaoDienThanhToanQRSanPham alloc] initWithNibName:@"GiaoDienThanhToanQRSanPham" bundle:nil];
-                    self.navigationController.navigationBar.hidden = NO;
-                    [self.navigationController pushViewController:vc animated:YES];
-                    [vc release];
-                }
-                else if ([str hasPrefix:@"M"]){
-                    NSLog(@"%s - line : %d", __FUNCTION__, __LINE__);
-                    //                    GiaoDienThanhToanQRCodeDonVi *vc = [[GiaoDienThanhToanQRCodeDonVi alloc] initWithNibName:@"GiaoDienThanhToanQRCodeDonVi" bundle:nil];
-                    //                    vc.sIdQRCode = str ;
-                    //                    vc.typeQRCode = 0;
-                    //                    self.navigationController.navigationBar.hidden = NO;
-                    //                    [self.navigationController pushViewController:vc animated:YES];
-                    //                    [vc release];
-                }
-                else{
-                }
-            } else {
-                NSDictionary *dic = @{
-                                      @"dataQR": result,
-                                      @"user" : [DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_ID_TEMP],
-                                      @"appId" : [NSString stringWithFormat:@"%d", APP_ID],
-                                      @"VMApp" : [NSNumber numberWithInt:VM_APP]
-                                      };
-                NSLog(@"%s - dic : %@", __FUNCTION__, [dic JSONString]);
-                self.mDinhDanhKetNoi = @"LAY_THONG_TIN_QR";
-                [self hienThiLoading];
-                [GiaoDichMang ketNoiLayThongTinQR:[dic JSONString] noiNhanKetQua:self];
-//                [DucNT_LuuRMS luuThongTinTrongRMSTheoKey:@"KEY_QR_SAN_PHAM_VER_2" value:result];
-//                GiaoDienThanhToanQRSanPham *vc = [[GiaoDienThanhToanQRSanPham alloc] initWithNibName:@"GiaoDienThanhToanQRSanPham" bundle:nil];
-//                self.navigationController.navigationBar.hidden = NO;
-//                [self.navigationController pushViewController:vc animated:YES];
-//                [vc release];
-            }
-        }
+        NSDictionary *dic = @{
+                              @"dataQR": result,
+                              @"user" : [DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_ID_TEMP],
+                              @"appId" : [NSString stringWithFormat:@"%d", APP_ID],
+                              @"VMApp" : [NSNumber numberWithInt:VM_APP]
+                              };
+        NSLog(@"%s - dic : %@", __FUNCTION__, [dic JSONString]);
+        self.mDinhDanhKetNoi = @"LAY_THONG_TIN_QR";
+        [self hienThiLoading];
+        [GiaoDichMang ketNoiLayThongTinQR:[dic JSONString] noiNhanKetQua:self];
+//        if (![[result lowercaseString] containsString:@"http"] && ![[result lowercaseString] containsString:@"vimass"] && result.length > 20) {
+//            //NSLog(@"%s - chuyen huong vnpay QR", __FUNCTION__);
+//            GiaoDienThanhToanQRVNPay *vc = [[GiaoDienThanhToanQRVNPay alloc] initWithNibName:@"GiaoDienThanhToanQRVNPay" bundle:nil];
+//            vc.sDataQR = result;
+//            self.navigationController.navigationBar.hidden = NO;
+//            [self.navigationController pushViewController:vc animated:YES];
+//            [vc release];
+//        } else {
+//            NSArray *arrResult = [result componentsSeparatedByString:@"*"];
+//            //NSLog(@"%s - arrResult : %lu", __FUNCTION__, (unsigned long)arrResult.count);
+//            if (arrResult.count > 2) {
+//                NSString *str = arrResult[1];
+//                NSLog(@"%s ----> str : %@", __FUNCTION__, str);
+//                if ([str hasPrefix:@"V"] || [str hasPrefix:@"S"]) {
+//                    NSLog(@"%s - line : %d", __FUNCTION__, __LINE__);
+//                    [DucNT_LuuRMS luuThongTinTrongRMSTheoKey:@"KEY_QR_SAN_PHAM_VER_2" value:str];
+//                    GiaoDienThanhToanQRSanPham *vc = [[GiaoDienThanhToanQRSanPham alloc] initWithNibName:@"GiaoDienThanhToanQRSanPham" bundle:nil];
+//                    self.navigationController.navigationBar.hidden = NO;
+//                    [self.navigationController pushViewController:vc animated:YES];
+//                    [vc release];
+//                }
+//                else if ([str hasPrefix:@"M"]){
+//                    NSLog(@"%s - line : %d", __FUNCTION__, __LINE__);
+//                    //                    GiaoDienThanhToanQRCodeDonVi *vc = [[GiaoDienThanhToanQRCodeDonVi alloc] initWithNibName:@"GiaoDienThanhToanQRCodeDonVi" bundle:nil];
+//                    //                    vc.sIdQRCode = str ;
+//                    //                    vc.typeQRCode = 0;
+//                    //                    self.navigationController.navigationBar.hidden = NO;
+//                    //                    [self.navigationController pushViewController:vc animated:YES];
+//                    //                    [vc release];
+//                }
+//                else{
+//                }
+//            } else {
+//                NSDictionary *dic = @{
+//                                      @"dataQR": result,
+//                                      @"user" : [DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_ID_TEMP],
+//                                      @"appId" : [NSString stringWithFormat:@"%d", APP_ID],
+//                                      @"VMApp" : [NSNumber numberWithInt:VM_APP]
+//                                      };
+//                NSLog(@"%s - dic : %@", __FUNCTION__, [dic JSONString]);
+//                self.mDinhDanhKetNoi = @"LAY_THONG_TIN_QR";
+//                [self hienThiLoading];
+//                [GiaoDichMang ketNoiLayThongTinQR:[dic JSONString] noiNhanKetQua:self];
+//            }
+//        }
     }];
 }
 
@@ -596,14 +617,60 @@
     [self anLoading];
     if ([sDinhDanhKetNoi isEqualToString:@"LAY_THONG_TIN_QR"]) {
         NSDictionary *dictKetQua = (NSDictionary*)ketQua;
-        NSString *sChiTiet = (NSString *)dictKetQua[@"chiTiet"];
-        if (![sChiTiet isEmpty]) {
-            [DucNT_LuuRMS luuThongTinTrongRMSTheoKey:@"KEY_QR_SAN_PHAM_VER_2" value:sChiTiet];
-            GiaoDienThanhToanQRSanPham *vc = [[GiaoDienThanhToanQRSanPham alloc] initWithNibName:@"GiaoDienThanhToanQRSanPham" bundle:nil];
+        int maDonViCapQR = [[dictKetQua objectForKey:@"maDonViCapQR"] intValue];
+//        public final static int QR_VIMASS = 0;
+//        public final static int QR_VNPAY = 1;
+//        public final static int QR_VIETTELPAY = 2;
+//
+//        public final static int QR_NGAN_HANG = 3;
+//        public final static int QR_YTE = 4;
+        if (maDonViCapQR == 0) {
+            NSString *sChiTiet = (NSString *)dictKetQua[@"chiTiet"];
+            GiaoDienThanhToanQRCodeDonVi *vc = [[GiaoDienThanhToanQRCodeDonVi alloc] initWithNibName:@"GiaoDienThanhToanQRCodeDonVi" bundle:nil];
+            vc.sIdQRCode = sChiTiet;
+            if ([sChiTiet hasPrefix:@"V"]) {
+                vc.typeQRCode = 1;
+            } else {
+                vc.typeQRCode = 0;
+            }
             self.navigationController.navigationBar.hidden = NO;
             [self.navigationController pushViewController:vc animated:YES];
             [vc release];
+        } else if (maDonViCapQR == 1 || maDonViCapQR == 3) {
+            GiaoDienThanhToanQRVNPay *vc = [[GiaoDienThanhToanQRVNPay alloc] initWithNibName:@"GiaoDienThanhToanQRVNPay" bundle:nil];
+            if (maDonViCapQR == 3) {
+                NSString * chiTiet = [dictKetQua objectForKey:@"chiTiet"];
+                NSLog(@"HomeCenterViewController - %s - chiTiet : %@", __FUNCTION__, chiTiet);
+                NSDictionary *dictTemp = [chiTiet objectFromJSONString];
+                vc.dictChiTiet = [[NSDictionary alloc] initWithDictionary:dictTemp];
+                vc.maDonViCapQR = 3;
+            } else {
+                NSDictionary *dictChiTiet = (NSDictionary *)dictKetQua[@"chiTiet"];
+                NSString *sMaGiaoDich = (NSString *)[dictChiTiet objectForKey:@"maGiaoDich"];
+                vc.dictChiTiet = [[NSDictionary alloc] initWithDictionary:dictChiTiet];
+                vc.sMaGiaoDich = sMaGiaoDich;
+                vc.maDonViCapQR = 1;
+            }
+            self.navigationController.navigationBar.hidden = NO;
+            [self.navigationController pushViewController:vc animated:YES];
+            [vc release];
+        } else if (maDonViCapQR == 4) {
+            NSDictionary *dictChiTiet = (NSDictionary *)dictKetQua[@"chiTiet"];
+            NSString *sDictChiTiet = [dictChiTiet JSONString];
+            [DucNT_LuuRMS luuThongTinTrongRMSTheoKey:@"KEY_QR_SAN_PHAM_VER_2" value:sDictChiTiet];
+            GiaoDienThanhToanQRSanPham *vc = [[GiaoDienThanhToanQRSanPham alloc] initWithNibName:@"GiaoDienThanhToanQRSanPham" bundle:nil];
+            [self.navigationController pushViewController:vc animated:YES];
+            [vc release];
         }
+//        GiaoDienThanhToanQRSanPham *vc = [[GiaoDienThanhToanQRSanPham alloc] initWithNibName:@"GiaoDienThanhToanQRSanPham" bundle:nil];
+//        self.navigationController.navigationBar.hidden = NO;
+//        [self.navigationController pushViewController:vc animated:YES];
+//        [vc release];
+//        NSString *sChiTiet = (NSString *)dictKetQua[@"chiTiet"];
+//        if (![sChiTiet isEmpty]) {
+//            [DucNT_LuuRMS luuThongTinTrongRMSTheoKey:@"KEY_QR_SAN_PHAM_VER_2" value:sChiTiet];
+//
+//        }
     }
 }
 
