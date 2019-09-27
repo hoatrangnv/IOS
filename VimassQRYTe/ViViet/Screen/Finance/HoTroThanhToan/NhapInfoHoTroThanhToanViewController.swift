@@ -45,6 +45,7 @@ class NhapInfoHoTroThanhToanViewController: GiaoDichViewController {
         self.tableViewOptions.delegate = self
         self.tableViewOptions.dataSource = self
         
+        
         self.tableViewBenhVien.tableFooterView = UIView(frame: .zero)
         self.tableViewBenhVien.register(UINib(nibName: "DanhSachViVimassCell", bundle: nil), forCellReuseIdentifier: "DanhSachViVimassCell")
         self.tableViewBenhVien.isHidden = true
@@ -154,7 +155,7 @@ class NhapInfoHoTroThanhToanViewController: GiaoDichViewController {
                 debugPrint("\(self.TAG) - \(#function) - line : \(#line) - statusCode : \(statusCode)")
                 if statusCode == 200 {
                     do {
-//                        debugPrint("\(self.TAG) - \(#function) - line : \(#line) - json : \(String(data: responseData, encoding: .utf8) ?? "")")
+                        debugPrint("\(self.TAG) - \(#function) - line : \(#line) - json : \(String(data: responseData, encoding: .utf8) ?? "")")
                         if let json = try JSONSerialization.jsonObject(with: responseData, options: .allowFragments) as? [String:Any] {
                             let msgCode = json["msgCode"] as? Int
                             if msgCode == 1 {
@@ -234,7 +235,7 @@ extension NhapInfoHoTroThanhToanViewController : UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == tableViewOptions {
             let item = arrList[section]
-            if let list = item["items"] as? [[String : Any]] {
+            if let list = item["list"] as? [[String : Any]] {
                 return list.count
             }
             return 0

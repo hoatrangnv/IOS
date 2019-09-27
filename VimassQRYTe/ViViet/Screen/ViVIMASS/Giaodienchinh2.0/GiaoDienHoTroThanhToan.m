@@ -53,8 +53,24 @@
         vcInfo = [[HoTroThanhToanViewController alloc] initWithNibName:@"HoTroThanhToanViewController" bundle:nil];
         [vcInfo.view setFrame:CGRectMake(0, 0, self.viewShowMain.frame.size.width, self.viewShowMain.frame.size.height)];
         [self.viewShowMain addSubview:vcInfo.view];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(suKienChonIntro:) name:@"CHON_INTRO" object:nil];
     }
     [vcInfo.view setHidden:NO];
+}
+
+- (void)suKienChonIntro:(NSNotification *) notification {
+    NSDictionary *dict = (NSDictionary *)notification.object;
+    int nIndex = [[dict valueForKey:@"index"] intValue];
+    NSLog(@"GiaoDienHoTroThanhToan : %s - nIndex : %d", __FUNCTION__, nIndex);
+
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setInteger:nIndex forKey:@"INDEX_INTRO"];
+    [defaults synchronize];
+    HuongDanHoTroThanhToanViewController *vc = [[HuongDanHoTroThanhToanViewController alloc] initWithNibName:@"HuongDanHoTroThanhToanViewController" bundle:nil];
+    [self.navigationController.navigationBar setHidden:NO];
+    [self.navigationController pushViewController:vc animated:YES];
+    [vc release];
 }
 
 - (IBAction)suKienChonBack:(id)sender {
@@ -78,6 +94,7 @@
 }
 
 - (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     [_viewShowMain release];
     [_btnTraCuu release];
     [_btnHuongDan release];

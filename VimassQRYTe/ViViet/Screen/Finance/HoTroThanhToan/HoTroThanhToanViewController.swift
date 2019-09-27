@@ -7,12 +7,17 @@
 
 import UIKit
 
+protocol HoTroThanhToanDelegate {
+    func suKienChonOption(_ idIntro:String)
+}
+
 class HoTroThanhToanViewController: GiaoDichViewController {
 
-    private let arrHuongDan = ["Thanh toán viện phí bằng chuyển khoản thẻ ATM", "Thanh toán viện phí bằng QR y tế", "Thanh toán viện phí bằng", "Thanh toán viện phí bằng thẻ y tế"]
+    private let arrHuongDan = ["Thanh toán viện phí bằng chuyển khoản", "Thanh toán viện phí bằng thẻ ATM", "Thanh toán viện phí bằng QR y tế", "Thanh toán viện phí bằng thẻ y tế"]
     private let TAG = "HoTroThanhToanViewController"
     @IBOutlet var tableView: UITableView!
-
+    var delegate:HoTroThanhToanDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -41,6 +46,11 @@ extension HoTroThanhToanViewController : UITableViewDelegate, UITableViewDataSou
         cell.lblTitle.textColor = UIColor(red: 0, green: 114.0/255.0, blue: 187.0/255.0, alpha: 1)
         cell.lblTitle.text = arrHuongDan[indexPath.row]
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let dict = ["index":indexPath.row]
+        NotificationCenter.default.post(name: NSNotification.Name("CHON_INTRO"), object: dict)
     }
 }
 

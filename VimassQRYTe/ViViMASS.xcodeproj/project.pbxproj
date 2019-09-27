@@ -961,6 +961,8 @@
 		C62760F0204001470063A194 /* GiaoDienDenKhac.xib in Resources */ = {isa = PBXBuildFile; fileRef = C62760EE204001470063A194 /* GiaoDienDenKhac.xib */; };
 		C62BDDF62041194C00E6057B /* DenKhacTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C62BDDF42041194C00E6057B /* DenKhacTableViewCell.m */; };
 		C62BDDF72041194C00E6057B /* DenKhacTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C62BDDF52041194C00E6057B /* DenKhacTableViewCell.xib */; };
+		C62FB5E6233E5860003926BB /* HuongDanHoTroThanhToanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62FB5E4233E5860003926BB /* HuongDanHoTroThanhToanViewController.swift */; };
+		C62FB5E7233E5860003926BB /* HuongDanHoTroThanhToanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C62FB5E5233E5860003926BB /* HuongDanHoTroThanhToanViewController.xib */; };
 		C635A900224A85DC003619DE /* GiaoDienThanhToanQRVNPay.m in Sources */ = {isa = PBXBuildFile; fileRef = C635A8FE224A85DC003619DE /* GiaoDienThanhToanQRVNPay.m */; };
 		C635A901224A85DC003619DE /* GiaoDienThanhToanQRVNPay.xib in Resources */ = {isa = PBXBuildFile; fileRef = C635A8FF224A85DC003619DE /* GiaoDienThanhToanQRVNPay.xib */; };
 		C635A905224A865F003619DE /* VNPayQRTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C635A903224A865F003619DE /* VNPayQRTableViewCell.m */; };
@@ -2871,6 +2873,8 @@
 		C62BDDF32041194C00E6057B /* DenKhacTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DenKhacTableViewCell.h; sourceTree = "<group>"; };
 		C62BDDF42041194C00E6057B /* DenKhacTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DenKhacTableViewCell.m; sourceTree = "<group>"; };
 		C62BDDF52041194C00E6057B /* DenKhacTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DenKhacTableViewCell.xib; sourceTree = "<group>"; };
+		C62FB5E4233E5860003926BB /* HuongDanHoTroThanhToanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HuongDanHoTroThanhToanViewController.swift; path = HoTroThanhToan/HuongDanHoTroThanhToanViewController.swift; sourceTree = "<group>"; };
+		C62FB5E5233E5860003926BB /* HuongDanHoTroThanhToanViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = HuongDanHoTroThanhToanViewController.xib; path = HoTroThanhToan/HuongDanHoTroThanhToanViewController.xib; sourceTree = "<group>"; };
 		C635A8FD224A85DC003619DE /* GiaoDienThanhToanQRVNPay.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GiaoDienThanhToanQRVNPay.h; path = QRSanPham/GiaoDienThanhToanQRVNPay.h; sourceTree = "<group>"; };
 		C635A8FE224A85DC003619DE /* GiaoDienThanhToanQRVNPay.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = GiaoDienThanhToanQRVNPay.m; path = QRSanPham/GiaoDienThanhToanQRVNPay.m; sourceTree = "<group>"; };
 		C635A8FF224A85DC003619DE /* GiaoDienThanhToanQRVNPay.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = GiaoDienThanhToanQRVNPay.xib; path = QRSanPham/GiaoDienThanhToanQRVNPay.xib; sourceTree = "<group>"; };
@@ -6925,6 +6929,8 @@
 				E7D486352338B4E7006E7D31 /* ItemThanhToanCell.xib */,
 				E7D4863A2338BA62006E7D31 /* HeaderHoTroThanhToanView.swift */,
 				E7D4863C2338BA6C006E7D31 /* HeaderHoTroThanhToanView.xib */,
+				C62FB5E4233E5860003926BB /* HuongDanHoTroThanhToanViewController.swift */,
+				C62FB5E5233E5860003926BB /* HuongDanHoTroThanhToanViewController.xib */,
 			);
 			name = HoTroThanhToan;
 			sourceTree = "<group>";
@@ -7269,6 +7275,7 @@
 				C664B0281D125C60003B9976 /* phong1_CGVMarinePlaza.txt in Resources */,
 				0B4FBE1B219F184C00010A70 /* JPMC-NH.png in Resources */,
 				CDE2428821AC3250008EB515 /* DanhsachNganHangViewController.xib in Resources */,
+				C62FB5E7233E5860003926BB /* HuongDanHoTroThanhToanViewController.xib in Resources */,
 				A3D2414F1B58AE2F0054B952 /* ViewThuongDungChuyenTienTanNha.xib in Resources */,
 				0B4244D8173C963A003CB826 /* radio-unselected@2x.png in Resources */,
 				A32728D11B26E31D00DA1639 /* DanhSachDuyetGiaoDichViewController.xib in Resources */,
@@ -7993,6 +8000,7 @@
 				572168C915B42DD5009780F4 /* Contact.m in Sources */,
 				0B7BDD6718290693009E78EE /* NSData+CommonCrypto.m in Sources */,
 				A38479BA1ADE669D00DCF2B6 /* ThuocTinhQuaTang.m in Sources */,
+				C62FB5E6233E5860003926BB /* HuongDanHoTroThanhToanViewController.swift in Sources */,
 				A3BB76301AEDFAFD00028280 /* HFImageEditorFrameView.m in Sources */,
 				180231111AC02C1A00AE49FC /* ThanhToanDienThoaiViettelViewController.m in Sources */,
 				A3B86D581B1D9C6200CED289 /* Quyen.m in Sources */,
