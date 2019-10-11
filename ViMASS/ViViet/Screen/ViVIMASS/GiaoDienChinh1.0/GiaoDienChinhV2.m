@@ -107,14 +107,26 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[UIApplication sharedApplication] setStatusBarHidden:NO];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-    
-    UIView *statusBar = [[[UIApplication sharedApplication] valueForKey:@"statusBarWindow"] valueForKey:@"statusBar"];
-    
-    if ([statusBar respondsToSelector:@selector(setBackgroundColor:)]) {
+    if (@available(iOS 13, *)) {
+        CGFloat statusBarHeight = [UIApplication sharedApplication].statusBarFrame.size.height;
+        UIView *statusbarView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, statusBarHeight)];
+        statusbarView.backgroundColor =  [UIColor colorWithRed:30.0/255 green:48.0/233 blue:63/255.0 alpha:1];
+        [self.view addSubview:statusbarView];
+//        let app = UIApplication.shared
+//        let statusBarHeight: CGFloat = app.statusBarFrame.size.height
+//        let statusbarView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: statusBarHeight))
+//        statusbarView.backgroundColor = UIColor.red
+//        view.addSubview(statusbarView)
+    } else {
+        [[UIApplication sharedApplication] setStatusBarHidden:NO];
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
         
-        statusBar.backgroundColor = [UIColor colorWithRed:30.0/255 green:48.0/233 blue:63/255.0 alpha:1];//set whatever color you like
+        UIView *statusBar = [[[UIApplication sharedApplication] valueForKey:@"statusBarWindow"] valueForKey:@"statusBar"];
+        
+        if ([statusBar respondsToSelector:@selector(setBackgroundColor:)]) {
+            
+            statusBar.backgroundColor = [UIColor colorWithRed:30.0/255 green:48.0/233 blue:63/255.0 alpha:1];//set whatever color you like
+        }
     }
 
     keyPin = @"11111111";

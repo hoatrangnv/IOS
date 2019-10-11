@@ -112,8 +112,6 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onBackSoTay) name:@"ClickBackSoTay" object:nil];
     
     [self updateLangBottomBar];
-    
-//    [Localization strSelectLanguage:ENGLISH];
 }
 
 - (void)updateLangBottomBar {
@@ -125,7 +123,6 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = false;
-//    self.navigationController.navigationBarHidden = YES;
     [self khoiTaoNaviGationBar];
     [self reloadGiaoDien:nil];
     
@@ -167,10 +164,6 @@
 
         }
     }
-    
-//    [self.btnNganHang setTitle:[Localization languageSelectedStringForKey:@"label_bank"] forState:UIControlStateNormal];
-//    [self.btnViDienTu setTitle:[Localization languageSelectedStringForKey:@"vi_dien_tu"] forState:UIControlStateNormal];
-//    [self.btnViCuaToi setTitle:[Localization languageSelectedStringForKey:@"vi_cua_toi"] forState:UIControlStateNormal];
 }
 - (void)viewDidAppear:(BOOL)animated{
     

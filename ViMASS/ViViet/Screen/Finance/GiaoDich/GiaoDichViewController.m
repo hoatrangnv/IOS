@@ -69,7 +69,7 @@
     self.mlblPhi.text = [Localization languageSelectedStringForKey:@"title_phi"];
     self.mlblXacThuc.text = [Localization languageSelectedStringForKey:@"xac_thuc_boi"];
     
-    self.mbtnPKI.hidden = false;
+    self.mbtnPKI.hidden = YES;
 }
 
 - (void)khoiTaoButtonXacThucBanDau {
@@ -116,7 +116,7 @@
 
 - (void)checkButtonPKI {
     if(![CommonUtils isEmptyOrNull:self.mThongTinTaiKhoanVi.pki3] && [self.mThongTinTaiKhoanVi.hanMucPki3 doubleValue] >0 ){
-        self.mbtnPKI.hidden = NO;
+        self.mbtnPKI.hidden = YES;
     }
     else{
         self.mbtnPKI.hidden = YES;

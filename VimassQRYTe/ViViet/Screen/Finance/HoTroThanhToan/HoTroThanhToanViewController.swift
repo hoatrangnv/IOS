@@ -13,7 +13,7 @@ protocol HoTroThanhToanDelegate {
 
 class HoTroThanhToanViewController: GiaoDichViewController {
 
-    private let arrHuongDan = ["Thanh toán viện phí bằng chuyển khoản", "Thanh toán viện phí bằng thẻ ATM", "Thanh toán viện phí bằng QR y tế", "Thanh toán viện phí bằng thẻ y tế"]
+    private let arrHuongDan = ["Thanh toán bằng chuyển khoản", "Thanh toán bằng thẻ ATM qua Napas", "Thanh toán bằng thẻ ATM qua máy POS", "Thanh toán bằng QR y tế", "Thanh toán bằng thẻ y tế", "Thanh toán bằng ví điện tử"]
     private let TAG = "HoTroThanhToanViewController"
     @IBOutlet var tableView: UITableView!
     var delegate:HoTroThanhToanDelegate?
@@ -38,7 +38,7 @@ extension HoTroThanhToanViewController : UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return tableView.frame.height / 5
+        return tableView.frame.height / CGFloat(arrHuongDan.count)
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

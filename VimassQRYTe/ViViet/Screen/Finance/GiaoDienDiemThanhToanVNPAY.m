@@ -30,12 +30,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    self.navigationItem.title = [@"diem_giao_dich_vnpay" localizableString];
-    if (_nType == 0) {
-        [self addTitleView: [@"diem_giao_dich_vnpay" localizableString]];
-    } else {
-        [self addTitleView: @"Điểm giao dịch QR y tế"];
-    }
+//    if (_nType == 0) {
+//        [self addTitleView: [@"diem_giao_dich_vnpay" localizableString]];
+//    } else {
+//        [self addTitleView: @"Điểm giao dịch QR y tế"];
+//    }
+    [self addTitleView: @"Điểm giao dịch"];
     nOption = 0;
     rowSelectedTinhThanh = 0;
     offset = 0;

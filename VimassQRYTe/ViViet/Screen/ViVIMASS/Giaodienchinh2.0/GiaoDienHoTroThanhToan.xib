@@ -11,7 +11,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GiaoDienHoTroThanhToan">
             <connections>
                 <outlet property="btnHuongDan" destination="HSB-fw-6s0" id="jLM-rW-Ke6"/>
+                <outlet property="btnHuongDanTraCuu" destination="s1X-8g-7xh" id="DaG-Ph-F3u"/>
                 <outlet property="btnTraCuu" destination="eff-mA-hdr" id="azs-IM-UZG"/>
+                <outlet property="stackTop" destination="gWZ-09-0os" id="xa9-Mk-70S"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="viewShowMain" destination="f0q-RL-QgL" id="hOn-hL-6OB"/>
             </connections>
@@ -38,9 +40,9 @@
                             <rect key="frame" x="58" y="0.0" width="317" height="44"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eff-mA-hdr">
-                                    <rect key="frame" x="0.0" y="0.0" width="158" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="105" height="44"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <state key="normal" title="Tra cứu">
                                         <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </state>
@@ -48,10 +50,18 @@
                                         <action selector="suKienChonTraCuu:" destination="-1" eventType="touchUpInside" id="UTZ-Ib-z5Q"/>
                                     </connections>
                                 </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s1X-8g-7xh">
+                                    <rect key="frame" x="106" y="0.0" width="105" height="44"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <state key="normal" title="Hướng dẫn Tra cứu"/>
+                                    <connections>
+                                        <action selector="suKienChonHuongDanTraCuu:" destination="-1" eventType="touchUpInside" id="5pD-W2-JBE"/>
+                                    </connections>
+                                </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HSB-fw-6s0">
-                                    <rect key="frame" x="159" y="0.0" width="158" height="44"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <state key="normal" title="Hướng dẫn"/>
+                                    <rect key="frame" x="212" y="0.0" width="105" height="44"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <state key="normal" title="6 cách Thanh toán"/>
                                     <connections>
                                         <action selector="suKienChonHuongDan:" destination="-1" eventType="touchUpInside" id="HOg-HZ-FHO"/>
                                     </connections>

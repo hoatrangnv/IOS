@@ -67,6 +67,8 @@
     
     self.mbtnToken.hidden = NO;
     self.mbtnPKI.hidden = YES;
+    
+    [self showImageQRCode];
 }
 
 - (void) handleHoldGesture:(UILongPressGestureRecognizer *)gestureRecognizer
@@ -134,6 +136,10 @@
     
 //    [self khoiTaoQuangCao];
     
+}
+
+- (void)showImageQRCode {
+    NSLog(@"%s ============> START", __FUNCTION__);
     SDImageCache *imageCache = [SDImageCache sharedImageCache];
     [imageCache removeImageForKey:self.mThongTinTaiKhoanVi.linkQR fromDisk:YES withCompletion:^{
         NSLog(@"%s - linkQR : %@", __FUNCTION__, self.mThongTinTaiKhoanVi.linkQR);
@@ -144,12 +150,6 @@
     NSLog(@"%s - sDuongDanAnhDaiDien : %@", __FUNCTION__, sDuongDanAnhDaiDien);
     [self.imgvAvatar sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://vimass.vn/vmbank/services/media/getImage?id=%@", sDuongDanAnhDaiDien]] placeholderImage:[UIImage imageNamed:@"icon_danhba"]];
     [self.scrMain setContentSize:CGSizeMake(_scrMain.frame.size.width, _scrMain.frame.origin.y + _scrMain.frame.size.height + 80)];
-//    if(![CommonUtils isEmptyOrNull:self.mThongTinTaiKhoanVi.pki3] && [self.mThongTinTaiKhoanVi.hanMucPki3 doubleValue] >0 ){
-//        self.mbtnPKI.hidden = NO;
-//    }
-//    else{
-//        self.mbtnPKI.hidden = YES;
-//    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated{

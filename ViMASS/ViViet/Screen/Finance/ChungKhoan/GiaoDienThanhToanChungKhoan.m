@@ -234,7 +234,7 @@
     if (fSoTien > fHanMucToken) {
         double fHanMucPKI = [self.mThongTinTaiKhoanVi.hanMucTimeMPKI doubleValue];
         if (fSoTien <= fHanMucPKI) {
-            self.mbtnPKI.hidden = NO;
+            self.mbtnPKI.hidden = YES;
             self.btnVanTayMini.hidden = YES;
             self.mbtnToken.hidden = YES;
         } else {

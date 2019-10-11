@@ -1025,6 +1025,10 @@
 		C64329611FBEE3EA00DAF926 /* hd_quang_cao_vi.html in Resources */ = {isa = PBXBuildFile; fileRef = C64329601FBEE3EA00DAF926 /* hd_quang_cao_vi.html */; };
 		C643BAD71BEB4B160004AD48 /* GiaoDienDiemGiaoDichV2.m in Sources */ = {isa = PBXBuildFile; fileRef = C643BAD51BEB4B160004AD48 /* GiaoDienDiemGiaoDichV2.m */; };
 		C643BAD81BEB4B160004AD48 /* GiaoDienDiemGiaoDichV2.xib in Resources */ = {isa = PBXBuildFile; fileRef = C643BAD61BEB4B160004AD48 /* GiaoDienDiemGiaoDichV2.xib */; };
+		C643E2AB2344EEF4008BDFD4 /* ChuyenTienNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C643E2A92344EEF4008BDFD4 /* ChuyenTienNewViewController.swift */; };
+		C643E2AC2344EEF4008BDFD4 /* ChuyenTienNewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C643E2AA2344EEF4008BDFD4 /* ChuyenTienNewViewController.xib */; };
+		C643E2B02344FB33008BDFD4 /* ThanhToanVienPhiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C643E2AE2344FB33008BDFD4 /* ThanhToanVienPhiViewController.swift */; };
+		C643E2B12344FB33008BDFD4 /* ThanhToanVienPhiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C643E2AF2344FB33008BDFD4 /* ThanhToanVienPhiViewController.xib */; };
 		C64520F81BE326E100E8091C /* ItemChinhFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C64520F71BE326E100E8091C /* ItemChinhFlowLayout.m */; };
 		C64521071BE331CF00E8091C /* KRLCollectionViewGridLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C64521061BE331CF00E8091C /* KRLCollectionViewGridLayout.m */; };
 		C645210B1BE3544C00E8091C /* GiaoDienChinhV2.m in Sources */ = {isa = PBXBuildFile; fileRef = C64521091BE3544C00E8091C /* GiaoDienChinhV2.m */; };
@@ -1032,9 +1036,13 @@
 		C646A69B224BBBD000FF095C /* VNPayQRInputMoneyViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C646A699224BBBD000FF095C /* VNPayQRInputMoneyViewCell.m */; };
 		C646A69C224BBBD000FF095C /* VNPayQRInputMoneyViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C646A69A224BBBD000FF095C /* VNPayQRInputMoneyViewCell.xib */; };
 		C646A69F224BBE3200FF095C /* ItemVNPayQR.m in Sources */ = {isa = PBXBuildFile; fileRef = C646A69E224BBE3200FF095C /* ItemVNPayQR.m */; };
+		C6471D382350C9C000890177 /* NhapDonHangYTeDongView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6471D372350C9C000890177 /* NhapDonHangYTeDongView.swift */; };
+		C6471D3A2350C9D900890177 /* NhapDonHangYTeDongView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6471D392350C9D900890177 /* NhapDonHangYTeDongView.xib */; };
 		C648CE2D1BF4505B00217D71 /* zipcode.txt in Resources */ = {isa = PBXBuildFile; fileRef = C648CE2C1BF4505B00217D71 /* zipcode.txt */; };
 		C648CE311BF4507E00217D71 /* GiaoDienBangMaZipCode.m in Sources */ = {isa = PBXBuildFile; fileRef = C648CE2F1BF4507E00217D71 /* GiaoDienBangMaZipCode.m */; };
 		C648CE321BF4507E00217D71 /* GiaoDienBangMaZipCode.xib in Resources */ = {isa = PBXBuildFile; fileRef = C648CE301BF4507E00217D71 /* GiaoDienBangMaZipCode.xib */; };
+		C64A8223234E371D0073D8D8 /* QRYTeMobileBankingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64A8221234E371D0073D8D8 /* QRYTeMobileBankingViewController.swift */; };
+		C64A8224234E371D0073D8D8 /* QRYTeMobileBankingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C64A8222234E371D0073D8D8 /* QRYTeMobileBankingViewController.xib */; };
 		C64AA3CE233280DE006D1C74 /* GiaoDienTheATMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64AA3CC233280DE006D1C74 /* GiaoDienTheATMViewController.swift */; };
 		C64AA3CF233280DE006D1C74 /* GiaoDienTheATMViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C64AA3CD233280DE006D1C74 /* GiaoDienTheATMViewController.xib */; };
 		C64BB0E6222D70FD00DE5F74 /* Localization.m in Sources */ = {isa = PBXBuildFile; fileRef = C64BB0E5222D70FD00DE5F74 /* Localization.m */; };
@@ -2951,6 +2959,10 @@
 		C643BAD41BEB4B160004AD48 /* GiaoDienDiemGiaoDichV2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GiaoDienDiemGiaoDichV2.h; sourceTree = "<group>"; };
 		C643BAD51BEB4B160004AD48 /* GiaoDienDiemGiaoDichV2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GiaoDienDiemGiaoDichV2.m; sourceTree = "<group>"; };
 		C643BAD61BEB4B160004AD48 /* GiaoDienDiemGiaoDichV2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GiaoDienDiemGiaoDichV2.xib; sourceTree = "<group>"; };
+		C643E2A92344EEF4008BDFD4 /* ChuyenTienNewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChuyenTienNewViewController.swift; sourceTree = "<group>"; };
+		C643E2AA2344EEF4008BDFD4 /* ChuyenTienNewViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChuyenTienNewViewController.xib; sourceTree = "<group>"; };
+		C643E2AE2344FB33008BDFD4 /* ThanhToanVienPhiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ThanhToanVienPhiViewController.swift; path = ThanhToanVienPhi/ThanhToanVienPhiViewController.swift; sourceTree = "<group>"; };
+		C643E2AF2344FB33008BDFD4 /* ThanhToanVienPhiViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ThanhToanVienPhiViewController.xib; path = ThanhToanVienPhi/ThanhToanVienPhiViewController.xib; sourceTree = "<group>"; };
 		C64520F61BE326E100E8091C /* ItemChinhFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemChinhFlowLayout.h; sourceTree = "<group>"; };
 		C64520F71BE326E100E8091C /* ItemChinhFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemChinhFlowLayout.m; sourceTree = "<group>"; };
 		C64521051BE331CF00E8091C /* KRLCollectionViewGridLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KRLCollectionViewGridLayout.h; path = ClassesGridView/KRLCollectionViewGridLayout.h; sourceTree = "<group>"; };
@@ -2963,10 +2975,14 @@
 		C646A69A224BBBD000FF095C /* VNPayQRInputMoneyViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VNPayQRInputMoneyViewCell.xib; sourceTree = "<group>"; };
 		C646A69D224BBE3200FF095C /* ItemVNPayQR.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ItemVNPayQR.h; sourceTree = "<group>"; };
 		C646A69E224BBE3200FF095C /* ItemVNPayQR.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ItemVNPayQR.m; sourceTree = "<group>"; };
+		C6471D372350C9C000890177 /* NhapDonHangYTeDongView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NhapDonHangYTeDongView.swift; path = QRSanPham/NhapDonHangYTeDongView.swift; sourceTree = "<group>"; };
+		C6471D392350C9D900890177 /* NhapDonHangYTeDongView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = NhapDonHangYTeDongView.xib; path = QRSanPham/NhapDonHangYTeDongView.xib; sourceTree = "<group>"; };
 		C648CE2C1BF4505B00217D71 /* zipcode.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = zipcode.txt; sourceTree = "<group>"; };
 		C648CE2E1BF4507E00217D71 /* GiaoDienBangMaZipCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GiaoDienBangMaZipCode.h; sourceTree = "<group>"; };
 		C648CE2F1BF4507E00217D71 /* GiaoDienBangMaZipCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GiaoDienBangMaZipCode.m; sourceTree = "<group>"; };
 		C648CE301BF4507E00217D71 /* GiaoDienBangMaZipCode.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GiaoDienBangMaZipCode.xib; sourceTree = "<group>"; };
+		C64A8221234E371D0073D8D8 /* QRYTeMobileBankingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = QRYTeMobileBankingViewController.swift; path = QRYTeMobileBanking/QRYTeMobileBankingViewController.swift; sourceTree = "<group>"; };
+		C64A8222234E371D0073D8D8 /* QRYTeMobileBankingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = QRYTeMobileBankingViewController.xib; path = QRYTeMobileBanking/QRYTeMobileBankingViewController.xib; sourceTree = "<group>"; };
 		C64AA3CC233280DE006D1C74 /* GiaoDienTheATMViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GiaoDienTheATMViewController.swift; path = TheATMYTe/GiaoDienTheATMViewController.swift; sourceTree = "<group>"; };
 		C64AA3CD233280DE006D1C74 /* GiaoDienTheATMViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = GiaoDienTheATMViewController.xib; path = TheATMYTe/GiaoDienTheATMViewController.xib; sourceTree = "<group>"; };
 		C64BB0E4222D70ED00DE5F74 /* Localization.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Localization.h; sourceTree = "<group>"; };
@@ -4642,6 +4658,8 @@
 				3E1E157C198C81A400751F7C /* DucNT_ChuyenTienDenTheViewController.m */,
 				3E1E157D198C81A400751F7C /* DucNT_ChuyenTienDenTheViewController.xib */,
 				A3D2414A1B58ACF90054B952 /* TaiKhoanThuongDung */,
+				C643E2A92344EEF4008BDFD4 /* ChuyenTienNewViewController.swift */,
+				C643E2AA2344EEF4008BDFD4 /* ChuyenTienNewViewController.xib */,
 			);
 			name = ChuyenTien;
 			sourceTree = "<group>";
@@ -5449,6 +5467,8 @@
 		8577B13518AF1F5F007B72A5 /* Finance */ = {
 			isa = PBXGroup;
 			children = (
+				C64A8220234E36F00073D8D8 /* QRYTeMobileBanking */,
+				C643E2AD2344FB12008BDFD4 /* ThanhToanVienPhi */,
 				E7F364E323387255006BC39A /* HoTroThanhToan */,
 				C64AA3CB23328099006D1C74 /* TheATMYTe */,
 				C63D020A21E4F27700FD0086 /* TinTuc */,
@@ -6284,6 +6304,15 @@
 			path = GiaoDienHuongDan;
 			sourceTree = "<group>";
 		};
+		C643E2AD2344FB12008BDFD4 /* ThanhToanVienPhi */ = {
+			isa = PBXGroup;
+			children = (
+				C643E2AE2344FB33008BDFD4 /* ThanhToanVienPhiViewController.swift */,
+				C643E2AF2344FB33008BDFD4 /* ThanhToanVienPhiViewController.xib */,
+			);
+			name = ThanhToanVienPhi;
+			sourceTree = "<group>";
+		};
 		C64521041BE32B9900E8091C /* GridLayout */ = {
 			isa = PBXGroup;
 			children = (
@@ -6291,6 +6320,15 @@
 				C64521061BE331CF00E8091C /* KRLCollectionViewGridLayout.m */,
 			);
 			name = GridLayout;
+			sourceTree = "<group>";
+		};
+		C64A8220234E36F00073D8D8 /* QRYTeMobileBanking */ = {
+			isa = PBXGroup;
+			children = (
+				C64A8221234E371D0073D8D8 /* QRYTeMobileBankingViewController.swift */,
+				C64A8222234E371D0073D8D8 /* QRYTeMobileBankingViewController.xib */,
+			);
+			name = QRYTeMobileBanking;
 			sourceTree = "<group>";
 		};
 		C64AA3CB23328099006D1C74 /* TheATMYTe */ = {
@@ -6914,6 +6952,8 @@
 				E75805A0230FAC570038B9EC /* HeaderSheetInfoQRYTeView.xib */,
 				E75805A2230FAE9F0038B9EC /* TongTienQRCell.swift */,
 				E75805A3230FAE9F0038B9EC /* TongTienQRCell.xib */,
+				C6471D372350C9C000890177 /* NhapDonHangYTeDongView.swift */,
+				C6471D392350C9D900890177 /* NhapDonHangYTeDongView.xib */,
 			);
 			name = TaoQrYTeDong;
 			sourceTree = "<group>";
@@ -7433,6 +7473,7 @@
 				0B4FBDE6219F184C00010A70 /* BIDC-THE.png in Resources */,
 				C664B0371D125C60003B9976 /* phong1_Nguyenchithanh.txt in Resources */,
 				0B1F9EA118A8C3840089E2BE /* SettingItems.plist in Resources */,
+				C643E2B12344FB33008BDFD4 /* ThanhToanVienPhiViewController.xib in Resources */,
 				C664B0AD1D125C60003B9976 /* phong5_IPHHaNoi.txt in Resources */,
 				0B146B801765D9F700E9C80F /* CellProductDetail.xib in Resources */,
 				C664B0D31D125C60003B9976 /* phong7_CGVBinhDuongSquare.txt in Resources */,
@@ -7516,6 +7557,7 @@
 				C688289C1C196E8B000C7934 /* phong3_nhatrang.txt in Resources */,
 				0B4FBE0E219F184C00010A70 /* hdb-the.png in Resources */,
 				0B4FBE75219F21DA00010A70 /* JCB-The.png in Resources */,
+				C643E2AC2344EEF4008BDFD4 /* ChuyenTienNewViewController.xib in Resources */,
 				C68828931C196E8B000C7934 /* phong1_royal.txt in Resources */,
 				0B4FBDD3219F184C00010A70 /* xyz.png in Resources */,
 				0B4FBDE4219F184C00010A70 /* bid-the.png in Resources */,
@@ -7590,6 +7632,7 @@
 				C664B02A1D125C60003B9976 /* phong1_CGVThuyDuongPlaza.txt in Resources */,
 				0BF3C24618ADC8C4002E8CA9 /* text-field-bg-white.png in Resources */,
 				C635A906224A865F003619DE /* VNPayQRTableViewCell.xib in Resources */,
+				C64A8224234E371D0073D8D8 /* QRYTeMobileBankingViewController.xib in Resources */,
 				C664B0321D125C60003B9976 /* phong1_HoGuomPlaza.txt in Resources */,
 				A38479AB1ADE669D00DCF2B6 /* ItemMenuTaiChinhViViMassDoanhNghiep.plist in Resources */,
 				1810550B19E7955000E8D8CE /* ic_share_mail.png in Resources */,
@@ -7901,6 +7944,7 @@
 				C664B0C31D125C60003B9976 /* phong6_HungVuongPlaza.txt in Resources */,
 				038293991BABD00E00C6A708 /* chonghe.html in Resources */,
 				0B4FBDE2219F184C00010A70 /* BBL-THE.png in Resources */,
+				C6471D3A2350C9D900890177 /* NhapDonHangYTeDongView.xib in Resources */,
 				C618FC5B205A63EB0095ECC3 /* MenuThongBaoCell.xib in Resources */,
 				0B4FBE5C219F184C00010A70 /* VB-NH.png in Resources */,
 				1893434A19ECD4D5009E91F2 /* icon_chat.png in Resources */,
@@ -8196,6 +8240,7 @@
 				85ED768816F32520001535AC /* ScrollingMenu.m in Sources */,
 				C66501051CCE2A6A00026DA2 /* ViewThuongDungATM.m in Sources */,
 				85ED768916F32520001535AC /* ScrollingTab.m in Sources */,
+				C6471D382350C9C000890177 /* NhapDonHangYTeDongView.swift in Sources */,
 				A3E2F7531B53D09E003C9A3D /* ChonTinhThanhViewController.m in Sources */,
 				0B4A393D18507BBE00FE3D97 /* Banks.m in Sources */,
 				853A9FC116F806DD00F3C3B0 /* CacheManager.m in Sources */,
@@ -8209,6 +8254,7 @@
 				0BC506651702E5420027C1F2 /* Alert+Block.m in Sources */,
 				C6C7D4041D1BC61E00FC223B /* GiaoDienChonGheCGV.m in Sources */,
 				E75805A4230FAE9F0038B9EC /* TongTienQRCell.swift in Sources */,
+				C643E2B02344FB33008BDFD4 /* ThanhToanVienPhiViewController.swift in Sources */,
 				C635A900224A85DC003619DE /* GiaoDienThanhToanQRVNPay.m in Sources */,
 				E75805A8230FD80D0038B9EC /* GiaoDienTheVIDViewController.swift in Sources */,
 				0BE0854817057F2E000C3ACE /* AmountTextField.m in Sources */,
@@ -8347,6 +8393,7 @@
 				C6595E281C3BC221006E95D1 /* ItemSanBay.m in Sources */,
 				CDE68182219333B20030226D /* SotaydienthoaiDialogViewController.m in Sources */,
 				CD30A17421A84F21004030E3 /* GiaodientaikhoannganhangViewController.m in Sources */,
+				C643E2AB2344EEF4008BDFD4 /* ChuyenTienNewViewController.swift in Sources */,
 				C66368E01D78398900DC3C54 /* GiaoDienHuongDanDangNhap.m in Sources */,
 				3EDD8D7F196B899F00E21326 /* DucNT_DangKyToken.m in Sources */,
 				182026461AD53DA700E4C960 /* TraCuuTienDienViewController.m in Sources */,
@@ -8375,6 +8422,7 @@
 				850A276317AA47A10068FF4F /* quicklz.c in Sources */,
 				A3CAF0851AE506380029486B /* NganHangNapTien.m in Sources */,
 				0BE7F4A619CFDD1B00E15A46 /* HienThiNotificationTableViewCell.m in Sources */,
+				C64A8223234E371D0073D8D8 /* QRYTeMobileBankingViewController.swift in Sources */,
 				A3E2F74A1B53B686003C9A3D /* DoiTuongQuanHuyen.m in Sources */,
 				C65EFCE721E8F4BC00240658 /* GiaoDienChiTietTinTuc.m in Sources */,
 				A357992D1B33D5B700B38098 /* CheckNetworkStatus.m in Sources */,
@@ -8566,7 +8614,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = SLR686RAJ6;
 				ENABLE_BITCODE = NO;
@@ -8592,6 +8640,7 @@
 					"$(PROJECT_DIR)/libs/commonlib",
 				);
 				MACH_O_TYPE = mh_execute;
+				MARKETING_VERSION = 1.5;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vimass.qryte;
@@ -8676,7 +8725,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = SLR686RAJ6;
 				ENABLE_BITCODE = NO;
@@ -8700,6 +8749,7 @@
 					"$(PROJECT_DIR)/libs/commonlib",
 				);
 				MACH_O_TYPE = mh_execute;
+				MARKETING_VERSION = 1.5;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vimass.qryte;
@@ -8730,7 +8780,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = SLR686RAJ6;
 				ENABLE_BITCODE = NO;
@@ -8756,6 +8806,7 @@
 					"$(PROJECT_DIR)/libs/commonlib",
 				);
 				MACH_O_TYPE = mh_execute;
+				MARKETING_VERSION = 1.5;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vimass.qryte;

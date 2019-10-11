@@ -12,24 +12,41 @@ class HuongDanHoTroThanhToanViewController: GiaoDichViewController {
     @IBOutlet var webHuongDan: UIWebView!
     
     var idOption = ""
+    var nType = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.addTitleView("Hướng dẫn")
-        let index = UserDefaults.standard.integer(forKey: "INDEX_INTRO")
-        switch index {
-        case 0:
-            idOption = "1568460803819xcdv7"
-        case 1:
-            idOption = "1568460849522sojgb"
-        case 2:
-            idOption = "15684608908788ut4d"
-        case 3:
-            idOption = "15684609282009d5l7"
-        default:
-            idOption = ""
+        if nType == 1 {
+            self.addTitleView("Hướng dẫn")
+            let html = "- Bước 1: Đến quầy thu ngân mượn thẻ y tế, đặt cược thẻ 45.000 đ, đổi tiền mặt lấy tiền trong thẻ.<br/><br/>- Bước 2: Khai báo (i) Họ tên, số thẻ căn cước, ngày cấp, nơi cấp; hoặc (ii) Tài khoản/ thẻ của người thân nhận tiền chưa sử dụng.<br/><br/>- Bước 3: Tại điểm thanh toán của cơ sở y tế: (i) Nhận hoá đơn thanh toán và chạm thẻ vào đầu đọc khi được thông báo số tiền và nội dung thanh toán, hoặc (ii) kiểm tra thông tin và số dư trong thẻ.<br/><br/>- Bước 4: Kết thúc đợt khám, điều trị bệnh người dân trả lại ther tại quầy đăng ký hoặc quầy thu ngân, yêu cầu cán bộ thu thẻ thông báo số tiền còn trên thẻ.<br/><br/>- Bước 5: Sau 1 phiên làm việc của ngân hàng, người dân đến các điểm giao dịch ngân hàng được cơ sở y tế chỉ định, trình thẻ căn cước công dân để nhận tiền. Trường hợp sử dụng tài khoản/thẻ của người thân, chỉ cần đợi vài phút để biết tài khoản đã nhận tiền. Số tiền được hoàn bao gồm tiền chưa sử dụng và tiền cược thẻ.<br/><br/>Lưu ý: Tại quầy thu ngân, hiệu thuốc hoặc nơi bác sỹ chỉ định khám chữa bệnh có thu tiền. Người dân có thể tra cưú việc hoàn tiền trong thời hạn 30 ngày."
+            self.webHuongDan.loadHTMLString(html, baseURL: nil)
+        } else {
+            let index = UserDefaults.standard.integer(forKey: "INDEX_INTRO")
+            if index == 10 {
+                self.addTitleView("Hướng dẫn tra cứu")
+            } else {
+                self.addTitleView("Hướng dẫn")
+            }
+            switch index {
+            case 0:
+                idOption = "1568460803819xcdv7"
+            case 1:
+                idOption = "156887194605305vmv"
+            case 2:
+                idOption = "1570009805747hng4m"
+            case 3:
+                idOption = "15684608908788ut4d"
+            case 4:
+                idOption = "15684609282009d5l7"
+            case 5:
+                idOption = "15684609282009d5l7"
+            case 10:
+                idOption = "156836195514595rn5"
+            default:
+                idOption = ""
+            }
+            connectGetIntro()
         }
-        connectGetIntro()
     }
     
     func connectGetIntro() {

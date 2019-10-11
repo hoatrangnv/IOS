@@ -9,7 +9,8 @@ import UIKit
 
 class GiaoDienQRYTeViewController: GiaoDichViewController {
     private let TAG = "GiaoDienQRYTeViewController"
-    private let arrOptions = ["Tạo, sửa, xoá QR y tế tĩnh" , "Tạo, sửa, xoá QR y tế động" , "Tra cứu giao dịch", "Đối soát", "Phát hành hoá đơn", "Thẩm quyền"]
+//    , "Đối soát", "Phát hành hoá đơn", "Thẩm quyền"
+    private let arrOptions = ["QR Y tế cho Mobile Banking", "Tạo QR y tế tĩnh" , "Tạo QR y tế động" , "Tra cứu giao dịch", "Đối soát", "Phát hành hoá đơn", "Thẩm quyền"]
     @IBOutlet var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +19,7 @@ class GiaoDienQRYTeViewController: GiaoDichViewController {
         let rightButton = UIBarButtonItem(image: UIImage(named: "ic_question_32"), style: .done, target: self, action: #selector(suKienChonQuestion(_:)))
         self.navigationItem.rightBarButtonItem = rightButton
         
+        tableView.tableFooterView = UIView(frame: .zero)
         tableView.register(UINib(nibName: "DanhSachViVimassCell", bundle: nil), forCellReuseIdentifier: "DanhSachViVimassCell")
     }
 
@@ -43,7 +45,8 @@ extension GiaoDienQRYTeViewController : UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return tableView.frame.height / CGFloat(arrOptions.count)
+        return tableView.frame.height / 6
+//        return tableView.frame.height / CGFloat(arrOptions.count)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -55,12 +58,15 @@ extension GiaoDienQRYTeViewController : UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
-            let vc = DanhSachQRYTeViewController(nibName: "DanhSachQRYTeViewController", bundle: nil)
+            let vc = QRYTeMobileBankingViewController(nibName: "QRYTeMobileBankingViewController", bundle: nil)
             self.navigationController?.pushViewController(vc, animated: true)
         case 1:
-            let vc = TaoQRYTeDongViewController(nibName: "TaoQRYTeDongViewController", bundle: nil)
+            let vc = DanhSachQRYTeViewController(nibName: "DanhSachQRYTeViewController", bundle: nil)
             self.navigationController?.pushViewController(vc, animated: true)
         case 2:
+            let vc = TaoQRYTeDongViewController(nibName: "TaoQRYTeDongViewController", bundle: nil)
+            self.navigationController?.pushViewController(vc, animated: true)
+        case 3:
             let vc = DucNT_SaoKeViewController(nibName: "DucNT_SaoKeViewController", bundle: nil)
             self.navigationController?.pushViewController(vc, animated: true)
         default:

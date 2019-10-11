@@ -1,89 +1,112 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="186" id="KGk-i7-Jjw" customClass="ThongTinCtyYTeCell" customModule="ViVimass" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="250"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="252" id="KGk-i7-Jjw" customClass="ThongTinCtyYTeCell" customModule="ViVimass" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="316"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="249.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="316"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CÔNG TY CỔ PHẦN BỆNH VIỆN VIMASS" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h3r-bM-YC5">
-                        <rect key="frame" x="5" y="8" width="310" height="151.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="ĐC: 444 Hoàng Hoa Thám, Tây Hồ, Hà Nội" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZIb-0c-zox">
-                        <rect key="frame" x="5" y="167.5" width="310" height="18"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BỆNH VIỆN TRUNG ƯƠNG THÁI NGUYÊN" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h3r-bM-YC5">
+                        <rect key="frame" x="5" y="8" width="310" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="zU6-Pv-Usd">
-                        <rect key="frame" x="5" y="193.5" width="310" height="18"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MST: 0105906169" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ADe-z5-CLc">
-                                <rect key="frame" x="0.0" y="0.0" width="153.5" height="18"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ĐT: 09123456789" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MNh-EP-1RU">
-                                <rect key="frame" x="156.5" y="0.0" width="153.5" height="18"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                    </stackView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Mã QR:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ClZ-v4-1bq">
-                        <rect key="frame" x="5" y="223.5" width="50.5" height="18"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Phòng khám" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZIb-0c-zox">
+                        <rect key="frame" x="5" y="34" width="310" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_qr_chung" translatesAutoresizingMaskIntoConstraints="NO" id="oRB-LX-Onb">
-                        <rect key="frame" x="285" y="217.5" width="30" height="30"/>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phiếu chỉ định" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fM4-9O-1Js" customClass="ExTextField">
+                        <rect key="frame" x="5" y="60" width="310" height="34"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="oRB-LX-Onb" secondAttribute="height" id="k86-v3-Nla"/>
-                            <constraint firstAttribute="width" constant="30" id="zuo-jb-eqP"/>
+                            <constraint firstAttribute="height" constant="34" id="zdJ-ey-ATM"/>
                         </constraints>
-                    </imageView>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Họ tên người bệnh" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7By-Sp-7NU" customClass="ExTextField">
+                        <rect key="frame" x="5" y="102" width="310" height="34"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Mã bệnh nhân" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Svj-u8-1WH" customClass="ExTextField">
+                        <rect key="frame" x="5" y="144" width="310" height="34"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="CCCD" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1YB-fO-Jvh" customClass="ExTextField">
+                        <rect key="frame" x="5" y="186" width="150.5" height="34"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ngày cấp" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tOS-qy-adq" customClass="ExTextField">
+                        <rect key="frame" x="164.5" y="186" width="150.5" height="34"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Triệu chứng" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pBe-Gi-Q4N" customClass="ExTextField">
+                        <rect key="frame" x="5" y="228" width="310" height="34"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Bác sĩ điều trị" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Ad-B9-gQd" customClass="ExTextField">
+                        <rect key="frame" x="5" y="270" width="310" height="34"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="zU6-Pv-Usd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="CrU-JY-kgI"/>
-                    <constraint firstAttribute="trailing" secondItem="zU6-Pv-Usd" secondAttribute="trailing" constant="5" id="FCM-hE-ljT"/>
-                    <constraint firstItem="ClZ-v4-1bq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="H6b-ol-LMg"/>
+                    <constraint firstItem="1YB-fO-Jvh" firstAttribute="height" secondItem="fM4-9O-1Js" secondAttribute="height" id="0QG-r8-Ylm"/>
+                    <constraint firstItem="fM4-9O-1Js" firstAttribute="top" secondItem="ZIb-0c-zox" secondAttribute="bottom" constant="8" id="1v4-T6-jUF"/>
+                    <constraint firstAttribute="trailing" secondItem="fM4-9O-1Js" secondAttribute="trailing" constant="5" id="DHv-V2-uXM"/>
+                    <constraint firstItem="7By-Sp-7NU" firstAttribute="top" secondItem="fM4-9O-1Js" secondAttribute="bottom" constant="8" id="IQT-Z4-b90"/>
+                    <constraint firstItem="tOS-qy-adq" firstAttribute="height" secondItem="fM4-9O-1Js" secondAttribute="height" id="Klh-gm-cUV"/>
+                    <constraint firstItem="2Ad-B9-gQd" firstAttribute="top" secondItem="pBe-Gi-Q4N" secondAttribute="bottom" constant="8" id="MbO-M6-7tG"/>
+                    <constraint firstItem="1YB-fO-Jvh" firstAttribute="top" secondItem="Svj-u8-1WH" secondAttribute="bottom" constant="8" id="Mmq-OX-DDP"/>
+                    <constraint firstItem="2Ad-B9-gQd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="NfU-4j-wCo"/>
+                    <constraint firstItem="tOS-qy-adq" firstAttribute="top" secondItem="Svj-u8-1WH" secondAttribute="bottom" constant="8" id="NgL-Hq-43m"/>
+                    <constraint firstItem="pBe-Gi-Q4N" firstAttribute="height" secondItem="fM4-9O-1Js" secondAttribute="height" id="Nm7-nq-cC8"/>
                     <constraint firstItem="ZIb-0c-zox" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="Qv6-0N-mAD"/>
                     <constraint firstItem="ZIb-0c-zox" firstAttribute="top" secondItem="h3r-bM-YC5" secondAttribute="bottom" constant="8" id="Utd-OM-Tw6"/>
+                    <constraint firstAttribute="trailing" secondItem="2Ad-B9-gQd" secondAttribute="trailing" constant="5" id="Ykv-of-gwl"/>
                     <constraint firstItem="h3r-bM-YC5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="ZGo-1h-hWK"/>
-                    <constraint firstAttribute="bottom" secondItem="ClZ-v4-1bq" secondAttribute="bottom" constant="8" id="aXr-9k-Hzt"/>
-                    <constraint firstItem="ClZ-v4-1bq" firstAttribute="top" secondItem="zU6-Pv-Usd" secondAttribute="bottom" constant="12" id="fgR-sJ-8hA"/>
-                    <constraint firstAttribute="trailing" secondItem="oRB-LX-Onb" secondAttribute="trailing" constant="5" id="fqb-2r-2SX"/>
-                    <constraint firstItem="oRB-LX-Onb" firstAttribute="centerY" secondItem="ClZ-v4-1bq" secondAttribute="centerY" id="jI5-lJ-ezP"/>
+                    <constraint firstItem="1YB-fO-Jvh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="aBL-sJ-VWN"/>
+                    <constraint firstItem="Svj-u8-1WH" firstAttribute="top" secondItem="7By-Sp-7NU" secondAttribute="bottom" constant="8" id="aY6-cL-68J"/>
+                    <constraint firstItem="pBe-Gi-Q4N" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="bZS-ul-2ts"/>
+                    <constraint firstItem="Svj-u8-1WH" firstAttribute="height" secondItem="fM4-9O-1Js" secondAttribute="height" id="g8J-uw-j5Q"/>
+                    <constraint firstItem="7By-Sp-7NU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="gMe-tJ-OLY"/>
+                    <constraint firstItem="7By-Sp-7NU" firstAttribute="height" secondItem="fM4-9O-1Js" secondAttribute="height" id="h22-zO-8eJ"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="2Ad-B9-gQd" secondAttribute="bottom" constant="8" id="hgY-pB-QGc"/>
+                    <constraint firstItem="pBe-Gi-Q4N" firstAttribute="top" secondItem="1YB-fO-Jvh" secondAttribute="bottom" constant="8" id="jli-GM-g8Y"/>
+                    <constraint firstAttribute="trailing" secondItem="Svj-u8-1WH" secondAttribute="trailing" constant="5" id="lqf-qf-BrX"/>
+                    <constraint firstItem="2Ad-B9-gQd" firstAttribute="height" secondItem="fM4-9O-1Js" secondAttribute="height" id="lt3-w5-qoB"/>
                     <constraint firstAttribute="trailing" secondItem="h3r-bM-YC5" secondAttribute="trailing" constant="5" id="mU2-T9-T33"/>
-                    <constraint firstItem="zU6-Pv-Usd" firstAttribute="top" secondItem="ZIb-0c-zox" secondAttribute="bottom" constant="8" id="p5a-DT-6v0"/>
+                    <constraint firstAttribute="trailing" secondItem="tOS-qy-adq" secondAttribute="trailing" constant="5" id="nPZ-LD-ARe"/>
+                    <constraint firstAttribute="trailing" secondItem="7By-Sp-7NU" secondAttribute="trailing" constant="5" id="ntw-3h-8yM"/>
+                    <constraint firstItem="Svj-u8-1WH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="pL9-ci-mxn"/>
+                    <constraint firstItem="1YB-fO-Jvh" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.47" id="seW-4y-p73"/>
+                    <constraint firstItem="fM4-9O-1Js" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="tvf-Ur-sp7"/>
+                    <constraint firstItem="tOS-qy-adq" firstAttribute="width" secondItem="1YB-fO-Jvh" secondAttribute="width" id="wBP-w6-Ekk"/>
                     <constraint firstItem="h3r-bM-YC5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="xT3-tZ-JN9"/>
                     <constraint firstAttribute="trailing" secondItem="ZIb-0c-zox" secondAttribute="trailing" constant="5" id="zbv-Xk-9aA"/>
+                    <constraint firstAttribute="trailing" secondItem="pBe-Gi-Q4N" secondAttribute="trailing" constant="5" id="zfc-PW-tii"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
-            <point key="canvasLocation" x="-300" y="32.8125"/>
+            <point key="canvasLocation" x="-300" y="54.910714285714285"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="ic_qr_chung" width="66" height="66"/>
-    </resources>
 </document>

@@ -9,12 +9,12 @@ import UIKit
 
 class GiaoDienTheVIDViewController: GiaoDichViewController {
     private let TAG = "GiaoDienQRYTeViewController"
-    private let arrOptions = ["Sao kê ví" , "Điểm mượn, trả thẻ y tế" , "Điểm nhận thanh toán thẻ y tế"]
+    private let arrOptions = ["Hướng dẫn", "Số dư và sao kê thẻ"]
     @IBOutlet var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.addTitleView("Tra cứu QR")
+        self.addTitleView("Thẻ y tế")
         
         let btnRight = UIBarButtonItem(title: "Hướng dẫn", style: .plain, target: self, action: #selector(suKienChonHuongDan))
         self.navigationItem.rightBarButtonItem = btnRight
@@ -55,6 +55,19 @@ extension GiaoDienTheVIDViewController : UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        hienThiHopThoaiMotNutBamKieu(0, cauThongBao: "Chức năng đang được phát triển")
+//        hienThiHopThoaiMotNutBamKieu(0, cauThongBao: "Chức năng đang được phát triển")
+        if indexPath.row == 1 {
+            if self.mThongTinTaiKhoanVi != nil {
+                let vc = SaoKeViVimassViewController(nibName: "SaoKeViVimassViewController", bundle: nil)
+                self.navigationController?.pushViewController(vc, animated: true)
+            } else {
+                let vc = DucNT_LoginSceen(nibName: "DucNT_LoginSceen", bundle: nil)
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+        } else {
+            let vc = HuongDanHoTroThanhToanViewController(nibName: "HuongDanHoTroThanhToanViewController", bundle: nil)
+            vc.nType = 1
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }

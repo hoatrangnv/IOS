@@ -98,11 +98,11 @@
         if ([sSoTien isEmpty]) {
             self.btnVanTayMini.hidden = NO;
             self.mbtnToken.hidden = NO;
-            self.mbtnPKI.hidden = NO;
+            self.mbtnPKI.hidden = YES;
         } else {
             self.btnVanTayMini.hidden = YES;
             self.mbtnToken.hidden = YES;
-            self.mbtnPKI.hidden = NO;
+            self.mbtnPKI.hidden = YES;
         }
     }
 }

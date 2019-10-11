@@ -66,7 +66,7 @@
 //    self.mtfSoTien.delegate = self;
     
     self.mbtnToken.hidden = NO;
-    self.mbtnPKI.hidden = NO;
+    self.mbtnPKI.hidden = YES;
 }
 
 - (void) handleHoldGesture:(UILongPressGestureRecognizer *)gestureRecognizer
@@ -375,7 +375,7 @@
         if (fSoTien > fHanMucToken) {
             double fHanMucPKI = [self.mThongTinTaiKhoanVi.hanMucTimeMPKI doubleValue];
             if (fSoTien <= fHanMucPKI) {
-                self.mbtnPKI.hidden = NO;
+                self.mbtnPKI.hidden = YES;
                 self.btnVanTayMini.hidden = YES;
                 self.mbtnToken.hidden = YES;
             } else {
@@ -384,7 +384,7 @@
                 self.mbtnToken.hidden = YES;
             }
         } else {
-            self.mbtnPKI.hidden = NO;
+            self.mbtnPKI.hidden = YES;
             self.btnVanTayMini.hidden = NO;
             self.mbtnToken.hidden = NO;
         }

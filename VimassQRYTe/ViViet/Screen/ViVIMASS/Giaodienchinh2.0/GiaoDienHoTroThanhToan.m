@@ -11,6 +11,7 @@
 @interface GiaoDienHoTroThanhToan () {
     NhapInfoHoTroThanhToanViewController *vcInput;
     HoTroThanhToanViewController *vcInfo;
+    HuongDanHoTroThanhToanViewController *vcInfoSearch;
 }
 
 @end
@@ -19,6 +20,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    for (UIButton *btn in [_stackTop arrangedSubviews]) {
+        [btn.titleLabel setTextAlignment:NSTextAlignmentCenter];
+        btn.titleLabel.numberOfLines = 2;
+    }
     
     [self khoiTaoViewInput];
 }
@@ -37,6 +43,9 @@
     if (vcInfo != nil) {
         [vcInfo.view setHidden:YES];
     }
+    if (vcInfoSearch != nil) {
+        [vcInfoSearch.view setHidden:YES];
+    }
     if (vcInput == nil) {
         vcInput = [[NhapInfoHoTroThanhToanViewController alloc] initWithNibName:@"NhapInfoHoTroThanhToanViewController" bundle:nil];
         [vcInput.view setFrame:CGRectMake(0, 0, self.viewShowMain.frame.size.width, self.viewShowMain.frame.size.height)];
@@ -49,6 +58,9 @@
     if (vcInput != nil) {
         [vcInput.view setHidden:YES];
     }
+    if (vcInfoSearch != nil) {
+        [vcInfoSearch.view setHidden:YES];
+    }
     if (vcInfo == nil) {
         vcInfo = [[HoTroThanhToanViewController alloc] initWithNibName:@"HoTroThanhToanViewController" bundle:nil];
         [vcInfo.view setFrame:CGRectMake(0, 0, self.viewShowMain.frame.size.width, self.viewShowMain.frame.size.height)];
@@ -57,6 +69,25 @@
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(suKienChonIntro:) name:@"CHON_INTRO" object:nil];
     }
     [vcInfo.view setHidden:NO];
+}
+
+- (void)khoiTaoViewHuongDanTraCuu {
+    if (vcInput != nil) {
+        [vcInput.view setHidden:YES];
+    }
+    if (vcInfo != nil) {
+        [vcInfo.view setHidden:YES];
+    }
+    if (vcInfoSearch == nil) {
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setInteger:10 forKey:@"INDEX_INTRO"];
+        [defaults synchronize];
+        vcInfoSearch = [[HuongDanHoTroThanhToanViewController alloc] initWithNibName:@"HuongDanHoTroThanhToanViewController" bundle:nil];
+        [vcInfoSearch.view setFrame:CGRectMake(0, 0, self.viewShowMain.frame.size.width, self.viewShowMain.frame.size.height)];
+        [self.viewShowMain addSubview:vcInfoSearch.view];
+    }
+    
+    [vcInfoSearch.view setHidden:NO];
 }
 
 - (void)suKienChonIntro:(NSNotification *) notification {
@@ -82,6 +113,8 @@
     [self.btnTraCuu setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
     [self.btnHuongDan setBackgroundColor:[UIColor clearColor]];
     [self.btnHuongDan setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.btnHuongDanTraCuu setBackgroundColor:[UIColor clearColor]];
+    [self.btnHuongDanTraCuu setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self khoiTaoViewInput];
 }
 
@@ -90,7 +123,19 @@
     [self.btnHuongDan setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
     [self.btnTraCuu setBackgroundColor:[UIColor clearColor]];
     [self.btnTraCuu setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.btnHuongDanTraCuu setBackgroundColor:[UIColor clearColor]];
+    [self.btnHuongDanTraCuu setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self khoiTaoViewHuongDan];
+}
+
+- (void)suKienChonHuongDanTraCuu:(id)sender {
+    [self.btnTraCuu setBackgroundColor:[UIColor clearColor]];
+    [self.btnTraCuu setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.btnHuongDan setBackgroundColor:[UIColor clearColor]];
+    [self.btnHuongDan setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.btnHuongDanTraCuu setBackgroundColor:[UIColor whiteColor]];
+    [self.btnHuongDanTraCuu setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+    [self khoiTaoViewHuongDanTraCuu];
 }
 
 - (void)dealloc {
@@ -98,6 +143,8 @@
     [_viewShowMain release];
     [_btnTraCuu release];
     [_btnHuongDan release];
+    [_stackTop release];
+    [_btnHuongDanTraCuu release];
     [super dealloc];
 }
 @end

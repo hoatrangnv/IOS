@@ -138,23 +138,29 @@ void uncaughtExceptionHandler(NSException *exception) {
     [thread_load_contact start];
 
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
-    BOOL isLogin = [[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_STATE] boolValue];
-
-    NSString *sKeyDangNhap = [DucNT_LuuRMS layThongTinDangNhap:KEY_DANG_NHAP];
-    NSLog(@"%s - sKeyDangNhap : %@", __FUNCTION__, sKeyDangNhap);
-    if(sKeyDangNhap.length > 0)
-    {
-        self.dictDangNhap = [sKeyDangNhap objectFromJSONString];
-    }
-    if([self.dictDangNhap count] > 0 && isLogin == YES){
-        HomeCenterViewController *homeVC = [[HomeCenterViewController alloc]initWithNibName:@"HomeCenterViewController" bundle:nil];
-        UINavigationController *navHome = [HiNavigationBar navigationControllerWithRootViewController: homeVC];
-        self.window.rootViewController = navHome;
-        [homeVC release];
-    }
-    else{
-        [self showLogin];
-    }
+    
+    HomeCenterViewController *homeVC = [[HomeCenterViewController alloc]initWithNibName:@"HomeCenterViewController" bundle:nil];
+    UINavigationController *navHome = [HiNavigationBar navigationControllerWithRootViewController: homeVC];
+    self.window.rootViewController = navHome;
+    [homeVC release];
+    
+//    BOOL isLogin = [[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_STATE] boolValue];
+//
+//    NSString *sKeyDangNhap = [DucNT_LuuRMS layThongTinDangNhap:KEY_DANG_NHAP];
+//    NSLog(@"%s - sKeyDangNhap : %@", __FUNCTION__, sKeyDangNhap);
+//    if(sKeyDangNhap.length > 0)
+//    {
+//        self.dictDangNhap = [sKeyDangNhap objectFromJSONString];
+//    }
+//    if([self.dictDangNhap count] > 0 && isLogin == YES){
+//        HomeCenterViewController *homeVC = [[HomeCenterViewController alloc]initWithNibName:@"HomeCenterViewController" bundle:nil];
+//        UINavigationController *navHome = [HiNavigationBar navigationControllerWithRootViewController: homeVC];
+//        self.window.rootViewController = navHome;
+//        [homeVC release];
+//    }
+//    else{
+//        [self showLogin];
+//    }
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
     [self.window setOpaque:YES];
     [self.window makeKeyAndVisible];

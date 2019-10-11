@@ -101,8 +101,6 @@
 //    [self fetchContacts];
     
 //    DucNT_LuuRMS.layThongTinDangNhap(KEY_LOGIN_ID_TEMP)
-    NSString *Temp = [DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_MA_DAI_LY];
-    NSLog(@"HomeCenterViewController - %s - Temp : %@", __FUNCTION__, Temp);
 }
 
 - (void) fetchContacts
@@ -212,7 +210,8 @@
 
 - (void)taoBtnRight {
     UIImageView *imgAvatar = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
-    [imgAvatar setContentMode:UIViewContentModeScaleAspectFill];
+    CGFloat fTiLe = 40;
+    [imgAvatar setContentMode:UIViewContentModeScaleAspectFit];
     if (self.mThongTinTaiKhoanVi) {
         imgAvatar.clipsToBounds = YES;
         [imgAvatar.layer setCornerRadius:3];
@@ -221,7 +220,8 @@
         NSString *sDuongDanAnhDaiDien = self.mThongTinTaiKhoanVi.sLinkAnhDaiDien;
         if([sDuongDanAnhDaiDien isEqualToString:@""])
         {
-            imgAvatar.image = [UIImage imageNamed:@"icon_more"];
+            fTiLe = 30;
+            imgAvatar.image = [UIImage imageNamed:@"icons8-more"];
         }
         else
         {
@@ -233,6 +233,9 @@
             }
         }
         
+    } else {
+        fTiLe = 30;
+        [imgAvatar setImage:[UIImage imageNamed:@"icons8-more"]];
     }
     [imgAvatar setUserInteractionEnabled:YES];
     UITapGestureRecognizer *tapRightBtn = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(suKienBamNutMore:)];
@@ -243,8 +246,8 @@
     UIBarButtonItem *btnQuestion = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ic_qrcode_nav"] style:UIBarButtonItemStyleDone target:self action:@selector(suKienCHonQuestion)];
     self.navigationItem.rightBarButtonItems = @[btnRight, btnQuestion];
     
-    [self.navigationItem.rightBarButtonItem.customView.widthAnchor constraintEqualToConstant:40].active = YES;
-    [self.navigationItem.rightBarButtonItem.customView.heightAnchor constraintEqualToConstant:40].active = YES;
+    [self.navigationItem.rightBarButtonItem.customView.widthAnchor constraintEqualToConstant:fTiLe].active = YES;
+    [self.navigationItem.rightBarButtonItem.customView.heightAnchor constraintEqualToConstant:fTiLe].active = YES;
 }
 
 - (void)suKienCHonQuestion {
