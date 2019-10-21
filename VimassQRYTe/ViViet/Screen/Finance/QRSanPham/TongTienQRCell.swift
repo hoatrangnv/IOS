@@ -9,6 +9,7 @@ import UIKit
 
 class TongTienQRCell: UITableViewCell {
 
+    @IBOutlet var lblTongTien: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

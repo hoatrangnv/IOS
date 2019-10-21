@@ -18,6 +18,8 @@
                 <outlet property="imgVimass" destination="lvh-5w-Elg" id="sWN-P1-Ebc"/>
                 <outlet property="lblPhienBan" destination="BuB-oJ-w5F" id="dAM-tx-rPZ"/>
                 <outlet property="mbtnDangNhapBangVanTay" destination="d17-1K-Qzz" id="tbS-af-hx5"/>
+                <outlet property="mbtnViCaNhan" destination="EWb-q7-FNB" id="aqR-Ob-mgM"/>
+                <outlet property="mbtnViDoanhNghiep" destination="Euh-OW-cdK" id="r4e-9a-sSf"/>
                 <outlet property="mscrvHienThi" destination="7La-7w-Ibo" id="Oco-C1-8BW"/>
                 <outlet property="mtfMaDoanhNghiep" destination="ucq-jG-fzU" id="u0P-fM-vEt"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -37,8 +39,49 @@
                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fyu-aI-vz1" userLabel="Content View">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iAh-rp-M80">
+                                    <rect key="frame" x="8" y="8" width="304" height="44"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="MnG-iV-4gE">
+                                            <rect key="frame" x="0.0" y="0.0" width="304" height="44"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="EWb-q7-FNB">
+                                                    <rect key="frame" x="0.0" y="0.0" width="151.5" height="44"/>
+                                                    <color key="backgroundColor" red="0.12549019610000001" green="0.78823529410000004" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                    <state key="normal" title="Tài khoản điện thoại">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="suKienChonViCaNhan:" destination="-1" eventType="touchUpInside" id="idB-Mi-tN5"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Euh-OW-cdK">
+                                                    <rect key="frame" x="152.5" y="0.0" width="151.5" height="44"/>
+                                                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                    <state key="normal" title="Tài khoản doanh nghiệp">
+                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="suKienChonViDoanhNghiep:" destination="-1" eventType="touchUpInside" id="4GN-8U-A74"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="44" id="6ON-Jl-q6B"/>
+                                        <constraint firstItem="MnG-iV-4gE" firstAttribute="leading" secondItem="iAh-rp-M80" secondAttribute="leading" id="HQY-Gh-kQi"/>
+                                        <constraint firstAttribute="bottom" secondItem="MnG-iV-4gE" secondAttribute="bottom" id="b4T-d5-wlj"/>
+                                        <constraint firstItem="MnG-iV-4gE" firstAttribute="top" secondItem="iAh-rp-M80" secondAttribute="top" id="evS-tN-mcf"/>
+                                        <constraint firstAttribute="trailing" secondItem="MnG-iV-4gE" secondAttribute="trailing" id="kY0-BT-432"/>
+                                    </constraints>
+                                </view>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="T7t-GQ-eRS">
-                                    <rect key="frame" x="8" y="16" width="240" height="144"/>
+                                    <rect key="frame" x="8" y="64" width="240" height="144"/>
                                     <subviews>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Mã doanh nghiệp" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ucq-jG-fzU" customClass="ExTextField">
                                             <rect key="frame" x="0.0" y="0.0" width="240" height="40"/>
@@ -92,7 +135,7 @@
                                     </constraints>
                                 </stackView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d17-1K-Qzz">
-                                    <rect key="frame" x="260" y="64" width="48" height="48"/>
+                                    <rect key="frame" x="260" y="112" width="48" height="48"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="d17-1K-Qzz" secondAttribute="height" id="vk5-zK-OiN"/>
@@ -106,7 +149,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ooi-Gb-Sol">
-                                    <rect key="frame" x="8" y="168" width="240" height="48"/>
+                                    <rect key="frame" x="8" y="216" width="240" height="48"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="48" id="b8a-46-pXJ"/>
@@ -120,19 +163,19 @@
                                     </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hỗ trợ thanh toán y tế" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h4n-F2-C1l">
-                                    <rect key="frame" x="63.5" y="407" width="193" height="24"/>
+                                    <rect key="frame" x="63.5" y="455" width="193" height="24"/>
                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phiên bản 4.0.4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BuB-oJ-w5F">
-                                    <rect key="frame" x="89" y="439" width="142.5" height="24"/>
+                                    <rect key="frame" x="89" y="487" width="142.5" height="24"/>
                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZXO-Q5-7l8">
-                                    <rect key="frame" x="16" y="228" width="98" height="33"/>
+                                    <rect key="frame" x="16" y="276" width="98" height="33"/>
                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                     <state key="normal" title="Đăng ký mới">
                                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -142,7 +185,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l0k-wS-gcy">
-                                    <rect key="frame" x="166" y="228" width="138" height="33"/>
+                                    <rect key="frame" x="166" y="276" width="138" height="33"/>
                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                     <state key="normal" title="@quen_mat_khau">
                                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -168,7 +211,7 @@
                                     </connections>
                                 </button>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_launcher" translatesAutoresizingMaskIntoConstraints="NO" id="lvh-5w-Elg">
-                                    <rect key="frame" x="120" y="311" width="80" height="80"/>
+                                    <rect key="frame" x="120" y="359" width="80" height="80"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="80" id="84j-nG-zkb"/>
                                         <constraint firstAttribute="width" secondItem="lvh-5w-Elg" secondAttribute="height" multiplier="1:1" id="J8R-fk-vkW"/>
@@ -190,6 +233,8 @@
                                 <constraint firstAttribute="trailing" secondItem="d17-1K-Qzz" secondAttribute="trailing" constant="12" id="T6e-X7-T0F"/>
                                 <constraint firstItem="o5K-1e-bTM" firstAttribute="leading" secondItem="fyu-aI-vz1" secondAttribute="leading" constant="8" id="UNC-Y9-oCo"/>
                                 <constraint firstItem="ZXO-Q5-7l8" firstAttribute="leading" secondItem="fyu-aI-vz1" secondAttribute="leading" constant="16" id="XpA-4R-75v"/>
+                                <constraint firstItem="iAh-rp-M80" firstAttribute="top" secondItem="fyu-aI-vz1" secondAttribute="top" constant="8" id="YcM-SE-9HR"/>
+                                <constraint firstItem="T7t-GQ-eRS" firstAttribute="top" secondItem="iAh-rp-M80" secondAttribute="bottom" constant="12" id="ZYa-bJ-IYw"/>
                                 <constraint firstItem="l0k-wS-gcy" firstAttribute="centerY" secondItem="ZXO-Q5-7l8" secondAttribute="centerY" id="cRC-63-y1W"/>
                                 <constraint firstItem="lvh-5w-Elg" firstAttribute="centerX" secondItem="fyu-aI-vz1" secondAttribute="centerX" id="cqO-Gg-iuc"/>
                                 <constraint firstAttribute="bottom" secondItem="o5K-1e-bTM" secondAttribute="bottom" constant="8" id="df7-Ib-sRY"/>
@@ -205,8 +250,9 @@
                                 <constraint firstAttribute="bottom" secondItem="xAE-zr-OzF" secondAttribute="bottom" constant="8" id="rfo-3D-GJt"/>
                                 <constraint firstItem="d17-1K-Qzz" firstAttribute="leading" secondItem="T7t-GQ-eRS" secondAttribute="trailing" constant="12" id="snS-RN-mss"/>
                                 <constraint firstItem="Ooi-Gb-Sol" firstAttribute="top" secondItem="T7t-GQ-eRS" secondAttribute="bottom" constant="8" id="tq7-5H-TcV"/>
+                                <constraint firstAttribute="trailing" secondItem="iAh-rp-M80" secondAttribute="trailing" constant="8" id="vEi-a5-CHh"/>
                                 <constraint firstItem="Ooi-Gb-Sol" firstAttribute="leading" secondItem="fyu-aI-vz1" secondAttribute="leading" constant="8" id="wcm-e8-aAq"/>
-                                <constraint firstItem="T7t-GQ-eRS" firstAttribute="top" secondItem="fyu-aI-vz1" secondAttribute="top" constant="16" id="yH9-vN-dD9"/>
+                                <constraint firstItem="iAh-rp-M80" firstAttribute="leading" secondItem="fyu-aI-vz1" secondAttribute="leading" constant="8" id="whn-dj-v5e"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -232,7 +278,7 @@
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <viewLayoutGuide key="safeArea" id="UjN-Ns-2A8"/>
-            <point key="canvasLocation" x="-268" y="-30"/>
+            <point key="canvasLocation" x="-268.125" y="-30.633802816901408"/>
         </view>
     </objects>
     <resources>

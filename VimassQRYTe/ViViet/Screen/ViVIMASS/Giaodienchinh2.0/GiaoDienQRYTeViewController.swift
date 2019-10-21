@@ -10,7 +10,7 @@ import UIKit
 class GiaoDienQRYTeViewController: GiaoDichViewController {
     private let TAG = "GiaoDienQRYTeViewController"
 //    , "Đối soát", "Phát hành hoá đơn", "Thẩm quyền"
-    private let arrOptions = ["QR Y tế cho Mobile Banking", "Tạo QR y tế tĩnh" , "Tạo QR y tế động" , "Tra cứu giao dịch", "Đối soát", "Phát hành hoá đơn", "Thẩm quyền"]
+    private var arrOptions = ["QR Y tế cho Mobile Banking", "Tạo QR y tế tĩnh" , "Tạo QR y tế động" , "Tra cứu giao dịch"]
     @IBOutlet var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +21,11 @@ class GiaoDienQRYTeViewController: GiaoDichViewController {
         
         tableView.tableFooterView = UIView(frame: .zero)
         tableView.register(UINib(nibName: "DanhSachViVimassCell", bundle: nil), forCellReuseIdentifier: "DanhSachViVimassCell")
+        
+        let nKieuDangNhap = Int(DucNT_LuuRMS.layThongTinDangNhap(KEY_HIEN_THI_VI)) ?? 110
+        if nKieuDangNhap == KIEU_CA_NHAN {
+            arrOptions = ["QR Y tế cho Mobile Banking"]
+        }
     }
 
     @objc func suKienChonQuestion(_ sender:UIBarButtonItem) {

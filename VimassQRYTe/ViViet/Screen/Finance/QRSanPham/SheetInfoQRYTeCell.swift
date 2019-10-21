@@ -9,6 +9,11 @@ import UIKit
 
 class SheetInfoQRYTeCell: UITableViewCell {
 
+    @IBOutlet var lblName: UILabel!
+    @IBOutlet var lblDonVi: UILabel!
+    @IBOutlet var lblSoLuong: UILabel!
+    @IBOutlet var lblDonGia: UILabel!
+    @IBOutlet var lblThanhTIen: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

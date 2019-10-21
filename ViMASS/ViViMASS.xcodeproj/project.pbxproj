@@ -9332,7 +9332,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = SLR686RAJ6;
 				ENABLE_BITCODE = NO;
@@ -9358,7 +9358,7 @@
 					"$(PROJECT_DIR)/libs/commonlib",
 				);
 				MACH_O_TYPE = mh_execute;
-				MARKETING_VERSION = 4.0.24;
+				MARKETING_VERSION = 4.0.25;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vimass.vivimass;
@@ -9442,7 +9442,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = SLR686RAJ6;
 				ENABLE_BITCODE = NO;
@@ -9466,7 +9466,7 @@
 					"$(PROJECT_DIR)/libs/commonlib",
 				);
 				MACH_O_TYPE = mh_execute;
-				MARKETING_VERSION = 4.0.24;
+				MARKETING_VERSION = 4.0.25;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vimass.vivimass;
@@ -9497,7 +9497,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = SLR686RAJ6;
 				ENABLE_BITCODE = NO;
@@ -9523,7 +9523,7 @@
 					"$(PROJECT_DIR)/libs/commonlib",
 				);
 				MACH_O_TYPE = mh_execute;
-				MARKETING_VERSION = 4.0.24;
+				MARKETING_VERSION = 4.0.25;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vimass.vivimass;

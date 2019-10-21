@@ -25,7 +25,10 @@
         [btn.titleLabel setTextAlignment:NSTextAlignmentCenter];
         btn.titleLabel.numberOfLines = 2;
     }
-    
+    int nKieuDangNhap = [[DucNT_LuuRMS layThongTinDangNhap:KEY_HIEN_THI_VI] intValue];
+    if(nKieuDangNhap == KIEU_CA_NHAN) {
+        [self.btnHuongDan setHidden:YES];
+    }
     [self khoiTaoViewInput];
 }
 

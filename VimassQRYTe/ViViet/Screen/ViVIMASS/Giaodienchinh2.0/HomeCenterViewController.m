@@ -259,7 +259,11 @@
 {
     UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     UIAlertAction *dong = [UIAlertAction actionWithTitle:@"Đóng" style:UIAlertActionStyleCancel handler:nil];
-    UIAlertAction *logout = [UIAlertAction actionWithTitle:@"Đăng xuất" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    NSString *sLogin = @"Đăng nhập";
+    if (self.mThongTinTaiKhoanVi != nil) {
+        sLogin = @"Đăng xuất";
+    }
+    UIAlertAction *logout = [UIAlertAction actionWithTitle:sLogin style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [self suKienDangXuat];
     }];
     UIAlertAction *huongDan = [UIAlertAction actionWithTitle:@"Hướng dẫn" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {

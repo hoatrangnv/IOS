@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_0" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,7 +13,6 @@
                 <outlet property="btnDangKy" destination="ZXO-Q5-7l8" id="47O-jF-B7u"/>
                 <outlet property="btnDangNhap" destination="Ooi-Gb-Sol" id="G7l-du-yWc"/>
                 <outlet property="btnQuenMatKhau" destination="l0k-wS-gcy" id="OXe-5N-AfT"/>
-                <outlet property="btnTaiKhoanTheDaNang" destination="KvI-KO-x5R" id="JIy-eT-Mgc"/>
                 <outlet property="edtMainInfo" destination="jc6-h6-7ge" id="jrS-BL-tPH"/>
                 <outlet property="edtPass" destination="HCL-Vg-YVl" id="mzh-8D-FhZ"/>
                 <outlet property="imgVimass" destination="lvh-5w-Elg" id="sWN-P1-Ebc"/>
@@ -50,7 +47,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="304" height="50"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Hw8-qG-AOY">
-                                                    <rect key="frame" x="0.0" y="0.0" width="100.5" height="50"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="151.5" height="50"/>
                                                     <color key="backgroundColor" red="0.12549019607843137" green="0.78823529411764703" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                     <state key="normal" title="Tài khoản điện thoại">
@@ -61,19 +58,8 @@
                                                         <action selector="suKienChonViCaNhan:" destination="-1" eventType="touchUpInside" id="46i-Zq-Kge"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="KvI-KO-x5R">
-                                                    <rect key="frame" x="101.5" y="0.0" width="101" height="50"/>
-                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                                    <state key="normal" title="Tài khoản thẻ đa năng">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="suKienChonTaiKhoanTheDaNang:" destination="-1" eventType="touchUpInside" id="KDu-A9-xop"/>
-                                                    </connections>
-                                                </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="ota-RP-dku">
-                                                    <rect key="frame" x="203.5" y="0.0" width="100.5" height="50"/>
+                                                    <rect key="frame" x="152.5" y="0.0" width="151.5" height="50"/>
                                                     <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                     <state key="normal" title="Tài khoản doanh nghiệp">
@@ -178,7 +164,7 @@
                                     </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ví Vimass" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h4n-F2-C1l">
-                                    <rect key="frame" x="116" y="414" width="88" height="24"/>
+                                    <rect key="frame" x="116" y="414" width="88.5" height="24"/>
                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>

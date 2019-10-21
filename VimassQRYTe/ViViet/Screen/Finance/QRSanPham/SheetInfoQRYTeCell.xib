@@ -75,7 +75,14 @@
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
-            <point key="canvasLocation" x="155" y="115"/>
+            <connections>
+                <outlet property="lblDonGia" destination="Om9-75-ZwV" id="e0s-d5-RPz"/>
+                <outlet property="lblDonVi" destination="V5A-K6-OMJ" id="H0x-H6-YFu"/>
+                <outlet property="lblName" destination="1PE-cc-bck" id="taI-S1-uJN"/>
+                <outlet property="lblSoLuong" destination="gH8-gx-hTc" id="PJw-Mw-th5"/>
+                <outlet property="lblThanhTIen" destination="Xt0-1I-gLZ" id="ycq-vp-zWw"/>
+            </connections>
+            <point key="canvasLocation" x="-123" y="21"/>
         </tableViewCell>
     </objects>
 </document>

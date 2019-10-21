@@ -7,10 +7,20 @@
 
 import UIKit
 
-class TaoQRYTeDongViewController: GiaoDichViewController {
+struct QRYTeDong {
+    var sName:String
+    var sDonVi:String
+    var nSoLuong:Int
+    var nDonGia:Int
+}
 
+class TaoQRYTeDongViewController: GiaoDichViewController {
+    private let TAG = "TaoQRYTeDongViewController"
     @IBOutlet var tableView: UITableView!
     var nhapDonHangView:NhapDonHangYTeDongView!
+    var arrItems = [QRYTeDong]()
+    var indexSelected = -1
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,10 +38,23 @@ class TaoQRYTeDongViewController: GiaoDichViewController {
     func hienThiNhapDonHang() {
         if nhapDonHangView == nil {
             nhapDonHangView = NhapDonHangYTeDongView.instanceFromNib()
+            nhapDonHangView.delegate = self
             nhapDonHangView.frame = self.view.bounds
             self.view.addSubview(nhapDonHangView)
         }
         nhapDonHangView.isHidden = false
+        if indexSelected >= 0 && indexSelected < arrItems.count {
+            let item = arrItems[indexSelected]
+            nhapDonHangView.tfTen.text = item.sName
+            nhapDonHangView.tfDonVI.text = item.sDonVi
+            nhapDonHangView.tfSoLuong.text = "\(item.nSoLuong)"
+            nhapDonHangView.tfDonGia.text = "\(item.nDonGia)"
+        } else {
+            nhapDonHangView.tfTen.text = ""
+            nhapDonHangView.tfDonVI.text = ""
+            nhapDonHangView.tfSoLuong.text = ""
+            nhapDonHangView.tfDonGia.text = ""
+        }
     }
 
     /*
@@ -45,7 +68,19 @@ class TaoQRYTeDongViewController: GiaoDichViewController {
     */
 
 }
-
+extension TaoQRYTeDongViewController:NhapDonHangYTeDongViewDelegate {
+    func suKienNhapDonHang(_ sName: String, sDonVi: String, nSoLuong: Int, nDonGia: Int) {
+        let item = QRYTeDong(sName: sName, sDonVi: sDonVi, nSoLuong: nSoLuong, nDonGia: nDonGia)
+        if indexSelected >= 0 && indexSelected < arrItems.count {
+            arrItems[indexSelected] = item
+        } else {
+            arrItems.append(item)
+        }
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+}
 extension TaoQRYTeDongViewController : UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 3
@@ -100,10 +135,26 @@ extension TaoQRYTeDongViewController : UITableViewDelegate, UITableViewDataSourc
             return cell
         } else if indexPath.section == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "SheetInfoQRYTeCell", for: indexPath) as! SheetInfoQRYTeCell
+            if indexPath.row < arrItems.count {
+                let item = arrItems[indexPath.row]
+                cell.lblName.text = item.sName
+                cell.lblDonVi.text = item.sDonVi
+                cell.lblSoLuong.text = "\(item.nSoLuong)"
+                cell.lblDonGia.text = Common.hienThiTienTe(Double(item.nDonGia))
+                let nThanhTien = item.nSoLuong * item.nDonGia
+                cell.lblThanhTIen.text = Common.hienThiTienTe(Double(nThanhTien))
+            }
             return cell
         } else {
             if indexPath.row == 0 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "TongTienQRCell", for: indexPath) as! TongTienQRCell
+                var nThanhTien = 0
+                if arrItems.count > 0 {
+                    for item in arrItems {
+                        nThanhTien += (item.nSoLuong * item.nDonGia)
+                    }
+                }
+                cell.lblTongTien.text = Common.hienThiTienTe_1(Double(nThanhTien))
                 return cell
             } else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "AuthenQRCell", for: indexPath) as! AuthenQRCell
@@ -114,6 +165,7 @@ extension TaoQRYTeDongViewController : UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 1 {
+            indexSelected = indexPath.row
             hienThiNhapDonHang()
         }
     }
