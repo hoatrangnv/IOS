@@ -297,6 +297,7 @@
                        withSeedStart: sSeed
                            withPhone: sPhone
                             withPass: edtMatKhauToken.text];
+        view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
         [self.view addSubview:view];
         [view release];
         
@@ -309,7 +310,7 @@
         UIViewController *viewControllerGoc = [self viewController];
         
         DucNT_ViewOTPConfirm *view = [[DucNT_ViewOTPConfirm alloc] initwithNib];
-        
+        view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
         [view khoiTaoThamSoToken:KIEU_OTP_DANG_KY_TOKEN_TAI_KHOAN_KHAC
                    withSeedStart:sResult
                        withPhone:sPhone

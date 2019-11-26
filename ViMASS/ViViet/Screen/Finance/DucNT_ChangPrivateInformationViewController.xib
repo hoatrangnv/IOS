@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
-    <device id="retina4_0" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -36,7 +34,6 @@
                 <outlet property="mViewThongTIn" destination="AHU-7Q-9o6" id="t7S-w2-zWM"/>
                 <outlet property="mbtnChupAnhDaiDien" destination="TwX-w8-hDW" id="GLd-Zc-NOD"/>
                 <outlet property="mbtnLayAnhDaiDien" destination="dOs-sD-J9E" id="cll-LP-atb"/>
-                <outlet property="mbtnPKI" destination="QSp-OQ-FfV" id="Pq8-0I-gIo"/>
                 <outlet property="mbtnToken" destination="YEr-ao-cEk" id="Rgr-Y1-fbS"/>
                 <outlet property="mimgAnhDaiDien" destination="JOp-wd-s9C" id="z98-MT-5J9"/>
                 <outlet property="mimgvDaiDien" destination="JOp-wd-s9C" id="lPu-F6-amp"/>
@@ -65,14 +62,14 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="2373"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="2376"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="um4-73-36T" customClass="TPKeyboardAvoidAcessory">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="2373"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="2376"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rTu-yI-8ST">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="2373"/>
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="2376"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="reT-I8-Gd2">
@@ -641,32 +638,25 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="mvS-Wh-6Sg">
-                                            <rect key="frame" x="69" y="23" width="182" height="52"/>
+                                            <rect key="frame" x="100" y="23" width="120" height="52"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YEr-ao-cEk">
-                                                    <rect key="frame" x="0.0" y="0.0" width="54" height="52"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="55" height="52"/>
                                                     <state key="normal" title="Token" image="tokenv"/>
                                                     <connections>
                                                         <action selector="suKienBamNutToken:" destination="-1" eventType="touchUpInside" id="fgr-W6-okm"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VYk-4T-wx3">
-                                                    <rect key="frame" x="64" y="0.0" width="54" height="52"/>
+                                                    <rect key="frame" x="65" y="0.0" width="55" height="52"/>
                                                     <state key="normal" image="vantay"/>
                                                     <connections>
                                                         <action selector="suKienBamNutXacThucVanTay:" destination="-1" eventType="touchUpInside" id="Yyx-Bf-rtQ"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QSp-OQ-FfV">
-                                                    <rect key="frame" x="128" y="0.0" width="54" height="52"/>
-                                                    <state key="normal" title="PKI" image="pki"/>
-                                                    <connections>
-                                                        <action selector="suKienBamNutPKI:" destination="-1" eventType="touchUpInside" id="9NK-rS-z8N"/>
-                                                    </connections>
-                                                </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="width" secondItem="mvS-Wh-6Sg" secondAttribute="height" multiplier="3.5" id="8Yr-c2-XLs"/>
+                                                <constraint firstAttribute="width" secondItem="mvS-Wh-6Sg" secondAttribute="height" multiplier="2.3" id="8Yr-c2-XLs"/>
                                             </constraints>
                                         </stackView>
                                     </subviews>
@@ -719,13 +709,12 @@
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-1689.375" y="-611.0915492957746"/>
+            <point key="canvasLocation" x="-1689.375" y="-609.50704225352115"/>
         </view>
     </objects>
     <resources>
         <image name="bg_noavatar.png" width="720" height="720"/>
         <image name="bg_noavatar4x3.png" width="720" height="540"/>
-        <image name="pki" width="225" height="225"/>
         <image name="tokenv" width="120" height="120"/>
         <image name="vantay" width="225" height="225"/>
     </resources>

@@ -45,7 +45,7 @@
     self.viewMain.layer.borderWidth = 1.0f;
     self.viewMain.layer.cornerRadius = 3.0f;
 
-    [self.scrMain setContentSize:CGSizeMake(self.scrMain.frame.size.width, self.viewScroll.frame.size.height + 20)];
+    [self.scrMain setContentSize:CGSizeMake(self.scrMain.frame.size.width, 3000)];
 
     [self.edMaDN setMax_length:14];
     [self.edSoDienThoai setMax_length:11];

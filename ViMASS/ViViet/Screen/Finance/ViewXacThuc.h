@@ -28,6 +28,7 @@
 @property (retain, nonatomic) IBOutlet UIView *mViewMain;
 @property (retain, nonatomic) IBOutlet UIButton *mbtnVanTay;
 @property (retain, nonatomic) IBOutlet UILabel *lblTitle;
+@property (retain, nonatomic) IBOutlet UIView *viewNhapToken;
 
 @property (assign, nonatomic) NSInteger mTongSoThoiGian;
 @property (retain, nonatomic) DucNT_TaiKhoanViObject *mThongTinVi;

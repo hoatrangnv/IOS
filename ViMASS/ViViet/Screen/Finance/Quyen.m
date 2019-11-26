@@ -56,6 +56,10 @@
     [encoder encodeObject:self.nguoiLapGiaoDich forKey:KEY_NGUOI_LAP_GIAO_DICH];
 }
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 - (void)dealloc
 {
     [_nguoiDuyetGiaoDich release];

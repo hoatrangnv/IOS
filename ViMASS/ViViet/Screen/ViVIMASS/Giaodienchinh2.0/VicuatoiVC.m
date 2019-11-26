@@ -23,8 +23,8 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"ItemListCell" bundle:nil] forCellReuseIdentifier:@"ItemListCell"];
     [self.tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
 //    @{@"name":@"Chuyển tiền đến điện thoại", @"image":@"ic_chuyentien_dienthoai"},
+//    @{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_wallet_to_wallet"],@"image":@"vimass"},
     self.arrDanhSach =@[@{@"name":[Localization languageSelectedStringForKey:@"sao_ke"],@"image":@"ic_vicuatoi_saoke"},
-                        @{@"name":[Localization languageSelectedStringForKey:@"financer_viewer_wallet_to_wallet"],@"image":@"vimass"},
                         @{@"name":[Localization languageSelectedStringForKey:@"tai_khoan_lien_ket"], @"image":@"ic_vicuatoi_lienket"},
                         @{@"name":[Localization languageSelectedStringForKey:@"chuyen_tien_den_vi_tk_an_sau_dien_thoai"], @"image":@"icon_vicuatoi_vi_an"},
                         @{@"name":[Localization languageSelectedStringForKey:@"nap_tien_tu_the_bank2"], @"image":@"icon_grid_cachnapvi"},

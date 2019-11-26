@@ -1433,3 +1433,5 @@
 "vi_khac" = "Other wallet";
 "tai_khoan_viettel_pay" = "Viettel Pay account";
 "so_phi" = "Fee";
+"TAO_TAI_KHOAN_DOANH_NGHIEP" = "REGISTER ACCOUNT";
+"dang_nhap" = "Login";

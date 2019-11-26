@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,6 +16,7 @@
                 <outlet property="mViewNhapToken" destination="8YU-Oi-neP" id="Dwt-vt-mwm"/>
                 <outlet property="mViewThayDoiThongTin" destination="aMM-ce-V83" id="qsJ-6F-niV"/>
                 <outlet property="mViewThoiGianConLai" destination="a9o-Wm-EQo" id="hp4-cM-Vmz"/>
+                <outlet property="mbtnPKI" destination="Efg-fX-6ES" id="CL0-FK-QK9"/>
                 <outlet property="mbtnThucHien" destination="jLu-kJ-K80" id="9WA-o9-kQk"/>
                 <outlet property="mbtnToken" destination="gcs-DZ-L2X" id="wZW-6f-2SF"/>
                 <outlet property="mscrvHienThi" destination="nmt-YM-EZ4" id="wLq-3V-ONY"/>
@@ -56,31 +55,32 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="SRu-ra-lwf">
-                                                    <rect key="frame" x="57" y="23" width="182" height="52"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="SRu-ra-lwf">
+                                                    <rect key="frame" x="60" y="23" width="176" height="52"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gcs-DZ-L2X">
-                                                            <rect key="frame" x="0.0" y="0.0" width="54" height="52"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="52" height="52"/>
                                                             <state key="normal" image="tokenv"/>
                                                             <connections>
-                                                                <action selector="suKienBamNutXacThucBoiToken:" destination="-1" eventType="touchUpInside" id="Fz3-Zc-BNR"/>
+                                                                <action selector="suKienBamNutToken:" destination="-1" eventType="touchUpInside" id="3Nn-xh-2IH"/>
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r9U-k7-I4E">
-                                                            <rect key="frame" x="64" y="0.0" width="54" height="52"/>
+                                                            <rect key="frame" x="62" y="0.0" width="52" height="52"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="r9U-k7-I4E" secondAttribute="height" id="A4T-1f-NMM"/>
+                                                                <constraint firstAttribute="height" constant="52" id="K72-qB-i9q"/>
+                                                            </constraints>
                                                             <state key="normal" image="vantay"/>
                                                             <connections>
                                                                 <action selector="suKienBamNutXacThucBoiVanTay:" destination="-1" eventType="touchUpInside" id="Brt-n4-WSW"/>
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Efg-fX-6ES">
-                                                            <rect key="frame" x="128" y="0.0" width="54" height="52"/>
+                                                            <rect key="frame" x="124" y="0.0" width="52" height="52"/>
                                                             <state key="normal" title="PKI" image="pki"/>
                                                         </button>
                                                     </subviews>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="SRu-ra-lwf" secondAttribute="height" multiplier="3.5" id="6FV-E6-cpl"/>
-                                                    </constraints>
                                                 </stackView>
                                             </subviews>
                                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -148,7 +148,7 @@
                                                 <outlet property="delegate" destination="-1" id="tgk-rT-dLQ"/>
                                             </connections>
                                         </tableView>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8YU-Oi-neP" userLabel="ViewNhapToKen">
+                                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8YU-Oi-neP" userLabel="ViewNhapToKen">
                                             <rect key="frame" x="0.0" y="304" width="296" height="35"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="@mat_khau_token" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xq9-Xj-Ni8" customClass="ExTextField">
@@ -229,14 +229,14 @@
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="YYJ-Av-7Zu"/>
-            <point key="canvasLocation" x="400.00000000000006" y="108.48214285714285"/>
+            <point key="canvasLocation" x="-51" y="112"/>
         </view>
     </objects>
     <resources>
         <image name="bg_button.png" width="215" height="56"/>
         <image name="bg_nen.png" width="720" height="1280"/>
         <image name="muiten35x21.png" width="35" height="21"/>
-        <image name="pki" width="225" height="225"/>
+        <image name="pki" width="128" height="128"/>
         <image name="tokenv" width="120" height="120"/>
         <image name="vantay" width="225" height="225"/>
     </resources>

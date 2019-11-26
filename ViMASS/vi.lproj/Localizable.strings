@@ -1195,6 +1195,7 @@
 "co_the_bo_qua_vi_lien_ket_3" = "Thông báo sau nhận tiền 3 (có thể bỏ qua)";
 "co_the_bo_qua_vi_lien_ket_4" = "Thông báo sau nhận tiền 4 (có thể bỏ qua)";
 "co_the_bo_qua_vi_lien_ket_5" = "Thông báo sau nhận tiền 5 (có thể bỏ qua)";
+"co_the_bo_qua" = "có thể bỏ qua";
 "thuc_hien" = "THỰC HIỆN";
 "chup_anh" = "Chụp ảnh";
 "lay_anh" = "Lấy ảnh";
@@ -1425,3 +1426,5 @@
 "vi_khac" = "Ví khác";
 "tai_khoan_viettel_pay" = "Tài khoản Viettel Pay";
 "so_phi" = "Phí";
+"TAO_TAI_KHOAN_DOANH_NGHIEP" = "TẠO TÀI KHOẢN VÍ DOANH NGHIỆP";
+"dang_nhap" = "Đăng nhập";

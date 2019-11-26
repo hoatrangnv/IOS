@@ -2673,7 +2673,7 @@
 
 - (void)hienThiThongBaoNapTienTaiKhoanLienKet:(NSString *)thongBao {
     if (!alertTaiKhoanLienKet) {
-        alertTaiKhoanLienKet = [[UIAlertView alloc] initWithTitle:[@"thong_bao" localizableString] message:thongBao delegate:self cancelButtonTitle:[@"huy_giao_dich" lowercaseString] otherButtonTitles: nil];
+        alertTaiKhoanLienKet = [[UIAlertView alloc] initWithTitle:[@"thong_bao" localizableString] message:thongBao delegate:self cancelButtonTitle:[@"huy_giao_dich" localizableString] otherButtonTitles: nil];
         alertTaiKhoanLienKet.tag = 1101988;
         alertTaiKhoanLienKet.delegate = self;
     }

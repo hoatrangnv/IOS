@@ -48,7 +48,10 @@
     self = [super init];
     if(self) {
         self.administrator = [decoder decodeObjectForKey:KEY_ADMINISTRATOR];
-        self.list = [decoder decodeObjectForKey:KEY_LIST_QUYEN];
+        NSSet *classes = [NSSet setWithObjects:[NSArray class], [Quyen class], nil];
+        self.list = [decoder decodeObjectOfClasses:classes forKey:KEY_LIST_QUYEN];
+//        self.list = [decoder decodeObjectOfClass:[NSArray class] forKey:KEY_LIST_QUYEN];
+//        self.list = [decoder decodeObjectForKey:KEY_LIST_QUYEN];
     }
     return self;
 }
@@ -57,6 +60,10 @@
 {
     [encoder encodeObject:self.administrator forKey:KEY_ADMINISTRATOR];
     [encoder encodeObject:self.list forKey:KEY_LIST_QUYEN];
+}
+
++ (BOOL)supportsSecureCoding {
+    return YES;
 }
 
 - (void)dealloc

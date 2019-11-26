@@ -150,6 +150,7 @@ const int DINH_DANH_THONG_BAO_THANH_CONG = 100;
     [self khoiTaoViewCalenderNgayCap];
     [self khoiTaoViewChonNoiCap];
 //    [self khoiTaoGiaoDienChuyenTien];
+    
 }
 
 - (void)viewDidDisappear:(BOOL)animated

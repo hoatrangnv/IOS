@@ -135,7 +135,8 @@ NSString *const KEY_HAN_MUC_AMOUNT_TIME_MPKI_MAX = @"KEY_HAN_MUC_AMOUNT_TIME_MPK
         self.imageCompany1 = [decoder decodeObjectForKey:KEY_ACCOUNT_IMAGE_COMPANY_1];
         self.imageCompany2 = [decoder decodeObjectForKey:KEY_ACCOUNT_IMAGE_COMPANY_2];
         self.nameRepresent = [decoder decodeObjectForKey:KEY_ACCOUNT_NAME_REPRESENT];
-        self.roles = [decoder decodeObjectForKey:KEY_ACCOUNT_ROLES];
+//        self.roles = [decoder decodeObjectForKey:KEY_ACCOUNT_ROLES];
+        self.roles = [decoder decodeObjectOfClass:[QuyenCuaTaiKhoan class] forKey:KEY_ACCOUNT_ROLES];
         self.tKRutTien = [decoder decodeObjectForKey:KEY_ACCOUNT_TK_RUT_TIEN];
         
         self.walletId = [decoder decodeObjectForKey:KEY_ACCOUNT_WALLET_ID];
@@ -254,6 +255,10 @@ NSString *const KEY_HAN_MUC_AMOUNT_TIME_MPKI_MAX = @"KEY_HAN_MUC_AMOUNT_TIME_MPK
     [encoder encodeObject:self.hanMucDayMPKI forKey:KEY_HAN_MUC_AMOUNT_DAY_MPKI];
     [encoder encodeObject:self.hanMucTimeMPKIMax forKey:KEY_HAN_MUC_AMOUNT_TIME_MPKI_MAX];
     [encoder encodeObject:self.hanMucDayMPKIMax forKey:KEY_HAN_MUC_AMOUNT_DAY_MPKI_MAX];
+}
+
++ (BOOL)supportsSecureCoding {
+    return YES;
 }
 
 - (id)initWithDict:(NSDictionary *)dict

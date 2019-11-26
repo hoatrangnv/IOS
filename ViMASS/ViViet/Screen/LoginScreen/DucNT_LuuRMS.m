@@ -108,8 +108,15 @@
 +(void)luuThongTinTaiKhoanViSauDangNhap:(DucNT_TaiKhoanViObject *)obj
 {
     NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.vimass.sharing"];
-    NSData *encodedObject = [NSKeyedArchiver archivedDataWithRootObject:obj];
-    [defaults setObject:encodedObject forKey:KEY_LOGIN_THONG_TIN_TAI_KHOAN];
+    if (@available(iOS 11.0, *)) {
+        NSError *error = nil;
+        NSData *encodedObject = [NSKeyedArchiver archivedDataWithRootObject:obj requiringSecureCoding:NO error:&error];
+        NSLog(@"%s - error : %@", __FUNCTION__, error);
+        [defaults setObject:encodedObject forKey:KEY_LOGIN_THONG_TIN_TAI_KHOAN];
+    } else {
+        NSData *encodedObject = [NSKeyedArchiver archivedDataWithRootObject:obj];
+        [defaults setObject:encodedObject forKey:KEY_LOGIN_THONG_TIN_TAI_KHOAN];
+    }
     [defaults synchronize];
 }
 
@@ -117,7 +124,15 @@
 {
     NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.vimass.sharing"];
     NSData *myEncodedObject = [defaults objectForKey:KEY_LOGIN_THONG_TIN_TAI_KHOAN];
-    DucNT_TaiKhoanViObject* obj = (DucNT_TaiKhoanViObject*)[NSKeyedUnarchiver unarchiveObjectWithData: myEncodedObject];
+    NSError *error = nil;
+    DucNT_TaiKhoanViObject* obj = nil;
+    if (@available(iOS 11.0, *)) {
+//        obj = (DucNT_TaiKhoanViObject*)[NSKeyedUnarchiver unarchiveObjectWithData:myEncodedObject];
+        obj = (DucNT_TaiKhoanViObject*)[NSKeyedUnarchiver unarchivedObjectOfClass:[DucNT_TaiKhoanViObject class] fromData:myEncodedObject error:&error];
+        NSLog(@"%s - error : %@", __FUNCTION__, error);
+    } else {
+        obj = (DucNT_TaiKhoanViObject*)[NSKeyedUnarchiver unarchiveObjectWithData: myEncodedObject];
+    }
     return obj;
 }
 

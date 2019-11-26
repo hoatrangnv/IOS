@@ -58,7 +58,7 @@ extern NSString *const KEY_DS_LAP;
 extern NSString *const KEY_DS_DUYET;
 extern NSString *const KEY_SDT_NGUOI_DUYET;
 extern NSString *const KEY_EMAIL_NGUOI_DUYET;
-@interface DucNT_TaiKhoanViObject : NSObject
+@interface DucNT_TaiKhoanViObject : NSObject<NSCoding, NSSecureCoding>
 
 @property (retain, nonatomic) NSString *sID;
 @property (retain, nonatomic) NSString *sTenTaiKhoan;

@@ -20,6 +20,8 @@
 #import "HiNavigationBar.h"
 #import "DangKyTheDaNangViewController.h"
 #import "CommonUtils.h"
+#import "ViVimass-Swift.h"
+#import "GiaoDienDangKyViDoanhNghiep.h"
 @interface DucNT_LoginSceen () <GPPSignInDelegate>
 {
     BOOL mDangNhapBangGoogle;
@@ -416,8 +418,12 @@ static int const KIEU_KET_NOI_GOOGLE = 2;
     int nKieuDangNhap = [[DucNT_LuuRMS layThongTinDangNhap:KEY_HIEN_THI_VI] intValue];
     if(nKieuDangNhap == KIEU_DOANH_NGHIEP)
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Thông báo" message:@"Chức năng đang được phát triển" delegate:nil cancelButtonTitle:[Localization languageSelectedStringForKey:@"dong"] otherButtonTitles: nil];
-        [alert show];
+//        GiaoDienDangKyViDoanhNghiep *vc = [[GiaoDienDangKyViDoanhNghiep alloc] initWithNibName:@"GiaoDienDangKyViDoanhNghiep" bundle:nil];
+//        [self.navigationController pushViewController:vc animated:YES];
+//        [vc release];
+        GiaoDienDangKyDoanhNghiep *vc = [[GiaoDienDangKyDoanhNghiep alloc] initWithNibName:@"GiaoDienDangKyDoanhNghiep" bundle:nil];
+        [self.navigationController pushViewController:vc animated:YES];
+        [vc release];
     }
     else if (nKieuDangNhap == KIEU_THE_DA_NANG)
     {

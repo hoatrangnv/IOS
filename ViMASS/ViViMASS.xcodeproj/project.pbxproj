@@ -1072,6 +1072,8 @@
 		C63D020F21E4F2FD00FD0086 /* GiaoDienTinTuc.xib in Resources */ = {isa = PBXBuildFile; fileRef = C63D020D21E4F2FD00FD0086 /* GiaoDienTinTuc.xib */; };
 		C63D021321E4FE6A00FD0086 /* TinTucTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C63D021121E4FE6A00FD0086 /* TinTucTableViewCell.m */; };
 		C63D021421E4FE6A00FD0086 /* TinTucTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C63D021221E4FE6A00FD0086 /* TinTucTableViewCell.xib */; };
+		C63D03F0235DFCE400A28029 /* GiaoDienDangKyDoanhNghiep.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63D03EE235DFCE400A28029 /* GiaoDienDangKyDoanhNghiep.swift */; };
+		C63D03F1235DFCE400A28029 /* GiaoDienDangKyDoanhNghiep.xib in Resources */ = {isa = PBXBuildFile; fileRef = C63D03EF235DFCE400A28029 /* GiaoDienDangKyDoanhNghiep.xib */; };
 		C63F508222E0C9E100AC10ED /* ShowQRSanPhamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63F508122E0C9E100AC10ED /* ShowQRSanPhamView.swift */; };
 		C63F508422E0C9FD00AC10ED /* ShowQRSanPhamView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C63F508322E0C9FD00AC10ED /* ShowQRSanPhamView.xib */; };
 		C6404AD81FBD3C4900CB1B51 /* GiaoDienThanhToanQRCodeDonVi.m in Sources */ = {isa = PBXBuildFile; fileRef = C6404AD61FBD3C4900CB1B51 /* GiaoDienThanhToanQRCodeDonVi.m */; };
@@ -1126,6 +1128,9 @@
 		C64F32511CD20EA4009EEDB5 /* ViewThuongDungCMND.xib in Resources */ = {isa = PBXBuildFile; fileRef = C64F32501CD20EA4009EEDB5 /* ViewThuongDungCMND.xib */; };
 		C64F85001BD4ECAD009D39EF /* GiaoDienThanhToanSauTraCuuInternet.m in Sources */ = {isa = PBXBuildFile; fileRef = C64F84FE1BD4ECAD009D39EF /* GiaoDienThanhToanSauTraCuuInternet.m */; };
 		C64F85011BD4ECAD009D39EF /* GiaoDienThanhToanSauTraCuuInternet.xib in Resources */ = {isa = PBXBuildFile; fileRef = C64F84FF1BD4ECAD009D39EF /* GiaoDienThanhToanSauTraCuuInternet.xib */; };
+		C65139EB238585AF00F29995 /* GiaoDienHuongDanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65139E9238585AF00F29995 /* GiaoDienHuongDanViewController.swift */; };
+		C65139EC238585AF00F29995 /* GiaoDienHuongDanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C65139EA238585AF00F29995 /* GiaoDienHuongDanViewController.xib */; };
+		C654F8B02360ACEB00009AA5 /* MyConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C654F8AF2360ACEB00009AA5 /* MyConnection.swift */; };
 		C65680971BF59EAD00D422EC /* DoiTuongChiTietGiaoDichInternet.m in Sources */ = {isa = PBXBuildFile; fileRef = C65680961BF59EAD00D422EC /* DoiTuongChiTietGiaoDichInternet.m */; };
 		C656B0961C2BDAAA00C9AE56 /* dieukhoanchinhsach.html in Resources */ = {isa = PBXBuildFile; fileRef = C656B0951C2BDAAA00C9AE56 /* dieukhoanchinhsach.html */; };
 		C656B09A1C2BDAD900C9AE56 /* GiaoDienDieuKhoanCongTy.m in Sources */ = {isa = PBXBuildFile; fileRef = C656B0981C2BDAD900C9AE56 /* GiaoDienDieuKhoanCongTy.m */; };
@@ -3174,6 +3179,8 @@
 		C63D021021E4FE6A00FD0086 /* TinTucTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TinTucTableViewCell.h; sourceTree = "<group>"; };
 		C63D021121E4FE6A00FD0086 /* TinTucTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TinTucTableViewCell.m; sourceTree = "<group>"; };
 		C63D021221E4FE6A00FD0086 /* TinTucTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TinTucTableViewCell.xib; sourceTree = "<group>"; };
+		C63D03EE235DFCE400A28029 /* GiaoDienDangKyDoanhNghiep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiaoDienDangKyDoanhNghiep.swift; sourceTree = "<group>"; };
+		C63D03EF235DFCE400A28029 /* GiaoDienDangKyDoanhNghiep.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GiaoDienDangKyDoanhNghiep.xib; sourceTree = "<group>"; };
 		C63F508122E0C9E100AC10ED /* ShowQRSanPhamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ShowQRSanPhamView.swift; path = QRSanPham/ShowQRSanPhamView.swift; sourceTree = "<group>"; };
 		C63F508322E0C9FD00AC10ED /* ShowQRSanPhamView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ShowQRSanPhamView.xib; path = QRSanPham/ShowQRSanPhamView.xib; sourceTree = "<group>"; };
 		C6404AD51FBD3C4900CB1B51 /* GiaoDienThanhToanQRCodeDonVi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GiaoDienThanhToanQRCodeDonVi.h; sourceTree = "<group>"; };
@@ -3244,6 +3251,9 @@
 		C64F84FD1BD4ECAD009D39EF /* GiaoDienThanhToanSauTraCuuInternet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GiaoDienThanhToanSauTraCuuInternet.h; path = ThanhToanInternet/GiaoDienThanhToanSauTraCuuInternet.h; sourceTree = "<group>"; };
 		C64F84FE1BD4ECAD009D39EF /* GiaoDienThanhToanSauTraCuuInternet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GiaoDienThanhToanSauTraCuuInternet.m; path = ThanhToanInternet/GiaoDienThanhToanSauTraCuuInternet.m; sourceTree = "<group>"; };
 		C64F84FF1BD4ECAD009D39EF /* GiaoDienThanhToanSauTraCuuInternet.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GiaoDienThanhToanSauTraCuuInternet.xib; path = ThanhToanInternet/GiaoDienThanhToanSauTraCuuInternet.xib; sourceTree = "<group>"; };
+		C65139E9238585AF00F29995 /* GiaoDienHuongDanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiaoDienHuongDanViewController.swift; sourceTree = "<group>"; };
+		C65139EA238585AF00F29995 /* GiaoDienHuongDanViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GiaoDienHuongDanViewController.xib; sourceTree = "<group>"; };
+		C654F8AF2360ACEB00009AA5 /* MyConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyConnection.swift; sourceTree = "<group>"; };
 		C65680951BF59EAD00D422EC /* DoiTuongChiTietGiaoDichInternet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoiTuongChiTietGiaoDichInternet.h; sourceTree = "<group>"; };
 		C65680961BF59EAD00D422EC /* DoiTuongChiTietGiaoDichInternet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoiTuongChiTietGiaoDichInternet.m; sourceTree = "<group>"; };
 		C656B0951C2BDAAA00C9AE56 /* dieukhoanchinhsach.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = dieukhoanchinhsach.html; sourceTree = "<group>"; };
@@ -5352,6 +5362,8 @@
 				C6EF4AE52296E95E00030D13 /* DangKyTheDaNangViewController.h */,
 				C6EF4AE62296E95E00030D13 /* DangKyTheDaNangViewController.m */,
 				C6EF4AE72296E95E00030D13 /* DangKyTheDaNangViewController.xib */,
+				C63D03EE235DFCE400A28029 /* GiaoDienDangKyDoanhNghiep.swift */,
+				C63D03EF235DFCE400A28029 /* GiaoDienDangKyDoanhNghiep.xib */,
 			);
 			path = LoginScreen;
 			sourceTree = "<group>";
@@ -5894,6 +5906,7 @@
 		858896CD174C7D290039B8CF /* libs */ = {
 			isa = PBXGroup;
 			children = (
+				C654F8AF2360ACEB00009AA5 /* MyConnection.swift */,
 				0B26914A2162FF49001824FC /* TPKeyboardAvoiding */,
 				C65D20141BE778B100D2A87D /* SlideShowImage */,
 				C64521041BE32B9900E8091C /* GridLayout */,
@@ -6727,6 +6740,8 @@
 				C643295A1FBEE12800DAF926 /* GiaoDienGioiThieuVi.h */,
 				C643295B1FBEE12800DAF926 /* GiaoDienGioiThieuVi.m */,
 				C643295C1FBEE12800DAF926 /* GiaoDienGioiThieuVi.xib */,
+				C65139E9238585AF00F29995 /* GiaoDienHuongDanViewController.swift */,
+				C65139EA238585AF00F29995 /* GiaoDienHuongDanViewController.xib */,
 			);
 			path = GiaoDienHuongDan;
 			sourceTree = "<group>";
@@ -7629,6 +7644,7 @@
 				180E08A31A80B5E8001BED54 /* ChuyenTienViewController.xib in Resources */,
 				C6316FE11DB4E9DD0042AEF4 /* thenoidiakhac.png in Resources */,
 				C6316FC51DB4E9DC0042AEF4 /* bid.png in Resources */,
+				C65139EC238585AF00F29995 /* GiaoDienHuongDanViewController.xib in Resources */,
 				C63CE4841BDF36BB00C548FE /* GiaoDienThanhToanInternet.xib in Resources */,
 				C664B0D81D125C60003B9976 /* phong7_IPHHaNoi.txt in Resources */,
 				0B4FBE54219F184C00010A70 /* TCB-NH.png in Resources */,
@@ -7970,6 +7986,7 @@
 				3EF0700A196D8B0F00E03DA4 /* DucNT_ViewHienThiToken.xib in Resources */,
 				CD30A17021A84E48004030E3 /* Giaodienlienket1ViewController.xib in Resources */,
 				C6405FB31E71123100BABF05 /* phong4_RapchieuphimQG.txt in Resources */,
+				C63D03F1235DFCE400A28029 /* GiaoDienDangKyDoanhNghiep.xib in Resources */,
 				C60FCA7922D3A1DA00229FCC /* ThemAnhSanPhamQRCell.xib in Resources */,
 				C661B1E21C911DC4003821BE /* hd_chuyen_tien_tan_nha.html in Resources */,
 				0BCC8EEB17471C4400C47970 /* ngon-ngu-tick@2x.png in Resources */,
@@ -8853,6 +8870,7 @@
 				C66DD3A31C44BF41000E9BB5 /* CellChuyenDi.m in Sources */,
 				C66010F31CFFE0D100C7152B /* ViewThuongDungInternet.m in Sources */,
 				57CD92AD15EE853800B344EE /* UIView+Animation.m in Sources */,
+				C63D03F0235DFCE400A28029 /* GiaoDienDangKyDoanhNghiep.swift in Sources */,
 				CDB789FB219B30740094D040 /* ActionTableViewCell.m in Sources */,
 				188CCAC51A8B6A8C00163D9D /* HanMucGiaoDich.m in Sources */,
 				576FD01515EFACEF00FB17B5 /* CalendarView.m in Sources */,
@@ -8873,6 +8891,7 @@
 				85EE57E81651F3FD00C2F8BE /* MapAnnotation.m in Sources */,
 				A38479B11ADE669D00DCF2B6 /* ChiTietTangQuaTheDienThoaiViewController.m in Sources */,
 				C643BAD71BEB4B160004AD48 /* GiaoDienDiemGiaoDichV2.m in Sources */,
+				C65139EB238585AF00F29995 /* GiaoDienHuongDanViewController.swift in Sources */,
 				C6C6A4A21D4070F7001EAB86 /* ViewQuangCao.m in Sources */,
 				85E7D60E16572AD60041130F /* UILabel+Extension.m in Sources */,
 				0B65FDB2183B315B007FA2DF /* UpdateLocation.m in Sources */,
@@ -9094,6 +9113,7 @@
 				85261E69177A9508001B4962 /* IDPhotoCaptureView.m in Sources */,
 				85261E6C177A95FB001B4962 /* PhotoCaptureView.m in Sources */,
 				A35799271B33D5B700B38098 /* ASIDataDecompressor.m in Sources */,
+				C654F8B02360ACEB00009AA5 /* MyConnection.swift in Sources */,
 				0BCBB7CB2163C37D00FB8832 /* PhoneTableViewCell.m in Sources */,
 				8540C076177BF70400A6A2D8 /* PassportCaptureView.m in Sources */,
 				A3C0A62D1B43A5A900CC39BE /* ChiTietDuyetGiaoDichTheoLoTableViewCell.m in Sources */,
@@ -9329,10 +9349,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN__ARC_BRIDGE_CAST_NONARC = NO;
 				CODE_SIGN_ENTITLEMENTS = ViVimass.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 8;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = SLR686RAJ6;
 				ENABLE_BITCODE = NO;
@@ -9363,8 +9383,8 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vimass.vivimass;
 				PRODUCT_NAME = ViVimass;
-				PROVISIONING_PROFILE = "e24ddeff-81de-4c5f-958e-96be3bb5749e";
-				PROVISIONING_PROFILE_SPECIFIER = TamNV_Dis;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = TamNV_ViVimass_Dis;
 				SEPARATE_SYMBOL_EDIT = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "ViViMASS-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
@@ -9442,7 +9462,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 8;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = SLR686RAJ6;
 				ENABLE_BITCODE = NO;
@@ -9471,8 +9491,8 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vimass.vivimass;
 				PRODUCT_NAME = ViVimass;
-				PROVISIONING_PROFILE = "a327c02b-6fb6-4da2-b60b-f2851149b3bc";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "28bbfcc4-06b9-461b-8b10-dac98b12bd6e";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				PROVISIONING_PROFILE_SPECIFIER = ViVimass_Group_Dev;
 				SEPARATE_SYMBOL_EDIT = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "ViViMASS-Bridging-Header.h";
@@ -9494,10 +9514,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN__ARC_BRIDGE_CAST_NONARC = NO;
 				CODE_SIGN_ENTITLEMENTS = ViVimass.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 8;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = SLR686RAJ6;
 				ENABLE_BITCODE = NO;
@@ -9528,8 +9548,8 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vimass.vivimass;
 				PRODUCT_NAME = ViVimass;
-				PROVISIONING_PROFILE = "e24ddeff-81de-4c5f-958e-96be3bb5749e";
-				PROVISIONING_PROFILE_SPECIFIER = TamNV_Dis;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = TamNV_ViVimass_Dis;
 				SEPARATE_SYMBOL_EDIT = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "ViViMASS-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;

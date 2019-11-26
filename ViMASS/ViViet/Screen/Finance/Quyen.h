@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Quyen : NSObject
+@interface Quyen : NSObject<NSCoding, NSSecureCoding>
 @property (nonatomic, retain) NSNumber *nguoiLapGiaoDich;
 @property (nonatomic, retain) NSNumber *nguoiDuyetGiaoDich;
 @property (nonatomic, retain) NSNumber *funcId;

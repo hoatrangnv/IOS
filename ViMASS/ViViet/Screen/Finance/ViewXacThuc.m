@@ -60,19 +60,19 @@
 #pragma mark - khoiTao
 - (void)khoiTaoGiaoDienChuyenTien
 {
-    [self.mbtnToken setTitle:@"TOKEN" forState:UIControlStateNormal];
-    [self.mbtnToken setBackgroundImage:[UIImage imageNamed:@"bg-nuttrang"] forState:UIControlStateNormal];
-    [self.mbtnSMS setTitle:@"SMS" forState:UIControlStateNormal];
-    [self.mbtnSMS setBackgroundImage:[UIImage imageNamed:@"bg-nuttrang"] forState:UIControlStateNormal];
-    [self.mbtnEmail setTitle:@"EMAIL" forState:UIControlStateNormal];
-    [self.mbtnEmail setBackgroundImage:[UIImage imageNamed:@"bg-nuttrang"] forState:UIControlStateNormal];
-    
-    self.mbtnSMS.selected = NO;
-    self.mbtnToken.selected = NO;
-    self.mbtnEmail.selected = NO;
-    self.mbtnEmail.enabled = YES;
-    self.mbtnSMS.enabled = YES;
-    self.mbtnToken.enabled = YES;
+//    [self.mbtnToken setTitle:@"TOKEN" forState:UIControlStateNormal];
+//    [self.mbtnToken setBackgroundImage:[UIImage imageNamed:@"bg-nuttrang"] forState:UIControlStateNormal];
+//    [self.mbtnSMS setTitle:@"SMS" forState:UIControlStateNormal];
+//    [self.mbtnSMS setBackgroundImage:[UIImage imageNamed:@"bg-nuttrang"] forState:UIControlStateNormal];
+//    [self.mbtnEmail setTitle:@"EMAIL" forState:UIControlStateNormal];
+//    [self.mbtnEmail setBackgroundImage:[UIImage imageNamed:@"bg-nuttrang"] forState:UIControlStateNormal];
+//    
+//    self.mbtnSMS.selected = NO;
+//    self.mbtnToken.selected = NO;
+//    self.mbtnEmail.selected = NO;
+//    self.mbtnEmail.enabled = YES;
+//    self.mbtnSMS.enabled = YES;
+//    self.mbtnToken.enabled = YES;
     [self.mtfMaXacThuc setText:@""];
 }
 
@@ -161,18 +161,21 @@
 
 - (IBAction)suKienBamNutSMS:(UIButton *)sender
 {
-    if(![self.mThongTinVi.sPhoneAuthenticate isEqualToString:@""])
-    {
-        if(!self.mbtnSMS.selected)
-        {
-            [self hienThiHopThoaiHaiNutBamKieu:HOP_THOAI_XAC_NHAN_XAC_THUC_SMS cauThongBao:[NSString stringWithFormat:@"%@ %@", [@"thong_bao_ma_xac_thuc_duoc_gui_ve_so_dien_thoai" localizableString], self.mThongTinVi.sPhoneAuthenticate]];
-        }
-    }
-    else
-    {
-        [self.mtfMaXacThuc show_error];
-        [UIAlertView alert:[@"thong_bao_chua_dang_ky_so_dien_thoai" localizableString] withTitle:[@"thong_bao" localizableString] block:nil];
-    }
+    [self.mbtnToken setImage:[UIImage imageNamed:@"token"] forState:UIControlStateNormal];
+    [self.mbtnToken setTitleColor:nil forState:UIControlStateNormal];
+    [self.mbtnToken setSelected:NO];
+//    if(![self.mThongTinVi.sPhoneAuthenticate isEqualToString:@""])
+//    {
+//        if(!self.mbtnSMS.selected)
+//        {
+//            [self hienThiHopThoaiHaiNutBamKieu:HOP_THOAI_XAC_NHAN_XAC_THUC_SMS cauThongBao:[NSString stringWithFormat:@"%@ %@", [@"thong_bao_ma_xac_thuc_duoc_gui_ve_so_dien_thoai" localizableString], self.mThongTinVi.sPhoneAuthenticate]];
+//        }
+//    }
+//    else
+//    {
+//        [self.mtfMaXacThuc show_error];
+//        [UIAlertView alert:[@"thong_bao_chua_dang_ky_so_dien_thoai" localizableString] withTitle:[@"thong_bao" localizableString] block:nil];
+//    }
 }
 
 - (IBAction)suKienBamNutEmail:(UIButton *)sender
@@ -445,6 +448,7 @@
     [_mViewMain release];
     [_mbtnVanTay release];
     [_lblTitle release];
+    [_viewNhapToken release];
     [super dealloc];
 }
 @end

@@ -8,7 +8,7 @@
 
 #import "Quyen.h"
 
-@interface QuyenCuaTaiKhoan : NSObject
+@interface QuyenCuaTaiKhoan : NSObject<NSCoding, NSSecureCoding>
 @property (nonatomic, retain) NSNumber *administrator;
 @property (nonatomic, retain) NSArray *list;
 

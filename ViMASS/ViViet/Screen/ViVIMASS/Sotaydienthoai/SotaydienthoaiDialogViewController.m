@@ -52,7 +52,7 @@
 }
 - (void)showPopupDelete {
     [self setupWithFinger];
-    _contraintEditName.constant = 0;
+    _contraintEditName.constant = 40;
     _editNameView.hidden = true;
 }
 - (void)showPopupEdit {
@@ -87,20 +87,20 @@
     [super dealloc];
 }
 - (void)setupWithFinger {
-    if ([self kiemTraCoChucNangQuetVanTay]) {
-        _btnsms.hidden = YES;
-        _btnToken.hidden = YES;
-        _btnVantay.hidden = NO;
-        _contraintVantay.constant = [[UIScreen mainScreen] bounds].size.width/2 - 44/2;
-    } else {
-        _btnsms.hidden = NO;
-        _btnToken.hidden = NO;
-        _btnVantay.hidden = YES;
-    }
-    _lbCountTime.hidden = true;
-    _lbTime.hidden = true;
-    _btnThucHien.hidden = true;
-    _txtOtp.hidden = true;
+//    if ([self kiemTraCoChucNangQuetVanTay]) {
+//        _btnsms.hidden = YES;
+//        _btnToken.hidden = YES;
+//        _btnVantay.hidden = NO;
+//        _contraintVantay.constant = [[UIScreen mainScreen] bounds].size.width/2 - 44/2;
+//    } else {
+//        _btnsms.hidden = NO;
+//        _btnToken.hidden = NO;
+//        _btnVantay.hidden = YES;
+//    }
+//    _lbCountTime.hidden = true;
+//    _lbTime.hidden = true;
+//    _btnThucHien.hidden = true;
+//    _txtOtp.hidden = true;
 
 }
 - (BOOL)kiemTraCoChucNangQuetVanTay
@@ -117,15 +117,15 @@
                 if (laContext.biometryType == LABiometryTypeFaceID) {
                     //localizedReason = "Unlock using Face ID"
                     self.hasFaceID = YES;
-                    [self.btnVantay setBackgroundImage:[UIImage imageNamed:@"face_new"] forState:UIControlStateNormal];
-                    [self.btnVantay setBackgroundImage:[UIImage imageNamed:@"face_new_selected"] forState:UIControlStateSelected];
+                    [self.btnVantay setImage:[UIImage imageNamed:@"face-id"] forState:UIControlStateNormal];
+                    [self.btnVantay setImage:[UIImage imageNamed:@"face-id"] forState:UIControlStateSelected];
 
                     return YES;
                 } else if (laContext.biometryType == LABiometryTypeTouchID) {
                     //localizedReason = "Unlock using Touch ID"
                     self.hasFaceID = NO;
-                    [self.btnVantay setBackgroundImage:[UIImage imageNamed:@"finger"] forState:UIControlStateNormal];
-                    [self.btnVantay setBackgroundImage:[UIImage imageNamed:@"fingerv"] forState:UIControlStateSelected];
+                    [self.btnVantay setImage:[UIImage imageNamed:@"finger"] forState:UIControlStateNormal];
+                    [self.btnVantay setImage:[UIImage imageNamed:@"fingerv"] forState:UIControlStateSelected];
                     return YES;
                 } else {
                     //localizedReason = "Unlock using Application Passcode"

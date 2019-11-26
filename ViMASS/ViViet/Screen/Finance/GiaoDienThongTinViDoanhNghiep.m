@@ -38,25 +38,41 @@
     bTrangThaiCoAnhMatTruocMoi = NO;
     bTrangThaiCoAnhLogoMoi = NO;
     self.mFuncID = 3;
-    [self.scrView setContentSize:CGSizeMake(self.viewMain.frame.size.width, self.viewMain.frame.size.height + 50)];
-    [self.scrView addSubview:self.viewMain];
     
     [self addButtonBack];
     [self addTitleView:[@"thay_doi_thong_tin_vi" localizableString]];
-    if (!self.mThongTinTaiKhoanVi) {
-        self.mThongTinTaiKhoanVi = [DucNT_LuuRMS layThongTinTaiKhoanVi];
-    }
+    
+//    if (!self.mThongTinTaiKhoanVi) {
+//        self.mThongTinTaiKhoanVi = [DucNT_LuuRMS layThongTinTaiKhoanVi];
+//    }
+    self.mThongTinTaiKhoanVi = [DucNT_LuuRMS layThongTinTaiKhoanVi];
+    NSLog(@"%s - self.mThongTinTaiKhoanVi.sLinkAnhDaiDien : %@", __FUNCTION__, self.mThongTinTaiKhoanVi.sLinkAnhDaiDien);
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    CGRect frame = self.viewMain.frame;
+    frame.size.width = self.scrView.frame.size.width;
+    frame.size.height = frame.size.height + 120;
+    self.viewMain.frame = frame;
+    [self.scrView setContentSize:CGSizeMake(self.viewMain.frame.size.width, self.viewMain.frame.size.height + 50)];
+    
+    [self.scrView addSubview:self.viewMain];
+    
+    [self.btnVanTayMini setHidden:NO];
+    [self.mbtnToken setHidden:NO];
+    
     [self hienThiThongTinVi];
 }
 
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
+- (void)hideViewNhapToken {
+    
 }
 
 - (void)hienThiThongTinVi{
     if (self.mThongTinTaiKhoanVi) {
+        NSLog(@"%s - self.edTenDoanhNghiep.text = self.mThongTinTaiKhoanVi.companyName; : %@", __FUNCTION__, self.edTenDoanhNghiep.text = self.mThongTinTaiKhoanVi.companyName);
         self.edMaDoanhNghiep.text = self.mThongTinTaiKhoanVi.companyCode;
-        self.edTenDoanhNghiep.text = self.mThongTinTaiKhoanVi.companyName;
         self.edNguoiDaiDien.text = self.mThongTinTaiKhoanVi.nameRepresent;
         self.edEmail.text = self.mThongTinTaiKhoanVi.sEmail;
         self.edSDT.text = self.mThongTinTaiKhoanVi.sdtNguoiDuyet;
@@ -80,29 +96,6 @@
 
 - (BOOL)validateVanTay{
     return YES;
-}
-
-//- (void)suKienBamNutSMS:(UIButton *)sender{
-//    if(self.edSDT.text.length > 0){
-//        if(!self.mbtnSMS.selected && [self validateVanTay])
-//        {
-//            [self hienThiHopThoaiHaiNutBamKieu:HOP_THOAI_XAC_NHAN_XAC_THUC_SMS cauThongBao:[NSString stringWithFormat:@"%@ %@", [@"thong_bao_ma_xac_thuc_duoc_gui_ve_so_dien_thoai" localizableString], self.edSDT.text]];
-//        }
-//    }
-//}
-//
-//- (void)suKienBamNutEmail:(UIButton *)sender{
-//    if (self.edEmail.text.length > 0){
-//        if(!self.mbtnEmail.selected && [self validateVanTay])
-//        {
-//            [self hienThiHopThoaiHaiNutBamKieu:HOP_THOAI_XAC_NHAN_XAC_THUC_EMAIL cauThongBao:[NSString stringWithFormat:@"%@ %@", [@"thong_bao_ma_xac_thuc_duoc_gui_ve_thu_dien_tu" localizableString], self.edEmail.text]];
-//        }
-//    }
-//}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (IBAction)suKienChupAnhMatTruoc:(id)sender {
@@ -204,24 +197,28 @@
     NSLog(@"%s - %s : =========><=========", __FILE__, __FUNCTION__);
     sTokenChinh = sToken;
     sOtpChinh = sOtp;
-    if (bTrangThaiCoAnhMatSauMoi || bTrangThaiCoAnhMatTruocMoi || bTrangThaiCoAnhLogoMoi) {
-        if (!dsUploadAnh) {
-            dsUploadAnh = [[NSMutableDictionary alloc] init];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self hienThiLoadingChuyenTien];
+        
+        if (bTrangThaiCoAnhMatSauMoi || bTrangThaiCoAnhMatTruocMoi || bTrangThaiCoAnhLogoMoi) {
+            if (!dsUploadAnh) {
+                dsUploadAnh = [[NSMutableDictionary alloc] init];
+            }
+            [dsUploadAnh removeAllObjects];
+            if (bTrangThaiCoAnhMatTruocMoi) {
+                [dsUploadAnh setObject:[self convertImageToBase64:self.imgTruoc.image] forKey:@"image1"];
+            }
+            if (bTrangThaiCoAnhMatSauMoi) {
+                [dsUploadAnh setObject:[self convertImageToBase64:self.imgSau.image] forKey:@"image2"];
+            }
+            if (bTrangThaiCoAnhLogoMoi) {
+                [dsUploadAnh setObject:[self convertImageToBase64:self.imgLogo.image] forKey:@"image3"];
+            }
+            [self xuLyViecThayDoiAnh];
         }
-        [dsUploadAnh removeAllObjects];
-        if (bTrangThaiCoAnhMatTruocMoi) {
-            [dsUploadAnh setObject:[self convertImageToBase64:self.imgTruoc.image] forKey:@"image1"];
-        }
-        if (bTrangThaiCoAnhMatSauMoi) {
-            [dsUploadAnh setObject:[self convertImageToBase64:self.imgSau.image] forKey:@"image2"];
-        }
-        if (bTrangThaiCoAnhLogoMoi) {
-            [dsUploadAnh setObject:[self convertImageToBase64:self.imgLogo.image] forKey:@"image3"];
-        }
-        [self xuLyViecThayDoiAnh];
-    }
-    else
-        [self uploadThongTinViDoanhNghiep:sToken otp:sOtp];
+        else
+            [self uploadThongTinViDoanhNghiep:sToken otp:sOtp];
+    });
 }
 
 - (void)xuLyViecThayDoiAnh{
@@ -250,48 +247,42 @@
 - (void)uploadThongTinViDoanhNghiep:(NSString *)sToken otp:(NSString *)sOtp{
     NSLog(@"%s - =========> change info", __FUNCTION__);
     self.mDinhDanhKetNoi = @"uploadinfo";
-    
-    NSString *sID = [DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_ID_TEMP];
-    NSString *sTenDN = self.edTenDoanhNghiep.text;
-    NSString *sNguoiDaiDien = self.edNguoiDaiDien.text;
-    NSString *sEmail = self.edEmail.text;
-    NSString *sSDT = self.edSDT.text;
-    NSString *dsLap = self.edDsLap.text;
-    NSString *dsDuyet = self.edDsDuyet.text;
-    NSDictionary *dicPost = @{
-                              @"id":sID,
-                              @"companyName" : sTenDN,
-                              @"nguoiDuyet": sSDT,
-                              @"nameRepresent": sNguoiDaiDien,
-                              @"email":sEmail,
-                              @"dsLap":dsLap,
-                              @"dsDuyet":dsDuyet,
-                              @"nameAlias":self.edNameAlias.text,
-//                              @"acc_name":self.mThongTinTaiKhoanVi.sTenCMND,
-//                              @"dateIdCard":self.mThongTinTaiKhoanVi.sNgayCapCMND,
-//                              @"placeIdCard":self.mThongTinTaiKhoanVi.sNoiCapCMND,
-//                              @"birthday":self.mThongTinTaiKhoanVi.sNgaySinh,
-//                              @"idCard":self.mThongTinTaiKhoanVi.sCMND,
-//                              @"home":self.mThongTinTaiKhoanVi.sDiaChiNha,
-                              @"avatar":self.mThongTinTaiKhoanVi.sLinkAnhDaiDien,
-                              @"imageCompany1":self.mThongTinTaiKhoanVi.imageCompany1,
-                              @"imageCompany2":self.mThongTinTaiKhoanVi.imageCompany2,
-                              @"token":sToken,
-                              @"otpConfirm" : sOtp,
-                              @"typeAuthenticate" : [NSNumber numberWithInt:self.mTypeAuthenticate],
-                              @"email": sEmail,
-                              @"appId":[NSNumber numberWithInt:APP_ID],
-                              @"companyCode":self.mThongTinTaiKhoanVi.companyCode,
-                              @"walletId":sID,
-                              @"VMApp" : [NSNumber numberWithInt:VM_APP]
-                              };
-    
-    NSString *sPost = [dicPost JSONString];
-//    [GiaoDichMang thayDoiThongTinViDoanhNghiep:dicPost noiNhanKetQua:self];
-    DucNT_ServicePost *connect = [[DucNT_ServicePost alloc] init];
-    [connect setDucnt_connectDelegate:self];
-    [connect connect:@"https://vimass.vn/vmbank/services/account/editAcc1" withContent:sPost];
-    [connect release];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSString *sID = [DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_ID_TEMP];
+        NSString *sTenDN = self.edTenDoanhNghiep.text;
+        NSString *sNguoiDaiDien = self.edNguoiDaiDien.text;
+        NSString *sEmail = self.edEmail.text;
+        NSString *sSDT = self.edSDT.text;
+        NSString *dsLap = self.edDsLap.text;
+        NSString *dsDuyet = self.edDsDuyet.text;
+        NSDictionary *dicPost = @{
+                                  @"id":sID,
+                                  @"companyName" : sTenDN,
+                                  @"nguoiDuyet": sSDT,
+                                  @"nameRepresent": sNguoiDaiDien,
+                                  @"email":sEmail,
+                                  @"dsLap":dsLap,
+                                  @"dsDuyet":dsDuyet,
+                                  @"nameAlias":self.edNameAlias.text,
+                                  @"avatar":self.mThongTinTaiKhoanVi.sLinkAnhDaiDien,
+                                  @"imageCompany1":self.mThongTinTaiKhoanVi.imageCompany1,
+                                  @"imageCompany2":self.mThongTinTaiKhoanVi.imageCompany2,
+                                  @"token":sToken,
+                                  @"otpConfirm" : sOtp,
+                                  @"typeAuthenticate" : [NSNumber numberWithInt:self.mTypeAuthenticate],
+                                  @"email": sEmail,
+                                  @"appId":[NSNumber numberWithInt:APP_ID],
+                                  @"companyCode":self.mThongTinTaiKhoanVi.companyCode,
+                                  @"walletId":sID,
+                                  @"VMApp" : [NSNumber numberWithInt:VM_APP]
+                                  };
+        
+        NSString *sPost = [dicPost JSONString];
+        DucNT_ServicePost *connect = [[DucNT_ServicePost alloc] init];
+        [connect setDucnt_connectDelegate:self];
+        [connect connect:@"https://vimass.vn/vmbank/services/account/editAcc1" withContent:sPost];
+        [connect release];
+    });
 }
 
 - (void)xuLyKetNoiThanhCong:(NSString *)sDinhDanhKetNoi thongBao:(NSString *)sThongBao ketQua:(id)ketQua{
@@ -320,42 +311,53 @@
     else if ([sDinhDanhKetNoi isEqualToString:@"uploadinfo"]){
         NSLog(@"%s ==================> line : %d", __FUNCTION__, __LINE__);
 //        [self uploadThongTinViDoanhNghiep:sTokenChinh otp:sOtpChinh];
-        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Thay đổi thông tin Ví thành công"];
         NSString *sTenDN = self.edTenDoanhNghiep.text;
         NSString *sNguoiDaiDien = self.edNguoiDaiDien.text;
         NSString *sEmail = self.edEmail.text;
         NSString *sSDT = self.edSDT.text;
         NSString *dsLap = self.edDsLap.text;
         NSString *dsDuyet = self.edDsDuyet.text;
+        NSString *sNameAlias = self.edNameAlias.text;
+        
         self.mThongTinTaiKhoanVi.dsDuyet = dsDuyet;
         self.mThongTinTaiKhoanVi.dsLap = dsLap;
         self.mThongTinTaiKhoanVi.companyName = sTenDN;
         self.mThongTinTaiKhoanVi.nameRepresent = sNguoiDaiDien;
         self.mThongTinTaiKhoanVi.sEmail = sEmail;
         self.mThongTinTaiKhoanVi.sdtNguoiDuyet = sSDT;
-        self.mThongTinTaiKhoanVi.sNameAlias = self.edNameAlias.text;
+        self.mThongTinTaiKhoanVi.sNameAlias = sNameAlias;
 
         DucNT_TaiKhoanViObject *newThongTin = [[DucNT_TaiKhoanViObject alloc] init];
         newThongTin.sID = self.mThongTinTaiKhoanVi.sID;
         newThongTin.companyCode = self.mThongTinTaiKhoanVi.companyCode;
-        newThongTin.sNameAlias = self.mThongTinTaiKhoanVi.sNameAlias;
-        newThongTin.companyName = self.mThongTinTaiKhoanVi.companyName;
-        newThongTin.dsDuyet = self.mThongTinTaiKhoanVi.dsDuyet;
-        newThongTin.dsLap = self.mThongTinTaiKhoanVi.dsLap;
-        newThongTin.sEmail = self.mThongTinTaiKhoanVi.sEmail;
-        newThongTin.sdtNguoiDuyet = self.mThongTinTaiKhoanVi.sdtNguoiDuyet;
-        newThongTin.nameRepresent = self.mThongTinTaiKhoanVi.nameRepresent;
+        newThongTin.sNameAlias = sNameAlias;
+        newThongTin.companyName = sTenDN;
+        newThongTin.dsDuyet = dsDuyet;
+        newThongTin.dsLap = dsLap;
+        newThongTin.sEmail = sEmail;
+        newThongTin.sdtNguoiDuyet = sSDT;
+        newThongTin.nameRepresent = sNguoiDaiDien;
         newThongTin.imageCompany1 = self.mThongTinTaiKhoanVi.imageCompany1;
         newThongTin.imageCompany2 = self.mThongTinTaiKhoanVi.imageCompany2;
         newThongTin.sLinkAnhDaiDien = self.mThongTinTaiKhoanVi.sLinkAnhDaiDien;
         newThongTin.sPhoneAuthenticate = self.mThongTinTaiKhoanVi.sPhoneAuthenticate;
         NSLog(@"%s - newThongTin.sLinkAnhDaiDien : %@", __FUNCTION__, newThongTin.sLinkAnhDaiDien);
+        
+        //END
+        [self anLoading];
+        [DucNT_LuuRMS xoaThongTinRMSTheoKey:KEY_LOGIN_THONG_TIN_TAI_KHOAN];
         [DucNT_LuuRMS luuThongTinTaiKhoanViSauDangNhap:newThongTin];
         // HOANHNV FIX
         AppDelegate *app = (AppDelegate*)[UIApplication sharedApplication].delegate;
         app.objUpdateProfile = newThongTin;
+        self.mThongTinTaiKhoanVi = newThongTin;
+        self.mThongTinTaiKhoanVi = [DucNT_LuuRMS layThongTinTaiKhoanVi];
+        NSLog(@"%s - self.mThongTinTaiKhoanVi.companyName : %@", __FUNCTION__, self.mThongTinTaiKhoanVi.companyName);
         [newThongTin release];
-        //END
+        [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:@"Thay đổi thông tin Ví thành công"];
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//
+//        });
     }
 }
 

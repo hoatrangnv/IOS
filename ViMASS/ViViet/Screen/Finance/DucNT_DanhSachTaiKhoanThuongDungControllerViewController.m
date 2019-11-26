@@ -121,8 +121,8 @@ NSString *KEY_TAI_KHOAN_NAP_TIEN = @"KEY_TAI_KHOAN_NAP_TIEN";
         self.mViewXacThuc = [[[NSBundle mainBundle] loadNibNamed:@"ViewXacThuc" owner:self options:nil] objectAtIndex:0];
         self.mViewXacThuc.mDelegate = self;
         self.mViewXacThuc.mThongTinVi = self.mThongTinTaiKhoanVi;
-        self.mViewXacThuc.frame = self.view.bounds;
         
+        [self.mViewXacThuc.mbtnSMS addTarget:self action:@selector(suKienBamNutMatKhauVanTay:) forControlEvents:UIControlEventTouchUpInside];
         if([self kiemTraCoChucNangQuetVanTay])
         {
             [self xuLyKhiCoChucNangQuetVanTay];
@@ -145,9 +145,35 @@ NSString *KEY_TAI_KHOAN_NAP_TIEN = @"KEY_TAI_KHOAN_NAP_TIEN";
 
 - (void)hienThiViewXacThuc
 {
-    if(!_mViewXacThuc.superview)
+    if(!_mViewXacThuc.superview) {
+        self.mViewXacThuc.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
         [self.view addSubview:_mViewXacThuc];
+    }
+    if (self.enableFaceID) {
+        [_mViewXacThuc.mbtnSMS setImage:[UIImage imageNamed:@"face-id"] forState:UIControlStateNormal];
+    } else {
+        [_mViewXacThuc.mbtnSMS setImage:[UIImage imageNamed:@"finger"] forState:UIControlStateNormal];
+    }
     _mViewXacThuc.hidden = NO;
+}
+
+- (void)updateXacThucKhac {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.mViewXacThuc.mbtnToken setHidden:NO];
+    });
+}
+
+- (void)showViewNhapToken:(int)type {
+    [super showViewNhapToken:type];
+    [_mViewXacThuc.viewNhapToken setHidden:NO];
+}
+
+- (void)hideViewNhapToken {
+    [_mViewXacThuc.viewNhapToken setHidden:YES];
+}
+
+- (BOOL)validateVanTay {
+    return YES;
 }
 
 #pragma mark - xu ly su kien
@@ -160,6 +186,7 @@ NSString *KEY_TAI_KHOAN_NAP_TIEN = @"KEY_TAI_KHOAN_NAP_TIEN";
 - (IBAction)suKienThemTaiKhoanThuongDung:(id)sender
 {
     ThemTaiKhoanThuongDungViewController *themTaiKhoanThuongDung = [[ThemTaiKhoanThuongDungViewController alloc] initWithNibName:@"ThemTaiKhoanThuongDungViewController" bundle:nil];
+    themTaiKhoanThuongDung.modalPresentationStyle = UIModalPresentationFullScreen;
     themTaiKhoanThuongDung.mKieuThemTaiKhoanThuongDung = nLoaiTaiKhoan;
     themTaiKhoanThuongDung.mDelegate = self;
 
@@ -174,12 +201,15 @@ NSString *KEY_TAI_KHOAN_NAP_TIEN = @"KEY_TAI_KHOAN_NAP_TIEN";
 #pragma mark - ViewXacThucDelegate
 - (void)xuLySuKienXacThucVoiKieu:(NSInteger)nKieuXacThuc token:(NSString*)sToken otp:(NSString*)sOtp
 {
+    NSLog(@"%s - nDinhDanhKetNoi : %d - sToken : %@", __FUNCTION__, nDinhDanhKetNoi, sToken);
     if(nDinhDanhKetNoi == KET_NOI_XOA_TAI_KHOAN)
     {
         if(nViTriTKCanXoa >= 0 && nViTriTKCanXoa < dsTaiKhoanThuongDung.count)
         {
             DucNT_TaiKhoanThuongDungObject *objTemp = [dsTaiKhoanThuongDung objectAtIndex:nViTriTKCanXoa];
             [self khoiTaoKetNoiXoaTaiKhoanThuongDung:objTemp.sId withType:objTemp.nType typeAuthenticate:nKieuXacThuc token:sToken otp:sOtp];
+        } else {
+            NSLog(@"%s - khong xoa duoc", __FUNCTION__);
         }
     }
     else if (nDinhDanhKetNoi == KET_NOI_DANG_KY_DINH_KY) {
@@ -278,12 +308,65 @@ NSString *KEY_TAI_KHOAN_NAP_TIEN = @"KEY_TAI_KHOAN_NAP_TIEN";
 -(void)khoiTaoKetNoiXoaTaiKhoanThuongDung:(NSString *)sId withType:(int) nType typeAuthenticate:(NSInteger)nTypeAuthenticate token:(NSString*)sToken otp:(NSString*)sOtp
 {
     nDinhDanhKetNoi = KET_NOI_XOA_TAI_KHOAN;
-    [GiaoDichMang ketNoiXoaTaiKhoanThuongDung:sId kieuLay:nType token:sToken otp:sOtp typeAuthenticate:(int)nTypeAuthenticate noiNhanKetQua:self];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self anViewXacThuc];
+        [self hienThiLoadingChuyenTien];
+    });
+    
+//    [GiaoDichMang ketNoiXoaTaiKhoanThuongDung:sId kieuLay:nType token:sToken otp:sOtp typeAuthenticate:(int)nTypeAuthenticate noiNhanKetQua:self];
+    NSString *sMaDoanhNghiep = @"";
+    int nKieuDangNhap = [[DucNT_LuuRMS layThongTinDangNhap:KEY_HIEN_THI_VI] intValue];
+    if(nKieuDangNhap == KIEU_DOANH_NGHIEP)
+    {
+        sMaDoanhNghiep = [DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_COMPANY_ID];
+    }
+    NSDictionary *dicPost = @{
+                              @"id":sId,
+                              @"phoneOwner":[DucNT_LuuRMS layThongTinDangNhap:KEY_LOGIN_ID_TEMP],
+                              @"companyCode": sMaDoanhNghiep,
+                              @"type":[NSString stringWithFormat:@"%d", nType],
+                              @"token" : sToken,
+                              @"otpConfirm" : sOtp,
+                              @"typeAuthenticate" : [NSNumber numberWithInteger:nTypeAuthenticate],
+                              @"appId" : [NSNumber numberWithInt:APP_ID],
+                              @"VMApp" : [NSNumber numberWithInt:VM_APP]
+                              };
+    NSString *sLinkDelete = [NSString stringWithFormat:@"%@%@", ROOT_URL, @"account/deleteAccUsed"];
+    NSLog(@"%s - sLinkDelete : %@", __FUNCTION__, sLinkDelete);
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:sLinkDelete]];
+        
+    // Specify that it will be a POST request
+    request.HTTPMethod = @"POST";
+        
+    // This is how we set header fields
+    [request setValue:@"application/x-www-form-urlencoded; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+     
+    // Convert your data and set your request's HTTPBody property
+    NSString *stringData = [dicPost JSONString];
+    NSData *requestBodyData = [stringData dataUsingEncoding:NSUTF8StringEncoding];
+    request.HTTPBody = requestBodyData;
+        
+    // Create url connection and fire request
+    [[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self anLoading];
+        });
+        if (error == nil && data != nil) {
+            NSString *sKetQua = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            NSLog(@"%s - sKetQua : %@", __FUNCTION__, sKetQua);
+            NSDictionary *dicKetQua = [sKetQua objectFromJSONString];
+            NSString *msgContent = [dicKetQua objectForKey:@"msgContent"];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self hienThiHopThoaiMotNutBamKieu:-1 cauThongBao:msgContent];
+            });
+        }
+    }] resume];
 }
 
 #pragma mark - xử lý kết nối
 -(void)ketNoiThanhCong:(NSString *)sKetQua
 {
+    NSLog(@"%s - nDinhDanhKetNoi : %d - sKetQua : %@", __FUNCTION__, nDinhDanhKetNoi, sKetQua);
     if(nDinhDanhKetNoi == KET_NOI_LAY_DANH_SACH_TAI_KHOAN)
     {
         [self anLoading];
@@ -304,6 +387,11 @@ NSString *KEY_TAI_KHOAN_NAP_TIEN = @"KEY_TAI_KHOAN_NAP_TIEN";
         }
         [self.lvDanhSachTaiKhoan reloadData];
     }
+}
+
+- (void)xuLyKetNoiThanhCong:(NSString*)sDinhDanhKetNoi thongBao:(NSString*)sThongBao ketQua:(id)ketQua
+{
+    NSLog(@"%s - nDinhDanhKetNoi : %d - sKetQua : %@", __FUNCTION__, nDinhDanhKetNoi, ketQua);
 }
 
 -(void)xuLyketNoiLayDanhSachTaiKhoan:(NSString *)sKetQua
@@ -461,6 +549,7 @@ NSString *KEY_TAI_KHOAN_NAP_TIEN = @"KEY_TAI_KHOAN_NAP_TIEN";
 
 -(void)xuLyKetNoiXoaTaiKhoan:(NSString *)sKetQua
 {
+    NSLog(@"%s - sKetQua : %@", __FUNCTION__, sKetQua);
     NSDictionary *dic = [sKetQua objectFromJSONString];
     int nCode = [[dic objectForKey:@"msgCode"] intValue];
     NSString *sMessage = [dic objectForKey:@"msgContent"];
@@ -1134,7 +1223,6 @@ NSString *KEY_TAI_KHOAN_NAP_TIEN = @"KEY_TAI_KHOAN_NAP_TIEN";
         _mViewXacThuc.lblTitle.text = [NSString stringWithFormat:@"Xoá %@", obj.sAliasName];
     }
     [self hienThiViewXacThuc];
-//    [[[[UIAlertView alloc] initWithTitle:[@"@thong_bao" localizableString]  message:[@"@thong_bao_xac_nhan_xoa_tai_khoan_thuong_dung" localizableString] delegate:self cancelButtonTitle:[@"@button_huy" localizableString]  otherButtonTitles:[@"@button_dong_y" localizableString], nil] autorelease] show];
 }
 
 -(void)editCell:(id)sender
@@ -1156,10 +1244,12 @@ NSString *KEY_TAI_KHOAN_NAP_TIEN = @"KEY_TAI_KHOAN_NAP_TIEN";
     }
     else{
         ThemTaiKhoanThuongDungViewController *themTaiKhoanThuongDung = [[ThemTaiKhoanThuongDungViewController alloc] initWithNibName:@"ThemTaiKhoanThuongDungViewController" bundle:nil];
+        themTaiKhoanThuongDung.modalPresentationStyle = UIModalPresentationFullScreen;
         themTaiKhoanThuongDung.mDelegate = self;
         themTaiKhoanThuongDung.mTaiKhoanThuongDung = item;
         UINavigationController *nav = [HiNavigationBar navigationControllerWithRootViewController: themTaiKhoanThuongDung];
         [themTaiKhoanThuongDung release];
+        nav.modalPresentationStyle = UIModalPresentationFullScreen;
         nav.navigationBar.barStyle = UIBarStyleBlackOpaque;
         [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
         [self presentViewController:nav animated:YES completion:^{}];

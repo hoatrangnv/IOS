@@ -89,7 +89,7 @@
     label.textAlignment = NSTextAlignmentCenter;
     label.backgroundColor = [UIColor clearColor];
     label.numberOfLines = 2;
-    label.font = [UIFont boldSystemFontOfSize:20.0];
+    label.font = [UIFont boldSystemFontOfSize:18.0];
     label.minimumScaleFactor = 0.8f;
     label.textColor = [UIColor whiteColor];
     label.text = sTitle;
@@ -395,6 +395,7 @@
 
 - (IBAction)suKienBamNutToken:(UIButton *)sender
 {
+    NSLog(@"%s - click click", __FUNCTION__);
     if([self.mThongTinTaiKhoanVi.nIsToken intValue] > 0)
     {
         [self showViewNhapToken:1];
@@ -589,7 +590,7 @@
         [self xuLySuKienHienThiChucNangVanTayVoiTieuDe:@"Đặt vân tay của bạn để thực hiện giao dịch"];
     }
     else {
-        //NSLog(@"%s - chua validate", __FUNCTION__);
+        NSLog(@"%s - chua validate", __FUNCTION__);
         if (self.enableFaceID) {
             [self.btnVanTayMini setImage:[UIImage imageNamed:@"face-id"] forState:UIControlStateNormal];
         } else {

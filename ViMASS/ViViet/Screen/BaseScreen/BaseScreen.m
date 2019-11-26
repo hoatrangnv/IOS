@@ -511,6 +511,7 @@
     //    if (!self.mThongTinTaiKhoanVi) {
     if ([[DucNT_LuuRMS layThongTinTrongRMSTheoKey:KEY_LOGIN_STATE] boolValue] && !self.mThongTinTaiKhoanVi) {
         self.mThongTinTaiKhoanVi = [DucNT_LuuRMS layThongTinTaiKhoanVi];
+        NSLog(@"%s - self.mThongTinTaiKhoanVi : %@", __FUNCTION__, self.mThongTinTaiKhoanVi.sNameAlias);
     }
     //    }
     [self localizeViews];

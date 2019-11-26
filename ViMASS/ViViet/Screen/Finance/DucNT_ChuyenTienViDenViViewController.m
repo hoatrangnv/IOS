@@ -438,6 +438,7 @@
         return;
     }
     DucNT_DanhSachTaiKhoanThuongDungControllerViewController *vc = [[DucNT_DanhSachTaiKhoanThuongDungControllerViewController alloc] initWithType:TAI_KHOAN_VI];
+    vc.modalPresentationStyle = UIModalPresentationFullScreen;
     [self.navigationController presentViewController:vc animated:YES completion:^{}];
     [vc release];
 }

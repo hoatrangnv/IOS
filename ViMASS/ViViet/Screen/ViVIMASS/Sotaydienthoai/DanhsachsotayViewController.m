@@ -32,7 +32,15 @@
         [weak.danhsachsodienthoai.pullToRefreshView stopAnimating];
     }];
     self.navigationItem.title = @"Sổ tay chuyển tiền điện thoại";
-    // Do any additional setup after loading the view from its nib.
+    
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        SotaydienthoaiDialogViewController * dialog = [self createDialog];
+//        dialog.delegate = self;
+//        dialog.isDelete = YES;
+////        dialog.idGiaoDich = idGiaodich;
+//        [dialog showPopupDelete];
+////        [dialog setNameDelete:nameDelete];
+//    });
 }
 
 - (void)viewDidAppear:(BOOL)animated {
